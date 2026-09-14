@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<!-- 五粮液 × 贵州茅台 财报对比分析 · kami 羊皮纸风格 · 由 financial-report-analysis skill 提供 -->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>五粮液 × 贵州茅台 财报对比分析报告（2016–2025）</title>
+<meta name="generator" content="financial-report-analysis">
+<style>
+  @font-face { font-family:"TsangerJinKai02"; src:url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W04.ttf") format("truetype"); font-weight:400; font-style:normal; }
+  @font-face { font-family:"TsangerJinKai02"; src:url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W05.ttf") format("truetype"); font-weight:500; font-style:normal; }
+  @page {
+    size: A4;
+    margin: 15mm 16mm 16mm 16mm;
+    background: #F7F4EE;
+    @bottom-center {
+      content: counter(page) "  ·  五粮液 × 贵州茅台 财报对比分析";
+      font-family: "TsangerJinKai02","Source Han Serif SC","Noto Serif CJK SC","Songti SC",Georgia,serif;
+      font-size: 8pt; color: #6b6a64;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --parchment:#F7F4EE; --ivory:#FBF9F4; --near-black:#22262B; --dark-warm:#3E4145;
+    --olive:#504e49; --stone:#7C7B77; --brand:#A73F2D; --brand-deep:#8A3223;
+    --accent:#A73F2D; --accent-soft:#F1E3DD; --gold:#B8862F; --teal:#2F6F6B; --blue:#1B365D;
+    --border:#E3DDD4; --border-soft:#EAE5DC;
+    --serif: "TsangerJinKai02","Source Han Serif SC","Source Han Serif CN","Noto Serif CJK SC","Noto Serif SC","Songti SC","STSong","SimSun",Georgia,serif;
+  }
+  html, body { background: var(--parchment); }
+  @media screen { body { max-width: 210mm; margin: 0 auto; padding: 15mm 16mm 16mm 16mm; } }
+  body { color: var(--near-black); font-family: var(--serif); font-size: 9.6pt; line-height: 1.52;
+    letter-spacing: 0.25pt; widows: 3; orphans: 3; }
+  strong { font-weight: 500; }
+  .hl { color: var(--brand); font-weight: 500; }
+
+  .report-header { display:flex; justify-content:space-between; align-items:flex-start;
+    margin-bottom: 12pt; padding-bottom: 9pt; border-bottom: 0.5pt solid var(--border); }
+  .ticker-block { flex: 1; }
+  .ticker-eyebrow { font-size: 8.5pt; color: var(--brand); letter-spacing: 1.5pt; font-weight: 500; margin-bottom: 4pt; }
+  .ticker-name { font-size: 21pt; font-weight: 500; color: var(--near-black); line-height: 1.18; margin-bottom: 4pt; }
+  .ticker-sub { font-size: 9pt; color: var(--stone); line-height: 1.42; }
+  .price-block { text-align: right; padding-top: 4pt; }
+  .price-current { font-size: 21pt; font-weight: 500; color: var(--near-black); line-height: 1.05; font-variant-numeric: tabular-nums; }
+  .price-change { font-size: 9pt; color: var(--stone); margin-top: 2pt; }
+
+  .metrics { display:flex; gap: 10pt; margin-bottom: 14pt; padding: 6pt 0;
+    border-top: 0.3pt dotted var(--border); border-bottom: 0.3pt dotted var(--border); }
+  .metric { flex: 1; }
+  .metric-value { font-size: 13.5pt; font-weight: 500; line-height: 1.1; font-variant-numeric: tabular-nums; }
+  .metric-label { font-size: 7.6pt; color: var(--olive); line-height: 1.35; margin-top: 2pt; }
+  .metric:nth-child(1) .metric-value { color: var(--accent); }
+  .metric:nth-child(2) .metric-value { color: var(--gold); }
+  .metric:nth-child(3) .metric-value { color: var(--teal); }
+  .metric:nth-child(4) .metric-value { color: var(--blue); }
+
+  h1 { font-size: 15pt; font-weight: 500; color: var(--near-black); margin: 14pt 0 6pt 0; break-after: avoid; }
+  h2 { font-size: 14pt; font-weight: 500; color: var(--near-black); margin: 16pt 0 6pt 0; break-after: avoid;
+    position: relative; padding-left: 12pt; }
+  h2::before { content:""; position:absolute; left:0; top:2.5pt; width:4pt; height:12pt; background:var(--accent); border-radius:1pt; }
+  h3 { font-size: 11.5pt; font-weight: 500; color: var(--dark-warm); margin: 11pt 0 4pt 0; break-after: avoid; }
+  h4 { font-size: 10pt; font-weight: 500; color: var(--dark-warm); margin: 8pt 0 3pt 0; break-after: avoid; }
+  p { margin: 0 0 6pt 0; line-height: 1.52; widows: 2; orphans: 2; }
+  ul, ol { margin: 3pt 0 7pt 0; padding-left: 16pt; line-height: 1.5; }
+  ul li, ol li { margin-bottom: 2.5pt; }
+  ul li::marker { color: var(--brand); } ol li::marker { color: var(--brand); font-weight: 500; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 8.4pt; margin: 7pt 0; break-inside: avoid; }
+  th { text-align: left; font-weight: 500; color: var(--dark-warm); padding: 5pt 6pt;
+    border-bottom: 1pt solid var(--accent); background: transparent; }
+  td { padding: 4pt 6pt; border-bottom: 0.25pt solid var(--border); vertical-align: top; }
+  table.compact th { padding: 4pt 5pt; font-size: 7.8pt; }
+  table.compact td { padding: 3pt 5pt; font-size: 7.8pt; line-height: 1.42; }
+  table.financial td:not(:first-child), table.financial th:not(:first-child) { text-align: right; font-variant-numeric: tabular-nums; }
+  table .total td { font-weight: 500; border-top: 0.6pt solid var(--border); color: var(--near-black); background: var(--ivory); }
+  .note { font-size: 7.6pt; color: var(--stone); margin: 2pt 0 7pt 0; line-height: 1.45; }
+
+  .callout { background: var(--ivory); padding: 7pt 11pt; border-radius: 3pt; margin: 9pt 0;
+    border-left: 3pt solid var(--accent); line-height: 1.5; break-inside: avoid; font-size: 9.2pt; }
+  .callout .quote { color: var(--olive); }
+  .warn { background: #FBF3EC; border-left: 3pt solid var(--gold); padding: 7pt 11pt; border-radius: 3pt;
+    margin: 9pt 0; break-inside: avoid; font-size: 8.6pt; line-height: 1.48; color: var(--dark-warm); }
+
+  figure { margin: 10pt 0; break-inside: avoid; }
+  figcaption { font-size: 8pt; color: var(--stone); margin-top: 4pt; text-align: center; }
+
+  .risk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8pt; margin: 7pt 0; }
+  .risk-item { padding: 6pt 9pt; background: var(--ivory); border-radius: 3pt; border-left: 2.5pt solid var(--accent); break-inside: avoid; }
+  .risk-label { font-size: 8.4pt; font-weight: 500; color: var(--brand); margin-bottom: 2pt; }
+  .risk-desc { font-size: 8.2pt; color: var(--olive); line-height: 1.42; }
+
+  .analyst-box { background: var(--ivory); border-radius: 4pt; padding: 9pt 13pt; margin: 11pt 0;
+    border-left: 3pt solid var(--accent); break-inside: avoid; }
+  .analyst-label { font-size: 8.6pt; color: var(--brand); letter-spacing: 0.5pt; margin-bottom: 4pt; font-weight: 500; }
+
+  .kv { font-size: 8.6pt; }
+  .page-break { break-before: page; }
+  ul li.sub, ol li.sub { list-style: none; color: var(--olive); font-size: 9.2pt; margin-left: -6pt; }
+  ul ul { margin: 2pt 0 3pt 0; padding-left: 14pt; }
+  p.warn { background: #FBF3EC; border-left: 3pt solid var(--gold); padding: 7pt 11pt; border-radius: 3pt;
+    margin: 9pt 0; break-inside: avoid; font-size: 8.6pt; line-height: 1.48; color: var(--dark-warm); }
+  table.wide th, table.wide td { font-size: 6.5pt; padding: 2.5pt 3pt; letter-spacing: 0; }
+  table.wide { font-size: 6.5pt; }
+</style>
+</head>
+<body>
+
+<div class="report-header">
+  <div class="ticker-block">
+    <div class="ticker-eyebrow">白酒行业 · 双巨头十年对比研究</div>
+    <div class="ticker-name">五粮液 <span style="font-size:12pt;color:var(--stone);">000858.SZ</span> × 贵州茅台 <span style="font-size:12pt;color:var(--stone);">600519.SH</span></div>
+    <div class="ticker-sub">报告期：<strong>2016–2025 年度（连续 10 个完整年度）</strong> · 2026 年半年度｜口径：企业会计准则（CAS）合并报表｜币种：人民币</div>
+  </div>
+  <div class="price-block">
+    <div class="price-current">1 : 4.17</div>
+    <div class="price-change">2025 年营业收入之比</div>
+    <div class="price-change">（2016–2024 年稳定在 1.58–1.93）</div>
+  </div>
+</div>
+
+<div class="metrics">
+  <div class="metric"><div class="metric-value">405.29 / 1,688.38</div><div class="metric-label">2025 年营业收入（亿元）<br>五粮液 / 贵州茅台</div></div>
+  <div class="metric"><div class="metric-value">89.54 / 823.20</div><div class="metric-label">2025 年归母净利润（亿元）<br>五粮液 / 贵州茅台</div></div>
+  <div class="metric"><div class="metric-value">77.54% / 91.18%</div><div class="metric-label">2025 年毛利率<br>五粮液 / 贵州茅台</div></div>
+  <div class="metric"><div class="metric-value">18.82% / 4.30%</div><div class="metric-label">2025 年销售费用率<br>五粮液 / 贵州茅台</div></div>
+  <div class="metric"><div class="metric-value">5.73% / 17.73%</div><div class="metric-label">十年营收 CAGR（2016–2025）<br>五粮液 / 贵州茅台</div></div>
+</div>
+
+<h1>五粮液 × 贵州茅台 财报对比分析报告</h1>
+<p class="note">数据来源：宜宾五粮液股份有限公司（000858.SZ）与贵州茅台酒股份有限公司（600519.SH）在巨潮资讯／上交所披露的 <strong>2016–2025 年年度报告（连续 10 个完整年度）</strong>、2025–2026 年半年度报告及季度报告。全部金额以人民币（元）为单位，除特别标注外均已折算为「亿元」，保留两位小数。 报告口径：中国大陆企业会计准则（CAS）／合并报表口径；同比增长率凡报告原文已披露者直接引用，未披露者由公开绝对值计算并加「*」标注。</p>
+<h2>核心结论</h2>
+<p><strong>1. 2025 年是中国白酒双巨头的「分水岭」，但两家公司的分化程度完全不同量级。</strong> 五粮液营业收入从 2024 年的 891.75 亿元骤降至 405.29 亿元（−54.55%），归母净利润从 318.53 亿元降至 89.54 亿元（−71.89%）；同期贵州茅台营业收入 1,688.38 亿元（−1.21%）、归母净利润 823.20 亿元（−4.53%），基本守住了规模。两者 2020 年时收入比例为 1 : 1.66，2025 年扩大至 <strong>1 : 4.17</strong>，盈利差距则由 1 : 2.34 拉大至 <strong>1 : 9.19</strong>。</p>
+<p><strong>2. 差距的根源不在毛利率，而在「量价」与「费用」。</strong> 五粮液 2025 年毛利率 77.54%、贵州茅台 91.18%，均处于历史高位区间，说明<strong>产品本身的赚钱能力没有崩坏</strong>。真正崩坏的是收入端：五粮液 2025 年酒类销量 11.296 万吨（−30.26%），酒类收入 −55.36%，隐含吨价同比下滑约 36%——量价双杀；同期贵州茅台酒类销量 8.51 万吨（+2.13%），茅台酒收入 +0.39%，量稳价稳。</p>
+<p><strong>3. 五粮液的费用端出现了典型的「收入塌陷 + 费用刚性」剪刀差。</strong> 销售费用率从 2024 年的 11.99% 飙升至 2025 年的 18.82%，2026 年上半年进一步升至 22.25%（半年销售费用 63.22 亿元，同比 +80.65%）。同期贵州茅台销售费用率仅从 3.30% 升至 4.30%、2026H1 回落至 3.54%。<strong>这是两家公司盈利能力差距被放大的直接会计原因。</strong></p>
+<p><strong>4. 渠道蓄水池（合同负债）释放出相反的信号。</strong> 五粮液期末合同负债从 2023 年末的 68.64 亿元连续两年回升至 2025 年末 134.60 亿元；贵州茅台则从 2023 年末 141.26 亿元连续两年下降至 2025 年末 80.07 亿元，2026 年 6 月末仅剩 31.78 亿元（同比 −42.3%）。<strong>五粮液是「渠道主动蓄水、以时间换空间」，茅台是「渠道预付款持续退潮」，两者的短周期压力方向不同。</strong></p>
+<p><strong>5. 分红刚性成为新的现金流变量。</strong> 五粮液 2025 年筹资活动现金流净额 −283.92 亿元（同比多流出 87.70 亿元），而经营现金流仅 297.06 亿元；贵州茅台 2025 年筹资净流出 734.27 亿元、投资净流出 316.42 亿元，期末现金及现金等价物从 1,699.70 亿元降至 1,264.26 亿元（−435.44 亿元），为近年最大降幅。<strong>在利润增速归零的阶段，高分红率正在从「股东回报」转变为「现金消耗」。</strong></p>
+<p><strong>6. 2026 年上半年出现修复迹象，但两者方向相反。</strong> 五粮液 2026H1 营业收入 284.17 亿元（+20.87%）、归母净利润 87.53 亿元（+89.30%），<strong>低基数下的强反弹</strong>（2025H1 归母仅 46.24 亿元）；贵州茅台 2026H1 营业收入 907.03 亿元（+1.47%）、归母净利润 445.17 亿元（−1.95%），<strong>仍在磨底</strong>。但需要注意：五粮液 2026H1 收入仍只有 2024H1（506.48 亿元）的 56%，<strong>复苏尚未回到原位</strong>；且经营现金流为 −21.54 亿元（同比 −106.92%）。</p>
+<p><strong>7. 十年总账（2016–2025）：两家的差距九年间一直稳定，2025 年一年内被彻底改写。</strong> 2016–2024 年，茅台／五粮液的营收比始终在 <strong>1.58–1.92 倍</strong>之间窄幅波动、净利比在 <strong>2.34–2.71 倍</strong>之间波动——<strong>九年里两家其实是「同步的」</strong>。2025 年这两个比值一年内跳变至 <strong>4.17 倍</strong>与 <strong>9.19 倍</strong>。十年维度看：茅台营收累计增长 4.34 倍、净利 4.92 倍（十年 CAGR 17.73%／19.38%）；五粮液营收仅 1.65 倍、净利 1.32 倍（十年 CAGR 5.73%／3.13%）。<strong>五粮液 2025 年的营业收入 405.29 亿元已回落到 2018 年（400.30 亿元）水平，即一次性回吐 2019–2024 六年增量；归母净利润 89.54 亿元已低于 2017 年的 96.74 亿元，回吐约八年增量。</strong> 茅台 2025 年营收则仍高于 2023 年水平，仅回吐一年增量。</p>
+<p class="warn"><strong>数据可信度提示</strong>：2025 年五粮液营收降幅（−54.55%）显著大于国家统计局口径下的行业降幅（全国白酒销售收入 −7.5%、产量 −12.1%），两者存在明显背离。年报已明确「主营业务数据统计口径在报告期未发生调整」「报告期未出售重大资产」「未发生会计政策变更或前期差错更正」，公司将原因归于「主动应市调整、主动帮助渠道纾压解困」。<strong>本报告如实转列披露数据，但该异常幅度建议与公司投资者关系或审计机构进一步核实口径。</strong></p>
+<h2>一、公司概况与数据基础</h2>
+<h3>1.1 宜宾五粮液股份有限公司（000858.SZ）</h3>
+<ul>
+  <li><strong>主营业务</strong>：白酒的生产和销售。属中国证监会行业分类「白酒行业」，为浓香型白酒龙头。</li>
+  <li><strong>核心产品</strong>：五粮液产品（第八代五粮液、紫气东来五粮液、经典五粮液、五粮液 1618、39 度五粮液、五粮液·一见倾心等）与其他酒产品（五粮浓香系列）。</li>
+  <li><strong>核心产区</strong>：四川宜宾。拥有元明古窖池群，古窖历史追溯至元代早期 1276 年，不间断酿造 750 年。</li>
+  <li><strong>销售模式</strong>：经销模式（传统渠道运营商、KA 卖场）＋直销模式（团购、专卖店、线上电商），以「先款后货」结算。</li>
+  <li><strong>报告期经营主体</strong>：报告期内新设宜宾五粮液科技创新有限公司（持股 100%，出资 1 亿元），合并范围因此发生变动；未出售重大资产。</li>
+  <li><strong>主要子公司</strong>：宜宾五粮液酒类销售有限责任公司（酒类经营，2025 年营业收入 250.91 亿元、营业利润 68.51 亿元、净利润 51.45 亿元）。</li>
+</ul>
+<h3>1.2 贵州茅台酒股份有限公司（600519.SH）</h3>
+<ul>
+  <li><strong>主营业务</strong>：茅台酒及系列酒的生产与销售，是中国大曲酱香型白酒的鼻祖和典型代表。</li>
+  <li><strong>资质与品牌</strong>：集国家地理标志产品、有机食品和国家非物质文化遗产于一身；自述为「世界蒸馏酒第一品牌」，单品营收过千亿、市值上万亿。</li>
+  <li><strong>营销网络</strong>：覆盖国内及五大洲 66 个国家和地区。</li>
+  <li><strong>销售模式</strong>：直销渠道（线下自营门店、「i 茅台」数字营销平台、代售）＋批发代理渠道（社会经销商、商超、电商）。</li>
+  <li><strong>控股金融子公司</strong>：贵州茅台集团财务有限公司为控股子公司，其吸收存款、拆出资金、存放同业等业务使合并报表呈现类金融特征（详见 3.2 节口径说明）。</li>
+</ul>
+<h3>1.3 报告覆盖范围与口径说明</h3>
+<table class="compact">
+  <tr><th>项目</th><th>说明</th></tr>
+  <tr><td>覆盖期间</td><td>年度：<strong>2016–2025（10 个完整年度）</strong>；中期：2025H1、2026H1；季度：2024Q1–2025Q4</td></tr>
+  <tr><td>报表口径</td><td>合并报表；中国大陆企业会计准则（CAS）</td></tr>
+  <tr><td>币种/单位</td><td>人民币元；正文折为「亿元」，保留两位小数</td></tr>
+  <tr><td>采用的报告版本</td><td>每年度只取一个版本，优先「更新后」＞原件＞摘要。五粮液 2025 年半年度数据采用「(更新后)」版本</td></tr>
+  <tr><td>追溯调整处理</td><td>两家公司均因《企业会计准则解释第 16 号》对 2022 年数据做过递延所得税追溯调整，本报告统一采用<strong>追溯调整后</strong>口径</td></tr>
+  <tr><td><strong>期间内两次口径切换</strong></td><td>①<strong>2016 年 5 月起</strong>（财会〔2016〕22 号）：房产税、土地使用税、车船税、印花税由「管理费用」重分类至「税金及附加」，故 2016 年该两科目与其他年度不完全可比；②<strong>2020 年起</strong>（新收入准则）：「预收款项」重分类为「合同负债」，2016–2019 年的「预收款项」与 2020 年起的「合同负债」仅可作方向性比较</td></tr>
+  <tr><td>同比数据</td><td>报告原文披露的同比直接引用；未披露的由公开绝对值计算，标注「*」</td></tr>
+</table>
+<h3>1.4 十年数据基础：三阶段划分（2016–2025）</h3>
+<p>本报告的时间窗为 <strong>2016–2025 连续 10 个完整年度</strong>（另含 2025H1、2026H1 中期数据）。选择 2016 年作为起点，是因为该年是白酒行业自 2013–2015 年「限制三公消费」深度调整中确立复苏的元年，以此为起点可以完整覆盖一个「复苏 → 上行 → 调整」的完整周期。</p>
+<p><strong>表 0　十年分阶段：营业收入与归母净利润的增速中枢（合并口径）</strong></p>
+<table class="compact financial">
+  <tr><th>阶段</th><th>期间</th><th>五粮液<br>营收 CAGR</th><th>茅台<br>营收 CAGR</th><th>五粮液<br>净利 CAGR</th><th>茅台<br>净利 CAGR</th><th>阶段特征</th></tr>
+  <tr><td><strong>阶段一　修复与高增</strong></td><td>2016 → 2019（3 年）</td><td><strong>+26.87%</strong></td><td><strong>+30.03%</strong></td><td><strong>+36.88%</strong></td><td><strong>+35.08%</strong></td><td>行业复苏期，两家同步高增，茅台增速略高但同处一档；五粮液销售费用率从 19.13% 大幅降至 9.95%，是「改革红利」释放期</td></tr>
+  <tr><td><strong>阶段二　上行周期</strong></td><td>2019 → 2024（5 年）</td><td><strong>+12.21%</strong></td><td><strong>+14.88%</strong></td><td><strong>+12.85%</strong></td><td><strong>+15.91%</strong></td><td>增速中枢回落至双位数区间，两家节奏高度同步，营收倍数稳定在 1.6–1.9 倍</td></tr>
+  <tr><td><strong>阶段三　分水岭</strong></td><td>2024 → 2025（1 年）</td><td><strong>−54.55%</strong></td><td><strong>−1.21%</strong></td><td><strong>−71.89%</strong></td><td><strong>−4.53%</strong></td><td>两家同时出现首次负增长，但降幅相差 <strong>45 个百分点</strong>，十年同步格局被一年打破</td></tr>
+  <tr><td><strong>十年全期</strong></td><td>2016 → 2025（9 年复合）</td><td><strong>+5.73%</strong></td><td><strong>+17.73%</strong></td><td><strong>+3.13%</strong></td><td><strong>+19.38%</strong></td><td>全期差距 <strong>12.0 个百分点</strong>（营收）／<strong>16.3 个百分点</strong>（净利），差距几乎全部由 2025 年一年贡献</td></tr>
+</table>
+<p><strong>表 0-1　规模倍数（茅台／五粮液）的十年轨迹——「九年稳定、一年跳变」</strong></p>
+<table class="compact financial wide">
+  <tr><th>倍数</th><th>2016</th><th>2017</th><th>2018</th><th>2019</th><th>2020</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th><strong>2025</strong></th></tr>
+  <tr><td>营业收入比</td><td>1.58</td><td>1.93</td><td>1.84</td><td>1.70</td><td>1.66</td><td>1.60</td><td>1.68</td><td>1.77</td><td>1.92</td><td><strong>4.17</strong></td></tr>
+  <tr><td>归母净利润比</td><td>2.46</td><td>2.80</td><td>2.63</td><td>2.37</td><td>2.34</td><td>2.24</td><td>2.35</td><td>2.47</td><td>2.71</td><td><strong>9.19</strong></td></tr>
+</table>
+<p><strong>读表要点</strong>：</p>
+<ol>
+  <li><strong>「九年稳定」是这份十年数据最重要的发现。</strong> 2016–2024 年，茅台／五粮液的营收比在 <strong>1.58–1.93 倍</strong>的窄幅区间内波动，净利比在 <strong>2.24–2.80 倍</strong>之间波动，看不出趋势性的拉开或收敛。<strong>两家公司在这九年里本质上是同步的。</strong> 市场长期以来「双龙头」的认知有其数据基础；</li>
+  <li><strong>「一年跳变」改变了一切。</strong> 2025 年营收比从 1.92 倍跳升至 <strong>4.17 倍（一年放大 2.17 倍）</strong>，净利比从 2.71 倍跳升至 <strong>9.19 倍（放大 3.39 倍）</strong>。<strong>这意味着五粮液 2025 年的失速不是行业周期的正常表现，而是公司层面的事件——行业周期不会让两家公司的相对位置在一年内改变一倍以上；</strong></li>
+  <li><strong>十年的时间价值在于「量级定位」</strong>：五粮液 2025 年营业收入 405.29 亿元 = 2018 年水平（回吐 6 年增量）；归母净利润 89.54 亿元 &lt; 2017 年水平（回吐 8 年增量）。茅台 2025 年营业收入 1,688.38 亿元仍高于 2023 年（回吐 1 年增量）。<strong>同样的行业冲击，一家退回了六到八年前的自己，另一家只退回了一年；</strong></li>
+  <li><strong>十年累计口径</strong>（2016–2025）：茅台累计营业收入 10,687.85 亿元、累计归母净利润 5,253.62 亿元、累计经营活动现金流净额 5,191.77 亿元；五粮液分别为 5,553.54 亿元、1,882.86 亿元、2,281.84 亿元。<strong>茅台十年累计净利润是五粮液的 2.79 倍，累计经营净现金是 2.28 倍；</strong></li>
+  <li><strong>累计销售费用率的对比最能说明商业模式的差别</strong>：十年累计销售费用／累计营业收入，五粮液 <strong>11.19%</strong>（621.28 亿元／5,553.54 亿元）、茅台 <strong>3.43%</strong>（366.42 亿元／10,687.85 亿元）。<strong>五粮液十年间花掉的销售费用绝对额（621 亿元）是茅台（366 亿元）的 1.70 倍，但换回的累计收入只有茅台的 52%。</strong></li>
+</ol>
+<figure>
+<svg viewBox="0 0 680 300" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
+  <text x="66" y="20" font-size="10" fill="#22262B" font-weight="500">图 1　十年营业收入轨迹（2016–2025，单位：亿元）</text>
+  <text x="66" y="34" font-size="8.2" fill="#7C7B77">2016–2024 连续九年正增长；2025 年首次转负，两家公司量级分化</text>
+  <rect x="300" y="28" width="10" height="9" fill="#1B365D"/><text x="314" y="36" font-size="8.5" fill="#3E4145">五粮液</text>
+  <rect x="396" y="28" width="10" height="9" fill="#A73F2D"/><text x="410" y="36" font-size="8.5" fill="#3E4145">贵州茅台</text>
+  <line x1="66" y1="248.0" x2="656" y2="248.0" stroke="#EFEBE3" stroke-width="0.7"/>
+  <text x="60" y="251.0" font-size="7.6" fill="#7C7B77" text-anchor="end">0</text>
+  <line x1="66" y1="201.5" x2="656" y2="201.5" stroke="#EFEBE3" stroke-width="0.7"/>
+  <text x="60" y="204.5" font-size="7.6" fill="#7C7B77" text-anchor="end">450</text>
+  <line x1="66" y1="155.0" x2="656" y2="155.0" stroke="#EFEBE3" stroke-width="0.7"/>
+  <text x="60" y="158.0" font-size="7.6" fill="#7C7B77" text-anchor="end">900</text>
+  <line x1="66" y1="108.5" x2="656" y2="108.5" stroke="#EFEBE3" stroke-width="0.7"/>
+  <text x="60" y="111.5" font-size="7.6" fill="#7C7B77" text-anchor="end">1,350</text>
+  <line x1="66" y1="62.0" x2="656" y2="62.0" stroke="#EFEBE3" stroke-width="0.7"/>
+  <text x="60" y="65.0" font-size="7.6" fill="#7C7B77" text-anchor="end">1,800</text>
+  <line x1="66" y1="248" x2="656" y2="248" stroke="#E3DDD4" stroke-width="1"/>
+  <text x="66.0" y="262" font-size="7.6" fill="#7C7B77" text-anchor="middle">2016</text>
+  <text x="131.6" y="262" font-size="7.6" fill="#7C7B77" text-anchor="middle">2017</text>
+  <text x="197.1" y="262" font-size="7.6" fill="#7C7B77" text-anchor="middle">2018</text>
+  <text x="262.7" y="262" font-size="7.6" fill="#7C7B77" text-anchor="middle">2019</text>
+  <text x="328.2" y="262" font-size="7.6" fill="#7C7B77" text-anchor="middle">2020</text>
+  <text x="393.8" y="262" font-size="7.6" fill="#7C7B77" text-anchor="middle">2021</text>
+  <text x="459.3" y="262" font-size="7.6" fill="#7C7B77" text-anchor="middle">2022</text>
+  <text x="524.9" y="262" font-size="7.6" fill="#7C7B77" text-anchor="middle">2023</text>
+  <text x="590.4" y="262" font-size="7.6" fill="#7C7B77" text-anchor="middle">2024</text>
+  <text x="656.0" y="262" font-size="7.6" fill="#7C7B77" text-anchor="middle">2025</text>
+  <polyline points="66.0,222.6 131.6,216.8 197.1,206.6 262.7,196.2 328.2,188.8 393.8,179.6 459.3,171.6 524.9,162.0 590.4,155.9 656.0,206.1" fill="none" stroke="#1B365D" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="66.0" cy="222.6" r="1.9" fill="#FFFFFF" stroke="#1B365D" stroke-width="1.2"/>
+  <circle cx="131.6" cy="216.8" r="1.9" fill="#FFFFFF" stroke="#1B365D" stroke-width="1.2"/>
+  <circle cx="197.1" cy="206.6" r="1.9" fill="#FFFFFF" stroke="#1B365D" stroke-width="1.2"/>
+  <circle cx="262.7" cy="196.2" r="1.9" fill="#FFFFFF" stroke="#1B365D" stroke-width="1.2"/>
+  <circle cx="328.2" cy="188.8" r="1.9" fill="#FFFFFF" stroke="#1B365D" stroke-width="1.2"/>
+  <circle cx="393.8" cy="179.6" r="1.9" fill="#FFFFFF" stroke="#1B365D" stroke-width="1.2"/>
+  <circle cx="459.3" cy="171.6" r="1.9" fill="#FFFFFF" stroke="#1B365D" stroke-width="1.2"/>
+  <circle cx="524.9" cy="162.0" r="1.9" fill="#FFFFFF" stroke="#1B365D" stroke-width="1.2"/>
+  <circle cx="590.4" cy="155.9" r="1.9" fill="#FFFFFF" stroke="#1B365D" stroke-width="1.2"/>
+  <circle cx="656.0" cy="206.1" r="2.6" fill="#1B365D" stroke="#1B365D" stroke-width="1.2"/>
+  <polyline points="66.0,207.8 131.6,187.8 197.1,171.9 262.7,159.7 328.2,149.9 393.8,138.3 459.3,119.8 524.9,95.4 590.4,71.4 656.0,73.5" fill="none" stroke="#A73F2D" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="66.0" cy="207.8" r="1.9" fill="#FFFFFF" stroke="#A73F2D" stroke-width="1.2"/>
+  <circle cx="131.6" cy="187.8" r="1.9" fill="#FFFFFF" stroke="#A73F2D" stroke-width="1.2"/>
+  <circle cx="197.1" cy="171.9" r="1.9" fill="#FFFFFF" stroke="#A73F2D" stroke-width="1.2"/>
+  <circle cx="262.7" cy="159.7" r="1.9" fill="#FFFFFF" stroke="#A73F2D" stroke-width="1.2"/>
+  <circle cx="328.2" cy="149.9" r="1.9" fill="#FFFFFF" stroke="#A73F2D" stroke-width="1.2"/>
+  <circle cx="393.8" cy="138.3" r="1.9" fill="#FFFFFF" stroke="#A73F2D" stroke-width="1.2"/>
+  <circle cx="459.3" cy="119.8" r="1.9" fill="#FFFFFF" stroke="#A73F2D" stroke-width="1.2"/>
+  <circle cx="524.9" cy="95.4" r="1.9" fill="#FFFFFF" stroke="#A73F2D" stroke-width="1.2"/>
+  <circle cx="590.4" cy="71.4" r="1.9" fill="#FFFFFF" stroke="#A73F2D" stroke-width="1.2"/>
+  <circle cx="656.0" cy="73.5" r="2.6" fill="#A73F2D" stroke="#A73F2D" stroke-width="1.2"/>
+  <text x="662.0" y="209.1" font-size="8.2" fill="#1B365D" font-weight="500">405.29</text>
+  <text x="60.0" y="217.6" font-size="8.2" fill="#1B365D" text-anchor="end">245.44</text>
+  <text x="662.0" y="76.5" font-size="8.2" fill="#A73F2D" font-weight="500">1,688.38</text>
+  <text x="60.0" y="202.8" font-size="8.2" fill="#A73F2D" text-anchor="end">388.62</text>
+  <text x="66" y="278" font-size="7.6" fill="#7C7B77">注：2025 年五粮液 405.29 亿元 ≈ 2018 年 400.30 亿元；茅台 1,688.38 亿元仍高于 2023 年 1,476.94 亿元。</text>
+</svg>
+<figcaption>图 1　十年营业收入轨迹：五粮液退回 2018 年水平、茅台仅退回 2023 年水平（数据来源：两家公司 2016–2025 年年报）</figcaption>
+</figure>
+<figure>
+<svg viewBox="0 0 680 300" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
+  <text x="66" y="20" font-size="10" fill="#22262B" font-weight="500">图 2　十年销售费用率轨迹（2016–2025，占营业收入 %）</text>
+  <text x="66" y="34" font-size="8.2" fill="#7C7B77">五粮液「十年一轮回」：19.13% → 9.44%（2018 最低）→ 18.82%；茅台十年几乎平线</text>
+  <rect x="300" y="28" width="10" height="9" fill="#1B365D"/><text x="314" y="36" font-size="8.5" fill="#3E4145">五粮液</text>
+  <rect x="396" y="28" width="10" height="9" fill="#A73F2D"/><text x="410" y="36" font-size="8.5" fill="#3E4145">贵州茅台</text>
+  <line x1="66" y1="248.0" x2="656" y2="248.0" stroke="#EFEBE3" stroke-width="0.7"/>
+  <text x="60" y="251.0" font-size="7.6" fill="#7C7B77" text-anchor="end">0%</text>
+  <line x1="66" y1="201.5" x2="656" y2="201.5" stroke="#EFEBE3" stroke-width="0.7"/>
+  <text x="60" y="204.5" font-size="7.6" fill="#7C7B77" text-anchor="end">6%</text>
+  <line x1="66" y1="155.0" x2="656" y2="155.0" stroke="#EFEBE3" stroke-width="0.7"/>
+  <text x="60" y="158.0" font-size="7.6" fill="#7C7B77" text-anchor="end">12%</text>
+  <line x1="66" y1="108.5" x2="656" y2="108.5" stroke="#EFEBE3" stroke-width="0.7"/>
+  <text x="60" y="111.5" font-size="7.6" fill="#7C7B77" text-anchor="end">18%</text>
+  <line x1="66" y1="62.0" x2="656" y2="62.0" stroke="#EFEBE3" stroke-width="0.7"/>
+  <text x="60" y="65.0" font-size="7.6" fill="#7C7B77" text-anchor="end">24%</text>
+  <line x1="66" y1="248" x2="656" y2="248" stroke="#E3DDD4" stroke-width="1"/>
+  <text x="66.0" y="262" font-size="7.6" fill="#7C7B77" text-anchor="middle">2016</text>
+  <text x="131.6" y="262" font-size="7.6" fill="#7C7B77" text-anchor="middle">2017</text>
+  <text x="197.1" y="262" font-size="7.6" fill="#7C7B77" text-anchor="middle">2018</text>
+  <text x="262.7" y="262" font-size="7.6" fill="#7C7B77" text-anchor="middle">2019</text>
+  <text x="328.2" y="262" font-size="7.6" fill="#7C7B77" text-anchor="middle">2020</text>
+  <text x="393.8" y="262" font-size="7.6" fill="#7C7B77" text-anchor="middle">2021</text>
+  <text x="459.3" y="262" font-size="7.6" fill="#7C7B77" text-anchor="middle">2022</text>
+  <text x="524.9" y="262" font-size="7.6" fill="#7C7B77" text-anchor="middle">2023</text>
+  <text x="590.4" y="262" font-size="7.6" fill="#7C7B77" text-anchor="middle">2024</text>
+  <text x="656.0" y="262" font-size="7.6" fill="#7C7B77" text-anchor="middle">2025</text>
+  <polyline points="66.0,99.7 131.6,154.9 197.1,174.8 262.7,170.9 328.2,172.6 393.8,171.9 459.3,176.3 524.9,175.5 590.4,155.1 656.0,102.1" fill="none" stroke="#1B365D" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="66.0" cy="99.7" r="1.9" fill="#FFFFFF" stroke="#1B365D" stroke-width="1.2"/>
+  <circle cx="131.6" cy="154.9" r="1.9" fill="#FFFFFF" stroke="#1B365D" stroke-width="1.2"/>
+  <circle cx="197.1" cy="174.8" r="1.9" fill="#FFFFFF" stroke="#1B365D" stroke-width="1.2"/>
+  <circle cx="262.7" cy="170.9" r="1.9" fill="#FFFFFF" stroke="#1B365D" stroke-width="1.2"/>
+  <circle cx="328.2" cy="172.6" r="1.9" fill="#FFFFFF" stroke="#1B365D" stroke-width="1.2"/>
+  <circle cx="393.8" cy="171.9" r="1.9" fill="#FFFFFF" stroke="#1B365D" stroke-width="1.2"/>
+  <circle cx="459.3" cy="176.3" r="1.9" fill="#FFFFFF" stroke="#1B365D" stroke-width="1.2"/>
+  <circle cx="524.9" cy="175.5" r="1.9" fill="#FFFFFF" stroke="#1B365D" stroke-width="1.2"/>
+  <circle cx="590.4" cy="155.1" r="1.9" fill="#FFFFFF" stroke="#1B365D" stroke-width="1.2"/>
+  <circle cx="656.0" cy="102.1" r="2.6" fill="#1B365D" stroke="#1B365D" stroke-width="1.2"/>
+  <polyline points="66.0,214.4 131.6,208.2 197.1,221.0 262.7,218.2 328.2,227.2 393.8,228.0 459.3,227.4 524.9,223.6 590.4,222.4 656.0,214.7" fill="none" stroke="#A73F2D" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="66.0" cy="214.4" r="1.9" fill="#FFFFFF" stroke="#A73F2D" stroke-width="1.2"/>
+  <circle cx="131.6" cy="208.2" r="1.9" fill="#FFFFFF" stroke="#A73F2D" stroke-width="1.2"/>
+  <circle cx="197.1" cy="221.0" r="1.9" fill="#FFFFFF" stroke="#A73F2D" stroke-width="1.2"/>
+  <circle cx="262.7" cy="218.2" r="1.9" fill="#FFFFFF" stroke="#A73F2D" stroke-width="1.2"/>
+  <circle cx="328.2" cy="227.2" r="1.9" fill="#FFFFFF" stroke="#A73F2D" stroke-width="1.2"/>
+  <circle cx="393.8" cy="228.0" r="1.9" fill="#FFFFFF" stroke="#A73F2D" stroke-width="1.2"/>
+  <circle cx="459.3" cy="227.4" r="1.9" fill="#FFFFFF" stroke="#A73F2D" stroke-width="1.2"/>
+  <circle cx="524.9" cy="223.6" r="1.9" fill="#FFFFFF" stroke="#A73F2D" stroke-width="1.2"/>
+  <circle cx="590.4" cy="222.4" r="1.9" fill="#FFFFFF" stroke="#A73F2D" stroke-width="1.2"/>
+  <circle cx="656.0" cy="214.7" r="2.6" fill="#A73F2D" stroke="#A73F2D" stroke-width="1.2"/>
+  <text x="662.0" y="105.1" font-size="8.2" fill="#1B365D" font-weight="500">18.82</text>
+  <text x="60.0" y="94.7" font-size="8.2" fill="#1B365D" text-anchor="end">19.13</text>
+  <text x="662.0" y="217.7" font-size="8.2" fill="#A73F2D" font-weight="500">4.30</text>
+  <text x="60.0" y="209.4" font-size="8.2" fill="#A73F2D" text-anchor="end">4.33</text>
+  <text x="66" y="278" font-size="7.6" fill="#7C7B77">注：2025 年五粮液销售费用率 18.82% 已与 2016 年的 19.13% 基本持平；茅台 10 年间始终在 2.58%–5.13% 区间。</text>
+</svg>
+<figcaption>图 2　十年销售费用率轨迹：五粮液费用效率的改善成果已被 2025 年完全抵消（数据来源：两家公司 2016–2025 年年报）</figcaption>
+</figure>
+<h2>二、核心财务数据对比</h2>
+<h3>表 1　经营规模与增长：营业收入与归母净利润（单位：亿元）</h3>
+<table class="compact financial">
+  <tr><th>年度/期间</th><th>五粮液<br>营业收入</th><th>同比</th><th>贵州茅台<br>营业收入</th><th>同比</th><th>五粮液<br>归母净利润</th><th>同比</th><th>贵州茅台<br>归母净利润</th><th>同比</th></tr>
+  <tr><td>2016</td><td>245.44</td><td>+13.32%</td><td>388.62</td><td>+18.99%</td><td>67.85</td><td>+9.85%</td><td>167.18</td><td>+7.84%</td></tr>
+  <tr><td>2017</td><td>301.87</td><td>+22.99%</td><td>582.18</td><td>+49.81%</td><td>96.74</td><td>+42.58%</td><td>270.79</td><td>+61.97%</td></tr>
+  <tr><td>2018</td><td>400.30</td><td>+32.61%</td><td>736.39</td><td>+26.49%</td><td>133.84</td><td>+38.36%</td><td>352.04</td><td>+30.00%</td></tr>
+  <tr><td>2019</td><td>501.18</td><td>+25.20%</td><td>854.30</td><td>+16.01%</td><td>174.02</td><td>+30.02%</td><td>412.06</td><td>+17.05%</td></tr>
+  <tr><td>2020</td><td>573.21</td><td>+14.37%</td><td>949.15</td><td>+11.10%*</td><td>199.55</td><td>+14.67%</td><td>466.97</td><td>+13.32%*</td></tr>
+  <tr><td>2021</td><td>662.09</td><td>+15.51%</td><td>1,061.90</td><td>+11.88%</td><td>233.77</td><td>+17.15%</td><td>524.60</td><td>+12.34%</td></tr>
+  <tr><td>2022</td><td>739.69</td><td>+11.72%</td><td>1,241.00</td><td>+16.87%</td><td>266.91</td><td>+14.17%</td><td>627.16</td><td>+19.55%</td></tr>
+  <tr><td>2023</td><td>832.72</td><td>+12.58%</td><td>1,476.94</td><td>+19.01%</td><td>302.11</td><td>+13.19%</td><td>747.34</td><td>+19.16%</td></tr>
+  <tr><td>2024</td><td>891.75</td><td>+7.09%</td><td>1,708.99</td><td>+15.71%</td><td>318.53</td><td>+5.44%</td><td>862.28</td><td>+15.38%</td></tr>
+  <tr class="total"><td><strong>2025</strong></td><td><strong>405.29</strong></td><td><strong>−54.55%</strong></td><td><strong>1,688.38</strong></td><td><strong>−1.21%</strong></td><td><strong>89.54</strong></td><td><strong>−71.89%</strong></td><td><strong>823.20</strong></td><td><strong>−4.53%</strong></td></tr>
+  <tr><td>2026H1</td><td>284.17</td><td>+20.87%</td><td>907.03</td><td>+1.47%</td><td>87.53</td><td>+89.30%</td><td>445.17</td><td>−1.95%</td></tr>
+</table>
+<p class="note">注：贵州茅台 2020 年同比由 2019 年披露值（营收 854.30 亿元、归母 412.06 亿元）计算。贵州茅台「营业总收入」含利息收入等，2025 年为 1,720.54 亿元、2024 年为 1,741.44 亿元，本表统一采用「营业收入」口径以保证两家可比。 2016–2019 年数据取自两家公司当年年度报告「主要会计数据」；五粮液 2016 年归母净利润同比（+9.85%）为年报披露值。</p>
+<p><strong>读表要点</strong>：</p>
+<ul>
+  <li><strong>2016–2024 连续九年，两家公司的营业收入和归母净利润「无一年负增长」</strong>——五粮液增速区间 7%–33%（早期高、后期低），茅台 11%–50%（2017 年因基数与提价因素达 +49.81%）。这是一个完整的九年上行周期；</li>
+  <li><strong>2025 年是十年中第一个负增长年，且两家的跌幅完全不在一个量级</strong>：五粮液 −54.55% vs 茅台 −1.21%（差 45 个百分点）；归母净利润 −71.89% vs −4.53%（差 67 个百分点）；</li>
+  <li><strong>2026H1 的「一正一负」是两段不同的故事</strong>：五粮液的 +20.87%／+89.30% 是 2025H1 极低基数（归母仅 46.24 亿元）下的技术性反弹，绝对水平仍处低位；茅台的 +1.47%／−1.95% 说明需求侧尚未转正。</li>
+</ul>
+<figure>
+<svg viewBox="0 0 680 300" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
+  <text x="70" y="18" font-size="10" fill="#22262B" font-weight="500">图 3　营业收入对比（2020–2025 年度 + 2026 年半年度，单位：亿元）</text>
+  <rect x="70" y="28" width="10" height="9" fill="#1B365D"/><text x="85" y="36" font-size="8.5" fill="#3E4145">五粮液</text>
+  <rect x="140" y="28" width="10" height="9" fill="#A73F2D"/><text x="155" y="36" font-size="8.5" fill="#3E4145">贵州茅台</text>
+  <!-- grid -->
+  <line x1="70" y1="75" x2="660" y2="75" stroke="#EFEBE3" stroke-width="0.7"/>
+  <line x1="70" y1="133.3" x2="660" y2="133.3" stroke="#EFEBE3" stroke-width="0.7"/>
+  <line x1="70" y1="191.7" x2="660" y2="191.7" stroke="#EFEBE3" stroke-width="0.7"/>
+  <line x1="70" y1="250" x2="660" y2="250" stroke="#E3DDD4" stroke-width="1"/>
+  <text x="64" y="78" font-size="7.5" fill="#7C7B77" text-anchor="end">1,500</text>
+  <text x="64" y="136.3" font-size="7.5" fill="#7C7B77" text-anchor="end">1,000</text>
+  <text x="64" y="194.7" font-size="7.5" fill="#7C7B77" text-anchor="end">500</text>
+  <text x="64" y="253" font-size="7.5" fill="#7C7B77" text-anchor="end">0</text>
+  <!-- 五粮液 bars -->
+  <rect x="82.15" y="183.1" width="28" height="66.9" fill="#1B365D"/>
+  <rect x="166.45" y="172.8" width="28" height="77.2" fill="#1B365D"/>
+  <rect x="250.75" y="163.7" width="28" height="86.3" fill="#1B365D"/>
+  <rect x="335.05" y="152.8" width="28" height="97.2" fill="#1B365D"/>
+  <rect x="419.35" y="146.0" width="28" height="104.0" fill="#1B365D"/>
+  <rect x="503.65" y="202.7" width="28" height="47.3" fill="#0E1E33"/>
+  <rect x="587.95" y="216.8" width="28" height="33.2" fill="#A6B0C0"/>
+  <!-- 茅台 bars -->
+  <rect x="114.15" y="139.3" width="28" height="110.7" fill="#A73F2D"/>
+  <rect x="198.45" y="126.1" width="28" height="123.9" fill="#A73F2D"/>
+  <rect x="282.75" y="105.2" width="28" height="144.8" fill="#A73F2D"/>
+  <rect x="367.05" y="77.7" width="28" height="172.3" fill="#A73F2D"/>
+  <rect x="451.35" y="50.6" width="28" height="199.4" fill="#A73F2D"/>
+  <rect x="535.65" y="53.0" width="28" height="197.0" fill="#7A2A1C"/>
+  <rect x="619.95" y="144.2" width="28" height="105.8" fill="#E0A79A"/>
+  <!-- value labels -->
+  <text x="96.15" y="180" font-size="6.6" fill="#22262B" text-anchor="middle">573</text>
+  <text x="180.45" y="170" font-size="6.6" fill="#22262B" text-anchor="middle">662</text>
+  <text x="264.75" y="161" font-size="6.6" fill="#22262B" text-anchor="middle">740</text>
+  <text x="349.05" y="150" font-size="6.6" fill="#22262B" text-anchor="middle">833</text>
+  <text x="433.35" y="143" font-size="6.6" fill="#22262B" text-anchor="middle">892</text>
+  <text x="517.65" y="200" font-size="6.6" fill="#0E1E33" text-anchor="middle">405</text>
+  <text x="601.95" y="214" font-size="6.6" fill="#7C7B77" text-anchor="middle">284</text>
+  <text x="128.15" y="136" font-size="6.6" fill="#22262B" text-anchor="middle">949</text>
+  <text x="212.45" y="123" font-size="6.6" fill="#22262B" text-anchor="middle">1,062</text>
+  <text x="296.75" y="102" font-size="6.6" fill="#22262B" text-anchor="middle">1,241</text>
+  <text x="381.05" y="74.5" font-size="6.6" fill="#22262B" text-anchor="middle">1,477</text>
+  <text x="465.35" y="47.5" font-size="6.6" fill="#A73F2D" text-anchor="middle">1,709</text>
+  <text x="549.65" y="50" font-size="6.6" fill="#A73F2D" text-anchor="middle">1,688</text>
+  <text x="633.95" y="141.5" font-size="6.6" fill="#7C7B77" text-anchor="middle">907</text>
+  <!-- x labels -->
+  <text x="112.15" y="264" font-size="8" fill="#7C7B77" text-anchor="middle">2020</text>
+  <text x="196.45" y="264" font-size="8" fill="#7C7B77" text-anchor="middle">2021</text>
+  <text x="280.75" y="264" font-size="8" fill="#7C7B77" text-anchor="middle">2022</text>
+  <text x="365.05" y="264" font-size="8" fill="#7C7B77" text-anchor="middle">2023</text>
+  <text x="449.35" y="264" font-size="8" fill="#7C7B77" text-anchor="middle">2024</text>
+  <text x="533.65" y="264" font-size="8" fill="#A73F2D" text-anchor="middle" font-weight="500">2025</text>
+  <text x="617.95" y="264" font-size="8" fill="#7C7B77" text-anchor="middle">2026H1</text>
+  <text x="70" y="286" font-size="7.4" fill="#7C7B77">2020–2024 两家同步双位数增长；2025 年五粮液断崖（−54.55%），茅台首次负增长（−1.21%）；2026H1 五粮液低基数反弹（+20.87%）。</text>
+</svg>
+<figcaption>图 3　营业收入对比趋势（数据来源：两家公司 2020–2025 年年报、2026 年半年报）</figcaption>
+</figure>
+<figure>
+<svg viewBox="0 0 680 300" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
+  <text x="70" y="18" font-size="10" fill="#22262B" font-weight="500">图 4　归属于上市公司股东的净利润对比（单位：亿元）</text>
+  <rect x="70" y="28" width="10" height="9" fill="#1B365D"/><text x="85" y="36" font-size="8.5" fill="#3E4145">五粮液</text>
+  <rect x="140" y="28" width="10" height="9" fill="#A73F2D"/><text x="155" y="36" font-size="8.5" fill="#3E4145">贵州茅台</text>
+  <line x1="70" y1="60" x2="660" y2="60" stroke="#EFEBE3" stroke-width="0.7"/>
+  <line x1="70" y1="110" x2="660" y2="110" stroke="#EFEBE3" stroke-width="0.7"/>
+  <line x1="70" y1="160" x2="660" y2="160" stroke="#EFEBE3" stroke-width="0.7"/>
+  <line x1="70" y1="210" x2="660" y2="210" stroke="#EFEBE3" stroke-width="0.7"/>
+  <line x1="70" y1="250" x2="660" y2="250" stroke="#E3DDD4" stroke-width="1"/>
+  <text x="64" y="63" font-size="7.5" fill="#7C7B77" text-anchor="end">900</text>
+  <text x="64" y="113" font-size="7.5" fill="#7C7B77" text-anchor="end">720</text>
+  <text x="64" y="163" font-size="7.5" fill="#7C7B77" text-anchor="end">540</text>
+  <text x="64" y="213" font-size="7.5" fill="#7C7B77" text-anchor="end">360</text>
+  <text x="64" y="253" font-size="7.5" fill="#7C7B77" text-anchor="end">0</text>
+  <!-- scale: 900 -> 210px, so 1亿 = 0.2333px -->
+  <rect x="82.15" y="203.4" width="28" height="46.6" fill="#1B365D"/>
+  <rect x="166.45" y="195.5" width="28" height="54.5" fill="#1B365D"/>
+  <rect x="250.75" y="187.7" width="28" height="62.3" fill="#1B365D"/>
+  <rect x="335.05" y="179.5" width="28" height="70.5" fill="#1B365D"/>
+  <rect x="419.35" y="175.7" width="28" height="74.3" fill="#1B365D"/>
+  <rect x="503.65" y="229.1" width="28" height="20.9" fill="#0E1E33"/>
+  <rect x="587.95" y="229.6" width="28" height="20.4" fill="#A6B0C0"/>
+  <rect x="114.15" y="141.1" width="28" height="108.9" fill="#A73F2D"/>
+  <rect x="198.45" y="127.6" width="28" height="122.4" fill="#A73F2D"/>
+  <rect x="282.75" y="103.7" width="28" height="146.3" fill="#A73F2D"/>
+  <rect x="367.05" y="75.6" width="28" height="174.4" fill="#A73F2D"/>
+  <rect x="451.35" y="48.8" width="28" height="201.2" fill="#A73F2D"/>
+  <rect x="535.65" y="57.9" width="28" height="192.1" fill="#7A2A1C"/>
+  <rect x="619.95" y="146.1" width="28" height="103.9" fill="#E0A79A"/>
+  <text x="96.15" y="200.5" font-size="6.6" fill="#22262B" text-anchor="middle">200</text>
+  <text x="180.45" y="192.5" font-size="6.6" fill="#22262B" text-anchor="middle">234</text>
+  <text x="264.75" y="184.7" font-size="6.6" fill="#22262B" text-anchor="middle">267</text>
+  <text x="349.05" y="176.5" font-size="6.6" fill="#22262B" text-anchor="middle">302</text>
+  <text x="433.35" y="172.7" font-size="6.6" fill="#22262B" text-anchor="middle">319</text>
+  <text x="517.65" y="226.1" font-size="6.6" fill="#0E1E33" text-anchor="middle">90</text>
+  <text x="601.95" y="226.6" font-size="6.6" fill="#7C7B77" text-anchor="middle">88</text>
+  <text x="128.15" y="138.1" font-size="6.6" fill="#22262B" text-anchor="middle">467</text>
+  <text x="212.45" y="124.6" font-size="6.6" fill="#22262B" text-anchor="middle">525</text>
+  <text x="296.75" y="100.7" font-size="6.6" fill="#22262B" text-anchor="middle">627</text>
+  <text x="381.05" y="72.6" font-size="6.6" fill="#22262B" text-anchor="middle">747</text>
+  <text x="465.35" y="45.8" font-size="6.6" fill="#A73F2D" text-anchor="middle">862</text>
+  <text x="549.65" y="54.9" font-size="6.6" fill="#A73F2D" text-anchor="middle">823</text>
+  <text x="633.95" y="143.1" font-size="6.6" fill="#7C7B77" text-anchor="middle">445</text>
+  <text x="112.15" y="264" font-size="8" fill="#7C7B77" text-anchor="middle">2020</text>
+  <text x="196.45" y="264" font-size="8" fill="#7C7B77" text-anchor="middle">2021</text>
+  <text x="280.75" y="264" font-size="8" fill="#7C7B77" text-anchor="middle">2022</text>
+  <text x="365.05" y="264" font-size="8" fill="#7C7B77" text-anchor="middle">2023</text>
+  <text x="449.35" y="264" font-size="8" fill="#7C7B77" text-anchor="middle">2024</text>
+  <text x="533.65" y="264" font-size="8" fill="#A73F2D" text-anchor="middle" font-weight="500">2025</text>
+  <text x="617.95" y="264" font-size="8" fill="#7C7B77" text-anchor="middle">2026H1</text>
+  <text x="70" y="286" font-size="7.4" fill="#7C7B77">2025 年五粮液归母净利回到 2019 年前水平；茅台虽小幅回落，仍为五粮液的 9.19 倍。</text>
+</svg>
+<figcaption>图 4　归母净利润对比趋势</figcaption>
+</figure>
+<h3>表 2　盈利能力与股东回报指标</h3>
+<table class="compact financial">
+  <tr><th>年度/期间</th><th>五粮液<br>毛利率</th><th>茅台<br>毛利率</th><th>五粮液<br>归母净利率</th><th>茅台<br>归母净利率</th><th>五粮液<br>加权ROE</th><th>茅台<br>加权ROE</th><th>五粮液<br>EPS(元)</th><th>茅台<br>EPS(元)</th></tr>
+  <tr><td>2016</td><td>70.20%</td><td>91.23%</td><td>27.64%</td><td>43.02%</td><td>15.01%</td><td>24.44%</td><td>1.787</td><td>13.31</td></tr>
+  <tr><td>2017</td><td>72.01%</td><td>89.80%</td><td>32.05%</td><td>46.51%</td><td>19.38%</td><td>32.95%</td><td>2.548</td><td>21.56</td></tr>
+  <tr><td>2018</td><td>73.80%</td><td>91.14%</td><td>33.44%</td><td>47.81%</td><td>22.80%</td><td>34.46%</td><td>3.474</td><td>28.02</td></tr>
+  <tr><td>2019</td><td>74.46%</td><td>91.30%</td><td>34.72%</td><td>48.23%</td><td>25.26%</td><td>33.09%</td><td>4.483</td><td>32.80</td></tr>
+  <tr><td>2020</td><td>74.16%</td><td>91.41%</td><td>34.81%</td><td>49.20%</td><td>24.94%</td><td>31.41%</td><td>5.141</td><td>37.17</td></tr>
+  <tr><td>2021</td><td>75.35%</td><td>91.54%</td><td>35.31%</td><td>49.40%</td><td>25.30%</td><td>29.90%</td><td>6.023</td><td>41.76</td></tr>
+  <tr><td>2022</td><td>75.42%</td><td>91.87%</td><td>36.08%</td><td>50.54%</td><td>25.28%</td><td>30.26%</td><td>6.876</td><td>49.93</td></tr>
+  <tr><td>2023</td><td>75.79%</td><td>91.97%</td><td>36.28%</td><td>50.60%</td><td>25.06%</td><td>34.19%</td><td>7.783</td><td>59.49</td></tr>
+  <tr><td>2024</td><td>77.05%</td><td>91.93%</td><td>35.72%</td><td>50.46%</td><td>23.35%</td><td>36.02%</td><td>8.2062</td><td>68.64</td></tr>
+  <tr class="total"><td><strong>2025</strong></td><td><strong>77.54%</strong></td><td><strong>91.18%</strong></td><td><strong>22.09%</strong></td><td><strong>48.76%</strong></td><td><strong>6.89%</strong></td><td><strong>32.53%</strong></td><td><strong>2.3068</strong></td><td><strong>65.66</strong></td></tr>
+  <tr><td>2026H1</td><td>80.29%</td><td>89.55%</td><td>30.80%</td><td>49.08%</td><td>7.14%</td><td>16.75%</td><td>2.2551</td><td>35.57</td></tr>
+</table>
+<p class="note">注：毛利率＝1 − 营业成本／营业收入（合并口径、公司自身财务报表口径）；2026H1 五粮液毛利率按营业成本 55.996 亿元／营业收入 284.17 亿元计算；茅台 2026H1 为 1 − 94.74／907.03。贵州茅台 2020 年 EPS 由 466.97 亿元÷125.62 亿股计算。</p>
+<p><strong>读表要点</strong>：</p>
+<ul>
+  <li><strong>毛利率（十年方向截然不同）</strong>：贵州茅台从 2016 年 91.23% 到 2025 年 91.18%，<strong>十年净变动仅 −0.05 个百分点</strong>，是近乎完美的水平线（唯一例外是 2017 年 89.80%，与当年产品结构及成本节奏有关）；五粮液则从 70.20% 一路爬升至 80.29%（2026H1），<strong>十年改善 10.09 个百分点</strong>。<strong>一家在「保持不变」，一家在「持续变好」——但后者在 2025 年被费用端全部抵消；</strong></li>
+  <li><strong>净利润率（十年差距的放大过程）</strong>：五粮液 27.64%（2016）→ 34.72%（2019）→ 36.28%（2023，十年高点）→ <strong>22.09%（2025）</strong>；茅台 43.02%（2016）→ 50.60%（2023，十年高点）→ 48.76%（2025）。<strong>两家在 2016–2023 的七年里净利率都在向上，2025 年五粮液的跌幅（−14.19 个百分点）超过其前七年累计涨幅（+8.64 个百分点）；</strong></li>
+  <li><strong>ROE（十年累计的分化）</strong>：五粮液 2016 年 15.01% → 2025 年 <strong>6.89%</strong>，回到十年前水平以下；茅台 2016 年 24.44% → 2025 年 <strong>32.53%</strong>，十年上升 8.09 个百分点。<strong>2016 年两家 ROE 相差 9.43 个百分点，2025 年相差 25.64 个百分点；</strong></li>
+  <li><strong>EPS 的直观落差</strong>：五粮液 2016 年 1.787 元 → 2024 年 8.2062 元 → 2025 年 2.3068 元（<strong>一年内从 8.21 元回到 2.31 元，低于 2017 年的 2.548 元</strong>）；茅台 2016 年 13.31 元 → 2025 年 65.66 元，十年 4.93 倍。</li>
+</ul>
+<h3>表 3　费用结构与经营效率（单位：亿元）</h3>
+<table class="compact financial">
+  <tr><th>年度/期间</th><th>五粮液<br>销售费用</th><th>五粮液<br>销售费用率</th><th>茅台<br>销售费用</th><th>茅台<br>销售费用率</th><th>五粮液<br>管理费用</th><th>茅台<br>管理费用</th><th>五粮液<br>税金及附加</th><th>茅台<br>税金及附加</th></tr>
+  <tr><td>2016</td><td>46.95</td><td>19.13%</td><td>16.81</td><td>4.33%</td><td>21.44</td><td>41.87</td><td>19.41</td><td>65.09</td></tr>
+  <tr><td>2017</td><td>36.25</td><td>12.01%</td><td>29.86</td><td>5.13%</td><td>22.69</td><td>47.21</td><td>34.95</td><td>84.04</td></tr>
+  <tr><td>2018</td><td>37.78</td><td>9.44%</td><td>25.72</td><td>3.49%</td><td>23.40</td><td>53.26</td><td>59.08</td><td>112.89</td></tr>
+  <tr><td>2019</td><td>49.86</td><td>9.95%</td><td>32.79</td><td>3.84%</td><td>26.55</td><td>61.68</td><td>69.84</td><td>127.33</td></tr>
+  <tr><td>2020</td><td>55.79</td><td>9.73%</td><td>25.48</td><td>2.68%</td><td>26.10</td><td>67.90</td><td>80.92</td><td>138.87</td></tr>
+  <tr><td>2021</td><td>65.04</td><td>9.82%</td><td>27.37</td><td>2.58%</td><td>29.00</td><td>84.50</td><td>97.90</td><td>153.04</td></tr>
+  <tr><td>2022</td><td>68.44</td><td>9.25%</td><td>32.98</td><td>2.66%</td><td>30.68</td><td>90.12</td><td>107.49</td><td>184.96</td></tr>
+  <tr><td>2023</td><td>77.96</td><td>9.36%</td><td>46.49</td><td>3.15%</td><td>33.19</td><td>97.29</td><td>125.32</td><td>222.34</td></tr>
+  <tr><td>2024</td><td>106.92</td><td>11.99%</td><td>56.39</td><td>3.30%</td><td>35.55</td><td>93.16</td><td>130.41</td><td>269.26</td></tr>
+  <tr class="total"><td><strong>2025</strong></td><td><strong>76.29</strong></td><td><strong>18.82%</strong></td><td><strong>72.53</strong></td><td><strong>4.30%</strong></td><td><strong>30.97</strong></td><td><strong>83.20</strong></td><td><strong>110.38</strong></td><td><strong>273.54</strong></td></tr>
+  <tr><td>2026H1</td><td>63.22</td><td>22.25%</td><td>32.06</td><td>3.54%</td><td>15.03</td><td>36.35</td><td>42.07</td><td>146.82</td></tr>
+</table>
+<p class="note">注：<strong>2016 年的「管理费用」与「税金及附加」与其他年度不完全可比</strong>——财会〔2016〕22 号规定自 2016 年 5 月 1 日起将房产税、土地使用税、车船税、印花税由「管理费用」重分类至「税金及附加」，2016 年为过渡年度，两项均只反映部分月份的重分类影响。因此本表 2016 年数据的解读需以 2017 年及以后为基准。</p>
+<p><strong>读表要点（本表是报告的价值核心之一）</strong>：</p>
+<ul>
+  <li><strong>五粮液销售费用率是「十年一轮回」</strong>：2016 年 <strong>19.13%</strong> → 2018 年降至 <strong>9.44%</strong>（十年最低）→ 2024 年 11.99% → 2025 年 <strong>18.82%</strong> → 2026H1 <strong>22.25%</strong>。<strong>2025 年的费用率已与 2016 年的起点几乎完全相同——十年费用效率改善的成果，在一年内全部回吐。</strong> 2025 年销售费用绝对额虽从 106.92 亿元降至 76.29 亿元（−28.6%），<strong>但降幅远小于收入降幅（−54.55%）</strong>，属典型费用刚性；</li>
+  <li><strong>贵州茅台销售费用率十年几乎是一条平线</strong>：2016 年 4.33% → 2025 年 4.30%，十年间在 <strong>2.58%–5.13%</strong> 的窄区间波动，且 2025 年的 4.30% 与 2016 年的 4.33% 基本持平。<strong>品牌驱动的公司，其费用结构不随周期改变；</strong></li>
+  <li><strong>销售费用率的差距走出一条「U 形」</strong>：2016 年相差 <strong>14.80</strong> 个百分点（19.13% vs 4.33%）→ 2018 年收窄至 <strong>5.95</strong> 个百分点（十年最窄）→ 2025 年回到 <strong>14.52</strong> 个百分点 → 2026H1 进一步扩大到 <strong>18.71</strong> 个百分点（<strong>十年最宽</strong>）。<strong>关键判断：五粮液的费用率并非「突然变高」，而是「回到了十年前的起点」；十年费用效率改善的成果已被完全抵消，并在 2026H1 创出十年新差；</strong></li>
+  <li><strong>管理费用率：两家都在降，但茅台的降幅更大</strong>。五粮液 8.73%（2016）→ 3.99%（2023–2024）→ 7.64%（2025）；茅台 10.77%（2016）→ 4.93%（2025），十年下降 5.84 个百分点（五粮液下降 1.09 个百分点）。<strong>茅台的规模效应主要体现在管理端的持续摊薄，而非销售端；</strong></li>
+  <li><strong>税金及附加率</strong>：茅台该科目／营业收入从 2016 年 16.75% 升至 2025 年 16.20%（基本稳定），五粮液从 7.91% 升至 27.23%（2025 年因收入基数腰斩而被严重放大）。<strong>该科目的绝对额与消费税额挂钩，收入下滑时其占收入比重会机械性上升，解读时不可只看比率。</strong></li>
+</ul>
+<figure>
+<svg viewBox="0 0 680 300" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
+  <text x="70" y="18" font-size="10" fill="#22262B" font-weight="500">图 5　销售费用率对比（%，占营业收入比重）</text>
+  <rect x="70" y="28" width="10" height="9" fill="#2F6F6B"/><text x="85" y="36" font-size="8.5" fill="#3E4145">五粮液</text>
+  <rect x="140" y="28" width="10" height="9" fill="#B8862F"/><text x="155" y="36" font-size="8.5" fill="#3E4145">贵州茅台</text>
+  <line x1="70" y1="50" x2="660" y2="50" stroke="#EFEBE3" stroke-width="0.7"/>
+  <line x1="70" y1="90" x2="660" y2="90" stroke="#EFEBE3" stroke-width="0.7"/>
+  <line x1="70" y1="130" x2="660" y2="130" stroke="#EFEBE3" stroke-width="0.7"/>
+  <line x1="70" y1="170" x2="660" y2="170" stroke="#EFEBE3" stroke-width="0.7"/>
+  <line x1="70" y1="210" x2="660" y2="210" stroke="#EFEBE3" stroke-width="0.7"/>
+  <line x1="70" y1="250" x2="660" y2="250" stroke="#E3DDD4" stroke-width="1"/>
+  <text x="64" y="53" font-size="7.5" fill="#7C7B77" text-anchor="end">25%</text>
+  <text x="64" y="93" font-size="7.5" fill="#7C7B77" text-anchor="end">20%</text>
+  <text x="64" y="133" font-size="7.5" fill="#7C7B77" text-anchor="end">15%</text>
+  <text x="64" y="173" font-size="7.5" fill="#7C7B77" text-anchor="end">10%</text>
+  <text x="64" y="213" font-size="7.5" fill="#7C7B77" text-anchor="end">5%</text>
+  <text x="64" y="253" font-size="7.5" fill="#7C7B77" text-anchor="end">0</text>
+  <rect x="82.15" y="172.2" width="28" height="77.8" fill="#2F6F6B"/>
+  <rect x="166.45" y="171.4" width="28" height="78.6" fill="#2F6F6B"/>
+  <rect x="250.75" y="176.0" width="28" height="74.0" fill="#2F6F6B"/>
+  <rect x="335.05" y="175.1" width="28" height="74.9" fill="#2F6F6B"/>
+  <rect x="419.35" y="154.1" width="28" height="95.9" fill="#2F6F6B"/>
+  <rect x="503.65" y="99.4" width="28" height="150.6" fill="#0E1E33"/>
+  <rect x="587.95" y="72.0" width="28" height="178.0" fill="#0E1E33"/>
+  <rect x="114.15" y="228.6" width="28" height="21.4" fill="#B8862F"/>
+  <rect x="198.45" y="229.4" width="28" height="20.6" fill="#B8862F"/>
+  <rect x="282.75" y="228.7" width="28" height="21.3" fill="#B8862F"/>
+  <rect x="367.05" y="224.8" width="28" height="25.2" fill="#B8862F"/>
+  <rect x="451.35" y="223.6" width="28" height="26.4" fill="#B8862F"/>
+  <rect x="535.65" y="215.6" width="28" height="34.4" fill="#B8862F"/>
+  <rect x="619.95" y="221.7" width="28" height="28.3" fill="#D9B77A"/>
+  <text x="96.15" y="169.2" font-size="6.6" fill="#22262B" text-anchor="middle">9.7</text>
+  <text x="180.45" y="168.4" font-size="6.6" fill="#22262B" text-anchor="middle">9.8</text>
+  <text x="264.75" y="173" font-size="6.6" fill="#22262B" text-anchor="middle">9.3</text>
+  <text x="349.05" y="172.1" font-size="6.6" fill="#22262B" text-anchor="middle">9.4</text>
+  <text x="433.35" y="151.1" font-size="6.6" fill="#22262B" text-anchor="middle">12.0</text>
+  <text x="517.65" y="96.4" font-size="6.8" fill="#0E1E33" text-anchor="middle" font-weight="500">18.8</text>
+  <text x="601.95" y="69" font-size="6.8" fill="#0E1E33" text-anchor="middle" font-weight="500">22.3</text>
+  <text x="128.15" y="225.6" font-size="6.6" fill="#22262B" text-anchor="middle">2.7</text>
+  <text x="212.45" y="226.4" font-size="6.6" fill="#22262B" text-anchor="middle">2.6</text>
+  <text x="296.75" y="225.7" font-size="6.6" fill="#22262B" text-anchor="middle">2.7</text>
+  <text x="381.05" y="221.8" font-size="6.6" fill="#22262B" text-anchor="middle">3.2</text>
+  <text x="465.35" y="220.6" font-size="6.6" fill="#22262B" text-anchor="middle">3.3</text>
+  <text x="549.65" y="212.6" font-size="6.6" fill="#22262B" text-anchor="middle">4.3</text>
+  <text x="633.95" y="218.7" font-size="6.6" fill="#22262B" text-anchor="middle">3.5</text>
+  <text x="112.15" y="264" font-size="8" fill="#7C7B77" text-anchor="middle">2020</text>
+  <text x="196.45" y="264" font-size="8" fill="#7C7B77" text-anchor="middle">2021</text>
+  <text x="280.75" y="264" font-size="8" fill="#7C7B77" text-anchor="middle">2022</text>
+  <text x="365.05" y="264" font-size="8" fill="#7C7B77" text-anchor="middle">2023</text>
+  <text x="449.35" y="264" font-size="8" fill="#7C7B77" text-anchor="middle">2024</text>
+  <text x="533.65" y="264" font-size="8" fill="#A73F2D" text-anchor="middle" font-weight="500">2025</text>
+  <text x="617.95" y="264" font-size="8" fill="#7C7B77" text-anchor="middle">2026H1</text>
+  <text x="70" y="286" font-size="7.4" fill="#7C7B77">五粮液销售费用率 2024 年起单边加速上行（11.99% → 18.82% → 22.25%）；茅台始终控制在 4.5% 以内。</text>
+</svg>
+<figcaption>图 5　销售费用率对比（收入塌陷下的费用刚性）</figcaption>
+</figure>
+<h3>表 4　资产规模与资本结构（期末数，单位：亿元）</h3>
+<table class="compact financial">
+  <tr><th>期末</th><th>五粮液<br>总资产</th><th>茅台<br>总资产</th><th>五粮液<br>归母净资产</th><th>茅台<br>归母净资产</th><th>五粮液<br>货币资金</th><th>茅台<br>货币资金</th><th>五粮液<br>资产负债率*</th><th>茅台<br>资产负债率*</th></tr>
+  <tr><td>2016 末</td><td>621.74</td><td>1,129.35</td><td>470.77</td><td>728.94</td><td>—</td><td>—</td><td>22.47%</td><td>32.79%</td></tr>
+  <tr><td>2017 末</td><td>709.23</td><td>1,346.10</td><td>533.34</td><td>914.52</td><td>—</td><td>—</td><td>22.91%</td><td>28.67%</td></tr>
+  <tr><td>2018 末</td><td>860.94</td><td>1,598.47</td><td>634.87</td><td>1,128.39</td><td>—</td><td>—</td><td>24.36%</td><td>26.55%</td></tr>
+  <tr><td>2019 末</td><td>1,063.97</td><td>1,830.42</td><td>742.91</td><td>1,360.10</td><td>—</td><td>—</td><td>28.48%</td><td>22.49%</td></tr>
+  <tr><td>2020 末</td><td>1,138.93</td><td>2,133.96</td><td>857.06</td><td>1,613.23</td><td>—</td><td>—</td><td>22.95%</td><td>21.40%</td></tr>
+  <tr><td>2021 末</td><td>1,356.21</td><td>2,551.68</td><td>990.68</td><td>1,895.39</td><td>—</td><td>—</td><td>25.24%</td><td>22.81%</td></tr>
+  <tr><td>2022 末</td><td>1,528.12</td><td>2,545.01</td><td>1,140.28</td><td>1,974.80</td><td>923.58</td><td>582.74</td><td>23.64%</td><td>19.47%</td></tr>
+  <tr><td>2023 末</td><td>1,654.33</td><td>2,727.00</td><td>1,295.58</td><td>2,156.69</td><td>1,154.56</td><td>690.70</td><td>20.00%</td><td>17.98%</td></tr>
+  <tr><td>2024 末</td><td>1,882.52</td><td>2,989.45</td><td>1,332.85</td><td>2,331.06</td><td>1,273.99</td><td>592.96</td><td>27.55%</td><td>19.04%</td></tr>
+  <tr class="total"><td><strong>2025 末</strong></td><td><strong>1,899.84</strong></td><td><strong>3,038.35</strong></td><td><strong>1,199.32</strong></td><td><strong>2,446.38</strong></td><td><strong>1,270.14</strong></td><td><strong>516.91</strong></td><td><strong>35.69%</strong></td><td><strong>16.42%</strong></td></tr>
+  <tr><td>2026H1 末</td><td>1,849.99</td><td>3,090.51</td><td>1,184.80</td><td>2,512.54</td><td>1,190.89</td><td>535.19</td><td>34.62%</td><td>15.19%</td></tr>
+</table>
+<p class="note">*资产负债率＝负债合计／资产总计（分子分母同为该年度报告口径）。两家公司均无有息负债（无短期借款、长期借款、应付债券），负债主要为「合同负债（预收货款）」「应交税费」「其他应付款」等经营性负债。 2022 年末及以后数据采用《企业会计准则解释第 16 号》追溯调整后口径；2020、2021 年末为当年报告原披露数。 五粮液负债合计（亿元）：2016 年末 139.69、2017 年末 162.48、2018 年末 209.75、2019 年末 303.01、2020 年末 261.35、2021 年末 342.29、2022 年末 361.25、2023 年末 330.84、2024 年末 518.57、2025 年末 678.04、2026H1 末 640.55。 茅台负债合计（亿元）：2016 年末 370.36、2017 年末 385.90、2018 年末 424.38、2019 年末 411.66、2020 年末 456.75、2021 年末 582.11、2022 年末 495.63、2023 年末 490.43、2024 年末 569.33、2025 年末 498.76、2026H1 末 469.54。 2016–2019 年「货币资金」未在本报告抽取范围内逐项核验，以「—」表示，不做推算。 注：贵州茅台货币资金不含「拆出资金」（2025 年末 990.96 亿元、2024 年末 1,271.87 亿元）、「买入返售金融资产」等同业资金，其现金流量表「现金及现金等价物」包含财务公司口径，与资产负债表的「货币资金」不等，详见 3.2 节。</p>
+<p><strong>读表要点</strong>：</p>
+<ul>
+  <li><strong>十年最大的结构性反转：资产负债率的「身份互换」。</strong> 2016 年末，<strong>茅台</strong>资产负债率 <strong>32.79%</strong> 高于<strong>五粮液</strong>的 22.47%（相差 10.32 个百分点）；2025 年末完全倒转——<strong>五粮液 35.69%</strong> 高于<strong>茅台 16.42%</strong>（相差 19.27 个百分点）。<strong>十年间五粮液的资产负债率上升 13.22 个百分点，茅台下降 16.37 个百分点。</strong> 这是「分红消耗净资产」与「利润留存增厚净资产」两种资本策略十年累积的直接结果；</li>
+  <li>五粮液资产负债率在 2016–2023 年维持在 20%–28%，2024 年末跳升至 27.55%，2025 年末进一步升至 <strong>35.69%</strong>，两年累计上升 <strong>15.69 个百分点</strong>，主因是「合同负债 + 其他应付款（含应付股利）」增长快于净资产；</li>
+  <li>贵州茅台资产负债率自 2016 年末 32.79% 起<strong>连续九年单向下行</strong>，降至 2026H1 末 <strong>15.19%</strong>（十年下降 17.60 个百分点），<strong>资本结构越来越轻</strong>——原因是利润留存使归母净资产扩张快于负债；</li>
+  <li>五粮液 2025 年末归母净资产 1,199.32 亿元，同比 <strong>减少 133.53 亿元（−10.02%）</strong>——利润分配消耗超过了当年留存收益。贵州茅台同期增加 115.32 亿元（+4.95%）。<strong>十年看：五粮液归母净资产从 470.77 亿元增至 1,199.32 亿元（2.55 倍），茅台从 728.94 亿元增至 2,446.38 亿元（3.36 倍）——2016 年茅台净资产是五粮液的 1.55 倍，2025 年扩大到 2.04 倍。</strong></li>
+</ul>
+<h3>表 5　渠道蓄水池与存货（期末数，单位：亿元）</h3>
+<table class="compact financial">
+  <tr><th>期末</th><th>五粮液<br>预收款项/合同负债</th><th>茅台<br>预收款项/合同负债</th><th>五粮液<br>存货</th><th>茅台<br>存货</th><th>五粮液<br>应收款项融资</th><th>五粮液<br>其他应付款</th></tr>
+  <tr><td>2016 末</td><td>62.99</td><td>175.41</td><td>92.57</td><td>206.22</td><td>—</td><td>—</td></tr>
+  <tr><td>2017 末</td><td>46.46</td><td>144.29</td><td>105.58</td><td>220.57</td><td>—</td><td>—</td></tr>
+  <tr><td>2018 末</td><td>67.07</td><td>135.77</td><td>117.95</td><td>235.07</td><td>—</td><td>—</td></tr>
+  <tr><td>2019 末</td><td>125.31</td><td>137.40</td><td>136.80</td><td>252.85</td><td>—</td><td>—</td></tr>
+  <tr><td>2020 末</td><td>86.19</td><td>133.22</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+  <tr><td>2021 末</td><td>130.59</td><td>127.18</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+  <tr><td>2022 末</td><td>123.79</td><td>154.72</td><td>159.81</td><td>388.24</td><td>289.04</td><td>—</td></tr>
+  <tr><td>2023 末</td><td>68.64</td><td>141.26</td><td>173.88</td><td>464.35</td><td>140.86</td><td>53.86</td></tr>
+  <tr><td>2024 末</td><td>116.90</td><td>95.92</td><td>182.34</td><td>543.43</td><td>195.66</td><td>165.07</td></tr>
+  <tr class="total"><td><strong>2025 末</strong></td><td><strong>134.60</strong></td><td><strong>80.07</strong></td><td><strong>200.65</strong></td><td><strong>614.27</strong></td><td><strong>94.02</strong></td><td><strong>101.86</strong></td></tr>
+  <tr><td>2025H1 末</td><td>100.77</td><td>55.07</td><td>177.46</td><td>—</td><td>—</td><td>—</td></tr>
+  <tr><td>2026H1 末</td><td>104.41</td><td>31.78</td><td>226.58</td><td>613.17</td><td>—</td><td>—</td></tr>
+</table>
+<p class="note">注：<strong>「预收款项」与「合同负债」存在口径切换</strong>——2016–2019 年适用旧准则，列示为「预收款项」；2020 年起适用新收入准则，其中属于「已收或应收客户对价而应向客户转让商品」的部分重分类为「合同负债」（2020 年重分类金额：五粮液约 110.78 亿元、茅台约 133.22 亿元）。旧准则下的「预收款项」口径略宽，<strong>故 2016–2019 与 2020 年及以后的数据仅可作方向性比较，不宜直接计算增长率</strong>。 2016–2019 年的存货为当期年报披露的期末数；2020、2021 年存货未在本报告抽取范围内逐项核验，以「—」表示。</p>
+<p><strong>读表要点</strong>：</p>
+<ul>
+  <li><strong>十年维度看，两家的渠道蓄水池方向完全相反</strong>：五粮液从 2016 年末 62.99 亿元升至 2025 年末 <strong>134.60 亿元（+113.7%）</strong>；茅台从 2016 年末 175.41 亿元降至 2025 年末 <strong>80.07 亿元（−54.4%）</strong>。<strong>十年前茅台的渠道预收款是五粮液的 2.78 倍，十年后反转为五粮液是茅台的 1.68 倍。</strong>（口径切换已计入，仅作方向性判断）</li>
+  <li><strong>五粮液合同负债在收入腰斩的背景下逆势抬升</strong>（68.64 → 116.90 → 134.60 亿元），说明渠道打款意愿尚未断裂，公司「帮助渠道纾压解困」的同时仍在蓄水；</li>
+  <li><strong>贵州茅台合同负债连续两年退潮</strong>（141.26 → 95.92 → 80.07 亿元），2026 年 6 月末仅 31.78 亿元、同比 <strong>−42.3%</strong>，且公司在 2025H1 报告中已明确「主要是经销商预付货款减少」——<strong>这是茅台短周期需求侧最值得警惕的信号</strong>，同时也是<strong>十年尺度的持续退潮</strong>（2016 年末 175.41 亿元 → 2026H1 末 31.78 亿元，累计 −81.9%）；</li>
+  <li><strong>存货：两家都在增长，但性质完全不同。</strong> 五粮液存货从 2016 年末 92.57 亿元增至 2025 年末 <strong>200.65 亿元</strong>（十年 2.17 倍），2025 年 +10.04%、2026H1 末进一步升至 226.58 亿元，而同期收入腰斩——<strong>「存货创历史新高 + 收入创近年新低」是最典型的产能与需求错配信号</strong>；茅台存货从 206.22 亿元增至 614.27 亿元（十年 2.98 倍），<strong>但这是酱香型白酒「贮足陈酿、不卖新酒」工艺的必然结果（基酒需 4–5 年陈化），属主动的战略性储备，不能与成品积压混为一谈</strong>；</li>
+  <li>五粮液「应收款项融资」（银行承兑汇票）从 2024 年末 195.66 亿元降至 2025 年末 94.02 亿元（−51.9%），与「银行承兑汇票到期收现额度减少」的现金流解释互为印证。</li>
+</ul>
+<figure>
+<svg viewBox="0 0 680 300" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
+  <text x="70" y="18" font-size="10" fill="#22262B" font-weight="500">图 6　合同负债（渠道蓄水池）对比（期末，单位：亿元）</text>
+  <rect x="70" y="28" width="10" height="9" fill="#1B365D"/><text x="85" y="36" font-size="8.5" fill="#3E4145">五粮液</text>
+  <rect x="140" y="28" width="10" height="9" fill="#A73F2D"/><text x="155" y="36" font-size="8.5" fill="#3E4145">贵州茅台</text>
+  <line x1="70" y1="50" x2="660" y2="50" stroke="#EFEBE3" stroke-width="0.7"/>
+  <line x1="70" y1="100" x2="660" y2="100" stroke="#EFEBE3" stroke-width="0.7"/>
+  <line x1="70" y1="150" x2="660" y2="150" stroke="#EFEBE3" stroke-width="0.7"/>
+  <line x1="70" y1="200" x2="660" y2="200" stroke="#EFEBE3" stroke-width="0.7"/>
+  <line x1="70" y1="250" x2="660" y2="250" stroke="#E3DDD4" stroke-width="1"/>
+  <text x="64" y="53" font-size="7.5" fill="#7C7B77" text-anchor="end">160</text>
+  <text x="64" y="103" font-size="7.5" fill="#7C7B77" text-anchor="end">120</text>
+  <text x="64" y="153" font-size="7.5" fill="#7C7B77" text-anchor="end">80</text>
+  <text x="64" y="203" font-size="7.5" fill="#7C7B77" text-anchor="end">40</text>
+  <text x="64" y="253" font-size="7.5" fill="#7C7B77" text-anchor="end">0</text>
+  <rect x="95" y="95.3" width="32" height="154.7" fill="#1B365D"/>
+  <rect x="213" y="164.2" width="32" height="85.8" fill="#1B365D"/>
+  <rect x="331" y="103.9" width="32" height="146.1" fill="#1B365D"/>
+  <rect x="449" y="81.7" width="32" height="168.3" fill="#1B365D"/>
+  <rect x="567" y="119.5" width="32" height="130.5" fill="#A6B0C0"/>
+  <rect x="131" y="56.6" width="32" height="193.4" fill="#A73F2D"/>
+  <rect x="249" y="73.4" width="32" height="176.6" fill="#A73F2D"/>
+  <rect x="367" y="130.1" width="32" height="119.9" fill="#A73F2D"/>
+  <rect x="485" y="149.9" width="32" height="100.1" fill="#A73F2D"/>
+  <rect x="603" y="210.3" width="32" height="39.7" fill="#8A3223"/>
+  <text x="111" y="92.3" font-size="6.8" fill="#22262B" text-anchor="middle">123.79</text>
+  <text x="229" y="161.2" font-size="6.8" fill="#22262B" text-anchor="middle">68.64</text>
+  <text x="347" y="100.9" font-size="6.8" fill="#22262B" text-anchor="middle">116.90</text>
+  <text x="465" y="78.7" font-size="6.8" fill="#22262B" text-anchor="middle">134.60</text>
+  <text x="583" y="116.5" font-size="6.8" fill="#0E1E33" text-anchor="middle">104.41</text>
+  <text x="147" y="53.6" font-size="6.8" fill="#22262B" text-anchor="middle">154.72</text>
+  <text x="265" y="70.4" font-size="6.8" fill="#22262B" text-anchor="middle">141.26</text>
+  <text x="383" y="127.1" font-size="6.8" fill="#22262B" text-anchor="middle">95.92</text>
+  <text x="501" y="146.9" font-size="6.8" fill="#22262B" text-anchor="middle">80.07</text>
+  <text x="619" y="207.3" font-size="6.8" fill="#A73F2D" text-anchor="middle" font-weight="500">31.78</text>
+  <text x="129" y="264" font-size="8" fill="#7C7B77" text-anchor="middle">2022末</text>
+  <text x="247" y="264" font-size="8" fill="#7C7B77" text-anchor="middle">2023末</text>
+  <text x="365" y="264" font-size="8" fill="#7C7B77" text-anchor="middle">2024末</text>
+  <text x="483" y="264" font-size="8" fill="#7C7B77" text-anchor="middle">2025末</text>
+  <text x="601" y="264" font-size="8" fill="#7C7B77" text-anchor="middle">2026H1末</text>
+  <text x="70" y="286" font-size="7.4" fill="#7C7B77">五粮液「先降后升」（2025 末 134.60 亿元）；茅台「持续单边下坠」（2026H1 末 31.78 亿元，同比 −42.3%）。</text>
+</svg>
+<figcaption>图 6　合同负债（渠道蓄水池）对比趋势</figcaption>
+</figure>
+<h3>表 6　现金流量表核心科目（单位：亿元）</h3>
+<table class="compact financial">
+  <tr><th>期间</th><th>五粮液<br>经营净额</th><th>茅台<br>经营净额</th><th>五粮液<br>投资净额</th><th>茅台<br>投资净额</th><th>五粮液<br>筹资净额</th><th>茅台<br>筹资净额</th><th>五粮液<br>期末现金及等价物</th><th>茅台<br>期末现金及等价物</th></tr>
+  <tr><td>2020</td><td>146.98</td><td>516.69</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+  <tr><td>2021</td><td>267.75</td><td>640.29</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+  <tr><td>2022</td><td>244.31</td><td>366.99</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+  <tr><td>2023</td><td>417.42</td><td>665.93</td><td>−29.32</td><td>−97.24</td><td>−163.00</td><td>−588.89</td><td>1,130.96</td><td>1,503.60</td></tr>
+  <tr><td>2024</td><td>339.40</td><td>924.64</td><td>−26.42</td><td>−17.85</td><td>−196.22</td><td>−710.68</td><td>1,247.71</td><td>1,699.70</td></tr>
+  <tr class="total"><td><strong>2025</strong></td><td><strong>297.06</strong></td><td><strong>615.22</strong></td><td><strong>−19.71</strong></td><td><strong>−316.42</strong></td><td><strong>−283.92</strong></td><td><strong>−734.27</strong></td><td><strong>1,241.15</strong></td><td><strong>1,264.26</strong></td></tr>
+  <tr><td>2026H1</td><td>−21.54</td><td>706.91</td><td>−4.34</td><td>+256.41</td><td>−58.63</td><td>−379.44</td><td>—</td><td>—</td></tr>
+</table>
+<p class="note">注：2020–2022 年投资／筹资活动及期末现金数据未在本次抽取范围内逐项核验，以「—」表示，不做推算。</p>
+<p><strong>读表要点</strong>：</p>
+<ul>
+  <li><strong>经营现金流是两家公司最后的「体面」</strong>：即便 2025 年收入腰斩，五粮液经营现金流仍有 297.06 亿元（为归母净利润的 3.32 倍）；茅台 615.22 亿元（为归母净利润的 0.75 倍）。</li>
+  <li><strong>五粮液经营现金流/归母净利润之比连续三年高于 1</strong>（2023 年 1.38、2024 年 1.07、2025 年 <strong>3.32</strong>），2025 年该比率的异常抬升是<strong>收入收缩下「收现 &gt; 确认收入」</strong>的会计结果（合同负债增加 + 票据到期收现），并非经营质量改善。</li>
+  <li><strong>2026H1 五粮液经营现金流首次转负（−21.54 亿元，同比 −106.92%）</strong>，公司解释为「上年同期基数较高、收款政策调整、银行承兑汇票到期额度同比减少」。<strong>这是 2026 年最需要跟踪的单一指标。</strong></li>
+  <li>茅台 2025 年投资活动净流出 316.42 亿元（2024 年仅 17.85 亿元），主因「投资支付的现金」从 57.45 亿元升至 620.97 亿元（主要为定期存款／理财产品配置），<strong>并非产能投资失控</strong>；2026H1 投资转为净流入 256.41 亿元，为资金的季节性回笼。</li>
+</ul>
+<h3>表 7　收入结构：分产品与分渠道</h3>
+<p><strong>（1）五粮液</strong></p>
+<table class="compact financial">
+  <tr><th>项目</th><th>2024 年</th><th>2025 年</th><th>同比</th><th>2024 年占比</th><th>2025 年占比</th></tr>
+  <tr><td>酒类产品</td><td>831.27</td><td>371.04</td><td>−55.36%</td><td>93.22%</td><td>91.55%</td></tr>
+  <tr><td>其中：五粮液产品</td><td>678.68</td><td>279.36</td><td>−58.84%</td><td>76.11%</td><td>68.93%</td></tr>
+  <tr><td>其他酒产品</td><td>152.53</td><td>91.68</td><td>−39.89%</td><td>17.11%</td><td>22.62%</td></tr>
+  <tr><td>非酒类产品</td><td>60.48</td><td>34.25</td><td>−43.38%</td><td>6.78%</td><td>8.45%</td></tr>
+  <tr><td><strong>合计</strong></td><td><strong>891.75</strong></td><td><strong>405.29</strong></td><td><strong>−54.55%</strong></td><td>100.00%</td><td>100.00%</td></tr>
+  <tr><td>分渠道：经销模式</td><td>487.38</td><td>225.92</td><td>−53.65%</td><td>54.65%</td><td>55.74%</td></tr>
+  <tr><td>直销模式</td><td>343.89</td><td>145.12</td><td>−57.80%</td><td>38.56%</td><td>35.81%</td></tr>
+</table>
+<p class="note">注：五粮液 2024 年分产品／分渠道金额由 2025 年年报披露的同比增减率倒算；占比以「营业收入合计」为分母（与年报披露口径一致）。</p>
+<p><strong>（2）贵州茅台</strong></p>
+<table class="compact financial">
+  <tr><th>项目</th><th>2024 年</th><th>2025 年</th><th>同比</th><th>2024 年占比</th><th>2025 年占比</th></tr>
+  <tr><td>茅台酒</td><td>1,459.30</td><td>1,464.99</td><td>+0.39%</td><td>85.53%</td><td>86.80%</td></tr>
+  <tr><td>其他系列酒</td><td>246.84</td><td>222.75</td><td>−9.76%</td><td>14.47%</td><td>13.20%</td></tr>
+  <tr><td><strong>主营业务合计</strong></td><td><strong>1,706.14</strong></td><td><strong>1,687.75</strong></td><td><strong>−1.08%</strong></td><td>100.00%</td><td>100.00%</td></tr>
+  <tr><td>分渠道：批发代理</td><td>957.78</td><td>842.32</td><td>−12.05%</td><td>56.14%</td><td>49.91%</td></tr>
+  <tr><td>直销</td><td>748.36</td><td>845.43</td><td>+12.96%</td><td>43.86%</td><td>50.09%</td></tr>
+  <tr><td>分地区：国内</td><td>1,654.30</td><td>1,639.24</td><td>−0.91%</td><td>96.96%</td><td>97.13%</td></tr>
+  <tr><td>国外</td><td>51.88</td><td>48.50</td><td>−6.52%</td><td>3.04%</td><td>2.87%</td></tr>
+</table>
+<p class="note">注：贵州茅台分产品／分渠道／分地区的 2024 年金额由 2025 年年报披露的同比增减率倒算，占比以「主营业务收入」为分母；分产品金额之和与主营业务收入可能存在四舍五入尾差。</p>
+<p><strong>（3）2026 年上半年度结构</strong></p>
+<table class="compact financial">
+  <tr><th>五粮液 2026H1</th><th>金额（亿元）</th><th>同比</th><th>毛利率</th><th>茅台 2026H1</th><th>金额（亿元）</th><th>毛利率</th></tr>
+  <tr><td>五粮液产品</td><td>236.32</td><td>+72.84%</td><td>87.91%</td><td>茅台酒</td><td>777.24</td><td>92.28%</td></tr>
+  <tr><td>其他酒产品</td><td>32.35</td><td>−60.17%</td><td>60.47%</td><td>其他系列酒</td><td>129.34</td><td>73.59%</td></tr>
+  <tr><td>酒类合计</td><td>268.67</td><td>+23.27%</td><td>84.61%</td><td>主营合计</td><td>906.58</td><td>89.58%</td></tr>
+  <tr><td>经销模式</td><td>184.76</td><td>+36.33%</td><td>83.12%</td><td>批发代理</td><td>386.97</td><td>85.02%</td></tr>
+  <tr><td>直销模式</td><td>83.91</td><td>+1.81%</td><td>87.90%</td><td>直销</td><td>520.07</td><td>92.93%</td></tr>
+</table>
+<p><strong>读表要点</strong>：</p>
+<ul>
+  <li><strong>五粮液的收入结构在 2025 年发生了「高端占比下降」的逆向变化</strong>：五粮液产品收入占比从 76.11% 降至 68.93%，是近年少见的「高端收缩型」结构变动，印证了 2025 年年报「白酒行业进入深度调整期，消费场景收缩、存量竞争加剧，导致销量下降」的表述；</li>
+  <li><strong>贵州茅台的收入结构几乎未变</strong>：茅台酒占主营业务收入比例甚至小幅提升至约 86.8%，系列酒下滑 9.76% 是主要拖累。<strong>「大单品」结构在调整期表现出更强的抗跌性，这是茅台的核心护城河在财务上的直接体现；</strong></li>
+  <li><strong>渠道结构的分化值得关注</strong>：茅台直销渠道 2025 年 +12.96%、占主营收入比重首次过半（<strong>50.09%</strong>），2026H1 进一步升至 <strong>57.34%</strong>——<strong>「i 茅台 + 自营」对价格体系和利润率的支撑在增强</strong>；五粮液直销渠道 2025 年 −57.80%，2026H1 仅 +1.81%，渠道改革的成效尚未显现。</li>
+</ul>
+<h3>表 8　分季度经营数据（单位：亿元）</h3>
+<p><strong>五粮液</strong></p>
+<table class="compact financial">
+  <tr><th>季度</th><th>2024Q1</th><th>2024Q2</th><th>2024Q3</th><th>2024Q4</th><th>2025Q1</th><th>2025Q2</th><th>2025Q3</th><th>2025Q4</th></tr>
+  <tr><td>营业收入</td><td>348.33</td><td>158.15</td><td>172.68</td><td>212.60</td><td>170.86</td><td>64.24</td><td>71.28</td><td>98.91</td></tr>
+  <tr><td>归母净利润</td><td>140.45</td><td>50.12</td><td>58.74</td><td>69.22</td><td>44.16</td><td>2.08</td><td>18.51</td><td>24.80</td></tr>
+</table>
+<p><strong>贵州茅台</strong></p>
+<table class="compact financial">
+  <tr><th>季度</th><th>2024Q1</th><th>2024Q2</th><th>2024Q3</th><th>2024Q4</th><th>2025Q1</th><th>2025Q2</th><th>2025Q3</th><th>2025Q4</th></tr>
+  <tr><td>营业收入</td><td>457.76</td><td>361.55</td><td>388.45</td><td>501.23</td><td>506.01</td><td>387.88</td><td>390.64</td><td>403.84</td></tr>
+  <tr><td>归母净利润</td><td>240.65</td><td>176.30</td><td>191.32</td><td>254.01</td><td>268.47</td><td>185.55</td><td>192.24</td><td>176.93</td></tr>
+</table>
+<p><strong>读表要点</strong>：</p>
+<ul>
+  <li><strong>五粮液的失速是「逐季递进」而非「单季跳变」</strong>：2025Q1 收入 170.86 亿元（同比 −50.9%），2025Q2 仅 64.24 亿元（同比 −59.4%），<strong>Q2 归母净利润 2.08 亿元、环比 −95.3%，为近十年单季最低</strong>。这排除了「一次性因素」的解释，指向需求侧的持续性收缩。</li>
+  <li><strong>贵州茅台 2025 年的压力集中在 Q4</strong>：Q4 收入 403.84 亿元（同比 −19.4%）、归母净利润 176.93 亿元（同比 −30.3%），<strong>降幅远大于前三季度</strong>，季节性「春节前集中打款」效应弱化。</li>
+  <li>五粮液 2025 年 Q4 收入 98.91 亿元，<strong>低于 Q1 的 170.86 亿元，也低于 2024Q4 的 212.60 亿元</strong>，旺季不旺。</li>
+</ul>
+<h2>三、三张财务数据表：关键变化与趋势含义</h2>
+<h3>3.1 利润表——从「双位数增长」到「增速归零与断崖」</h3>
+<table class="compact">
+  <tr><th>科目</th><th>变化轨迹（2020 → 2025）</th><th>趋势方向</th><th>趋势含义</th></tr>
+  <tr><td><strong>五粮液 营业收入</strong></td><td>245.44（2016）→ 301.87 → 400.30 → 501.18 → 573.21 → 662.09 → 739.69 → 832.72 → 891.75 → <strong>405.29（2025）</strong></td><td>九年上行后<strong>断崖</strong></td><td>增长逻辑中断；<strong>2025 年一次性回吐 2019–2024 六年增量（收入回到 2018 年水平）</strong>；十年 CAGR 仅 5.73%（剔除 2025 年后，2016–2024 八年 CAGR 为 17.50%）</td></tr>
+  <tr><td><strong>茅台 营业收入</strong></td><td>388.62（2016）→ 582.18 → 736.39 → 854.30 → 949.15 → 1,061.90 → 1,241.00 → 1,476.94 → 1,708.99 → <strong>1,688.38（2025）</strong></td><td>九年高增后<strong>首次负增长</strong></td><td>增速归零但规模守住；1,688.38 亿元仍高于 2023 年水平（仅回吐一年增量），<strong>未出现规模倒退</strong>；十年 CAGR 17.73%</td></tr>
+  <tr><td><strong>五粮液 归母净利率</strong></td><td>34.81% → 35.31% → 36.08% → 36.28% → 35.72% → <strong>22.09%</strong></td><td><strong>由稳转崩</strong></td><td>毛利率同期反升至 77.54%，<strong>净利率跌幅 13.63 个百分点全部由期间费用与规模摊薄解释</strong></td></tr>
+  <tr><td><strong>茅台 归母净利率</strong></td><td>49.20% → 49.40% → 50.54% → 50.60% → 50.46% → <strong>48.76%</strong></td><td><strong>高位微降</strong></td><td>十年维度看仍在 48%–51% 窄幅波动，<strong>盈利模型未被破坏</strong></td></tr>
+  <tr><td><strong>五粮液 销售费用率</strong></td><td>9.73% → 9.82% → 9.25% → 9.36% → 11.99% → <strong>18.82%</strong></td><td><strong>单边加速上行</strong></td><td>收入下降 54.55% 而销售费用仅降 28.6%，<strong>费用刚性 + 促销投入加码 = 利润率放大器反向作用</strong></td></tr>
+  <tr><td><strong>茅台 税金及附加/营收</strong></td><td>14.63% → 14.41% → 14.90% → 15.06% → 15.76% → <strong>16.20%</strong></td><td>温和上行</td><td>消费税从价＋从量复合计征，<strong>收入结构向高价茅台酒集中反而推高该比率</strong>，属结构性而非恶化</td></tr>
+</table>
+<p><strong>一句话概括利润表</strong>：<strong>毛利率两家都稳、费用率一家失控</strong>。五粮液的利润表在 2025 年经历了「收入 −54.55%、毛利额 −55.1%、销售费用仅 −28.6%」的三重挤压，最终净利率腰斩；茅台的利润表则表现为「收入 −1.21%、净利率 −1.70 个百分点」的温和收敛。</p>
+<h3>3.2 资产负债表——从「扩张」到「收缩」</h3>
+<table class="compact">
+  <tr><th>科目</th><th>变化轨迹（2022末 → 2026H1末）</th><th>趋势方向</th><th>趋势含义</th></tr>
+  <tr><td><strong>五粮液 总资产</strong></td><td>1,528.12 → 1,654.33 → 1,882.52 → <strong>1,899.84</strong> → 1,849.99</td><td>扩张转<strong>见顶回落</strong></td><td>2026H1 总资产环比减少 49.85 亿元，<strong>分红消耗超过留存收益</strong>，资产表开始收缩</td></tr>
+  <tr><td><strong>五粮液 归母净资产</strong></td><td>1,140.28 → 1,295.58 → 1,332.85 → <strong>1,199.32</strong> → 1,184.80</td><td><strong>首次大幅缩减</strong></td><td>2025 年减少 133.53 亿元（−10.02%），上市以来罕见，<strong>分红率已超过当期利润留存</strong></td></tr>
+  <tr><td><strong>茅台 总资产</strong></td><td>2,545.01 → 2,727.00 → 2,989.45 → <strong>3,038.35</strong> → 3,090.51</td><td><strong>持续扩张</strong></td><td>六年累计增长 21.4%，且<strong>主要由净资产（留存利润）驱动</strong>，而非负债</td></tr>
+  <tr><td><strong>茅台 归母净资产</strong></td><td>1,974.80 → 2,156.69 → 2,331.06 → <strong>2,446.38</strong> → 2,512.54</td><td><strong>稳步增厚</strong></td><td>2025 年逆势增加 115.32 亿元，<strong>资本缓冲持续加厚</strong></td></tr>
+  <tr><td><strong>五粮液 合同负债</strong></td><td>123.79 → 68.64 → 116.90 → <strong>134.60</strong> → 104.41</td><td><strong>先降后升再回落</strong></td><td>2025 年末的高点在 2026H1 回落 22.4%，<strong>「以时间换空间」的蓄水效应正在消耗</strong></td></tr>
+  <tr><td><strong>茅台 合同负债</strong></td><td>154.72 → 141.26 → 95.92 → <strong>80.07</strong> → 31.78</td><td><strong>持续单边下坠</strong></td><td>两年半累计下降 79.5%，2026H1 同比 −42.3%（公司口径：经销商预付货款减少），<strong>渠道预付款的「缓冲垫」明显变薄</strong></td></tr>
+  <tr><td><strong>五粮液 货币资金</strong></td><td>923.58 → 1,154.56 → 1,273.99 → <strong>1,270.14</strong> → 1,190.89</td><td>见顶回落</td><td>绝对规模仍厚（1,191 亿元），可覆盖 2025 年分红（约 200 亿元）近 6 期</td></tr>
+  <tr><td><strong>茅台 货币资金</strong></td><td>582.74 → 690.70 → 592.96 → <strong>516.91</strong> → 535.19</td><td><strong>震荡下行</strong></td><td>三年累计减少 155.83 亿元；若计入拆出资金（990.96 亿元）与买入返售（88.80 亿元），<strong>财务公司的类现金资产池依然厚实</strong></td></tr>
+</table>
+<p class="note"><strong>口径说明（重要）</strong>：贵州茅台合并报表包含控股子公司贵州茅台集团财务有限公司，其「吸收存款及同业存放」（2025 年末 180.38 亿元）属负债、「拆出资金」「买入返售金融资产」「发放贷款和垫款」属资产。因此： - 现金流量表的「现金及现金等价物」（2025 年末 1,264.26 亿元）<strong>包含财务公司口径</strong>，与资产负债表的「货币资金」（516.91 亿元）<strong>不可直接相加或比较</strong>； - 「经营活动现金流」受「客户存款和同业存放款项净增加额」（2025 年 −50.99 亿元）影响，<strong>不完全是卖酒收现</strong>。 这是分析茅台现金流时最常见的口径陷阱。<strong>比较两家公司的经营现金流质量时，必须使用「销售商品、提供劳务收到的现金」这一科目</strong>：茅台 2025 年 1,839.90 亿元（＋0.74%），五粮液 914.00 亿元（−10.28%）。</p>
+<h3>3.3 现金流量表——分红刚性 vs 现金收缩</h3>
+<table class="compact">
+  <tr><th>科目</th><th>变化轨迹</th><th>趋势方向</th><th>趋势含义</th></tr>
+  <tr><td><strong>五粮液 经营净额</strong></td><td>417.42（2023）→ 339.40（2024）→ <strong>297.06（2025）</strong> → −21.54（2026H1）</td><td><strong>连续三年下滑，中报转负</strong></td><td>2025 年经营净额仍为归母净利润的 3.32 倍，看似强劲；但<strong>这是合同负债增加（＋17.70 亿元）与票据到期收现（应收款项融资 −101.64 亿元）叠加的会计结果，不可持续</strong></td></tr>
+  <tr><td><strong>茅台 经营净额</strong></td><td>665.93（2023）→ 924.64（2024）→ <strong>615.22（2025）</strong> → 706.91（2026H1）</td><td><strong>高位波动</strong></td><td>2025 年 −33.46%，公司归因于「财务公司吸收成员单位存款减少及不可随时支取的同业存款增加」——<strong>属金融子公司扰动，非主业现金流失血</strong></td></tr>
+  <tr><td><strong>五粮液 筹资净额</strong></td><td>−163.00（2023）→ −196.22（2024）→ <strong>−283.92（2025）</strong></td><td><strong>流出持续扩大</strong></td><td>2025 年分红付现 280.05 亿元（2024 年 192.41 亿元），<strong>分红已成第一大现金用途</strong>，占经营净额 94.3%</td></tr>
+  <tr><td><strong>茅台 筹资净额</strong></td><td>−588.89（2023）→ −710.68（2024）→ <strong>−734.27（2025）</strong></td><td><strong>流出持续扩大</strong></td><td>2025 年分配股利付现 672.42 亿元，叠加 61.85 亿元「支付其他与筹资活动有关的现金」（含股份回购），<strong>分红＋回购合计占经营净额 119.3%</strong></td></tr>
+  <tr><td><strong>茅台 期末现金及等价物</strong></td><td>1,503.60 → 1,699.70 → <strong>1,264.26</strong></td><td><strong>2025 年大幅下降</strong></td><td>单年减少 435.44 亿元（−25.6%），为近年最大降幅，<strong>分红＋理财配置双重消耗</strong></td></tr>
+  <tr><td><strong>五粮液 经营现金流/归母净利</strong></td><td>1.38（2023）→ 1.07（2024）→ <strong>3.32（2025）</strong></td><td><strong>异常抬升</strong></td><td>比率越高越好是误读——<strong>在收入腰斩背景下该比率飙升，本质是「收现快于收入确认」</strong>，属蓄水，非质量改善</td></tr>
+</table>
+<p><strong>核心矛盾</strong>：两家公司都进入了「<strong>利润增长停滞 + 分红承诺刚性</strong>」的组合。五粮液 2025 年分红付现 280.05 亿元 ≈ 归母净利润（89.54 亿元）的 <strong>312.8%</strong>；贵州茅台 2025 年分配股利付现 672.42 亿元 ≈ 归母净利润（823.20 亿元）的 <strong>81.7%</strong>。<strong>前者的分红已明显超出当年利润，依靠账面现金存量支撑；后者仍在利润覆盖范围内，但缓冲垫在变薄。</strong></p>
+<h3>3.4 三表联动</h3>
+<p><strong>（1）五粮液：利润表失血 → 资产负债表蓄水 → 现金流量表透支</strong></p>
+<ul>
+  <li><strong>利润表</strong>反映「经营真相」：收入 −54.55%、净利率 22.09%、销售费用率 18.82%，<strong>主业盈利能力被费用刚性严重稀释</strong>；</li>
+  <li><strong>资产负债表</strong>反映「缓冲动作」：合同负债升至 134.60 亿元、存货升至 200.65 亿元，<strong>公司用渠道蓄水与库存承接，把收入确认压力后移</strong>；</li>
+  <li><strong>现金流量表</strong>反映「现金去向」：经营净额 297.06 亿元、筹资净流出 283.92 亿元、归母净资产减少 133.53 亿元——<strong>当年的经营现金几乎全额用于分红，留存收益不足以支撑净资产扩张</strong>；</li>
+  <li><strong>三者合起来看</strong>：2025 年的五粮液是「<strong>用存量现金和渠道信用，换取收入和渠道的软着陆</strong>」。可持续性取决于 2026 年的动销能否延续 2026H1 的修复斜率——而 2026H1 经营现金流转负，<strong>是这个模式可持续性的第一个黄灯</strong>。</li>
+</ul>
+<p><strong>（2）贵州茅台：利润表守住 → 资产负债表增厚 → 现金流量表被动收缩</strong></p>
+<ul>
+  <li><strong>利润表</strong>反映「经营真相」：收入 −1.21%、净利率 48.76%、毛利率 91.18%，<strong>盈利模型完整，仅是增速归零</strong>；</li>
+  <li><strong>资产负债表</strong>反映「资本重构」：总资产＋1.64%、归母净资产＋4.95%、资产负债率降至 16.42%，<strong>是典型的「无杠杆高质量资产负债表」</strong>；</li>
+  <li><strong>现金流量表</strong>反映「现金去向」：经营净额 615.22 亿元（被财务公司扰动压低）、筹资净流出 734.27 亿元、投资净流出 316.42 亿元、期末现金 −435.44 亿元——<strong>钱主要去了两处：分红＋回购，以及定存／理财配置</strong>；</li>
+  <li><strong>三者合起来看</strong>：2025 年的茅台是「<strong>增长停下、现金仍在、主动降杠杆与高分红并行</strong>」。它的风险不在报表内，而在报表外——<strong>合同负债同比 −42.3% 所反映的渠道预付款退潮</strong>，若延续将影响 2026 年的收入节奏。</li>
+</ul>
+<p><strong>（3）横向对比的一句话结论</strong></p>
+<p class="note"><strong>五粮液在「修复资产负债表的问题」，茅台在「分配资产负债表的结果」。</strong> 五粮液要解决的是「收入如何回来、费用如何降下去」；茅台要解决的是「在高分红与增长归零之间维持渠道预期」。</p>
+<h2>四、数据变化趋势与原因分析</h2>
+<h3>4.1 增长的「分水岭」：为什么是 2025 年</h3>
+<p><strong>数据轨迹</strong>：两家公司在 <strong>2016–2024 的连续九年里都保持了营业收入与归母净利润的正增长</strong>（五粮液 2016–2024 营收 CAGR 17.50%、茅台 20.34%；2020–2024 四年 CAGR 分别为 11.68% 与 15.84%），2025 年同时转负，但幅度悬殊（−54.55% vs −1.21%）。<strong>「九年无一年负增长」之后的首次转负，且转负幅度相差 45 个百分点——这是本报告的问题起点。</strong></p>
+<p><strong>原因拆解（基于年报披露信息）</strong>：</p>
+<ol>
+  <li><strong>行业层面——深度调整是共同背景，但不解释差异</strong>。五粮液 2025 年年报援引国家统计局数据：「2025 年全国白酒实现产量 354.9 万千升、同比下降 12.1%，销售收入 5,724 亿元、同比下降 7.5%，利润总额 1,884 亿元、同比下降 13.3%」。<strong>行业销售收入降 7.5%，而五粮液收入降 54.55%——超额降幅 47 个百分点无法用行业因素解释。</strong></li>
+</ol>
+<ol>
+  <li><strong>产品结构层面——高端依赖度决定了抗跌性</strong>。<ul><li class="sub">五粮液：五粮液产品（高端）收入 −58.84%，跌幅大于其他酒产品（−39.89%），<strong>高端品类反而是重灾区</strong>；</li><li class="sub">贵州茅台：茅台酒（超高端）收入 <strong>+0.39%</strong>，只有系列酒（−9.76%）下滑。<strong>「价格带越高端越抗跌」这一常识在白酒调整期出现了例外——茅台靠的是「大单品 + 稀缺性 + 直销体系」，而不是单纯的高价位。</strong></li></ul></li>
+</ol>
+<ol>
+  <li><strong>量价层面——五粮液是「量价双杀」，茅台是「量增价平」</strong>。<ul><li class="sub">五粮液 2025 年酒类销量 11.296 万吨（−30.26%），产量 12.777 万吨（−12.76%），期末库存 4.762 万吨（<strong>+45.18%</strong>）。以酒类收入 371.04 亿元÷11.296 万吨计算，<strong>隐含吨价约 32.85 万元/吨，较 2024 年的约 51.31 万元/吨下滑 36.0%</strong>——价格降幅大于销量降幅；</li><li class="sub">贵州茅台 2025 年酒类产量 11.61 万吨（+11.25%）、销量 8.51 万吨（+2.13%）、库存 34.00 万吨（+9.67%），<strong>产销基本平稳，无价格杀跌迹象</strong>。</li></ul></li>
+</ol>
+<ol>
+  <li><strong>公司应对层面——「主动调整」的会计代价</strong>。五粮液年报明确：「2025 年，白酒行业进入深度调整周期，公司主动应市调整，主动帮助渠道纾压解困」。<strong>「帮助渠道纾压」在会计上体现为：不向渠道压货（收入确认减少）、允许票据结算与账期延长（应收款项融资变动）、加大促销投放（销售费用率抬升）——这三项共同构成了收入与利润的下滑。</strong></li>
+</ol>
+<h3>4.2 毛利率与产品结构：两家公司的产品力都没有坏</h3>
+<p><strong>数据轨迹</strong>：</p>
+<ul>
+  <li>五粮液毛利率：74.16% → 75.35% → 75.42% → 75.79% → 77.05% → <strong>77.54%</strong> → 80.29%（2026H1），<strong>六年连升</strong>；</li>
+  <li>茅台毛利率：91.41% → 91.54% → 91.87% → 91.97% → 91.93% → <strong>91.18%</strong> → 89.55%（2026H1），<strong>六年基本持平</strong>。</li>
+</ul>
+<p><strong>结论与含义</strong>：</p>
+<ol>
+  <li><strong>毛利率不降反升，说明降价并未击穿成本线，也说明两家公司没有靠「低价倾销」换量</strong>；</li>
+  <li>五粮液毛利率的持续改善来自<strong>产品结构升级（经典五粮液、紫气东来等高端产品放量）与成本端优化</strong>（2025 年营业成本同比 −55.5%，原材料、人工成本同步下降）；</li>
+  <li>五粮液 2026H1 毛利率升至 80.29%，主要来自<strong>低毛利的「其他酒产品」收入占比大幅下降</strong>（2026H1 其他酒产品收入 −60.17%，占比从 22.62% 降至 12.05% 附近），<strong>这是结构性而非内生性的改善</strong>，需要警惕「高毛利靠低端产品萎缩实现」的伪改善；</li>
+  <li>茅台 2026H1 毛利率降至 89.55%，同样源于结构：系列酒收入占比上升，<strong>但这与「以茅台酒守价格、以系列酒稳增长」的策略一致</strong>。</li>
+</ol>
+<h3>4.3 费用率：五粮液销售费用率的失控式抬升</h3>
+<p><strong>数据轨迹</strong>：五粮液销售费用率 9.73% → 9.82% → 9.25% → 9.36% → 11.99% → <strong>18.82%</strong> → <strong>22.25%（2026H1）</strong>。</p>
+<p><strong>原因拆解</strong>：</p>
+<ol>
+  <li><strong>分母效应（主导）</strong>：2025 年收入较 2024 年减少 486.46 亿元（−54.55%），即使销售费用绝对额不变，费用率也会自动从 11.99% 升至约 26%；</li>
+  <li><strong>分子刚性</strong>：销售费用从 106.92 亿元降至 76.29 亿元，降幅 28.6%，<strong>远小于收入降幅</strong>——因为品牌传播（央视春晚秋晚联动、「和美全球行」、世界杯赛事营销、综艺冠名与国漫联名）与渠道建设（新增专卖店、团购对接、即时零售平台接入）属<strong>战略刚性投入</strong>，难以随收入同比例压缩；</li>
+  <li><strong>促销加码</strong>：开瓶扫码激励、动销活动等直接计入销售费用，<strong>收入越差、促销投入越需要加码</strong>，形成负向螺旋；</li>
+  <li>2026H1 销售费用 63.22 亿元（同比 +80.65%）而收入仅 +20.87%，<strong>费用投放的边际效率在下降</strong>——投入 1 元费用换回的增量收入低于上年。</li>
+</ol>
+<p><strong>对比茅台</strong>：销售费用率 2.68% → 4.30% → 3.54%，<strong>始终控制在 4.5% 以内</strong>，核心原因是「品牌自带需求 + 直销体系承担了大部分渠道功能」，不需要大规模外部投放。<strong>这是「品牌资产型公司」与「渠道推动型公司」在调整期最本质的差别。</strong></p>
+<h3>4.4 渠道蓄水池（合同负债）：两家公司释放了相反的信号</h3>
+<p><strong>数据轨迹</strong>：</p>
+<ul>
+  <li>五粮液：68.64（2023末）→ 116.90（2024末）→ <strong>134.60（2025末）</strong> → 104.41（2026H1末）；</li>
+  <li>贵州茅台：141.26（2023末）→ 95.92（2024末）→ <strong>80.07（2025末）</strong> → 31.78（2026H1末，同比 −42.3%）。</li>
+</ul>
+<p><strong>两种解读</strong>：</p>
+<ul>
+  <li><strong>五粮液合同负债逆势上升</strong>，在收入腰斩的背景下尤其突兀。合理解释有两种：（1）公司在利润表承压时<strong>主动引导渠道提前打款，以储备「业绩蓄水池」</strong>，为后续期间平滑收入；（2）<strong>收款政策调整的结果</strong>（2026H1 报告中提及「根据市场变化调整了收款政策」）。无论哪种，<strong>合同负债大幅上升并没有阻止收入下滑，说明「货没有真正动销到终端」</strong>；</li>
+  <li><strong>贵州茅台合同负债持续下降</strong>，并在 2025H1 报告中明确将原因写为「<strong>主要是经销商预付货款减少</strong>」。这是<strong>需求侧最诚实的信号</strong>：在「先款后货」体系下，经销商愿意预付多少，直接反映其对未来动销与价差的预期。</li>
+</ul>
+<p><strong>投资含义</strong>：<strong>茅台的合同负债是「真实需求温度计」，五粮液的合同负债更像「财务缓冲垫」。</strong> 前者下降是压力，后者上升不一定是好消息——需要结合存货与经营现金流一起看：五粮液 2026H1 存货升至 226.58 亿元（环比 +12.9%）、经营现金流转负，<strong>「合同负债上升 + 存货上升 + 经营现金流转负」的组合，指向渠道库存的实际消化并不理想</strong>。</p>
+<h3>4.5 分红与股东回报：从「回报」变为「现金消耗」</h3>
+<table class="compact financial">
+  <tr><th>公司</th><th>分红方案</th><th>每 10 股派现</th><th>合计金额</th><th>实施时间</th></tr>
+  <tr><td>五粮液</td><td>2024 年度</td><td>31.69 元</td><td>约 123.01 亿元</td><td>2025 年 7 月 18 日</td></tr>
+  <tr><td>五粮液</td><td>2025 年中期</td><td>25.78 元</td><td>约 100.07 亿元</td><td>2025 年 12 月 18 日</td></tr>
+  <tr><td>五粮液</td><td><strong>2025 年度预案</strong></td><td><strong>25.78 元</strong></td><td><strong>约 100.07 亿元</strong></td><td>待实施</td></tr>
+  <tr><td>贵州茅台</td><td>2024 年度</td><td>276.24 元</td><td>约 347.02 亿元</td><td>2025 年 6 月</td></tr>
+  <tr><td>贵州茅台</td><td>2025 年中期</td><td>239.57 元</td><td>约 300.00 亿元</td><td>2025 年 12 月</td></tr>
+  <tr><td>贵州茅台</td><td><strong>2025 年度预案</strong></td><td><strong>279.93 元</strong></td><td><strong>约 349.93 亿元</strong></td><td>待实施</td></tr>
+</table>
+<p><strong>关键观察</strong>：</p>
+<ol>
+  <li><strong>五粮液 2025 年度派息方案与中期方案完全相同（均为 25.78 元/10 股），较 2024 年度的 31.69 元下调 18.6%</strong>——这是公司<strong>在利润下滑 71.89% 的背景下，把分红调降幅度控制在远小于利润降幅的水平</strong>，属于典型的「维持股息预期」动作；</li>
+  <li><strong>五粮液 2025 年现金分红合计约 200.14 亿元（中期 + 年度预案），为当年归母净利润 89.54 亿元的 2.24 倍</strong>，是名副其实的「超额分红」，依靠账面现金存量（2025 年末货币资金 1,270.14 亿元）支撑；</li>
+  <li><strong>贵州茅台 2025 年度累计派发现金红利 650.33 亿元（含年度预案），分红总额创历史新高</strong>；同时完成<strong>首次 60 亿元股票回购</strong>方案——「分红 + 回购」双工具并用，是成熟期龙头维护市值的标准动作；</li>
+  <li><strong>茅台分红率</strong>（650.33／823.20）约 <strong>79.0%</strong>，仍在利润覆盖范围内；<strong>五粮液分红率（200.14／89.54）约 223.5%</strong>，<strong>大幅超出当期利润</strong>。</li>
+</ol>
+<p><strong>趋势含义</strong>：分红刚性与利润下滑同时出现，会产生两个后果——（1）<strong>净资产增速放缓甚至下降</strong>（五粮液 2025 年归母净资产 −10.02% 即为此结果）；（2）<strong>一旦经营现金流不能持续覆盖分红，公司将被迫动用存量现金或举债</strong>。五粮液 2026H1 经营现金流 −21.54 亿元、筹资净流出 58.63 亿元，<strong>已经出现了「经营现金不能覆盖分红、靠现金存量补」的苗头</strong>。</p>
+<h3>4.6 现金流质量：分红之外的三个观察点</h3>
+<ol>
+  <li><strong>「销售商品、提供劳务收到的现金／营业收入」</strong>——反映收现质量：<ul><li class="sub">五粮液：2024 年收到现金 1,018.69 亿元／营业收入 891.75 亿元（<strong>收现比 1.14</strong>）；2025 年 914.00 亿元／405.29 亿元（<strong>收现比高达 2.25</strong>）。<strong>收现比远超 1，本质是「过去的收入在今年收现」</strong>——即 2024 年的票据与预收款在 2025 年集中兑现，不可持续；</li><li class="sub">贵州茅台：2025 年 1,839.90 亿元／1,688.38 亿元，<strong>收现比 1.09</strong>（2024 年为 1,826.45 亿元／1,708.99 亿元，收现比 1.07），属健康区间且同比小幅改善。</li></ul></li>
+</ol>
+<ol>
+  <li><strong>「应收款项融资」（银行承兑汇票）</strong>——反映结算方式：<ul><li class="sub">五粮液从 2024 年末 195.66 亿元降至 2025 年末 94.02 亿元（<strong>−51.9%</strong>），2025 年报与 2026 年中报均提到「银行承兑汇票到期额度同比减少」。<strong>票据结算规模的收缩说明渠道的支付能力在下降，或者公司主动收紧了对票据的接受度</strong>——两种解释指向不同的短期压力。</li></ul></li>
+</ol>
+<ol>
+  <li><strong>「存货」与「收入」的背离</strong>：<ul><li class="sub">五粮液：存货 2023–2026H1 从 173.88 → 182.34 → 200.65 → 226.58 亿元，<strong>三年累计增长 30.3%</strong>，而同期收入从 832.72 亿元涨到 891.75 亿元后再跌至 405.29 亿元。<strong>「存货创历史新高 + 收入创近年新低」是最典型的产能与需求错配信号</strong>；</li><li class="sub">贵州茅台：存货 464.35 → 543.43 → 614.27 → 613.17 亿元，持续增厚，<strong>但这是酱香型白酒「贮足陈酿、不卖新酒」工艺的必然结果（基酒需要 4–5 年陈化），属主动的战略性储备，不能与成品积压混为一谈</strong>。</li></ul></li>
+</ol>
+<h3>4.7 十年维度的四个补充观察</h3>
+<p><strong>观察一：2025 年的失速，在十年数据里找不到「前兆」。</strong></p>
+<p>如果 2025 年的下滑是行业周期的自然结果，那么在 2016–2024 的九年数据里应当能观察到「增速中枢逐步下移」的先行信号。事实是：</p>
+<table class="compact financial wide">
+  <tr><th>年份</th><th>2016</th><th>2017</th><th>2018</th><th>2019</th><th>2020</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th></tr>
+  <tr><td>五粮液营收同比</td><td>+13.32%</td><td>+22.99%</td><td>+32.61%</td><td>+25.20%</td><td>+14.37%</td><td>+15.51%</td><td>+11.72%</td><td>+12.58%</td><td>+7.09%</td><td><strong>−54.55%</strong></td></tr>
+  <tr><td>茅台营收同比</td><td>+18.99%</td><td>+49.81%</td><td>+26.49%</td><td>+16.01%</td><td>+11.10%*</td><td>+11.88%</td><td>+16.87%</td><td>+19.01%</td><td>+15.71%</td><td><strong>−1.21%</strong></td></tr>
+</table>
+<p>2024 年五粮液的 +7.09% 确实是九年最低增速，<strong>但仍为正增长，且销售费用率尚在 12% 以内（11.99%）、毛利率还在上升（77.05%）。</strong> 从 2024 年的任何一项公开财务数据出发，都无法推导出 2025 年的 −54.55%。<strong>这一点进一步强化了第 4.1 节的结论：五粮液 2025 年的降幅需要公司层面的事件来解释，而不是周期。</strong></p>
+<p><strong>观察二：茅台在 2016 年是「更重」的那一家，九年后变成「最轻」的那一家。</strong></p>
+<p>2016 年末茅台资产负债率 32.79%，<strong>高于</strong>五粮液的 22.47%。茅台用九年把负债率降到 16.42%，路径是「利润留存 → 归母净资产增厚 → 分母变大」，<strong>并非主动去杠杆</strong>；同期五粮液从 22.47% 升到 35.69%，路径是「大额分红 → 净资产被消耗 → 分母变小 + 应付股利等经营性负债增加」。<strong>同一行业、同样采取高分红政策，两家公司的资产负债表却走向了完全相反的方向——差别只有一个：分红率是否超过当期利润。</strong></p>
+<p><strong>观察三：五粮液的费用效率，十年画了一个完整的圆。</strong></p>
+<p>2016 年销售费用率 19.13% → 2018 年 9.44%（十年最低）→ 2025 年 18.82% → 2026H1 22.25%（十年最高）。2016→2018 的下降是「改革红利」（渠道扁平化、系列酒整顿、费用投放纪律化）；2024→2025 的回升是「红利的一次性返还」（收入塌陷 + 促销加码 + 品牌投入刚性）。十年累计销售费用 621.28 亿元，是茅台（366.42 亿元）的 <strong>1.70 倍</strong>，而累计营业收入只有茅台的 <strong>52%</strong>。<strong>这说明五粮液的商业模式在十年尺度上始终需要「外部推力」，而茅台依靠的是「品牌引力」。</strong></p>
+<p><strong>观察四（对五粮液公平的一点）：十年累计口径下，五粮液的利润「含金量」并不差。</strong></p>
+<table class="compact financial">
+  <tr><th>十年累计（2016–2025）</th><th>五粮液</th><th>茅台</th><th>茅台/五粮液</th></tr>
+  <tr><td>累计归母净利润（亿元）</td><td>1,882.86</td><td>5,253.62</td><td>2.79 倍</td></tr>
+  <tr><td>累计经营活动现金流净额（亿元）</td><td>2,281.84</td><td>5,191.77</td><td>2.28 倍</td></tr>
+  <tr><td><strong>累计经营现金流／累计归母净利润</strong></td><td><strong>1.21 倍</strong></td><td><strong>0.99 倍</strong></td><td>—</td></tr>
+</table>
+<p><strong>注意方向：五粮液十年累计经营现金流是其累计净利润的 1.21 倍，反而高于茅台的 0.99 倍。</strong> 这意味着<strong>在十年尺度上，五粮液的利润现金转化率并不比茅台差</strong>（部分受茅台财务子公司口径扰动）。<strong>两家真正的差距在「利润的量」，而不在「利润的质」。</strong></p>
+<p class="note"><strong>四个观察合起来指向同一个判断</strong>：五粮液的问题不是「商业模式坏掉」，而是「一个需要外部推力的模式，遇到了需求收缩」；茅台的优势也不是「增长更快」，而是「它几乎不需要推力」。</p>
+<h2>五、年报关键内容总结</h2>
+<p class="note">以下内容仅提炼对判断公司经营与财务趋势有价值的信息，已剔除品牌宣传、荣誉表彰、公益活动、党建等与财务分析无关或低价值内容。</p>
+<h3>5.1 行业环境（两家公司口径一致）</h3>
+<ul>
+  <li><strong>调整的定性与定量</strong>：白酒行业处于「经济周期、消费周期、产业周期三期共振的深度调整阶段」（五粮液年报用语）；2025 年全国白酒产量 354.9 万千升（−12.1%）、销售收入 5,724 亿元（−7.5%）、利润总额 1,884 亿元（−13.3%）；</li>
+  <li><strong>政策定调转向</strong>：2024 年 10 月酿酒业首次被赋予「<strong>历史经典产业</strong>」地位；2025 年春节前夕工信部等印发《酿酒产业提质升级指导意见（2026—2030 年）》，将酿酒产业定位为「我国传统优势产业和基础民生产业」；四川、贵州等核心产区将其写入省级「十五五」规划；</li>
+  <li><strong>竞争格局判断</strong>：贵州茅台年报明确指出「<strong>行业马太效应愈发凸显，行业会通过『优胜劣汰』的自然法则进行系统性自我调节，资源将进一步向优势企业、优势品牌、优势产品集中</strong>」——这与本报告观察到的「茅台收入仅降 1.21%、五粮液降 54.55%」的分化完全吻合。</li>
+</ul>
+<h3>5.2 商业模式与竞争优势</h3>
+<table class="compact">
+  <tr><th>维度</th><th>五粮液</th><th>贵州茅台</th></tr>
+  <tr><td>香型</td><td>浓香型（市场占有率最高的品类）</td><td>大曲酱香型（鼻祖与典型代表）</td></tr>
+  <tr><td>核心资产</td><td>元明古窖池群（追溯至 1276 年，不间断酿造 750 年）；宜宾「地球同纬度最适合酿造优质纯正蒸馏白酒地区」</td><td>赤水河核心产区、不可复制的微生物菌落群；茅台酒「世界蒸馏酒第一品牌」</td></tr>
+  <tr><td>工艺特征</td><td>「种、酿、选、陈、调」五字诀；五种粮食酿造；1366 国家级非遗技艺；93 个工艺步骤、310 道工序、218 个质量检测点</td><td>「料精、艺好、器美」；30 道工序 165 个环节；一年一个生产周期、端午踩曲、重阳下沙、陶坛长期贮存、以酒勾酒</td></tr>
+  <tr><td>产品结构</td><td>高端（五粮液产品）占营业收入 <strong>68.93%</strong>，多元价格带（含低度酒）</td><td>大单品（茅台酒）占主营收入 <strong>约 86.8%</strong>，高度集中</td></tr>
+  <tr><td>渠道结构</td><td>经销为主（2025 年占营业收入 55.74%）＋直销 35.81%</td><td>直销占主营收入 <strong>50.09%</strong>（2025 年），2026H1 进一步至 57.34%</td></tr>
+  <tr><td>抗跌表现（2025）</td><td>收入 −54.55%</td><td>收入 −1.21%</td></tr>
+</table>
+<p><strong>核心差异</strong>：<strong>五粮液是「多品类、多价格带、靠渠道推动」的浓香龙头；贵州茅台是「单一大单品、靠品牌与稀缺性拉动」的酱香龙头。</strong> 在需求收缩期，后者的商业模型表现出更强的韧性。</p>
+<h3>5.3 报告期主要经营举措</h3>
+<p><strong>五粮液（2025 年年报 + 2026 年中报）</strong>：</p>
+<ol>
+  <li><strong>产品端</strong>：发布自然人谱系与传承人谱系；推出五粮液·一见倾心联名礼盒、24 款世界杯系列联名；第八代五粮液实施数字化营销、科学调整计划配额；紫气东来五粮液定位高端低度白酒价值标杆；</li>
+  <li><strong>渠道端</strong>：实体化运营酒类销售公司，实施片区负责制和五级联动责任制；传统渠道下沉，加力建设「三店一家」，推进终端直配；深化与京东、天猫等头部电商合作，接入主流即时零售平台赋能全国超 500 家线下门店；启动大会员直销体系建设；<strong>2026H1 新增专卖店 59 家，有效终端扩容至 75 万余家</strong>；</li>
+  <li><strong>动销端</strong>：常态化开展开瓶扫码激励（<strong>2026H1 自营品牌累计开瓶扫码量同比 +12%、参与扫码人次同比 +10%</strong>）；开展「走进系列」团购活动，累计对接重点领域企业超 4,000 家；五粮浓香「浓友购」商城升级为私域核心销售载体，<strong>累计会员 2,885 万人</strong>；</li>
+  <li><strong>渠道纾压</strong>：公司明确「主动应市调整，主动帮助渠道纾压解困」，这是 2025 年收入与利润大幅下滑的直接原因之一。</li>
+</ol>
+<p><strong>贵州茅台（2025 年年报）</strong>：</p>
+<ol>
+  <li><strong>品质端</strong>：坚守「崇本守道、坚守工艺、贮足陈酿、不卖新酒」，深化「时空法」匠心质量管理模式；</li>
+  <li><strong>营销端</strong>：<strong>以消费者为中心、市场需求为驱动，深入推进营销体系市场化转型</strong>；坚持「品价匹配」和「大单品」策略；直销渠道（自营门店 + i 茅台 + 代售）持续扩容，2025 年直销收入 845.43 亿元（+12.96%）；</li>
+  <li><strong>渠道端</strong>：打造「亲清共赢、风险共防、价值共享」的合作生态，推动合作伙伴向「价值共同体」升级；</li>
+  <li><strong>国际化</strong>：营销网络覆盖五大洲 66 个国家和地区，2025 年国外收入 48.50 亿元（−6.52%），占比 2.87%。</li>
+</ol>
+<p><strong>横向比较</strong>：<strong>五粮液的动作集中在「渠道下沉 + 终端动销」的战术层面；贵州茅台的动作集中在「营销体系市场化转型」的机制层面。</strong> 前者是「把货卖出去」，后者是「换一种方式卖货」。</p>
+<h3>5.4 重大事项</h3>
+<table class="compact">
+  <tr><th>事项</th><th>五粮液</th><th>贵州茅台</th></tr>
+  <tr><td>分红政策</td><td>2024 年度 31.69 元/10 股；2025 年中期及年度均 25.78 元/10 股</td><td>2024 年度 276.24 元/10 股；2025 年中期 239.57 元/10 股；2025 年度 279.93 元/10 股</td></tr>
+  <tr><td>2025 年度分红总额</td><td>约 200.14 亿元（含中期）</td><td>650.33 亿元（含年度预案），<strong>创历史新高</strong></td></tr>
+  <tr><td>股份回购</td><td>无披露</td><td><strong>完成首次 60 亿元股票回购方案</strong></td></tr>
+  <tr><td>合并范围变动</td><td>新设宜宾五粮液科技创新有限公司（100%，出资 1 亿元）</td><td>无重大变动</td></tr>
+  <tr><td>重大资产出售</td><td>报告期未出售重大资产</td><td>报告期无重大资产出售</td></tr>
+  <tr><td>会计政策变更</td><td>无</td><td>无</td></tr>
+  <tr><td>董监高变动</td><td><strong>董事长因不能正常履职缺席审议本报告的董事会会议</strong>（由华涛代为签署）</td><td>无异常披露</td></tr>
+</table>
+<p class="note"><strong>值得单独提示的一项</strong>：五粮液 2025 年年报「重要提示」第三条明确记载「审议本报告的董事会会议应到董事 10 人，实际参与审议表决董事 9 人，未参与审议议案 1 人（<strong>董事长因不能正常履职，缺席本次会议</strong>）」，且报告由「公司负责人华涛（代）」签署。<strong>在公司经营出现大幅下滑的同期，董事长无法正常履职，属重大治理层面的观察点，建议持续跟踪。</strong></p>
+<h3>5.5 主要风险（年报披露口径）</h3>
+<table class="compact">
+  <tr><th>公司</th><th>年报披露的风险因素</th></tr>
+  <tr><td>五粮液</td><td>一是内外部环境不确定性风险；二是<strong>有效需求恢复不及预期</strong>；三是<strong>行业存量竞争尤其是头部企业竞争加剧</strong></td></tr>
+  <tr><td>贵州茅台</td><td>一是宏观经济风险；二是安全风险；三是舆情风险；四是环境保护风险</td></tr>
+</table>
+<p><strong>两点补充判断（基于财务数据的额外提示）</strong>：</p>
+<ol>
+  <li><strong>五粮液的风险披露与财务表现高度一致</strong>——「需求恢复不及预期」与「存量竞争加剧」已经体现在 2025 年 −54.55% 的收入上，<strong>其风险是「已发生」而非「或将发生」</strong>；</li>
+  <li><strong>贵州茅台年报表述偏「非财务风险」</strong>，但从财务数据看，<strong>合同负债同比 −42.3%（2026H1）与销售费用率的上行更值得关注</strong>；此外茅台年报「重要提示」中另有「<strong>控股股东尚未履行实施股权激励计划的承诺</strong>」及「高管在控股股东兼职情形」两项内控/合规问题的披露，属于治理层面的观察点。</li>
+</ol>
+<h2>六、结论</h2>
+<p><strong>1. 定位结论：从「双龙头」到「一超一强」。</strong> 2020 年时，贵州茅台与五粮液的收入比为 1.66 倍、净利比为 2.34 倍，市场普遍视二者为「茅台 + 五粮液」的双龙头格局。到 2025 年，收入比扩大至 4.17 倍、净利比扩大至 9.19 倍，<strong>「双龙头」的表述已经不能反映实际情况</strong>。2026H1 的修复使五粮液暂时止跌，但收入仍只有 2024H1 的 56%。</p>
+<p><strong>2. 经营结论：五粮液的问题是「收入 + 费用」的双重问题，茅台的问题是「需求节奏」的单一问题。</strong> 五粮液需要同时解决「收入何时回到 800 亿元量级」和「销售费用率能否回到 12% 以内」两个问题；茅台需要解决的是「合同负债退潮是否会传导至 2026 年收入」。<strong>从修复难度看，后者的难度显著更低。</strong></p>
+<p><strong>3. 财务质量结论：两家公司的资产负债表都「干净」，但方向相反。</strong> 两家公司均无有息负债，五粮液资产负债率上升是「分红消耗净资产」的结果，茅台资产负债率下降是「利润留存增厚净资产」的结果。<strong>在无杠杆的前提下，五粮液的 35.69% 资产负债率仍不算高，但两年上升 15.69 个百分点、趋势方向不利；茅台 16.42% 的资产负债率则提供了充足的安全边际。</strong></p>
+<p><strong>4. 股东回报结论：五粮液的分红已经超出利润承载能力，茅台仍在覆盖范围内。</strong> 五粮液 2025 年约 200.14 亿元分红是归母净利润的 2.24 倍，依赖 1,270.14 亿元的货币资金存量；茅台 650.33 亿元分红是归母净利润的 79.0%。<strong>前者需要观察「分红可持续性」，后者需要观察「分红＋回购对现金池的长期消耗」。</strong></p>
+<p><strong>5. 最需要跟踪的三个指标（2026 年）</strong>：</p>
+<ul>
+  <li><strong>五粮液「经营活动现金流量净额」</strong>：2026H1 已转负（−21.54 亿元），若全年不能转正，则分红与经营的现金闭环将被打断；</li>
+  <li class="sub"><strong>五粮液「销售费用率」</strong>：2026H1 为 22.25%，若全年不能回落至 18% 以内，利润率修复将难以实现；</li>
+  <li class="sub"><strong>贵州茅台「合同负债」</strong>：2026H1 末 31.78 亿元、同比 −42.3%，这是判断 2026 年收入节奏最前置的指标。</li>
+</ul>
+<p><strong>6. 数据层面的一个必须提示的不确定性。</strong> 2025 年五粮液收入降幅（−54.55%）与行业降幅（−7.5%）之间存在 47 个百分点的超额差异，且公司明确「未发生统计口径调整、未出售重大资产、无会计政策变更与前期差错更正」。<strong>本报告全部数据均严格转列自公司披露文件，未做任何调整或推算；但在用这些数据做进一步的估值或投资决策前，强烈建议通过公司投资者关系渠道核实 2025 年的收入口径与业务边界是否与 2024 年完全一致。</strong></p>
+<p><strong>7. 十年维度结论：这不是一次周期性的相对波动，而是一次「格局重置」。</strong></p>
+<ul>
+  <li><strong>九年同向、一年断链</strong>：2016–2024 年，茅台／五粮液的营收比在 1.58–1.93 倍、净利比在 2.24–2.80 倍的窄区间内波动，<strong>两家是同步的</strong>；2025 年一年内跳变至 4.17 倍与 9.19 倍。<strong>周期不会让相对位置在一年内改变一倍以上——这是格局层面的变化，不是景气层面的变化。</strong></li>
+  <li><strong>量级倒退的不对称</strong>：五粮液 2025 年收入退回 2018 年水平（回吐 6 年）、净利润退回 2017 年以前（回吐 8 年）；茅台收入仅退回 2023 年水平（回吐 1 年）。</li>
+  <li><strong>十年资本结构反转</strong>：2016 年茅台资产负债率（32.79%）高于五粮液（22.47%），2025 年五粮液（35.69%）高于茅台（16.42%）——<strong>两家公司的财务「体质」在十年间完成了互换。</strong></li>
+  <li><strong>但不宜过度解读「五粮液变差」</strong>：十年累计口径下，五粮液的累计经营现金流／累计归母净利润为 <strong>1.21 倍</strong>，高于茅台的 <strong>0.99 倍</strong>——<strong>利润的「质」两家并不悬殊，差距在「量」。</strong> 五粮液面对的是一个「需要外部推力的模式 + 需求收缩」的组合，而非商业模式的失效。</li>
+</ul>
+<p><strong>8. 十年数据给出的最终判断。</strong> 站在 2026 年 9 月回看十年：<strong>贵州茅台用十年证明了「品牌引力型」商业模式在周期中的稳定性（毛利率十年仅变动 0.05 个百分点、销售费用率十年几乎平线）；五粮液则用十年证明了「渠道推动型」商业模式的弹性与脆弱性——上行周期它可以比茅台更快（2017 年营收 +22.99%、净利 +42.58%），下行周期它也会比茅台跌得更深。</strong> 投资者需要跟踪的不是「白酒行业是否会复苏」，而是<strong>五粮液的销售费用率能否从 2026H1 的 22.25%（十年最差）回落，以及合同负债与存货的「双升」能否转化为真实动销</strong>。这两个指标决定了「格局重置」是暂时的还是永久的。</p>
+<h2>附录 A：数据来源与口径</h2>
+<table class="compact">
+  <tr><th>公司</th><th>代码</th><th>采用的报告文件</th><th>覆盖期间</th></tr>
+  <tr><td>宜宾五粮液股份有限公司</td><td>000858.SZ</td><td><strong>2016–2025 年年度报告（全文，连续 10 年）</strong>；2025 年半年度报告（更新后）；2026 年半年度报告；2026 年第一季度报告；2024 年年度报告中的分季度数据</td><td><strong>2016–2026H1</strong></td></tr>
+  <tr><td>贵州茅台酒股份有限公司</td><td>600519.SH</td><td><strong>2016–2025 年年度报告（2016–2019 年为当年原报告，2020 年数据取自 2021 年年度报告的对比列，2021–2025 年为全文）</strong>；2025 年半年度报告；2026 年半年度报告；2026 年第一季度报告；2023/2024 年年度报告中的对比列</td><td><strong>2016–2026H1</strong></td></tr>
+</table>
+<p><strong>口径约定</strong>：</p>
+<ol>
+  <li>所有金额均为<strong>合并报表</strong>口径；凡母公司报表同名科目，已排除；</li>
+  <li>「营业收入」采用利润表「其中：营业收入」科目；贵州茅台另有「营业总收入」（含利息收入），已单独标注；</li>
+  <li>2022 年数据均采用《企业会计准则解释第 16 号》<strong>追溯调整后</strong>口径；</li>
+  <li>同比增速优先引用报告披露值；报告未披露的（如贵州茅台 2020 年数据）由披露的绝对金额计算，并标注「*」；</li>
+  <li>比率类指标（毛利率、费用率、净利率）均按「科目／营业收入」计算，四舍五入至两位小数；因四舍五入，个别汇总项与分项之和可能相差 0.01；</li>
+  <li><strong>十年期间存在两次会计准则口径切换，涉及的具体科目已在正文相应位置单独标注</strong>：①《增值税会计处理规定》（财会〔2016〕22 号）自 2016 年 5 月 1 日起将房产税、土地使用税、车船税、印花税由「管理费用」重分类至「税金及附加」，影响 2016 年的管理费用率与税金及附加率；②新收入准则自 2020 年起将「预收款项」中的预收货款部分重分类为「合同负债」，影响 2016–2019 与 2020 年及以后该科目的可比性；</li>
+  <li><strong>未披露的数据一律记为「—」，不做推算、不采用外部数据补全。</strong></li>
+</ol>
+<h2>附录 B：主要科目原始数据（合并口径，单位：亿元）</h2>
+<p class="note">本表覆盖 <strong>2016–2025 连续 10 个完整年度</strong>及 2026 年半年度，是全文所有比率指标的原始数据来源。「预收款项／合同负债」一行跨越 2020 年新收入准则的口径切换，仅可作方向性比较（详见 1.3 节与表 5 注）。</p>
+<table class="compact financial wide">
+  <tr><th>科目</th><th>主体</th><th>2016</th><th>2017</th><th>2018</th><th>2019</th><th>2020</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th><th>2026H1</th></tr>
+  <tr><td>营业收入</td><td>五粮液</td><td>245.44</td><td>301.87</td><td>400.30</td><td>501.18</td><td>573.21</td><td>662.09</td><td>739.69</td><td>832.72</td><td>891.75</td><td>405.29</td><td>284.17</td></tr>
+  <tr><td>营业收入</td><td>茅台</td><td>388.62</td><td>582.18</td><td>736.39</td><td>854.30</td><td>949.15</td><td>1,061.90</td><td>1,241.00</td><td>1,476.94</td><td>1,708.99</td><td>1,688.38</td><td>907.03</td></tr>
+  <tr><td>营业成本</td><td>五粮液</td><td>73.14</td><td>84.50</td><td>104.87</td><td>128.02</td><td>148.12</td><td>163.19</td><td>181.78</td><td>201.57</td><td>204.61</td><td>91.02</td><td>56.00</td></tr>
+  <tr><td>营业成本</td><td>茅台</td><td>34.10</td><td>59.40</td><td>65.23</td><td>74.30</td><td>81.54</td><td>89.83</td><td>100.93</td><td>118.67</td><td>137.89</td><td>148.92</td><td>94.74</td></tr>
+  <tr><td>销售费用</td><td>五粮液</td><td>46.95</td><td>36.25</td><td>37.78</td><td>49.86</td><td>55.79</td><td>65.04</td><td>68.44</td><td>77.96</td><td>106.92</td><td>76.29</td><td>63.22</td></tr>
+  <tr><td>销售费用</td><td>茅台</td><td>16.81</td><td>29.86</td><td>25.72</td><td>32.79</td><td>25.48</td><td>27.37</td><td>32.98</td><td>46.49</td><td>56.39</td><td>72.53</td><td>32.06</td></tr>
+  <tr><td>管理费用</td><td>五粮液</td><td>21.44</td><td>22.69</td><td>23.40</td><td>26.55</td><td>26.10</td><td>29.00</td><td>30.68</td><td>33.19</td><td>35.55</td><td>30.97</td><td>15.03</td></tr>
+  <tr><td>管理费用</td><td>茅台</td><td>41.87</td><td>47.21</td><td>53.26</td><td>61.68</td><td>67.90</td><td>84.50</td><td>90.12</td><td>97.29</td><td>93.16</td><td>83.20</td><td>36.35</td></tr>
+  <tr><td>归母净利润</td><td>五粮液</td><td>67.85</td><td>96.74</td><td>133.84</td><td>174.02</td><td>199.55</td><td>233.77</td><td>266.91</td><td>302.11</td><td>318.53</td><td>89.54</td><td>87.53</td></tr>
+  <tr><td>归母净利润</td><td>茅台</td><td>167.18</td><td>270.79</td><td>352.04</td><td>412.06</td><td>466.97</td><td>524.60</td><td>627.16</td><td>747.34</td><td>862.28</td><td>823.20</td><td>445.17</td></tr>
+  <tr><td>经营活动现金流净额</td><td>五粮液</td><td>116.97</td><td>97.66</td><td>123.17</td><td>231.12</td><td>146.98</td><td>267.75</td><td>244.31</td><td>417.42</td><td>339.40</td><td>297.06</td><td>−21.54</td></tr>
+  <tr><td>经营活动现金流净额</td><td>茅台</td><td>374.51</td><td>221.53</td><td>413.85</td><td>452.11</td><td>516.70</td><td>640.29</td><td>366.99</td><td>665.93</td><td>924.64</td><td>615.22</td><td>706.91</td></tr>
+  <tr><td>总资产（期末）</td><td>五粮液</td><td>621.74</td><td>709.23</td><td>860.94</td><td>1,063.97</td><td>1,138.93</td><td>1,356.21</td><td>1,528.12</td><td>1,654.33</td><td>1,882.52</td><td>1,899.84</td><td>1,849.99</td></tr>
+  <tr><td>总资产（期末）</td><td>茅台</td><td>1,129.35</td><td>1,346.10</td><td>1,598.47</td><td>1,830.42</td><td>2,133.96</td><td>2,551.68</td><td>2,545.01</td><td>2,727.00</td><td>2,989.45</td><td>3,038.35</td><td>3,090.51</td></tr>
+  <tr><td>负债合计（期末）</td><td>五粮液</td><td>139.69</td><td>162.48</td><td>209.75</td><td>303.01</td><td>261.35</td><td>342.29</td><td>361.25</td><td>330.84</td><td>518.57</td><td>678.04</td><td>640.55</td></tr>
+  <tr><td>负债合计（期末）</td><td>茅台</td><td>370.36</td><td>385.90</td><td>424.38</td><td>411.66</td><td>456.75</td><td>582.11</td><td>495.63</td><td>490.43</td><td>569.33</td><td>498.76</td><td>469.54</td></tr>
+  <tr><td>归母净资产（期末）</td><td>五粮液</td><td>470.77</td><td>533.34</td><td>634.87</td><td>742.91</td><td>857.06</td><td>990.68</td><td>1,140.28</td><td>1,295.58</td><td>1,332.85</td><td>1,199.32</td><td>1,184.80</td></tr>
+  <tr><td>归母净资产（期末）</td><td>茅台</td><td>728.94</td><td>914.52</td><td>1,128.39</td><td>1,360.10</td><td>1,613.23</td><td>1,895.39</td><td>1,974.80</td><td>2,156.69</td><td>2,331.06</td><td>2,446.38</td><td>2,512.54</td></tr>
+  <tr><td>预收款项／合同负债（期末）</td><td>五粮液</td><td>62.99</td><td>46.46</td><td>67.07</td><td>125.31</td><td>86.19</td><td>130.59</td><td>123.79</td><td>68.64</td><td>116.90</td><td>134.60</td><td>104.41</td></tr>
+  <tr><td>预收款项／合同负债（期末）</td><td>茅台</td><td>175.41</td><td>144.29</td><td>135.77</td><td>137.40</td><td>133.22</td><td>127.18</td><td>154.72</td><td>141.26</td><td>95.92</td><td>80.07</td><td>31.78</td></tr>
+  <tr><td>存货（期末）</td><td>五粮液</td><td>92.57</td><td>105.58</td><td>117.95</td><td>136.80</td><td>—</td><td>—</td><td>159.81</td><td>173.88</td><td>182.34</td><td>200.65</td><td>226.58</td></tr>
+  <tr><td>存货（期末）</td><td>茅台</td><td>206.22</td><td>220.57</td><td>235.07</td><td>252.85</td><td>—</td><td>—</td><td>388.24</td><td>464.35</td><td>543.43</td><td>614.27</td><td>613.17</td></tr>
+  <tr><td>资产负债率</td><td>五粮液</td><td>22.47%</td><td>22.91%</td><td>24.36%</td><td>28.48%</td><td>22.95%</td><td>25.24%</td><td>23.64%</td><td>20.00%</td><td>27.55%</td><td>35.69%</td><td>34.62%</td></tr>
+  <tr><td>资产负债率</td><td>茅台</td><td>32.79%</td><td>28.67%</td><td>26.55%</td><td>22.49%</td><td>21.40%</td><td>22.81%</td><td>19.47%</td><td>17.98%</td><td>19.04%</td><td>16.42%</td><td>15.19%</td></tr>
+  <tr><td>销售费用率</td><td>五粮液</td><td>19.13%</td><td>12.01%</td><td>9.44%</td><td>9.95%</td><td>9.73%</td><td>9.82%</td><td>9.25%</td><td>9.36%</td><td>11.99%</td><td>18.82%</td><td>22.25%</td></tr>
+  <tr><td>销售费用率</td><td>茅台</td><td>4.33%</td><td>5.13%</td><td>3.49%</td><td>3.84%</td><td>2.68%</td><td>2.58%</td><td>2.66%</td><td>3.15%</td><td>3.30%</td><td>4.30%</td><td>3.54%</td></tr>
+  <tr><td>毛利率</td><td>五粮液</td><td>70.20%</td><td>72.01%</td><td>73.80%</td><td>74.46%</td><td>74.16%</td><td>75.35%</td><td>75.42%</td><td>75.79%</td><td>77.05%</td><td>77.54%</td><td>80.29%</td></tr>
+  <tr><td>毛利率</td><td>茅台</td><td>91.23%</td><td>89.80%</td><td>91.14%</td><td>91.30%</td><td>91.41%</td><td>91.54%</td><td>91.87%</td><td>91.97%</td><td>91.93%</td><td>91.18%</td><td>89.55%</td></tr>
+</table>
+<p class="note">数据溯源：2016–2019 年数据取自两家公司当年年度报告「主要会计数据」与合并财务报表；2020 年数据取自 2021 年年度报告对比列（茅台）与当年年度报告（五粮液）；2021–2025 年取自各年年度报告；2026H1 取半年度报告。 存货的 2020、2021 年数据未在本次抽取范围内逐项核验，以「—」表示，不做推算。</p>
+<p><em>报告完成日期：2026 年 9 月 14 日　|　数据期间：2016–2025 年度 + 2026 年半年度（共 10 个完整年度）　|　数据口径：企业会计准则（CAS）合并报表　|　币种：人民币</em></p>
+<p><em>数据来源：宜宾五粮液股份有限公司（000858.SZ）、贵州茅台酒股份有限公司（600519.SH）在巨潮资讯网／上海证券交易所披露的定期报告原文。本报告全部数据均转列自上述披露文件，未做任何调整、推算或外部补全。</em></p>
+</body>
+</html>

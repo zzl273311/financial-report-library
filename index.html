@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>财报分析 · 报告库</title>
+<meta name="description" content="上市公司财报对比分析报告库：按公司与期次浏览，右侧呈现完整分析报告。">
+<meta name="color-scheme" content="light">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23A73F2D'/%3E%3Ctext x='16' y='23' font-size='19' text-anchor='middle' fill='%23FBF9F4' font-family='Georgia,serif'%3E财%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- ================= 左侧栏 ================= -->
+  <aside class="rail" id="rail">
+
+    <div class="brand">
+      <div class="brand-mark" aria-hidden="true">财</div>
+      <div class="brand-text">
+        <div class="brand-title">财报分析 · 报告库</div>
+        <div class="brand-sub">Report Library</div>
+      </div>
+    </div>
+
+    <div class="search">
+      <div class="search-field" id="searchField">
+        <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true">
+          <circle cx="6.8" cy="6.8" r="4.6" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M10.4 10.4 L14 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <input id="search" type="search" placeholder="搜索公司 / 代码 / 期次" autocomplete="off" spellcheck="false">
+        <button class="search-clear" id="searchClear" type="button" title="清空">&times;</button>
+      </div>
+      <div class="search-hint">
+        <span>按 Enter 打开首条结果</span>
+        <kbd>⌘K</kbd>
+      </div>
+    </div>
+
+    <div class="rail-stats" id="railStats"></div>
+
+    <nav class="tree" id="tree" aria-label="报告目录"></nav>
+
+    <div class="rail-foot">
+      <span>财报分析</span>
+      <span id="railFootRight"><a href="#/">全部报告</a></span>
+    </div>
+  </aside>
+
+  <!-- ================= 右侧主区 ================= -->
+  <main class="main">
+
+    <header class="topbar">
+      <button class="rail-toggle" id="railToggle" type="button" title="目录" aria-label="展开目录">
+        <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true">
+          <path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </button>
+
+      <div class="topbar-info">
+        <div class="crumb" id="crumb"></div>
+        <h2 class="topbar-title" id="topbarTitle">财报分析 · 报告库</h2>
+      </div>
+
+      <div class="topbar-actions" id="topbarActions">
+        <button class="btn" id="btnReload" type="button" title="重新加载当前报告" hidden>
+          <svg width="13" height="13" viewBox="0 0 16 16" aria-hidden="true">
+            <path d="M13.5 8a5.5 5.5 0 1 1-1.7-3.98" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M13.6 2.2v3.2h-3.2" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="btn-text">刷新</span>
+        </button>
+        <a class="btn" id="btnPdf" href="#" target="_blank" rel="noopener" title="下载 PDF 版" hidden>
+          <svg width="13" height="13" viewBox="0 0 16 16" aria-hidden="true">
+            <path d="M8 2v8m0 0l-3-3m3 3l3-3M3 13.2h10" fill="none" stroke="currentColor" stroke-width="1.5"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="btn-text">PDF</span>
+        </a>
+        <a class="btn primary" id="btnOpen" href="#" target="_blank" rel="noopener" title="在新标签页打开" hidden>
+          <svg width="13" height="13" viewBox="0 0 16 16" aria-hidden="true">
+            <path d="M6.5 3H3.2A1.2 1.2 0 0 0 2 4.2v8.6A1.2 1.2 0 0 0 3.2 14h8.6a1.2 1.2 0 0 0 1.2-1.2V9.5"
+                  fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M9.6 2h4.4v4.4M14 2L7.6 8.4" fill="none" stroke="currentColor" stroke-width="1.5"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="btn-text">新窗口</span>
+        </a>
+      </div>
+    </header>
+
+    <div class="stage" id="stage" data-state="empty">
+      <div class="welcome" id="welcome"></div>
+      <iframe class="viewer" id="viewer" title="财报分析报告" referrerpolicy="no-referrer"></iframe>
+      <div class="stage-mask" aria-hidden="true">
+        <div class="spinner"><i></i><span>正在载入报告…</span></div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<div class="scrim" id="scrim"></div>
+
+<div class="notice" id="notice" role="status">
+  <span id="noticeText"></span>
+  <button class="notice-close" id="noticeClose" type="button" aria-label="关闭">&times;</button>
+</div>
+
+<script src="data/reports.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>

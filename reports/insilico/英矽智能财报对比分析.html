@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<!-- 英矽智能（HKEX:3696）财报对比与趋势分析 · Kami equity-report 模板排版 -->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>英矽智能 · 财报对比与趋势分析</title>
+<meta name="description" content="基于招股书、2025 年报与 2026 中报的财务数据对比、趋势与原因分析及关键内容总结">
+<meta name="keywords" content="英矽智能,财报分析,AI 药物发现,财务对比,趋势分析,港交所 3696">
+<meta name="generator" content="Kami">
+<style>
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W04.ttf") format("truetype");
+    font-weight: 400; font-style: normal;
+  }
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W05.ttf") format("truetype");
+    font-weight: 500; font-style: normal;
+  }
+  @page {
+    size: A4;
+    margin: 16mm 18mm 18mm 18mm;
+    background: #F7F4EE;
+    @bottom-center {
+      content: counter(page) "  ·  英矽智能 财报分析";
+      font-family: "TsangerJinKai02", "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", Georgia, serif;
+      font-size: 9pt; color: #6b6a64;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --parchment:#F7F4EE; --ivory:#FBF9F4; --near-black:#22262B; --dark-warm:#3E4145;
+    --olive:#504e49; --stone:#7C7B77; --brand:#A73F2D; --brand-deep:#8A3223;
+    --accent:#A73F2D; --accent-soft:#F1E3DD; --gold:#B8862F; --teal:#2F6F6B; --blue:#1B365D;
+    --border:#E3DDD4; --border-soft:#EAE5DC;
+    --tag-bg:#F1E3DD; --positive:#A73F2D; --negative:#2F6F6B;
+    --serif: "TsangerJinKai02", "Source Han Serif SC", "Source Han Serif CN", "Noto Serif CJK SC", "Noto Serif SC", "Songti SC", "STSong", "SimSun", Georgia, serif;
+    --sans: var(--serif);
+    --rhythm-module:14pt; --rhythm-section:18pt;
+  }
+  html, body { background: var(--parchment); }
+  @media screen { body { max-width: 210mm; margin: 0 auto; padding: 16mm 18mm 18mm 18mm; } }
+  body {
+    color: var(--near-black); font-family: var(--serif); font-size: 10pt; line-height: 1.5;
+    letter-spacing: 0.3pt; widows: 3; orphans: 3;
+  }
+  strong { font-weight: 500; }
+  .hl { color: var(--brand); font-weight: 500; }
+
+  .report-header { display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: var(--rhythm-module); padding-bottom: 10pt; border-bottom: 0.5pt solid var(--border); }
+  .ticker-block { flex: 1; }
+  .ticker-eyebrow { font-size: 9pt; color: var(--brand); letter-spacing: 1.5pt; text-transform: uppercase;
+    font-weight: 500; margin-bottom: 4pt; }
+  .ticker-name { font-family: var(--serif); font-size: 24pt; font-weight: 500; color: var(--near-black);
+    line-height: 1.15; margin-bottom: 4pt; }
+  .ticker-sub { font-size: 10pt; color: var(--olive); line-height: 1.4; }
+  .price-block { text-align: right; padding-top: 4pt; }
+  .price-current { font-family: var(--serif); font-size: 28pt; font-weight: 500; color: var(--near-black);
+    line-height: 1; font-variant-numeric: tabular-nums; }
+  .price-change { font-size: 10pt; font-weight: 500; margin-top: 2pt; font-variant-numeric: tabular-nums; }
+  .price-change.up { color: var(--positive); }
+  .price-date { font-size: 9pt; color: var(--stone); margin-top: 2pt; }
+
+  .metrics { display: flex; gap: 14pt; margin-bottom: 16pt; padding: 6pt 0;
+    border-top: 0.3pt dotted var(--border); border-bottom: 0.3pt dotted var(--border); }
+  .metric { flex: 1; display: flex; align-items: baseline; gap: 4pt; }
+  .metric-value { font-family: var(--serif); font-size: 16pt; font-weight: 500; color: var(--brand);
+    line-height: 1; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .metric-label { font-size: 9pt; color: var(--olive); line-height: 1.3; white-space: nowrap; }
+
+  h2 { font-family: var(--serif); font-size: 16pt; font-weight: 500; color: var(--near-black);
+    margin: 18pt 0 6pt 0; break-after: avoid; }
+  h3 { font-size: 13pt; font-weight: 500; color: var(--dark-warm); margin: 12pt 0 4pt 0; break-after: avoid; }
+  p { margin: 0 0 8pt 0; line-height: 1.5; widows: 2; orphans: 2; }
+  ul, ol { margin: 4pt 0 8pt 0; padding-left: 18pt; line-height: 1.5; }
+  ul li::marker { color: var(--brand); } ol li::marker { color: var(--brand); font-weight: 500; }
+
+  .tag { display: inline-block; background: var(--tag-bg); color: var(--brand); font-size: 9pt;
+    font-weight: 500; padding: 1pt 6pt; border-radius: 3pt; margin-right: 3pt; }
+
+  table, .kami-table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin: 8pt 0; break-inside: avoid; }
+  table th, .kami-table th { text-align: left; font-weight: 500; color: var(--dark-warm);
+    padding: 6pt 8pt; border-bottom: 0.6pt solid var(--border); background: transparent; }
+  table td, .kami-table td { padding: 5pt 8pt; border-bottom: 0.25pt solid var(--border); vertical-align: top; }
+  table.compact th, .kami-table.compact th { padding: 3pt 6pt; font-size: 8pt; }
+  table.compact td, .kami-table.compact td { padding: 2.5pt 6pt; font-size: 8pt; line-height: 1.4; }
+  table.financial td:not(:first-child), .kami-table.financial td:not(:first-child) {
+    text-align: right; font-variant-numeric: tabular-nums; }
+  table.financial th:not(:first-child), .kami-table.financial th:not(:first-child) { text-align: right; }
+  table .total td, .kami-table .total td { font-weight: 500; border-top: 0.6pt solid var(--border);
+    border-bottom: none; color: var(--near-black); }
+  .note { font-size: 8.5pt; color: var(--stone); margin: 2pt 0 8pt 0; }
+
+  .callout { background: var(--ivory); padding: 8pt 12pt; border-radius: 3pt; margin: 10pt 0;
+    line-height: 1.5; break-inside: avoid; }
+  .callout .quote { margin: 6pt 0; color: var(--olive); }
+
+  figure { margin: 12pt 0; break-inside: avoid; }
+  figcaption { font-size: 9pt; color: var(--stone); margin-top: 4pt; text-align: center; }
+
+  .risk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10pt; margin: 8pt 0; }
+  .risk-item { padding: 6pt 10pt; background: var(--ivory); border-radius: 3pt; break-inside: avoid; }
+  .risk-label { font-size: 9pt; font-weight: 500; color: var(--brand); margin-bottom: 2pt; }
+  .risk-desc { font-size: 9pt; color: var(--olive); line-height: 1.4; }
+
+  .analyst-box { background: var(--ivory); border-radius: 4pt; padding: 10pt 14pt; margin: 12pt 0;
+    break-inside: avoid; }
+  .analyst-label { font-size: 9pt; color: var(--brand); letter-spacing: 0.5pt; text-transform: uppercase;
+    margin-bottom: 4pt; }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16pt; }
+  .report-footer { margin-top: 16pt; padding-top: 6pt; border-top: 0.3pt dotted var(--border);
+    font-size: 9pt; color: var(--stone); display: flex; justify-content: space-between; }
+  .page-break { break-before: page; }
+
+  /* ===== 富配色增强：砖红主色 #A73F2D + 四色数据 + 深炭标题 #22262B ===== */
+  h2 { position: relative; padding-left: 13pt; }
+  h2::before { content:""; position:absolute; left:0; top:2.5pt; width:4pt; height:13pt;
+    background:var(--accent); border-radius:1pt; }
+  table th, .kami-table th { border-bottom: 1pt solid var(--accent); }
+  .metric:nth-child(1) .metric-value { color: var(--accent); }
+  .metric:nth-child(2) .metric-value { color: var(--gold); }
+  .metric:nth-child(3) .metric-value { color: var(--teal); }
+  .metric:nth-child(4) .metric-value { color: var(--blue); }
+  .callout { border-left: 3pt solid var(--accent); }
+  .analyst-box { border-left: 3pt solid var(--accent); }
+  .risk-item { border-left: 2.5pt solid var(--accent); }
+  .tag { background: var(--accent-soft); color: var(--brand-deep); }
+  .price-current { color: var(--near-black); }
+  .ticker-sub { color: var(--stone); }
+</style>
+</head>
+<body>
+
+<!-- ========== HEADER ========== -->
+<div class="report-header">
+  <div class="ticker-block">
+    <div class="ticker-eyebrow">财报对比分析 · 招股书 / 2025 年报 / 2026 中报</div>
+    <div class="ticker-name">英矽智能 <span style="font-size: 14pt; color: var(--stone);">HKEX: 3696</span></div>
+    <div class="ticker-sub">AI 驱动药物发现 · 港交所主板 · 2025 年 12 月 30 日上市</div>
+  </div>
+  <div class="price-block">
+    <div class="price-current">$35.5M</div>
+    <div class="price-change up">▲ 扭亏为盈</div>
+    <div class="price-date">2026 上半年 报告利润</div>
+  </div>
+</div>
+
+<!-- ========== METRICS ========== -->
+<div class="metrics">
+  <div class="metric"><div class="metric-value">$619.7M</div><div class="metric-label">总资产 (2026H1)</div></div>
+  <div class="metric"><div class="metric-value">$106.3M</div><div class="metric-label">营收 (H1'26, +287%)</div></div>
+  <div class="metric"><div class="metric-value">90.3%</div><div class="metric-label">毛利率 (H1'26)</div></div>
+  <div class="metric"><div class="metric-value">2.4%</div><div class="metric-label">资产负债率</div></div>
+</div>
+
+<!-- ========== 核心结论 ========== -->
+<h2>核心结论</h2>
+<p>英矽智能 <span class="hl">2025 年 12 月 IPO 是财务分水岭</span>：上市前发行的可转换可赎回优先股于 IPO 时转换为普通股，使资不抵债的巨额亏绌转为净资产为正。但 2025 年报告净亏损 <span class="hl">3.52 亿美元</span> 中，<span class="hl">2.97 亿美元</span>为优先股公允价值变动的<b>非现金、一次性</b>亏损，经营实质应以经调整口径（亏损 4,383 万美元）评估。2026 上半年收入同比 <span class="hl">+287%</span>、首次实现报告与经调整双盈利，验证"AI 平台赋能—对外授权变现"商业模式的可行性。</p>
+<div class="callout">
+  <div class="quote">一句话：IPO 注资化解资不抵债，经营基本面改善趋势明确，2026 上半年标志性扭亏为盈；后续关注收入脉冲式波动的可持续性，以及核心管线 Rentosertib III 期临床进展。</div>
+</div>
+
+<!-- ========== 收入趋势 ========== -->
+<h2>收入趋势</h2>
+<figure>
+  <svg viewBox="0 0 680 250" xmlns="http://www.w3.org/2000/svg" font-family="'Songti SC','Noto Serif CJK SC',serif">
+    <line x1="60" y1="210" x2="660" y2="210" stroke="#E3DDD4" stroke-width="0.8"/>
+    <!-- gridlines -->
+    <line x1="60" y1="170" x2="660" y2="170" stroke="#EFEBE3" stroke-width="0.6"/>
+    <line x1="60" y1="130" x2="660" y2="130" stroke="#EFEBE3" stroke-width="0.6"/>
+    <line x1="60" y1="90" x2="660" y2="90" stroke="#EFEBE3" stroke-width="0.6"/>
+    <line x1="60" y1="50" x2="660" y2="50" stroke="#EFEBE3" stroke-width="0.6"/>
+    <text x="52" y="214" font-size="9" fill="#7C7B77" text-anchor="end">0</text>
+    <text x="52" y="174" font-size="9" fill="#7C7B77" text-anchor="end">30</text>
+    <text x="52" y="134" font-size="9" fill="#7C7B77" text-anchor="end">60</text>
+    <text x="52" y="94" font-size="9" fill="#7C7B77" text-anchor="end">90</text>
+    <text x="52" y="54" font-size="9" fill="#7C7B77" text-anchor="end">120</text>
+    <text x="40" y="24" font-size="8" fill="#7C7B77" text-anchor="end">百万美元</text>
+    <!-- bars: 2022(30.1) 2023(51.2) 2024(85.8) 2025(56.2) H1'26(106.3) -->
+    <rect x="82"  y="161" width="56" height="49"  fill="#CFC7BA"/>
+    <rect x="202" y="126" width="56" height="84"  fill="#2F6F6B"/>
+    <rect x="322" y="70"  width="56" height="140" fill="#B8862F"/>
+    <rect x="442" y="118" width="56" height="92"  fill="#1B365D"/>
+    <rect x="562" y="36"  width="56" height="174" fill="#A73F2D"/>
+    <text x="110" y="153" font-size="9" fill="#3E4145" text-anchor="middle">30.1</text>
+    <text x="230" y="118" font-size="9" fill="#22262B" text-anchor="middle">51.2</text>
+    <text x="350" y="62"  font-size="9" fill="#22262B" text-anchor="middle">85.8</text>
+    <text x="470" y="110" font-size="9" fill="#22262B" text-anchor="middle">56.2</text>
+    <text x="590" y="28"  font-size="9" fill="#A73F2D" text-anchor="middle">106.3</text>
+    <text x="110" y="226" font-size="9" fill="#3E4145" text-anchor="middle">2022</text>
+    <text x="230" y="226" font-size="9" fill="#3E4145" text-anchor="middle">2023</text>
+    <text x="350" y="226" font-size="9" fill="#3E4145" text-anchor="middle">2024</text>
+    <text x="470" y="226" font-size="9" fill="#3E4145" text-anchor="middle">2025</text>
+    <text x="590" y="226" font-size="9" fill="#3E4145" text-anchor="middle">H1'26</text>
+    <text x="590" y="240" font-size="8" fill="#7C7B77" text-anchor="middle">(上半年)</text>
+  </svg>
+  <figcaption>图 1　收入趋势（2022–2025 为全年，H1'26 为半年度；单位：百万美元）</figcaption>
+</figure>
+
+<!-- ========== 财务数据对比 ========== -->
+<div class="page-break"></div>
+<h2>财务数据对比 · 综合损益表</h2>
+<p class="note">单位：千美元；"—" 表示该期未于摘要中单列披露。H1'2025 / H1'2026 分别为 2025 / 2026 上半年（未经审核）。</p>
+<table class="financial compact">
+  <thead><tr><th>项目</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th><th>H1'25</th><th>H1'26</th></tr></thead>
+  <tbody>
+    <tr><td>收入</td><td>30,147</td><td>51,180</td><td>85,834</td><td>56,239</td><td>27,456</td><td>106,303</td></tr>
+    <tr><td>毛利</td><td>19,110</td><td>38,569</td><td>77,577</td><td>45,848</td><td>23,019</td><td>95,965</td></tr>
+    <tr><td>毛利率</td><td>63.4%</td><td>75.4%</td><td>90.4%</td><td>81.5%</td><td>83.8%</td><td>90.3%</td></tr>
+    <tr><td>研发开支</td><td>(78,175)</td><td>(97,341)</td><td>(91,895)</td><td>(81,379)</td><td>—</td><td>—</td></tr>
+    <tr><td>销售及分销开支</td><td>(5,375)</td><td>(7,774)</td><td>(5,532)</td><td>(6,328)</td><td>—</td><td>—</td></tr>
+    <tr><td>行政开支</td><td>(15,442)</td><td>(17,344)</td><td>(17,487)</td><td>(17,416)</td><td>—</td><td>—</td></tr>
+    <tr><td>上市开支</td><td>–</td><td>(7,355)</td><td>(176)</td><td>(5,274)</td><td>—</td><td>—</td></tr>
+    <tr><td>其他收入</td><td>275</td><td>5,437</td><td>10,633</td><td>8,001</td><td>—</td><td>—</td></tr>
+    <tr><td>FVTPL 金融负债公允价值变动</td><td>(138,100)</td><td>(126,133)</td><td>9,004</td><td>(296,701)</td><td>(266)</td><td>~0</td></tr>
+    <tr class="total"><td>年内 / 期内亏损</td><td>(221,828)</td><td>(211,640)</td><td>(17,096)</td><td>(352,316)</td><td>(19,215)</td><td>35,537</td></tr>
+    <tr class="total"><td>经调整亏损 / 利润</td><td>(70,804)</td><td>(67,361)</td><td>(22,665)</td><td>(43,834)</td><td>(15,409)</td><td>51,227</td></tr>
+  </tbody>
+</table>
+
+<h2>财务数据对比 · 综合财务状况表</h2>
+<table class="financial compact">
+  <thead><tr><th>项目</th><th>2022</th><th>2023</th><th>2024</th><th>H1'25</th><th>2025</th><th>2026H1</th></tr></thead>
+  <tbody>
+    <tr><td>总资产</td><td>234,786</td><td>202,795</td><td>144,002</td><td>241,311</td><td>489,983</td><td>619,689</td></tr>
+    <tr><td>总负债</td><td>684,329</td><td>852,953</td><td>807,925</td><td>922,675</td><td>37,957</td><td>72,634</td></tr>
+    <tr class="total"><td>总权益（亏绌）</td><td>(449,543)</td><td>(650,158)</td><td>(663,923)</td><td>(681,364)</td><td>452,026</td><td>547,055</td></tr>
+    <tr><td>银行结余及现金</td><td>—</td><td>—</td><td>125,942</td><td>212,130</td><td>393,338</td><td>357,617¹</td></tr>
+    <tr><td>资产负债率</td><td>—</td><td>—</td><td>0%</td><td>—</td><td>0%</td><td>2.4%</td></tr>
+  </tbody>
+</table>
+<p class="note">¹ 2026 上半年末另含原到期日三个月以上定期存款 1.089 亿美元，流动性充裕。</p>
+
+<h2>财务数据对比 · 现金流量表</h2>
+<table class="financial compact">
+  <thead><tr><th>项目</th><th>2025</th><th>2024</th></tr></thead>
+  <tbody>
+    <tr><td>经营活动所用现金净额</td><td>(76,766)</td><td>(57,401)</td></tr>
+    <tr><td>投资活动（所用）/ 所得净额</td><td>(50,295)</td><td>7,421</td></tr>
+    <tr><td>融资活动所得 /（所用）净额</td><td>393,744</td><td>(1,538)</td></tr>
+    <tr><td>现金及现金等价物净增加（减少）</td><td>266,683</td><td>(51,518)</td></tr>
+    <tr class="total"><td>年末现金及现金等价物</td><td>393,338</td><td>125,942</td></tr>
+  </tbody>
+</table>
+
+<!-- ========== 关键变化与趋势含义 ========== -->
+<h2>三张财务数据表：关键变化与趋势含义</h2>
+<p class="note">从损益表、财务状况表、现金流量表中提炼变化最显著的科目，逐一标注数值轨迹、趋势方向与经营/财务含义。</p>
+
+<h3>综合损益表</h3>
+<table class="kami-table compact">
+  <thead><tr><th>关键科目</th><th>变化轨迹（千美元）</th><th>趋势方向</th><th>趋势含义</th></tr></thead>
+  <tbody>
+    <tr><td>收入</td><td>30,147 → 51,180 → 85,834 → 56,239 → H1'26 106,303</td><td>先升后落再爆发</td><td>项目制"脉冲式"收入，2026H1 新授权首付款推动同比 +287%，验证变现能力但可持续性存疑</td></tr>
+    <tr><td>年内/期内亏损</td><td>(221,828) → (211,640) → (17,096) → (352,316) → 35,537</td><td>2025 深亏、2026H1 转正</td><td>2025 巨亏系优先股公允价值一次性非现金亏损，经营实质已改善；2026H1 实现报告盈利拐点</td></tr>
+    <tr><td>经调整亏损/利润</td><td>(70,804) → (67,361) → (22,665) → (43,834) → 51,227</td><td>持续收窄后转正</td><td>剔除非现金与一次性项目后，经营亏损实质收敛，2026H1 经营层面首次盈利</td></tr>
+    <tr><td>毛利率</td><td>63.4% → 75.4% → 90.4% → 81.5% → 83.8% → 90.3%</td><td>高位波动 80%–90%</td><td>高毛利授权业务主导，高占比年份源于高毛利管线交易</td></tr>
+    <tr><td>FVTPL 公允价值变动</td><td>(138,100) → (126,133) → 9,004 → (296,701) → ~0</td><td>2025 极值后归零</td><td>优先股 IPO 转股后该科目消失，是 2025 报告亏损主因，亦使其"失真"</td></tr>
+  </tbody>
+</table>
+
+<h3>综合财务状况表</h3>
+<table class="kami-table compact">
+  <thead><tr><th>关键科目</th><th>变化轨迹（千美元）</th><th>趋势方向</th><th>趋势含义</th></tr></thead>
+  <tbody>
+    <tr><td>总权益（亏绌）</td><td>(449,543) → (650,158) → (663,923) → 452,026(2025末) → 547,055</td><td>巨额赤字→转正并增长</td><td>IPO 募资 + 优先股转普通股，资本结构根本性修复，资不抵债消除</td></tr>
+    <tr><td>总负债</td><td>684,329 → 852,953 → 807,925 → 922,675(H1'25) → 37,957(2025末) → 72,634</td><td>先升后断崖下降</td><td>优先股原计入金融负债，IPO 转股后负债骤降逾 95%，财务"净身"</td></tr>
+    <tr><td>总资产</td><td>234,786 → 202,795 → 144,002 → 241,311 → 489,983 → 619,689</td><td>2024 触底后强劲回升</td><td>IPO 现金注入驱动资产近翻倍扩张，规模体量跃升</td></tr>
+    <tr><td>银行结余及现金</td><td>125,942(2024末) → 212,130 → 393,338(2025末) → 357,617 + 108,950 定存(2026中)</td><td>充裕且稳定</td><td>现金储备充足，安全垫厚，足以覆盖研发与运营现金流出</td></tr>
+    <tr><td>资产负债率</td><td>— → 0%(2025末) → 2.4%(2026中)</td><td>极低</td><td>几乎无杠杆，财务稳健；但亦反映尚未充分利用债务扩张</td></tr>
+  </tbody>
+</table>
+
+<h3>现金流量表</h3>
+<table class="kami-table compact">
+  <thead><tr><th>关键科目</th><th>变化轨迹（千美元）</th><th>趋势方向</th><th>趋势含义</th></tr></thead>
+  <tbody>
+    <tr><td>经营活动所用现金净额</td><td>(57,401) → (76,766)</td><td>流出扩大</td><td>研发投入与运营支出仍高于经营现金回款，属成长阶段常态</td></tr>
+    <tr><td>投资活动净额</td><td>7,421 → (50,295)</td><td>由正转负</td><td>2025 加大定期存款/理财配置，从"保有现金"转向"现金管理"</td></tr>
+    <tr><td>融资活动净额</td><td>(1,538) → 393,744</td><td>由净流出转巨额净流入</td><td>IPO 募资（普通股 2.75 亿 + 优先股 1.21 亿）是现金跃升唯一主因</td></tr>
+    <tr><td>年末现金及现金等价物</td><td>125,942 → 393,338</td><td>+212%</td><td>上市融资直接增厚现金，为后续研发与运营提供保障</td></tr>
+  </tbody>
+</table>
+
+<div class="callout">
+  <div class="quote"><b>三表联动：</b>损益表看"经营真相"（经调整改善、2026H1 盈利），财务状况表看"资本重构"（负债消失、权益转正），现金流量表看"现金来源"（全靠 IPO 募资）。三者共同印证：英矽智能已从"资不抵债的烧钱研发公司"转型为"现金充裕、开始盈利兑现的 AI 药物发现平台"。</div>
+</div>
+
+<!-- ========== 收入结构 ========== -->
+<h2>收入结构 · 2026 上半年</h2>
+<figure>
+  <svg viewBox="0 0 680 170" xmlns="http://www.w3.org/2000/svg" font-family="'Songti SC','Noto Serif CJK SC',serif">
+    <text x="0" y="30" font-size="10" fill="#3E4145">药物发现及管线开发</text>
+    <rect x="160" y="18" width="485" height="18" fill="#A73F2D"/>
+    <text x="652" y="32" font-size="9" fill="#A73F2D" text-anchor="end">97.0%</text>
+    <text x="0" y="75" font-size="10" fill="#3E4145">软件解决方案</text>
+    <rect x="160" y="63" width="12.5" height="18" fill="#B8862F"/>
+    <text x="180" y="77" font-size="9" fill="#22262B">2.5%</text>
+    <text x="0" y="120" font-size="10" fill="#3E4145">其他发现</text>
+    <rect x="160" y="108" width="2.5" height="18" fill="#2F6F6B"/>
+    <text x="170" y="122" font-size="9" fill="#22262B">0.5%</text>
+  </svg>
+  <figcaption>图 2　2026 上半年收入构成（金额 1.063 亿美元；药物发现与管线开发合并列示）</figcaption>
+</figure>
+<p>2025 全年收入 5,624 万美元中，药物发现 2,495 万（44.4%）、管线开发 2,389 万（42.5%）、软件 491 万（8.7%）、其他 249 万（4.4%）。对比可见：2025 年管线开发占比高（89.2% 集中于 2024 年的大额对外授权交易），2026 上半年则转为药物发现 + 管线开发双轮驱动且集中度更高，软件订阅维持稳定。</p>
+
+<!-- ========== 业务与管线概览 ========== -->
+<div class="page-break"></div>
+<h2>业务与管线概览</h2>
+<ul>
+  <li><span class="hl">双引擎模式</span>：生成式 AI 平台 Pharma.AI（Biology42 / Chemistry42 / Medicine42 / Science42）+ 深厚自主药物发现能力，形成持续强化学习"飞轮"。</li>
+  <li><span class="hl">效率优势</span>：候选药物从靶点发现到 PCC 确认平均 12–18 个月，远快于传统方法（约 4.5 年）。</li>
+  <li><span class="hl">研发管线</span>：截至 2026 上半年，Pharma.AI 已自主产生 <b>33 项 PCC 资产</b>；核心资产 <b>ISM001-055（Rentosertib）</b>用于特发性肺纤维化（IPF），中国 IIa 期已完成，<b>2026 年 7 月在中国启动 III 期</b>。</li>
+  <li><span class="hl">重大合作</span>：2021 年以来重大对外授权 / 共同开发 / 研究合作协议<b>合约总价值约 110 亿美元</b>；合作方含 Exelixis、Stemline、Sanofi、复星、礼来、康哲药业等。</li>
+  <li><span class="hl">平台延展</span>：由生物医药向先进材料、农业、营养品、兽医药物横向扩展。</li>
+</ul>
+
+<!-- ========== 风险提示 ========== -->
+<h2>风险提示</h2>
+<div class="risk-grid">
+  <div class="risk-item"><div class="risk-label">收入不可预测</div><div class="risk-desc">收入高度依赖对外授权首付款与里程碑款，交易达成节奏决定营收，呈"脉冲式"波动，无法明确预测。</div></div>
+  <div class="risk-item"><div class="risk-label">无商业化产品</div><div class="risk-desc">目前无任何上市产品销售，收入非经常性，持续经营依赖融资与合作的现金流入。</div></div>
+  <div class="risk-item"><div class="risk-label">临床与监管风险</div><div class="risk-desc">核心候选药物（尤其 Rentosertib）仍需完成后期临床与监管审批，存在失败或延期可能。</div></div>
+  <div class="risk-item"><div class="risk-label">研发高强度投入</div><div class="risk-desc">盈利拐点初期研发开支仍高（2025 年 8,138 万美元），若合作放缓，经营现金流出需资金储备支撑。</div></div>
+</div>
+
+<!-- ========== 结论 ========== -->
+<div class="analyst-box">
+  <div class="analyst-label">分析总结</div>
+  <p>2025 年 IPO 是英矽智能财务转折的分水岭：优先股转换使权益由巨额赤字转正，但当年报告利润因一次性非现金优先股公允价值亏损而失真，应以经调整口径评估经营实质。经营基本面改善趋势明确——收入结构优化、毛利率维持 80%–90% 高位、研发等经营开支受控、经调整亏损逐年收窄。2026 上半年收入同比 +287%、首次实现报告与经调整双盈利，验证商业模式可行性。后续核心观察点：盈利的可持续性（收入脉冲式特征）、Rentosertib III 期临床进展、以及平台跨行业授权的兑现节奏。</p>
+</div>
+
+<!-- ========== FOOTER ========== -->
+<div class="report-footer">
+  <span>数据来源：招股书、2025 年报、2026 中报（均按 IFRS）· 本报告为财务分析，不构成投资建议</span>
+  <span>2026-09-11</span>
+</div>
+
+</body>
+</html>

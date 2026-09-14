@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<!-- 财报分析专业报告 · kami 羊皮纸风格 · financial-report-analysis skill -->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>藏格矿业（000408.SZ）2015—2025 财务数据对比分析报告</title>
+<meta name="author" content="财报分析">
+<meta name="generator" content="financial-report-analysis">
+<style>
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W04.ttf") format("truetype");
+    font-weight: 400; font-style: normal;
+  }
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W05.ttf") format("truetype");
+    font-weight: 500; font-style: normal;
+  }
+  @page {
+    size: A4;
+    margin: 16mm 18mm 18mm 18mm;
+    background: #F7F4EE;
+    @bottom-center {
+      content: counter(page) "  ·  财报分析";
+      font-family: "TsangerJinKai02", "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", Georgia, serif;
+      font-size: 9pt; color: #6b6a64;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --parchment:#F7F4EE; --ivory:#FBF9F4; --near-black:#22262B; --dark-warm:#3E4145;
+    --olive:#504e49; --stone:#7C7B77; --brand:#A73F2D; --brand-deep:#8A3223;
+    --accent:#A73F2D; --accent-soft:#F1E3DD; --gold:#B8862F; --teal:#2F6F6B; --blue:#1B365D;
+    --border:#E3DDD4; --border-soft:#EAE5DC;
+    --tag-bg:#F1E3DD; --positive:#A73F2D; --negative:#2F6F6B;
+    --serif: "TsangerJinKai02", "Source Han Serif SC", "Source Han Serif CN", "Noto Serif CJK SC", "Noto Serif SC", "Songti SC", "STSong", "SimSun", Georgia, serif;
+    --rhythm-module:14pt; --rhythm-section:18pt;
+  }
+  html, body { background: var(--parchment); }
+  @media screen { body { max-width: 210mm; margin: 0 auto; padding: 16mm 18mm 18mm 18mm; } }
+  body { color: var(--near-black); font-family: var(--serif); font-size: 10pt; line-height: 1.5;
+    letter-spacing: 0.3pt; widows: 3; orphans: 3; }
+  strong { font-weight: 500; }
+  .hl { color: var(--brand); font-weight: 500; }
+
+  .report-header { display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: var(--rhythm-module); padding-bottom: 10pt; border-bottom: 0.5pt solid var(--border); }
+  .ticker-block { flex: 1; }
+  .ticker-eyebrow { font-size: 9pt; color: var(--brand); letter-spacing: 1.5pt; text-transform: uppercase;
+    font-weight: 500; margin-bottom: 4pt; }
+  .ticker-name { font-family: var(--serif); font-size: 24pt; font-weight: 500; color: var(--near-black);
+    line-height: 1.15; margin-bottom: 4pt; }
+  .ticker-sub { font-size: 10pt; color: var(--stone); line-height: 1.4; }
+  .price-block { text-align: right; padding-top: 4pt; }
+  .price-current { font-family: var(--serif); font-size: 28pt; font-weight: 500; color: var(--near-black);
+    line-height: 1; font-variant-numeric: tabular-nums; }
+  .price-change { font-size: 10pt; font-weight: 500; margin-top: 2pt; font-variant-numeric: tabular-nums; }
+  .price-change.up { color: var(--positive); }
+  .price-date { font-size: 9pt; color: var(--stone); margin-top: 2pt; }
+
+  .metrics { display: flex; gap: 14pt; margin-bottom: 16pt; padding: 6pt 0;
+    border-top: 0.3pt dotted var(--border); border-bottom: 0.3pt dotted var(--border); }
+  .metric { flex: 1; display: flex; align-items: baseline; gap: 4pt; }
+  .metric-value { font-family: var(--serif); font-size: 16pt; font-weight: 500; color: var(--brand);
+    line-height: 1; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .metric-label { font-size: 9pt; color: var(--olive); line-height: 1.3; white-space: nowrap; }
+
+  h2 { font-family: var(--serif); font-size: 16pt; font-weight: 500; color: var(--near-black);
+    margin: 18pt 0 6pt 0; break-after: avoid; }
+  h3 { font-size: 13pt; font-weight: 500; color: var(--dark-warm); margin: 12pt 0 4pt 0; break-after: avoid; }
+  h4 { font-size: 11pt; font-weight: 500; color: var(--dark-warm); margin: 10pt 0 3pt 0; break-after: avoid; }
+  p { margin: 0 0 8pt 0; line-height: 1.5; widows: 2; orphans: 2; }
+  ul, ol { margin: 4pt 0 8pt 0; padding-left: 18pt; line-height: 1.5; }
+  ul li::marker { color: var(--brand); } ol li::marker { color: var(--brand); font-weight: 500; }
+  li { margin-bottom: 3pt; }
+
+  .tag { display: inline-block; background: var(--tag-bg); color: var(--brand); font-size: 9pt;
+    font-weight: 500; padding: 1pt 6pt; border-radius: 3pt; margin-right: 3pt; }
+
+  table, .kami-table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin: 8pt 0; break-inside: avoid; }
+  table th, .kami-table th { text-align: left; font-weight: 500; color: var(--dark-warm);
+    padding: 6pt 8pt; border-bottom: 0.6pt solid var(--border); background: transparent; }
+  table td, .kami-table td { padding: 5pt 8pt; border-bottom: 0.25pt solid var(--border); vertical-align: top; }
+  table.compact th, .kami-table.compact th { padding: 3pt 6pt; font-size: 8pt; }
+  table.compact td, .kami-table.compact td { padding: 2.5pt 6pt; font-size: 8pt; line-height: 1.4; }
+  table.financial td:not(:first-child), .kami-table.financial td:not(:first-child) {
+    text-align: right; font-variant-numeric: tabular-nums; }
+  table.financial th:not(:first-child), .kami-table.financial th:not(:first-child) { text-align: right; }
+  table .total td, .kami-table .total td { font-weight: 500; border-top: 0.6pt solid var(--border);
+    border-bottom: none; color: var(--near-black); }
+  .note { font-size: 8.5pt; color: var(--stone); margin: 2pt 0 8pt 0; line-height: 1.45; }
+
+  .callout { background: var(--ivory); padding: 8pt 12pt; border-radius: 3pt; margin: 10pt 0;
+    line-height: 1.5; break-inside: avoid; }
+  .callout .quote { margin: 6pt 0; color: var(--olive); }
+
+  figure { margin: 12pt 0; break-inside: avoid; }
+  figcaption { font-size: 9pt; color: var(--stone); margin-top: 4pt; text-align: center; }
+
+  .risk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10pt; margin: 8pt 0; }
+  .risk-item { padding: 6pt 10pt; background: var(--ivory); border-radius: 3pt; break-inside: avoid; }
+  .risk-label { font-size: 9pt; font-weight: 500; color: var(--brand); margin-bottom: 2pt; }
+  .risk-desc { font-size: 9pt; color: var(--olive); line-height: 1.4; }
+
+  .analyst-box { background: var(--ivory); border-radius: 4pt; padding: 10pt 14pt; margin: 12pt 0;
+    break-inside: avoid; }
+  .analyst-label { font-size: 9pt; color: var(--brand); letter-spacing: 0.5pt; text-transform: uppercase;
+    margin-bottom: 4pt; }
+
+  .page-break { break-before: page; }
+
+  h2 { position: relative; padding-left: 13pt; }
+  h2::before { content:""; position:absolute; left:0; top:2.5pt; width:4pt; height:13pt;
+    background:var(--accent); border-radius:1pt; }
+  table th, .kami-table th { border-bottom: 1pt solid var(--accent); }
+  .metric:nth-child(1) .metric-value { color: var(--accent); }
+  .metric:nth-child(2) .metric-value { color: var(--gold); }
+  .metric:nth-child(3) .metric-value { color: var(--teal); }
+  .metric:nth-child(4) .metric-value { color: var(--blue); }
+  .callout { border-left: 3pt solid var(--accent); }
+  .analyst-box { border-left: 3pt solid var(--accent); }
+  .risk-item { border-left: 2.5pt solid var(--accent); }
+  .tag { background: var(--accent-soft); color: var(--brand-deep); }
+  .price-current { color: var(--near-black); }
+  .ticker-sub { color: var(--stone); }
+
+  .sec-num { color: var(--brand); font-weight: 500; }
+  .kv { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin: 8pt 0; break-inside: avoid; }
+  .kv th { width: 24%; text-align: left; font-weight: 500; color: var(--dark-warm);
+    padding: 5pt 8pt; border-bottom: 0.25pt solid var(--border); background: transparent; vertical-align: top; }
+  .kv td { padding: 5pt 8pt; border-bottom: 0.25pt solid var(--border); vertical-align: top; }
+  .report-footer { display: flex; justify-content: space-between; margin-top: 20pt;
+    padding-top: 8pt; border-top: 0.5pt solid var(--border);
+    font-size: 8.5pt; color: var(--stone); }
+</style>
+</head>
+<body>
+
+<div class="report-header">
+  <div class="ticker-block">
+    <div class="ticker-eyebrow">财务数据对比分析 · 11 年长周期</div>
+    <div class="ticker-name">藏格矿业 <span style="font-size: 14pt; color: var(--stone);">000408.SZ</span></div>
+    <div class="ticker-sub">钾肥 · 锂盐 · 参股铜矿　|　深交所主板　|　2015—2025 年度报告及 2026 年半年度报告</div>
+  </div>
+  <div class="price-block">
+    <div class="price-current">38.52<span style="font-size:13pt;">亿</span></div>
+    <div class="price-change up">归母净利润 &#9650; +49.32%</div>
+    <div class="price-date">2025 年度 · 人民币</div>
+  </div>
+</div>
+
+<div class="metrics">
+  <div class="metric"><div class="metric-value">35.77 亿</div><div class="metric-label">2025 营业收入<br>+10.03%</div></div>
+  <div class="metric"><div class="metric-value">72.23%</div><div class="metric-label">参股铜矿收益<br>占归母净利润</div></div>
+  <div class="metric"><div class="metric-value">8.35%</div><div class="metric-label">2025 年末<br>资产负债率</div></div>
+  <div class="metric"><div class="metric-value">39.22 亿</div><div class="metric-label">2025 年度<br>合计现金分红</div></div>
+</div>
+
+<h2>核心结论</h2>
+<p>藏格矿业 2015—2025 年走过了一条完整的"危机—出清—重构"曲线。11 年间营业收入从 27.28 亿元波动到 81.94 亿元的峰值再回落至 35.77 亿元，<strong>全部振幅由产品价格解释——氯化钾产量始终稳定在 103—131 万吨，碳酸锂始终是 1 万吨级装置</strong>。真正改变公司质地的是三件事：2016 年藏格钾肥借壳上市、2019—2020 年治理危机（控股股东资金占用、会计差错更正、无法表示意见审计报告）后的彻底出清、以及 2025 年 4 月紫金矿业入主。而最关键的财务事实是：<span class="hl">2025 年归母净利润 38.52 亿元中，27.82 亿元来自参股 30.78% 的西藏巨龙铜业权益法投资收益，占比 72.23%；2026 年上半年进一步升至 78.03%</span>。这既造成了"净利润高于营业收入"的反常结构，也意味着这家公司的利润已高度集中于一项非并表的参股资产。</p>
+<div class="callout"><div class="quote">一句话概括：<strong>主业（钾肥＋锂盐）是现金牛与压舱石，参股铜矿是利润放大器</strong>；看这家公司，必须同时拆开"主业利润"与"参股收益"两条线。</div></div>
+
+<h2>收入趋势</h2>
+<figure>
+<svg viewBox="0 0 680 268" width="100%" height="268" font-family="'Songti SC','Noto Serif CJK SC',serif" xmlns="http://www.w3.org/2000/svg">
+  <line x1="56" y1="24" x2="656" y2="24" stroke="#EFEBE3" stroke-width="0.6"/>
+  <line x1="56" y1="89.3" x2="656" y2="89.3" stroke="#EFEBE3" stroke-width="0.6"/>
+  <line x1="56" y1="154.7" x2="656" y2="154.7" stroke="#EFEBE3" stroke-width="0.6"/>
+  <line x1="56" y1="220" x2="656" y2="220" stroke="#E3DDD4" stroke-width="0.8"/>
+  <text x="50" y="27" font-size="8.5" fill="#7C7B77" text-anchor="end">90</text>
+  <text x="50" y="92.3" font-size="8.5" fill="#7C7B77" text-anchor="end">60</text>
+  <text x="50" y="157.7" font-size="8.5" fill="#7C7B77" text-anchor="end">30</text>
+  <text x="50" y="223" font-size="8.5" fill="#7C7B77" text-anchor="end">0</text>
+  <text x="34" y="130" font-size="8.5" fill="#7C7B77" transform="rotate(-90 34 130)" text-anchor="middle">亿元</text>
+
+  <rect x="71.4" y="163.3" width="30" height="56.7" fill="#CFC7BA"/>
+  <rect x="132.2" y="150.9" width="30" height="69.1" fill="#C3BBAD"/>
+  <rect x="193.0" y="161.6" width="30" height="58.4" fill="#B8B0A2"/>
+  <rect x="253.8" y="176.0" width="30" height="44.0" fill="#CFC7BA"/>
+  <rect x="314.6" y="178.6" width="30" height="41.4" fill="#C3BBAD"/>
+  <rect x="375.4" y="141.1" width="30" height="78.9" fill="#2F6F6B"/>
+  <rect x="436.2" y="41.6" width="30" height="178.4" fill="#A73F2D"/>
+  <rect x="497.0" y="106.2" width="30" height="113.8" fill="#B8862F"/>
+  <rect x="557.8" y="149.2" width="30" height="70.8" fill="#1B365D"/>
+  <rect x="618.6" y="142.1" width="30" height="77.9" fill="#A73F2D"/>
+
+  <polyline points="86.4,200.1 147.2,193.6 208.0,201.5 268.8,213.3 329.6,215.0 390.4,188.9 451.2,96.8 512.0,145.5 572.8,163.8 633.6,136.1"
+    fill="none" stroke="#22262B" stroke-width="1.6" stroke-linejoin="round"/>
+  <circle cx="86.4" cy="200.1" r="2.6" fill="#F7F4EE" stroke="#22262B" stroke-width="1.4"/>
+  <circle cx="147.2" cy="193.6" r="2.6" fill="#F7F4EE" stroke="#22262B" stroke-width="1.4"/>
+  <circle cx="208.0" cy="201.5" r="2.6" fill="#F7F4EE" stroke="#22262B" stroke-width="1.4"/>
+  <circle cx="268.8" cy="213.3" r="2.6" fill="#F7F4EE" stroke="#22262B" stroke-width="1.4"/>
+  <circle cx="329.6" cy="215.0" r="2.6" fill="#F7F4EE" stroke="#22262B" stroke-width="1.4"/>
+  <circle cx="390.4" cy="188.9" r="2.6" fill="#F7F4EE" stroke="#22262B" stroke-width="1.4"/>
+  <circle cx="451.2" cy="96.8" r="2.8" fill="#A73F2D" stroke="#A73F2D" stroke-width="1.4"/>
+  <circle cx="512.0" cy="145.5" r="2.6" fill="#F7F4EE" stroke="#22262B" stroke-width="1.4"/>
+  <circle cx="572.8" cy="163.8" r="2.6" fill="#F7F4EE" stroke="#22262B" stroke-width="1.4"/>
+  <circle cx="633.6" cy="136.1" r="2.6" fill="#F7F4EE" stroke="#22262B" stroke-width="1.4"/>
+
+  <text x="451.2" y="34" font-size="9.5" fill="#A73F2D" text-anchor="middle" font-weight="500">81.94</text>
+  <text x="633.6" y="126" font-size="9.5" fill="#A73F2D" text-anchor="middle" font-weight="500">35.77</text>
+  <text x="451.2" y="89" font-size="9" fill="#A73F2D" text-anchor="middle">56.55</text>
+
+  <text x="86.4" y="236" font-size="8.5" fill="#7C7B77" text-anchor="middle">2016</text>
+  <text x="147.2" y="236" font-size="8.5" fill="#7C7B77" text-anchor="middle">2017</text>
+  <text x="208.0" y="236" font-size="8.5" fill="#7C7B77" text-anchor="middle">2018</text>
+  <text x="268.8" y="236" font-size="8.5" fill="#7C7B77" text-anchor="middle">2019</text>
+  <text x="329.6" y="236" font-size="8.5" fill="#7C7B77" text-anchor="middle">2020</text>
+  <text x="390.4" y="236" font-size="8.5" fill="#7C7B77" text-anchor="middle">2021</text>
+  <text x="451.2" y="236" font-size="8.5" fill="#7C7B77" text-anchor="middle">2022</text>
+  <text x="512.0" y="236" font-size="8.5" fill="#7C7B77" text-anchor="middle">2023</text>
+  <text x="572.8" y="236" font-size="8.5" fill="#7C7B77" text-anchor="middle">2024</text>
+  <text x="633.6" y="236" font-size="8.5" fill="#7C7B77" text-anchor="middle">2025</text>
+
+  <rect x="56" y="248" width="11" height="9" fill="#A73F2D"/>
+  <text x="72" y="256" font-size="8.5" fill="#504e49">营业收入（亿元）</text>
+  <line x1="185" y1="252.5" x2="205" y2="252.5" stroke="#22262B" stroke-width="1.6"/>
+  <circle cx="195" cy="252.5" r="2.4" fill="#F7F4EE" stroke="#22262B" stroke-width="1.4"/>
+  <text x="211" y="256" font-size="8.5" fill="#504e49">归母净利润（亿元）</text>
+  <text x="656" y="256" font-size="8.5" fill="#7C7B77" text-anchor="end">数据来源：各年度经审计年报"主要会计数据和财务指标"</text>
+</svg>
+<figcaption>图 1　营业收入与归母净利润趋势（2016—2025，单位：亿元）</figcaption>
+</figure>
+<p class="note">2016—2020 年为缓慢下行期（治理危机＋钾肥价格低迷）；2021—2022 年为碳酸锂价格驱动下的爆发期，2022 年营收、净利双创历史峰值；2023—2024 年锂价回落导致连续两年下滑；2025 年结构性再平衡，收入回升但增量主要来自氯化钾量价齐升。</p>
+
+<div class="page-break"></div>
+<h2>财务数据对比 · 综合损益表</h2>
+<p class="note">单位：亿元；基本每股收益单位为元；加权平均净资产收益率为加权平均口径。<br>
+* 2015 年为按 2016 年报追溯重述口径（视为藏格钾肥纳入合并范围）；2015 年年报由原壳公司"金谷源"披露，当年营业收入 1.20 亿元、归母净利润 −0.60 亿元、总资产 4.64 亿元，与重述口径不具可比性。</p>
+<table class="financial compact">
+  <thead><tr><th>项目</th><th>2015*</th><th>2016</th><th>2017</th><th>2018</th><th>2019</th><th>2020</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th></tr></thead>
+  <tbody>
+    <tr><td>营业收入</td><td>27.28</td><td>26.03</td><td>31.73</td><td>26.81</td><td>20.19</td><td>19.03</td><td>36.23</td><td>81.94</td><td>52.26</td><td>32.51</td><td>35.77</td></tr>
+    <tr><td>归母净利润</td><td>9.94</td><td>9.12</td><td>12.14</td><td>8.50</td><td>3.08</td><td>2.29</td><td>14.27</td><td>56.55</td><td>34.20</td><td>25.80</td><td>38.52</td></tr>
+    <tr><td>扣非归母净利润</td><td>8.46</td><td>9.03</td><td>12.18</td><td>8.22</td><td>3.69</td><td>1.94</td><td>13.58</td><td>56.97</td><td>35.75</td><td>25.47</td><td>40.31</td></tr>
+    <tr><td>基本每股收益（元）</td><td>0.59</td><td>0.50</td><td>0.61</td><td>0.43</td><td>0.15</td><td>0.11</td><td>0.73</td><td>3.57</td><td>2.18</td><td>1.64</td><td>2.46</td></tr>
+    <tr class="total"><td>加权平均净资产收益率</td><td>42.83%</td><td>21.56%</td><td>18.49%</td><td>12.24%</td><td>4.72%</td><td>2.93%</td><td>16.39%</td><td>50.09%</td><td>27.62%</td><td>19.40%</td><td>24.71%</td></tr>
+  </tbody>
+</table>
+<p class="note">注：2022 年归母净利润采用 2023、2024 年报追溯调整后数据（因《企业会计准则解释第 16 号》调整）。2025 年归母净利润 38.52 亿元中，巨龙铜业权益法投资收益 27.82 亿元，占比 72.23%；同期扣非净利润 40.31 亿元<strong>高于</strong>归母净利润，因权益法投资收益计入经常性损益，扣非口径未剔除该项。</p>
+
+<h2>财务数据对比 · 综合财务状况表</h2>
+<table class="financial compact">
+  <thead><tr><th>项目</th><th>2015*</th><th>2016</th><th>2017</th><th>2018</th><th>2019</th><th>2020</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th></tr></thead>
+  <tbody>
+    <tr><td>总资产</td><td>52.84</td><td>73.61</td><td>77.45</td><td>93.85</td><td>96.44</td><td>86.78</td><td>106.25</td><td>135.40</td><td>140.92</td><td>150.83</td><td>176.92</td></tr>
+    <tr><td>归母净资产</td><td>28.95</td><td>59.58</td><td>65.35</td><td>74.35</td><td>79.07</td><td>79.17</td><td>94.54</td><td>121.24</td><td>130.58</td><td>138.65</td><td>162.44</td></tr>
+    <tr><td>货币资金</td><td>2.86</td><td>17.33</td><td>8.36</td><td>0.60</td><td>0.82</td><td>4.62</td><td>8.00</td><td>28.00</td><td>15.87</td><td>8.88</td><td>19.72</td></tr>
+    <tr><td>长期股权投资</td><td>—</td><td>—</td><td>—</td><td>—</td><td>25.57</td><td>22.20</td><td>25.45</td><td>32.68</td><td>41.30</td><td>60.56</td><td>72.96</td></tr>
+    <tr><td>负债合计</td><td>23.66</td><td>13.73</td><td>12.10</td><td>19.50</td><td>17.37</td><td>7.61</td><td>11.71</td><td>14.13</td><td>10.41</td><td>12.36</td><td>14.77</td></tr>
+    <tr class="total"><td>资产负债率</td><td>44.79%</td><td>18.65%</td><td>15.62%</td><td>20.78%</td><td>18.01%</td><td>8.76%</td><td>11.02%</td><td>10.44%</td><td>7.39%</td><td>8.20%</td><td>8.35%</td></tr>
+  </tbody>
+</table>
+<p class="note">注：长期股权投资 2019 年起为对西藏巨龙铜业有限公司的参股投资（2018 年及以前合并口径无重大长期股权投资）；2019 年末数取自 2019 年报审计说明之"长期股权投资—巨龙铜业"账面价值 25.57 亿元。资产负债率＝负债合计÷总资产，已与年报管理层讨论与分析披露值逐项核对一致（2022—2025 年分别为 10.44%／7.39%／8.20%／8.35%）。</p>
+
+<h2>财务数据对比 · 现金流量表</h2>
+<table class="financial compact">
+  <thead><tr><th>项目</th><th>2016</th><th>2017</th><th>2018</th><th>2019</th><th>2020</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th></tr></thead>
+  <tbody>
+    <tr><td>经营活动产生的现金流量净额</td><td>4.03</td><td>−0.66</td><td>8.88</td><td>2.77</td><td>−1.74</td><td>20.35</td><td>54.30</td><td>29.84</td><td>9.19</td><td>21.00</td></tr>
+    <tr><td>投资活动产生的现金流量净额</td><td>−0.48</td><td>−1.84</td><td>−16.88</td><td>−0.94</td><td>10.44</td><td>−17.70</td><td>−1.46</td><td>−14.07</td><td>−0.31</td><td>3.37</td></tr>
+    <tr><td>筹资活动产生的现金流量净额</td><td>9.31</td><td>−4.75</td><td>0.30</td><td>−1.61</td><td>−4.97</td><td>0.80</td><td>−33.05</td><td>−27.70</td><td>−16.21</td><td>−13.22</td></tr>
+    <tr><td>现金及现金等价物净增加额</td><td>12.86</td><td>−7.26</td><td>−7.70</td><td>0.22</td><td>3.72</td><td>3.45</td><td>19.80</td><td>−11.93</td><td>−7.33</td><td>11.15</td></tr>
+    <tr class="total"><td>期末现金及现金等价物余额</td><td>15.56</td><td>8.30</td><td>0.60</td><td>0.82</td><td>4.54</td><td>8.00</td><td>28.00</td><td>15.87</td><td>8.53</td><td>19.67</td></tr>
+  </tbody>
+</table>
+<p class="note">注：单位亿元；2016 年初（2015 年末）期末现金及现金等价物余额为 2.71 亿元。2018 年投资活动净流出 16.88 亿元主要为巨龙铜业股权受让与项目建设，是当年现金余额降至 0.60 亿元的直接原因。</p>
+
+<div class="page-break"></div>
+<h2>三张财务数据表：关键变化与趋势含义</h2>
+<p class="note">从损益表、财务状况表、现金流量表中提炼变化最显著的科目，逐一标注数值轨迹、趋势方向与经营/财务含义。</p>
+
+<h3>损益表 · 关键变化</h3>
+<table class="compact">
+  <thead><tr><th style="width:15%;">科目</th><th style="width:30%;">变化轨迹</th><th style="width:13%;">趋势方向</th><th>趋势含义</th></tr></thead>
+  <tbody>
+    <tr><td>营业收入</td><td>19.03（2020）→ 81.94（2022）→ 32.51（2024）→ 35.77（2025）</td><td>单峰后回落后企稳</td><td>2021—2022 年爆发源于碳酸锂含税均价 21.69 万元/吨，2023—2024 年腰斩源于锂价降至 8.50 万元/吨。收入由价格主导，产能扩张未带来台阶式跃升。</td></tr>
+    <tr><td>归母净利润</td><td>2.29（2020）→ 56.55（2022）→ 25.80（2024）→ 38.52（2025）</td><td>2024 见底、2025 反弹</td><td>2025 年净利润增长 49.32% 而收入仅增长 10.03%，利润与收入脱钩，说明增量并非来自主业收入。</td></tr>
+    <tr><td>利润来源结构</td><td>巨龙铜业权益法收益 6.92 亿（2022，占利润总额 10.49%）→ 26.80 亿（2025，占利润总额 66.09%）</td><td>单边上升、占比过半</td><td>2025 年巨龙铜业投资收益 27.82 亿元占归母净利润 72.23%，2026H1 升至 78.03%。主营钾锂业务实际贡献不足三成。</td></tr>
+    <tr><td>加权平均 ROE</td><td>2.93%（2020）→ 50.09%（2022）→ 24.71%（2025）</td><td>高位回落后再抬升</td><td>2025 年 ROE 回升 5.31 个百分点，但驱动因素已从"锂价弹性"切换为"参股铜矿权益法收益"，盈利质量的周期属性发生变化。</td></tr>
+    <tr><td>扣非与归母的关系</td><td>2019—2022 年扣非持续高于归母 → 2025 年扣非 40.31 亿高于归母 38.52 亿</td><td>扣非持续跑赢</td><td>权益法投资收益被认定为经常性损益，扣非口径<strong>并不能剔除铜矿收益</strong>，不能用"扣非"判断主业盈利。</td></tr>
+  </tbody>
+</table>
+
+<h3>财务状况表 · 关键变化</h3>
+<table class="compact">
+  <thead><tr><th style="width:15%;">科目</th><th style="width:30%;">变化轨迹</th><th style="width:13%;">趋势方向</th><th>趋势含义</th></tr></thead>
+  <tbody>
+    <tr><td>资产负债率</td><td>44.79%（2015）→ 18.01%（2019）→ 8.76%（2020）→ 7.77%（2026H1）</td><td>长期下行、低位稳定</td><td>从借壳后高杠杆降至不足 8%，财务风险基本出清；2026H1 货币资金 28.35 亿元对应负债合计约 14.5 亿元，实质处于<strong>净现金状态</strong>。</td></tr>
+    <tr><td>归母净资产</td><td>28.95（2015）→ 79.07（2019）→ 162.44（2025）</td><td>持续增厚、2019 年后加速</td><td>10 年增长 4.6 倍。2016 年增厚来自重组注入；2021 年后主要来自留存收益累积（含巨龙铜业权益法收益沉淀）。</td></tr>
+    <tr><td>长期股权投资</td><td>—（2018 及以前）→ 25.57（2019）→ 60.56（2024）→ 72.96（2025），占总资产 41.24%</td><td>快速上升，成为第一大资产</td><td>资产形态从"重资产自建"转为"重参股投资"。2025 年末 72.96 亿元超过固定资产 21.97 亿元，账面价值主要由一项参股权益支撑。</td></tr>
+    <tr><td>货币资金</td><td>17.33（2016）→ 0.60（2018）→ 28.00（2022）→ 19.72（2025）→ 28.35（2026H1）</td><td>V 型反转后高位波动</td><td>2018 年 0.60 亿元为历史极值低点（资金占用＋流动性紧张）；2022 年锂价高点积累 28.00 亿元；2024 年因大额分红回购回落，2025 年重新回升。</td></tr>
+    <tr><td>负债合计</td><td>23.66（2015）→ 7.61（2020）→ 14.77（2025）</td><td>先降后小幅回升</td><td>2025 年增加主要来自新增长期借款 2.30 亿元与合同负债 2.48 亿元，属经营扩张性负债，而非偿债压力。</td></tr>
+  </tbody>
+</table>
+
+<h3>现金流量表 · 关键变化</h3>
+<table class="compact">
+  <thead><tr><th style="width:15%;">科目</th><th style="width:30%;">变化轨迹</th><th style="width:13%;">趋势方向</th><th>趋势含义</th></tr></thead>
+  <tbody>
+    <tr><td>经营活动现金流量净额</td><td>4.03（2016）→ −1.74（2020）→ 54.30（2022）→ 9.19（2024）→ 21.00（2025）</td><td>大起大落后修复</td><td>与钾锂价格高度同向；2020 年为唯一负值年份。2025 年回升 128.49% 至 21.00 亿元，但<strong>仅为当年净利润的 54.5%</strong>。</td></tr>
+    <tr><td>经营现金流与净利润差额</td><td>2025 年差额达 <strong>17.37 亿元</strong></td><td>持续为正缺口</td><td>公司年报明确列示：差额主因是投资收益 26.80 亿元"影响净利润但不影响经营活动现金流量"。铜矿利润属账面利润，实际回款依赖巨龙铜业分红。</td></tr>
+    <tr><td>筹资活动现金流量净额</td><td>9.31（2016）→ 0.80（2021）→ −33.05（2022）→ −27.70（2023）→ −16.21（2024）→ −13.22（2025）</td><td>由净流入转为长期大额净流出</td><td>2022—2025 年连续四年净流出合计约 <strong>90 亿元</strong>，主要用途是现金分红与股份回购注销。公司已从"融资驱动"转向"回报驱动"。</td></tr>
+    <tr><td>现金及现金等价物净增加额</td><td>12.86（2016）→ −7.70（2018）→ 19.80（2022）→ −11.93（2023）→ 11.15（2025）</td><td>波动加剧</td><td>2023—2024 年连续为负（经营现金流下滑叠加分红流出）；2025 年转为净流入，其中投资活动由 −0.31 亿元转为 +3.37 亿元，主因是<strong>收到巨龙铜业分红款</strong>。</td></tr>
+  </tbody>
+</table>
+
+<div class="callout">
+  <div class="quote"><strong>三表联动 · 一句话看懂这家公司的真实状态</strong><br>
+  · <strong>损益表看"利润真相"</strong>：2025 年 38.52 亿元归母净利润中约 72% 来自参股铜矿权益法收益，必须拆开"主业利润"与"参股收益"两条线。<br>
+  · <strong>财务状况表看"资产形态"</strong>：资产总额 176.92 亿元中长期股权投资 72.96 亿元（41.24%）为第一大科目，公司已高度"投资化"；同时资产负债率 8.35%，低杠杆、净现金。<br>
+  · <strong>现金流量表看"现金来源"</strong>：经营造血 21.00 亿元显著低于账面利润 38.52 亿元，差额来自非现金权益法收益；现金主要去向是股东回报（筹资净流出 13.22 亿元）。</div>
+</div>
+
+<h2>收入结构</h2>
+<figure>
+<svg viewBox="0 0 680 258" width="100%" height="258" font-family="'Songti SC','Noto Serif CJK SC',serif" xmlns="http://www.w3.org/2000/svg">
+  <line x1="56" y1="20" x2="656" y2="20" stroke="#EFEBE3" stroke-width="0.6"/>
+  <line x1="56" y1="83.3" x2="656" y2="83.3" stroke="#EFEBE3" stroke-width="0.6"/>
+  <line x1="56" y1="146.7" x2="656" y2="146.7" stroke="#EFEBE3" stroke-width="0.6"/>
+  <line x1="56" y1="210" x2="656" y2="210" stroke="#E3DDD4" stroke-width="0.8"/>
+  <text x="50" y="23" font-size="8.5" fill="#7C7B77" text-anchor="end">90</text>
+  <text x="50" y="86.3" font-size="8.5" fill="#7C7B77" text-anchor="end">60</text>
+  <text x="50" y="149.7" font-size="8.5" fill="#7C7B77" text-anchor="end">30</text>
+  <text x="50" y="213" font-size="8.5" fill="#7C7B77" text-anchor="end">0</text>
+  <text x="34" y="122" font-size="8.5" fill="#7C7B77" transform="rotate(-90 34 122)" text-anchor="middle">亿元</text>
+
+  <rect x="78.7" y="171.4" width="56" height="38.6" fill="#A73F2D"/>
+  <rect x="78.7" y="170.0" width="56" height="1.4" fill="#2F6F6B"/>
+  <rect x="78.7" y="169.7" width="56" height="0.3" fill="#B8862F"/>
+  <text x="106.7" y="164" font-size="8.5" fill="#22262B" text-anchor="middle">19.03</text>
+
+  <rect x="180.0" y="153.8" width="56" height="56.2" fill="#A73F2D"/>
+  <rect x="180.0" y="133.8" width="56" height="20.0" fill="#2F6F6B"/>
+  <rect x="180.0" y="133.5" width="56" height="0.3" fill="#B8862F"/>
+  <text x="208.0" y="128" font-size="8.5" fill="#22262B" text-anchor="middle">36.23</text>
+
+  <rect x="281.3" y="129.0" width="56" height="81.0" fill="#A73F2D"/>
+  <rect x="281.3" y="37.7" width="56" height="91.3" fill="#2F6F6B"/>
+  <rect x="281.3" y="36.9" width="56" height="0.8" fill="#B8862F"/>
+  <text x="309.3" y="31" font-size="9.5" fill="#A73F2D" text-anchor="middle" font-weight="500">81.94</text>
+  <text x="309.3" y="85" font-size="8.5" fill="#F7F4EE" text-anchor="middle">锂 52.76%</text>
+
+  <rect x="382.7" y="142.1" width="56" height="67.9" fill="#A73F2D"/>
+  <rect x="382.7" y="100.3" width="56" height="41.8" fill="#2F6F6B"/>
+  <rect x="382.7" y="99.7" width="56" height="0.6" fill="#B8862F"/>
+  <text x="410.7" y="94" font-size="8.5" fill="#22262B" text-anchor="middle">52.26</text>
+
+  <rect x="484.0" y="163.3" width="56" height="46.7" fill="#A73F2D"/>
+  <rect x="484.0" y="141.7" width="56" height="21.6" fill="#2F6F6B"/>
+  <rect x="484.0" y="141.3" width="56" height="0.4" fill="#B8862F"/>
+  <text x="512.0" y="135" font-size="8.5" fill="#22262B" text-anchor="middle">32.51</text>
+
+  <rect x="585.3" y="147.7" width="56" height="62.3" fill="#A73F2D"/>
+  <rect x="585.3" y="135.2" width="56" height="12.5" fill="#2F6F6B"/>
+  <rect x="585.3" y="134.5" width="56" height="0.7" fill="#B8862F"/>
+  <text x="613.3" y="128" font-size="8.5" fill="#22262B" text-anchor="middle">35.77</text>
+
+  <text x="106.7" y="226" font-size="8.5" fill="#7C7B77" text-anchor="middle">2020</text>
+  <text x="208.0" y="226" font-size="8.5" fill="#7C7B77" text-anchor="middle">2021</text>
+  <text x="309.3" y="226" font-size="8.5" fill="#7C7B77" text-anchor="middle">2022</text>
+  <text x="410.7" y="226" font-size="8.5" fill="#7C7B77" text-anchor="middle">2023</text>
+  <text x="512.0" y="226" font-size="8.5" fill="#7C7B77" text-anchor="middle">2024</text>
+  <text x="613.3" y="226" font-size="8.5" fill="#7C7B77" text-anchor="middle">2025</text>
+
+  <rect x="56" y="240" width="11" height="9" fill="#A73F2D"/>
+  <text x="72" y="248" font-size="8.5" fill="#504e49">氯化钾</text>
+  <rect x="130" y="240" width="11" height="9" fill="#2F6F6B"/>
+  <text x="146" y="248" font-size="8.5" fill="#504e49">碳酸锂</text>
+  <rect x="204" y="240" width="11" height="9" fill="#B8862F"/>
+  <text x="220" y="248" font-size="8.5" fill="#504e49">贸易及其他</text>
+  <text x="656" y="248" font-size="8.5" fill="#7C7B77" text-anchor="end">数据来源：各年度年报"营业收入构成"</text>
+</svg>
+<figcaption>图 2　营业收入构成（2020—2025，单位：亿元，堆积柱）</figcaption>
+</figure>
+<p>收入结构 6 年间发生了一次完整的"钟摆运动"。2020 年氯化钾占比 95.94%，碳酸锂仅 3.34%；2022 年碳酸锂收入 43.23 亿元、占比 52.76%，<strong>首次超过氯化钾成为第一大收入来源</strong>；此后锂价下行使占比逐年回落至 2025 年的 16.57%，而氯化钾因量价齐升回升至 82.45%，重回绝对主导。这一结构说明：<strong>锂盐决定收入的弹性上限，钾肥决定收入的基本盘</strong>——2025 年公司收入的回升完全由钾肥板块（收入 +33.42%）支撑，碳酸锂收入则下降 41.98%。</p>
+
+<div class="page-break"></div>
+<h2>核心业务与竞争优势</h2>
+<ul>
+  <li><strong>资源独占性。</strong>拥有青海察尔汗盐湖 724.35 平方公里采矿权，是国内少数以盐湖卤水为原料、运用固转液技术生产氯化钾的企业，矿区富含钾、钠、镁、锂、硼等共伴生资源。2025 年 9 月 30 日取得新《采矿许可证》，在主矿种钾盐基础上新增矿盐、镁盐、锂矿、硼矿共伴生矿种，实现资源价值最大化。</li>
+  <li><strong>成本优势（护城河）。</strong>氯化钾销售成本长期稳定在 900—1,200 元/吨区间，2025 年降至 961.62 元/吨（同比 −205.44 元/吨）。碳酸锂采用自主研发的"从超低浓度含锂卤水中除杂提锂的方法"，实现"一步法"提取电池级碳酸锂并应用于年产万吨装置；截至 2025 年末累计申请专利 54 项、授权 31 项（含发明专利 6 项）。</li>
+  <li><strong>控股股东赋能（2025 年新增变量）。</strong>紫金矿业成为控股股东后，公司对接其全球矿业管理标准与国际化运营经验，重塑"简洁、规范、高效"管控模式；治理层面撤销监事会、将监督职能整合至监察与审计委员会，全年制修订制度 164 项、梳理流程 259 项；与紫金矿业在全流程自主技术、大规模系统工程研发实施上形成协同。</li>
+  <li><strong>参股铜矿的稀缺性。</strong>持有西藏巨龙铜业 30.78% 股权。巨龙铜矿是国内最大的超级铜矿山，2025 年产铜 19.38 万吨，实现营业收入 166.63 亿元、净利润 91.41 亿元。</li>
+  <li><strong>产品结构与销售模式。</strong>氯化钾以直销为主（2025 年直销占营业收入 75.26%）、经销为辅，全部内销，下游为复合肥生产企业；碳酸锂以长协为主、零单与点价销售为辅，2025 年引入期货点价模式对冲价格风险。</li>
+</ul>
+
+<h3>产能与重点项目进展</h3>
+<table class="compact">
+  <thead><tr><th style="width:22%;">产品 / 项目</th><th style="width:20%;">规模</th><th>进展与意义</th></tr></thead>
+  <tbody>
+    <tr><td>氯化钾（现有）</td><td>设计产能 120 万吨/年<br>利用率 86.10%</td><td>2025 年产量 103.32 万吨、销量 108.43 万吨，产销率保持高位。察尔汗盐湖主力矿区已获批氯化钾资源总量 9.84 亿吨。</td></tr>
+    <tr><td>电池级碳酸锂（现有）</td><td>设计产能 1 万吨/年<br>利用率 88.08%</td><td>2025 年因临时停产 87 天，全年产量 8,808 吨、销量 8,957 吨；同时在现有一万吨/年基础上推进 6,000 吨/年扩能项目立项申报。</td></tr>
+    <tr><td>巨龙铜矿二期</td><td>采选规模 15 万吨/日 → 35 万吨/日</td><td>2026 年 1 月 23 日正式建成投产。矿产铜年产量将从 19 万吨提升至约 30—35 万吨，矿产钼从 0.8 万吨提升至约 1.3 万吨，矿产银从 109 吨提升至约 230 吨。2026H1 巨龙铜业已产铜 13.40 万吨、净利润 92.23 亿元。</td></tr>
+    <tr><td>巨龙铜矿三期（远期规划）</td><td>年采选矿石量约 2 亿吨<br>年产铜约 60 万吨</td><td>若获批准，开采海拔将从二期 4,452 米降至 3,880 米，境界内可供开发铜储量超 2,000 万吨，届时将成为全球采选规模最大的铜矿山。</td></tr>
+    <tr><td>西藏麻米错盐湖</td><td>首期 5 万吨/年碳酸锂<br>（规划总规模 10 万吨）</td><td>矿区 115.36 km²，探明液体卤水矿中氯化锂储量 250.11 万吨（折碳酸锂 217.74 万吨）。2025 年 6 月获发改委核准、7 月取得施工许可与采矿许可证，已完成主体厂房封闭、进入设备安装阶段；藏青基金 2026 年 1 月募集 14 亿元。<strong>预计 2026 年三季度全面投产</strong>，全年产量 2—2.5 万吨，公司权益产量约 5,000—6,000 吨。</td></tr>
+    <tr><td>老挝钾盐矿</td><td>规划 200 万吨/年氯化钾<br>（一期 100 万吨）</td><td>持有老挝发展与老挝塞塔尼 70% 股权，已在 157.72 km² 钾盐范围备案氯化钾资源量约 9.84 亿吨，正推进一期可研、环评及权证办理，攻关充填技术与老卤固化试验。</td></tr>
+    <tr><td>年产 200 万吨工业盐</td><td>预计 2026 年产销 150 万吨</td><td>已完成可研、安环报告评审及项目备案，完成环评编制，系共伴生矿综合利用的关键落点。</td></tr>
+    <tr><td>探矿勘探</td><td>—</td><td>大浪滩黑北钾盐矿完成深层卤水第一阶段详查野外钻探；碱石山钾盐矿《普查报告》通过评审；小梁山—大风山钾盐矿取得新的探矿权证书。</td></tr>
+  </tbody>
+</table>
+
+<h3>重大事项与治理</h3>
+<ul>
+  <li><strong>控制权变更。</strong>2025 年 4 月 30 日控股股东由西藏藏格创业投资集团有限公司变更为紫金国际控股有限公司（紫金矿业系），为 2016 年借壳上市以来最重大的股权与治理变化。</li>
+  <li><strong>历史治理问题已完成整改。</strong>2019 年会计差错更正（控股股东资金占用）及由此产生的"无法表示意见"审计报告，已于 2021 年 2 月 5 日消除；2020 年收回大股东资金占用款。</li>
+  <li><strong>股东回报机制。</strong>2022—2024 年累计分红 78.79 亿元（现金分红约 74.29 亿元＋回购约 4.51 亿元）；2025 年半年度每 10 股派 10.00 元（约 15.69 亿元）＋年度每 10 股派 15.00 元（约 23.53 亿元），<strong>合计 39.22 亿元</strong>。</li>
+  <li><strong>2025 年临时停产事件。</strong>2025 年 7 月 16 日藏格钾肥收到海西州自然资源局、海西州盐湖管理局《关于责令立即停止锂资源开发利用活动的通知》后立即停产；9 月 30 日取得新不动产权证书与采矿许可证、完成增加锂矿矿种手续；10 月 11 日藏格锂业正式复产。累计停产 87 天，藏格锂业当年营业收入占公司 16.75%、净利润占 3.20%，影响较小。</li>
+  <li><strong>降本提质增效。</strong>2025 年可控管理费用较 2024 年下降约 16%；物资采购费用较历史费用下降 10.27%，工程采购较预算下降 16.4%。</li>
+</ul>
+
+<h2>风险提示</h2>
+<div class="risk-grid">
+  <div class="risk-item">
+    <div class="risk-label">利润来源集中风险（最需关注）</div>
+    <div class="risk-desc">2025 年 72.23%、2026H1 78.03% 的归母净利润来自巨龙铜业权益法投资收益。该收益为非现金账面收益，可持续性取决于铜价、巨龙铜矿产能释放进度及分红政策；若铜价大幅下行或投产不及预期，利润将直接承压。</div>
+  </div>
+  <div class="risk-item">
+    <div class="risk-label">产品价格波动风险</div>
+    <div class="risk-desc">氯化钾与碳酸锂价格受全球供需、地缘政治、农业周期影响。碳酸锂行业新增产能持续落地、供应格局趋向宽松，若下游新能源汽车与储能需求增长不及预期，锂价可能进一步下行。应对策略是锚定"成本曲线左端"以穿越周期。</div>
+  </div>
+  <div class="risk-item">
+    <div class="risk-label">地缘政治风险</div>
+    <div class="risk-desc">全球资源民族主义加深，海外项目（老挝钾盐矿）所在国政局与政策变化可能影响项目建设与经营；公司已成立专项工作组、深化前期尽调并建立多层次对外沟通机制。</div>
+  </div>
+  <div class="risk-item">
+    <div class="risk-label">生产成本上升风险</div>
+    <div class="risk-desc">化工辅料、天然气、电力价格波动；核心项目分布于青藏高原、老挝等偏远地区，用工与物流成本存在持续攀升可能；资源税、环境保护税等税费政策若调整将推高综合成本。</div>
+  </div>
+  <div class="risk-item">
+    <div class="risk-label">环境保护与安全生产风险</div>
+    <div class="risk-desc">矿产开采具有环境敏感性，可能对生态造成不可逆影响；盐田筑坝、输卤管道运维、有限空间作业等环节存在坍塌、泄漏及职业伤害风险，若责任落实不到位可能导致停产整顿。</div>
+  </div>
+  <div class="risk-item">
+    <div class="risk-label">分红可持续性风险</div>
+    <div class="risk-desc">2025 年 39.22 亿元分红规模已超过当年经营性现金流入（21.00 亿元），现金来源中巨龙铜业分红款权重上升。分红政策与参股公司现金流绑定，需持续跟踪。</div>
+  </div>
+</div>
+
+<h2>结论</h2>
+<ol>
+  <li><strong>11 年间公司完成了一次完整的"危机—出清—重构"循环。</strong>2016 年借壳上市时是高杠杆、单一钾肥主业的公司；2019—2020 年因控股股东资金占用触及退市风险警示；2021 年起完成整改、更名，并借助锂价周期实现利润峰值；2025 年紫金矿业入主，治理与战略定位再次升级。</li>
+  <li><strong>收入由价格主导，产能从未提供对冲。</strong>氯化钾产量 11 年稳定在 103—131 万吨，碳酸锂始终是 1 万吨级装置，营业收入从 19.03 亿元（2020）到 81.94 亿元（2022）的 4.3 倍振幅完全由价格波动解释。这意味着公司的业绩弹性是<strong>价格弹性，而非成长弹性</strong>。</li>
+  <li><strong>利润结构已发生实质性改变，"72% vs 28%"是理解 2025 年之后这家公司的第一个数字。</strong>巨龙铜业权益法投资收益占归母净利润的比重，从 2022 年的 10.49%（占利润总额）升至 2025 年的 72.23%、2026H1 的 78.03%。这既带来"营业收入 35.77 亿元、净利润 38.52 亿元"的反常结构，也带来利润来源集中度风险。关注这家公司，实质上是同时关注钾锂价格与铜价。</li>
+  <li><strong>财务安全性已达历史最优。</strong>资产负债率从 44.79% 降至 7.77%，2026H1 货币资金 28.35 亿元对应负债合计约 14.5 亿元，处于净现金状态；2016—2018 年曾出现的流动性紧张（现金降至 0.60 亿元）已彻底扭转。</li>
+  <li><strong>资本配置从"融资扩张"转为"回报股东"。</strong>2022—2025 年连续四年筹资活动净流出合计约 90 亿元，2022—2024 年累计分红 78.79 亿元，2025 年分红 39.22 亿元。但需留意，2025 年起分红现金来源中巨龙铜业分红款的权重上升，分红的持续性在一定程度上绑定参股公司的现金流。</li>
+  <li><strong>中期看点集中在三个时间点：</strong>巨龙铜矿二期达产节奏（2026 年起铜产量 19 万吨 → 30—35 万吨）、麻米错盐湖首期 5 万吨碳酸锂投产（预计 2026 年三季度，公司权益产量 5,000—6,000 吨）、老挝百万吨级钾盐项目权证与建设进度。三者分别对应铜、锂、钾三条利润线的中期弹性。</li>
+</ol>
+
+<div class="analyst-box">
+  <div class="analyst-label">分析总结</div>
+  <p>藏格矿业是一家"财务结构极其健康、但利润结构高度集中"的资源类公司。11 年数据揭示的核心规律有三条：<strong>第一，收入是价格函数而非产能函数</strong>，钾肥提供基本盘、锂盐提供弹性；<strong>第二，2025 年之后利润的主要来源已从主业切换到参股铜矿</strong>，权益法投资收益占归母净利润比重达 72.23%（2026H1 为 78.03%），且该收益为非现金项目，导致 2025 年经营现金流（21.00 亿元）仅为净利润（38.52 亿元）的 54.5%；<strong>第三，公司已进入低杠杆（资产负债率 8.35%）、净现金、高分红（2025 年 39.22 亿元）的成熟期</strong>，资本配置逻辑从扩张转向回报。基于此，判断该公司未来业绩的关键变量依次是：铜价与巨龙铜矿产能释放进度、氯化钾价格与成本控制、碳酸锂价格与麻米错项目投产节奏。</p>
+</div>
+
+<div class="report-footer">
+  <span>数据来源：藏格矿业（000408.SZ）2015—2025 年年度报告、2026 年半年度报告</span>
+  <span>2026 年 9 月</span>
+</div>
+
+</body>
+</html>
