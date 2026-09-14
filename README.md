@@ -1,5 +1,7 @@
 # 财报分析 · 报告库
 
+**线上地址：<https://zzl273311.github.io/financial-report-library/>**
+
 一个纯静态的上市公司财报分析报告浏览平台。左侧按「公司 → 期次」列出报告，点击后右侧直接呈现该期次的完整分析报告。
 
 无需构建、无后端、无依赖，可直接双击 `index.html` 打开，也可托管到 GitHub Pages。
@@ -117,11 +119,13 @@ git remote add origin git@github.com:<用户名>/<仓库名>.git
 git push -u origin main
 ```
 
-然后在 GitHub 仓库 **Settings → Pages** 里：
+本仓库的 Pages 已启用（`main` 分支 root 目录），线上地址：
 
-- Source 选择 `Deploy from a branch`
-- Branch 选择 `main`，目录选 `/ (root)`
-- 保存后等待 1–2 分钟，访问 `https://<用户名>.github.io/<仓库名>/`
+**<https://zzl273311.github.io/financial-report-library/>**
+
+仓库：<https://github.com/zzl273311/financial-report-library>
+
+换到新仓库时，在 GitHub 仓库 **Settings → Pages** 里：Source 选 `Deploy from a branch`，Branch 选 `main`，目录选 `/ (root)`，保存后等 1–2 分钟。
 
 `.nojekyll` 已就位，可确保 `reports/`、`assets/` 等目录被原样发布。仓库根目录的 `index.html` 会被 Pages 作为首页。
 
