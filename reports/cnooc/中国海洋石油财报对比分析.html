@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>中国海洋石油（600938.SH / 00883.HK）2021—2025 财务数据对比分析报告</title>
+<meta name="author" content="财报分析">
+<meta name="description" content="中国海洋石油有限公司 2021—2025 年财务数据对比分析">
+<style>
+  @page {
+    size: A4;
+    margin: 15mm 16mm 17mm 16mm;
+    background: #F7F4EE;
+    @bottom-center {
+      content: counter(page) "  ·  财报分析";
+      font-family: "TsangerJinKai02", "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", Georgia, serif;
+      font-size: 9pt; color: #6b6a64;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --parchment:#F7F4EE; --ivory:#FBF9F4; --near-black:#22262B; --dark-warm:#3E4145;
+    --olive:#504e49; --stone:#7C7B77; --brand:#A73F2D; --brand-deep:#8A3223;
+    --accent:#A73F2D; --accent-soft:#F1E3DD; --gold:#B8862F; --teal:#2F6F6B; --blue:#1B365D;
+    --border:#E3DDD4; --border-soft:#EAE5DC;
+    --tag-bg:#F1E3DD; --positive:#A73F2D; --negative:#2F6F6B;
+    --serif: "TsangerJinKai02", "Source Han Serif SC", "Source Han Serif CN", "Noto Serif CJK SC", "Noto Serif SC", "Songti SC", "STSong", "SimSun", Georgia, serif;
+  }
+  html, body { background: var(--parchment); }
+  @media screen { body { max-width: 210mm; margin: 0 auto; padding: 14mm 16mm 16mm 16mm; } }
+  body { color: var(--near-black); font-family: var(--serif); font-size: 9.6pt; line-height: 1.5;
+    letter-spacing: 0.2pt; widows: 3; orphans: 3; }
+  strong { font-weight: 600; }
+  .hl { color: var(--accent); font-weight: 600; }
+
+  h1 { font-size: 18pt; font-weight: 600; color: var(--near-black); line-height: 1.25;
+       margin: 0 0 8pt 0; break-after: avoid; }
+  h2 { font-family: var(--serif); font-size: 14pt; font-weight: 600; color: var(--near-black);
+       margin: 16pt 0 6pt 0; break-after: avoid; position: relative; padding-left: 12pt; }
+  h2::before { content:""; position:absolute; left:0; top:2.5pt; width:4pt; height:12pt;
+       background:var(--accent); border-radius:1pt; }
+  h3 { font-size: 11.5pt; font-weight: 600; color: var(--dark-warm); margin: 11pt 0 4pt 0; break-after: avoid; }
+  p { margin: 0 0 7pt 0; line-height: 1.55; widows: 2; orphans: 2; }
+  ul, ol { margin: 4pt 0 8pt 0; padding-left: 17pt; line-height: 1.55; }
+  ul li::marker { color: var(--accent); } ol li::marker { color: var(--accent); font-weight: 600; }
+  li { margin-bottom: 2.5pt; }
+  hr { border: none; border-top: 0.5pt solid var(--border); margin: 12pt 0; }
+
+  .report-header { display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: 10pt; padding-bottom: 9pt; border-bottom: 0.5pt solid var(--border); }
+  .ticker-eyebrow { font-size: 8.5pt; color: var(--accent); letter-spacing: 1.4pt; font-weight: 600; margin-bottom: 3pt; }
+  .ticker-name { font-size: 22pt; font-weight: 600; color: var(--near-black); line-height: 1.15; margin-bottom: 3pt; }
+  .ticker-name .code { font-size: 12pt; color: var(--stone); font-weight: 400; }
+  .ticker-sub { font-size: 9pt; color: var(--stone); line-height: 1.45; }
+  .price-block { text-align: right; padding-top: 3pt; }
+  .price-current { font-size: 25pt; font-weight: 600; color: var(--near-black); line-height: 1;
+       font-variant-numeric: tabular-nums; }
+  .price-change { font-size: 9.5pt; font-weight: 600; margin-top: 2pt; color: var(--accent); }
+  .price-date { font-size: 8.5pt; color: var(--stone); margin-top: 2pt; }
+
+  .metrics { display: flex; gap: 12pt; margin-bottom: 13pt; padding: 6pt 0;
+    border-top: 0.3pt dotted var(--border); border-bottom: 0.3pt dotted var(--border); }
+  .metric { flex: 1; }
+  .metric-value { font-size: 15pt; font-weight: 600; line-height: 1.05; font-variant-numeric: tabular-nums; }
+  .metric-label { font-size: 8.5pt; color: var(--olive); line-height: 1.3; margin-top: 1pt; }
+  .metric:nth-child(1) .metric-value { color: var(--accent); }
+  .metric:nth-child(2) .metric-value { color: var(--gold); }
+  .metric:nth-child(3) .metric-value { color: var(--teal); }
+  .metric:nth-child(4) .metric-value { color: var(--blue); }
+
+  table { width: 100%; border-collapse: collapse; font-size: 8.6pt; margin: 7pt 0; break-inside: avoid; }
+  table th { text-align: left; font-weight: 600; color: var(--dark-warm);
+    padding: 5pt 6pt; border-bottom: 1pt solid var(--accent); background: transparent; }
+  table td { padding: 4pt 6pt; border-bottom: 0.25pt solid var(--border); vertical-align: top; }
+  table.financial td:not(:first-child) { text-align: right; font-variant-numeric: tabular-nums; }
+  table.financial th:not(:first-child) { text-align: right; }
+  table.wide { font-size: 6.9pt; }
+  table.wide th, table.wide td { padding: 2.6pt 3.2pt; }
+  table .total td { font-weight: 600; border-top: 0.6pt solid var(--border); border-bottom: none; }
+  .note { font-size: 8.2pt; color: var(--stone); margin: 2pt 0 8pt 0; line-height: 1.45; }
+  .note strong { color: var(--olive); }
+
+  .callout, .note-block { background: var(--ivory); padding: 8pt 12pt; border-radius: 3pt;
+    border-left: 3pt solid var(--accent); margin: 9pt 0; line-height: 1.55; break-inside: avoid; }
+  .callout p:last-child, .note-block p:last-child { margin-bottom: 0; }
+  .callout.warn { border-left-color: var(--gold); }
+
+  figure { margin: 11pt 0; break-inside: avoid; }
+  figcaption { font-size: 8.5pt; color: var(--stone); margin-top: 4pt; text-align: center; }
+
+  .risk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8pt; margin: 8pt 0; }
+  .risk-item { padding: 6pt 9pt; background: var(--ivory); border-radius: 3pt;
+    border-left: 2.5pt solid var(--accent); break-inside: avoid; }
+  .risk-label { font-size: 8.6pt; font-weight: 600; color: var(--brand-deep); margin-bottom: 2pt; }
+  .risk-desc { font-size: 8.4pt; color: var(--olive); line-height: 1.45; }
+
+  .analyst-box { background: var(--ivory); border-radius: 4pt; border-left: 3pt solid var(--accent);
+    padding: 10pt 14pt; margin: 12pt 0; break-inside: avoid; }
+  .analyst-label { font-size: 8.6pt; color: var(--accent); letter-spacing: 0.6pt; font-weight: 600;
+    text-transform: uppercase; margin-bottom: 4pt; }
+
+  .report-footer { display: flex; justify-content: space-between; margin-top: 16pt; padding-top: 8pt;
+    border-top: 0.5pt solid var(--border); font-size: 8.2pt; color: var(--stone); }
+  .page-break { break-before: page; }
+</style>
+
+<!-- rsp-mobile-adapt : 响应式适配层（仅屏幕生效，不影响打印/PDF） -->
+<style id="rsp-mobile-adapt">
+/* ========== 1. 全局：屏幕端基础修正 ========== */
+@media screen {
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body { overflow-wrap: break-word; }
+  img, svg, canvas, video, iframe { max-width: 100%; }
+  svg[viewBox], svg[viewbox] { height: auto; }
+
+  /* 表格横向滚动容器：宽表不压字、不撑破页面 */
+  .rsp-table {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    margin: 8pt 0;
+    position: relative;
+  }
+  .rsp-table > table { margin: 0; }
+  .rsp-table::-webkit-scrollbar { height: 7px; }
+  .rsp-table::-webkit-scrollbar-track { background: transparent; }
+  .rsp-table::-webkit-scrollbar-thumb { background: #D8D1C4; border-radius: 4px; }
+  /* 内容确实溢出时，右侧给一层渐变暗示"还能往右滑" */
+  .rsp-table[data-rsp-scroll] {
+    background: linear-gradient(to left, rgba(167,63,45,.10), rgba(167,63,45,0) 28px);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 28px 100%;
+  }
+}
+
+/* ========== 2. 平板 / 窄窗口：边距先收，避免内容被挤 ========== */
+@media screen and (max-width: 900px) {
+  body { padding: 22px 22px 46px 22px !important; }
+  .report-header { flex-wrap: wrap; gap: 12pt; }
+  .metrics { flex-wrap: wrap; gap: 10pt 18pt; }
+  .metric { flex: 1 1 42%; min-width: 0; }
+  .report-footer { flex-wrap: wrap; gap: 4pt 14pt; }
+
+  /* 宽表改为横向滚动：给每列保留最小可读宽度，不再把汉字挤成竖排 */
+  .rsp-w5 > table { min-width: 310px !important; }
+  .rsp-w6 > table { min-width: 372px !important; }
+  .rsp-w7 > table { min-width: 434px !important; }
+  .rsp-w8 > table { min-width: 496px !important; }
+  .rsp-w9 > table { min-width: 558px !important; }
+  .rsp-w10 > table { min-width: 620px !important; }
+  .rsp-w11 > table { min-width: 682px !important; }
+  .rsp-w12 > table { min-width: 744px !important; }
+  .rsp-w13 > table { min-width: 806px !important; }
+  .rsp-w14 > table { min-width: 868px !important; }
+  .rsp-w15 > table { min-width: 930px !important; }
+  .rsp-w16 > table { min-width: 992px !important; }
+}
+
+/* ========== 3. 手机：指标卡两列、页头转纵向 ========== */
+@media screen and (max-width: 720px) {
+  body {
+    max-width: 100% !important;
+    padding: 18px 16px 44px 16px !important;
+    font-size: 10.5pt;
+  }
+  h2 { font-size: 15pt !important; margin: 20pt 0 7pt 0 !important; }
+  h3 { font-size: 12.5pt !important; }
+  h1 { font-size: 19pt !important; }
+  p, li { line-height: 1.62; }
+  ul, ol { padding-left: 17pt; }
+
+  .report-header { flex-direction: column; align-items: stretch; gap: 8pt; }
+  .price-block { text-align: left; padding-top: 0; }
+  .price-current { font-size: 24pt !important; }
+  .ticker-name { font-size: 21pt !important; }
+  .ticker-sub { font-size: 9.5pt !important; }
+
+  .metrics { gap: 9pt 12pt; }
+  .metric { flex: 1 1 45%; }
+  .metric-value { font-size: 15pt !important; }
+  .metric-label { font-size: 8.5pt !important; white-space: normal !important; }
+
+  table, .kami-table { font-size: 9pt !important; }
+  .longtable { font-size: 8.5pt !important; }
+  .wide { font-size: 7.5pt !important; }
+  .dense { font-size: 8pt !important; }
+  table th, table td, .kami-table th, .kami-table td { padding: 5pt 6pt !important; }
+
+  blockquote, .quote, .note, .warn, .callout, .risk-item { padding: 9pt 11pt !important; }
+  .risk-grid { grid-template-columns: 1fr !important; }
+  .report-footer { flex-direction: column; align-items: flex-start; gap: 3pt; }
+}
+
+/* ========== 4. 小屏手机：指标卡单列、边距收到最紧 ========== */
+@media screen and (max-width: 430px) {
+  body { padding: 14px 12px 38px 12px !important; }
+  h2 { font-size: 14pt !important; }
+  h3 { font-size: 11.5pt !important; }
+  .ticker-name { font-size: 19pt !important; }
+  .price-current { font-size: 21pt !important; }
+  .metric { flex: 1 1 100%; }
+  .metric-value { font-size: 16pt !important; }
+  ul, ol { padding-left: 15pt; }
+  table, .kami-table { font-size: 8.5pt !important; }
+}
+
+/* ========== 5. 打印：把包裹层还原成透明，PDF 版式与补丁前完全一致 ========== */
+@media print {
+  .rsp-table { margin: 0; padding: 0; overflow: visible !important; background: none !important; }
+  .rsp-table > table { margin: 8pt 0; min-width: 0 !important; }
+  [class*="rsp-w"] > table { min-width: 0 !important; }
+}
+</style>
+</head>
+<body>
+
+<div class="report-header">
+  <div class="ticker-block">
+    <div class="ticker-eyebrow">FINANCIAL ANALYSIS · 2021—2025</div>
+    <div class="ticker-name">中国海洋石油 <span class="code">600938.SH / 00883.HK</span></div>
+    <div class="ticker-sub">中国海洋石油有限公司（CNOOC Limited）· 海上油气勘探开发 · 五年财务数据对比分析</div>
+  </div>
+  <div class="price-block">
+    <div class="price-current">777.3</div>
+    <div class="price-change">百万桶油当量 · 2025 年净产量</div>
+    <div class="price-date">数据截至 2026 年半年报</div>
+  </div>
+</div>
+
+
+<div class="metrics">
+  <div class="metric"><div class="metric-value">3,982 亿</div><div class="metric-label">2025 年营业收入（同比 −5.3%）</div></div>
+  <div class="metric"><div class="metric-value">1,221 亿</div><div class="metric-label">2025 年归母净利润（同比 −11.5%）</div></div>
+  <div class="metric"><div class="metric-value">2,090 亿</div><div class="metric-label">2025 年经营现金流净额</div></div>
+  <div class="metric"><div class="metric-value">26.71%</div><div class="metric-label">2025 年末资产负债率</div></div>
+</div>
+
+
+<h2>核心结论</h2>
+<p>中国海油 2021—2025 年的财务曲线由<strong>实现油价</strong>决定方向，由<strong>产量增长</strong>与<strong>桶油成本</strong>决定幅度。在石油液体实现价格从 96.59 美元／桶跌至 66.47 美元／桶（−31.2%）的三年里，归母净利润仅从 1,417 亿元降至 1,221 亿元（−13.9%）——跌幅被产量增长 24.6% 与桶油主要成本下降 8.2% 有效对冲。</p>
+<p>与此同时，资产负债表完成结构性重构：有息负债由 1,351 亿元压缩至 698 亿元（−48.3%），2025 年末短期借款归零，形成约 1,802 亿元净现金头寸，资产负债率降至 26.71%。但需注意，账面负债中 39.6% 为弃置义务预计负债（1,160 亿元），不付息却构成确定性的远期现金流出。</p>
+<p>利润的现金含量极高：五年累计经营现金流 9,931 亿元 ÷ 累计归母净利润 5,959 亿元 ＝ <strong>1.67 倍</strong>；五年累计自由现金流 4,282 亿元，对累计分红形成约 1.7 倍覆盖。2026 年上半年营收 2,427 亿元（+16.9%）、归母净利润 858 亿元（+23.4%）均创历史同期最好水平，中期股息每股 0.94 港元创上市新高。</p>
+<div class="callout"><p><strong>一句话概括：</strong>这是一家把油价周期波动转化成"产量增长 + 成本下降 + 净现金积累"的油气上游公司，五年内完成了从高杠杆重资产向净现金型资产的转变；其财务风险不在偿债能力，而在油价、海外资产减值与弃置义务这三项外生与远期变量。</p></div>
+
+<div class="callout"><p><strong>数据口径：</strong>人民币百万元（另有标注者除外）；中国企业会计准则（CAS）；合并报表口径。公司同时按国际财务报告准则／香港财务报告准则编制财务报告，2022—2025 年各年年报均披露"境内外会计准则下会计数据无差异"，故本报告数据对 A／H 股两侧通用。</p><p><strong>覆盖期间：</strong>2021—2025 共 5 个完整会计年度，并附 2026 年半年度最新数据与分季度数据。<strong>编制说明：</strong>未披露项一律留"—"，不作推算填充；币种折算、口径切换与追溯事项在表注中单独说明。</p></div>
+<h2>一、公司概况</h2>
+<h3>1.1 基本信息</h3>
+<div class="rsp-table"><table class="">
+<thead><tr><th>项目</th><th>内容</th></tr></thead><tbody>
+<tr><td>公司全称</td><td>中国海洋石油有限公司（CNOOC Limited）</td></tr>
+<tr><td>证券代码</td><td>600938.SH（上交所主板）／00883.HK（港交所主板）</td></tr>
+<tr><td>总股本</td><td>47,529,953,984 股（其中港交所上市 44,539,953,984 股、上交所上市 2,990,000,000 股；2024—2025 年度无变动）</td></tr>
+<tr><td>控股股东</td><td>中国海洋石油集团有限公司（直接及间接持有约 62.13%）</td></tr>
+<tr><td>主营业务</td><td>海上原油及天然气的勘探、开发、生产与销售；油气贸易；海上风电、CCS/CCUS 等新能源业务</td></tr>
+<tr><td>作业区域</td><td>中国渤海、南海西部、南海东部、东海及陆上非常规天然气；海外资产遍及全球 20 多个国家和地区</td></tr>
+<tr><td>资源基础</td><td>净证实储量 77.7 亿桶油当量（2025 年末）；2025 年净产量 777.3 百万桶油当量</td></tr>
+<tr><td>员工人数</td><td>23,084 人（2025 年末；母公司 643 人、主要子公司 22,441 人）</td></tr>
+<tr><td>研发投入</td><td>54.81 亿元（2025 年，占营业收入 1.38%；研发人员 5,037 人）</td></tr>
+</tbody></table></div>
+<h3>1.2 上市沿革（决定了本报告数据起点）</h3>
+<ul>
+<li><strong>1999 年 8 月</strong>在香港注册成立；<strong>2001 年 2 月</strong>同时在纽约证券交易所（ADS，代码 CEO）与香港联合交易所（00883.HK）上市。</li>
+<li><strong>2013 年 2 月</strong>完成收购加拿大尼克森公司（Nexen），海外资产规模与国际化经营能力大幅扩张。</li>
+<li><strong>2021 年 10 月</strong>从纽约证券交易所退市，美国存托股份计划终止。</li>
+<li><strong>2022 年 4 月 21 日在上海证券交易所主板上市</strong>，为近十年来中国能源行业规模最大的 IPO。本报告 5 年完整数据的披露起点即由此确立（A 股定期报告自 2022 年一季报起披露，2022 年年报内含 2021 年完整比较数）。</li>
+<li><strong>2025 年管理层更替</strong>：汪东进先生不再担任董事长及非执行董事，周心怀先生辞任副董事长、执行董事及首席执行官；张传江先生任董事长，黄永章先生获委任副董事长、执行董事、首席执行官及总裁。</li>
+</ul>
+<h3>1.3 业务结构</h3>
+<p>公司业务可拆为两条线：</p>
+<ol>
+<li><strong>勘探及生产（核心主业）</strong>——自营作业与合作项目并举，收入来源为石油液体与天然气销售。2025 年该分部贡献收入 3,441.97 亿元，其中油气销售收入 3,356.52 亿元，占公司营业收入的 <strong>84.3%</strong>，毛利率约 59%。</li>
+<li><strong>贸易业务</strong>——销售产品分成合同下归属于外国合作方的油气，以及通过子公司自主买卖原油、天然气。2025 年收入 536.84 亿元、占比 13.5%，但<strong>毛利率仅约 11%</strong>，对利润贡献远低于其收入占比（详见 4.3）。</li>
+</ol>
+<h2>二、核心财务数据对比</h2>
+<h3>表 1　综合损益表（单位：人民币百万元；EPS 为元／股；ROE 为加权平均）</h3>
+<div class="rsp-table rsp-w6"><table class="">
+<thead><tr><th>项目</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th></tr></thead><tbody>
+<tr><td>营业收入</td><td>246,111</td><td><strong>422,230</strong></td><td>416,609</td><td>420,506</td><td>398,220</td></tr>
+<tr><td>营业收入同比</td><td>+58.4%</td><td><strong>+71.6%</strong></td><td>−1.3%</td><td>+0.9%</td><td>−5.3%</td></tr>
+<tr><td>利润总额</td><td>95,821</td><td><strong>194,770</strong></td><td>172,974</td><td>189,976</td><td>169,639</td></tr>
+<tr><td>归属于母公司股东的净利润</td><td>70,320</td><td><strong>141,700</strong></td><td>123,843</td><td>137,936</td><td>122,082</td></tr>
+<tr><td>归母净利润同比</td><td>+181.8%</td><td><strong>+101.5%</strong></td><td>−12.6%</td><td>+11.4%</td><td>−11.5%</td></tr>
+<tr><td>扣非后归母净利润</td><td>68,171</td><td><strong>140,250</strong></td><td>125,188</td><td>133,397</td><td>120,379</td></tr>
+<tr><td>扣非后归母净利润同比</td><td>+218.9%</td><td>+105.7%</td><td>−10.7%</td><td>+6.6%</td><td>−9.8%</td></tr>
+<tr><td>经营活动产生的现金流量净额</td><td>147,893</td><td>205,574</td><td>209,743</td><td><strong>220,891</strong></td><td>209,042</td></tr>
+<tr><td>基本每股收益（元／股）</td><td>1.57</td><td><strong>3.03</strong></td><td>2.60</td><td>2.90</td><td>2.57</td></tr>
+<tr><td>扣非后基本每股收益（元／股）</td><td>1.53</td><td>3.00</td><td>2.63</td><td>2.81</td><td>2.53</td></tr>
+<tr><td>加权平均净资产收益率</td><td>15.36%</td><td><strong>26.00%</strong></td><td>19.55%</td><td>19.36%</td><td>15.64%</td></tr>
+<tr><td>扣非后加权平均净资产收益率</td><td>14.89%</td><td>25.73%</td><td>19.76%</td><td>18.72%</td><td>15.42%</td></tr>
+</tbody></table></div>
+<p>注 1：2021 年营业收入及归母净利润同比增速按上年（2020 年）数计算——2020 年营业收入 155,373 百万元、归母净利润 24,957 百万元、扣非后归母净利润 21,370 百万元（取自 2022 年年报"主要会计数据"表的 2020 年列）。公司 2022 年年报对 2022 年收入同比的表述为"+72%"、对 2022 年归母净利润同比的表述为"+102%"，与本表四舍五入一致。 注 2：2021 年扣非后加权平均净资产收益率 14.89% 取自 2022 年年报"主要财务指标"表的 2021 年比较列。</p>
+
+<figure>
+<svg viewBox="0 0 680 280" width="100%" font-family="'Songti SC','Noto Serif CJK SC',serif">
+  <text x="0" y="14" font-size="12" fill="#22262B" font-weight="600">营业收入与归母净利润（人民币百万元）</text>
+  <text x="0" y="30" font-size="9" fill="#7C7B77">柱＝营业收入（左轴）　线＝归母净利润（右轴，与柱共用刻度比例）</text>
+  <line x1="52" y1="220" x2="648" y2="220" stroke="#E3DDD4" stroke-width="1"/>
+  <line x1="52" y1="180" x2="648" y2="180" stroke="#EFEBE3" stroke-width="1"/>
+  <line x1="52" y1="140" x2="648" y2="140" stroke="#EFEBE3" stroke-width="1"/>
+  <line x1="52" y1="100" x2="648" y2="100" stroke="#EFEBE3" stroke-width="1"/>
+  <line x1="52" y1="60" x2="648" y2="60" stroke="#EFEBE3" stroke-width="1"/>
+  <text x="46" y="224" font-size="8" fill="#7C7B77" text-anchor="end">0</text>
+  <text x="46" y="184" font-size="8" fill="#7C7B77" text-anchor="end">125,000</text>
+  <text x="46" y="144" font-size="8" fill="#7C7B77" text-anchor="end">250,000</text>
+  <text x="46" y="104" font-size="8" fill="#7C7B77" text-anchor="end">375,000</text>
+  <text x="46" y="64" font-size="8" fill="#7C7B77" text-anchor="end">500,000</text>
+  <rect x="80" y="141" width="52" height="79" fill="#CFC7BA"/>
+  <rect x="192" y="84" width="52" height="136" fill="#2F6F6B"/>
+  <rect x="304" y="87" width="52" height="133" fill="#B8862F"/>
+  <rect x="416" y="85" width="52" height="135" fill="#1B365D"/>
+  <rect x="528" y="93" width="52" height="127" fill="#A73F2D"/>
+  <text x="106" y="135" font-size="9" fill="#22262B" text-anchor="middle">246,111</text>
+  <text x="218" y="78" font-size="9" fill="#22262B" text-anchor="middle">422,230</text>
+  <text x="330" y="81" font-size="9" fill="#22262B" text-anchor="middle">416,609</text>
+  <text x="442" y="79" font-size="9" fill="#22262B" text-anchor="middle">420,506</text>
+  <text x="554" y="87" font-size="9" fill="#A73F2D" text-anchor="middle">398,220</text>
+  <polyline points="106,197 218,177 330,181 442,178 554,183" fill="none" stroke="#22262B" stroke-width="1.6"/>
+  <circle cx="106" cy="197" r="3.2" fill="#F7F4EE" stroke="#22262B" stroke-width="1.6"/>
+  <circle cx="218" cy="177" r="3.2" fill="#F7F4EE" stroke="#22262B" stroke-width="1.6"/>
+  <circle cx="330" cy="181" r="3.2" fill="#F7F4EE" stroke="#22262B" stroke-width="1.6"/>
+  <circle cx="442" cy="178" r="3.2" fill="#F7F4EE" stroke="#22262B" stroke-width="1.6"/>
+  <circle cx="554" cy="183" r="3.6" fill="#A73F2D"/>
+  <text x="106" y="190" font-size="8.5" fill="#22262B" text-anchor="middle">70,320</text>
+  <text x="218" y="170" font-size="8.5" fill="#22262B" text-anchor="middle">141,700</text>
+  <text x="330" y="174" font-size="8.5" fill="#22262B" text-anchor="middle">123,843</text>
+  <text x="442" y="171" font-size="8.5" fill="#22262B" text-anchor="middle">137,936</text>
+  <text x="554" y="176" font-size="8.5" fill="#A73F2D" text-anchor="middle">122,082</text>
+  <text x="106" y="238" font-size="9" fill="#3E4145" text-anchor="middle">2021</text>
+  <text x="218" y="238" font-size="9" fill="#3E4145" text-anchor="middle">2022</text>
+  <text x="330" y="238" font-size="9" fill="#3E4145" text-anchor="middle">2023</text>
+  <text x="442" y="238" font-size="9" fill="#3E4145" text-anchor="middle">2024</text>
+  <text x="554" y="238" font-size="9" fill="#3E4145" text-anchor="middle">2025</text>
+  <rect x="80" y="252" width="10" height="10" fill="#CFC7BA"/>
+  <text x="94" y="261" font-size="8.5" fill="#504e49">营业收入（历史）</text>
+  <rect x="228" y="252" width="10" height="10" fill="#A73F2D"/>
+  <text x="242" y="261" font-size="8.5" fill="#504e49">营业收入（最新）</text>
+  <line x1="378" y1="257" x2="400" y2="257" stroke="#22262B" stroke-width="1.6"/>
+  <circle cx="389" cy="257" r="3.2" fill="#F7F4EE" stroke="#22262B" stroke-width="1.6"/>
+  <text x="406" y="261" font-size="8.5" fill="#504e49">归母净利润</text>
+</svg>
+<figcaption>图 1　营业收入与归母净利润五年趋势（单位：人民币百万元）</figcaption>
+</figure>
+<h3>表 2　综合财务状况表（单位：人民币百万元）</h3>
+<div class="rsp-table rsp-w6"><table class="">
+<thead><tr><th>项目</th><th>2021年末</th><th>2022年末</th><th>2023年末</th><th>2024年末</th><th>2025年末</th></tr></thead><tbody>
+<tr><td>总资产</td><td>786,569</td><td>929,031</td><td>1,005,598</td><td>1,056,281</td><td><strong>1,098,559</strong></td></tr>
+<tr><td>流动资产</td><td>—</td><td>264,679</td><td>250,275</td><td>264,609</td><td>295,383</td></tr>
+<tr><td>非流动资产</td><td>—</td><td>664,352</td><td>755,323</td><td>791,672</td><td>803,176</td></tr>
+<tr><td>其中：油气资产\*</td><td>458,870</td><td>524,631</td><td>584,309</td><td>468,393</td><td><strong>508,905</strong></td></tr>
+<tr><td>其中：在建工程\*</td><td>—</td><td>1,436</td><td>1,601</td><td>157,278</td><td>150,913</td></tr>
+<tr class="total"><td>负债合计</td><td>304,593</td><td>330,648</td><td>337,722</td><td>306,845</td><td><strong>293,375</strong></td></tr>
+<tr><td>其中：预计负债（弃置义务）</td><td>75,482</td><td>87,042</td><td>97,091</td><td>99,740</td><td><strong>116,039</strong></td></tr>
+<tr class="total"><td>有息负债合计\<em>\</em></td><td>135,142</td><td>134,396</td><td>120,177</td><td>91,887</td><td><strong>69,800</strong></td></tr>
+<tr class="total"><td>股东权益合计</td><td>481,976</td><td>598,383</td><td>667,876</td><td>749,436</td><td><strong>805,184</strong></td></tr>
+<tr><td>其中：归属于母公司股东权益</td><td>480,912</td><td>597,182</td><td>666,586</td><td>747,548</td><td><strong>802,750</strong></td></tr>
+<tr><td>少数股东权益</td><td>1,064</td><td>1,201</td><td>1,290</td><td>1,888</td><td>2,434</td></tr>
+<tr><td>货币资金</td><td>79,730</td><td>121,387</td><td>150,562</td><td>154,196</td><td><strong>214,695</strong></td></tr>
+<tr><td>交易性金融资产</td><td>82,440</td><td>88,209</td><td>44,304</td><td>45,771</td><td>25,998</td></tr>
+<tr><td>债权投资</td><td>4,483</td><td>5,975</td><td>8,221</td><td>8,504</td><td>9,305</td></tr>
+<tr><td>资产负债率</td><td>38.72%</td><td>35.59%</td><td>33.58%</td><td>29.05%</td><td><strong>26.71%</strong></td></tr>
+<tr><td>有息负债占总资产比</td><td>17.18%</td><td>14.47%</td><td>11.95%</td><td>8.70%</td><td><strong>6.35%</strong></td></tr>
+</tbody></table></div>
+<p>\<em> <strong>口径切换提示（2024 年起）</strong>：公司在 2024 年年报中将在建油气工程项目从"油气资产"中单独列示为"在建工程"（2023 年末该科目仅 1,601 百万元，2024 年末增至 157,278 百万元），而 2023 年末比较数未追溯重述。因此<strong>"油气资产"2023 年末 584,309 与 2024 年末 468,393 之间不可直接比较</strong>。将两项合并后，2023—2025 年末分别为 585,910、625,671、659,818 百万元，连续增长，方为可比口径（2022 年末合并口径为 526,067 百万元）。 \</em>\* 有息负债合计 ＝ 短期借款 ＋ 一年内到期的非流动负债 ＋ 长期借款 ＋ 应付债券 ＋ 租赁负债（合并报表口径）。其中"一年内到期的非流动负债"与"租赁负债"存在少量重叠，该数略偏高，仅用于观察趋势。 注 1：资产负债率 ＝ 负债合计 ÷ 总资产；有息负债占比 ＝ 有息负债合计 ÷ 总资产，均为本报告按年报合并报表数据计算。流动资产／非流动资产自 2022 年起逐年抽取，2021 年末因未取得同口径明细留"—"。 注 2：预计负债主要为海上油气田弃置义务准备，五年增长 53.7%，2025 年末 116,039 百万元占负债合计的 39.6%。该项非有息负债，不产生利息支出，但在油田退役期将转化为实际现金流出（详见 3.2 与 4.5）。</p>
+<h3>表 3　现金流量表（单位：人民币百万元）</h3>
+<div class="rsp-table rsp-w6"><table class="">
+<thead><tr><th>项目</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th></tr></thead><tbody>
+<tr><td>经营活动产生的现金流量净额</td><td>147,893</td><td>205,574</td><td>209,743</td><td><strong>220,891</strong></td><td>209,042</td></tr>
+<tr><td>投资活动产生的现金流量净额</td><td>(96,235)</td><td>(98,473)</td><td>(78,095)</td><td><strong>(175,426)</strong></td><td>(125,264)</td></tr>
+<tr><td>筹资活动产生的现金流量净额</td><td>(33,332)</td><td>(64,962)</td><td>(84,228)</td><td><strong>(97,935)</strong></td><td>(85,983)</td></tr>
+<tr><td>现金及现金等价物净增加（减少）额</td><td>+17,413</td><td>+44,201</td><td>+47,806</td><td><strong>(52,155)</strong></td><td>(2,605)</td></tr>
+<tr><td>年末现金及现金等价物余额</td><td>41,432</td><td>85,633</td><td><strong>133,439</strong></td><td>81,284</td><td>78,679</td></tr>
+<tr><td>资本支出\*</td><td>87,592</td><td>100,357</td><td>127,913</td><td>130,215</td><td><strong>118,829</strong></td></tr>
+<tr><td>经营现金流 − 资本支出（自由现金流）</td><td>60,301</td><td>105,217</td><td>81,830</td><td>90,676</td><td><strong>90,213</strong></td></tr>
+</tbody></table></div>
+<p>\* 资本支出采用年报"资本支出"章节披露的"中国＋海外开发、勘探资本支出合计"口径。年报"管理层讨论与分析"另以"全年资本支出达人民币 X 亿元"表述（2022 年 1,025 亿元、2023 年 1,296 亿元、2024 年 1,327 亿元），较本表同年数值高约 20—25 亿元，系统计范围略有差异；本表统一采用前者，以保持 5 年可比。</p>
+<h3>表 4　营业收入构成（单位：人民币百万元；括号内为占营业收入比重）</h3>
+<div class="rsp-table rsp-w6"><table class="">
+<thead><tr><th>项目</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th></tr></thead><tbody>
+<tr><td>油气销售收入</td><td>222,125（90.3%）</td><td>352,956（83.6%）</td><td>327,867（78.7%）</td><td>355,615（84.6%）</td><td>335,652（<strong>84.3%</strong>）</td></tr>
+<tr><td>贸易收入</td><td>18,084（7.3%）</td><td>60,433（14.3%）</td><td>79,308（<strong>19.0%</strong>）</td><td>55,142（13.1%）</td><td>53,684（13.5%）</td></tr>
+<tr><td>其他业务收入</td><td>5,902（2.4%）</td><td>8,841（2.1%）</td><td>9,434（2.3%）</td><td>9,749（2.3%）</td><td>8,884（2.2%）</td></tr>
+<tr class="total"><td>营业收入合计</td><td>246,111</td><td>422,230</td><td>416,609</td><td>420,506</td><td>398,220</td></tr>
+<tr><td>油气销售毛利</td><td>123,048</td><td>221,036</td><td>202,051</td><td>221,941</td><td><strong>199,514</strong></td></tr>
+<tr><td>油气销售毛利率</td><td>55.4%</td><td>62.6%</td><td>61.6%</td><td>62.4%</td><td><strong>59.4%</strong></td></tr>
+<tr><td>贸易业务毛利</td><td>1,443</td><td>3,050</td><td>5,358</td><td>5,107</td><td>6,038</td></tr>
+<tr><td>贸易业务毛利率</td><td>8.0%</td><td>5.0%</td><td>6.8%</td><td>9.3%</td><td><strong>11.2%</strong></td></tr>
+</tbody></table></div>
+<p>注：油气销售毛利 ＝ 油气销售收入 − 油气销售成本，贸易毛利同口径。2021—2025 年各年数据均由公司年报"营业收入和营业成本"附注直接披露的收入与成本相减得出，未作推算。三项分部收入之和与营业收入合计完全勾稽相符。</p>
+
+<figure>
+<svg viewBox="0 0 680 240" width="100%" font-family="'Songti SC','Noto Serif CJK SC',serif">
+  <text x="0" y="14" font-size="12" fill="#22262B" font-weight="600">营业收入构成：油气销售 vs 贸易业务（人民币百万元）</text>
+  <text x="0" y="30" font-size="9" fill="#7C7B77">贸易业务收入占比 2023 年达 19.0% 峰值，但毛利率仅 6.8%—11.2%</text>
+  <line x1="46" y1="182" x2="648" y2="182" stroke="#E3DDD4" stroke-width="1"/>
+  <line x1="46" y1="142" x2="648" y2="142" stroke="#EFEBE3" stroke-width="1"/>
+  <line x1="46" y1="102" x2="648" y2="102" stroke="#EFEBE3" stroke-width="1"/>
+  <line x1="46" y1="62" x2="648" y2="62" stroke="#EFEBE3" stroke-width="1"/>
+  <text x="40" y="186" font-size="8" fill="#7C7B77" text-anchor="end">0</text>
+  <text x="40" y="146" font-size="8" fill="#7C7B77" text-anchor="end">150,000</text>
+  <text x="40" y="106" font-size="8" fill="#7C7B77" text-anchor="end">300,000</text>
+  <text x="40" y="66" font-size="8" fill="#7C7B77" text-anchor="end">450,000</text>
+  <rect x="72" y="123" width="46" height="59" fill="#CFC7BA"/>
+  <rect x="72" y="176" width="46" height="6" fill="#B8862F"/>
+  <rect x="180" y="88" width="46" height="94" fill="#2F6F6B"/>
+  <rect x="180" y="166" width="46" height="16" fill="#B8862F"/>
+  <rect x="288" y="95" width="46" height="87" fill="#1B365D"/>
+  <rect x="288" y="161" width="46" height="21" fill="#B8862F"/>
+  <rect x="396" y="88" width="46" height="94" fill="#CFC7BA"/>
+  <rect x="396" y="167" width="46" height="15" fill="#B8862F"/>
+  <rect x="504" y="94" width="46" height="88" fill="#A73F2D"/>
+  <rect x="504" y="168" width="46" height="14" fill="#B8862F"/>
+  <text x="95" y="117" font-size="8.5" fill="#22262B" text-anchor="middle">222,125</text>
+  <text x="203" y="82" font-size="8.5" fill="#22262B" text-anchor="middle">352,956</text>
+  <text x="311" y="89" font-size="8.5" fill="#22262B" text-anchor="middle">327,867</text>
+  <text x="419" y="82" font-size="8.5" fill="#22262B" text-anchor="middle">355,615</text>
+  <text x="527" y="88" font-size="8.5" fill="#A73F2D" text-anchor="middle">335,652</text>
+  <text x="95" y="198" font-size="8" fill="#7C7B77" text-anchor="middle">18,084</text>
+  <text x="203" y="198" font-size="8" fill="#7C7B77" text-anchor="middle">60,433</text>
+  <text x="311" y="198" font-size="8" fill="#7C7B77" text-anchor="middle">79,308</text>
+  <text x="419" y="198" font-size="8" fill="#7C7B77" text-anchor="middle">55,142</text>
+  <text x="527" y="198" font-size="8" fill="#7C7B77" text-anchor="middle">53,684</text>
+  <text x="95" y="216" font-size="9" fill="#3E4145" text-anchor="middle">2021</text>
+  <text x="203" y="216" font-size="9" fill="#3E4145" text-anchor="middle">2022</text>
+  <text x="311" y="216" font-size="9" fill="#3E4145" text-anchor="middle">2023</text>
+  <text x="419" y="216" font-size="9" fill="#3E4145" text-anchor="middle">2024</text>
+  <text x="527" y="216" font-size="9" fill="#3E4145" text-anchor="middle">2025</text>
+  <rect x="140" y="230" width="10" height="10" fill="#2F6F6B"/>
+  <text x="154" y="239" font-size="8.5" fill="#504e49">油气销售收入</text>
+  <rect x="290" y="230" width="10" height="10" fill="#A73F2D"/>
+  <text x="304" y="239" font-size="8.5" fill="#504e49">油气销售（最新）</text>
+  <rect x="440" y="230" width="10" height="10" fill="#B8862F"/>
+  <text x="454" y="239" font-size="8.5" fill="#504e49">贸易收入</text>
+</svg>
+<figcaption>图 2　营业收入构成：油气销售与贸易业务（单位：人民币百万元）</figcaption>
+</figure>
+
+<figure>
+<svg viewBox="0 0 680 240" width="100%" font-family="'Songti SC','Noto Serif CJK SC',serif">
+  <text x="0" y="14" font-size="12" fill="#22262B" font-weight="600">实现油价 vs 桶油主要成本（美元／桶油当量）</text>
+  <text x="0" y="30" font-size="9" fill="#7C7B77">油价下行三年，成本持续下移，桶油毛利空间反而扩大</text>
+  <line x1="46" y1="190" x2="648" y2="190" stroke="#E3DDD4" stroke-width="1"/>
+  <line x1="46" y1="150" x2="648" y2="150" stroke="#EFEBE3" stroke-width="1"/>
+  <line x1="46" y1="110" x2="648" y2="110" stroke="#EFEBE3" stroke-width="1"/>
+  <line x1="46" y1="70" x2="648" y2="70" stroke="#EFEBE3" stroke-width="1"/>
+  <text x="40" y="194" font-size="8" fill="#7C7B77" text-anchor="end">0</text>
+  <text x="40" y="154" font-size="8" fill="#7C7B77" text-anchor="end">30</text>
+  <text x="40" y="114" font-size="8" fill="#7C7B77" text-anchor="end">60</text>
+  <text x="40" y="74" font-size="8" fill="#7C7B77" text-anchor="end">90</text>
+  <polyline points="112,61 224,88 336,88 448,101" fill="none" stroke="#A73F2D" stroke-width="2"/>
+  <circle cx="112" cy="61" r="4" fill="#A73F2D"/>
+  <circle cx="224" cy="88" r="4" fill="#A73F2D"/>
+  <circle cx="336" cy="88" r="4" fill="#A73F2D"/>
+  <circle cx="448" cy="101" r="4.5" fill="#A73F2D"/>
+  <text x="112" y="52" font-size="9" fill="#A73F2D" text-anchor="middle">96.59</text>
+  <text x="224" y="79" font-size="9" fill="#A73F2D" text-anchor="middle">77.96</text>
+  <text x="336" y="79" font-size="9" fill="#A73F2D" text-anchor="middle">76.75</text>
+  <text x="448" y="92" font-size="9" fill="#A73F2D" text-anchor="middle">66.47</text>
+  <polyline points="112,159 224,162 336,162 448,163" fill="none" stroke="#2F6F6B" stroke-width="2"/>
+  <circle cx="112" cy="159" r="4" fill="#2F6F6B"/>
+  <circle cx="224" cy="162" r="4" fill="#2F6F6B"/>
+  <circle cx="336" cy="162" r="4" fill="#2F6F6B"/>
+  <circle cx="448" cy="163" r="4.5" fill="#2F6F6B"/>
+  <text x="112" y="176" font-size="9" fill="#2F6F6B" text-anchor="middle">30.39</text>
+  <text x="224" y="179" font-size="9" fill="#2F6F6B" text-anchor="middle">28.83</text>
+  <text x="336" y="179" font-size="9" fill="#2F6F6B" text-anchor="middle">28.52</text>
+  <text x="448" y="180" font-size="9" fill="#2F6F6B" text-anchor="middle">27.90</text>
+  <text x="112" y="208" font-size="9" fill="#3E4145" text-anchor="middle">2022</text>
+  <text x="224" y="208" font-size="9" fill="#3E4145" text-anchor="middle">2023</text>
+  <text x="336" y="208" font-size="9" fill="#3E4145" text-anchor="middle">2024</text>
+  <text x="448" y="208" font-size="9" fill="#3E4145" text-anchor="middle">2025</text>
+  <line x1="120" y1="228" x2="142" y2="228" stroke="#A73F2D" stroke-width="2"/>
+  <circle cx="131" cy="228" r="4" fill="#A73F2D"/>
+  <text x="148" y="232" font-size="8.5" fill="#504e49">石油液体实现价格</text>
+  <line x1="320" y1="228" x2="342" y2="228" stroke="#2F6F6B" stroke-width="2"/>
+  <circle cx="331" cy="228" r="4" fill="#2F6F6B"/>
+  <text x="348" y="232" font-size="8.5" fill="#504e49">桶油主要成本</text>
+  <text x="540" y="232" font-size="8.5" fill="#7C7B77">2021 年桶油成本未单独披露</text>
+</svg>
+<figcaption>图 3　实现油价与桶油主要成本对照（单位：美元／桶油当量）</figcaption>
+</figure>
+<h3>表 5　经营与成本指标</h3>
+<div class="rsp-table rsp-w7"><table class="">
+<thead><tr><th>指标</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th><th>2026H1</th></tr></thead><tbody>
+<tr><td>油气净产量（百万桶油当量）</td><td>572.8</td><td>623.8</td><td>678.0</td><td>726.8</td><td><strong>777.3</strong></td><td>398.7</td></tr>
+<tr><td>净产量同比</td><td>—</td><td>+8.9%</td><td>+8.7%</td><td>+7.2%</td><td><strong>+7.0%</strong></td><td>+3.7%</td></tr>
+<tr><td>年末净证实储量（百万桶油当量）</td><td>5,727.6</td><td>6,238.6</td><td>6,784.2</td><td>7,270.6</td><td><strong>7,773.1</strong></td><td>—</td></tr>
+<tr><td>储量替代率（含权益法储量）</td><td>162%</td><td>182%</td><td>180%</td><td>167%</td><td>—</td><td>—</td></tr>
+<tr><td>储量寿命（年）</td><td>10.0</td><td>10.0</td><td>10.0</td><td>10</td><td>—</td><td>—</td></tr>
+<tr><td>石油液体实现价格（美元／桶）</td><td>67.89</td><td><strong>96.59</strong></td><td>77.96</td><td>76.75</td><td><strong>66.47</strong></td><td>85.49</td></tr>
+<tr><td>天然气实现价格（美元／千立方英尺）</td><td>6.95</td><td><strong>8.58</strong></td><td>7.98</td><td>7.72</td><td>7.95</td><td>8.00</td></tr>
+<tr><td>桶油主要成本（美元／桶油当量）</td><td>—</td><td>30.39</td><td>28.83</td><td>28.52</td><td><strong>27.90</strong></td><td>29.70</td></tr>
+<tr><td>其中：桶油作业费（美元／桶油当量）</td><td>—</td><td>—</td><td>—</td><td>7.61</td><td><strong>7.46</strong></td><td>—</td></tr>
+<tr><td>中国油气净产量占比</td><td>—</td><td>—</td><td>—</td><td>67.8%</td><td>69.1%</td><td>69.0%</td></tr>
+<tr><td>资本支出（人民币百万元）</td><td>87,592</td><td>100,357</td><td>127,913</td><td>130,215</td><td>118,829</td><td>—</td></tr>
+<tr><td>资产减值及跌价准备（人民币百万元）</td><td>—</td><td>666</td><td>3,523</td><td><strong>8,047</strong></td><td>3,809</td><td>—</td></tr>
+</tbody></table></div>
+<p>注 1：2025 年储量替代率与储量寿命，A 股 2025 年年度报告正文未直接披露（2024 年年报披露储量替代率 167%、储量寿命 10 年），故留"—"。 注 2：净产量数字含权益法核算的储量对应的产量（除另有说明外，公司年报口径）。 注 3：2021 年油气净产量按 2022 年年报"净产量同比 +8.9%"与 623.8 百万桶油当量倒算为 572.8；另按公司披露的日均产量 1,569,560 桶油当量／天 × 365 天计算为 572.9，两者一致。</p>
+<h3>表 6　分季度归母净利润（单位：人民币百万元）</h3>
+<div class="rsp-table rsp-w7"><table class="">
+<thead><tr><th>期间</th><th>第一季度</th><th>第二季度</th><th>第三季度</th><th>第四季度</th><th>全年</th><th>Q4 占全年</th></tr></thead><tbody>
+<tr><td>2022</td><td>34,301</td><td>37,586</td><td>36,881</td><td>32,932</td><td>141,700</td><td>23.2%</td></tr>
+<tr><td>2023</td><td>32,113</td><td>31,648</td><td>33,884</td><td>26,198</td><td>123,843</td><td>21.2%</td></tr>
+<tr><td>2024</td><td>39,719</td><td>40,012</td><td>36,928</td><td><strong>21,277</strong></td><td>137,936</td><td><strong>15.4%</strong></td></tr>
+<tr><td>2025</td><td>36,563</td><td>32,970</td><td>32,438</td><td><strong>20,111</strong></td><td>122,082</td><td><strong>16.5%</strong></td></tr>
+<tr><td>2026</td><td>39,144</td><td><strong>46,674</strong></td><td>—</td><td>—</td><td>85,818（上半年）</td><td>—</td></tr>
+<tr><td>前三季度均值 → Q4 比值</td><td>2022：90.8%</td><td>2023：80.5%</td><td>2024：<strong>54.7%</strong></td><td>2025：<strong>59.2%</strong></td><td>—</td><td>—</td></tr>
+</tbody></table></div>
+<p>注：2026 年第二季度数由 2026 年半年报归母净利润 85,818 减 2026 年一季报归母净利润 39,144 计算得出（46,674）。"前三季度均值 → Q4 比值" ＝ Q4 单季归母净利润 ÷ 前三季度单季均值，用于衡量四季度相对前三季度的落差。</p>
+<h3>表 7　2026 年半年度最新数据（单位：人民币百万元）</h3>
+<div class="rsp-table"><table class="">
+<thead><tr><th>项目</th><th>2026H1</th><th>2025H1</th><th>同比</th></tr></thead><tbody>
+<tr><td>营业收入</td><td>242,660</td><td>207,608</td><td><strong>+16.9%</strong></td></tr>
+<tr><td>利润总额</td><td>113,513</td><td>94,659</td><td>+19.9%</td></tr>
+<tr><td>归属于母公司股东的净利润</td><td><strong>85,818</strong></td><td>69,533</td><td><strong>+23.4%</strong></td></tr>
+<tr><td>扣非后归母净利润</td><td>85,733</td><td>69,353</td><td>+23.6%</td></tr>
+<tr><td>经营活动产生的现金流量净额</td><td>141,631</td><td>109,182</td><td><strong>+29.7%</strong></td></tr>
+<tr><td>投资活动产生的现金流量净额</td><td>(54,733)</td><td>(73,783)</td><td>−25.8%</td></tr>
+<tr><td>筹资活动产生的现金流量净额</td><td>(3,342)</td><td>(22,451)</td><td>−85.1%</td></tr>
+<tr><td>基本每股收益（元／股）</td><td>1.81</td><td>1.46</td><td>+23.4%</td></tr>
+<tr><td>加权平均净资产收益率</td><td>10.21%</td><td>8.90%</td><td>+1.31pct</td></tr>
+<tr><td>总资产</td><td>1,202,503</td><td>1,098,559（年初）</td><td>+9.5%</td></tr>
+<tr class="total"><td>负债合计</td><td>343,944</td><td>293,375（年初）</td><td>+17.2%</td></tr>
+<tr><td>归属于母公司股东权益</td><td>856,054</td><td>802,750（年初）</td><td>+6.6%</td></tr>
+<tr><td>资产负债率</td><td>28.60%</td><td>26.71%（年初）</td><td>+1.89pct</td></tr>
+<tr><td>油气销售收入</td><td>206,086</td><td>171,745</td><td>+20.0%</td></tr>
+<tr><td>油气净产量（百万桶油当量）</td><td>398.7</td><td>384.6</td><td>+3.7%</td></tr>
+<tr><td>石油液体实现价格（美元／桶）</td><td>85.49</td><td>69.15</td><td><strong>+23.6%</strong></td></tr>
+<tr><td>桶油主要成本（美元／桶油当量）</td><td>29.70</td><td>—</td><td>—</td></tr>
+<tr><td>中期股息（港元／股）</td><td><strong>0.94</strong></td><td>0.73</td><td>+28.8%</td></tr>
+</tbody></table></div>
+<h3>表 8　股息与派息率</h3>
+<div class="rsp-table rsp-w6"><table class="">
+<thead><tr><th>年度</th><th>中期股息（港元／股）</th><th>末期股息（港元／股）</th><th>合计（港元／股）</th><th>总派息额（百万港元）</th><th>占归母净利润比例</th></tr></thead><tbody>
+<tr><td>2022</td><td>0.70</td><td>0.75</td><td>1.45</td><td>69,021</td><td>约 43%</td></tr>
+<tr><td>2023</td><td>0.59</td><td>0.66</td><td>1.25</td><td>59,458</td><td>44%</td></tr>
+<tr><td>2024</td><td>0.74</td><td>0.66</td><td>1.40</td><td>66,542</td><td>44.7%</td></tr>
+<tr><td>2025</td><td>0.73</td><td>0.55</td><td>1.28</td><td>60,838</td><td><strong>45.0%</strong></td></tr>
+<tr><td>2026H1</td><td>0.94</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+</tbody></table></div>
+<p>注 1：2022 年另有于 2022 年 4 月 28 日宣布派发的每股 1.18 港元（含税）上市特别股息，系 A 股上市回报安排，不计入上表年度常规派息。 注 2：占归母净利润比例为公司年报直接披露值，折算汇率采用各年末中国人民银行公布的港元对人民币中间价。 注 3：公司明确 2025—2027 年全年股息支付率不低于 45%（2025 年实际为 45.0%，已达承诺下限）。</p>
+<h2>三、三张财务数据表：关键变化数据与趋势含义</h2>
+<h3>3.1 损益表：油价定方向，产量与成本定幅度</h3>
+<div class="rsp-table rsp-w5"><table class="">
+<thead><tr><th>#</th><th>科目</th><th>变化轨迹</th><th>趋势方向</th><th>趋势含义</th></tr></thead><tbody>
+<tr><td>1</td><td>营业收入</td><td>246,111 → 422,230（2022 峰值）→ 416,609 → 420,506 → 398,220</td><td>高位平台后温和回落，五年增长 61.8%</td><td>收入主要由实现油价驱动。2022 年因布伦特油价冲高、收入一次性跃升 71.6%，此后三年在 4,000—4,200 亿元区间横盘，2025 年降 5.3% 对应实现油价由 76.75 降至 66.47 美元／桶（−13.4%）</td></tr>
+<tr><td>2</td><td>归母净利润</td><td>70,320 → 141,700 → 123,843 → 137,936 → 122,082</td><td>2022 见顶，2023—2025 在 1,220—1,380 亿元区间波动</td><td>收入降 5.3% 而利润降 11.5%，降幅大于收入，反映油价下行期的经营杠杆：桶油税金、所得税随油价同步下调不足以对冲售价损失</td></tr>
+<tr><td>3</td><td>扣非后归母净利润</td><td>68,171 → 140,250 → 125,188 → 133,397 → 120,379</td><td>与归母净利润同步，2025 年降幅（−9.8%）小于归母（−11.5%）</td><td>扣非降幅小于归母，说明 2025 年非经常性损益为净负贡献；公司利润的"经常性"成色高，不依赖一次性收益</td></tr>
+<tr><td>4</td><td>利润总额</td><td>95,821 → 194,770 → 172,974 → 189,976 → 169,639</td><td>与营业收入同步</td><td>2025 年实际税率 ＝ 47,491 ÷ 169,639 ＝ 28.0%（2024 年为 27.4%），税率随海外盈利结构与油价变化小幅上行</td></tr>
+<tr><td>5</td><td>资产减值及跌价准备</td><td>— → 666 → 3,523 → 8,047 → 3,809</td><td>2024 年跳升至五年高位，2025 年回落至一半</td><td>2024 年 80.47 亿元主要系海外资产计提减值；2025 年降至 38.09 亿元，说明减值压力边际缓解，但<strong>海外资产的账面价值合理性仍是利润波动来源</strong></td></tr>
+</tbody></table></div>
+<h3>3.2 财务状况表：从"高杠杆重资产"转向"净现金型重资产"</h3>
+<div class="rsp-table rsp-w5"><table class="">
+<thead><tr><th>#</th><th>科目</th><th>变化轨迹</th><th>趋势方向</th><th>趋势含义</th></tr></thead><tbody>
+<tr><td>1</td><td>总资产</td><td>786,569 → 929,031 → 1,005,598 → 1,056,281 → 1,098,559</td><td>五年稳定增长 39.7%，年均约 8.7%</td><td>资产扩张主要投向油气资产（2025 年末 508,905 百万元，占总资产 46.3%），属于产能型而非金融型扩张</td></tr>
+<tr><td>2</td><td>负债合计</td><td>304,593 → 330,648 → 337,722 → 306,845 → 293,375</td><td>2023 年见顶后连续两年下降</td><td>绝对额<strong>下降</strong>的同时总资产仍在增长，意味着新增资产全部由内部留存收益支撑，不依赖举债</td></tr>
+<tr><td>3</td><td>有息负债合计</td><td>135,142 → 134,396 → 120,177 → 91,887 → 69,800</td><td>连续四年下降，累计压降 48.3%</td><td>五年内近乎腰斩。2025 年末短期借款已降至零，应付债券由 1,016 亿元降至 537 亿元，债务结构向长期化、低成本化迁移</td></tr>
+<tr><td>4</td><td>资产负债率</td><td>38.72% → 35.59% → 33.58% → 29.05% → 26.71%</td><td>单调下行，五年降低 12.01 个百分点</td><td>在重资产油气行业属于极低水平。需注意该指标<strong>高估了真实杠杆</strong>——负债中 39.6% 是弃置义务预计负债，不付息、不还本</td></tr>
+<tr><td>5</td><td>预计负债（弃置义务）</td><td>— → — → — → 99,740 → 116,039</td><td>持续攀升，2025 年增 16.3%</td><td>海上油气田退役义务的现值。规模已超过应付债券余额（53,730），是公司最大单项负债。<strong>本质是"已发生的未来成本"，不是融资行为</strong>；其上升与油田开发进度同步，属结构性而非风险性上升</td></tr>
+<tr><td>6</td><td>归属于母公司股东权益</td><td>480,912 → 597,182 → 666,586 → 747,548 → 802,750</td><td>五年增长 66.9%，年均约 13.7%</td><td>净资产增速（13.7%）显著高于净利润零增长，说明在大额分红（年均约 600 亿港元）的同时仍保留足额留存收益，股东回报与资本积累并行不悖</td></tr>
+<tr><td>7</td><td>货币资金</td><td>79,730 → 121,387 → 150,562 → 154,196 → 214,695</td><td>五年增长 169%，2025 年单年增 39.2%</td><td>2025 年货币资金跃升至 2,147 亿元，叠加交易性金融资产 259.98 亿元与债权投资 93.05 亿元，<strong>净现金头寸约 1,802 亿元</strong>（前述三项合计 2,499.98 亿元 − 有息负债 698.00 亿元）。充裕的类现金资产为 2026 年 1,120—1,220 亿元资本支出与 45% 派息率提供了双重安全垫</td></tr>
+<tr><td>8</td><td>少数股东权益</td><td>1,064 → 1,201 → 1,290 → 1,888 → 2,434</td><td>占比始终不足 0.3%</td><td>公司核心油气资产几乎全部为全资持有，利润与现金流无需在少数股东之间分配，归母口径即等于几乎全部经营成果</td></tr>
+</tbody></table></div>
+<h3>3.3 现金流量表：利润的"实证"，而非"推算"</h3>
+<div class="rsp-table rsp-w5"><table class="">
+<thead><tr><th>#</th><th>科目</th><th>变化轨迹</th><th>趋势方向</th><th>趋势含义</th></tr></thead><tbody>
+<tr><td>1</td><td>经营活动现金流净额</td><td>147,893 → 205,574 → 209,743 → 220,891 → 209,042</td><td>2022 年跃升后四年稳定在 2,050—2,210 亿元窄幅区间</td><td>现金流对油价的敏感度<strong>低于</strong>净利润：2025 年利润降 11.5%，经营现金流仅降 5.4%。原因是折旧折耗摊销（2025 年 79,771 百万元）等非现金成本在高油价期已锁定，构成现金流的"稳定器"</td></tr>
+<tr><td>2</td><td>投资活动现金流净额</td><td>(96,235) → (98,473) → (78,095) → (175,426) → (125,264)</td><td>2024 年大幅扩张至五年峰值</td><td>2024 年投资流出 −1,754 亿元，主要对应资本支出 1,302 亿元与理财／存款类投资净投入 1,446 亿元（收回投资 875.60 亿、投资支付 1,446.59 亿）。<strong>投资流出并非全是油气投资</strong>，需区分理财滚动与真实资本支出</td></tr>
+<tr><td>3</td><td>筹资活动现金流净额</td><td>(33,332) → (64,962) → (84,228) → (97,935) → (85,983)</td><td>年度分红规模扩大带来的持续净流出</td><td>筹资净流出几乎等同于年度现金分红（2025 年分配股利、利润支付现金 604.32 亿元），同时偿还债务 230.73 亿元。公司已进入"内生现金还债＋分红"阶段，无外部股权融资需求</td></tr>
+<tr><td>4</td><td>资本支出</td><td>87,592 → 100,357 → 127,913 → 130,215 → 118,829</td><td>2023—2024 年高位平台，2025 年回落 8.7%</td><td>2025 年资本支出下降主要来自中国海域开发支出由 742.61 亿元降至 631.27 亿元。公司 2026 年计划资本支出 1,120—1,220 亿元，重回扩张区间</td></tr>
+<tr><td>5</td><td>自由现金流（经营 − 资本支出）</td><td>60,301 → 105,217 → 81,830 → 90,676 → 90,213</td><td>2022 年峰值后稳定在 800—1,050 亿元</td><td>五年累计自由现金流 4,282.37 亿元，五年累计分红约 2,555.87 亿港元，自由现金流对分红形成约 1.7 倍覆盖，派息具备可持续性</td></tr>
+</tbody></table></div>
+<h3>3.4 三表联动：一句话概括五年财务叙事</h3>
+<ul>
+<li><strong>损益表看"经营真相"</strong>：收入与利润的形状完全由油价决定，2022 年是油价周期的顶点。但真正决定公司质地的是——油价从 96.59 美元跌到 66.47 美元（−31.2%）的三年里，归母净利润只从 1,417 亿元降至 1,221 亿元（−13.9%）。<strong>跌幅被产量增长 24.6% 与桶油成本下降 8.2% 有效对冲</strong>，这是本报告最重要的发现。</li>
+<li><strong>财务状况表看"资本重构"</strong>：有息负债五年压缩近半、2025 年短期借款归零、净现金约 1,802 亿元。负债结构的变化不是"还不起债"，而是主动去杠杆的结果——同时资产负债率下行还"得益于"弃置义务预计负债（不计息）占比提升至近四成。</li>
+<li><strong>现金流量表看"现金来源"</strong>：现金全部来自经营，不依赖融资。五年累计经营现金流 9,931.43 亿元 ÷ 累计归母净利润 5,958.81 亿元 ＝ <strong>1.67 倍</strong>，这是重资产行业最典型的高质量利润特征（折旧折耗构成大额非现金成本）。</li>
+</ul>
+<h2>四、数据变化趋势与原因分析</h2>
+<h3>4.1 油价是外生变量，产量与成本是内生答案</h3>
+<p>公司的收入与利润曲线几乎可由实现油价单变量解释，但<strong>内生的产量与成本对冲了油价的周期波动</strong>：</p>
+<div class="rsp-table"><table class="">
+<thead><tr><th>变量</th><th>2022</th><th>2025</th><th>变动</th></tr></thead><tbody>
+<tr><td>石油液体实现价格（美元／桶）</td><td>96.59</td><td>66.47</td><td><strong>−31.2%</strong></td></tr>
+<tr><td>油气净产量（百万桶油当量）</td><td>623.8</td><td>777.3</td><td><strong>+24.6%</strong></td></tr>
+<tr><td>桶油主要成本（美元／桶油当量）</td><td>30.39</td><td>27.90</td><td><strong>−8.2%</strong></td></tr>
+<tr><td>油气销售收入（百万元）</td><td>352,956</td><td>335,652</td><td>−4.9%</td></tr>
+<tr><td>归母净利润（百万元）</td><td>141,700</td><td>122,082</td><td>−13.9%</td></tr>
+</tbody></table></div>
+<ul>
+<li><strong>以量补价的量化效果</strong>：油价下跌 30.12 美元／桶期间，油气销售收入仅下降 4.9%，说明产量增长吸收了约 81% 的价格冲击。若产量维持 2022 年水平不变，按 2025 年实现油价推算，油气销售收入将降至约 2,700 亿元量级，归母净利润将远低于 1,221 亿元。</li>
+<li><strong>成本护城河的持续性</strong>：桶油主要成本从 2022 年 30.39 美元降至 2025 年 27.90 美元，主要来自作业费管控（桶油作业费由 7.61 降至 7.46 美元，中国区 6.75 美元）与规模效应摊薄。在油价 66 美元／桶的环境下，27.90 美元的成本意味着桶油毛利仍有约 35 美元以上的安全边际。</li>
+</ul>
+<h3>4.2 桶油成本的"五连降"与 2026H1 的反向回升</h3>
+<p>2026 年上半年桶油主要成本回升至 <strong>29.70 美元／桶油当量</strong>，较 2025 年全年 27.90 美元上升 1.80 美元，<strong>这不是成本管控失效</strong>，而是成本结构的被动结果：</p>
+<ul>
+<li>桶油主要成本由六项构成：作业费、折旧折耗摊销、弃置费、销售及管理费、<strong>除所得税外其他税金</strong>、勘探费用。</li>
+<li>其中"除所得税外其他税金"包含资源税与特别收益金性质的税费，<strong>与实现油价同向变动</strong>。2026H1 实现油价 85.49 美元／桶，较 2025H1 的 69.15 美元上升 23.6%，2025 年全年该项税费为 181.94 亿元（同比 −10.3%，即随油价下行而减少），2026H1 油价大幅反弹必然推高该项。</li>
+<li>结论：<strong>观察成本竞争力应看作业费与折旧折耗，而非桶油主要成本总额</strong>。2026H1 桶油成本回升是油价上行的镜像，同期公司利润创历史同期最好水平（归母净利润 858 亿元，+23.4%）恰可佐证成本端没有失控。</li>
+</ul>
+<h3>4.3 收入结构：贸易业务的"虚增效应"</h3>
+<p>贸易收入占营业收入比重在 2023 年达到 <strong>19.0%</strong> 峰值，2025 回落至 13.5%。关键在于：</p>
+<div class="rsp-table rsp-w6"><table class="">
+<thead><tr><th>年度</th><th>贸易收入</th><th>贸易成本</th><th>贸易毛利</th><th>贸易毛利率</th><th>占主营业务毛利比</th></tr></thead><tbody>
+<tr><td>2021</td><td>18,084</td><td>16,641</td><td>1,443</td><td>8.0%</td><td>1.2%</td></tr>
+<tr><td>2022</td><td>60,433</td><td>57,383</td><td>3,050</td><td>5.0%</td><td>1.4%</td></tr>
+<tr><td>2023</td><td>79,308</td><td>73,950</td><td>5,358</td><td>6.8%</td><td><strong>2.6%</strong></td></tr>
+<tr><td>2024</td><td>55,142</td><td>50,035</td><td>5,107</td><td>9.3%</td><td>2.2%</td></tr>
+<tr><td>2025</td><td>53,684</td><td>47,646</td><td>6,038</td><td><strong>11.2%</strong></td><td>2.9%</td></tr>
+</tbody></table></div>
+<p>贸易业务以 13.5% 的收入占比（2025 年）只换来 2.9% 的主营业务毛利贡献。<strong>因此以营业收入增速判断公司经营质量会严重失真</strong>——2023 年营业收入 4,166 亿元背后，贸易收入同比暴增 31.2%（604.33 → 793.08 亿元），而同期油气销售收入实际下降 7.1%（3,529.56 → 3,278.67 亿元）。判断主业趋势应直接看油气销售收入，而非营业收入总额。</p>
+<h3>4.4 利润质量：Q4"塌陷"与年末集中计提</h3>
+<p>2024、2025 连续两年出现明显的四季度利润断层：</p>
+<div class="rsp-table"><table class="">
+<thead><tr><th>年度</th><th>前三季度单季均值</th><th>Q4 单季</th><th>比值</th></tr></thead><tbody>
+<tr><td>2022</td><td>36,256</td><td>32,932</td><td>90.8%</td></tr>
+<tr><td>2023</td><td>32,548</td><td>26,198</td><td>80.5%</td></tr>
+<tr><td>2024</td><td>38,886</td><td>21,277</td><td><strong>54.7%</strong></td></tr>
+<tr><td>2025</td><td>33,990</td><td>20,111</td><td><strong>59.2%</strong></td></tr>
+</tbody></table></div>
+<ul>
+<li>2024 与 2025 年 Q4 归母净利润仅为前三季度均值的 55%—59%，显著低于 2022 年的 90.8%。</li>
+<li><strong>原因指向年末集中计提</strong>：2024 年资产减值及跌价准备 80.47 亿元（海外资产），2025 年 38.09 亿元；此外弃置义务预计负债逐年调增（2024 年 997.40 亿 → 2025 年 1,160.39 亿元）、所得税汇算清缴等，均集中在 Q4 确认。</li>
+<li><strong>分析含义</strong>：单季利润不可用于线性外推全年。若以 Q1—Q3 年化推算 2025 年利润，将高估约 13%。反之，Q4 的低基数为次年 Q1 提供了同比改善的起点（2026 Q1 归母净利润 391.44 亿元，同比 +7.1%）。</li>
+</ul>
+<h3>4.5 资本结构：真实杠杆远低于账面资产负债率</h3>
+<p>2025 年末负债合计 293,375 百万元的构成，决定了"26.71% 资产负债率"这一数字的实际经济含义：</p>
+<div class="rsp-table"><table class="">
+<thead><tr><th>负债类型</th><th>金额（百万元）</th><th>占负债合计</th><th>是否付息</th></tr></thead><tbody>
+<tr><td>预计负债（弃置义务）</td><td>116,039</td><td>39.6%</td><td>否</td></tr>
+<tr><td>应付账款</td><td>59,631</td><td>20.3%</td><td>否</td></tr>
+<tr><td>应付债券</td><td>53,730</td><td>18.3%</td><td>是</td></tr>
+<tr><td>应交税费</td><td>16,819</td><td>5.7%</td><td>否</td></tr>
+<tr><td>其他（租赁负债、长期借款、其他应付款等）</td><td>47,156</td><td>16.1%</td><td>部分</td></tr>
+<tr class="total"><td><strong>负债合计</strong></td><td><strong>293,375</strong></td><td><strong>100%</strong></td><td>—</td></tr>
+</tbody></table></div>
+<ul>
+<li><strong>有息负债仅占总资产 6.35%</strong>，其中短期借款为 0、长期借款 51.02 亿元、应付债券 537.30 亿元、租赁负债 76.14 亿元、一年内到期的非流动负债 33.54 亿元。</li>
+<li>以货币资金 2,146.95 亿元 + 交易性金融资产 259.98 亿元 + 债权投资 93.05 亿元合计 2,499.98 亿元，扣除有息负债后<strong>净现金约 1,802 亿元</strong>，相当于 2025 年归母净利润的 1.48 倍。</li>
+<li><strong>风险提示</strong>：弃置义务预计负债虽不付息，但规模已达 1,160.39 亿元且逐年上升，油田退役期的现金流出是"确定性极强的远期负债"。2026 年 6 月末该项进一步升至 1,187.34 亿元。</li>
+</ul>
+<h3>4.6 分红政策：从"周期红利"转向"制度化承诺"</h3>
+<ul>
+<li>2022 年（A 股上市首年）：每股合计 1.45 港元，派息率约 43%，另派特别股息 1.18 港元。</li>
+<li>2023—2025 年：每股分别 1.25／1.40／1.28 港元，派息率 44%／44.7%／<strong>45.0%</strong>，逐年抬升并首次触及承诺下限。</li>
+<li>公司明确 <strong>2025—2027 年全年股息支付率不低于 45%</strong>，这是把分红从"随油价波动的结果"转为"跨周期的制度化承诺"。</li>
+<li>2026 年中期股息每股 0.94 港元（同比 +28.8%），创上市以来新高，对应 2026H1 归母净利润同比 +23.4% 的业绩表现。</li>
+<li><strong>关键判断</strong>：在归母净利润连续两年下降的背景下派息率反而上行，说明分红决策锚定的是<strong>现金流与净现金头寸</strong>（2025 年经营现金流 2,090.42 亿元、净现金约 1,802 亿元），而非会计利润的短期波动。这提高了分红的可预期性，但也意味着若油价长期低迷，分红绝对额的下调压力迟早会显现。</li>
+</ul>
+<h2>五、关键内容总结</h2>
+<h3>5.1 核心业务与竞争优势</h3>
+<ul>
+<li><strong>资源壁垒</strong>：中国海域对外合作专营权与集团整体注入的产品分成合同权利，构成法律与牌照层面的护城河；2025 年末净证实储量 77.7 亿桶油当量，储量寿命连续 7 年以上维持在 10 年。</li>
+<li><strong>成本优势</strong>：桶油主要成本 27.90 美元（2025 年）在全球独立勘探开发公司中处于第一梯队，是中国区桶油作业费 6.75 美元／桶油当量低成本的直接体现。</li>
+<li><strong>规模与增速</strong>：2025 年油气净产量 777.3 百万桶油当量，五年复合增速约 8.0%（2021 年 572.8 → 2025 年 777.3），在大型国际石油公司中属罕见的高增速。</li>
+<li><strong>资产结构</strong>：核心资产全资持有（少数股东权益占比不足 0.3%），归母口径即近似全部经营成果，无利润分流。</li>
+<li><strong>财务弹性</strong>：净现金约 1,802 亿元、有息负债占比 6.35%、经营现金流稳定在 2,000 亿元以上，使其在油价下行期具备逆周期投资能力。</li>
+</ul>
+<h3>5.2 重点项目与产能里程碑</h3>
+<ul>
+<li><strong>2025 年</strong>：16 个新项目投产（含渤中 26-6 油田开发项目一期、垦利 10-2 油田群开发项目一期、巴西 Buzios7、圭亚那 Yellowtail）；全年在建项目超过 80 个；全年获得 6 个新发现、成功评价 28 个含油气构造；探获秦皇岛 29-6 亿吨级油田。</li>
+<li><strong>2026 年上半年</strong>：5 个新项目顺利投产；获得 4 个油气新发现、成功评价 16 个含油气构造；海外新获巴西和印尼 3 个勘探新区块。</li>
+<li><strong>2026 年目标</strong>：全年产量目标 780—800 百万桶油当量，资本支出 1,120—1,220 亿元人民币。</li>
+<li><strong>新能源与低碳</strong>：中国首个海上 CCUS 示范项目在南海恩平 15-1 平台投用；全球首座 16 兆瓦级张力腿型浮式风电平台、海南 CZ7 风电项目相继开工；2026 年 8 月中国首个张力腿浮式风电示范项目"海油安澜号"并网发电。</li>
+</ul>
+<h3>5.3 重大合约与合作</h3>
+<ul>
+<li><strong>圭亚那 Stabroek 区块</strong>：2025 年成功评价 Lukanani 和 Ranger 两个油田，Yellowtail 项目投产；2026H1 产量增长的主要贡献来源之一。</li>
+<li><strong>勘探新项目获取</strong>：2025 年获取伊拉克 Block7 区块、哈萨克斯坦 Zhylyoi 区块、印度尼西亚 Gaea 与 Gaea II 区块共 4 个勘探新项目。</li>
+<li><strong>澳大利亚西北大陆架 LNG 项目</strong>：向包括广东大鹏 LNG 终端在内的客户供气，2025 年实现增量气超预期。</li>
+<li><strong>乌干达 Kingfisher 项目</strong>：井场钻前工程全部完成，生产设施设备安装完成，正推进电缆铺设，为后续投产奠定基础。</li>
+</ul>
+<h3>5.4 主要风险</h3>
+<div class="rsp-table"><table class="">
+<thead><tr><th>风险类别</th><th>具体描述</th></tr></thead><tbody>
+<tr><td><strong>油价与地缘政治风险（首要）</strong></td><td>收入与利润高度依赖实现油价。2026H1 布伦特均价 87.6 美元／桶，中东地缘冲突推动油价宽幅震荡；若油价回落至 60 美元／桶以下，桶油毛利将被显著压缩</td></tr>
+<tr><td><strong>海外资产减值风险</strong></td><td>2024 年海外资产计提减值 80.47 亿元，2025 年 38.09 亿元。境外资产 4,222.79 亿元、占总资产 38.4%，海外项目的储量评估与减值判断是利润的持续不确定来源</td></tr>
+<tr><td><strong>弃置义务与环保合规风险</strong></td><td>预计负债（弃置义务）1,160.39 亿元且逐年上升；弃置时点与费用的估计随法规、技术与储量寿命变化而调整，可能对当期损益产生重大影响</td></tr>
+<tr><td><strong>汇率风险</strong></td><td>油气销售以美元、人民币计价，而设备与原材料进口、境外资本支出以美元为主，存在"收入—成本"规模不匹配的折算风险（2025 年汇兑收益净额 6.27 亿元，2024 年为汇兑损失 13.18 亿元）</td></tr>
+<tr><td><strong>关联交易与治理风险</strong></td><td>与中国海油集团及关联方的经常性关联交易需取得上市地监管审查或独立股东批准，存在审批不确定性</td></tr>
+<tr><td><strong>分红可持续性风险</strong></td><td>派息率已抬升至承诺下限 45%，若油价长期低位运行导致现金流收缩，维持当前绝对派息额与资本支出计划的压力将上升</td></tr>
+<tr><td><strong>储量替代风险</strong></td><td>2024 年储量替代率 167%，较 2022—2023 年的 180%—182% 明显回落；储量寿命虽维持在 10 年，但边际下降趋势需持续跟踪</td></tr>
+</tbody></table></div>
+<h2>六、结论</h2>
+<ol>
+<li><strong>"油价定方向、产量与成本定幅度"是理解中国海油财务表现的主线。</strong> 五年数据显示，公司在实现油价下跌 31.2% 的三年里，把归母净利润的降幅控制在 13.9%，靠的是产量增长 24.6% 与桶油成本下降 8.2%。这一对冲能力，比任何单一年度的利润绝对值都更能说明公司的经营质地。</li>
+</ol>
+<ol>
+<li><strong>资产负债表已发生结构性重构。</strong> 有息负债从 1,351.42 亿元压缩至 698.00 亿元（−48.3%），短期借款归零，形成约 1,802 亿元的净现金头寸，资产负债率降至 26.71%。但需注意，账面负债中 39.6% 是弃置义务预计负债（1,160.39 亿元），这是真实的远期现金流出义务而非融资杠杆。</li>
+</ol>
+<ol>
+<li><strong>利润的现金含量极高。</strong> 五年累计经营现金流 9,931.43 亿元 ÷ 累计归母净利润 5,958.81 亿元 ＝ 1.67 倍；五年累计自由现金流 4,282.37 亿元，对累计分红（约 2,555.87 亿港元）形成约 1.7 倍覆盖。利润不是"账面数字"，分红也不是"借来的钱"。</li>
+</ol>
+<ol>
+<li><strong>2026 年上半年是明确的向上拐点。</strong> 营收 2,426.60 亿元（+16.9%）、归母净利润 858.18 亿元（+23.4%）、经营现金流 1,416.31 亿元（+29.7%），均为历史同期最好水平，Q2 单季归母净利润 466.74 亿元创五年单季新高；中期股息每股 0.94 港元创上市新高。驱动力来自实现油价回升（85.49 美元／桶，+23.6%）叠加产量增长 3.7%。</li>
+</ol>
+<ol>
+<li><strong>需要持续跟踪的三个观察点</strong>：（1）桶油主要成本在油价回升期的被动上行幅度（2026H1 已至 29.70 美元）——应剔除税金影响后再评估作业费与折旧的真实控制水平；（2）2024—2025 年四季度集中计提的资产减值是否为一次性出清，抑或海外资产的持续减值周期；（3）储量替代率从 182% 回落至 167%，2025 年数据未在 A 股年报披露，可作为后续核实的重点。</li>
+</ol>
+<h2>附录　数据来源与口径</h2>
+<div class="rsp-table"><table class="">
+<thead><tr><th>序号</th><th>文件</th><th>覆盖期间</th><th>用途</th></tr></thead><tbody>
+<tr><td>1</td><td>中国海洋石油有限公司 2025 年年度报告（2026-03-27 披露）</td><td>2025 年度；含 2024、2023 比较数</td><td>表 1、2、3 主数据；表 4、5、8；三张报表全文；附注 37 收入构成</td></tr>
+<tr><td>2</td><td>中国海洋石油有限公司 2024 年年度报告</td><td>2024 年度；含 2023、2022 比较数</td><td>2024 年三张报表；资本支出三年表；储量替代率 167%</td></tr>
+<tr><td>3</td><td>中国海洋石油有限公司 2023 年年度报告</td><td>2023 年度；含 2022、2021 比较数</td><td>2023 年三张报表；2021—2023 资本支出；五年储量与价格表</td></tr>
+<tr><td>4</td><td>中国海洋石油有限公司 2022 年年度报告</td><td>2022 年度；含 2021、2020 比较数</td><td>2020—2022 主要会计数据；2021 年三张报表与现金流量净增加额；五年经营指标表</td></tr>
+<tr><td>5</td><td>中国海洋石油有限公司 2026 年半年度报告（2026-08-27 披露）</td><td>2026 年上半年；含 2025H1 比较数</td><td>表 7 全部数据；2026H1 资产负债与现金流</td></tr>
+<tr><td>6</td><td>中国海洋石油有限公司 2026 年第一季度报告</td><td>2026 Q1；含 2025 Q1 比较数</td><td>表 6 2026 Q1 数据</td></tr>
+<tr><td>7</td><td>中国海洋石油有限公司 2025 年半年度报告</td><td>2025 年上半年</td><td>表 7 比较列校验</td></tr>
+<tr><td>8</td><td>中国海洋石油有限公司 2025／2023 年第三季度报告、2022—2025 年第一季度报告</td><td>各季度</td><td>分季度数据交叉校验</td></tr>
+<tr><td>9</td><td>中国海洋石油有限公司 2022—2025 年度环境、社会及管治（ESG）报告</td><td>2022—2025 年度</td><td>绿色低碳与安全环保事项参考（未用于财务取数）</td></tr>
+</tbody></table></div>
+<p><strong>口径与勾稽说明</strong></p>
+<ol>
+<li><strong>会计准则无差异</strong>：2022—2025 年各年年报均披露"国际／香港财务报告准则下的主要会计数据和财务指标与按中国企业会计准则编制的主要会计数据和财务指标均无差异"，故本报告 CAS 口径数据同时适用于 H 股披露。</li>
+<li><strong>币种</strong>：财务数据除股息（港元）与实现价格（美元）外，均为人民币百万元。</li>
+<li><strong>勾稽校验</strong>：表 4 三项分部收入之和与各年营业收入合计完全相等（2021—2025 全部核对相符）；表 3"经营现金流 − 资本支出"按同一口径计算；表 6 各年四个季度之和等于当年全年归母净利润（2022—2025 全部核对相符）。</li>
+<li><strong>未披露项处理</strong>：2025 年储量替代率与储量寿命、2021 年桶油主要成本、2021 年末流动／非流动资产明细，在已下载的文件中未见同口径披露，一律留"—"，未作推算或引用第三方数据。</li>
+<li><strong>口径切换事项</strong>：（1）2024 年年报起，在建油气工程项目由"油气资产"科目重分类至"在建工程"单独列示，2023 年末比较数未追溯重述，故表 2"油气资产""在建工程"两行跨 2023／2024 不可直接比较，表注中已给出合并口径；（2）2024 年年报将原"债权投资"附注编号由（六）8 调整为（六）9，科目本身口径未变。</li>
+<li><strong>原始文件</strong>：全部 44 份 A 股披露文件（2022—2026 年定期报告、ESG 报告、业绩说明会公告）保存于 <code>/Users/zhouzhuolin/Documents/财报分析/中国海油/</code>，<code>_下载清单.json</code> 载明各文件的标题、披露日期、栏目与来源；PDF 抽取文本位于 <code>财报分析/text/</code>。</li>
+</ol>
+<div class="report-footer">
+  <span>数据来源：公司 2022—2026 年定期报告、ESG 报告（A 股法定披露）</span>
+  <span>财务数据对比分析报告</span>
+</div>
+</body>
+</html>

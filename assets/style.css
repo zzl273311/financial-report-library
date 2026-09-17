@@ -211,6 +211,29 @@ ul { list-style: none; }
   color: var(--border);
 }
 
+/* 展开 / 收起全部 */
+
+.rail-tools {
+  display: flex;
+  gap: 8px;
+  padding: 8px 20px 9px;
+  border-bottom: 1px solid var(--border);
+}
+.rail-tool {
+  flex: 1;
+  height: 28px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--ivory);
+  color: var(--olive);
+  font-size: 11.5px;
+  transition: all .16s var(--ease);
+}
+.rail-tool:hover:not(:disabled) { border-color: #D3C9B8; color: var(--near-black); background: #fff; }
+.rail-tool:active:not(:disabled) { transform: translateY(1px); }
+.rail-tool:disabled { opacity: .42; cursor: default; }
+.rail-tool:focus-visible { outline: 2px solid var(--brand); outline-offset: 1px; }
+
 /* 树 */
 
 .tree {
@@ -641,8 +664,11 @@ ul { list-style: none; }
   padding: 18px 20px 16px;
   display: flex;
   flex-direction: column;
+  min-width: 0;              /* 防止被内容的最小宽度撑破网格轨道 */
   transition: transform .18s var(--ease), box-shadow .18s var(--ease), border-color .18s var(--ease);
 }
+/* 卡片内的 flex/grid 子项默认 min-width:auto，会被 -webkit-box 的固有宽度撑开 */
+.card > * { min-width: 0; }
 .card:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow);
@@ -696,7 +722,7 @@ ul { list-style: none; }
 .card-metrics {
   margin-top: 14px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px 14px;
   padding-top: 13px;
   border-top: 1px dotted var(--border);
@@ -784,6 +810,12 @@ ul { list-style: none; }
 }
 .scrim.show { display: block; }
 
+/* 触屏：去掉点击高光、阻止 iOS 字号自增 */
+@media (hover: none) {
+  * { -webkit-tap-highlight-color: transparent; }
+}
+html { -webkit-text-size-adjust: 100%; }
+
 @media (max-width: 880px) {
   .rail {
     position: fixed;
@@ -791,18 +823,88 @@ ul { list-style: none; }
     transform: translateX(-102%);
     transition: transform .26s var(--ease);
     box-shadow: 0 0 40px rgba(34, 38, 43, .18);
-    width: min(340px, 86vw);
+    width: min(340px, 88vw);
     flex-basis: auto;
+    padding-bottom: env(safe-area-inset-bottom);
   }
   .rail.open { transform: translateX(0); }
+
   .rail-toggle { display: grid; }
-  .welcome { padding: 30px 22px 50px; }
-  .welcome h1 { font-size: 28px; }
-  .topbar { padding: 0 14px; gap: 12px; }
+  /* 遮罩层吞掉滚动，避免滑动时带动底层报告 */
+  .scrim { touch-action: none; }
+
+  /* 搜索提示里的 ⌘K 在触屏上没有意义 */
+  .search-hint kbd { display: none; }
+  .search-hint { justify-content: flex-start; }
+  .search-field input { font-size: 16px; } /* ≥16px 可阻止 iOS 聚焦缩放 */
+
+  /* 触控目标放大到 44px 以上 */
+  .company-head { min-height: 50px; padding-top: 12px; padding-bottom: 12px; }
+  .company-name { font-size: 15.5px; }
+  .report-item { min-height: 54px; }
+  .rail-tool { height: 34px; font-size: 12.5px; }
+
+  .topbar {
+    padding: 0 12px;
+    padding-top: env(safe-area-inset-top);
+    gap: 10px;
+    min-height: 58px;
+  }
+  .rail-toggle { width: 40px; height: 40px; flex-basis: 40px; }
   .topbar-title { font-size: 14px; }
+  .crumb { font-size: 10px; gap: 5px; }
+
+  .btn { padding: 0 11px; min-width: 40px; }
   .btn .btn-text { display: none; }
-  .btn { padding: 0 10px; }
+
+  .welcome { padding: 30px 20px 56px; }
+  .welcome h1 { font-size: 28px; }
+  .welcome-lead { font-size: 13.5px; }
+  .welcome-stats { gap: 14px 20px; }
+  .welcome-stat { flex: 0 0 calc(50% - 10px); min-width: 0; padding-right: 0; }
+
   .cards { grid-template-columns: 1fr; }
+
+  .notice {
+    left: 12px; right: 12px;
+    transform: none;
+    max-width: none;
+    bottom: calc(12px + env(safe-area-inset-bottom));
+  }
+  @keyframes riseIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
+@media (max-width: 430px) {
+  .rail { width: min(320px, 92vw); }
+  .brand { padding: 16px 16px 13px; }
+  .brand-mark { width: 34px; height: 34px; flex-basis: 34px; font-size: 17px; }
+  .brand-title { font-size: 17px; }
+  .brand-sub { font-size: 9.5px; letter-spacing: .9px; }
+  .search { padding: 11px 16px 10px; }
+  .rail-stats { padding: 9px 16px; }
+  .rail-tools { padding: 7px 16px 8px; }
+  .company-head { padding-left: 14px; padding-right: 16px; }
+  .rail-foot { padding: 10px 16px; }
+
+  .topbar { min-height: 54px; gap: 8px; }
+  .rail-toggle { width: 36px; height: 36px; flex-basis: 36px; }
+  .topbar-title { font-size: 13px; }
+  .crumb { font-size: 9.5px; }
+  .crumb .crumb-code { display: none; }
+
+  .btn { height: 32px; padding: 0 9px; min-width: 36px; }
+  .topbar-actions { gap: 6px; }
+
+  .welcome { padding: 24px 16px 48px; }
+  .welcome h1 { font-size: 25px; }
+  .welcome-stat { flex: 0 0 100%; }
+  .welcome-stat b { font-size: 21px; }
+
+  .card { padding: 15px 16px; }
+  .card-metrics { gap: 10px 14px; }
 }
 
 @media print {

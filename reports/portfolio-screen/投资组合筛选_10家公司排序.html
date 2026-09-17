@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>从 30 家公司中选出 10 家：私募视角的投资排序</title>
+<meta name="generator" content="financial-report-analysis">
+<style>
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W04.ttf") format("truetype");
+    font-weight: 400; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W05.ttf") format("truetype");
+    font-weight: 500; font-style: normal; font-display: swap;
+  }
+  @page {
+    size: A4;
+    margin: 16mm 18mm 18mm 18mm;
+    background: #F7F4EE;
+    @bottom-center {
+      content: counter(page) "  ·  财报分析";
+      font-family: "TsangerJinKai02", "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", Georgia, serif;
+      font-size: 9pt; color: #6b6a64;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --parchment:#F7F4EE; --ivory:#FBF9F4; --near-black:#22262B; --dark-warm:#3E4145;
+    --olive:#504e49; --stone:#7C7B77; --brand:#A73F2D; --brand-deep:#8A3223;
+    --accent:#A73F2D; --accent-soft:#F1E3DD; --gold:#B8862F; --teal:#2F6F6B; --blue:#1B365D;
+    --border:#E3DDD4; --border-soft:#EAE5DC;
+    --tag-bg:#F1E3DD; --positive:#A73F2D; --negative:#2F6F6B;
+    --serif: "TsangerJinKai02", "Source Han Serif SC", "Source Han Serif CN", "Noto Serif CJK SC", "Noto Serif SC", "Songti SC", "STSong", "SimSun", Georgia, serif;
+    --rhythm-module:14pt; --rhythm-section:18pt;
+  }
+  html, body { background: var(--parchment); }
+  @media screen { body { max-width: 210mm; margin: 0 auto; padding: 16mm 18mm 18mm 18mm; } }
+  body { color: var(--near-black); font-family: var(--serif); font-size: 10pt; line-height: 1.5;
+    letter-spacing: 0.3pt; widows: 3; orphans: 3; }
+  strong { font-weight: 500; }
+  .hl { color: var(--brand); font-weight: 500; }
+
+  .report-header { display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: var(--rhythm-module); padding-bottom: 10pt; border-bottom: 0.5pt solid var(--border); }
+  .ticker-block { flex: 1; }
+  .ticker-eyebrow { font-size: 9pt; color: var(--brand); letter-spacing: 1.5pt; text-transform: uppercase;
+    font-weight: 500; margin-bottom: 4pt; }
+  .ticker-name { font-family: var(--serif); font-size: 24pt; font-weight: 500; color: var(--near-black);
+    line-height: 1.15; margin-bottom: 4pt; }
+  .ticker-sub { font-size: 10pt; color: var(--olive); line-height: 1.4; }
+  .price-block { text-align: right; padding-top: 4pt; }
+  .price-current { font-family: var(--serif); font-size: 28pt; font-weight: 500; color: var(--near-black);
+    line-height: 1; font-variant-numeric: tabular-nums; }
+  .price-change { font-size: 10pt; font-weight: 500; margin-top: 2pt; font-variant-numeric: tabular-nums; }
+  .price-change.up { color: var(--positive); }
+  .price-date { font-size: 9pt; color: var(--stone); margin-top: 2pt; }
+
+  .metrics { display: flex; gap: 14pt; margin-bottom: 16pt; padding: 6pt 0;
+    border-top: 0.3pt dotted var(--border); border-bottom: 0.3pt dotted var(--border); }
+  .metric { flex: 1; min-width: 0; display: flex; align-items: baseline; gap: 4pt; flex-wrap: wrap; }
+  .metric-value { font-family: var(--serif); font-size: 16pt; font-weight: 500; color: var(--brand);
+    line-height: 1; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  /* white-space 必须为 normal：设为 nowrap 时 flex 项不收缩，4 张指标卡的标签会互相压字并冲出页面右缘 */
+  .metric-label { font-size: 9pt; color: var(--olive); line-height: 1.3; white-space: normal; }
+
+  h2 { font-family: var(--serif); font-size: 16pt; font-weight: 500; color: var(--near-black);
+    margin: 18pt 0 6pt 0; break-after: avoid; }
+  h3 { font-size: 13pt; font-weight: 500; color: var(--dark-warm); margin: 12pt 0 4pt 0; break-after: avoid; }
+  p { margin: 0 0 8pt 0; line-height: 1.5; widows: 2; orphans: 2; }
+  ul, ol { margin: 4pt 0 8pt 0; padding-left: 18pt; line-height: 1.5; }
+  ul li::marker { color: var(--brand); } ol li::marker { color: var(--brand); font-weight: 500; }
+
+  .tag { display: inline-block; background: var(--tag-bg); color: var(--brand); font-size: 9pt;
+    font-weight: 500; padding: 1pt 6pt; border-radius: 3pt; margin-right: 3pt; }
+
+  table, .kami-table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin: 8pt 0; break-inside: avoid; }
+  table th, .kami-table th { text-align: left; font-weight: 500; color: var(--dark-warm);
+    padding: 6pt 8pt; border-bottom: 0.6pt solid var(--border); background: transparent; }
+  table td, .kami-table td { padding: 5pt 8pt; border-bottom: 0.25pt solid var(--border); vertical-align: top; }
+  table.compact th, .kami-table.compact th { padding: 3pt 6pt; font-size: 8pt; }
+  table.compact td, .kami-table.compact td { padding: 2.5pt 6pt; font-size: 8pt; line-height: 1.4; }
+  table.financial td:not(:first-child), .kami-table.financial td:not(:first-child) {
+    text-align: right; font-variant-numeric: tabular-nums; }
+  table.financial th:not(:first-child), .kami-table.financial th:not(:first-child) { text-align: right; }
+  table .total td, .kami-table .total td { font-weight: 500; border-top: 0.6pt solid var(--border);
+    border-bottom: none; color: var(--near-black); }
+  .note { font-size: 8.5pt; color: var(--stone); margin: 2pt 0 8pt 0; }
+
+  .callout { background: var(--ivory); padding: 8pt 12pt; border-radius: 3pt; margin: 10pt 0;
+    line-height: 1.5; break-inside: avoid; }
+  .callout .quote { margin: 6pt 0; color: var(--olive); }
+
+  figure { margin: 12pt 0; break-inside: avoid; }
+  figcaption { font-size: 9pt; color: var(--stone); margin-top: 4pt; text-align: center; }
+
+  .risk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10pt; margin: 8pt 0; }
+  .risk-item { padding: 6pt 10pt; background: var(--ivory); border-radius: 3pt; break-inside: avoid; }
+  .risk-label { font-size: 9pt; font-weight: 500; color: var(--brand); margin-bottom: 2pt; }
+  .risk-desc { font-size: 9pt; color: var(--olive); line-height: 1.4; }
+
+  .analyst-box { background: var(--ivory); border-radius: 4pt; padding: 10pt 14pt; margin: 12pt 0;
+    break-inside: avoid; }
+  .analyst-label { font-size: 9pt; color: var(--brand); letter-spacing: 0.5pt; text-transform: uppercase;
+    margin-bottom: 4pt; }
+
+  .page-break { break-before: page; }
+
+  /* ===== 富配色增强：砖红主色 #A73F2D + 四色数据 + 深炭标题 #22262B ===== */
+  h2 { position: relative; padding-left: 13pt; }
+  h2::before { content:""; position:absolute; left:0; top:2.5pt; width:4pt; height:13pt;
+    background:var(--accent); border-radius:1pt; }
+  table th, .kami-table th { border-bottom: 1pt solid var(--accent); }
+  .metric:nth-child(1) .metric-value { color: var(--accent); }
+  .metric:nth-child(2) .metric-value { color: var(--gold); }
+  .metric:nth-child(3) .metric-value { color: var(--teal); }
+  .metric:nth-child(4) .metric-value { color: var(--blue); }
+  .callout { border-left: 3pt solid var(--accent); }
+  .analyst-box { border-left: 3pt solid var(--accent); }
+  .risk-item { border-left: 2.5pt solid var(--accent); }
+  .tag { background: var(--accent-soft); color: var(--brand-deep); }
+  .price-current { color: var(--near-black); }
+  .ticker-sub { color: var(--stone); }
+
+
+  figure { break-inside: avoid; margin: 12pt 0 14pt 0; padding: 8pt 6pt 6pt 6pt;
+           background:#FBF9F4; border:0.5pt solid #E3DDD4; }
+  .fig { width:100%; }
+  figure svg { display:block; width:100%; height:auto; }
+  figcaption { font-size:8.4pt; color:#7C7B77; text-align:center; margin-top:5pt; letter-spacing:0.4pt; }
+  h1 { font-size:19pt; }
+  h2 { font-size:13.5pt; margin-top:16pt; }
+  h3 { font-size:11pt; margin-top:12pt; }
+  table { font-size:8.3pt; }
+  table th:first-child, table td:first-child,
+  table th:nth-child(2), table td:nth-child(2) { white-space:nowrap; }
+  table.wide { font-size:7.9pt; }
+  table.wide th, table.wide td { padding:2.6pt 3pt; }
+  table.wide th:nth-child(3), table.wide td:nth-child(3),
+  table.wide th:nth-child(4), table.wide td:nth-child(4) { white-space:nowrap; }
+  blockquote { font-size:8.6pt; }
+  table.longtable { break-inside:auto; }
+  table.longtable thead { display:table-header-group; }
+  table.longtable tr { break-inside:avoid; }
+</style>
+
+<!-- rsp-mobile-adapt : 响应式适配层（仅屏幕生效，不影响打印/PDF） -->
+<style id="rsp-mobile-adapt">
+/* ========== 1. 全局：屏幕端基础修正 ========== */
+@media screen {
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body { overflow-wrap: break-word; }
+  img, svg, canvas, video, iframe { max-width: 100%; }
+  svg[viewBox], svg[viewbox] { height: auto; }
+
+  /* 表格横向滚动容器：宽表不压字、不撑破页面 */
+  .rsp-table {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    margin: 8pt 0;
+    position: relative;
+  }
+  .rsp-table > table { margin: 0; }
+  .rsp-table::-webkit-scrollbar { height: 7px; }
+  .rsp-table::-webkit-scrollbar-track { background: transparent; }
+  .rsp-table::-webkit-scrollbar-thumb { background: #D8D1C4; border-radius: 4px; }
+  /* 内容确实溢出时，右侧给一层渐变暗示"还能往右滑" */
+  .rsp-table[data-rsp-scroll] {
+    background: linear-gradient(to left, rgba(167,63,45,.10), rgba(167,63,45,0) 28px);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 28px 100%;
+  }
+}
+
+/* ========== 2. 平板 / 窄窗口：边距先收，避免内容被挤 ========== */
+@media screen and (max-width: 900px) {
+  body { padding: 22px 22px 46px 22px !important; }
+  .report-header { flex-wrap: wrap; gap: 12pt; }
+  .metrics { flex-wrap: wrap; gap: 10pt 18pt; }
+  .metric { flex: 1 1 42%; min-width: 0; }
+  .report-footer { flex-wrap: wrap; gap: 4pt 14pt; }
+
+  /* 宽表改为横向滚动：给每列保留最小可读宽度，不再把汉字挤成竖排 */
+  .rsp-w5 > table { min-width: 310px !important; }
+  .rsp-w6 > table { min-width: 372px !important; }
+  .rsp-w7 > table { min-width: 434px !important; }
+  .rsp-w8 > table { min-width: 496px !important; }
+  .rsp-w9 > table { min-width: 558px !important; }
+  .rsp-w10 > table { min-width: 620px !important; }
+  .rsp-w11 > table { min-width: 682px !important; }
+  .rsp-w12 > table { min-width: 744px !important; }
+  .rsp-w13 > table { min-width: 806px !important; }
+  .rsp-w14 > table { min-width: 868px !important; }
+  .rsp-w15 > table { min-width: 930px !important; }
+  .rsp-w16 > table { min-width: 992px !important; }
+}
+
+/* ========== 3. 手机：指标卡两列、页头转纵向 ========== */
+@media screen and (max-width: 720px) {
+  body {
+    max-width: 100% !important;
+    padding: 18px 16px 44px 16px !important;
+    font-size: 10.5pt;
+  }
+  h2 { font-size: 15pt !important; margin: 20pt 0 7pt 0 !important; }
+  h3 { font-size: 12.5pt !important; }
+  h1 { font-size: 19pt !important; }
+  p, li { line-height: 1.62; }
+  ul, ol { padding-left: 17pt; }
+
+  .report-header { flex-direction: column; align-items: stretch; gap: 8pt; }
+  .price-block { text-align: left; padding-top: 0; }
+  .price-current { font-size: 24pt !important; }
+  .ticker-name { font-size: 21pt !important; }
+  .ticker-sub { font-size: 9.5pt !important; }
+
+  .metrics { gap: 9pt 12pt; }
+  .metric { flex: 1 1 45%; }
+  .metric-value { font-size: 15pt !important; }
+  .metric-label { font-size: 8.5pt !important; white-space: normal !important; }
+
+  table, .kami-table { font-size: 9pt !important; }
+  .longtable { font-size: 8.5pt !important; }
+  .wide { font-size: 7.5pt !important; }
+  .dense { font-size: 8pt !important; }
+  table th, table td, .kami-table th, .kami-table td { padding: 5pt 6pt !important; }
+
+  blockquote, .quote, .note, .warn, .callout, .risk-item { padding: 9pt 11pt !important; }
+  .risk-grid { grid-template-columns: 1fr !important; }
+  .report-footer { flex-direction: column; align-items: flex-start; gap: 3pt; }
+}
+
+/* ========== 4. 小屏手机：指标卡单列、边距收到最紧 ========== */
+@media screen and (max-width: 430px) {
+  body { padding: 14px 12px 38px 12px !important; }
+  h2 { font-size: 14pt !important; }
+  h3 { font-size: 11.5pt !important; }
+  .ticker-name { font-size: 19pt !important; }
+  .price-current { font-size: 21pt !important; }
+  .metric { flex: 1 1 100%; }
+  .metric-value { font-size: 16pt !important; }
+  ul, ol { padding-left: 15pt; }
+  table, .kami-table { font-size: 8.5pt !important; }
+}
+
+/* ========== 5. 打印：把包裹层还原成透明，PDF 版式与补丁前完全一致 ========== */
+@media print {
+  .rsp-table { margin: 0; padding: 0; overflow: visible !important; background: none !important; }
+  .rsp-table > table { margin: 8pt 0; min-width: 0 !important; }
+  [class*="rsp-w"] > table { min-width: 0 !important; }
+}
+</style>
+</head>
+<body>
+<h1>从 30 家公司中选出 10 家：私募视角的投资排序</h1>
+<blockquote class="note">数据来源：本工作区 29 份已生成的财报分析报告（Markdown 原文）。<br>口径说明：<strong>所有财务数字均逐项摘自本地报告原文</strong>，报告未载的项一律标注"报告未载"，不作推测。<br>本文件为投资研究分析，不构成投资建议。</blockquote>
+<h2>一、先说三个必须交代的前提</h2>
+<p><strong>1. 报告里没有估值数据。</strong> 29 份报告中，<strong>PE、PB、市值全部"报告未载"</strong>（仅工行有文字表述"H 股股息率长期处于 6%—7% 高位"）。这意味着本排序<strong>无法做估值维度的比较</strong>，是一份"质量—安全—回报"驱动的排序，不是"性价比"排序。真实建仓前必须补一层估值确认：同一份质量打分的资产，40 倍 PE 和 12 倍 PE 是两个完全不同的决策。</p>
+<p><strong>2. 口径不完全可比。</strong> 工行、中行、江苏银行各自披露了 2022 年新保险合同准则追溯重述或金融租赁口径重述；亚马芬体育存在三处口径重述；中国石油存在三次口径追溯重述。跨公司比较时以各自报告原载口径为准。</p>
+<p><strong>3. 有两处数据我拒绝采信。</strong></p>
+<ul>
+<li><strong>五粮液</strong>：报告载 2025 年营收 405.29 亿元（−54.55%）、归母 89.54 亿元（−71.89%），报告自己写明"降幅超行业 47 个百分点，需要公司层面的事件来解释"，并提到"董事长因不能正常履职缺席审议年报董事会"。这两个数字与常识不符，<strong>在澄清前我不据此下任何结论</strong>。</li>
+<li><strong>华润医药</strong>：2025 年净利增长 46.7% 主要来自税率下行，非经营改善。</li>
+</ul>
+<h2>二、评分方法</h2>
+<p>私募做组合，先看<strong>能不能长期赚钱（质量）</strong>，再看<strong>赚的是不是真钱（现金流）</strong>，然后看<strong>还能不能长大（成长）</strong>、<strong>会不会被债务拖死（安全）</strong>，最后看<strong>愿不愿意分给我（股东回报）</strong>。</p>
+<div class="rsp-table"><table class="financial">
+<thead><tr><th>维度</th><th>权重</th><th>主要锚点</th></tr></thead>
+<tbody>
+<tr>
+<td>生意质量 / 护城河</td><td>25%</td><td>毛利率、ROE 水平、不可复制性</td>
+</tr>
+<tr>
+<td>盈利质量与现金转化</td><td>20%</td><td>经营现金流 / 归母净利、净现金状况、利润是否依赖非经常项</td>
+</tr>
+<tr>
+<td>成长性与可持续性</td><td>20%</td><td>近两期收入与利润趋势、最新中报动能、增长来源质量</td>
+</tr>
+<tr>
+<td>资产负债表安全</td><td>20%</td><td>资产负债率、有息负债、资本缓冲</td>
+</tr>
+<tr>
+<td>股东回报</td><td>15%</td><td>分红率、分红承诺、回购</td>
+</tr>
+</tbody></table></div>
+<p><strong>为什么不用单一 ROE 排序？</strong> 因为本次最典型的陷阱就在这里：<strong>藏格矿业 ROE 24.71%、中国海油 ROE 15.64%</strong>，看起来都很高，但藏格 2025 年 <strong>72.23%</strong>、2026H1 <strong>78.03%</strong> 的利润来自巨龙铜业的<strong>权益法投资收益——非现金</strong>。权益法收益是真资产升值，但它不会变成到账的分红。同样地，<strong>东阿阿胶分红率 100%</strong> 看着慷慨，可 2026H1 应收账款 +345%、收现比降至 90.02%、经营现金流 0.82 亿元（−91.56%）——报告自己写了四个字："以信用换收入"。<strong>分红的钱从哪来，比分红率数字本身重要得多。</strong></p>
+<figure><div class="fig"><svg viewBox="0 0 680 400" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="TsangerJinKai02, Source Han Serif SC, Songti SC, Georgia, serif">
+<rect x="0" y="0" width="680" height="400" fill="#FBF9F4"/>
+<text x="20" y="17" font-size="10.5" fill="#22262B" font-weight="500">图 1　候选池五维加权评分（0—9 分）</text>
+<line x1="86.0" y1="32" x2="86.0" y2="346" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="86.0" y="35.0" font-size="8.2" fill="#7C7B77" text-anchor="middle">0</text>
+<line x1="144.2" y1="32" x2="144.2" y2="346" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="144.2" y="35.0" font-size="8.2" fill="#7C7B77" text-anchor="middle">1</text>
+<line x1="202.4" y1="32" x2="202.4" y2="346" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="202.4" y="35.0" font-size="8.2" fill="#7C7B77" text-anchor="middle">2</text>
+<line x1="260.7" y1="32" x2="260.7" y2="346" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="260.7" y="35.0" font-size="8.2" fill="#7C7B77" text-anchor="middle">3</text>
+<line x1="318.9" y1="32" x2="318.9" y2="346" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="318.9" y="35.0" font-size="8.2" fill="#7C7B77" text-anchor="middle">4</text>
+<line x1="377.1" y1="32" x2="377.1" y2="346" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="377.1" y="35.0" font-size="8.2" fill="#7C7B77" text-anchor="middle">5</text>
+<line x1="435.3" y1="32" x2="435.3" y2="346" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="435.3" y="35.0" font-size="8.2" fill="#7C7B77" text-anchor="middle">6</text>
+<line x1="493.6" y1="32" x2="493.6" y2="346" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="493.6" y="35.0" font-size="8.2" fill="#7C7B77" text-anchor="middle">7</text>
+<line x1="551.8" y1="32" x2="551.8" y2="346" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="551.8" y="35.0" font-size="8.2" fill="#7C7B77" text-anchor="middle">8</text>
+<line x1="610.0" y1="32" x2="610.0" y2="346" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="610.0" y="35.0" font-size="8.2" fill="#7C7B77" text-anchor="middle">9</text>
+<rect x="86" y="46.0" width="493.7" height="13" fill="#A73F2D"/>
+<text x="80" y="56.0" font-size="8.6" fill="#3E4145" text-anchor="end">贵州茅台</text>
+<text x="584.7" y="56.0" font-size="8.4" fill="#A73F2D" text-anchor="start" font-weight="500">8.48</text>
+<rect x="86" y="68.0" width="487.9" height="13" fill="#A73F2D"/>
+<text x="80" y="78.0" font-size="8.6" fill="#3E4145" text-anchor="end">海天味业</text>
+<text x="578.9" y="78.0" font-size="8.4" fill="#A73F2D" text-anchor="start" font-weight="500">8.38</text>
+<rect x="86" y="90.0" width="479.2" height="13" fill="#A73F2D"/>
+<text x="80" y="100.0" font-size="8.6" fill="#3E4145" text-anchor="end">中国海油</text>
+<text x="570.2" y="100.0" font-size="8.4" fill="#A73F2D" text-anchor="start" font-weight="500">8.23</text>
+<rect x="86" y="112.0" width="441.3" height="13" fill="#A73F2D"/>
+<text x="80" y="122.0" font-size="8.6" fill="#3E4145" text-anchor="end">山西汾酒</text>
+<text x="532.3" y="122.0" font-size="8.4" fill="#A73F2D" text-anchor="start" font-weight="500">7.58</text>
+<rect x="86" y="134.0" width="432.6" height="13" fill="#A73F2D"/>
+<text x="80" y="144.0" font-size="8.6" fill="#3E4145" text-anchor="end">中国平安</text>
+<text x="523.6" y="144.0" font-size="8.4" fill="#A73F2D" text-anchor="start" font-weight="500">7.43</text>
+<rect x="86" y="156.0" width="427.9" height="13" fill="#CFC7BA"/>
+<text x="80" y="166.0" font-size="8.6" fill="#3E4145" text-anchor="end">中国石油</text>
+<text x="518.9" y="166.0" font-size="8.4" fill="#7C7B77" text-anchor="start" font-weight="400">7.35</text>
+<rect x="86" y="178.0" width="423.9" height="13" fill="#A73F2D"/>
+<text x="80" y="188.0" font-size="8.6" fill="#3E4145" text-anchor="end">泡泡玛特</text>
+<text x="514.9" y="188.0" font-size="8.4" fill="#A73F2D" text-anchor="start" font-weight="500">7.28</text>
+<rect x="86" y="200.0" width="423.9" height="13" fill="#A73F2D"/>
+<text x="80" y="210.0" font-size="8.6" fill="#3E4145" text-anchor="end">藏格矿业</text>
+<text x="514.9" y="210.0" font-size="8.4" fill="#A73F2D" text-anchor="start" font-weight="500">7.28</text>
+<rect x="86" y="222.0" width="422.1" height="13" fill="#A73F2D"/>
+<text x="80" y="232.0" font-size="8.6" fill="#3E4145" text-anchor="end">招商银行</text>
+<text x="513.1" y="232.0" font-size="8.4" fill="#A73F2D" text-anchor="start" font-weight="500">7.25</text>
+<rect x="86" y="244.0" width="415.1" height="13" fill="#A73F2D"/>
+<text x="80" y="254.0" font-size="8.6" fill="#3E4145" text-anchor="end">农业银行</text>
+<text x="506.1" y="254.0" font-size="8.4" fill="#A73F2D" text-anchor="start" font-weight="500">7.13</text>
+<rect x="86" y="266.0" width="403.5" height="13" fill="#CFC7BA"/>
+<text x="80" y="276.0" font-size="8.6" fill="#3E4145" text-anchor="end">东阿阿胶</text>
+<text x="494.5" y="276.0" font-size="8.4" fill="#7C7B77" text-anchor="start" font-weight="400">6.93</text>
+<rect x="86" y="288.0" width="398.8" height="13" fill="#CFC7BA"/>
+<text x="80" y="298.0" font-size="8.6" fill="#3E4145" text-anchor="end">江苏银行</text>
+<text x="489.8" y="298.0" font-size="8.4" fill="#7C7B77" text-anchor="start" font-weight="400">6.85</text>
+<rect x="86" y="310.0" width="386.0" height="13" fill="#A73F2D"/>
+<text x="80" y="320.0" font-size="8.6" fill="#3E4145" text-anchor="end">万华化学</text>
+<text x="477.0" y="320.0" font-size="8.4" fill="#A73F2D" text-anchor="start" font-weight="500">6.63</text>
+<rect x="86" y="332.0" width="381.4" height="13" fill="#CFC7BA"/>
+<text x="80" y="342.0" font-size="8.6" fill="#3E4145" text-anchor="end">伊利股份</text>
+<text x="472.4" y="342.0" font-size="8.4" fill="#7C7B77" text-anchor="start" font-weight="400">6.55</text>
+<text x="20" y="366.0" font-size="8.2" fill="#A73F2D">■ 入选组合（10 家）</text>
+<text x="200" y="366.0" font-size="8.2" fill="#7C7B77">■ 备选 / 未入选</text>
+<text x="20" y="392" font-size="8" fill="#7C7B77">注：权重为生意质量 25%、盈利质量与现金转化 20%、成长性 20%、资产负债表安全 20%、股东回报 15%。中国石油评分第 6 但因能源敞口已由质地更优的中国海油承担而未入选，详见正文第四节。</text>
+</svg></div><figcaption>图 1　候选池五维加权评分</figcaption></figure><h2>三、入选的 10 家（排序）</h2>
+<div class="rsp-table rsp-w7"><table class="financial longtable wide">
+<thead><tr><th>排序</th><th>公司</th><th>代码</th><th>权重</th><th>核心逻辑</th><th>关键数据（报告原载）</th><th>最需要盯的风险</th></tr></thead>
+<tbody>
+<tr>
+<td>1</td><td>贵州茅台</td><td>600519.SH</td><td>15%</td><td>唯一"生意质量＋资产负债表＋分红"三项全优的资产</td><td>毛利率 91.18%、净利率 48.76%、ROE 32.53%、资产负债率 16.42%、经营现金流 615.22 亿、分红率 79%；2026H1 营收 +1.47% 已回正</td><td>合同负债连续两年退潮（2026H1 末 31.78 亿，−42.3%）；2025Q4 收入 −19.4%</td>
+</tr>
+<tr>
+<td>2</td><td>中国海油</td><td>600938.SH</td><td>12%</td><td>全球第一梯队成本＋净现金＋产量还在长的能源最优解</td><td>桶油主要成本 27.90 美元、ROE 15.64%、净现金约 1,802 亿、资产负债率 26.71%、派息率 45%、产量五年 CAGR 约 8%；2026H1 归母 858.18 亿（+23.4%）</td><td>油价与地缘；弃置义务 1,160.39 亿且上升；储量替代率由 182% 回落至 167%</td>
+</tr>
+<tr>
+<td>3</td><td>海天味业</td><td>603288.SH</td><td>11%</td><td>调味品绝对龙头，现金多到不需要借钱做生意</td><td>毛利率 40.22%、ROE 19.59%、类现金 347.09 亿≈总负债 3.4 倍、经营现金流十年累计 604 亿≈累计归母 1.05 倍、分红率承诺≥80%；2025 归母 +10.95%，2026H1 +7.13%</td><td>单一品类依赖与舆情敏感（2022—2023 已实测过）；餐饮周期传导；大豆价格回升</td>
+</tr>
+<tr>
+<td>4</td><td>中国平安</td><td>601318.SH</td><td>11%</td><td>寿险改革真正兑现，NBV 增速是行业内最硬的证据</td><td>NBV 368.97 亿（+29.3%）、营运利润 +10.3%（连续两年快于会计净利）、集团 EV 1.50 万亿（+5.7%）、综合投资收益率 6.3%、归母净资产首破万亿、分红率约 36%</td><td>资管板块连续三年亏损（2025 约 −30 亿）；综合偿付能力由 233.5% 降至 193.3%</td>
+</tr>
+<tr>
+<td>5</td><td>山西汾酒</td><td>600809.SH</td><td>10%</td><td>白酒里 ROE 最高、且完全无有息负债的"高分红现金牛"</td><td>ROE 33.48%（白酒最高）、零有息负债、类现金 353.91 亿≈总负债 1.41 倍、省外收入 +12.64%（占比 65.30%）、分红率三年 51.07%→65.35%；毛利率 74.85%</td><td>省内吨价 2025 年 −23.75%（"放量 30%、价格跌 24%"）；2026H1 归母 −24.29%；合同负债连降两期、经销商净减 98 家</td>
+</tr>
+<tr>
+<td>6</td><td>招商银行</td><td>600036.SH</td><td>10%</td><td>银行股中的"茅台"，息差和资产质量断层领先</td><td>净息差 1.87%（同业普遍约 1.26%—1.34%）、不良率 0.94%（连续四年）、拨备覆盖率 391.79%、ROE 13.44%、零售 AUM 17.08 万亿、活期存款成本率 0.07%、分红率 35.02%</td><td>2025 净利增长几乎全靠递延所得税回转（剔除后约 −0.25%）；拨备覆盖率降 65.69pct、关注类升至 1.53%</td>
+</tr>
+<tr>
+<td>7</td><td>农业银行</td><td>601288.SH</td><td>10%</td><td>唯一拥有县域金融护城河的银行，且优势还在扩大</td><td>县域存款付息率 −6BP、贷款收益率 +12BP、不良率 1.25% 且低于逾期率、拨备覆盖率 292.55%、ROE 10.16%、分红率 30% 刚性；2026H1 利息净收入 +10.54%</td><td>逾期/不良 99.5% 逼近 100% 红线；零售不良 2026H1 首超对公；26H1 税率回升至 18.54%</td>
+</tr>
+<tr>
+<td>8</td><td>泡泡玛特</td><td>9992.HK</td><td>8%</td><td>唯一入选的高成长卫星仓：IP 平台化，零银行借款</td><td>2025 营收 371.20 亿（+184.7%）、归母 127.76 亿（+308.8%）、毛利率 72.1%、现金 137.75 亿、无银行借款、会员复购率 51.6%、会员贡献 92.9%；中国内地门店几无净增而收入 +47.3%＝同店驱动</td><td><strong>减速已开始</strong>：2026H1 归母仅 +10.1%；IP 集中（THE MONSTERS 曾占 38.1%，2026H1 绝对值首现 −7.5%）；存货周转 123→201 天；海外线上 −40%~−59%</td>
+</tr>
+<tr>
+<td>9</td><td>万华化学</td><td>600309.SH</td><td>7%</td><td>补材料/周期敞口的全球稀缺资产，反转弹性已出现</td><td>MDI 380 万吨/年（全球占比约三成）、ROE 12.44%、经营现金流十年为累计净利 1.96 倍、2025 自由现金流由 −163.01 亿转正 +23.94 亿、2026H1 归母 100.63 亿（+64.35%）</td><td>石化系列毛利率仅 0.58%；资产负债率 62.81%；2026H1 短期借款 +117.67% 至 604.87 亿；毛利率十年最低</td>
+</tr>
+<tr>
+<td>10</td><td>藏格矿业</td><td>000408.SZ</td><td>6%</td><td>资源独占＋紫金入主＋两个明确投产催化剂</td><td>察尔汗盐湖 724.35 km²、钾肥毛利率 64.64%、ROE 24.71%、资产负债率 8.35%、净现金；巨龙二期 2026 年 1 月投产（铜 19 万吨→30—35 万吨）、麻米错首期 5 万吨碳酸锂预计 2026Q3 投产</td><td><strong>利润含金量</strong>：2025 年 72.23%、2026H1 78.03% 的利润来自巨龙铜业权益法收益（非现金）；钾锂价格波动</td>
+</tr>
+</tbody></table></div>
+<p><strong>权重合计 100%</strong>：15+12+11+11+10+10+10+8+7+6。</p>
+<figure><div class="fig"><svg viewBox="0 0 680 320" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="TsangerJinKai02, Source Han Serif SC, Songti SC, Georgia, serif">
+<rect x="0" y="0" width="680" height="320" fill="#FBF9F4"/>
+<text x="20" y="17" font-size="10.5" fill="#22262B" font-weight="500">图 2　十家公司建议组合权重（%）</text>
+<line x1="86.0" y1="30" x2="86.0" y2="266" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="86.0" y="33.0" font-size="8.2" fill="#7C7B77" text-anchor="middle">0%</text>
+<line x1="173.3" y1="30" x2="173.3" y2="266" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="173.3" y="33.0" font-size="8.2" fill="#7C7B77" text-anchor="middle">3%</text>
+<line x1="260.7" y1="30" x2="260.7" y2="266" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="260.7" y="33.0" font-size="8.2" fill="#7C7B77" text-anchor="middle">6%</text>
+<line x1="348.0" y1="30" x2="348.0" y2="266" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="348.0" y="33.0" font-size="8.2" fill="#7C7B77" text-anchor="middle">9%</text>
+<line x1="435.3" y1="30" x2="435.3" y2="266" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="435.3" y="33.0" font-size="8.2" fill="#7C7B77" text-anchor="middle">12%</text>
+<line x1="522.7" y1="30" x2="522.7" y2="266" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="522.7" y="33.0" font-size="8.2" fill="#7C7B77" text-anchor="middle">15%</text>
+<line x1="610.0" y1="30" x2="610.0" y2="266" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="610.0" y="33.0" font-size="8.2" fill="#7C7B77" text-anchor="middle">18%</text>
+<rect x="86" y="44.0" width="436.7" height="14" fill="#2F6F6B"/>
+<text x="80" y="54.5" font-size="8.6" fill="#3E4145" text-anchor="end">贵州茅台</text>
+<text x="527.7" y="54.5" font-size="8.4" fill="#2F6F6B">15%</text>
+<rect x="86" y="67.0" width="349.3" height="14" fill="#2F6F6B"/>
+<text x="80" y="77.5" font-size="8.6" fill="#3E4145" text-anchor="end">中国海油</text>
+<text x="440.3" y="77.5" font-size="8.4" fill="#2F6F6B">12%</text>
+<rect x="86" y="90.0" width="320.2" height="14" fill="#2F6F6B"/>
+<text x="80" y="100.5" font-size="8.6" fill="#3E4145" text-anchor="end">海天味业</text>
+<text x="411.2" y="100.5" font-size="8.4" fill="#2F6F6B">11%</text>
+<rect x="86" y="113.0" width="320.2" height="14" fill="#2F6F6B"/>
+<text x="80" y="123.5" font-size="8.6" fill="#3E4145" text-anchor="end">中国平安</text>
+<text x="411.2" y="123.5" font-size="8.4" fill="#2F6F6B">11%</text>
+<rect x="86" y="136.0" width="291.1" height="14" fill="#2F6F6B"/>
+<text x="80" y="146.5" font-size="8.6" fill="#3E4145" text-anchor="end">山西汾酒</text>
+<text x="382.1" y="146.5" font-size="8.4" fill="#2F6F6B">10%</text>
+<rect x="86" y="159.0" width="291.1" height="14" fill="#2F6F6B"/>
+<text x="80" y="169.5" font-size="8.6" fill="#3E4145" text-anchor="end">招商银行</text>
+<text x="382.1" y="169.5" font-size="8.4" fill="#2F6F6B">10%</text>
+<rect x="86" y="182.0" width="291.1" height="14" fill="#2F6F6B"/>
+<text x="80" y="192.5" font-size="8.6" fill="#3E4145" text-anchor="end">农业银行</text>
+<text x="382.1" y="192.5" font-size="8.4" fill="#2F6F6B">10%</text>
+<rect x="86" y="205.0" width="232.9" height="14" fill="#9FE1CB"/>
+<text x="80" y="215.5" font-size="8.6" fill="#3E4145" text-anchor="end">泡泡玛特</text>
+<text x="323.9" y="215.5" font-size="8.4" fill="#2F6F6B">8%</text>
+<rect x="86" y="228.0" width="203.8" height="14" fill="#9FE1CB"/>
+<text x="80" y="238.5" font-size="8.6" fill="#3E4145" text-anchor="end">万华化学</text>
+<text x="294.8" y="238.5" font-size="8.4" fill="#2F6F6B">7%</text>
+<rect x="86" y="251.0" width="174.7" height="14" fill="#9FE1CB"/>
+<text x="80" y="261.5" font-size="8.6" fill="#3E4145" text-anchor="end">藏格矿业</text>
+<text x="265.7" y="261.5" font-size="8.4" fill="#2F6F6B">6%</text>
+<text x="20" y="286.0" font-size="8.2" fill="#2F6F6B">■ 核心仓（≥10%）</text>
+<text x="200" y="286.0" font-size="8.2" fill="#2F6F6B">■ 卫星仓（&lt;10%）</text>
+<text x="20" y="312" font-size="8" fill="#7C7B77">注：高现金流、高分红资产（茅台、海天、中海油、招行、农行、平安）合计 69%；成长与周期弹性资产（泡泡玛特、万华、藏格、汾酒）合计 31%。</text>
+</svg></div><figcaption>图 2　十家公司建议组合权重</figcaption></figure><h2>四、为什么最终排序和纯评分不完全一致</h2>
+<p>我把三个"人为调整"摊开讲，不藏：</p>
+<p><strong>① 中国石油：量化评分第 6（7.35），但没入选。</strong> 它本身没问题——ROE 10.1%、派息率 54.7%、一体化对冲住了油价（油价 −30.4% 而集团归母 +5.7%）、资产负债率五年降 7.4pp 接近净现金。问题是<strong>同一个行业里中海油在每个维度上都不输、在关键维度上明显更好</strong>：ROE 15.64% vs 10.1%，桶油成本 27.90 美元是全球第一梯队，净现金 1,802 亿 vs 中石油资本开支 2,690.89 亿。私募组合不做"同板块平均化"，<strong>用最好的那个就够了</strong>。列为首选替补。</p>
+<p><strong>② 泡泡玛特：量化评分第 7（7.28），排第 8。</strong> 评分高是因为成长项给了 8 分，但<strong>它的确定性是全组合最低的</strong>——2026H1 归母增速从 +308.8% 掉到 +10.1%，存货周转从 123 天拉到 201 天，第一大 IP 绝对值首次负增长。这种事后的信号比事前的高增长更值得尊重，所以<strong>降一位、只给 8% 卫星仓</strong>。</p>
+<p><strong>③ 万华化学：量化评分第 13（6.63），排第 10。</strong> 这是唯一一个"分数不够、逻辑补位"的入选。理由是组合需要材料/周期敞口，而万华是全球 MDI 三成份额的稀缺资产、且 2026H1 归母 +64.35% 的反转已经出现。<strong>如果你不接受这个配置逻辑，就直接用评分第 11 的东阿阿胶（6.93）或第 12 的江苏银行（6.85）替换掉它</strong>——但我不推荐东阿阿胶，原因见下节。</p>
+<h2>五、落选公司的具体原因</h2>
+<div class="rsp-table"><table class="financial longtable">
+<thead><tr><th>公司</th><th>评分</th><th>落选原因（基于报告原文）</th></tr></thead>
+<tbody>
+<tr>
+<td>东阿阿胶</td><td>6.93</td><td>分红率 100% 表面上最慷慨，但 2026H1 应收账款 +345%、收现比 90.02%、经营现金流 0.82 亿（−91.56%）、核心单品收入 −0.45%、第一大客户占 34.05%。报告的定性是"以信用换收入"。<strong>100% 分红不可持续是最大的隐忧</strong>。另注：报告指出其 2023 年年报"调整后"列存在数据错配，注明"不可引用"</td>
+</tr>
+<tr>
+<td>江苏银行</td><td>6.85</td><td>是目前成长最好的银行（2025 营收 +8.82%、归母 +8.35%、不良率 0.81%、2026H1 年化 ROE 15.72%），但<strong>核心一级资本充足率 8.67%，距 8.5% 监管底线只剩 17BP</strong>——这直接锁死了资产扩张空间；且 2025 年利润增长几乎全靠税盾（剔除后约 −1.0%）；对公集中度 66%</td>
+</tr>
+<tr>
+<td>伊利股份</td><td>6.55</td><td>分红承诺扎实（2025—2027 分红率不低于 75%、每股派息不低于 1.22 元）、ROE 20.87%、净现金 152.92 亿，但液体乳量价齐跌（降幅 89.5% 来自价格与结构）、奶粉增速由 +14.26% 骤降至 +1.61%、澳优商誉累计减值 45.84 亿（2026H1 再减值 15.47 亿）、短期借款 646.77 亿。报告原话："2025 年 +36.82% 需打两个折扣"</td>
+</tr>
+<tr>
+<td>建设银行 / 工商银行 / 中国银行</td><td>6.83 / 7.10 / 6.80</td><td>不是不好，是同质化。银行仓已配招行（质量断层领先）＋农行（县域护城河），第三家只会摊薄。且三家都有共同的隐患：利润增长高度依赖税负下降（建行 2025 税前利润 −0.98%，利润 100% 来自税负下降）、逾期/不良逼近或超过 100%（建行 107.75%、中行 110.98%、工行 124.48%）</td>
+</tr>
+<tr>
+<td>中国人寿</td><td>6.48</td><td>NBV +35.7%（457.52 亿）和归母 +44.1% 确实亮眼，但<strong>长端利率下行带来其他综合收益 −1,853.35 亿浮亏</strong>、权益配置升至约 22.6% 放大波动、综合偿付能力由 262% 降至 174%、利润高度依赖权益市场且 2026H1 已达全年 87% 的高基数。<strong>保险仓选平安不选国寿，核心差异是利润的可预测性</strong></td>
+</tr>
+<tr>
+<td>老铺黄金</td><td>6.25</td><td>同店增长 2024 +120.9%／2025 +160.6%、单店年收入约 5.03 亿元、一口价定价权（稳态毛利率 41%—42%）都极其亮眼，但<strong>存货 190.18 亿占总资产 80.2%（成品占 84.5%）、有息负债 67.62 亿（+356%）、2023—2025 经营现金流连续为负、高分红由融资支撑</strong>。这是重资产押注金价的生意，不是现金牛</td>
+</tr>
+<tr>
+<td>比音勒芬</td><td>7.00</td><td>十年零金融负债、T恤毛利率 81.05% 且连续六年市占第一、2026H1 营收 +23.66%，但 2025 归母 −29.46%、10 亿元商标无形资产减值、存货 +25.44%（1—2 年库龄 +65.2%）、<strong>直营单店销售 −9.54%（同店负贡献）</strong>、分红为自由现金流 5.2 倍</td>
+</tr>
+<tr>
+<td>亚马芬体育</td><td>—</td><td>Arc'teryx／Salomon／Wilson 品牌集群、DTC 占比 53.1%、大中华区占比 14.7%→33.6%，但报告披露<strong>财务报告内部控制存在重大缺陷</strong>；且 2024→2025 归母净利增量 354.8 百万美元中，经营利润 +231.0 与净财务成本改善 +232.3 <strong>各自解释约 65%</strong>——而财务成本改善来自资本结构操作且<strong>已用尽</strong></td>
+</tr>
+<tr>
+<td>片仔癀 / 同仁堂</td><td>—</td><td>提价逻辑双双失效。片仔癀 2023 年锭剂 590→760 元/粒后报告判定"已不具备再次提价空间"，2025 归母 −27.49%、存货 66.79 亿占总资产 38.04%、肝病用药库存量 +265.53%；同仁堂安宫牛黄丸占工业收入 38.2% 且被十余省价格治理点名、中成药集采扩围、天然牛黄 2019 年 35 万→2025 年 140—170 万元/公斤。<strong>成本与政策双向挤压，且处方药属性无法提价转移</strong></td>
+</tr>
+<tr>
+<td>华润三九 / 华润医药</td><td>—</td><td>增长质量存疑。华润三九 2025 年营收 +14.43% <strong>全部来自并购</strong>，内生 −5.90%，少数股东损益占比升至 17.88%，研发资本化率 15.87%→27.07%，商誉占归母净资产 31.86%，且 2026H1 CHC −23.29%（量缩非降价）<strong>公司未解释原因</strong>；华润医药净利率仅 1.50%、分销业务七年利润零增长（CAGR 0.63%）、一年内到期借款占比 81.0%</td>
+</tr>
+<tr>
+<td>泸州老窖</td><td>—</td><td>营收降幅加速（+3.19%→−17.52%→−36.35%）、2026H1 归母 −43.37%、前五大客户占比 74.71%、白酒库存 +29.76% 而销量 −17.03%、2026 年 85 亿分红下限以外推口径分红率将达 94%—112%（即动用存量现金）</td>
+</tr>
+<tr>
+<td>五粮液</td><td>—</td><td><strong>数据存疑，暂不评估</strong>。报告载 2025 年收入腰斩且"需要公司层面的事件来解释"，同时董事长缺席审议年报董事会。在澄清前不作为投资标的</td>
+</tr>
+<tr>
+<td>中国石化</td><td>—</td><td>ROE 3.86%、归母 −36.8%、债务净额由净现金 918.74 亿转为净债务 2,046.47 亿（<strong>分红实际靠加杠杆</strong>）、化工五年累计亏 336.32 亿、储量寿命仅 7.34 年</td>
+</tr>
+<tr>
+<td>金龙鱼</td><td>—</td><td>毛利率七年由 11.40% 压缩至 6.43%、ROE 3.32%、净利率 1.29%——报告定性为"价格接受者"；广州益海案一审共同退赔 18.81 亿仅计提 2.61 亿、二审中；五工段产能利用率 2025 年全部下降</td>
+</tr>
+<tr>
+<td>英矽智能</td><td>—</td><td>AI 制药的效率优势与管线（33 项 PCC、合作合约总值约 110 亿美元）真实，2026H1 收入 +287.2%、经调整首次盈利，但<strong>无商业化产品、收入脉冲式不可预测、经营现金流 2025 年仍净流出 7,677 万美元</strong>。不属于本组合（现金流型＋质量型）的标的类型；若另设"期权型仓位"可单独讨论</td>
+</tr>
+</tbody></table></div>
+<h2>六、组合结构一览</h2>
+<div class="rsp-table"><table class="financial">
+<thead><tr><th>板块</th><th>公司</th><th>合计权重</th></tr></thead>
+<tbody>
+<tr>
+<td>白酒</td><td>贵州茅台、山西汾酒</td><td>25%</td>
+</tr>
+<tr>
+<td>食品饮料</td><td>海天味业</td><td>11%</td>
+</tr>
+<tr>
+<td>能源</td><td>中国海油</td><td>12%</td>
+</tr>
+<tr>
+<td>银行</td><td>招商银行、农业银行</td><td>20%</td>
+</tr>
+<tr>
+<td>保险</td><td>中国平安</td><td>11%</td>
+</tr>
+<tr>
+<td>新消费成长</td><td>泡泡玛特</td><td>8%</td>
+</tr>
+<tr>
+<td>化工材料</td><td>万华化学</td><td>7%</td>
+</tr>
+<tr>
+<td>资源</td><td>藏格矿业</td><td>6%</td>
+</tr>
+</tbody></table></div>
+<p><strong>结构特征</strong>：高现金流、高分红资产（茅台、海天、中海油、招行、农行、平安）合计 <strong>69%</strong>；成长与周期弹性资产（泡泡玛特、万华、藏格、汾酒）合计 <strong>31%</strong>。这是一个"以确定性为底座、留小仓位博弹性"的配置，不是进攻型组合。</p>
+<h2>七、建仓前必须补齐的验证清单</h2>
+<ol>
+<li><strong>补估值</strong>：29 份报告均无 PE/PB/市值，需补一层估值排序。同一份质量打分，估值差一倍就是两个决策。</li>
+<li><strong>核验五粮液 2025 年数据</strong>：营收 −54.55% 与常识不符，须回原始年报核对口径。</li>
+<li><strong>逐家复核一季报/中报延续性</strong>：本排序大量依赖 2026H1 动能，需确认最新一期未偏离。</li>
+<li><strong>藏格矿业利润含金量跟踪</strong>：逐期拆解权益法收益占归母的比重，及巨龙铜业实际分红到账情况。</li>
+<li><strong>泡泡玛特 IP 集中度月度跟踪</strong>：THE MONSTERS 及第二曲线 IP 的绝对值变化、存货周转天数。</li>
+<li><strong>万华化学债务跟踪</strong>：短期借款（2026H1 604.87 亿）与资本开支节奏是否同步改善。</li>
+<li><strong>银行仓的地产敞口</strong>：招行地产不良 4.64%、农行零售不良趋势。</li>
+</ol>
+<p>*数据来源：本工作区 29 份财报分析报告（Markdown 原文）。所有数字为报告原载口径，未作推测或补全。*</p>
+</body>
+</html>

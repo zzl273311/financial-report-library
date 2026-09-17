@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>携程集团（9961.HK）财报分析报告</title>
+<meta name="generator" content="financial-report-analysis">
+<style>
+
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W04.ttf") format("truetype");
+    font-weight: 400; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W05.ttf") format("truetype");
+    font-weight: 500; font-style: normal; font-display: swap;
+  }
+  @page {
+    size: A4;
+    margin: 16mm 18mm 18mm 18mm;
+    background: #F7F4EE;
+    @bottom-center {
+      content: counter(page) "  ·  财报分析";
+      font-family: "TsangerJinKai02", "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", Georgia, serif;
+      font-size: 9pt; color: #6b6a64;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --parchment:#F7F4EE; --ivory:#FBF9F4; --near-black:#22262B; --dark-warm:#3E4145;
+    --olive:#504e49; --stone:#7C7B77; --brand:#A73F2D; --brand-deep:#8A3223;
+    --accent:#A73F2D; --accent-soft:#F1E3DD; --gold:#B8862F; --teal:#2F6F6B; --blue:#1B365D;
+    --border:#E3DDD4; --border-soft:#EAE5DC;
+    --tag-bg:#F1E3DD; --positive:#A73F2D; --negative:#2F6F6B;
+    --serif: "TsangerJinKai02", "Source Han Serif SC", "Source Han Serif CN", "Noto Serif CJK SC", "Noto Serif SC", "Songti SC", "STSong", "SimSun", Georgia, serif;
+    --rhythm-module:14pt; --rhythm-section:18pt;
+  }
+  html, body { background: var(--parchment); }
+  @media screen { body { max-width: 210mm; margin: 0 auto; padding: 16mm 18mm 18mm 18mm; } }
+  body { color: var(--near-black); font-family: var(--serif); font-size: 10pt; line-height: 1.5;
+    letter-spacing: 0.3pt; widows: 3; orphans: 3; }
+  strong { font-weight: 500; }
+  .hl { color: var(--brand); font-weight: 500; }
+
+  .report-header { display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: var(--rhythm-module); padding-bottom: 10pt; border-bottom: 0.5pt solid var(--border); }
+  .ticker-block { flex: 1; }
+  .ticker-eyebrow { font-size: 9pt; color: var(--brand); letter-spacing: 1.5pt; text-transform: uppercase;
+    font-weight: 500; margin-bottom: 4pt; }
+  .ticker-name { font-family: var(--serif); font-size: 24pt; font-weight: 500; color: var(--near-black);
+    line-height: 1.15; margin-bottom: 4pt; }
+  .ticker-sub { font-size: 10pt; color: var(--olive); line-height: 1.4; }
+  .price-block { text-align: right; padding-top: 4pt; }
+  .price-current { font-family: var(--serif); font-size: 28pt; font-weight: 500; color: var(--near-black);
+    line-height: 1; font-variant-numeric: tabular-nums; }
+  .price-change { font-size: 10pt; font-weight: 500; margin-top: 2pt; font-variant-numeric: tabular-nums; }
+  .price-change.up { color: var(--positive); }
+  .price-date { font-size: 9pt; color: var(--stone); margin-top: 2pt; }
+
+  .metrics { display: flex; gap: 14pt; margin-bottom: 16pt; padding: 6pt 0;
+    border-top: 0.3pt dotted var(--border); border-bottom: 0.3pt dotted var(--border); }
+  .metric { flex: 1; min-width: 0; display: flex; align-items: baseline; gap: 4pt; flex-wrap: wrap; }
+  .metric-value { font-family: var(--serif); font-size: 16pt; font-weight: 500; color: var(--brand);
+    line-height: 1; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  /* white-space 必须为 normal：设为 nowrap 时 flex 项不收缩，4 张指标卡的标签会互相压字并冲出页面右缘 */
+  .metric-label { font-size: 9pt; color: var(--olive); line-height: 1.3; white-space: normal; }
+
+  h2 { font-family: var(--serif); font-size: 16pt; font-weight: 500; color: var(--near-black);
+    margin: 18pt 0 6pt 0; break-after: avoid; }
+  h3 { font-size: 13pt; font-weight: 500; color: var(--dark-warm); margin: 12pt 0 4pt 0; break-after: avoid; }
+  p { margin: 0 0 8pt 0; line-height: 1.5; widows: 2; orphans: 2; }
+  ul, ol { margin: 4pt 0 8pt 0; padding-left: 18pt; line-height: 1.5; }
+  ul li::marker { color: var(--brand); } ol li::marker { color: var(--brand); font-weight: 500; }
+
+  .tag { display: inline-block; background: var(--tag-bg); color: var(--brand); font-size: 9pt;
+    font-weight: 500; padding: 1pt 6pt; border-radius: 3pt; margin-right: 3pt; }
+
+  table, .kami-table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin: 8pt 0; break-inside: avoid; }
+  table th, .kami-table th { text-align: left; font-weight: 500; color: var(--dark-warm);
+    padding: 6pt 8pt; border-bottom: 0.6pt solid var(--border); background: transparent; }
+  table td, .kami-table td { padding: 5pt 8pt; border-bottom: 0.25pt solid var(--border); vertical-align: top; }
+  table.compact th, .kami-table.compact th { padding: 3pt 6pt; font-size: 8pt; }
+  table.compact td, .kami-table.compact td { padding: 2.5pt 6pt; font-size: 8pt; line-height: 1.4; }
+  table.financial td:not(:first-child), .kami-table.financial td:not(:first-child) {
+    text-align: right; font-variant-numeric: tabular-nums; }
+  table.financial th:not(:first-child), .kami-table.financial th:not(:first-child) { text-align: right; }
+  table .total td, .kami-table .total td { font-weight: 500; border-top: 0.6pt solid var(--border);
+    border-bottom: none; color: var(--near-black); }
+  .note { font-size: 8.5pt; color: var(--stone); margin: 2pt 0 8pt 0; }
+
+  .callout { background: var(--ivory); padding: 8pt 12pt; border-radius: 3pt; margin: 10pt 0;
+    line-height: 1.5; break-inside: avoid; }
+  .callout .quote { margin: 6pt 0; color: var(--olive); }
+
+  figure { margin: 12pt 0; break-inside: avoid; }
+  figcaption { font-size: 9pt; color: var(--stone); margin-top: 4pt; text-align: center; }
+
+  .risk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10pt; margin: 8pt 0; }
+  .risk-item { padding: 6pt 10pt; background: var(--ivory); border-radius: 3pt; break-inside: avoid; }
+  .risk-label { font-size: 9pt; font-weight: 500; color: var(--brand); margin-bottom: 2pt; }
+  .risk-desc { font-size: 9pt; color: var(--olive); line-height: 1.4; }
+
+  .analyst-box { background: var(--ivory); border-radius: 4pt; padding: 10pt 14pt; margin: 12pt 0;
+    break-inside: avoid; }
+  .analyst-label { font-size: 9pt; color: var(--brand); letter-spacing: 0.5pt; text-transform: uppercase;
+    margin-bottom: 4pt; }
+
+  .page-break { break-before: page; }
+
+  /* ===== 富配色增强：砖红主色 #A73F2D + 四色数据 + 深炭标题 #22262B ===== */
+  h2 { position: relative; padding-left: 13pt; }
+  h2::before { content:""; position:absolute; left:0; top:2.5pt; width:4pt; height:13pt;
+    background:var(--accent); border-radius:1pt; }
+  table th, .kami-table th { border-bottom: 1pt solid var(--accent); }
+  .metric:nth-child(1) .metric-value { color: var(--accent); }
+  .metric:nth-child(2) .metric-value { color: var(--gold); }
+  .metric:nth-child(3) .metric-value { color: var(--teal); }
+  .metric:nth-child(4) .metric-value { color: var(--blue); }
+  .callout { border-left: 3pt solid var(--accent); }
+  .analyst-box { border-left: 3pt solid var(--accent); }
+  .risk-item { border-left: 2.5pt solid var(--accent); }
+  .tag { background: var(--accent-soft); color: var(--brand-deep); }
+  .price-current { color: var(--near-black); }
+  .ticker-sub { color: var(--stone); }
+
+
+  figure { break-inside: avoid; margin: 12pt 0 14pt 0; }
+  figure svg { display: block; }
+  figcaption { font-size: 9pt; color: var(--brand); font-weight: 500; margin-bottom: 6pt;
+    padding-bottom: 3pt; border-bottom: 0.5pt solid var(--border); }
+  table { break-inside: auto; width: 100%; border-collapse: collapse; margin: 8pt 0 12pt 0; font-size: 8.6pt; }
+  thead { display: table-header-group; }
+  tr { break-inside: avoid; }
+  th, td { border-bottom: 0.5pt solid var(--border-soft); padding: 3pt 5pt; text-align: left; }
+  th { color: var(--brand-deep); font-weight: 500; border-bottom: 1pt solid var(--brand); }
+  table.financial td:not(:first-child), table.financial th:not(:first-child) { text-align: right;
+    font-variant-numeric: tabular-nums; }
+  table.wide { font-size: 7.4pt; table-layout: fixed; }
+  table.wide th, table.wide td { padding: 2.4pt 3pt; }
+  table.dense { font-size: 7.6pt; }
+  table.dense th, table.dense td { padding: 2pt 4pt; line-height: 1.32; }
+  tr.total td { background: var(--accent-soft); }
+  blockquote { margin: 8pt 0; padding: 6pt 10pt; border-left: 2.4pt solid var(--brand);
+    background: var(--ivory); font-size: 9pt; color: var(--olive); }
+  blockquote.warn { border-left-color: var(--gold); }
+  h1 { font-size: 21pt; margin: 0 0 10pt 0; }
+  h2 { font-size: 14pt; margin: 16pt 0 8pt 0; padding-left: 8pt; border-left: 3pt solid var(--brand); }
+  h3 { font-size: 11.5pt; margin: 12pt 0 6pt 0; color: var(--brand-deep); }
+  h4 { font-size: 10.5pt; margin: 10pt 0 5pt 0; }
+  p { margin: 5pt 0; text-align: justify; }
+  ul, ol { margin: 5pt 0 8pt 18pt; }
+  li { margin: 3pt 0; }
+  code { background: var(--border-soft); padding: 0 2pt; }
+
+</style>
+
+<!-- rsp-mobile-adapt : 响应式适配层（仅屏幕生效，不影响打印/PDF） -->
+<style id="rsp-mobile-adapt">
+/* ========== 1. 全局：屏幕端基础修正 ========== */
+@media screen {
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body { overflow-wrap: break-word; }
+  img, svg, canvas, video, iframe { max-width: 100%; }
+  svg[viewBox], svg[viewbox] { height: auto; }
+
+  /* 表格横向滚动容器：宽表不压字、不撑破页面 */
+  .rsp-table {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    margin: 8pt 0;
+    position: relative;
+  }
+  .rsp-table > table { margin: 0; }
+  .rsp-table::-webkit-scrollbar { height: 7px; }
+  .rsp-table::-webkit-scrollbar-track { background: transparent; }
+  .rsp-table::-webkit-scrollbar-thumb { background: #D8D1C4; border-radius: 4px; }
+  /* 内容确实溢出时，右侧给一层渐变暗示"还能往右滑" */
+  .rsp-table[data-rsp-scroll] {
+    background: linear-gradient(to left, rgba(167,63,45,.10), rgba(167,63,45,0) 28px);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 28px 100%;
+  }
+}
+
+/* ========== 2. 平板 / 窄窗口：边距先收，避免内容被挤 ========== */
+@media screen and (max-width: 900px) {
+  body { padding: 22px 22px 46px 22px !important; }
+  .report-header { flex-wrap: wrap; gap: 12pt; }
+  .metrics { flex-wrap: wrap; gap: 10pt 18pt; }
+  .metric { flex: 1 1 42%; min-width: 0; }
+  .report-footer { flex-wrap: wrap; gap: 4pt 14pt; }
+
+  /* 宽表改为横向滚动：给每列保留最小可读宽度，不再把汉字挤成竖排 */
+  .rsp-w5 > table { min-width: 310px !important; }
+  .rsp-w6 > table { min-width: 372px !important; }
+  .rsp-w7 > table { min-width: 434px !important; }
+  .rsp-w8 > table { min-width: 496px !important; }
+  .rsp-w9 > table { min-width: 558px !important; }
+  .rsp-w10 > table { min-width: 620px !important; }
+  .rsp-w11 > table { min-width: 682px !important; }
+  .rsp-w12 > table { min-width: 744px !important; }
+  .rsp-w13 > table { min-width: 806px !important; }
+  .rsp-w14 > table { min-width: 868px !important; }
+  .rsp-w15 > table { min-width: 930px !important; }
+  .rsp-w16 > table { min-width: 992px !important; }
+}
+
+/* ========== 3. 手机：指标卡两列、页头转纵向 ========== */
+@media screen and (max-width: 720px) {
+  body {
+    max-width: 100% !important;
+    padding: 18px 16px 44px 16px !important;
+    font-size: 10.5pt;
+  }
+  h2 { font-size: 15pt !important; margin: 20pt 0 7pt 0 !important; }
+  h3 { font-size: 12.5pt !important; }
+  h1 { font-size: 19pt !important; }
+  p, li { line-height: 1.62; }
+  ul, ol { padding-left: 17pt; }
+
+  .report-header { flex-direction: column; align-items: stretch; gap: 8pt; }
+  .price-block { text-align: left; padding-top: 0; }
+  .price-current { font-size: 24pt !important; }
+  .ticker-name { font-size: 21pt !important; }
+  .ticker-sub { font-size: 9.5pt !important; }
+
+  .metrics { gap: 9pt 12pt; }
+  .metric { flex: 1 1 45%; }
+  .metric-value { font-size: 15pt !important; }
+  .metric-label { font-size: 8.5pt !important; white-space: normal !important; }
+
+  table, .kami-table { font-size: 9pt !important; }
+  .longtable { font-size: 8.5pt !important; }
+  .wide { font-size: 7.5pt !important; }
+  .dense { font-size: 8pt !important; }
+  table th, table td, .kami-table th, .kami-table td { padding: 5pt 6pt !important; }
+
+  blockquote, .quote, .note, .warn, .callout, .risk-item { padding: 9pt 11pt !important; }
+  .risk-grid { grid-template-columns: 1fr !important; }
+  .report-footer { flex-direction: column; align-items: flex-start; gap: 3pt; }
+}
+
+/* ========== 4. 小屏手机：指标卡单列、边距收到最紧 ========== */
+@media screen and (max-width: 430px) {
+  body { padding: 14px 12px 38px 12px !important; }
+  h2 { font-size: 14pt !important; }
+  h3 { font-size: 11.5pt !important; }
+  .ticker-name { font-size: 19pt !important; }
+  .price-current { font-size: 21pt !important; }
+  .metric { flex: 1 1 100%; }
+  .metric-value { font-size: 16pt !important; }
+  ul, ol { padding-left: 15pt; }
+  table, .kami-table { font-size: 8.5pt !important; }
+}
+
+/* ========== 5. 打印：把包裹层还原成透明，PDF 版式与补丁前完全一致 ========== */
+@media print {
+  .rsp-table { margin: 0; padding: 0; overflow: visible !important; background: none !important; }
+  .rsp-table > table { margin: 8pt 0; min-width: 0 !important; }
+  [class*="rsp-w"] > table { min-width: 0 !important; }
+}
+</style>
+</head>
+<body>
+<h1>携程集团（Trip.com Group，9961.HK / TCOM.O）财报分析报告</h1>
+<blockquote class="warn"><strong>数据口径</strong>：人民币百万元（除特别标注）；会计准则为美国公认会计原则（US GAAP），中期报表另附 US GAAP 与 IFRS 调节表；数据源为香港联交所披露易公布的年度报告（20-F）与季度业绩公告原文。<br><strong>覆盖期间</strong>：年度 2020—2025，半年度 2025H1 与 2026H1（最新期为 2026 年第二季度及上半年业绩公告，披露日 2026-09-16）。<br><strong>时间轴约定</strong>：所有对比表<strong>列分两块、一律按时间递增</strong>——左块为年度（2020→2025），右块为半年度（2025H1→2026H1），分界处以竖线标出；<strong>跨块不可直接相减</strong>，半年度块的同比＝2026H1 ÷ 2025H1 − 1。</blockquote>
+<h2>一、公司概况</h2>
+<h3>1.1 基本信息</h3>
+<div class="rsp-table"><table class=""><thead><tr><th>项目</th><th>内容</th></tr></thead><tbody><tr><td>公司名称</td><td>携程集团有限公司（Trip.com Group Limited）</td></tr><tr><td>注册地</td><td>开曼群岛；主要行政办公地址新加坡</td></tr><tr><td>上市信息</td><td>2003 年纳斯达克上市（TCOM）；2021 年香港联交所主板上市（9961）</td></tr><tr><td>品牌矩阵</td><td>携程、去哪儿、Trip.com、天巡（Skyscanner）</td></tr><tr><td>业务分部</td><td>住宿预订、交通票务、旅游度假、商旅管理、其他（含广告与增值服务）</td></tr><tr><td>战略主轴</td><td>"G2"＝全球化（Globalization）＋高质量（Quality），并以自研 AI 覆盖旅客全旅程</td></tr><tr><td>员工与治理</td><td>董事会执行主席梁建章，CEO 孙潔；2025 年报披露全职雇员约 4.5 万人（口径见年报 Item 6）</td></tr></tbody></table></div>
+<h3>1.2 报告期重大事件</h3>
+<ul><li><strong>2025 年 7 月</strong>：完成向 MakeMyTrip 出售 34,372,221 股 B 类普通股，总对价约 30 亿美元，于"其他收入"中确认投资收益人民币 <strong>152 亿元</strong>；交易后仍为 MakeMyTrip 最大少数股东。</li><li><strong>2026 年 1 月</strong>：国家市场监督管理总局（SAMR）依据《反垄断法》就涉嫌滥用市场支配地位立案调查。</li><li><strong>2026 年 7 月 25 日</strong>：SAMR 作出行政处罚——没收违法所得 16.58 亿元、罚款 35.21 亿元（按 2025 年度中国境内销售额 469.58 亿元的 7.5% 计），<strong>罚没合计 51.79 亿元</strong>；并责令全额退还强制扣除的酒店订单储备金 1.22 亿元（处罚决定书：国市监处罚〔2026〕29 号）。</li><li><strong>2026 年第二季度</strong>：上述罚款 51.80 亿元全额计入一般及行政费用，单季由盈转亏。</li></ul>
+<h2>二、核心财务数据对比</h2>
+<h3>表 1　综合损益表（人民币百万元）</h3>
+<div class="rsp-table rsp-w9"><table class="financial wide"><thead><tr><th>项目</th><th>2020</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th><th style="border-left:1.6px solid #A73F2D">2025H1</th><th>2026H1</th></tr></thead><tbody><tr><td>收入合计</td><td>18,327</td><td>20,029</td><td>20,055</td><td>44,562</td><td>53,377</td><td>62,510</td><td style="border-left:1.6px solid #A73F2D">—</td><td>—</td></tr><tr><td>减：销售税及附加</td><td>(11)</td><td>(6)</td><td>(16)</td><td>(52)</td><td>(83)</td><td>(101)</td><td style="border-left:1.6px solid #A73F2D">—</td><td>—</td></tr><tr><td><strong>净营业收入</strong></td><td><strong>18,316</strong></td><td><strong>20,023</strong></td><td><strong>20,039</strong></td><td><strong>44,510</strong></td><td><strong>53,294</strong></td><td><strong>62,409</strong></td><td style="border-left:1.6px solid #A73F2D"><strong>28,673</strong></td><td><strong>31,871</strong></td></tr><tr><td>营业成本</td><td>(4,031)</td><td>(4,598)</td><td>(4,513)</td><td>(8,121)</td><td>(9,990)</td><td>(12,122)</td><td style="border-left:1.6px solid #A73F2D">(5,523)</td><td>(6,490)</td></tr><tr><td><strong>毛利</strong></td><td><strong>14,285</strong></td><td><strong>15,425</strong></td><td><strong>15,526</strong></td><td><strong>36,389</strong></td><td><strong>43,304</strong></td><td><strong>50,287</strong></td><td style="border-left:1.6px solid #A73F2D"><strong>23,150</strong></td><td><strong>25,381</strong></td></tr><tr><td>毛利率</td><td>78.0%</td><td>77.0%</td><td>77.5%</td><td>81.8%</td><td>81.3%</td><td>80.6%</td><td style="border-left:1.6px solid #A73F2D">80.7%</td><td>79.6%</td></tr><tr><td>产品研发</td><td>(7,667)</td><td>(8,992)</td><td>(8,341)</td><td>(12,120)</td><td>(13,139)</td><td>(15,136)</td><td style="border-left:1.6px solid #A73F2D">(7,025)</td><td>(7,854)</td></tr><tr><td>销售及营销</td><td>(4,405)</td><td>(4,922)</td><td>(4,250)</td><td>(9,202)</td><td>(11,902)</td><td>(14,904)</td><td style="border-left:1.6px solid #A73F2D">(6,325)</td><td>(7,588)</td></tr><tr><td>一般及行政</td><td>(3,636)</td><td>(2,922)</td><td>(2,847)</td><td>(3,743)</td><td>(4,086)</td><td>(4,474)</td><td style="border-left:1.6px solid #A73F2D">(2,135)</td><td>(7,456)</td></tr><tr><td><strong>营业利润</strong></td><td><strong>(1,423)</strong></td><td><strong>(1,411)</strong></td><td><strong>88</strong></td><td><strong>11,324</strong></td><td><strong>14,177</strong></td><td><strong>15,773</strong></td><td style="border-left:1.6px solid #A73F2D"><strong>7,665</strong></td><td><strong>2,483</strong></td></tr><tr><td>其中：SAMR 反垄断罚款</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td style="border-left:1.6px solid #A73F2D">—</td><td>(5,180)</td></tr><tr><td>利息收入</td><td>2,187</td><td>2,132</td><td>2,046</td><td>2,090</td><td>2,341</td><td>2,603</td><td style="border-left:1.6px solid #A73F2D">1,249</td><td>1,125</td></tr><tr><td>利息支出</td><td>(1,716)</td><td>(1,565)</td><td>(1,514)</td><td>(2,067)</td><td>(1,735)</td><td>(849)</td><td style="border-left:1.6px solid #A73F2D">(551)</td><td>(232)</td></tr><tr><td>其他收入／（支出）</td><td>(273)</td><td>373</td><td>2,015</td><td>(667)</td><td>2,220</td><td>21,321</td><td style="border-left:1.6px solid #A73F2D">2,251</td><td>(1,023)</td></tr><tr><td>除所得税及联营权益前利润</td><td>(1,225)</td><td>(471)</td><td>2,635</td><td>10,680</td><td>17,003</td><td>38,848</td><td style="border-left:1.6px solid #A73F2D">10,614</td><td>2,353</td></tr><tr><td>所得税支出</td><td>(355)</td><td>(270)</td><td>(682)</td><td>(1,750)</td><td>(2,604)</td><td>(5,815)</td><td style="border-left:1.6px solid #A73F2D">(1,636)</td><td>(1,692)</td></tr><tr><td>于联营公司利润／（亏损）权益</td><td>(1,689)</td><td>(334)</td><td>(586)</td><td>1,072</td><td>2,828</td><td>353</td><td style="border-left:1.6px solid #A73F2D">216</td><td>(581)</td></tr><tr><td><strong>净利润</strong></td><td><strong>(3,269)</strong></td><td><strong>(645)</strong></td><td><strong>1,367</strong></td><td><strong>10,002</strong></td><td><strong>17,227</strong></td><td><strong>33,386</strong></td><td style="border-left:1.6px solid #A73F2D"><strong>9,194</strong></td><td><strong>80</strong></td></tr><tr><td><strong>归属携程集团净利润</strong></td><td><strong>(3,247)</strong></td><td><strong>(550)</strong></td><td><strong>1,403</strong></td><td><strong>9,918</strong></td><td><strong>17,067</strong></td><td><strong>33,294</strong></td><td style="border-left:1.6px solid #A73F2D"><strong>9,123</strong></td><td><strong>41</strong></td></tr><tr><td>归母净利率</td><td>−17.7%</td><td>−2.7%</td><td>7.0%</td><td>22.3%</td><td>32.0%</td><td>53.3%</td><td style="border-left:1.6px solid #A73F2D">31.8%</td><td>0.1%</td></tr><tr><td>经调整 EBITDA（非 GAAP）</td><td>—</td><td>—</td><td>—</td><td>13,975</td><td>17,070</td><td>18,888</td><td style="border-left:1.6px solid #A73F2D">9,127</td><td>9,395</td></tr><tr><td>归母净利润（非 GAAP）</td><td>—</td><td>—</td><td>—</td><td>13,071</td><td>18,041</td><td>31,839</td><td style="border-left:1.6px solid #A73F2D">9,199</td><td>8,703</td></tr></tbody></table></div>
+<blockquote class="warn">表注：列分两块，左块为年度（2020→2025），右块为半年度（2025H1→2026H1），分界处以竖线标出，跨块不可直接相减。经调整 EBITDA 与非 GAAP 归母净利润自 2023 年起在季度公告中披露，2020—2022 年留"—"。2026H1 一般及行政费用含 SAMR 反垄断罚款 51.80 亿元，剔除后为 22.76 亿元（占净营业收入 7.1%）。</blockquote>
+<h3>表 2　综合财务状况表（人民币百万元，期末）</h3>
+<div class="rsp-table rsp-w5"><table class="financial"><thead><tr><th>项目</th><th>2023-12-31</th><th>2024-12-31</th><th>2025-12-31</th><th style="border-left:1.6px solid #A73F2D">2026-06-30</th></tr></thead><tbody><tr><td>现金、现金等价物及受限制现金</td><td>43,983</td><td>51,093</td><td>46,451</td><td style="border-left:1.6px solid #A73F2D">56,016</td></tr><tr><td>短期投资</td><td>17,748</td><td>28,475</td><td>32,007</td><td style="border-left:1.6px solid #A73F2D">23,499</td></tr><tr><td>应收账款净额</td><td>11,410</td><td>12,459</td><td>15,241</td><td style="border-left:1.6px solid #A73F2D">17,053</td></tr><tr><td>流动资产总额</td><td>88,732</td><td>112,120</td><td>121,050</td><td style="border-left:1.6px solid #A73F2D">122,513</td></tr><tr><td>投资（含持有至到期投资与长期理财）</td><td>49,342</td><td>47,194</td><td>61,375</td><td style="border-left:1.6px solid #A73F2D">51,361</td></tr><tr><td>商誉</td><td>59,372</td><td>60,911</td><td>62,268</td><td style="border-left:1.6px solid #A73F2D">62,196</td></tr><tr><td><strong>资产总额</strong></td><td><strong>219,137</strong></td><td><strong>242,581</strong></td><td><strong>267,387</strong></td><td style="border-left:1.6px solid #A73F2D"><strong>259,089</strong></td></tr><tr><td>流动负债总额</td><td>72,411</td><td>74,010</td><td>78,169</td><td style="border-left:1.6px solid #A73F2D">92,336</td></tr><tr><td>长期债务</td><td>19,099</td><td>20,134</td><td>11,430</td><td style="border-left:1.6px solid #A73F2D">630</td></tr><tr><td><strong>负债总额</strong></td><td><strong>96,131</strong></td><td><strong>99,099</strong></td><td><strong>94,787</strong></td><td style="border-left:1.6px solid #A73F2D"><strong>98,285</strong></td></tr><tr><td>夹层股权</td><td>—</td><td>743</td><td>131</td><td style="border-left:1.6px solid #A73F2D">140</td></tr><tr><td>携程集团股东权益</td><td>122,184</td><td>141,807</td><td>170,818</td><td style="border-left:1.6px solid #A73F2D">159,049</td></tr><tr><td>权益总额</td><td>123,006</td><td>142,739</td><td>172,469</td><td style="border-left:1.6px solid #A73F2D">160,664</td></tr><tr><td>资产负债率</td><td>43.9%</td><td>40.9%</td><td>35.5%</td><td style="border-left:1.6px solid #A73F2D">37.9%</td></tr><tr><td>现金及等价物＋短期投资＋持有至到期存款理财</td><td>—</td><td>—</td><td>—</td><td style="border-left:1.6px solid #A73F2D">100,516</td></tr></tbody></table></div>
+<blockquote class="note">表注：2026 年 6 月 30 日"现金及现金等价物、受限制现金、短期投资及持有至到期定期存款和理财产品余额"为人民币 1,005 亿元（148 亿美元），为公告口径合计数，与各科目简单相加略有差异（持有至到期部分计入"投资"科目，2026-06-30 为 210.01 亿元）。</blockquote>
+<h3>表 3　现金流量表（人民币百万元）</h3>
+<div class="rsp-table"><table class="financial"><thead><tr><th>项目</th><th>2023</th><th>2024</th><th>2025</th></tr></thead><tbody><tr><td>经营活动所提供现金净额</td><td>22,004</td><td>19,625</td><td>14,379</td></tr><tr><td>投资活动所提供／（所用）现金净额</td><td>5,919</td><td>(6,052)</td><td>(4,181)</td></tr><tr><td>融资活动所用现金净额</td><td>(2,547)</td><td>(6,710)</td><td>(14,663)</td></tr><tr><td>汇率变动影响</td><td>120</td><td>247</td><td>(177)</td></tr><tr><td>现金及现金等价物、受限制现金净增减</td><td>25,496</td><td>7,110</td><td>(4,642)</td></tr><tr><td>年末现金及现金等价物、受限制现金</td><td>43,983</td><td>51,093</td><td>46,451</td></tr><tr><td>经营现金流 ÷ 归母净利润</td><td>2.22×</td><td>1.15×</td><td>0.43×</td></tr></tbody></table></div>
+<blockquote class="note">表注：2020—2022 年现金流量表未在本次可获得的季度公告中完整披露，留"—"未列；三项活动净额取自 2025 年度报告（20-F）第一部分 B 项"流动性及资本来源"。</blockquote>
+<h3>表 4　净营业收入构成（人民币百万元）</h3>
+<div class="rsp-table rsp-w6"><table class="financial"><thead><tr><th>分部</th><th>2023</th><th>2024</th><th>2025</th><th style="border-left:1.6px solid #A73F2D">2025H1</th><th>2026H1</th></tr></thead><tbody><tr><td>住宿预订</td><td>17,257</td><td>21,612</td><td>26,100</td><td style="border-left:1.6px solid #A73F2D">11,766</td><td>13,086</td></tr><tr><td>交通票务</td><td>18,443</td><td>20,301</td><td>22,489</td><td style="border-left:1.6px solid #A73F2D">10,815</td><td>11,400</td></tr><tr><td>旅游度假</td><td>3,140</td><td>4,336</td><td>4,688</td><td style="border-left:1.6px solid #A73F2D">2,026</td><td>2,291</td></tr><tr><td>商旅管理</td><td>2,254</td><td>2,502</td><td>2,829</td><td style="border-left:1.6px solid #A73F2D">1,265</td><td>1,461</td></tr><tr><td>其他</td><td>3,468</td><td>4,626</td><td>6,404</td><td style="border-left:1.6px solid #A73F2D">2,801</td><td>3,633</td></tr><tr><td><strong>净营业收入合计</strong></td><td><strong>44,510</strong></td><td><strong>53,294</strong></td><td><strong>62,409</strong></td><td style="border-left:1.6px solid #A73F2D"><strong>28,673</strong></td><td><strong>31,871</strong></td></tr><tr><td>住宿预订占比</td><td>38.8%</td><td>40.6%</td><td>41.8%</td><td style="border-left:1.6px solid #A73F2D">41.0%</td><td>41.1%</td></tr><tr><td>交通票务占比</td><td>41.4%</td><td>38.1%</td><td>36.0%</td><td style="border-left:1.6px solid #A73F2D">37.7%</td><td>35.8%</td></tr></tbody></table></div>
+<blockquote class="note">表注：2025 年分部收入同比分别为住宿预订 +20.8%、交通票务 +10.8%、旅游度假 +8.1%、商旅管理 +13.1%、其他 +38.4%。</blockquote>
+<h3>表 5　分季度经营数据（人民币百万元）</h3>
+<div class="rsp-table rsp-w6"><table class="financial"><thead><tr><th>季度</th><th>净营业收入</th><th>环比</th><th>同比</th><th>归属携程净利润</th><th>经调整 EBITDA</th></tr></thead><tbody><tr><td>2025Q1</td><td>13,830</td><td>—</td><td>—</td><td>4,277</td><td>—</td></tr><tr><td>2025Q2</td><td>14,843</td><td>+7.3%</td><td>—</td><td>4,846</td><td>4,880</td></tr><tr><td>2025Q3</td><td>18,338</td><td>+23.5%</td><td>—</td><td>19,890</td><td>6,346</td></tr><tr><td>2025Q4</td><td>15,398</td><td>−16.0%</td><td>+21%</td><td>4,281</td><td>3,415</td></tr><tr><td>2026Q1</td><td>16,208</td><td>+5.3%</td><td>+17.2%</td><td>2,499</td><td>4,830</td></tr><tr><td>2026Q2</td><td>15,663</td><td>−3.4%</td><td>+5.5%</td><td>(2,458)</td><td>4,565</td></tr></tbody></table></div>
+<blockquote class="warn">表注：2025Q1 净营业收入由 2025 全年净收入减去 H1、Q3、Q4 倒推（62,409 − 28,673 − 18,338 − 15,398 ＝ 13,830），归属净利润同法倒推（33,294 − 9,123 − 19,890 − 4,281 ＝ 4,277），<strong>为推算值</strong>，未在该季度公告中直接披露，仅供趋势参考。</blockquote>
+<h2>三、三张财务数据表：关键变化数据与趋势含义</h2>
+<figure><figcaption>图 1　净营业收入轨迹：2020—2025 年度（人民币百万元）</figcaption><svg viewBox="0 0 680 250" width="100%" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="680" height="250" fill="#FBF9F4"/><line x1="62" y1="198.0" x2="662" y2="198.0" stroke="#E3DDD4" stroke-width="0.6"/><text x="55" y="201.5" font-size="8" fill="#7C7B77" text-anchor="end">0</text><line x1="62" y1="155.0" x2="662" y2="155.0" stroke="#E3DDD4" stroke-width="0.6"/><text x="55" y="158.5" font-size="8" fill="#7C7B77" text-anchor="end">18,000</text><line x1="62" y1="112.0" x2="662" y2="112.0" stroke="#E3DDD4" stroke-width="0.6"/><text x="55" y="115.5" font-size="8" fill="#7C7B77" text-anchor="end">36,000</text><line x1="62" y1="69.0" x2="662" y2="69.0" stroke="#E3DDD4" stroke-width="0.6"/><text x="55" y="72.5" font-size="8" fill="#7C7B77" text-anchor="end">54,000</text><line x1="62" y1="26.0" x2="662" y2="26.0" stroke="#E3DDD4" stroke-width="0.6"/><text x="55" y="29.5" font-size="8" fill="#7C7B77" text-anchor="end">72,000</text><rect x="83.0" y="154.2" width="58.0" height="43.8" fill="#CFC7BA"/><text x="112.0" y="149.2" font-size="8.5" fill="#3E4145" text-anchor="middle">18,316</text><text x="112.0" y="213.0" font-size="8.5" fill="#3E4145" text-anchor="middle">2020</text><rect x="183.0" y="150.2" width="58.0" height="47.8" fill="#CFC7BA"/><text x="212.0" y="145.2" font-size="8.5" fill="#3E4145" text-anchor="middle">20,023</text><text x="212.0" y="213.0" font-size="8.5" fill="#3E4145" text-anchor="middle">2021</text><rect x="283.0" y="150.1" width="58.0" height="47.9" fill="#CFC7BA"/><text x="312.0" y="145.1" font-size="8.5" fill="#3E4145" text-anchor="middle">20,039</text><text x="312.0" y="213.0" font-size="8.5" fill="#3E4145" text-anchor="middle">2022</text><rect x="383.0" y="91.7" width="58.0" height="106.3" fill="#CFC7BA"/><text x="412.0" y="86.7" font-size="8.5" fill="#3E4145" text-anchor="middle">44,510</text><text x="412.0" y="213.0" font-size="8.5" fill="#3E4145" text-anchor="middle">2023</text><rect x="483.0" y="70.7" width="58.0" height="127.3" fill="#CFC7BA"/><text x="512.0" y="65.7" font-size="8.5" fill="#3E4145" text-anchor="middle">53,294</text><text x="512.0" y="213.0" font-size="8.5" fill="#3E4145" text-anchor="middle">2024</text><rect x="583.0" y="48.9" width="58.0" height="149.1" fill="#A73F2D"/><text x="612.0" y="43.9" font-size="8.5" fill="#8A3223" text-anchor="middle">62,409</text><text x="612.0" y="213.0" font-size="8.5" fill="#3E4145" text-anchor="middle">2025</text><text x="62" y="242" font-size="8" fill="#7C7B77">2023 年 +122.1% 为疫情后低基数反弹；2024 +19.7%、2025 +17.1% 为常态增速，五年 CAGR 27.8%</text></svg></figure><h3>3.1 损益表：五个关键变化</h3>
+<div class="rsp-table"><table class="financial"><thead><tr><th>科目</th><th>变化轨迹</th><th>趋势方向</th><th>趋势含义</th></tr></thead><tbody><tr><td>净营业收入</td><td>183.16 → 200.23 → 200.39 → 445.10 → 532.94 → 624.09 亿元</td><td>疫情后陡峭修复，2024 起回归常态增长</td><td>2023 年 +122.1% 为低基数反弹；2024 +19.7%、2025 +17.1% 才是常态增速；2026H1 仍 +11.2%</td></tr><tr><td>毛利率</td><td>78.0% → 77.0% → 77.5% → 81.8% → 81.3% → 80.6%</td><td>2023 年台阶式抬升后小幅回落</td><td>规模效应带来 4pp 台阶；2025—2026H1 回落 0.7—1.1pp 对应国际业务与低毛利品类占比上升</td></tr><tr><td>营业利润</td><td>−14.23 → −14.11 → 0.88 → 113.24 → 141.77 → 157.73 亿元</td><td>连续四年改善，主业盈利稳固</td><td>营业利润率 2023 年 25.4%→2025 年 25.3%，<strong>主业利润率已见顶企稳</strong></td></tr><tr><td>其他收入</td><td>−2.73 → 3.73 → 20.15 → −6.67 → 22.20 → <strong>213.21</strong> 亿元</td><td>2025 年暴增 9.6 倍</td><td>核心失真项：含 MakeMyTrip 处置收益 152 亿元，占税前利润 51.7%，<strong>与主营无关</strong></td></tr><tr><td>归母净利润</td><td>−32.47 → −5.50 → 14.03 → 99.18 → 170.67 → <strong>332.94</strong> 亿元</td><td>2025 年 +95.1% 看似加速</td><td>剔除其他收入的异常贡献后，2025 年主业利润约 130—150 亿元，<strong>账面增速不可外推</strong></td></tr></tbody></table></div>
+<figure><figcaption>图 2　归属净利润 vs 经调整 EBITDA vs 营业利润：账面利润的失真（人民币百万元）</figcaption><svg viewBox="0 0 680 268" width="100%" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="680" height="268" fill="#FBF9F4"/><line x1="66" y1="198.0" x2="662" y2="198.0" stroke="#E3DDD4" stroke-width="0.6"/><text x="59" y="201.5" font-size="8" fill="#7C7B77" text-anchor="end">0</text><line x1="66" y1="155.5" x2="662" y2="155.5" stroke="#E3DDD4" stroke-width="0.6"/><text x="59" y="159.0" font-size="8" fill="#7C7B77" text-anchor="end">9,500</text><line x1="66" y1="113.0" x2="662" y2="113.0" stroke="#E3DDD4" stroke-width="0.6"/><text x="59" y="116.5" font-size="8" fill="#7C7B77" text-anchor="end">19,000</text><line x1="66" y1="70.5" x2="662" y2="70.5" stroke="#E3DDD4" stroke-width="0.6"/><text x="59" y="74.0" font-size="8" fill="#7C7B77" text-anchor="end">28,500</text><line x1="66" y1="28.0" x2="662" y2="28.0" stroke="#E3DDD4" stroke-width="0.6"/><text x="59" y="31.5" font-size="8" fill="#7C7B77" text-anchor="end">38,000</text><rect x="91.8" y="135.5" width="42.1" height="62.5" fill="#2F6F6B"/><text x="112.9" y="130.5" font-size="7.8" fill="#2F6F6B" text-anchor="middle">13,975</text><rect x="140.8" y="147.3" width="42.1" height="50.7" fill="#B8862F"/><text x="161.9" y="142.3" font-size="7.8" fill="#B8862F" text-anchor="middle">11,324</text><rect x="189.8" y="153.6" width="42.1" height="44.4" fill="#A73F2D"/><text x="210.9" y="148.6" font-size="7.8" fill="#A73F2D" text-anchor="middle">9,918</text><text x="165.3" y="213.0" font-size="8.5" fill="#3E4145" text-anchor="middle">2023</text><rect x="290.5" y="121.6" width="42.1" height="76.4" fill="#2F6F6B"/><text x="311.6" y="116.6" font-size="7.8" fill="#2F6F6B" text-anchor="middle">17,070</text><rect x="339.5" y="134.6" width="42.1" height="63.4" fill="#B8862F"/><text x="360.6" y="129.6" font-size="7.8" fill="#B8862F" text-anchor="middle">14,177</text><rect x="388.5" y="121.6" width="42.1" height="76.4" fill="#A73F2D"/><text x="409.6" y="116.6" font-size="7.8" fill="#A73F2D" text-anchor="middle">17,067</text><text x="364.0" y="213.0" font-size="8.5" fill="#3E4145" text-anchor="middle">2024</text><rect x="489.2" y="113.5" width="42.1" height="84.5" fill="#2F6F6B"/><text x="510.2" y="108.5" font-size="7.8" fill="#2F6F6B" text-anchor="middle">18,888</text><rect x="538.2" y="127.4" width="42.1" height="70.6" fill="#B8862F"/><text x="559.2" y="122.4" font-size="7.8" fill="#B8862F" text-anchor="middle">15,773</text><rect x="587.2" y="49.1" width="42.1" height="148.9" fill="#A73F2D"/><text x="608.2" y="44.1" font-size="7.8" fill="#A73F2D" text-anchor="middle">33,294</text><text x="562.7" y="213.0" font-size="8.5" fill="#3E4145" text-anchor="middle">2025</text><rect x="66" y="240" width="9" height="9" fill="#2F6F6B"/><text x="79" y="247.5" font-size="8.5" fill="#3E4145">经调整 EBITDA（非 GAAP）</text><rect x="261.0" y="240" width="9" height="9" fill="#B8862F"/><text x="274.0" y="247.5" font-size="8.5" fill="#3E4145">营业利润（主业口径）</text><rect x="380.0" y="240" width="9" height="9" fill="#A73F2D"/><text x="393.0" y="247.5" font-size="8.5" fill="#3E4145">归属携程净利润（GAAP）</text><text x="66" y="262" font-size="8" fill="#7C7B77">2025 年归母净利润 332.94 亿元远超经调整 EBITDA 188.88 亿元，缺口来自 MakeMyTrip 处置收益 152 亿元</text></svg></figure><h3>3.2 财务状况表：四个关键变化</h3>
+<div class="rsp-table"><table class="financial"><thead><tr><th>科目</th><th>变化轨迹</th><th>趋势方向</th><th>趋势含义</th></tr></thead><tbody><tr><td>资产总额</td><td>2,191.37 → 2,425.81 → 2,673.87 → 2,590.89 亿元</td><td>2025 年扩张后 2026H1 收缩</td><td>收缩主要来自投资科目减少 100.14 亿元（处置与公允价值变动），非经营萎缩</td></tr><tr><td>现金类资产</td><td>2025 年末 464.51 亿 → 2026H1 560.16 亿（广义口径 1,005 亿）</td><td>流动性极充裕</td><td>广义现金 1,005 亿元对 51.79 亿元罚款的覆盖倍数约 19 倍，<strong>一次性冲击可完全吸收</strong></td></tr><tr><td>负债总额</td><td>961.31 → 990.99 → 947.87 → 982.85 亿元</td><td>稳中略升</td><td>2026H1 上升主因罚款计提形成的其他流动负债，非举债扩张</td></tr><tr><td>携程股东权益</td><td>1,221.84 → 1,418.07 → 1,708.18 → 1,590.49 亿元</td><td>2026H1 首次回落</td><td>回落 117.69 亿元＝罚款 51.80 亿＋股份回购与汇兑等，<strong>并非经营性亏损所致</strong></td></tr></tbody></table></div>
+<figure><figcaption>图 3　2025 年净营业收入构成（人民币百万元）</figcaption><svg viewBox="0 0 680 250" width="100%" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="680" height="250" fill="#FBF9F4"/><path d="M150,120 L150.0,32.0 A88,88 0 0 1 193.6,196.4 Z" fill="#A73F2D" stroke="#FBF9F4" stroke-width="1.5"/><text x="206.1" y="108.1" font-size="8.5" fill="#FFFFFF" text-anchor="middle">41.8%</text><path d="M150,120 L193.6,196.4 A88,88 0 0 1 63.3,105.0 Z" fill="#B8862F" stroke="#FBF9F4" stroke-width="1.5"/><text x="116.6" y="170.5" font-size="8.5" fill="#FFFFFF" text-anchor="middle">36.0%</text><path d="M150,120 L63.3,105.0 A88,88 0 0 1 89.7,55.9 Z" fill="#2F6F6B" stroke="#FBF9F4" stroke-width="1.5"/><text x="98.8" y="95.5" font-size="8.5" fill="#FFFFFF" text-anchor="middle">10.2%</text><path d="M150,120 L89.7,55.9 A88,88 0 0 1 125.3,35.5 Z" fill="#1B365D" stroke="#FBF9F4" stroke-width="1.5"/><text x="121.1" y="72.6" font-size="8.5" fill="#FFFFFF" text-anchor="middle">7.5%</text><path d="M150,120 L125.3,35.5 A88,88 0 0 1 150.0,32.0 Z" fill="#CFC7BA" stroke="#FBF9F4" stroke-width="1.5"/><text x="141.8" y="65.5" font-size="8.5" fill="#FFFFFF" text-anchor="middle">4.5%</text><rect x="290" y="39" width="10" height="10" fill="#A73F2D"/><text x="306" y="48" font-size="9.5" fill="#3E4145">住宿预订</text><text x="656" y="48" font-size="9.5" fill="#22262B" text-anchor="end">26,100 百万元 · 41.8%</text><rect x="290" y="63" width="10" height="10" fill="#B8862F"/><text x="306" y="72" font-size="9.5" fill="#3E4145">交通票务</text><text x="656" y="72" font-size="9.5" fill="#22262B" text-anchor="end">22,489 百万元 · 36.0%</text><rect x="290" y="87" width="10" height="10" fill="#2F6F6B"/><text x="306" y="96" font-size="9.5" fill="#3E4145">其他</text><text x="656" y="96" font-size="9.5" fill="#22262B" text-anchor="end">6,404 百万元 · 10.2%</text><rect x="290" y="111" width="10" height="10" fill="#1B365D"/><text x="306" y="120" font-size="9.5" fill="#3E4145">旅游度假</text><text x="656" y="120" font-size="9.5" fill="#22262B" text-anchor="end">4,688 百万元 · 7.5%</text><rect x="290" y="135" width="10" height="10" fill="#CFC7BA"/><text x="306" y="144" font-size="9.5" fill="#3E4145">商旅管理</text><text x="656" y="144" font-size="9.5" fill="#22262B" text-anchor="end">2,829 百万元 · 4.5%</text><text x="290" y="176" font-size="9" fill="#7C7B77">合计 62,510 百万元</text><text x="290" y="194" font-size="8" fill="#7C7B77">住宿预订占比 41.8%，为第一大分部；交通票务占比由 2023 年 41.4% 降至 36.0%</text></svg></figure><h3>3.3 现金流量表：三个关键变化</h3>
+<div class="rsp-table"><table class="financial"><thead><tr><th>科目</th><th>变化轨迹</th><th>趋势方向</th><th>趋势含义</th></tr></thead><tbody><tr><td>经营活动净现金流</td><td>220.04 → 196.25 → <strong>143.79</strong> 亿元</td><td>连续两年下滑，累计 −34.6%</td><td><strong>与净利润 +95.1% 完全背离</strong>——利润增量 162 亿元中绝大部分为非现金投资收益</td></tr><tr><td>经营现金流 ÷ 归母净利润</td><td>2.22× → 1.15× → <strong>0.43×</strong></td><td>现金含量断崖式下滑</td><td>利润的"含金量"在 2025 年降至五年最低，是判断失真最硬的证据</td></tr><tr><td>融资活动净流出</td><td>25.47 → 67.10 → <strong>146.63</strong> 亿元</td><td>流出逐年放大</td><td>主要用于偿还短期及长期债务，是长期债务由 201.34 亿降至 11.43 亿元的原因</td></tr></tbody></table></div>
+<figure><figcaption>图 4　2026H1 归属净利润归因桥：主业持平，罚款与投资波动是全部原因（人民币百万元）</figcaption><svg viewBox="0 0 680 272" width="100%" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="680" height="272" fill="#FBF9F4"/><line x1="68" y1="212.0" x2="662" y2="212.0" stroke="#E3DDD4" stroke-width="0.6"/><text x="62" y="215.5" font-size="8" fill="#7C7B77" text-anchor="end">0</text><line x1="68" y1="166.5" x2="662" y2="166.5" stroke="#E3DDD4" stroke-width="0.6"/><text x="62" y="170.0" font-size="8" fill="#7C7B77" text-anchor="end">2,656</text><line x1="68" y1="121.0" x2="662" y2="121.0" stroke="#E3DDD4" stroke-width="0.6"/><text x="62" y="124.5" font-size="8" fill="#7C7B77" text-anchor="end">5,311</text><line x1="68" y1="75.5" x2="662" y2="75.5" stroke="#E3DDD4" stroke-width="0.6"/><text x="62" y="79.0" font-size="8" fill="#7C7B77" text-anchor="end">7,967</text><line x1="68" y1="30.0" x2="662" y2="30.0" stroke="#E3DDD4" stroke-width="0.6"/><text x="62" y="33.5" font-size="8" fill="#7C7B77" text-anchor="end">10,623</text><line x1="68" y1="212.0" x2="662" y2="212.0" stroke="#3E4145" stroke-width="1"/><rect x="85.8" y="55.7" width="38.6" height="156.3" fill="#2F6F6B"/><text x="105.1" y="49.7" font-size="8.2" fill="#2F6F6B" text-anchor="middle">9,123</text><text x="105.1" y="227.0" font-size="7.8" fill="#3E4145" text-anchor="middle">2025H1</text><text x="105.1" y="238.0" font-size="7.8" fill="#3E4145" text-anchor="middle">归母净利润</text><rect x="160.1" y="52.4" width="38.6" height="3.3" fill="#A73F2D"/><text x="179.4" y="46.4" font-size="8.2" fill="#A73F2D" text-anchor="middle">+195</text><text x="179.4" y="227.0" font-size="7.8" fill="#3E4145" text-anchor="middle">利息</text><text x="179.4" y="238.0" font-size="7.8" fill="#3E4145" text-anchor="middle">净收入</text><rect x="234.3" y="52.4" width="38.6" height="88.8" fill="#A73F2D"/><text x="253.6" y="153.1" font-size="8.2" fill="#A73F2D" text-anchor="middle">-5,182</text><text x="253.6" y="227.0" font-size="7.8" fill="#3E4145" text-anchor="middle">营业利润</text><text x="253.6" y="238.0" font-size="7.8" fill="#3E4145" text-anchor="middle">（含罚款）</text><rect x="308.6" y="141.1" width="38.6" height="56.1" fill="#A73F2D"/><text x="327.9" y="209.2" font-size="8.2" fill="#A73F2D" text-anchor="middle">-3,274</text><text x="327.9" y="227.0" font-size="7.8" fill="#3E4145" text-anchor="middle">其他收支</text><rect x="382.8" y="197.2" width="38.6" height="1.5" fill="#A73F2D"/><text x="402.1" y="210.7" font-size="8.2" fill="#A73F2D" text-anchor="middle">-56</text><text x="402.1" y="227.0" font-size="7.8" fill="#3E4145" text-anchor="middle">所得税</text><rect x="457.1" y="198.2" width="38.6" height="13.7" fill="#A73F2D"/><text x="476.4" y="223.8" font-size="8.2" fill="#A73F2D" text-anchor="middle">-797</text><text x="476.4" y="227.0" font-size="7.8" fill="#3E4145" text-anchor="middle">联营权益</text><rect x="531.3" y="211.3" width="38.6" height="1.5" fill="#A73F2D"/><text x="550.6" y="205.3" font-size="8.2" fill="#A73F2D" text-anchor="middle">+32</text><text x="550.6" y="227.0" font-size="7.8" fill="#3E4145" text-anchor="middle">少数股东</text><text x="550.6" y="238.0" font-size="7.8" fill="#3E4145" text-anchor="middle">及夹层</text><rect x="605.6" y="211.3" width="38.6" height="1.5" fill="#2F6F6B"/><text x="624.9" y="205.3" font-size="8.2" fill="#2F6F6B" text-anchor="middle">41</text><text x="624.9" y="227.0" font-size="7.8" fill="#3E4145" text-anchor="middle">2026H1</text><text x="624.9" y="238.0" font-size="7.8" fill="#3E4145" text-anchor="middle">归母净利润</text><text x="68" y="266" font-size="8" fill="#7C7B77">营业利润项含 SAMR 反垄断罚款 5,180；剔除罚款后营业利润 76.63 亿元 vs 上年同期 76.65 亿元（−0.0%）</text></svg></figure><h3>3.4 三表联动</h3>
+<ul><li><strong>损益表看"经营真相"</strong>：应以<strong>营业利润</strong>与<strong>经调整 EBITDA</strong> 为主口径。营业利润 2025 年 157.73 亿元、2026H1 剔除罚款后 76.63 亿元（与上年同期 76.65 亿元基本持平），主业未失速。</li><li><strong>财务状况表看"抗冲击能力"</strong>：1,005 亿元广义现金、35%—38% 的资产负债率，使 51.79 亿元罚款成为一次性事件而非持续性问题。</li><li><strong>现金流量表看"利润成色"</strong>：经营现金流 ÷ 归母净利润由 2.22× 降至 0.43×，直接证伪了"净利润高增长"的叙事。</li></ul>
+<h2>四、数据变化趋势与原因分析</h2>
+<h3>4.1 收入：从疫情谷底到 G2 战略驱动的常态增长</h3>
+<p>2020—2022 年是疫情期间的平台期，净收入三年仅从 183.16 亿元增至 200.39 亿元（CAGR 4.6%）。2023 年出入境放开带来 +122.1% 的报复性反弹，收入规模一年内翻倍至 445.10 亿元。此后进入常态化：2024 年 +19.7%、2025 年 +17.1%，2020—2025 年 CAGR 27.8%（2022—2025 年 CAGR 46.0%）。</p>
+<p>2026H1 净收入 318.71 亿元、同比 +11.2%，增速较 2025 年全年进一步放缓，公司归因于"高能源价格与地缘政治波动等宏观不利因素的直接与间接影响"，以及因行业标准与合规框架变化主动进行的运营调整。</p>
+<h3>4.2 收入结构：住宿预订成为第一增长引擎</h3>
+<p>住宿预订占比由 2023 年 38.8% 提升至 2025 年 41.8%，2026H1 进一步达 41.1%（13,086 百万元，+11.2%）；交通票务占比则由 41.4% 逐年降至 36.0%，2026H1 为 35.8%（11,400 百万元，+5.4%）——<strong>交通票务是 2026H1 唯一显著放缓的分部</strong>（Q2 单季同比 −1%、环比 −12%），与航油价格和地缘政治扰动直接相关。</p>
+<p>"其他"收入 2025 年增长 38.4% 至 64.04 亿元，2026H1 继续增长 29.7% 至 36.33 亿元，主要来自广告与增值服务，是当前增速最高的分部。商旅管理 2026H1 +15.5%，维持双位数增长。</p>
+<h3>4.3 成本费用：销售费用率上行压缩利润弹性</h3>
+<p>2026H1 三项费用率同步抬升：研发 24.6%（上年同期 24.5%）、销售及营销 23.8%（22.1%，+1.7pp）、一般及行政 23.4%（7.4%，含罚款；剔除后 7.1%）。营业成本占收入比由 19.3% 升至 20.4%，毛利率相应由 80.7% 降至 79.6%。</p>
+<h3>4.4 失真项识别：两笔大额一次性项目决定 2025 与 2026 的账面利润</h3>
+<p>这是本报告最重要的部分。携程 2025 与 2026 两年的账面净利润<strong>均不能用于判断主业趋势</strong>：</p>
+<ul><li>2025 年 7 月完成向 MakeMyTrip 出售 34,372,221 股 B 类普通股，对价约 30 亿美元，确认投资收益人民币 152 亿元，计入"其他收入"。</li><li>2025 年"其他收入"合计 213.21 亿元，占税前利润 388.48 亿元的 <strong>54.9%</strong>。</li><li>后果：归母净利润 332.94 亿元（+95.1%）远超经调整 EBITDA 188.88 亿元；经营现金流反由 196.25 亿元降至 143.79 亿元；经营现金流 ÷ 归母净利润由 1.15× 跌至 <strong>0.43×</strong>。</li><li><strong>还原口径</strong>：以归母净利润剔除其他收入的税后影响粗略估算，2025 年主业口径利润约 130—150 亿元，对应净利率约 21%—24%，与 2024 年（170.67 亿元、32.0%）相比并非加速。</li></ul>
+<ul><li>罚款 51.80 亿元全额计入 Q2 一般及行政费用，使该科目同比 +249%、单季营业利润转负（−14.62 亿元）。</li><li>但<strong>剔除罚款后 2026H1 营业利润为 76.63 亿元，与 2025H1 的 76.65 亿元几乎完全一致（−0.0%）</strong>；经调整 EBITDA 93.95 亿元，同比 <strong>+2.9%</strong>。</li><li>归母净利润由 91.23 亿元降至 0.41 亿元，除罚款外另一半原因在<strong>其他收支由 +22.51 亿元转为 −10.23 亿元</strong>（同比恶化 32.74 亿元）与联营公司权益由 +2.16 亿元转为 −5.81 亿元。</li><li><strong>结论：2026H1 主业经营（剔除罚款的营业利润、经调整 EBITDA）是持平至微增的，净利润崩塌来自"罚款＋投资波动"两项非经营因素。</strong></li></ul>
+<h3>4.5 季度节奏：2026Q2 是政策冲击的低点</h3>
+<p>2026Q1 净收入 162.08 亿元（同比 +17.2%）仍保持双位数增长；Q2 降至 156.63 亿元（同比 +5.5%、环比 −3.4%），为六个季度以来首次环比下滑。若剔除罚款，Q2 净利润为 27 亿元（公告口径），即<strong>冲击集中在单季、且已落地完毕</strong>，2026Q3 起账面利润应恢复正常计提节奏。</p>
+<figure><figcaption>图 5　分季度净营业收入与归属净利润（人民币百万元）</figcaption><svg viewBox="0 0 680 268" width="100%" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="680" height="268" fill="#FBF9F4"/><line x1="66" y1="198.0" x2="662" y2="198.0" stroke="#E3DDD4" stroke-width="0.6"/><text x="59" y="201.5" font-size="8" fill="#7C7B77" text-anchor="end">-4,500</text><line x1="66" y1="155.5" x2="662" y2="155.5" stroke="#E3DDD4" stroke-width="0.6"/><text x="59" y="159.0" font-size="8" fill="#7C7B77" text-anchor="end">2,375</text><line x1="66" y1="113.0" x2="662" y2="113.0" stroke="#E3DDD4" stroke-width="0.6"/><text x="59" y="116.5" font-size="8" fill="#7C7B77" text-anchor="end">9,250</text><line x1="66" y1="70.5" x2="662" y2="70.5" stroke="#E3DDD4" stroke-width="0.6"/><text x="59" y="74.0" font-size="8" fill="#7C7B77" text-anchor="end">16,125</text><line x1="66" y1="28.0" x2="662" y2="28.0" stroke="#E3DDD4" stroke-width="0.6"/><text x="59" y="31.5" font-size="8" fill="#7C7B77" text-anchor="end">23,000</text><line x1="66" y1="170.2" x2="662" y2="170.2" stroke="#3E4145" stroke-width="1"/><rect x="78.9" y="84.7" width="31.6" height="85.5" fill="#2F6F6B"/><text x="94.7" y="79.7" font-size="7.8" fill="#2F6F6B" text-anchor="middle">13,830</text><rect x="115.7" y="143.7" width="31.6" height="26.4" fill="#A73F2D"/><text x="131.5" y="138.7" font-size="7.8" fill="#A73F2D" text-anchor="middle">4,277</text><text x="115.7" y="213.0" font-size="8.5" fill="#3E4145" text-anchor="middle">2025Q1</text><rect x="178.2" y="78.4" width="31.6" height="91.8" fill="#2F6F6B"/><text x="194.1" y="73.4" font-size="7.8" fill="#2F6F6B" text-anchor="middle">14,843</text><rect x="215.0" y="140.2" width="31.6" height="30.0" fill="#A73F2D"/><text x="230.8" y="135.2" font-size="7.8" fill="#A73F2D" text-anchor="middle">4,846</text><text x="215.0" y="213.0" font-size="8.5" fill="#3E4145" text-anchor="middle">2025Q2</text><rect x="277.6" y="56.8" width="31.6" height="113.4" fill="#2F6F6B"/><text x="293.4" y="51.8" font-size="7.8" fill="#2F6F6B" text-anchor="middle">18,338</text><rect x="314.3" y="47.2" width="31.6" height="123.0" fill="#A73F2D"/><text x="330.1" y="42.2" font-size="7.8" fill="#A73F2D" text-anchor="middle">19,890</text><text x="314.3" y="213.0" font-size="8.5" fill="#3E4145" text-anchor="middle">2025Q3</text><rect x="376.9" y="75.0" width="31.6" height="95.2" fill="#2F6F6B"/><text x="392.7" y="70.0" font-size="7.8" fill="#2F6F6B" text-anchor="middle">15,398</text><rect x="413.7" y="143.7" width="31.6" height="26.5" fill="#A73F2D"/><text x="429.5" y="138.7" font-size="7.8" fill="#A73F2D" text-anchor="middle">4,281</text><text x="413.7" y="213.0" font-size="8.5" fill="#3E4145" text-anchor="middle">2025Q4</text><rect x="476.2" y="70.0" width="31.6" height="100.2" fill="#2F6F6B"/><text x="492.1" y="65.0" font-size="7.8" fill="#2F6F6B" text-anchor="middle">16,208</text><rect x="513.0" y="154.7" width="31.6" height="15.4" fill="#A73F2D"/><text x="528.8" y="149.7" font-size="7.8" fill="#A73F2D" text-anchor="middle">2,499</text><text x="513.0" y="213.0" font-size="8.5" fill="#3E4145" text-anchor="middle">2026Q1</text><rect x="575.6" y="73.4" width="31.6" height="96.8" fill="#2F6F6B"/><text x="591.4" y="68.4" font-size="7.8" fill="#2F6F6B" text-anchor="middle">15,663</text><rect x="612.3" y="170.2" width="31.6" height="15.2" fill="#A73F2D"/><text x="628.1" y="196.4" font-size="7.8" fill="#A73F2D" text-anchor="middle">-2,458</text><text x="612.3" y="213.0" font-size="8.5" fill="#3E4145" text-anchor="middle">2026Q2</text><rect x="66" y="240" width="9" height="9" fill="#2F6F6B"/><text x="79" y="247.5" font-size="8.5" fill="#3E4145">净营业收入</text><rect x="137.5" y="240" width="9" height="9" fill="#A73F2D"/><text x="150.5" y="247.5" font-size="8.5" fill="#3E4145">归属携程净利润</text><text x="66" y="262" font-size="8" fill="#7C7B77">2025Q3 峰值含 MakeMyTrip 处置收益；2026Q2 转亏由 51.80 亿元罚款所致。2025Q1 为倒推推算值</text></svg></figure><h2>五、关键内容总结</h2>
+<h3>5.1 核心业务与竞争优势</h3>
+<ul><li><strong>一站式全球旅行平台</strong>：住宿预订＋交通票务＋旅游度假＋商旅管理四轮驱动，品牌矩阵覆盖携程（国内）、去哪儿（下沉）、Trip.com（国际）、天巡（全球元搜索）。</li><li><strong>住宿预订是护城河所在</strong>：该分部 2025 年收入 261 亿元、占比 41.8%，且是唯一连续三年增速 ≥20% 的核心分部；在监管处罚落地后，其"特牌/金牌/无牌"分级流量分配与"全网最低价"机制已被认定违法并被责令整改，<strong>这部分竞争优势的合规性基础已被重塑</strong>。</li><li><strong>国际化是最确定的增量</strong>：2026Q2 国际平台收入同比增长超过 50%，入境游收入同比增长高双位数；2025 年国际 OTA 平台总预订同比增长约 60%，全年服务约 2,000 万人次入境旅客。</li><li><strong>AI 与运营能力</strong>：公司自述正推进自研 AI 能力覆盖旅客旅程各环节，2025 年研发费用 151.36 亿元（占收入 24.3%），为费用结构中最大的单一项。</li></ul>
+<h3>5.2 重大合作与投资</h3>
+<ul><li><strong>MakeMyTrip 股份回购（2025 年 7 月完成）</strong>：出售 34,372,221 股 B 类普通股，对价约 30 亿美元，确认投资收益 152 亿元；交易后仍为最大少数股东。该笔交易是 2025 年账面净利润创新高的<strong>唯一主因</strong>。</li></ul>
+<h3>5.3 主要风险</h3>
+<ol><li><strong>监管与合规风险（首要）</strong>：SAMR 已认定 2020 年以来公司在中国境内在线酒店预订平台服务市场具有支配地位（按交易额份额 2020—2025 年均超 53%、最高 59.1%，HHI 长期处于 4100—4600，CR3 达 94%—95%），并责令停止独家合作与"全网最低价"行为、全面整改。整改将直接影响住宿预订分部的流量分配机制与议价方式，<strong>对 take rate 与商家结构的影响尚待观察</strong>；此外 2025 年 8 月贵州省、9 月郑州市市场监管局先后约谈，2026 年 3 月北京市三部门联合约谈十二家平台企业，监管呈常态化。</li><li><strong>利润波动风险</strong>：其他收入（投资公允价值变动与处置损益）在 2023—2026H1 之间摆动区间达 −6.67 亿至 +213.21 亿元，是净利润预测中最大的不确定来源；投资者应以营业利润与经调整 EBITDA 判断主业。</li><li><strong>宏观与季节性风险</strong>：2026Q2 交通票务收入同比 −1%、环比 −12%，公司归因于高能源价格与地缘政治波动；旅游行业天然的季节性使 Q4 与 Q1 波动显著（2025Q4 净收入环比 −16%）。</li><li><strong>竞争风险</strong>：国内 OTA 市场竞争激烈，且监管整改削弱了原有的排他性供给锁定能力；国际扩张需持续的销售与研发投入（2026H1 销售费用率已升至 23.8%）。</li><li><strong>跨境架构与上市地位</strong>：公司为开曼群岛注册、主要行政办公地址在新加坡的中概股，面临 PCAOB 检查、数据安全与境外上市监管等跨司法辖区不确定性（年报风险因素章节明确列示）。</li></ol>
+<h2>六、结论</h2>
+<ol><li><strong>主业没有失速，账面利润严重失真。</strong> 2026H1 剔除 51.80 亿元罚款后的营业利润为 76.63 亿元，与上年同期 76.65 亿元持平；经调整 EBITDA 93.95 亿元、同比 +2.9%。归母净利润从 91.23 亿元崩至 0.41 亿元，是"罚款 51.80 亿＋其他收支同比恶化 32.74 亿＋联营权益转负"三项叠加的结果，<strong>不代表经营恶化</strong>。</li><li><strong>2025 年的高增长同样是失真项。</strong> 归母净利润 +95.1% 至 332.94 亿元的主因是 MakeMyTrip 处置收益 152 亿元（占税前利润 54.9%）；同期经营现金流反而由 196.25 亿元降至 143.79 亿元，经营现金流 ÷ 归母净利润跌至 0.43×。以营业利润看，2025 年 157.73 亿元、同比 +11.3%，才是主业的真实增速。</li><li><strong>增长动能在切换。</strong> 住宿预订（2025 +20.8%）与"其他"（+38.4%）是增长引擎，交通票务（+10.8%，2026Q2 单季 −1%）明显放缓；国际化是最确定的增量（2026Q2 国际平台收入 +50% 以上）。</li><li><strong>最大的变量是整改而非罚款。</strong> 51.79 亿元罚没款相对于 1,005 亿元广义现金只是 5.2%，财务上可完全吸收；真正的影响在于"停止独家合作＋停止全网最低价＋退还订单储备金＋全面整改"将改变住宿预订业务的供给锁定与定价机制，<strong>其对 take rate 与商户结构的影响将在 2026H2—2027 年逐步体现</strong>。</li><li><strong>估值侧提示（非本报告核心，仅供参考）</strong>：截至 2026-09-16，港股 9961 收报 323.20 港元、总市值约 2,035 亿港元，52 周区间 299.20—613.00 港元；美股 TCOM 收报 40.56 美元。账面市盈率受 2025 年一次性收益压低至约 5—6 倍（静态口径），<strong>以经调整 EBITDA 或主业口径判断更为可靠</strong>。</li></ol>
+<h2>附录：数据来源与口径</h2>
+<div class="rsp-table"><table class="dense"><thead><tr><th>序号</th><th>文件</th><th>覆盖期间</th><th>用途</th></tr></thead><tbody><tr><td>1</td><td>2025年度报告（20-F，繁体中文版）</td><td>2025 年度</td><td>现金流三年序列、MakeMyTrip 交易、反垄断调查披露、流动性分析</td></tr><tr><td>2</td><td>2025 年第四季度及全年业绩公告</td><td>2025 全年 + 2024 对比</td><td>表 1 年度损益、表 2 资产负债、非 GAAP 对账</td></tr><tr><td>3</td><td>2024年第四季度及全年业绩公告</td><td>2024 全年 + 2023 对比</td><td>2023 年度损益、资产负债、非 GAAP 数据</td></tr><tr><td>4</td><td>2023 年第四季度及全年业绩公告</td><td>2023 + 2022</td><td>2022 年度损益</td></tr><tr><td>5</td><td>2022 年第四季度及全年业绩公告</td><td>2022 + 2021</td><td>2021 年度损益</td></tr><tr><td>6</td><td>2021 年第四季度及全年业绩公告</td><td>2021 + 2020</td><td>2020 年度损益</td></tr><tr><td>7</td><td>2026年第二季度及上半年业绩公告（2026-09-16 披露）</td><td>2026H1 + 2025H1 对比</td><td>表 1 半年度损益、表 2 半年度资产负债、罚款与 Q2 业务数据</td></tr><tr><td>8</td><td>2026年第一季度业绩公告</td><td>2026Q1</td><td>季度序列</td></tr></tbody></table></div>
+<ol><li>币种与单位：人民币百万元；美元数为公告按各期末汇率换算的参考值，未在本报告中单独列示。</li><li>会计准则：US GAAP；中期报表附 US GAAP 与 IFRS 调节表（经罗兵咸永道有限鉴证）。</li><li>2020—2022 年经调整 EBITDA 与非 GAAP 归母净利润未在可获得公告中披露，一律留"—"，<strong>不作估算填充</strong>。</li><li>2025Q1 数据为倒推推算值，表 5 已标注，不可与公告披露值混用。</li><li>半年度与年度分块列示，跨块不可直接相减（半年度同比＝2026H1 ÷ 2025H1 − 1）；未披露项一律以"—"表示，不作估算填充。</li></ol>
+</body>
+</html>

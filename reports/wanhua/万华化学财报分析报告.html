@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<!-- 万华化学财报分析报告 · kami 羊皮纸风格 · 由 financial-report-analysis skill 提供 -->
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>万华化学（600309.SH）财报分析报告（2016—2025＋2026H1）</title>
+<meta name="generator" content="financial-report-analysis">
+<style>
+  html, body { background: #F7F4EE; }
+  :root {
+    --parchment:#F7F4EE; --ivory:#FBF9F4; --near-black:#22262B; --dark-warm:#3E4145;
+    --olive:#504e49; --stone:#7C7B77; --brand:#A73F2D; --brand-deep:#8A3223;
+    --accent:#A73F2D; --accent-soft:#F1E3DD; --gold:#B8862F; --teal:#2F6F6B; --blue:#1B365D;
+    --border:#E3DDD4;
+    --serif: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", "STSong", Georgia, serif;
+  }
+  @page {
+    size: A4; margin: 15mm 15mm 16mm 15mm; background: #F7F4EE;
+    @bottom-center { content: counter(page) "  \00b7  万华化学财报分析报告";
+      font-family: var(--serif); font-size: 8.5pt; color: #6b6a64; }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  @media screen { body { max-width: 220mm; margin: 0 auto; padding: 15mm; } }
+  body { color: var(--near-black); font-family: var(--serif); font-size: 9.6pt; line-height: 1.5;
+    letter-spacing: 0.2pt; widows: 3; orphans: 3; }
+  strong { font-weight: 600; color: var(--near-black); }
+  code { font-family: ui-monospace, Menlo, monospace; font-size: 8.6pt; background: #F1EDE5;
+    padding: 0 3pt; border-radius: 2pt; }
+
+  .report-header { display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: 12pt; padding-bottom: 9pt; border-bottom: 0.5pt solid var(--border); }
+  .ticker-eyebrow { font-size: 8.6pt; color: var(--brand); letter-spacing: 1.4pt;
+    font-weight: 500; margin-bottom: 4pt; }
+  .ticker-name { font-size: 23pt; font-weight: 600; line-height: 1.15; margin-bottom: 4pt; }
+  .ticker-sub { font-size: 9pt; color: var(--stone); line-height: 1.45; }
+  .price-block { text-align: right; padding-top: 6pt; min-width: 34%; }
+  .price-current { font-size: 25pt; font-weight: 600; line-height: 1; color: var(--brand);
+    font-variant-numeric: tabular-nums; }
+  .price-change { font-size: 9pt; font-weight: 500; margin-top: 3pt; color: var(--near-black);
+    font-variant-numeric: tabular-nums; }
+  .price-date { font-size: 8.4pt; color: var(--stone); margin-top: 2pt; }
+
+  .metrics { display: flex; gap: 10pt; margin-bottom: 14pt; padding: 7pt 0;
+    border-top: 0.3pt dotted var(--border); border-bottom: 0.3pt dotted var(--border); }
+  .metric { flex: 1; }
+  .metric-value { font-size: 14pt; font-weight: 600; color: var(--brand); line-height: 1.1;
+    font-variant-numeric: tabular-nums; }
+  .metric-label { font-size: 8pt; color: var(--olive); line-height: 1.3; margin-top: 2pt; }
+  .metric:nth-child(1) .metric-value { color: var(--brand); }
+  .metric:nth-child(2) .metric-value { color: var(--gold); }
+  .metric:nth-child(3) .metric-value { color: var(--teal); }
+  .metric:nth-child(4) .metric-value { color: var(--blue); }
+  .metric:nth-child(5) .metric-value { color: var(--brand); }
+
+  h1 { font-size: 17pt; font-weight: 600; color: var(--near-black); margin: 4pt 0 10pt 0;
+    break-after: avoid; }
+  h2 { font-size: 14pt; font-weight: 600; position: relative; padding-left: 12pt;
+    margin: 16pt 0 6pt 0; break-after: avoid; }
+  h2::before { content:""; position:absolute; left:0; top:2.5pt; width:4pt; height:12pt;
+    background:var(--accent); border-radius:1pt; }
+  h3 { font-size: 11.4pt; font-weight: 600; color: var(--dark-warm); margin: 11pt 0 4pt 0;
+    break-after: avoid; }
+  h4 { font-size: 10.2pt; font-weight: 600; color: var(--dark-warm); margin: 9pt 0 3pt 0; break-after: avoid; }
+  p { margin: 0 0 7pt 0; widows: 2; orphans: 2; }
+  ul, ol { margin: 4pt 0 8pt 0; padding-left: 17pt; }
+  ul li::marker { color: var(--accent); } ol li::marker { color: var(--accent); font-weight: 600; }
+  ul li.sub { list-style: none; color: var(--olive); font-size: 9pt; margin-left: -8pt; }
+  ul ul { margin: 2pt 0 3pt 0; padding-left: 14pt; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 8.8pt; margin: 7pt 0;
+    break-inside: avoid; }
+  table th { text-align: left; font-weight: 600; color: var(--dark-warm); padding: 5pt 6pt;
+    border-bottom: 1pt solid var(--accent); background: transparent; }
+  table td { padding: 4pt 6pt; border-bottom: 0.25pt solid var(--border); vertical-align: top; }
+  table.compact th { padding: 4pt 5pt; font-size: 8.4pt; }
+  table.compact td { padding: 3.4pt 5pt; font-size: 8.4pt; line-height: 1.42; }
+  table.financial td:not(:first-child) { text-align: right; font-variant-numeric: tabular-nums; }
+  table.financial th:not(:first-child) { text-align: right; }
+  table .total td { font-weight: 600; border-top: 0.6pt solid var(--border); border-bottom: none; }
+  table.wide th, table.wide td { font-size: 6.6pt; padding: 2.4pt 2.6pt; letter-spacing: 0; }
+  table.wide { font-size: 6.6pt; }
+  table.longtable { break-inside: auto; }
+  table.longtable thead { display: table-header-group; }
+  table.longtable tr { break-inside: avoid; }
+  table.dense th { padding: 2.6pt 4pt; font-size: 7.8pt; }
+  table.dense td { padding: 2.2pt 4pt; font-size: 7.6pt; line-height: 1.34; }
+
+  p.note { font-size: 8pt; color: var(--stone); margin: 2pt 0 7pt 0; line-height: 1.45; }
+  p.warn { background: #FBF3EC; border-left: 3pt solid var(--gold); padding: 7pt 10pt;
+    border-radius: 3pt; margin: 8pt 0; break-inside: avoid; font-size: 8.2pt;
+    line-height: 1.48; color: var(--dark-warm); }
+
+  figure { margin: 11pt 0; break-inside: avoid; text-align: center; }
+  figcaption { font-size: 8.2pt; color: var(--stone); margin-top: 5pt; text-align: left;
+    line-height: 1.45; }
+  .page-break { break-before: page; }
+</style>
+
+<!-- rsp-mobile-adapt : 响应式适配层（仅屏幕生效，不影响打印/PDF） -->
+<style id="rsp-mobile-adapt">
+/* ========== 1. 全局：屏幕端基础修正 ========== */
+@media screen {
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body { overflow-wrap: break-word; }
+  img, svg, canvas, video, iframe { max-width: 100%; }
+  svg[viewBox], svg[viewbox] { height: auto; }
+
+  /* 表格横向滚动容器：宽表不压字、不撑破页面 */
+  .rsp-table {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    margin: 8pt 0;
+    position: relative;
+  }
+  .rsp-table > table { margin: 0; }
+  .rsp-table::-webkit-scrollbar { height: 7px; }
+  .rsp-table::-webkit-scrollbar-track { background: transparent; }
+  .rsp-table::-webkit-scrollbar-thumb { background: #D8D1C4; border-radius: 4px; }
+  /* 内容确实溢出时，右侧给一层渐变暗示"还能往右滑" */
+  .rsp-table[data-rsp-scroll] {
+    background: linear-gradient(to left, rgba(167,63,45,.10), rgba(167,63,45,0) 28px);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 28px 100%;
+  }
+}
+
+/* ========== 2. 平板 / 窄窗口：边距先收，避免内容被挤 ========== */
+@media screen and (max-width: 900px) {
+  body { padding: 22px 22px 46px 22px !important; }
+  .report-header { flex-wrap: wrap; gap: 12pt; }
+  .metrics { flex-wrap: wrap; gap: 10pt 18pt; }
+  .metric { flex: 1 1 42%; min-width: 0; }
+  .report-footer { flex-wrap: wrap; gap: 4pt 14pt; }
+
+  /* 宽表改为横向滚动：给每列保留最小可读宽度，不再把汉字挤成竖排 */
+  .rsp-w5 > table { min-width: 310px !important; }
+  .rsp-w6 > table { min-width: 372px !important; }
+  .rsp-w7 > table { min-width: 434px !important; }
+  .rsp-w8 > table { min-width: 496px !important; }
+  .rsp-w9 > table { min-width: 558px !important; }
+  .rsp-w10 > table { min-width: 620px !important; }
+  .rsp-w11 > table { min-width: 682px !important; }
+  .rsp-w12 > table { min-width: 744px !important; }
+  .rsp-w13 > table { min-width: 806px !important; }
+  .rsp-w14 > table { min-width: 868px !important; }
+  .rsp-w15 > table { min-width: 930px !important; }
+  .rsp-w16 > table { min-width: 992px !important; }
+}
+
+/* ========== 3. 手机：指标卡两列、页头转纵向 ========== */
+@media screen and (max-width: 720px) {
+  body {
+    max-width: 100% !important;
+    padding: 18px 16px 44px 16px !important;
+    font-size: 10.5pt;
+  }
+  h2 { font-size: 15pt !important; margin: 20pt 0 7pt 0 !important; }
+  h3 { font-size: 12.5pt !important; }
+  h1 { font-size: 19pt !important; }
+  p, li { line-height: 1.62; }
+  ul, ol { padding-left: 17pt; }
+
+  .report-header { flex-direction: column; align-items: stretch; gap: 8pt; }
+  .price-block { text-align: left; padding-top: 0; }
+  .price-current { font-size: 24pt !important; }
+  .ticker-name { font-size: 21pt !important; }
+  .ticker-sub { font-size: 9.5pt !important; }
+
+  .metrics { gap: 9pt 12pt; }
+  .metric { flex: 1 1 45%; }
+  .metric-value { font-size: 15pt !important; }
+  .metric-label { font-size: 8.5pt !important; white-space: normal !important; }
+
+  table, .kami-table { font-size: 9pt !important; }
+  .longtable { font-size: 8.5pt !important; }
+  .wide { font-size: 7.5pt !important; }
+  .dense { font-size: 8pt !important; }
+  table th, table td, .kami-table th, .kami-table td { padding: 5pt 6pt !important; }
+
+  blockquote, .quote, .note, .warn, .callout, .risk-item { padding: 9pt 11pt !important; }
+  .risk-grid { grid-template-columns: 1fr !important; }
+  .report-footer { flex-direction: column; align-items: flex-start; gap: 3pt; }
+}
+
+/* ========== 4. 小屏手机：指标卡单列、边距收到最紧 ========== */
+@media screen and (max-width: 430px) {
+  body { padding: 14px 12px 38px 12px !important; }
+  h2 { font-size: 14pt !important; }
+  h3 { font-size: 11.5pt !important; }
+  .ticker-name { font-size: 19pt !important; }
+  .price-current { font-size: 21pt !important; }
+  .metric { flex: 1 1 100%; }
+  .metric-value { font-size: 16pt !important; }
+  ul, ol { padding-left: 15pt; }
+  table, .kami-table { font-size: 8.5pt !important; }
+}
+
+/* ========== 5. 打印：把包裹层还原成透明，PDF 版式与补丁前完全一致 ========== */
+@media print {
+  .rsp-table { margin: 0; padding: 0; overflow: visible !important; background: none !important; }
+  .rsp-table > table { margin: 8pt 0; min-width: 0 !important; }
+  [class*="rsp-w"] > table { min-width: 0 !important; }
+}
+</style>
+</head>
+<body>
+
+<div class="report-header">
+  <div class="ticker-block">
+    <div class="ticker-eyebrow">基础化工 · 全球 MDI 龙头十年财务研究</div>
+    <div class="ticker-name">万华化学 <span style="font-size:13pt;color:#7C7B77;font-weight:400;">600309.SH</span></div>
+    <div class="ticker-sub">报告期：<strong>2016—2025 年度（连续 10 个完整年度）＋ 2026 年半年度</strong><br>
+      口径：中国企业会计准则（CAS）合并报表　|　币种：人民币</div>
+  </div>
+  <div class="price-block">
+    <div class="price-current">+64.35%</div>
+    <div class="price-change">2026H1 归母净利润同比</div>
+    <div class="price-date">2025 年度归母净利润同比 −3.88%</div>
+  </div>
+</div>
+
+<div class="metrics">
+  <div class="metric"><div class="metric-value">2,032.35</div><div class="metric-label">2025 年营业收入（亿元）<br>同比 +11.62%，十年新高</div></div>
+  <div class="metric"><div class="metric-value">125.27</div><div class="metric-label">2025 年归母净利润（亿元）<br>同比 −3.88%，较 2021 峰值 −49.2%</div></div>
+  <div class="metric"><div class="metric-value">13.61%</div><div class="metric-label">2025 年销售毛利率<br>十年最低（2017 峰值 39.70%）</div></div>
+  <div class="metric"><div class="metric-value">100.63</div><div class="metric-label">2026H1 归母净利润（亿元）<br>同比 +64.35%，单半年近 2025 全年 80%</div></div>
+  <div class="metric"><div class="metric-value">23.94</div><div class="metric-label">2025 年自由现金流（亿元）<br>由 2023 年 −163.01 亿元转正</div></div>
+</div>
+
+<h1>万华化学（600309.SH）财报分析报告</h1>
+<p><strong>报告期间：2016—2025 年度（连续 10 个完整年度）＋ 2026 年半年度</strong></p>
+<p><strong>口径：中国企业会计准则（CAS）合并报表　|　币种：人民币　|　单位：亿元（另有注明除外）</strong></p>
+<p><strong>数据来源：公司 2016—2025 年年度报告、2026 年半年度报告（上海证券交易所指定披露渠道）</strong></p>
+<p class="note"><strong>口径提示（必读）</strong></p>
+<p class="note"><strong>一、关于 2019 年追溯重述。</strong> 2019 年公司完成吸收合并控股股东烟台万华化工有限公司（同一控制下企业合并），并在《2019 年年度报告》中对 2017—2018 年比较数进行了<strong>追溯重述</strong>。本报告十年数据统一采用<strong>各年年报"本期数"（原披露口径）</strong>，以便与公开行情软件的年度历史数据直接对照；重述前后的差异单独列示于§1.4，跨 2019 年的同比增速存在两种口径，已在表注中说明。</p>
+<p class="note"><strong>二、关于口径切换。</strong> 财会〔2016〕22 号自 2016 年 5 月 1 日起将房产税、土地使用税、车船税、印花税由"管理费用"重分类至"税金及附加"；新收入准则自 2020 年起将预收货款由"预收款项"重分类为"合同负债"。凡跨上述两个时点的科目，仅可作方向性比较。</p>
+<p class="note"><strong>三、关于未披露项。</strong> 本报告遵循"宁缺毋滥"原则，年报未披露的科目一律以 <code>—</code> 表示，不做推算填补。</p>
+<h2>一、公司概况</h2>
+<h3>1.1 基本信息</h3>
+<div class="rsp-table"><table class="compact">
+<thead><tr><th>项目</th><th>内容</th></tr></thead>
+<tbody>
+  <tr><td>公司全称</td><td>万华化学集团股份有限公司</td></tr>
+  <tr><td>股票代码</td><td>600309.SH（上海证券交易所主板）</td></tr>
+  <tr><td>曾用名</td><td>烟台万华聚氨酯股份有限公司</td></tr>
+  <tr><td>公司负责人</td><td>廖增太</td></tr>
+  <tr><td>主营范围</td><td>聚氨酯、石化、精细化学品及新材料产品的研发、生产和销售</td></tr>
+  <tr><td>员工总数</td><td>30,772 人（2025 年末；母公司 10,789 人）</td></tr>
+  <tr><td>研发人员</td><td>4,833 人，占员工总数 15.71%（其中博士 248 人、硕士 2,023 人）</td></tr>
+  <tr><td>总股本</td><td>3,130,471,626 股（2025 年末）</td></tr>
+</tbody>
+</table></div>
+<h3>1.2 主营业务与产业布局</h3>
+<p>公司是一家以技术创新见长、全球化运营的化工新材料公司，已形成<strong>产业链高度整合、深度一体化的聚氨酯、石化、精细化学品及新材料三大产业集群</strong>。</p>
+<p><strong>（1）聚氨酯业务板块</strong>——公司第一主业与利润基石。产品包括异氰酸酯（MDI、TDI）与聚醚多元醇两部分。截至 2025 年末拥有 <strong>380 万吨/年 MDI、147 万吨/年 TDI 装置</strong>，聚醚业务总产能达 <strong>232 万吨/年</strong>，为目前全球领先的 MDI、TDI 与聚醚多元醇供应商。MDI 全球产能占比约三成，是公司最具护城河的业务。</p>
+<p><strong>（2）石化业务板块</strong>——聚焦 C2、C3 及 C4 烯烃衍生物。烟台基地一期 100 万吨/年乙烯装置原料多元化改造全面完成，实现<strong>全乙烷进料、产能提升至 120 万吨/年</strong>；二期 120 万吨/年乙烯及下游高端装置顺利全面开车，公司乙烯总产能与一体化协同水平跃上新台阶。蓬莱园区实现石化业务全产业链开车。</p>
+<p><strong>（3）精细化学品及新材料业务板块</strong>——公司"第二增长极"。涵盖功能化学品、新材料（TPU、POE、PMMA、XLPE、MS 树脂、尼龙弹性体 PEBA、SAP）、表面材料、高性能聚合物（PC、尼龙 12、砜聚合物）、氯产品（PVC、烧碱）以及营养科技、电池科技等业务单元。电池材料为公司明确的<strong>第二主业</strong>（磷酸铁锂、石墨负极、NMP、PAA 等）。</p>
+<h3>1.3 全球化布局与行业地位</h3>
+<ul>
+  <li><strong>全球排名</strong>：2025 年 7 月，美国《化学与工程新闻》（C&amp;EN）公布"2025 年全球化工企业 50 强"，<strong>万华化学位列第 15 名</strong>。</li>
+  <li><strong>海外基地</strong>：匈牙利 BC 公司各装置稳定运行，持续加强与总部供应链协同；2025 年成功引入<strong>科威特石化工业公司（KPI）作为长期战略投资者</strong>，为石化业务全球资源整合注入新动能。</li>
+  <li><strong>境外收入占比</strong>：2025 年境外收入 963.21 亿元，占主营业务收入 <strong>47.6%</strong>；2026 年上半年境外收入 570.00 亿元，占比进一步升至 <strong>48.1%</strong>。</li>
+  <li><strong>境外资产</strong>：279.47 亿元，占总资产 7.89%（2026 年 6 月末）。</li>
+</ul>
+<h3>1.4 上市沿革与 2019 年重大重组</h3>
+<p>公司前身为烟台万华聚氨酯股份有限公司，2001 年 1 月在上海证券交易所上市。2019 年公司完成<strong>吸收合并控股股东烟台万华化工有限公司</strong>，实现控股股东主要经营性资产（含匈牙利 BC 公司等）整体上市，构成同一控制下企业合并，需追溯重述比较期数据。</p>
+<div class="rsp-table rsp-w5"><table class="compact">
+<thead><tr><th>科目</th><th>年度</th><th>原报数（调整前）</th><th>重述后（调整后）</th><th>差异</th></tr></thead>
+<tbody>
+  <tr><td>营业收入（亿元）</td><td>2017</td><td>531.23</td><td>648.44</td><td>+117.21</td></tr>
+  <tr><td>营业收入（亿元）</td><td>2018</td><td>606.21</td><td>728.37</td><td>+122.16</td></tr>
+  <tr><td>归母净利润（亿元）</td><td>2017</td><td>111.35</td><td>157.80</td><td>+46.45</td></tr>
+  <tr><td>归母净利润（亿元）</td><td>2018</td><td>106.10</td><td>155.66</td><td>+49.56</td></tr>
+  <tr><td>经营活动现金流净额（亿元）</td><td>2017</td><td>102.12</td><td>142.89</td><td>+40.77</td></tr>
+  <tr><td>经营活动现金流净额（亿元）</td><td>2018</td><td>192.57</td><td>228.77</td><td>+36.20</td></tr>
+  <tr><td>年末总资产（亿元）</td><td>2017</td><td>658.28</td><td>783.18</td><td>+124.90</td></tr>
+  <tr><td>年末总资产（亿元）</td><td>2018</td><td>769.13</td><td>870.63</td><td>+101.50</td></tr>
+</tbody>
+</table></div>
+<p class="note">注：上表数据取自《2019 年年度报告》"主要会计数据"表的"调整后/调整前"两列。因此 <strong>2019 年营业收入同比增速存在两个口径</strong>：按原报口径为 +12.25%，按重述后口径为 −6.57%；归母净利润同比增速按原报口径为 −4.52%，按重述后口径为 −34.92%。本报告正文统一采用原报口径。</p>
+<h2>二、核心财务数据对比</h2>
+<h3>2.1 表 1　十年经营业绩与盈利能力（2016—2025）</h3>
+<div class="rsp-table rsp-w10"><table class="compact financial longtable">
+<thead><tr><th>年度</th><th>营业收入（亿元）</th><th>同比（%）</th><th>归母净利润（亿元）</th><th>同比（%）</th><th>扣非归母净利润（亿元）</th><th>销售毛利率（%）</th><th>归母净利率（%）</th><th>基本每股收益（元）</th><th>加权平均 ROE（%）</th></tr></thead>
+<tbody>
+  <tr><td><strong>2016</strong></td><td><strong>301.00</strong></td><td><strong>54.42</strong></td><td><strong>36.79</strong></td><td><strong>128.57</strong></td><td><strong>36.76</strong></td><td><strong>31.08</strong></td><td><strong>12.22</strong></td><td><strong>1.70</strong></td><td><strong>28.11</strong></td></tr>
+  <tr><td><strong>2017</strong></td><td><strong>531.23</strong></td><td><strong>76.49</strong></td><td><strong>111.35</strong></td><td><strong>202.62</strong></td><td><strong>107.11</strong></td><td><strong>39.70</strong></td><td><strong>20.96</strong></td><td><strong>4.09</strong></td><td><strong>50.66</strong></td></tr>
+  <tr><td><strong>2018</strong></td><td><strong>606.21</strong></td><td><strong>14.11</strong></td><td><strong>106.10</strong></td><td><strong>−4.71</strong></td><td><strong>100.35</strong></td><td><strong>33.83</strong></td><td><strong>17.50</strong></td><td><strong>3.88</strong></td><td><strong>36.82</strong></td></tr>
+  <tr><td><strong>2019</strong></td><td><strong>680.51</strong></td><td><strong>12.25</strong></td><td><strong>101.30</strong></td><td><strong>−4.52</strong></td><td><strong>91.56</strong></td><td><strong>28.00</strong></td><td><strong>14.89</strong></td><td><strong>3.23</strong></td><td><strong>25.44</strong></td></tr>
+  <tr><td><strong>2020</strong></td><td><strong>734.33</strong></td><td><strong>7.91</strong></td><td><strong>100.41</strong></td><td><strong>−0.87</strong></td><td><strong>95.44</strong></td><td><strong>26.78</strong></td><td><strong>13.67</strong></td><td><strong>3.20</strong></td><td><strong>22.20</strong></td></tr>
+  <tr><td><strong>2021</strong></td><td><strong>1,455.38</strong></td><td><strong>98.19</strong></td><td><strong>246.49</strong></td><td><strong>145.47</strong></td><td><strong>243.56</strong></td><td><strong>26.26</strong></td><td><strong>16.94</strong></td><td><strong>7.85</strong></td><td><strong>42.53</strong></td></tr>
+  <tr><td><strong>2022</strong></td><td><strong>1,655.65</strong></td><td><strong>13.76</strong></td><td><strong>162.34</strong></td><td><strong>−34.14</strong></td><td><strong>157.97</strong></td><td><strong>16.57</strong></td><td><strong>9.81</strong></td><td><strong>5.17</strong></td><td><strong>22.75</strong></td></tr>
+  <tr><td><strong>2023</strong></td><td><strong>1,753.61</strong></td><td><strong>5.92</strong></td><td><strong>168.16</strong></td><td><strong>3.58</strong></td><td><strong>164.39</strong></td><td><strong>16.78</strong></td><td><strong>9.59</strong></td><td><strong>5.36</strong></td><td><strong>20.42</strong></td></tr>
+  <tr><td><strong>2024</strong></td><td><strong>1,820.69</strong></td><td><strong>3.83</strong></td><td><strong>130.33</strong></td><td><strong>−22.49</strong></td><td><strong>133.59</strong></td><td><strong>16.16</strong></td><td><strong>7.16</strong></td><td><strong>4.15</strong></td><td><strong>14.29</strong></td></tr>
+  <tr><td><strong>2025</strong></td><td><strong>2,032.35</strong></td><td><strong>11.62</strong></td><td><strong>125.27</strong></td><td><strong>−3.88</strong></td><td><strong>121.44</strong></td><td><strong>13.61</strong></td><td><strong>6.16</strong></td><td><strong>3.99</strong></td><td><strong>12.44</strong></td></tr>
+</tbody>
+</table></div>
+<p class="note">注 1：2025 年营业收入同比 +11.62%、归母净利润同比 −3.88%、扣非归母净利润同比 −9.10%（年报披露口径）。<strong>扣非降幅大于归母降幅</strong>，说明非经常性损益（2025 年合计 3.84 亿元，含资产处置、政府补助等）对利润形成了一定缓冲。 注 2：毛利率＝（营业收入−营业成本）÷ 营业收入；归母净利率＝归母净利润÷ 营业收入。 注 3：2019 年同比增速按原报口径计算，与年报披露的重述后口径（营收 −6.57%、归母 −34.92%）不同，详见表注与§1.4。</p>
+<figure>
+<svg viewBox="0 0 680 310" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
+  <text x="64" y="20" font-size="10.5" fill="#22262B" font-weight="500">图 1　十年营业收入（柱）与归母净利润（线）轨迹（2016—2025，单位：亿元）</text>
+  <text x="64" y="35" font-size="8.2" fill="#7C7B77">收入十年 6.75 倍、CAGR 23.63%；归母净利润 2021 年见顶后连续四年回落 49.2%</text>
+  <rect x="64" y="46" width="11" height="9" fill="#A73F2D"/><text x="79" y="54" font-size="8.4" fill="#3E4145">营业收入（左轴）</text>
+  <line x1="200" y1="50.5" x2="214" y2="50.5" stroke="#B8862F" stroke-width="2"/><circle cx="207" cy="50.5" r="2.6" fill="#B8862F"/><text x="220" y="54" font-size="8.4" fill="#3E4145">归母净利润（右轴）</text>
+  <line x1="64" y1="250.0" x2="640" y2="250.0" stroke="#EFEBE3" stroke-width="0.7"/>
+  <text x="58" y="253.0" font-size="7.6" fill="#7C7B77" text-anchor="end">0</text>
+  <line x1="64" y1="204.0" x2="640" y2="204.0" stroke="#EFEBE3" stroke-width="0.7"/>
+  <text x="58" y="207.0" font-size="7.6" fill="#7C7B77" text-anchor="end">600</text>
+  <line x1="64" y1="158.0" x2="640" y2="158.0" stroke="#EFEBE3" stroke-width="0.7"/>
+  <text x="58" y="161.0" font-size="7.6" fill="#7C7B77" text-anchor="end">1,200</text>
+  <line x1="64" y1="112.0" x2="640" y2="112.0" stroke="#EFEBE3" stroke-width="0.7"/>
+  <text x="58" y="115.0" font-size="7.6" fill="#7C7B77" text-anchor="end">1,800</text>
+  <line x1="64" y1="66.0" x2="640" y2="66.0" stroke="#EFEBE3" stroke-width="0.7"/>
+  <text x="58" y="69.0" font-size="7.6" fill="#7C7B77" text-anchor="end">2,400</text>
+  <text x="646" y="253.0" font-size="7.6" fill="#B8862F">0</text>
+  <text x="646" y="207.0" font-size="7.6" fill="#B8862F">70</text>
+  <text x="646" y="161.0" font-size="7.6" fill="#B8862F">140</text>
+  <text x="646" y="115.0" font-size="7.6" fill="#B8862F">210</text>
+  <text x="646" y="69.0" font-size="7.6" fill="#B8862F">280</text>
+  <line x1="64" y1="250" x2="640" y2="250" stroke="#E3DDD4" stroke-width="1"/>
+  <rect x="80.7" y="226.9" width="24.2" height="23.1" fill="#CFC7BA" rx="1"/>
+  <text x="92.8" y="222.9" font-size="7.4" fill="#7C7B77" text-anchor="middle">301</text>
+  <rect x="138.3" y="209.3" width="24.2" height="40.7" fill="#CFC7BA" rx="1"/>
+  <text x="150.4" y="205.3" font-size="7.4" fill="#7C7B77" text-anchor="middle">531</text>
+  <rect x="195.9" y="203.5" width="24.2" height="46.5" fill="#CFC7BA" rx="1"/>
+  <text x="208.0" y="199.5" font-size="7.4" fill="#7C7B77" text-anchor="middle">606</text>
+  <rect x="253.5" y="197.8" width="24.2" height="52.2" fill="#CFC7BA" rx="1"/>
+  <text x="265.6" y="193.8" font-size="7.4" fill="#7C7B77" text-anchor="middle">681</text>
+  <rect x="311.1" y="193.7" width="24.2" height="56.3" fill="#CFC7BA" rx="1"/>
+  <text x="323.2" y="189.7" font-size="7.4" fill="#7C7B77" text-anchor="middle">734</text>
+  <rect x="368.7" y="138.4" width="24.2" height="111.6" fill="#CFC7BA" rx="1"/>
+  <text x="380.8" y="134.4" font-size="7.4" fill="#7C7B77" text-anchor="middle">1,455</text>
+  <rect x="426.3" y="123.1" width="24.2" height="126.9" fill="#CFC7BA" rx="1"/>
+  <text x="438.4" y="119.1" font-size="7.4" fill="#7C7B77" text-anchor="middle">1,656</text>
+  <rect x="483.9" y="115.6" width="24.2" height="134.4" fill="#CFC7BA" rx="1"/>
+  <text x="496.0" y="111.6" font-size="7.4" fill="#7C7B77" text-anchor="middle">1,754</text>
+  <rect x="541.5" y="110.4" width="24.2" height="139.6" fill="#CFC7BA" rx="1"/>
+  <text x="553.6" y="106.4" font-size="7.4" fill="#7C7B77" text-anchor="middle">1,821</text>
+  <rect x="599.1" y="94.2" width="24.2" height="155.8" fill="#A73F2D" rx="1"/>
+  <text x="611.2" y="90.2" font-size="7.4" fill="#A73F2D" text-anchor="middle">2,032</text>
+  <polyline points="92.8,225.8 150.4,176.8 208.0,180.3 265.6,183.4 323.2,184.0 380.8,88.0 438.4,143.3 496.0,139.5 553.6,164.4 611.2,167.7" fill="none" stroke="#B8862F" stroke-width="1.9" stroke-linejoin="round"/>
+  <circle cx="92.8" cy="225.8" r="2.0" fill="#FFFFFF" stroke="#B8862F" stroke-width="1.2"/>
+  <text x="92.8" y="218.8" font-size="7.4" fill="#B8862F" text-anchor="middle">37</text>
+  <circle cx="150.4" cy="176.8" r="2.0" fill="#FFFFFF" stroke="#B8862F" stroke-width="1.2"/>
+  <text x="150.4" y="169.8" font-size="7.4" fill="#B8862F" text-anchor="middle">111</text>
+  <circle cx="208.0" cy="180.3" r="2.0" fill="#FFFFFF" stroke="#B8862F" stroke-width="1.2"/>
+  <text x="208.0" y="173.3" font-size="7.4" fill="#B8862F" text-anchor="middle">106</text>
+  <circle cx="265.6" cy="183.4" r="2.0" fill="#FFFFFF" stroke="#B8862F" stroke-width="1.2"/>
+  <text x="265.6" y="176.4" font-size="7.4" fill="#B8862F" text-anchor="middle">101</text>
+  <circle cx="323.2" cy="184.0" r="2.0" fill="#FFFFFF" stroke="#B8862F" stroke-width="1.2"/>
+  <text x="323.2" y="177.0" font-size="7.4" fill="#B8862F" text-anchor="middle">100</text>
+  <circle cx="380.8" cy="88.0" r="2.0" fill="#FFFFFF" stroke="#B8862F" stroke-width="1.2"/>
+  <text x="380.8" y="81.0" font-size="7.4" fill="#B8862F" text-anchor="middle">246</text>
+  <circle cx="438.4" cy="143.3" r="2.0" fill="#FFFFFF" stroke="#B8862F" stroke-width="1.2"/>
+  <text x="438.4" y="136.3" font-size="7.4" fill="#B8862F" text-anchor="middle">162</text>
+  <circle cx="496.0" cy="139.5" r="2.0" fill="#FFFFFF" stroke="#B8862F" stroke-width="1.2"/>
+  <text x="496.0" y="132.5" font-size="7.4" fill="#B8862F" text-anchor="middle">168</text>
+  <circle cx="553.6" cy="164.4" r="2.0" fill="#FFFFFF" stroke="#B8862F" stroke-width="1.2"/>
+  <text x="553.6" y="157.4" font-size="7.4" fill="#B8862F" text-anchor="middle">130</text>
+  <circle cx="611.2" cy="167.7" r="2.8" fill="#B8862F" stroke="#B8862F" stroke-width="1.2"/>
+  <text x="611.2" y="160.7" font-size="7.4" fill="#B8862F" text-anchor="middle">125</text>
+  <text x="92.8" y="264" font-size="7.6" fill="#7C7B77" text-anchor="middle">2016</text>
+  <text x="150.4" y="264" font-size="7.6" fill="#7C7B77" text-anchor="middle">2017</text>
+  <text x="208.0" y="264" font-size="7.6" fill="#7C7B77" text-anchor="middle">2018</text>
+  <text x="265.6" y="264" font-size="7.6" fill="#7C7B77" text-anchor="middle">2019</text>
+  <text x="323.2" y="264" font-size="7.6" fill="#7C7B77" text-anchor="middle">2020</text>
+  <text x="380.8" y="264" font-size="7.6" fill="#7C7B77" text-anchor="middle">2021</text>
+  <text x="438.4" y="264" font-size="7.6" fill="#7C7B77" text-anchor="middle">2022</text>
+  <text x="496.0" y="264" font-size="7.6" fill="#7C7B77" text-anchor="middle">2023</text>
+  <text x="553.6" y="264" font-size="7.6" fill="#7C7B77" text-anchor="middle">2024</text>
+  <text x="611.2" y="264" font-size="7.6" fill="#7C7B77" text-anchor="middle">2025</text>
+  <text x="64" y="280" font-size="7.6" fill="#7C7B77">注：左轴＝营业收入（柱，亿元），右轴＝归母净利润（线，亿元）。2025 年收入 +11.62%、归母净利润 −3.88%。</text>
+</svg>
+<figcaption>图 1　收入与利润的「剪刀差」：2025 年收入创新高（2,032.35 亿元），归母净利润却退回 2017—2018 年水平（数据来源：万华化学 2016—2025 年年度报告）</figcaption>
+</figure>
+<figure>
+<svg viewBox="0 0 680 300" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
+  <text x="64" y="20" font-size="10.5" fill="#22262B" font-weight="500">图 2　十年毛利率与归母净利率轨迹（2016—2025，单位：%）</text>
+  <text x="64" y="35" font-size="8.2" fill="#7C7B77">毛利率自 2017 年 39.70% 高点持续下行至 2025 年 13.61%（十年最低）；2022 年出现断崖式下挫</text>
+  <line x1="64" y1="50" x2="78" y2="50" stroke="#2F6F6B" stroke-width="2"/><circle cx="71" cy="50" r="2.6" fill="#2F6F6B"/><text x="84" y="53.5" font-size="8.4" fill="#3E4145">销售毛利率</text>
+  <line x1="214" y1="50" x2="228" y2="50" stroke="#A73F2D" stroke-width="2"/><circle cx="221" cy="50" r="2.6" fill="#A73F2D"/><text x="234" y="53.5" font-size="8.4" fill="#3E4145">归母净利率</text>
+  <line x1="64" y1="246.0" x2="640" y2="246.0" stroke="#EFEBE3" stroke-width="0.7"/>
+  <text x="58" y="249.0" font-size="7.6" fill="#7C7B77" text-anchor="end">0%</text>
+  <line x1="64" y1="210.0" x2="640" y2="210.0" stroke="#EFEBE3" stroke-width="0.7"/>
+  <text x="58" y="213.0" font-size="7.6" fill="#7C7B77" text-anchor="end">9%</text>
+  <line x1="64" y1="174.0" x2="640" y2="174.0" stroke="#EFEBE3" stroke-width="0.7"/>
+  <text x="58" y="177.0" font-size="7.6" fill="#7C7B77" text-anchor="end">18%</text>
+  <line x1="64" y1="138.0" x2="640" y2="138.0" stroke="#EFEBE3" stroke-width="0.7"/>
+  <text x="58" y="141.0" font-size="7.6" fill="#7C7B77" text-anchor="end">27%</text>
+  <line x1="64" y1="102.0" x2="640" y2="102.0" stroke="#EFEBE3" stroke-width="0.7"/>
+  <text x="58" y="105.0" font-size="7.6" fill="#7C7B77" text-anchor="end">36%</text>
+  <line x1="64" y1="66.0" x2="640" y2="66.0" stroke="#EFEBE3" stroke-width="0.7"/>
+  <text x="58" y="69.0" font-size="7.6" fill="#7C7B77" text-anchor="end">45%</text>
+  <line x1="64" y1="246" x2="640" y2="246" stroke="#E3DDD4" stroke-width="1"/>
+  <text x="64.0" y="260" font-size="7.6" fill="#7C7B77" text-anchor="middle">2016</text>
+  <text x="128.0" y="260" font-size="7.6" fill="#7C7B77" text-anchor="middle">2017</text>
+  <text x="192.0" y="260" font-size="7.6" fill="#7C7B77" text-anchor="middle">2018</text>
+  <text x="256.0" y="260" font-size="7.6" fill="#7C7B77" text-anchor="middle">2019</text>
+  <text x="320.0" y="260" font-size="7.6" fill="#7C7B77" text-anchor="middle">2020</text>
+  <text x="384.0" y="260" font-size="7.6" fill="#7C7B77" text-anchor="middle">2021</text>
+  <text x="448.0" y="260" font-size="7.6" fill="#7C7B77" text-anchor="middle">2022</text>
+  <text x="512.0" y="260" font-size="7.6" fill="#7C7B77" text-anchor="middle">2023</text>
+  <text x="576.0" y="260" font-size="7.6" fill="#7C7B77" text-anchor="middle">2024</text>
+  <text x="640.0" y="260" font-size="7.6" fill="#7C7B77" text-anchor="middle">2025</text>
+  <polyline points="64.0,121.7 128.0,87.2 192.0,110.7 256.0,134.0 320.0,138.9 384.0,141.0 448.0,179.7 512.0,178.9 576.0,181.4 640.0,191.6" fill="none" stroke="#2F6F6B" stroke-width="1.9" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="64.0" cy="121.7" r="2.0" fill="#FFFFFF" stroke="#2F6F6B" stroke-width="1.2"/>
+  <circle cx="128.0" cy="87.2" r="2.0" fill="#FFFFFF" stroke="#2F6F6B" stroke-width="1.2"/>
+  <circle cx="192.0" cy="110.7" r="2.0" fill="#FFFFFF" stroke="#2F6F6B" stroke-width="1.2"/>
+  <circle cx="256.0" cy="134.0" r="2.0" fill="#FFFFFF" stroke="#2F6F6B" stroke-width="1.2"/>
+  <circle cx="320.0" cy="138.9" r="2.0" fill="#FFFFFF" stroke="#2F6F6B" stroke-width="1.2"/>
+  <circle cx="384.0" cy="141.0" r="2.0" fill="#FFFFFF" stroke="#2F6F6B" stroke-width="1.2"/>
+  <circle cx="448.0" cy="179.7" r="2.0" fill="#FFFFFF" stroke="#2F6F6B" stroke-width="1.2"/>
+  <circle cx="512.0" cy="178.9" r="2.0" fill="#FFFFFF" stroke="#2F6F6B" stroke-width="1.2"/>
+  <circle cx="576.0" cy="181.4" r="2.0" fill="#FFFFFF" stroke="#2F6F6B" stroke-width="1.2"/>
+  <circle cx="640.0" cy="191.6" r="2.8" fill="#2F6F6B" stroke="#2F6F6B" stroke-width="1.2"/>
+  <polyline points="64.0,197.1 128.0,162.2 192.0,176.0 256.0,186.4 320.0,191.3 384.0,178.2 448.0,206.8 512.0,207.6 576.0,217.4 640.0,221.4" fill="none" stroke="#A73F2D" stroke-width="1.9" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="64.0" cy="197.1" r="2.0" fill="#FFFFFF" stroke="#A73F2D" stroke-width="1.2"/>
+  <circle cx="128.0" cy="162.2" r="2.0" fill="#FFFFFF" stroke="#A73F2D" stroke-width="1.2"/>
+  <circle cx="192.0" cy="176.0" r="2.0" fill="#FFFFFF" stroke="#A73F2D" stroke-width="1.2"/>
+  <circle cx="256.0" cy="186.4" r="2.0" fill="#FFFFFF" stroke="#A73F2D" stroke-width="1.2"/>
+  <circle cx="320.0" cy="191.3" r="2.0" fill="#FFFFFF" stroke="#A73F2D" stroke-width="1.2"/>
+  <circle cx="384.0" cy="178.2" r="2.0" fill="#FFFFFF" stroke="#A73F2D" stroke-width="1.2"/>
+  <circle cx="448.0" cy="206.8" r="2.0" fill="#FFFFFF" stroke="#A73F2D" stroke-width="1.2"/>
+  <circle cx="512.0" cy="207.6" r="2.0" fill="#FFFFFF" stroke="#A73F2D" stroke-width="1.2"/>
+  <circle cx="576.0" cy="217.4" r="2.0" fill="#FFFFFF" stroke="#A73F2D" stroke-width="1.2"/>
+  <circle cx="640.0" cy="221.4" r="2.8" fill="#A73F2D" stroke="#A73F2D" stroke-width="1.2"/>
+  <text x="64.0" y="113.7" font-size="7.6" fill="#2F6F6B" text-anchor="middle">31.08</text>
+  <text x="640.0" y="183.6" font-size="8.2" fill="#2F6F6B" font-weight="500" text-anchor="middle">13.61</text>
+  <text x="64.0" y="189.1" font-size="7.6" fill="#A73F2D" text-anchor="middle">12.22</text>
+  <text x="640.0" y="213.4" font-size="8.2" fill="#A73F2D" font-weight="500" text-anchor="middle">6.16</text>
+  <text x="64" y="276" font-size="7.6" fill="#7C7B77">注：毛利率＝（营业收入−营业成本）÷营业收入；归母净利率＝归母净利润÷营业收入。</text>
+</svg>
+<figcaption>图 2　毛利率十年下行 26.09 个百分点：2022 年由 26.26% 骤降至 16.57%，主因低毛利石化业务随大乙烯投产而放量（数据来源：万华化学 2016—2025 年年度报告）</figcaption>
+</figure>
+<h3>2.2 表 2　十年资产负债与资本结构（年末数）</h3>
+<div class="rsp-table rsp-w8"><table class="compact financial longtable">
+<thead><tr><th>年末</th><th>总资产（亿元）</th><th>总负债（亿元）</th><th>归母净资产（亿元）</th><th>资产负债率（%）</th><th>固定资产（亿元）</th><th>在建工程（亿元）</th><th>货币资金（亿元）</th></tr></thead>
+<tbody>
+  <tr><td><strong>2016</strong></td><td><strong>507.65</strong></td><td><strong>324.31</strong></td><td><strong>148.22</strong></td><td><strong>63.88</strong></td><td><strong>—</strong></td><td><strong>—</strong></td><td><strong>—</strong></td></tr>
+  <tr><td><strong>2017</strong></td><td><strong>658.28</strong></td><td><strong>350.74</strong></td><td><strong>272.80</strong></td><td><strong>53.28</strong></td><td><strong>—</strong></td><td><strong>—</strong></td><td><strong>—</strong></td></tr>
+  <tr><td><strong>2018</strong></td><td><strong>769.13</strong></td><td><strong>376.62</strong></td><td><strong>337.79</strong></td><td><strong>48.97</strong></td><td><strong>—</strong></td><td><strong>—</strong></td><td><strong>—</strong></td></tr>
+  <tr><td><strong>2019</strong></td><td><strong>968.65</strong></td><td><strong>529.34</strong></td><td><strong>423.64</strong></td><td><strong>54.65</strong></td><td><strong>374.78</strong></td><td><strong>240.66</strong></td><td><strong>—</strong></td></tr>
+  <tr><td><strong>2020</strong></td><td><strong>1,337.53</strong></td><td><strong>821.02</strong></td><td><strong>487.80</strong></td><td><strong>61.38</strong></td><td><strong>563.71</strong></td><td><strong>232.57</strong></td><td><strong>—</strong></td></tr>
+  <tr><td><strong>2021</strong></td><td><strong>1,903.10</strong></td><td><strong>1,186.14</strong></td><td><strong>684.99</strong></td><td><strong>62.33</strong></td><td><strong>652.33</strong></td><td><strong>293.52</strong></td><td><strong>—</strong></td></tr>
+  <tr><td><strong>2022</strong></td><td><strong>2,008.43</strong></td><td><strong>1,195.06</strong></td><td><strong>768.45</strong></td><td><strong>59.50</strong></td><td><strong>785.58</strong></td><td><strong>370.64</strong></td><td><strong>—</strong></td></tr>
+  <tr><td><strong>2023</strong></td><td><strong>2,530.40</strong></td><td><strong>1,585.86</strong></td><td><strong>886.56</strong></td><td><strong>62.67</strong></td><td><strong>987.64</strong></td><td><strong>504.55</strong></td><td><strong>—</strong></td></tr>
+  <tr><td><strong>2024</strong></td><td><strong>2,933.33</strong></td><td><strong>1,898.33</strong></td><td><strong>946.26</strong></td><td><strong>64.72</strong></td><td><strong>1,188.28</strong></td><td><strong>631.59</strong></td><td><strong>245.33</strong></td></tr>
+  <tr><td><strong>2025</strong></td><td><strong>3,230.09</strong></td><td><strong>2,028.80</strong></td><td><strong>1,083.05</strong></td><td><strong>62.81</strong></td><td><strong>1,569.06</strong></td><td><strong>346.25</strong></td><td><strong>276.62</strong></td></tr>
+</tbody>
+</table></div>
+<p class="note">注 1：2016—2018 年固定资产、在建工程、货币资金未逐年回抽，以 <code>—</code> 表示（不影响资产负债率与资本结构判断）。 注 2：<strong>2025 年"固定资产大增 380.78 亿元、在建工程减少 285.34 亿元"</strong>，是本期最重要的资产负债表变化，反映前期大规模建设投入集中转固。 注 3：资产负债率＝总负债÷ 总资产。2019 年起因吸收合并万华化工，资产与负债规模口径与 2016—2018 年不完全可比。</p>
+<h3>2.3 表 3　十年现金流量与资本开支</h3>
+<div class="rsp-table rsp-w6"><table class="compact financial longtable">
+<thead><tr><th>年度</th><th>经营活动现金流净额（亿元）</th><th>资本开支（亿元）</th><th>自由现金流（亿元）</th><th>投资活动现金流净额（亿元）</th><th>筹资活动现金流净额（亿元）</th></tr></thead>
+<tbody>
+  <tr><td><strong>2016</strong></td><td><strong>73.49</strong></td><td><strong>—</strong></td><td><strong>—</strong></td><td><strong>—</strong></td><td><strong>—</strong></td></tr>
+  <tr><td><strong>2017</strong></td><td><strong>102.12</strong></td><td><strong>59.53</strong></td><td><strong>42.59</strong></td><td><strong>—</strong></td><td><strong>—</strong></td></tr>
+  <tr><td><strong>2018</strong></td><td><strong>192.57</strong></td><td><strong>102.79</strong></td><td><strong>89.78</strong></td><td><strong>—</strong></td><td><strong>—</strong></td></tr>
+  <tr><td><strong>2019</strong></td><td><strong>259.33</strong></td><td><strong>178.15</strong></td><td><strong>81.18</strong></td><td><strong>—</strong></td><td><strong>—</strong></td></tr>
+  <tr><td><strong>2020</strong></td><td><strong>168.50</strong></td><td><strong>232.36</strong></td><td><strong>−63.86</strong></td><td><strong>—</strong></td><td><strong>—</strong></td></tr>
+  <tr><td><strong>2021</strong></td><td><strong>279.22</strong></td><td><strong>270.00</strong></td><td><strong>9.22</strong></td><td><strong>—</strong></td><td><strong>—</strong></td></tr>
+  <tr><td><strong>2022</strong></td><td><strong>363.37</strong></td><td><strong>326.57</strong></td><td><strong>36.80</strong></td><td><strong>—</strong></td><td><strong>—</strong></td></tr>
+  <tr><td><strong>2023</strong></td><td><strong>267.97</strong></td><td><strong>430.98</strong></td><td><strong>−163.01</strong></td><td><strong>—</strong></td><td><strong>—</strong></td></tr>
+  <tr><td><strong>2024</strong></td><td><strong>300.53</strong></td><td><strong>358.30</strong></td><td><strong>−57.77</strong></td><td><strong>−370.78</strong></td><td><strong>61.86</strong></td></tr>
+  <tr><td><strong>2025</strong></td><td><strong>331.05</strong></td><td><strong>307.11</strong></td><td><strong>23.94</strong></td><td><strong>−327.83</strong></td><td><strong>21.44</strong></td></tr>
+</tbody>
+</table></div>
+<p class="note">注 1：资本开支＝现金流量表"购建固定资产、无形资产和其他长期资产支付的现金"。 注 2：自由现金流＝经营活动现金流净额− 资本开支（本报告自定义口径）。 注 3：投资/筹资活动现金流净额仅回抽 2024—2025 年两期（2025 年年度报告的比较期）。 注 4：<strong>2023 年自由现金流 −163.01 亿元为十年最低</strong>，2025 年转为 <strong>+23.94 亿元</strong>，是资本开支周期见顶回落后的关键拐点。</p>
+<figure>
+<svg viewBox="0 0 680 310" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
+  <text x="64" y="20" font-size="10.5" fill="#22262B" font-weight="500">图 3　经营活动现金流（柱）与资本开支（线）对比（2016—2025，单位：亿元）</text>
+  <text x="64" y="35" font-size="8.2" fill="#7C7B77">十年累计经营现金流 2,538.15 亿元，累计资本开支 2,300.99 亿元，投入强度达 90.7%</text>
+  <rect x="64" y="46" width="11" height="9" fill="#A73F2D"/><text x="79" y="54" font-size="8.4" fill="#3E4145">经营活动现金流净额</text>
+  <line x1="200" y1="50.5" x2="214" y2="50.5" stroke="#B8862F" stroke-width="2"/><circle cx="207" cy="50.5" r="2.6" fill="#B8862F"/><text x="220" y="54" font-size="8.4" fill="#3E4145">资本开支</text>
+  <line x1="64" y1="250.0" x2="640" y2="250.0" stroke="#EFEBE3" stroke-width="0.7"/>
+  <text x="58" y="253.0" font-size="7.6" fill="#7C7B77" text-anchor="end">0</text>
+  <line x1="64" y1="188.7" x2="640" y2="188.7" stroke="#EFEBE3" stroke-width="0.7"/>
+  <text x="58" y="191.7" font-size="7.6" fill="#7C7B77" text-anchor="end">150</text>
+  <line x1="64" y1="127.3" x2="640" y2="127.3" stroke="#EFEBE3" stroke-width="0.7"/>
+  <text x="58" y="130.3" font-size="7.6" fill="#7C7B77" text-anchor="end">300</text>
+  <line x1="64" y1="66.0" x2="640" y2="66.0" stroke="#EFEBE3" stroke-width="0.7"/>
+  <text x="58" y="69.0" font-size="7.6" fill="#7C7B77" text-anchor="end">450</text>
+  <text x="646" y="253.0" font-size="7.6" fill="#B8862F">0</text>
+  <text x="646" y="191.7" font-size="7.6" fill="#B8862F">150</text>
+  <text x="646" y="130.3" font-size="7.6" fill="#B8862F">300</text>
+  <text x="646" y="69.0" font-size="7.6" fill="#B8862F">450</text>
+  <line x1="64" y1="250" x2="640" y2="250" stroke="#E3DDD4" stroke-width="1"/>
+  <rect x="138.3" y="208.2" width="24.2" height="41.8" fill="#CFC7BA" rx="1"/>
+  <text x="150.4" y="204.2" font-size="7.4" fill="#7C7B77" text-anchor="middle">102</text>
+  <rect x="195.9" y="171.3" width="24.2" height="78.7" fill="#CFC7BA" rx="1"/>
+  <text x="208.0" y="167.3" font-size="7.4" fill="#7C7B77" text-anchor="middle">193</text>
+  <rect x="253.5" y="144.0" width="24.2" height="106.0" fill="#CFC7BA" rx="1"/>
+  <text x="265.6" y="140.0" font-size="7.4" fill="#7C7B77" text-anchor="middle">259</text>
+  <rect x="311.1" y="181.1" width="24.2" height="68.9" fill="#CFC7BA" rx="1"/>
+  <text x="323.2" y="177.1" font-size="7.4" fill="#7C7B77" text-anchor="middle">168</text>
+  <rect x="368.7" y="135.8" width="24.2" height="114.2" fill="#CFC7BA" rx="1"/>
+  <text x="380.8" y="131.8" font-size="7.4" fill="#7C7B77" text-anchor="middle">279</text>
+  <rect x="426.3" y="101.4" width="24.2" height="148.6" fill="#CFC7BA" rx="1"/>
+  <text x="438.4" y="97.4" font-size="7.4" fill="#7C7B77" text-anchor="middle">363</text>
+  <rect x="483.9" y="140.4" width="24.2" height="109.6" fill="#CFC7BA" rx="1"/>
+  <text x="496.0" y="136.4" font-size="7.4" fill="#7C7B77" text-anchor="middle">268</text>
+  <rect x="541.5" y="127.1" width="24.2" height="122.9" fill="#CFC7BA" rx="1"/>
+  <text x="553.6" y="123.1" font-size="7.4" fill="#7C7B77" text-anchor="middle">301</text>
+  <rect x="599.1" y="114.6" width="24.2" height="135.4" fill="#A73F2D" rx="1"/>
+  <text x="611.2" y="110.6" font-size="7.4" fill="#A73F2D" text-anchor="middle">331</text>
+  <polyline points="150.4,225.7 208.0,208.0 265.6,177.2 323.2,155.0 380.8,139.6 438.4,116.5 496.0,73.8 553.6,103.5 611.2,124.4" fill="none" stroke="#B8862F" stroke-width="1.9" stroke-linejoin="round"/>
+  <circle cx="150.4" cy="225.7" r="2.0" fill="#FFFFFF" stroke="#B8862F" stroke-width="1.2"/>
+  <text x="150.4" y="218.7" font-size="7.4" fill="#B8862F" text-anchor="middle">60</text>
+  <circle cx="208.0" cy="208.0" r="2.0" fill="#FFFFFF" stroke="#B8862F" stroke-width="1.2"/>
+  <text x="208.0" y="201.0" font-size="7.4" fill="#B8862F" text-anchor="middle">103</text>
+  <circle cx="265.6" cy="177.2" r="2.0" fill="#FFFFFF" stroke="#B8862F" stroke-width="1.2"/>
+  <text x="265.6" y="170.2" font-size="7.4" fill="#B8862F" text-anchor="middle">178</text>
+  <circle cx="323.2" cy="155.0" r="2.0" fill="#FFFFFF" stroke="#B8862F" stroke-width="1.2"/>
+  <text x="323.2" y="148.0" font-size="7.4" fill="#B8862F" text-anchor="middle">232</text>
+  <circle cx="380.8" cy="139.6" r="2.0" fill="#FFFFFF" stroke="#B8862F" stroke-width="1.2"/>
+  <text x="380.8" y="132.6" font-size="7.4" fill="#B8862F" text-anchor="middle">270</text>
+  <circle cx="438.4" cy="116.5" r="2.0" fill="#FFFFFF" stroke="#B8862F" stroke-width="1.2"/>
+  <text x="438.4" y="109.5" font-size="7.4" fill="#B8862F" text-anchor="middle">327</text>
+  <circle cx="496.0" cy="73.8" r="2.0" fill="#FFFFFF" stroke="#B8862F" stroke-width="1.2"/>
+  <text x="496.0" y="66.8" font-size="7.4" fill="#B8862F" text-anchor="middle">431</text>
+  <circle cx="553.6" cy="103.5" r="2.0" fill="#FFFFFF" stroke="#B8862F" stroke-width="1.2"/>
+  <text x="553.6" y="96.5" font-size="7.4" fill="#B8862F" text-anchor="middle">358</text>
+  <circle cx="611.2" cy="124.4" r="2.8" fill="#B8862F" stroke="#B8862F" stroke-width="1.2"/>
+  <text x="611.2" y="117.4" font-size="7.4" fill="#B8862F" text-anchor="middle">307</text>
+  <text x="92.8" y="264" font-size="7.6" fill="#7C7B77" text-anchor="middle">2016</text>
+  <text x="150.4" y="264" font-size="7.6" fill="#7C7B77" text-anchor="middle">2017</text>
+  <text x="208.0" y="264" font-size="7.6" fill="#7C7B77" text-anchor="middle">2018</text>
+  <text x="265.6" y="264" font-size="7.6" fill="#7C7B77" text-anchor="middle">2019</text>
+  <text x="323.2" y="264" font-size="7.6" fill="#7C7B77" text-anchor="middle">2020</text>
+  <text x="380.8" y="264" font-size="7.6" fill="#7C7B77" text-anchor="middle">2021</text>
+  <text x="438.4" y="264" font-size="7.6" fill="#7C7B77" text-anchor="middle">2022</text>
+  <text x="496.0" y="264" font-size="7.6" fill="#7C7B77" text-anchor="middle">2023</text>
+  <text x="553.6" y="264" font-size="7.6" fill="#7C7B77" text-anchor="middle">2024</text>
+  <text x="611.2" y="264" font-size="7.6" fill="#7C7B77" text-anchor="middle">2025</text>
+  <text x="64" y="280" font-size="7.6" fill="#7C7B77">注：2016 年资本开支未回抽，以空位表示。资本开支＝「购建固定资产、无形资产和其他长期资产支付的现金」。</text>
+</svg>
+<figcaption>图 3　2025 年经营现金流 331.05 亿元创历史新高，资本开支压降至 307.11 亿元，自由现金流由 2023 年 −163.01 亿元转为 +23.94 亿元（数据来源：万华化学 2016—2025 年年度报告）</figcaption>
+</figure>
+<h3>2.4 表 4　收入构成：分产品（2024—2026H1）</h3>
+<div class="rsp-table rsp-w9"><table class="compact financial">
+<thead><tr><th>产品系列</th><th>2024 年（亿元）</th><th>2025 年（亿元）</th><th>2025 年同比（%）</th><th>2025 年毛利率（%）</th><th>2026H1（亿元）</th><th>2026H1 毛利率（%）</th><th>2025H1（亿元）</th><th>2025H1 毛利率（%）</th></tr></thead>
+<tbody>
+  <tr class="total"><td><strong>聚氨酯系列</strong></td><td><strong>758.55</strong></td><td><strong>750.58</strong></td><td><strong>−1.04</strong></td><td><strong>26.88</strong></td><td><strong>449.57</strong></td><td><strong>27.05</strong></td><td><strong>368.88</strong></td><td><strong>25.68</strong></td></tr>
+  <tr class="total"><td><strong>石化系列</strong></td><td><strong>725.26</strong></td><td><strong>842.04</strong></td><td><strong>+16.11</strong></td><td><strong>0.58</strong></td><td><strong>477.38</strong></td><td><strong>6.81</strong></td><td><strong>349.34</strong></td><td><strong>−0.37</strong></td></tr>
+  <tr class="total"><td><strong>精细化学品及新材料系列</strong></td><td><strong>282.73</strong></td><td><strong>331.89</strong></td><td><strong>+17.39</strong></td><td><strong>10.53</strong></td><td><strong>225.48</strong></td><td><strong>16.27</strong></td><td><strong>156.28</strong></td><td><strong>9.55</strong></td></tr>
+  <tr class="total"><td><strong>其他</strong></td><td><strong>211.36</strong></td><td><strong>262.18</strong></td><td><strong>+24.05</strong></td><td><strong>12.51</strong></td><td><strong>130.47</strong></td><td><strong>—</strong></td><td><strong>113.30</strong></td><td><strong>—</strong></td></tr>
+  <tr class="total"><td><strong>产品间抵销</strong></td><td><strong>−160.90</strong></td><td><strong>−162.87</strong></td><td><strong>—</strong></td><td><strong>—</strong></td><td><strong>−98.40</strong></td><td><strong>—</strong></td><td><strong>−82.42</strong></td><td><strong>—</strong></td></tr>
+  <tr class="total"><td><strong>主营业务合计</strong></td><td><strong>1,817.00</strong></td><td><strong>2,023.82</strong></td><td><strong>+11.38</strong></td><td><strong>—</strong></td><td><strong>1,184.49</strong></td><td><strong>—</strong></td><td><strong>905.37</strong></td><td><strong>—</strong></td></tr>
+</tbody>
+</table></div>
+<p class="note">注 1：2024 年分产品收入＝2025 年金额 ÷（1＋2025 年同比变动率）推算，<strong>属推算值</strong>，仅用于展示结构变化趋势；2025 年、2026H1、2025H1 为年报直接披露数。 注 2：2025 年聚氨酯系列收入同比 <strong>−1.04%</strong> 而销量同比 <strong>+11.84%</strong>，意味着 MDI/TDI 均价同比明显下行；石化系列收入 +16.11%、毛利率 −2.94 个百分点，呈"增收不增利"。 注 3：2026H1 三大系列毛利率全面回升，其中<strong>石化系列由 −0.37% 跃升至 6.81%（+7.18 个百分点）</strong>，为改善幅度最大的板块。</p>
+<p><strong>分地区结构（主营业务）</strong></p>
+<div class="rsp-table rsp-w8"><table class="compact financial">
+<thead><tr><th>地区</th><th>2025 年（亿元）</th><th>占比（%）</th><th>毛利率（%）</th><th>2026H1（亿元）</th><th>占比（%）</th><th>2025H1（亿元）</th><th>占比（%）</th></tr></thead>
+<tbody>
+  <tr class="total"><td><strong>境内</strong></td><td><strong>1,060.61</strong></td><td><strong>52.4</strong></td><td><strong>15.45</strong></td><td><strong>614.49</strong></td><td><strong>51.9</strong></td><td><strong>483.04</strong></td><td><strong>53.4</strong></td></tr>
+  <tr class="total"><td><strong>境外</strong></td><td><strong>963.21</strong></td><td><strong>47.6</strong></td><td><strong>11.50</strong></td><td><strong>570.00</strong></td><td><strong>48.1</strong></td><td><strong>422.33</strong></td><td><strong>46.6</strong></td></tr>
+  <tr class="total"><td><strong>合计</strong></td><td><strong>2,023.82</strong></td><td><strong>100.0</strong></td><td><strong>—</strong></td><td><strong>1,184.49</strong></td><td><strong>100.0</strong></td><td><strong>905.37</strong></td><td><strong>100.0</strong></td></tr>
+</tbody>
+</table></div>
+<p class="note">注：2025 年境外收入同比 +24.16%，显著快于境内 +2.21%，海外产能（匈牙利 BC）与全球营销网络成为增量主战场；但境外毛利率 11.50% 低于境内 15.45%。</p>
+<figure>
+<svg viewBox="0 0 680 290" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
+  <text x="64" y="20" font-size="10.5" fill="#22262B" font-weight="500">图 4　分产品主营业务收入：2025H1 vs 2026H1（单位：亿元）</text>
+  <text x="64" y="35" font-size="8.2" fill="#7C7B77">三大板块同步放量，石化系列近乎翻倍（+36.6%），精细化学品及新材料 +44.3%</text>
+  <rect x="64" y="46" width="11" height="9" fill="#1B365D"/><text x="79" y="54" font-size="8.4" fill="#3E4145">2025H1</text>
+  <rect x="200" y="46" width="11" height="9" fill="#A73F2D"/><text x="215" y="54" font-size="8.4" fill="#3E4145">2026H1</text>
+  <line x1="64" y1="232.0" x2="620" y2="232.0" stroke="#EFEBE3" stroke-width="0.7"/>
+  <text x="58" y="235.0" font-size="7.6" fill="#7C7B77" text-anchor="end">0</text>
+  <line x1="64" y1="191.5" x2="620" y2="191.5" stroke="#EFEBE3" stroke-width="0.7"/>
+  <text x="58" y="194.5" font-size="7.6" fill="#7C7B77" text-anchor="end">140</text>
+  <line x1="64" y1="151.0" x2="620" y2="151.0" stroke="#EFEBE3" stroke-width="0.7"/>
+  <text x="58" y="154.0" font-size="7.6" fill="#7C7B77" text-anchor="end">280</text>
+  <line x1="64" y1="110.5" x2="620" y2="110.5" stroke="#EFEBE3" stroke-width="0.7"/>
+  <text x="58" y="113.5" font-size="7.6" fill="#7C7B77" text-anchor="end">420</text>
+  <line x1="64" y1="70.0" x2="620" y2="70.0" stroke="#EFEBE3" stroke-width="0.7"/>
+  <text x="58" y="73.0" font-size="7.6" fill="#7C7B77" text-anchor="end">560</text>
+  <line x1="64" y1="232" x2="620" y2="232" stroke="#E3DDD4" stroke-width="1"/>
+  <rect x="94.6" y="125.3" width="38.9" height="106.7" fill="#1B365D" rx="1"/>
+  <text x="114.0" y="121.3" font-size="7.6" fill="#1B365D" text-anchor="middle">369</text>
+  <rect x="135.8" y="101.9" width="38.9" height="130.1" fill="#A73F2D" rx="1"/>
+  <text x="155.3" y="97.9" font-size="7.6" fill="#A73F2D" text-anchor="middle">450</text>
+  <text x="133.5" y="246" font-size="8.0" fill="#3E4145" text-anchor="middle">聚氨酯系列</text>
+  <rect x="233.6" y="130.9" width="38.9" height="101.1" fill="#1B365D" rx="1"/>
+  <text x="253.0" y="126.9" font-size="7.6" fill="#1B365D" text-anchor="middle">349</text>
+  <rect x="274.8" y="93.9" width="38.9" height="138.1" fill="#A73F2D" rx="1"/>
+  <text x="294.3" y="89.9" font-size="7.6" fill="#A73F2D" text-anchor="middle">477</text>
+  <text x="272.5" y="246" font-size="8.0" fill="#3E4145" text-anchor="middle">石化系列</text>
+  <rect x="372.6" y="186.8" width="38.9" height="45.2" fill="#1B365D" rx="1"/>
+  <text x="392.0" y="182.8" font-size="7.6" fill="#1B365D" text-anchor="middle">156</text>
+  <rect x="413.8" y="166.8" width="38.9" height="65.2" fill="#A73F2D" rx="1"/>
+  <text x="433.3" y="162.8" font-size="7.6" fill="#A73F2D" text-anchor="middle">225</text>
+  <text x="411.5" y="246" font-size="8.0" fill="#3E4145" text-anchor="middle">精细化学品及新材料</text>
+  <rect x="511.6" y="199.2" width="38.9" height="32.8" fill="#1B365D" rx="1"/>
+  <text x="531.0" y="195.2" font-size="7.6" fill="#1B365D" text-anchor="middle">113</text>
+  <rect x="552.8" y="194.3" width="38.9" height="37.7" fill="#A73F2D" rx="1"/>
+  <text x="572.3" y="190.3" font-size="7.6" fill="#A73F2D" text-anchor="middle">130</text>
+  <text x="550.5" y="246" font-size="8.0" fill="#3E4145" text-anchor="middle">其他</text>
+  <text x="64" y="264" font-size="7.6" fill="#7C7B77">注：两者均为 1—6 月半年口径，可直接比较；不含产品间抵销（2025H1 −82.42 亿元、2026H1 −98.40 亿元）。</text>
+</svg>
+<figcaption>图 4　2026H1 分产品收入全面增长，石化系列从 349.34 亿元增至 477.38 亿元，是收入增量的最大来源（数据来源：万华化学 2026 年半年度报告）</figcaption>
+</figure>
+<h3>2.5 表 5　2026 年半年度最新经营数据</h3>
+<div class="rsp-table"><table class="compact financial longtable">
+<thead><tr><th>指标</th><th>2026H1</th><th>2025H1</th><th>同比（%）</th></tr></thead>
+<tbody>
+  <tr class="total"><td><strong>营业收入（亿元）</strong></td><td><strong>1,193.16</strong></td><td><strong>909.01</strong></td><td><strong>+31.26</strong></td></tr>
+  <tr class="total"><td><strong>归母净利润（亿元）</strong></td><td><strong>100.63</strong></td><td><strong>61.23</strong></td><td><strong>+64.35</strong></td></tr>
+  <tr class="total"><td><strong>扣非归母净利润（亿元）</strong></td><td><strong>96.76</strong></td><td><strong>62.44</strong></td><td><strong>+54.96</strong></td></tr>
+  <tr class="total"><td><strong>利润总额（亿元）</strong></td><td><strong>139.68</strong></td><td><strong>75.28</strong></td><td><strong>+85.53</strong></td></tr>
+  <tr class="total"><td><strong>经营活动现金流净额（亿元）</strong></td><td><strong>117.84</strong></td><td><strong>105.28</strong></td><td><strong>+11.93</strong></td></tr>
+  <tr class="total"><td><strong>基本每股收益（元）</strong></td><td><strong>3.21</strong></td><td><strong>1.95</strong></td><td><strong>+64.62</strong></td></tr>
+  <tr class="total"><td><strong>加权平均 ROE（%）</strong></td><td><strong>8.96</strong></td><td><strong>6.24</strong></td><td><strong>+2.72 个百分点</strong></td></tr>
+  <tr class="total"><td><strong>营业成本（亿元）</strong></td><td><strong>989.32</strong></td><td><strong>783.20</strong></td><td><strong>+26.32</strong></td></tr>
+  <tr class="total"><td><strong>销售毛利率（%）</strong></td><td><strong>17.08</strong></td><td><strong>13.84</strong></td><td><strong>+3.24 个百分点</strong></td></tr>
+  <tr class="total"><td><strong>研发费用（亿元）</strong></td><td><strong>23.05</strong></td><td><strong>22.91</strong></td><td><strong>+0.60</strong></td></tr>
+  <tr class="total"><td><strong>财务费用（亿元）</strong></td><td><strong>14.25</strong></td><td><strong>5.98</strong></td><td><strong>+138.30</strong></td></tr>
+  <tr class="total"><td><strong>所得税费用（亿元）</strong></td><td><strong>24.06</strong></td><td><strong>8.13</strong></td><td><strong>+195.92</strong></td></tr>
+  <tr class="total"><td><strong>总资产（亿元）</strong></td><td><strong>3,541.52</strong></td><td><strong>—</strong></td><td><strong>较上年末 +9.64</strong></td></tr>
+  <tr class="total"><td><strong>归母净资产（亿元）</strong></td><td><strong>1,135.96</strong></td><td><strong>—</strong></td><td><strong>较上年末 +4.89</strong></td></tr>
+</tbody>
+</table></div>
+<p class="note">注 1：2026H1 营业成本增速（+26.32%）<strong>低于</strong>收入增速（+31.26%），是毛利率回升 3.24 个百分点的直接来源；年报解释为"营业收入增长源于产品价格增长及销量增加，营业成本增长源于销量增加及原材料价格上涨"。 注 2：财务费用同比 +138.30%，年报解释为"主要系本期汇兑收益减少所致"；所得税费用 +195.92% 系利润总额增加所致。 注 3：2025 年分季度归母净利润分别为 30.82 / 30.41 / 30.35 / 33.70 亿元，四个季度高度平稳；而 2026H1 单半年即达 100.63 亿元，回暖幅度显著。</p>
+<h2>三、关键变化数据与趋势含义</h2>
+<h3>3.1 损益表：三个最显著的变化</h3>
+<p><strong>（1）营业收入：十年 6.75 倍，但增速中枢持续下移。</strong></p>
+<p>轨迹：301.00（2016）→ 531.23（2017）→ 606.21（2018）→ 680.51（2019）→ 734.33（2020）→ 1,455.38（2021）→ 1,655.65（2022）→ 1,753.61（2023）→ 1,820.69（2024）→ 2,032.35（2025），十年 CAGR <strong>23.63%</strong>。</p>
+<p>趋势含义：2021 年因 MDI 价格暴涨 + 大乙烯一期投产，收入近乎翻倍（+98.19%）；此后四年增速降至 13.76% → 5.92% → 3.83% → 11.62%，<strong>规模扩张的驱动力已由"价格弹性"切换为"产能投放 + 销量增长"</strong>。2025 年收入重回双位数增长，主要来自石化二期与精细化学品新装置的销量贡献，而非价格。</p>
+<p><strong>（2）归母净利润：与收入形成"剪刀差"，2021 年即为峰值。</strong></p>
+<p>轨迹：36.79 → 111.35 → 106.10 → 101.30 → 100.41 → <strong>246.49（峰值）</strong> → 162.34 → 168.16 → 130.33 → 125.27。2021 年后连续四年净利润较峰值缩水 <strong>49.2%</strong>（246.49 → 125.27），年化 <strong>−15.57%</strong>。</p>
+<p>趋势含义：<strong>收入创新高而利润退回 2017—2018 年水平</strong>，是典型的"以量补价"结构。2025 年收入比 2018 年高 235%，归母净利润反而比 2018 年（原报口径 106.10 亿元）仅高 18%，说明单位盈利能力的下滑幅度超过了规模扩张的贡献。</p>
+<p><strong>（3）毛利率：从 39.70% 高点一路下滑至 13.61% 的十年最低。</strong></p>
+<p>轨迹：31.08%（2016）→ <strong>39.70%（2017 峰值）</strong> → 33.83% → 28.00% → 26.78% → 26.26% → 16.57% → 16.78% → 16.16% → <strong>13.61%（2025 十年最低）</strong>。</p>
+<p>趋势含义：2017 年毛利率高点对应 MDI 供给紧平衡；2018—2020 年缓降至 26%—28% 平台；<strong>2022 年出现断崖式下挫（26.26% → 16.57%，−9.69 个百分点）</strong>，直接原因是石化系列随大乙烯装置投产而放量，而石化产品（乙烯、丙烯衍生物）本身毛利率远低于聚氨酯；2025 年进一步创下十年新低，主因石化系列毛利率仅 <strong>0.58%</strong>、精细化学品系列降至 10.53%。<strong>收入结构的"石化化"是毛利率长期下行的结构性原因，而非单纯周期波动。</strong></p>
+<h3>3.2 资产负债表：扩张与转固</h3>
+<p><strong>（1）总资产十年 6.36 倍，2023—2025 年是绝对增量最猛的三年。</strong></p>
+<p>轨迹：507.65 → 658.28 → 769.13 → 968.65 → 1,337.53 → 1,903.10 → 2,008.43 → 2,530.40 → 2,933.33 → <strong>3,230.09</strong>（亿元），十年 CAGR <strong>22.83%</strong>。2023 年单年增加 521.97 亿元、2024 年增加 402.93 亿元、2025 年增加 296.76 亿元。</p>
+<p>趋势含义：资产扩张速度（22.83%）<strong>略低于</strong>收入扩张速度（23.63%），说明资产周转效率未明显恶化，但资产绝对规模已突破 3,200 亿元，折旧与财务费用对利润的刚性压力将持续。</p>
+<p><strong>（2）固定资产 +380.78 亿元、在建工程 −285.34 亿元：2025 年是最重要的"转固年"。</strong></p>
+<p>轨迹：固定资产 374.78（2019）→ 563.71 → 652.33 → 785.58 → 987.64 → 1,188.28 → <strong>1,569.06（2025）</strong>；在建工程 240.66（2019）→ 232.57 → 293.52 → 370.64 → 504.55 → <strong>631.59（2024 峰值）</strong> → <strong>346.25（2025）</strong>。</p>
+<p>趋势含义：<strong>在建工程在 2024 年触顶后于 2025 年近乎腰斩，同期固定资产大增三成</strong>，标志公司从"大规模建设期"正式进入"产能释放与折旧消化期"。这一转换是双刃剑——产能带来销量与收入，但折旧刚性上升将摊薄利润率，也解释了 2025 年"收入 +11.62% 而利润 −3.88%"的背离。</p>
+<p><strong>（3）资产负债率：2024 年 64.72% 为十年最高，2025 年小幅回落至 62.81%。</strong></p>
+<p>轨迹：63.88% → 53.28% → 48.97%（2018 最低）→ 54.65% → 61.38% → 62.33% → 59.50% → 62.67% → <strong>64.72%</strong> → 62.81%。</p>
+<p>趋势含义：2018 年因吸收合并前净资产大幅增厚，负债率降至十年低点 48.97%；此后随资本开支高峰快速抬升至 64% 区间。<strong>2025 年回落 1.91 个百分点，主因归母净资产同比 +14.46%（增幅远快于总资产 +10.12%）</strong>，属利润留存 + 少数股东注资（子公司吸收投资 53.39 亿元）共同作用，是杠杆见顶的初步信号。</p>
+<h3>3.3 现金流量表：现金流的"质"优于利润的"量"</h3>
+<p><strong>（1）经营活动现金流净额持续高于归母净利润，且 2025 年创历史新高。</strong></p>
+<p>轨迹：73.49 → 102.12 → 192.57 → 259.33 → 168.50 → 279.22 → 363.37 → 267.97 → 300.53 → <strong>331.05</strong>（亿元）。<strong>十年累计经营现金流 2,538.15 亿元，是十年累计归母净利润 1,296.37 亿元的 1.96 倍。</strong></p>
+<p>趋势含义：这是万华化学最被低估的财务特征——<strong>重资产化工企业的折旧是非现金成本，因此经营现金流长期显著高于净利润</strong>。经营现金流/归母净利润比值十年平均约 2.0 倍，说明利润的"含金量"高，不存在明显的收入确认激进问题。</p>
+<p><strong>（2）资本开支 2023 年见顶 430.98 亿元，此后连续两年压降。</strong></p>
+<p>轨迹：59.53（2017）→ 102.79 → 178.15 → 232.36 → 270.00 → 326.57 → <strong>430.98（2023 峰值）</strong> → 358.30 → 307.11（2025）。</p>
+<p>趋势含义：十年累计资本开支 2,300.99 亿元，接近同期累计经营现金流（2,538.15 亿元）的 <strong>90.7%</strong>——<strong>公司几乎把十年经营所得全部投入了产能建设</strong>。2023 年后资本开支连续两年下降（−16.8%、−14.3%），是自由现金流改善的先决条件。</p>
+<p><strong>（3）自由现金流：2023—2024 连续两年为负，2025 年重回正值。</strong></p>
+<p>轨迹：42.59 → 89.78 → 81.18 → −63.86 → 9.22 → 36.80 → <strong>−163.01（2023 最低）</strong> → −57.77 → <strong>+23.94（2025）</strong>。</p>
+<p>趋势含义：<strong>这是本报告认为 2025 年年报中最具信号价值的一项变化。</strong> 2023—2024 年公司同时承受"资本开支高峰 + 盈利下行"的双重挤压，自由现金流缺口累计 220.78 亿元；2025 年资本开支压降至 307.11 亿元、经营现金流升至 331.05 亿元，自由现金流转为 +23.94 亿元。若这一趋势延续，公司将从"靠融资扩张"转向"靠内生现金回报股东"，这是估值逻辑切换的关键。</p>
+<p><strong>（4）筹资活动现金流净额从 2024 年 61.86 亿元降至 2025 年 21.44 亿元。</strong></p>
+<p>含义：2024 年"取得借款收到的现金"高达 2,193.59 亿元、"偿还债务支付的现金"2,014.09 亿元，2025 年分别降至 1,716.38 亿元与 1,655.68 亿元——<strong>融资滚动规模收缩约 470 亿元</strong>，与资本开支压降方向一致。</p>
+<h3>3.4 三表联动</h3>
+<ul>
+  <li><strong>损益表看"经营真相"</strong>：收入六倍增长而利润退回七年前水平，毛利率创十年新低——<strong>万华已从"高毛利周期成长股"转变为"规模领先但盈利承压的一体化平台"</strong>。真正的盈利质量应看"扣非归母净利润"，2025 年 121.44 亿元同比 −9.10%，降幅大于归母的 −3.88%，说明非经常性损益在掩盖部分经营压力。</li>
+  <li><strong>资产负债表看"周期位置"</strong>：在建工程腰斩、固定资产大增，是<strong>资本开支周期由"投入期"转入"产出期"的分界点</strong>；资产负债率 62.81% 仍处高位但已见顶回落。</li>
+  <li><strong>现金流量表看"现金来源"</strong>：十年经营现金流是累计利润的 1.96 倍，现金流质量优异；但同期资本开支吞掉了 90.7% 的经营现金流，<strong>2025 年自由现金流转正是周期转向的实证</strong>。</li>
+</ul>
+<h2>四、数据变化趋势与原因分析</h2>
+<h3>4.1 收入驱动力的三次切换</h3>
+<div class="rsp-table"><table class="compact">
+<thead><tr><th>阶段</th><th>期间</th><th>核心驱动</th><th>收入 CAGR</th></tr></thead>
+<tbody>
+  <tr><td>单一主业期</td><td>2016—2020</td><td>MDI 价格周期 + 聚氨酯产能扩张</td><td>24.97%</td></tr>
+  <tr><td>石化放量期</td><td>2021—2022</td><td>大乙烯一期投产，石化系列收入翻倍</td><td>46.13%</td></tr>
+  <tr><td>多元化收获期</td><td>2023—2025</td><td>石化二期、精细化学品新装置、海外销售</td><td>7.10%</td></tr>
+</tbody>
+</table></div>
+<p class="note">注：CAGR 为各阶段首尾年营业收入复合增速。</p>
+<p><strong>原因分析</strong>：2016—2020 年公司收入几乎完全由聚氨酯驱动；2021 年大乙烯一期投产使石化系列收入从 2020 年的约 230 亿元跃升至 2021 年的 600 亿元以上，收入结构发生根本改变；2023 年后聚氨酯系列收入甚至出现负增长（2025 年 −1.04%），<strong>增量几乎全部由石化与精细化学品贡献</strong>——这既是公司"一体化、规模化"战略的成果，也是毛利率被稀释的根因。</p>
+<h3>4.2 盈利下滑的三重压力</h3>
+<ol>
+  <li><strong>产品价格下行</strong>：2025 年聚氨酯系列收入 −1.04% 而销量 +11.84%，推算出厂均价同比下行约 11.5%；公司年报亦确认"受市场需求等因素影响，部分产品销售价格同比有所下降"。</li>
+  <li><strong>低毛利石化业务占比提升</strong>：石化系列 2025 年收入占比 41.6%，毛利率仅 0.58%，相对 2021 年约 26% 的公司整体毛利率形成强力稀释。</li>
+  <li><strong>折旧与财务费用刚性</strong>：固定资产从 2019 年 374.78 亿元增至 2025 年 1,569.06 亿元（4.19 倍），折旧规模随之大幅上升；2025 年利息费用 29.36 亿元（2024 年 28.17 亿元），财务费用 20.80 亿元。</li>
+</ol>
+<h3>4.3 2026 年上半年：周期反转的第一个强信号</h3>
+<p>2026H1 归母净利润 100.63 亿元，同比 <strong>+64.35%</strong>；毛利率 17.08%，同比 <strong>+3.24 个百分点</strong>。三大板块毛利率<strong>全面回升</strong>：</p>
+<div class="rsp-table"><table class="compact financial">
+<thead><tr><th>板块</th><th>2025H1 毛利率</th><th>2026H1 毛利率</th><th>变动</th></tr></thead>
+<tbody>
+  <tr><td>聚氨酯系列</td><td>25.68%</td><td>27.05%</td><td>+1.37pp</td></tr>
+  <tr><td>石化系列</td><td>−0.37%</td><td>6.81%</td><td><strong>+7.18pp</strong></td></tr>
+  <tr><td>精细化学品及新材料系列</td><td>9.55%</td><td>16.27%</td><td><strong>+6.72pp</strong></td></tr>
+</tbody>
+</table></div>
+<p><strong>原因（引自 2026 年半年度报告）</strong>：</p>
+<ul>
+  <li><strong>聚氨酯</strong>："海外部分装置因地缘政治、原料供应等因素产能受限，全球聚氨酯供应总体偏紧"——供给收缩带来价格弹性，新能源、冷链需求形成支撑。</li>
+  <li><strong>石化</strong>："乙烯一期装置乙烷进料改造顺利完成，生产成本显著降低"——<strong>原料结构从石脑油切换为乙烷是成本改善的核心</strong>；同时公司"依托完善的全球供应链采购体系，在原料紧张时期有效保障了原料供应"。</li>
+  <li><strong>精细化学品</strong>："受地缘冲突影响，关键原料供给收缩、成本端持续抬升，精细化学品及新材料价格普遍上行"；储能装机高速增长"催生电池材料结构性紧缺"。</li>
+</ul>
+<p class="note"><strong>需注意的反向指标</strong>：2026H1 经营活动现金流净额仅 +11.93%，远低于归母净利润 +64.35% 的增速；同时<strong>短期借款从 2025 年末 277.89 亿元激增至 604.87 亿元（+117.67%）</strong>，货币资金从 276.62 亿元增至 444.06 亿元（+60.53%）。筹资活动现金流净额 +153.78 亿元。这表明<strong>利润改善尚未同步转化为现金积累，公司在大幅加杠杆以储备资金</strong>，需在后续报告中持续跟踪。</p>
+<h2>五、关键内容总结</h2>
+<h3>5.1 核心业务与竞争优势</h3>
+<ul>
+  <li><strong>规模与成本壁垒</strong>：380 万吨/年 MDI、147 万吨/年 TDI、232 万吨/年聚醚多元醇产能，<strong>MDI 全球产能占比约三成</strong>，是全球少数掌握 MDI 全套自主技术的企业。第八代 MDI 技术已推进落地。</li>
+  <li><strong>一体化协同</strong>："聚氨酯—石化—精细化学品及新材料"三大板块共享 C2/C3/C4 烯烃与氯碱产业链，烟台、宁波、福建、蓬莱、四川眉山五大国内基地 + 匈牙利 BC 海外基地形成"全球韧性供应链"。</li>
+  <li><strong>技术与研发</strong>：2025 年研发投入 <strong>48.65 亿元</strong>（占营业收入 2.39%，全部费用化），研发人员 4,833 人（占 15.71%）。研发方向聚焦装置迭代与产业链优化、高端化工新材料突破、电池材料技术产业化、可持续发展技术四大领域，并系统推进 AI for Science。</li>
+  <li><strong>战略投资者背书</strong>：引入科威特石化工业公司（KPI）作为长期战略投资者，为石化业务全球资源整合提供支撑。</li>
+</ul>
+<h3>5.2 产能与项目里程碑（2025—2026H1）</h3>
+<div class="rsp-table"><table class="compact longtable">
+<thead><tr><th>时间</th><th>项目</th><th>意义</th></tr></thead>
+<tbody>
+  <tr><td>2025-01</td><td>蓬莱工业园新增 73 万吨/年聚醚产能</td><td>聚醚总产能达 232 万吨/年</td></tr>
+  <tr><td>2025</td><td>烟台一期 100 万吨/年乙烯原料多元化改造全面完成</td><td><strong>全乙烷进料，产能提升至 120 万吨/年</strong></td></tr>
+  <tr><td>2025</td><td>烟台二期 120 万吨/年乙烯及下游高端装置全面开车</td><td>乙烯总产能与一体化水平跃上新台阶</td></tr>
+  <tr><td>2025</td><td>蓬莱 POCHP 装置全面成功开车</td><td>石化产业链完整贯通</td></tr>
+  <tr><td>2025</td><td>VA 全产业链投产；MS 装置投产；XLPE、薄荷醇装置一次开车成功</td><td>进军营养健康、高端光学材料市场</td></tr>
+  <tr><td>2025</td><td>钠电实现三代产品定型及产业化，完成客户端验证</td><td>电池材料第二主业推进</td></tr>
+  <tr><td>2026-01-08</td><td>烟台乙烯一期原料多元化改造一次开车成功</td><td>解决两项乙烷裂解装置行业难题</td></tr>
+  <tr><td>2026H1</td><td><strong>第四代磷酸铁锂在海阳基地成功量产</strong>；钠电正极通过头部客户认证；连续石墨化产品导入头部客户</td><td>电池材料业务规模快速提升</td></tr>
+  <tr><td>2026H1</td><td>宁波硝苯装置智能巡检点位覆盖率 98%、AI 识别率 80%</td><td>智能化无人装置建设</td></tr>
+</tbody>
+</table></div>
+<p class="note">注：2025 年主要产品产销量——聚氨酯系列 623 万吨/631 万吨（产量 +7.46%、销量 +11.84%）；石化系列 647 万吨/633 万吨（+19.09%/+15.82%）；精细化学品及新材料 254 万吨/256 万吨（+21.81%/+25.78%）。产量增速普遍低于销量增速，反映<strong>去库存与产能利用率提升</strong>同步发生。</p>
+<h3>5.3 股东回报</h3>
+<div class="rsp-table"><table class="compact">
+<thead><tr><th>项目</th><th>2025 年度</th><th>2026 年半年度</th></tr></thead>
+<tbody>
+  <tr><td>每 10 股派息（元，含税）</td><td>12.50</td><td>8.10</td></tr>
+  <tr><td>现金分红金额（亿元）</td><td>39.13</td><td>25.36</td></tr>
+  <tr><td>占归母净利润比例（%）</td><td>31.24</td><td>—</td></tr>
+  <tr><td>回购计入分红金额（亿元）</td><td>5.00</td><td>—</td></tr>
+  <tr><td>合计分红金额（亿元）</td><td>44.13</td><td>25.36</td></tr>
+  <tr><td>合计占归母净利润比例（%）</td><td>35.23</td><td>—</td></tr>
+</tbody>
+</table></div>
+<ul>
+  <li><strong>最近三个会计年度累计现金分红 129.40 亿元，加上回购并注销 5.00 亿元，合计 134.40 亿元，占三年年均净利润（141.25 亿元）的 95.15%</strong>。</li>
+  <li><strong>2026 年首次实施中期分红</strong>（每 10 股派 8.10 元，合计 25.36 亿元），是股东回报机制的重要升级。若下半年度参照 2025 年派息水平，2026 全年分红总额有望显著超越 2025 年。</li>
+  <li>截至 2025 年末剩余未分配利润 598.84 亿元结转以后年度分配，分红潜力充足。</li>
+</ul>
+<h3>5.4 主要风险</h3>
+<div class="rsp-table"><table class="compact">
+<thead><tr><th>风险类别</th><th>具体内容</th></tr></thead>
+<tbody>
+  <tr class="total"><td><strong>产品价格周期风险</strong></td><td>MDI、TDI 及石化产品价格具有强周期性。2025 年聚氨酯系列"量增价跌"，若 MDI 供给端新增产能集中投放，价格弹性可能再度转负。</td></tr>
+  <tr class="total"><td><strong>石化板块盈利能力薄弱</strong></td><td>2025 年石化系列毛利率仅 <strong>0.58%</strong>，收入占比却达 41.6%。该板块接近盈亏平衡，原料（石脑油、丙烷）价格波动即可导致亏损。</td></tr>
+  <tr class="total"><td><strong>短期债务快速攀升</strong></td><td>2026 年 6 月末短期借款 604.87 亿元，较上年末 <strong>+117.67%</strong>，占总资产 17.08%。同时流动负债合计（2026H1 末）持续高于流动资产合计，<strong>营运资金为负</strong>，短债滚动压力不容忽视。</td></tr>
+  <tr class="total"><td><strong>存货与应收同步扩张</strong></td><td>2026H1 末存货 329.36 亿元（+26.6%）、应收账款 196.05 亿元（+23.5%），增速与收入增速匹配，但绝对规模已高，价格下行期存在跌价与坏账风险（2026H1 已计提存货跌价与信用减值合计 8.42 亿元）。</td></tr>
+  <tr class="total"><td><strong>海外经营与地缘政治风险</strong></td><td>境外收入占比 47.6%（2025 年），匈牙利 BC 基地及全球贸易链条受地缘冲突、关税壁垒、能源价格波动影响显著。年报明确列为"海外经营风险"。</td></tr>
+  <tr class="total"><td><strong>人才与第二主业不确定性</strong></td><td>公司自述"从化工向化工+新能源战略转型"过程中面临专业人才短缺；电池材料（磷酸铁锂等）行业产能过剩、价格竞争激烈，第二主业盈利模型尚未验证。</td></tr>
+  <tr class="total"><td><strong>安全生产风险</strong></td><td>重资产化工企业的底线风险，年报列为第一风险项。</td></tr>
+  <tr class="total"><td><strong>折旧刚性上升</strong></td><td>2025 年固定资产 +32.0%，后续折旧摊销将持续压制净利率，利润率修复的弹性可能低于收入弹性。</td></tr>
+</tbody>
+</table></div>
+<h2>六、结论</h2>
+<p><strong>1　规模已成，盈利未复。</strong> 十年间万华化学营业收入从 301.00 亿元增至 2,032.35 亿元（CAGR 23.63%），总资产从 507.65 亿元增至 3,230.09 亿元（CAGR 22.83%），稳居全球化工企业 50 强第 15 位；但归母净利润自 2021 年 246.49 亿元的峰值连续四年回落至 125.27 亿元（−49.2%），2025 年毛利率 13.61% 创十年新低。"规模扩张的斜率"与"盈利改善的斜率"严重背离，是当前最核心的矛盾。</p>
+<p><strong>2　背离的根因是收入结构的"石化化"与资本开支的"重资产化"。</strong> 石化系列收入占比升至 41.6% 而毛利率仅 0.58%，精细化学品系列毛利率降至 10.53%，共同稀释了聚氨酯板块 26.88% 的高毛利；同时固定资产四年增长 4.19 倍带来折旧刚性。这不是管理水平问题，而是"一体化、规模化"战略的必然代价。</p>
+<p><strong>3　2025 年是周期拐点的"财务证据年"。</strong> 三项指标同时转向：① 在建工程从 631.59 亿元腰斩至 346.25 亿元，固定资产大增 380.78 亿元，<strong>建设期结束、产出期开启</strong>；② 资本开支从 2023 年峰值 430.98 亿元连续两年压降至 307.11 亿元；③ <strong>自由现金流由 2023 年 −163.01 亿元转为 2025 年 +23.94 亿元</strong>。十年累计经营现金流 2,538.15 亿元、累计资本开支 2,300.99 亿元（占 90.7%），这一"投入—产出"比例的逆转，是估值逻辑从"融资扩张"切换到"内生回报"的前提。</p>
+<p><strong>4　2026 年上半年验证了反转的初步成立，但现金端尚未跟上。</strong> 归母净利润 100.63 亿元（+64.35%）、毛利率 17.08%（+3.24pp）、三大板块毛利率全面回升，其中石化系列从 −0.37% 跃升至 6.81%（乙烷进料改造是核心成本变量）。但同期经营现金流仅 +11.93%，短期借款激增 117.67% 至 604.87 亿元、货币资金增至 444.06 亿元——<strong>利润修复的真实性与可持续性，需要现金流与债务结构的同步改善来确认</strong>。</p>
+<p><strong>5　关注的三个关键观察点：</strong></p>
+<ul>
+  <li><strong>MDI 价格与全球供给</strong>：2026H1 聚氨酯供应偏紧能否延续，是聚氨酯板块 26%—27% 毛利率能否守住的先决条件；</li>
+  <li><strong>石化板块盈亏平衡的稳固性</strong>：0.58% → 6.81% 的改善是否可持续（取决于乙烷—石脑油价差）；</li>
+  <li><strong>自由现金流与负债率走向</strong>：若 2026 年全年自由现金流继续为正、资产负债率继续回落，则"周期底部 + 现金流改善"的组合成立；若再度转负，则 2025 年的改善可能只是阶段性现象。</li>
+</ul>
+<h2>附录：数据来源与口径</h2>
+<div class="rsp-table rsp-w5"><table class="compact longtable dense">
+<thead><tr><th>序号</th><th>文件</th><th>覆盖期间</th><th>采用章节</th><th>说明</th></tr></thead>
+<tbody>
+  <tr><td>1</td><td>2025 年年度报告（2026-04-21）</td><td>2025 年度 + 2024 比较数</td><td>主要会计数据、分产品、产销量、研发、三大报表、分红</td><td><strong>主数据源</strong></td></tr>
+  <tr><td>2</td><td>2026 年半年度报告（2026-08-25）</td><td>2026H1 + 2025H1 比较数</td><td>主要会计数据、分产品、资产负债变动、业务讨论</td><td><strong>最新期数据源</strong></td></tr>
+  <tr><td>3</td><td>2024 年年度报告</td><td>2024 年度 + 2023 比较数</td><td>主要会计数据、现金流量</td><td>交叉校验</td></tr>
+  <tr><td>4</td><td>2023 年年度报告</td><td>2023 年度 + 2022 比较数</td><td>主要会计数据</td><td>十年序列取数</td></tr>
+  <tr><td>5</td><td>2022 年年度报告</td><td>2022 年度 + 2021 比较数</td><td>含 2021 归母净利、归母净资产、经营现金流</td><td>十年序列取数</td></tr>
+  <tr><td>6</td><td>2021 年度报告</td><td>2021 年度 + 2020 比较数</td><td>主要会计数据</td><td>十年序列取数</td></tr>
+  <tr><td>7</td><td>2020 年度报告</td><td>2020 年度 + 2019 比较数</td><td>主要会计数据、固定资产/在建工程</td><td>十年序列取数</td></tr>
+  <tr><td>8</td><td>2019 年年度报告</td><td>2019 年度 + 2018/2017 比较数</td><td>主要会计数据、追溯重述（调整后/调整前并列）</td><td><strong>重述差异来源</strong></td></tr>
+  <tr><td>9</td><td>2018 年年度报告</td><td>2018 年度 + 2017 比较数</td><td>主要会计数据</td><td>十年序列取数</td></tr>
+  <tr><td>10</td><td>2017 年年度报告</td><td>2017 年度 + 2016 比较数</td><td>主要会计数据</td><td>十年序列取数</td></tr>
+  <tr><td>11</td><td>2016 年年度报告</td><td>2016 年度 + 2015 比较数</td><td>主要会计数据（含 2016 扣非归母）</td><td>十年序列起点</td></tr>
+</tbody>
+</table></div>
+<p><strong>统一口径声明</strong></p>
+<ol>
+  <li><strong>准则与币种</strong>：中国企业会计准则（CAS）<strong>合并报表</strong>；人民币，金额单位为亿元（原始披露单位为元，已除以 10⁸）。</li>
+  <li><strong>期间处理</strong>：年度数据为该年 1—12 月完整年度数；2026H1 为 1—6 月数据，同比对照 2025H1。资产负债表、利润表、现金流量表均取<strong>合并</strong>列（同一科目在合并与母公司报表中并列出现，取数时以"合并"列校准）。</li>
+  <li><strong>自定义指标</strong>：资本开支＝现金流量表"购建固定资产、无形资产和其他长期资产支付的现金"；自由现金流＝经营活动现金流净额−资本开支（非公司披露指标）；固定资产/在建工程均取自合并资产负债表期末账面价值。</li>
+  <li><strong>可比性提示</strong>：① 2019 年吸收合并万华化工构成同一控制下企业合并，2017—2018 年比较数经追溯重述，本报告十年表统一采用<strong>原报口径</strong>（重述差异见表§1.4）；② 财会〔2016〕22 号（2016 年 5 月起）与新收入准则（2020 年起）导致相关科目口径变化，跨该时点比较仅作方向性参考。</li>
+  <li><strong>未披露项</strong>：一律以 <code>—</code> 表示，未做推算填补。表 4 中 2024 年分产品收入为按 2025 年同比变动率反推的<strong>推算值</strong>，已明确标注。</li>
+</ol>
+<p><strong>文件清单</strong>：基于 <code>万华化学/</code> 目录 179 份公告文件（2000—2026 年，下载成功率 100%）中的 11 份核心年报/半年报编制。</p>
+</body>
+</html>

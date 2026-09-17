@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>中国农业银行（601288.SH）2021—2025 年财务数据对比分析报告</title>
+<meta name="author" content="财报分析">
+<meta name="generator" content="financial-report-analysis">
+<style>
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W04.ttf") format("truetype");
+    font-weight: 400; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W05.ttf") format("truetype");
+    font-weight: 500; font-style: normal; font-display: swap;
+  }
+  @page {
+    size: A4;
+    margin: 16mm 18mm 18mm 18mm;
+    background: #F7F4EE;
+    @bottom-center {
+      content: counter(page) "  ·  财报分析";
+      font-family: "TsangerJinKai02", "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", Georgia, serif;
+      font-size: 9pt; color: #6b6a64;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --parchment:#F7F4EE; --ivory:#FBF9F4; --near-black:#22262B; --dark-warm:#3E4145;
+    --olive:#504e49; --stone:#7C7B77; --brand:#A73F2D; --brand-deep:#8A3223;
+    --accent:#A73F2D; --accent-soft:#F1E3DD; --gold:#B8862F; --teal:#2F6F6B; --blue:#1B365D;
+    --border:#E3DDD4; --border-soft:#EAE5DC;
+    --tag-bg:#F1E3DD; --positive:#A73F2D; --negative:#2F6F6B;
+    --serif: "TsangerJinKai02", "Source Han Serif SC", "Source Han Serif CN", "Noto Serif CJK SC", "Noto Serif SC", "Songti SC", "STSong", "SimSun", Georgia, serif;
+    --rhythm-module:14pt; --rhythm-section:18pt;
+  }
+  html, body { background: var(--parchment); }
+  @media screen { body { max-width: 210mm; margin: 0 auto; padding: 16mm 18mm 18mm 18mm; } }
+  body { color: var(--near-black); font-family: var(--serif); font-size: 10pt; line-height: 1.5;
+    letter-spacing: 0.3pt; widows: 3; orphans: 3; }
+  strong { font-weight: 500; }
+  .hl { color: var(--brand); font-weight: 500; }
+
+  .report-header { display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: var(--rhythm-module); padding-bottom: 10pt; border-bottom: 0.5pt solid var(--border); }
+  .ticker-block { flex: 1; }
+  .ticker-eyebrow { font-size: 9pt; color: var(--brand); letter-spacing: 1.5pt; text-transform: uppercase;
+    font-weight: 500; margin-bottom: 4pt; }
+  .ticker-name { font-family: var(--serif); font-size: 24pt; font-weight: 500; color: var(--near-black);
+    line-height: 1.15; margin-bottom: 4pt; }
+  .ticker-sub { font-size: 10pt; color: var(--olive); line-height: 1.4; }
+  .price-block { text-align: right; padding-top: 4pt; }
+  .price-current { font-family: var(--serif); font-size: 28pt; font-weight: 500; color: var(--near-black);
+    line-height: 1; font-variant-numeric: tabular-nums; }
+  .price-change { font-size: 10pt; font-weight: 500; margin-top: 2pt; font-variant-numeric: tabular-nums; }
+  .price-change.up { color: var(--positive); }
+  .price-date { font-size: 9pt; color: var(--stone); margin-top: 2pt; }
+
+  .metrics { display: flex; gap: 14pt; margin-bottom: 16pt; padding: 6pt 0;
+    border-top: 0.3pt dotted var(--border); border-bottom: 0.3pt dotted var(--border); }
+  .metric { flex: 1; display: flex; align-items: baseline; gap: 4pt; }
+  .metric-value { font-family: var(--serif); font-size: 16pt; font-weight: 500; color: var(--brand);
+    line-height: 1; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .metric-label { font-size: 9pt; color: var(--olive); line-height: 1.3; white-space: nowrap; }
+
+  h2 { font-family: var(--serif); font-size: 16pt; font-weight: 500; color: var(--near-black);
+    margin: 18pt 0 6pt 0; break-after: avoid; }
+  h3 { font-size: 13pt; font-weight: 500; color: var(--dark-warm); margin: 12pt 0 4pt 0; break-after: avoid; }
+  p { margin: 0 0 8pt 0; line-height: 1.5; widows: 2; orphans: 2; }
+  ul, ol { margin: 4pt 0 8pt 0; padding-left: 18pt; line-height: 1.5; }
+  ul li::marker { color: var(--brand); } ol li::marker { color: var(--brand); font-weight: 500; }
+
+  .tag { display: inline-block; background: var(--tag-bg); color: var(--brand); font-size: 9pt;
+    font-weight: 500; padding: 1pt 6pt; border-radius: 3pt; margin-right: 3pt; }
+
+  table, .kami-table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin: 8pt 0; break-inside: avoid; }
+  table th, .kami-table th { text-align: left; font-weight: 500; color: var(--dark-warm);
+    padding: 6pt 8pt; border-bottom: 0.6pt solid var(--border); background: transparent; }
+  table td, .kami-table td { padding: 5pt 8pt; border-bottom: 0.25pt solid var(--border); vertical-align: top; }
+  table.compact th, .kami-table.compact th { padding: 3pt 6pt; font-size: 8pt; }
+  table.compact td, .kami-table.compact td { padding: 2.5pt 6pt; font-size: 8pt; line-height: 1.4; }
+  table.financial td:not(:first-child), .kami-table.financial td:not(:first-child) {
+    text-align: right; font-variant-numeric: tabular-nums; }
+  table.financial th:not(:first-child), .kami-table.financial th:not(:first-child) { text-align: right; }
+  table .total td, .kami-table .total td { font-weight: 500; border-top: 0.6pt solid var(--border);
+    border-bottom: none; color: var(--near-black); }
+  .note { font-size: 8.5pt; color: var(--stone); margin: 2pt 0 8pt 0; }
+
+  .callout { background: var(--ivory); padding: 8pt 12pt; border-radius: 3pt; margin: 10pt 0;
+    line-height: 1.5; break-inside: avoid; }
+  .callout .quote { margin: 6pt 0; color: var(--olive); }
+
+  figure { margin: 12pt 0; break-inside: avoid; }
+  figcaption { font-size: 9pt; color: var(--stone); margin-top: 4pt; text-align: center; }
+
+  .risk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10pt; margin: 8pt 0; }
+  .risk-item { padding: 6pt 10pt; background: var(--ivory); border-radius: 3pt; break-inside: avoid; }
+  .risk-label { font-size: 9pt; font-weight: 500; color: var(--brand); margin-bottom: 2pt; }
+  .risk-desc { font-size: 9pt; color: var(--olive); line-height: 1.4; }
+
+  .analyst-box { background: var(--ivory); border-radius: 4pt; padding: 10pt 14pt; margin: 12pt 0;
+    break-inside: avoid; }
+  .analyst-label { font-size: 9pt; color: var(--brand); letter-spacing: 0.5pt; text-transform: uppercase;
+    margin-bottom: 4pt; }
+
+  .page-break { break-before: page; }
+
+  /* ===== 富配色增强：砖红主色 #A73F2D + 四色数据 + 深炭标题 #22262B ===== */
+  h2 { position: relative; padding-left: 13pt; }
+  h2::before { content:""; position:absolute; left:0; top:2.5pt; width:4pt; height:13pt;
+    background:var(--accent); border-radius:1pt; }
+  table th, .kami-table th { border-bottom: 1pt solid var(--accent); }
+  .metric:nth-child(1) .metric-value { color: var(--accent); }
+  .metric:nth-child(2) .metric-value { color: var(--gold); }
+  .metric:nth-child(3) .metric-value { color: var(--teal); }
+  .metric:nth-child(4) .metric-value { color: var(--blue); }
+  .callout { border-left: 3pt solid var(--accent); }
+  .analyst-box { border-left: 3pt solid var(--accent); }
+  .risk-item { border-left: 2.5pt solid var(--accent); }
+  .tag { background: var(--accent-soft); color: var(--brand-deep); }
+  .price-current { color: var(--near-black); }
+  .ticker-sub { color: var(--stone); }
+
+  .callout.warn { border-left: 3pt solid var(--accent); background: #F1E3DD; }
+  .callout.warn strong { color: var(--brand-deep); }
+  .callout { font-size: 9pt; }
+  .metrics { display: flex; gap: 10pt; }
+  .metric { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column;
+    align-items: flex-start; gap: 2pt; }
+  .metric-value { font-size: 13pt; white-space: nowrap; line-height: 1.05; }
+  .metric-label { white-space: normal; font-size: 8.5pt; line-height: 1.3; }
+  table.wide { font-size: 6.5pt; }
+  table.wide th, table.wide td { padding: 2.5pt 2.5pt; }
+  table { break-inside: auto; }
+  tr { break-inside: avoid; }
+  thead { display: table-header-group; }
+  h2 { break-after: avoid; }
+  h3 { break-after: avoid; }
+  table { font-size: 8.6pt; }
+  table.compact th { font-size: 7.8pt; }
+  table.compact td { font-size: 7.8pt; padding: 2.6pt 3pt; }
+  table.dense th, table.dense td { font-size: 7.5pt; line-height: 1.34; padding: 2.2pt 2.6pt; }
+  table.financial td, table.financial th { text-align: right; }
+  table.financial td:first-child, table.financial th:first-child { text-align: left; }
+</style>
+
+<!-- rsp-mobile-adapt : 响应式适配层（仅屏幕生效，不影响打印/PDF） -->
+<style id="rsp-mobile-adapt">
+/* ========== 1. 全局：屏幕端基础修正 ========== */
+@media screen {
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body { overflow-wrap: break-word; }
+  img, svg, canvas, video, iframe { max-width: 100%; }
+  svg[viewBox], svg[viewbox] { height: auto; }
+
+  /* 表格横向滚动容器：宽表不压字、不撑破页面 */
+  .rsp-table {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    margin: 8pt 0;
+    position: relative;
+  }
+  .rsp-table > table { margin: 0; }
+  .rsp-table::-webkit-scrollbar { height: 7px; }
+  .rsp-table::-webkit-scrollbar-track { background: transparent; }
+  .rsp-table::-webkit-scrollbar-thumb { background: #D8D1C4; border-radius: 4px; }
+  /* 内容确实溢出时，右侧给一层渐变暗示"还能往右滑" */
+  .rsp-table[data-rsp-scroll] {
+    background: linear-gradient(to left, rgba(167,63,45,.10), rgba(167,63,45,0) 28px);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 28px 100%;
+  }
+}
+
+/* ========== 2. 平板 / 窄窗口：边距先收，避免内容被挤 ========== */
+@media screen and (max-width: 900px) {
+  body { padding: 22px 22px 46px 22px !important; }
+  .report-header { flex-wrap: wrap; gap: 12pt; }
+  .metrics { flex-wrap: wrap; gap: 10pt 18pt; }
+  .metric { flex: 1 1 42%; min-width: 0; }
+  .report-footer { flex-wrap: wrap; gap: 4pt 14pt; }
+
+  /* 宽表改为横向滚动：给每列保留最小可读宽度，不再把汉字挤成竖排 */
+  .rsp-w5 > table { min-width: 310px !important; }
+  .rsp-w6 > table { min-width: 372px !important; }
+  .rsp-w7 > table { min-width: 434px !important; }
+  .rsp-w8 > table { min-width: 496px !important; }
+  .rsp-w9 > table { min-width: 558px !important; }
+  .rsp-w10 > table { min-width: 620px !important; }
+  .rsp-w11 > table { min-width: 682px !important; }
+  .rsp-w12 > table { min-width: 744px !important; }
+  .rsp-w13 > table { min-width: 806px !important; }
+  .rsp-w14 > table { min-width: 868px !important; }
+  .rsp-w15 > table { min-width: 930px !important; }
+  .rsp-w16 > table { min-width: 992px !important; }
+}
+
+/* ========== 3. 手机：指标卡两列、页头转纵向 ========== */
+@media screen and (max-width: 720px) {
+  body {
+    max-width: 100% !important;
+    padding: 18px 16px 44px 16px !important;
+    font-size: 10.5pt;
+  }
+  h2 { font-size: 15pt !important; margin: 20pt 0 7pt 0 !important; }
+  h3 { font-size: 12.5pt !important; }
+  h1 { font-size: 19pt !important; }
+  p, li { line-height: 1.62; }
+  ul, ol { padding-left: 17pt; }
+
+  .report-header { flex-direction: column; align-items: stretch; gap: 8pt; }
+  .price-block { text-align: left; padding-top: 0; }
+  .price-current { font-size: 24pt !important; }
+  .ticker-name { font-size: 21pt !important; }
+  .ticker-sub { font-size: 9.5pt !important; }
+
+  .metrics { gap: 9pt 12pt; }
+  .metric { flex: 1 1 45%; }
+  .metric-value { font-size: 15pt !important; }
+  .metric-label { font-size: 8.5pt !important; white-space: normal !important; }
+
+  table, .kami-table { font-size: 9pt !important; }
+  .longtable { font-size: 8.5pt !important; }
+  .wide { font-size: 7.5pt !important; }
+  .dense { font-size: 8pt !important; }
+  table th, table td, .kami-table th, .kami-table td { padding: 5pt 6pt !important; }
+
+  blockquote, .quote, .note, .warn, .callout, .risk-item { padding: 9pt 11pt !important; }
+  .risk-grid { grid-template-columns: 1fr !important; }
+  .report-footer { flex-direction: column; align-items: flex-start; gap: 3pt; }
+}
+
+/* ========== 4. 小屏手机：指标卡单列、边距收到最紧 ========== */
+@media screen and (max-width: 430px) {
+  body { padding: 14px 12px 38px 12px !important; }
+  h2 { font-size: 14pt !important; }
+  h3 { font-size: 11.5pt !important; }
+  .ticker-name { font-size: 19pt !important; }
+  .price-current { font-size: 21pt !important; }
+  .metric { flex: 1 1 100%; }
+  .metric-value { font-size: 16pt !important; }
+  ul, ol { padding-left: 15pt; }
+  table, .kami-table { font-size: 8.5pt !important; }
+}
+
+/* ========== 5. 打印：把包裹层还原成透明，PDF 版式与补丁前完全一致 ========== */
+@media print {
+  .rsp-table { margin: 0; padding: 0; overflow: visible !important; background: none !important; }
+  .rsp-table > table { margin: 8pt 0; min-width: 0 !important; }
+  [class*="rsp-w"] > table { min-width: 0 !important; }
+}
+</style>
+</head>
+<body>
+<div class="report-header">
+  <div class="ticker-block">
+    <div class="ticker-eyebrow">国有大型商业银行 · 财务数据对比分析</div>
+    <div class="ticker-name">中国农业银行 <span style="font-size:14pt;color:var(--stone);">601288.SH / 1288.HK</span></div>
+    <div class="ticker-sub">2021—2025 年年度报告 · 2026 年半年度报告 · 单位：人民币百万元 · 中国企业会计准则</div>
+  </div>
+  <div class="price-block">
+    <div class="price-current">2,910.41</div>
+    <div class="price-change up">2025 归母净利润（亿元）</div>
+    <div class="price-date">数据截至 2026 年 6 月 30 日</div>
+  </div>
+</div>
+
+<div class="metrics">
+  <div class="metric"><div class="metric-value">7,253.06 亿</div><div class="metric-label">2025 营业收入<br>同比 +2.08%</div></div>
+  <div class="metric"><div class="metric-value">2,910.41 亿</div><div class="metric-label">2025 归母净利润<br>同比 +3.18%</div></div>
+  <div class="metric"><div class="metric-value">1.28%</div><div class="metric-label">2025 净息差<br>同比 −14BP</div></div>
+  <div class="metric"><div class="metric-value">10.80%</div><div class="metric-label">核心一级资本充足率<br>2026H1</div></div>
+</div>
+
+<div class="callout note"><strong>报告口径说明</strong>：本报告财务数据除特别注明外，均取自中国农业银行股份有限公司 2021—2025 年年度报告及 2026 年半年度报告，按<strong>中国企业会计准则</strong>编制，以<strong>人民币百万元</strong>为单位（正文另有说明者除外）。会计期间为公历年度。A 股代码 601288、H 股代码 1288。审计机构为毕马威华振会计师事务所（特殊普通合伙）。</div>
+<h2>一、公司概况</h2>
+<h3>1.1 基本信息</h3>
+<div class="rsp-table"><table class="financial compact longtable"><thead><tr><th>项目</th><th>内容</th></tr></thead><tbody><tr><td>法定中文名称</td><td>中国农业银行股份有限公司</td></tr><tr><td>简称</td><td>中国农业银行（ABC）</td></tr><tr><td>法定代表人</td><td>谷澍</td></tr><tr><td>A 股上市地／代码</td><td>上海证券交易所／601288</td></tr><tr><td>H 股上市地／代码</td><td>香港联合交易所有限公司／1288</td></tr><tr><td>优先股</td><td>农行优 1（360001）、农行优 2（360009）</td></tr><tr><td>注册与办公地址</td><td>中国北京市东城区建国门内大街 69 号</td></tr><tr><td>普通股股本</td><td>3,499.83 亿股</td></tr><tr><td>国内审计师</td><td>毕马威华振会计师事务所（特殊普通合伙）</td></tr></tbody></table></div>
+<h3>1.2 业务定位：唯一"县域金融"全牌照国有大行</h3>
+<p>农业银行是国有大型商业银行中<strong>唯一将"服务乡村振兴"作为法定战略定位</strong>的机构。截至 2025 年末：</p>
+<ul><li><strong>县域贷款余额 10.9 万亿元</strong>，增速 11.0%，占境内贷款比重 <strong>41.0%</strong>；</li><li>粮食和重要农产品保供相关领域、乡村产业、乡村建设领域贷款余额分别为 1.21 万亿元、2.66 万亿元、2.46 万亿元，增速 20.3%、19.5%、9.6%，分别高于全行 11.4、10.6、0.7 个百分点；</li><li>160 个国家乡村振兴重点帮扶县贷款余额 4,800 亿元，增速 9.9%；</li><li>乡镇服务覆盖率持续提升，建成惠农服务站 1,742 个，县域手机银行月活客户数 1.3 亿户，"惠农 e 贷"余额 1.84 万亿元、增速 22.9%；</li><li><strong>连续 5 年</strong>在服务乡村振兴监管考核评估中获评最高等级"优秀"，为 20 家全国性金融机构中<strong>唯一</strong>一家。</li></ul>
+<p>这一结构决定了农行的资产端定价与风险画像与同业存在系统性差异（详见第四章 4.7 节）。</p>
+<h3>1.3 口径说明（数据可比性的三道分界）</h3>
+<p><strong>必须提示的三项口径事项，是理解本报告全部跨期比较的前提：</strong></p>
+<ol><li><strong>新保险合同准则（财会〔2020〕20 号）</strong>：本行自 <strong>2023 年 1 月 1 日</strong>起首次执行，并对 2022 年度财务报表相关信息进行了调整。<strong>2022 年因此是"双口径年"</strong>——营业收入由原口径 724,868 调整为 694,652（<strong>减少 30,216</strong>）；成本收入比由 31.63% 变为 32.81%；手续费及佣金净收入比营业收入由 11.21% 变为 11.70%；资产总额由 33,927,533 微调为 33,925,488；归母权益由 2,668,412 微调为 2,668,063。<strong>本报告 2022 年数据一律采用调整后口径并加注，2021 年及以前未按新准则重述</strong>，故跨 2021／2022 分界的收入类指标不可直接比较。</li><li><strong>资本计量规则</strong>：自 <strong>2024 年 1 月 1 日</strong>起按《商业银行资本管理办法》计量，2024 年 1 月 1 日之前按《商业银行资本管理办法（试行）》计量。2024 年资本充足率的大幅跃升含口径因素。</li><li><strong>"本行"与"本集团"</strong>：本行 2021 年完成子公司并表后，贷款五级分类表与逾期贷款表的"合计"数已与合并报表发放贷款和垫款总额勾稽一致（2025 年末 27,082,646 ＋ 应计利息 52,188 ＝ 27,134,834），<strong>本报告按合并口径使用</strong>。年报 MD&amp;A 文字中的"本行不良贷款余额"表述沿用其原始用语，实际与合并数一致。</li></ol>
+<h2>二、核心财务数据对比</h2>
+<figure><svg viewBox="0 0 680 300" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="'TsangerJinKai02','Songti SC','Noto Serif CJK SC',serif"><rect x="0" y="0" width="680" height="300" fill="#FBF9F4" rx="4"/><line x1="52" y1="236.0" x2="660" y2="236.0" stroke="#E3DDD4" stroke-width="0.8"/><text x="44" y="239.5" font-size="10" fill="#7C7B77" text-anchor="end">0</text><line x1="52" y1="195.6" x2="660" y2="195.6" stroke="#E3DDD4" stroke-width="0.8"/><text x="44" y="199.1" font-size="10" fill="#7C7B77" text-anchor="end">1,500</text><line x1="52" y1="155.2" x2="660" y2="155.2" stroke="#E3DDD4" stroke-width="0.8"/><text x="44" y="158.7" font-size="10" fill="#7C7B77" text-anchor="end">3,000</text><line x1="52" y1="114.8" x2="660" y2="114.8" stroke="#E3DDD4" stroke-width="0.8"/><text x="44" y="118.3" font-size="10" fill="#7C7B77" text-anchor="end">4,500</text><line x1="52" y1="74.4" x2="660" y2="74.4" stroke="#E3DDD4" stroke-width="0.8"/><text x="44" y="77.9" font-size="10" fill="#7C7B77" text-anchor="end">6,000</text><line x1="52" y1="34.0" x2="660" y2="34.0" stroke="#E3DDD4" stroke-width="0.8"/><text x="44" y="37.5" font-size="10" fill="#7C7B77" text-anchor="end">7,500</text><rect x="82.4" y="42.1" width="40.5" height="193.9" fill="#CFC7BA" rx="1"/><text x="102.7" y="37.1" font-size="9.5" fill="#22262B" text-anchor="middle">7,199</text><rect x="183.7" y="48.9" width="40.5" height="187.1" fill="#CFC7BA" rx="1"/><text x="204.0" y="43.9" font-size="9.5" fill="#22262B" text-anchor="middle">6,947</text><rect x="285.1" y="48.9" width="40.5" height="187.1" fill="#CFC7BA" rx="1"/><text x="305.3" y="43.9" font-size="9.5" fill="#22262B" text-anchor="middle">6,948</text><rect x="386.4" y="44.6" width="40.5" height="191.4" fill="#CFC7BA" rx="1"/><text x="406.7" y="39.6" font-size="9.5" fill="#22262B" text-anchor="middle">7,106</text><rect x="487.7" y="40.7" width="40.5" height="195.3" fill="#CFC7BA" rx="1"/><text x="508.0" y="35.7" font-size="9.5" fill="#22262B" text-anchor="middle">7,253</text><rect x="589.1" y="125.3" width="40.5" height="110.7" fill="#A73F2D" rx="1"/><text x="609.3" y="120.3" font-size="9.5" fill="#A73F2D" text-anchor="middle">4,109</text><polyline points="102.7,171.0 204.0,166.2 305.3,163.5 406.7,160.0 508.0,157.6 609.3,196.6" fill="none" stroke="#1B365D" stroke-width="2.2"/><circle cx="102.7" cy="171.0" r="3" fill="#1B365D"/><text x="102.7" y="162.0" font-size="9.5" fill="#22262B" text-anchor="middle">2,412</text><circle cx="204.0" cy="166.2" r="3" fill="#1B365D"/><text x="204.0" y="157.2" font-size="9.5" fill="#22262B" text-anchor="middle">2,592</text><circle cx="305.3" cy="163.5" r="3" fill="#1B365D"/><text x="305.3" y="154.5" font-size="9.5" fill="#22262B" text-anchor="middle">2,694</text><circle cx="406.7" cy="160.0" r="3" fill="#1B365D"/><text x="406.7" y="151.0" font-size="9.5" fill="#22262B" text-anchor="middle">2,821</text><circle cx="508.0" cy="157.6" r="3" fill="#1B365D"/><text x="508.0" y="148.6" font-size="9.5" fill="#22262B" text-anchor="middle">2,910</text><circle cx="609.3" cy="196.6" r="4" fill="#A73F2D"/><text x="609.3" y="187.6" font-size="9.5" fill="#22262B" text-anchor="middle">1,464</text><text x="102.7" y="254.0" font-size="10.5" fill="#7C7B77" text-anchor="middle">2021</text><text x="204.0" y="254.0" font-size="10.5" fill="#7C7B77" text-anchor="middle">2022</text><text x="305.3" y="254.0" font-size="10.5" fill="#7C7B77" text-anchor="middle">2023</text><text x="406.7" y="254.0" font-size="10.5" fill="#7C7B77" text-anchor="middle">2024</text><text x="508.0" y="254.0" font-size="10.5" fill="#7C7B77" text-anchor="middle">2025</text><text x="609.3" y="254.0" font-size="10.5" fill="#7C7B77" text-anchor="middle">2026H1</text><line x1="52" y1="236" x2="660" y2="236" stroke="#7C7B77" stroke-width="1"/><rect x="52" y="8" width="11" height="11" fill="#CFC7BA" rx="1"/><text x="68" y="17.5" font-size="10.5" fill="#22262B">营业收入（亿元，柱）</text><line x1="234" y1="13.5" x2="254" y2="13.5" stroke="#1B365D" stroke-width="2.2"/><circle cx="244" cy="13.5" r="3" fill="#1B365D"/><text x="260" y="17.5" font-size="10.5" fill="#22262B">归母净利润（亿元，线）</text><text x="660" y="17.5" font-size="10" fill="#7C7B77" text-anchor="end">红色＝最新期</text></svg><figcaption>图 1　营业收入与归母净利润趋势（2021—2025，附 2026H1）</figcaption></figure>
+<h3>表 1　经营业绩与盈利能力（人民币百万元）</h3>
+<div class="rsp-table rsp-w7"><table class="financial compact"><thead><tr><th>年度</th><th>营业收入</th><th>同比</th><th>归母净利润</th><th>同比</th><th>基本每股收益（元）</th><th>加权平均 ROE（%）</th></tr></thead><tbody><tr class="total"><td><strong>2021</strong></td><td>719,915</td><td>—</td><td>241,183</td><td>—</td><td>0.65</td><td>11.57</td></tr><tr class="total"><td><strong>2022</strong></td><td>694,652※</td><td>−3.5%※</td><td>259,232</td><td>+7.5%</td><td>0.69</td><td>11.29</td></tr><tr class="total"><td><strong>2023</strong></td><td>694,828</td><td>+0.03%</td><td>269,356</td><td>+3.91%</td><td>0.72</td><td>10.91</td></tr><tr class="total"><td><strong>2024</strong></td><td>710,555</td><td>+2.26%</td><td>282,083</td><td>+4.72%</td><td>0.75</td><td>10.46</td></tr><tr class="total"><td><strong>2025</strong></td><td>725,306</td><td>+2.08%</td><td>291,041</td><td>+3.18%</td><td>0.78</td><td>10.16</td></tr><tr class="total"><td><strong>2026H1</strong></td><td>410,871</td><td>+11.07%</td><td>146,381</td><td>+4.93%</td><td>0.40</td><td>10.14\*</td></tr></tbody></table></div>
+<p class="note">注：※ 2022 年采用新保险合同准则调整后口径；2021 年未重述，故 2022 年同比含口径差异（若按 2022 年<strong>原披露口径</strong> 724,868 计算，同比为 <strong>+0.69%</strong>）。\* 2026H1 的 ROE 为未年化半年度数据。</p>
+<p><strong>读表要点</strong>：营收五年累计 <strong>+0.75%</strong>（719,915 → 725,306），归母净利润五年累计 <strong>+20.67%</strong>（241,183 → 291,041）——<strong>利润增速系统性地快于收入增速</strong>，这一背离贯穿五年，第四章 4.2 节将给出量化归因。</p>
+<h3>表 2　资产负债与存贷款规模（人民币百万元）</h3>
+<div class="rsp-table rsp-w7"><table class="financial compact"><thead><tr><th>期末</th><th>总资产</th><th>总负债</th><th>归母权益</th><th>吸收存款</th><th>发放贷款和垫款</th><th>存贷比</th></tr></thead><tbody><tr class="total"><td><strong>2021</strong></td><td>29,069,155</td><td>26,647,796</td><td>2,414,605</td><td>21,907,127</td><td>17,175,073</td><td>78.40%</td></tr><tr class="total"><td><strong>2022</strong></td><td>33,925,488</td><td>31,251,728</td><td>2,668,063</td><td>25,121,040</td><td>19,763,827</td><td>78.67%</td></tr><tr class="total"><td><strong>2023</strong></td><td>39,872,989</td><td>36,976,122</td><td>2,889,248</td><td>28,898,468</td><td>22,614,621</td><td>78.26%</td></tr><tr class="total"><td><strong>2024</strong></td><td>43,238,135</td><td>40,140,862</td><td>3,090,808</td><td>30,305,357</td><td>24,906,187</td><td>82.18%</td></tr><tr class="total"><td><strong>2025</strong></td><td>48,784,674</td><td>45,541,303</td><td>3,237,182</td><td>32,649,947</td><td>27,134,834</td><td>83.11%</td></tr><tr class="total"><td><strong>2026H1</strong></td><td>51,058,873</td><td>47,724,033</td><td>3,328,014</td><td>34,050,893</td><td>28,824,760</td><td>84.65%</td></tr></tbody></table></div>
+<p class="note">注：存贷比 = 发放贷款和垫款总额 ÷ 吸收存款。</p>
+<p><strong>读表要点</strong>：总资产五年增长 <strong>67.82%</strong>（29.07 万亿 → 48.78 万亿），2026H1 突破 <strong>51 万亿元</strong>；存款五年增长 49.02%，贷款五年增长 58.01%。<strong>贷款增速持续高于存款增速，是存贷比从 78.40% 升至 84.65% 的直接原因</strong>——这一趋势在 2024 年出现跳变（+3.92 个百分点），与"资产投放靠前发力"的政策节奏一致，但也意味着流动性缓冲垫在变薄。</p>
+<h3>表 3　资产质量与风险抵补（%）</h3>
+<div class="rsp-table rsp-w8"><table class="financial compact"><thead><tr><th>期末</th><th>不良贷款率</th><th>不良余额（百万元）</th><th>关注类占比</th><th>不良＋关注</th><th>拨备覆盖率</th><th>贷款拨备率</th><th>逾期贷款率</th></tr></thead><tbody><tr class="total"><td><strong>2021</strong></td><td>1.43</td><td>245,782</td><td>1.47</td><td>2.90</td><td>299.73</td><td>4.30</td><td>1.08</td></tr><tr class="total"><td><strong>2022</strong></td><td>1.37</td><td>271,062</td><td>1.46</td><td>2.83</td><td>302.60</td><td>4.16</td><td>1.08</td></tr><tr class="total"><td><strong>2023</strong></td><td>1.33</td><td>300,760</td><td>1.42</td><td>2.75</td><td>303.87</td><td>4.05</td><td>1.08</td></tr><tr class="total"><td><strong>2024</strong></td><td>1.30</td><td>322,165</td><td>1.40</td><td>2.70</td><td>299.61</td><td>3.88</td><td>1.18</td></tr><tr class="total"><td><strong>2025</strong></td><td>1.27</td><td>343,456</td><td>1.39</td><td>2.66</td><td>292.55</td><td>3.71</td><td>1.25</td></tr><tr class="total"><td><strong>2026H1</strong></td><td>1.25</td><td>359,652</td><td>1.38</td><td>2.61</td><td>290.10</td><td>3.63</td><td>1.24</td></tr></tbody></table></div>
+<p class="note">注：关注类占比按五级分类"小计"（不含应计利息）口径计算；2026H1 关注类贷款余额 396,978 百万元。</p>
+<p><strong>读表要点</strong>：不良率连续五年下降（1.43% → 1.25%），且 <strong>"不良＋关注"合计持续收敛</strong>（2.90% → 2.61%），这是总量层面的正面证据。但<strong>拨备覆盖率与贷款拨备率连续两年双降</strong>（299.61% → 292.55% → 290.10%；3.88% → 3.71% → 3.63%），且不良余额仍在扩张，说明<strong>风险抵补能力的改善已经停滞</strong>。详见 4.4 节。</p>
+<figure><svg viewBox="0 0 680 285" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="'TsangerJinKai02','Songti SC','Noto Serif CJK SC',serif"><rect x="0" y="0" width="680" height="285" fill="#FBF9F4" rx="4"/><line x1="50" y1="222.0" x2="592" y2="222.0" stroke="#E3DDD4" stroke-width="0.8"/><text x="42" y="225.5" font-size="10" fill="#7C7B77" text-anchor="end">0%</text><line x1="50" y1="175.5" x2="592" y2="175.5" stroke="#E3DDD4" stroke-width="0.8"/><text x="42" y="179.0" font-size="10" fill="#7C7B77" text-anchor="end">3%</text><line x1="50" y1="129.0" x2="592" y2="129.0" stroke="#E3DDD4" stroke-width="0.8"/><text x="42" y="132.5" font-size="10" fill="#7C7B77" text-anchor="end">6%</text><line x1="50" y1="82.5" x2="592" y2="82.5" stroke="#E3DDD4" stroke-width="0.8"/><text x="42" y="86.0" font-size="10" fill="#7C7B77" text-anchor="end">9%</text><line x1="50" y1="36.0" x2="592" y2="36.0" stroke="#E3DDD4" stroke-width="0.8"/><text x="42" y="39.5" font-size="10" fill="#7C7B77" text-anchor="end">12%</text><text x="644" y="225.5" font-size="10" fill="#2F6F6B" text-anchor="start">0.50%</text><text x="644" y="184.2" font-size="10" fill="#2F6F6B" text-anchor="start">0.60%</text><text x="644" y="142.8" font-size="10" fill="#2F6F6B" text-anchor="start">0.70%</text><text x="644" y="101.5" font-size="10" fill="#2F6F6B" text-anchor="start">0.80%</text><text x="644" y="60.2" font-size="10" fill="#2F6F6B" text-anchor="start">0.90%</text><rect x="77.1" y="42.7" width="36.1" height="179.3" fill="#CFC7BA" rx="1"/><text x="95.2" y="38.7" font-size="9.5" fill="#22262B" text-anchor="middle">11.57</text><rect x="167.4" y="47.0" width="36.1" height="175.0" fill="#CFC7BA" rx="1"/><text x="185.5" y="43.0" font-size="9.5" fill="#22262B" text-anchor="middle">11.29</text><rect x="257.8" y="52.9" width="36.1" height="169.1" fill="#CFC7BA" rx="1"/><text x="275.8" y="48.9" font-size="9.5" fill="#22262B" text-anchor="middle">10.91</text><rect x="348.1" y="59.9" width="36.1" height="162.1" fill="#CFC7BA" rx="1"/><text x="366.2" y="55.9" font-size="9.5" fill="#22262B" text-anchor="middle">10.46</text><rect x="438.4" y="64.5" width="36.1" height="157.5" fill="#CFC7BA" rx="1"/><text x="456.5" y="60.5" font-size="9.5" fill="#22262B" text-anchor="middle">10.16</text><rect x="528.8" y="64.8" width="36.1" height="157.2" fill="#A73F2D" rx="1"/><text x="546.8" y="60.8" font-size="9.5" fill="#A73F2D" text-anchor="middle">10.14</text><polyline points="95.2,73.2 185.5,89.7 275.8,126.9 366.2,147.6 456.5,168.3 546.8,184.8" fill="none" stroke="#2F6F6B" stroke-width="2.4"/><circle cx="95.2" cy="73.2" r="3" fill="#2F6F6B"/><circle cx="185.5" cy="89.7" r="3" fill="#2F6F6B"/><circle cx="275.8" cy="126.9" r="3" fill="#2F6F6B"/><circle cx="366.2" cy="147.6" r="3" fill="#2F6F6B"/><circle cx="456.5" cy="168.3" r="3" fill="#2F6F6B"/><circle cx="546.8" cy="184.8" r="3" fill="#2F6F6B"/><text x="95.2" y="65.2" font-size="9" fill="#2F6F6B" text-anchor="middle">0.86</text><text x="546.8" y="176.8" font-size="9" fill="#2F6F6B" text-anchor="middle">0.59</text><text x="95.2" y="240.0" font-size="10.5" fill="#7C7B77" text-anchor="middle">2021</text><text x="185.5" y="240.0" font-size="10.5" fill="#7C7B77" text-anchor="middle">2022</text><text x="275.8" y="240.0" font-size="10.5" fill="#7C7B77" text-anchor="middle">2023</text><text x="366.2" y="240.0" font-size="10.5" fill="#7C7B77" text-anchor="middle">2024</text><text x="456.5" y="240.0" font-size="10.5" fill="#7C7B77" text-anchor="middle">2025</text><text x="546.8" y="240.0" font-size="10.5" fill="#7C7B77" text-anchor="middle">2026H1</text><line x1="50" y1="222" x2="592" y2="222" stroke="#7C7B77" stroke-width="1"/><rect x="50" y="8" width="11" height="11" fill="#CFC7BA" rx="1"/><text x="66" y="17.5" font-size="10.5" fill="#22262B">加权平均 ROE（%，柱，左轴）</text><line x1="300" y1="13.5" x2="320" y2="13.5" stroke="#2F6F6B" stroke-width="2.4"/><text x="326" y="17.5" font-size="10.5" fill="#22262B">平均总资产回报率 ROA（%，线，右轴）</text></svg><figcaption>图 2　加权平均 ROE 与平均总资产回报率 ROA 五年轨迹（左轴 ROE、右轴 ROA）</figcaption></figure>
+<h3>表 4　资本充足率与经营效率（%）</h3>
+<div class="rsp-table rsp-w6"><table class="financial compact"><thead><tr><th>期末</th><th>核心一级资本充足率</th><th>一级资本充足率</th><th>资本充足率</th><th>成本收入比</th><th>平均总资产回报率 ROA</th></tr></thead><tbody><tr class="total"><td><strong>2021</strong></td><td>11.44</td><td>13.46</td><td>17.13</td><td>30.46</td><td>0.86</td></tr><tr class="total"><td><strong>2022</strong></td><td>11.15</td><td>13.37</td><td>17.20</td><td>32.81</td><td>0.82</td></tr><tr class="total"><td><strong>2023</strong></td><td>10.72</td><td>12.87</td><td>17.14</td><td>33.86</td><td>0.73</td></tr><tr class="total"><td><strong>2024</strong></td><td>11.42</td><td>13.63</td><td>18.19</td><td>34.40</td><td>0.68</td></tr><tr class="total"><td><strong>2025</strong></td><td>11.08</td><td>12.97</td><td>17.93</td><td>35.18</td><td>0.63</td></tr><tr class="total"><td><strong>2026H1</strong></td><td>10.80</td><td>12.59</td><td>17.50</td><td>26.34</td><td>0.59</td></tr></tbody></table></div>
+<p class="note">注：2024 年及以后按《商业银行资本管理办法》计量，2024 年以前按《试行》办法，<strong>2024 年数据含计量规则变更影响，不宜与 2023 年直接相减</strong>。</p>
+<p><strong>读表要点</strong>：资本充足率五年在 17%—18% 区间高位运行，距监管红线充裕；<strong>成本收入比五年连升 4.72 个百分点（30.46% → 35.18%）</strong>，是 ROA 从 0.86% 降至 0.63% 的重要分母端原因。</p>
+<h3>表 5　营业收入结构（人民币百万元）</h3>
+<div class="rsp-table rsp-w8"><table class="financial compact"><thead><tr><th>期间</th><th>营业收入</th><th>利息净收入</th><th>占比</th><th>手续费及佣金净收入</th><th>占比</th><th>其他非息收入</th><th>占比</th></tr></thead><tbody><tr class="total"><td><strong>2021</strong></td><td>719,915</td><td>577,987</td><td>80.29%</td><td>80,329</td><td>11.16%</td><td>61,599</td><td>8.56%</td></tr><tr class="total"><td><strong>2022</strong></td><td>694,652</td><td>589,883</td><td>84.92%</td><td>81,282</td><td>11.70%</td><td>23,487</td><td>3.38%</td></tr><tr class="total"><td><strong>2023</strong></td><td>694,828</td><td>571,750</td><td>82.29%</td><td>80,093</td><td>11.53%</td><td>42,985</td><td>6.19%</td></tr><tr class="total"><td><strong>2024</strong></td><td>710,555</td><td>580,692</td><td>81.73%</td><td>75,567</td><td>10.63%</td><td>54,296</td><td>7.64%</td></tr><tr class="total"><td><strong>2025</strong></td><td>725,306</td><td>569,594</td><td>78.53%</td><td>88,085</td><td>12.14%</td><td>67,627</td><td>9.32%</td></tr><tr class="total"><td><strong>2026H1</strong></td><td>410,871</td><td>312,244</td><td>76.00%</td><td>46,959</td><td>11.43%</td><td>51,668</td><td>12.58%</td></tr></tbody></table></div>
+<p class="note">注：其他非息收入 = 营业收入 − 利息净收入 − 手续费及佣金净收入；2022 年为新保险合同准则调整后口径，其"其他非息收入"较原口径大幅下降属重分类所致，不可与 2021 年直接比较。</p>
+<p><strong>读表要点</strong>：收入结构正在<strong>加速去利息化</strong>——利息净收入占比从 2022 年的 84.92% 降至 2025 年的 78.53%、2026H1 进一步降至 76.00%。但<strong>去化的驱动因素在 2025 年与 2026H1 完全相反</strong>：2025 年靠中收（+16.6%），2026H1 靠其他非息（+43.4%）而中收转为 −8.7%。这一"接力棒交换"是本次财报最重要的结构变化。</p>
+<figure><svg viewBox="0 0 680 300" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="'TsangerJinKai02','Songti SC','Noto Serif CJK SC',serif"><rect x="0" y="0" width="680" height="300" fill="#FBF9F4" rx="4"/><line x1="46" y1="240.0" x2="660" y2="240.0" stroke="#E3DDD4" stroke-width="0.8"/><text x="38" y="243.5" font-size="10" fill="#7C7B77" text-anchor="end">0.0%</text><line x1="46" y1="188.5" x2="660" y2="188.5" stroke="#E3DDD4" stroke-width="0.8"/><text x="38" y="192.0" font-size="10" fill="#7C7B77" text-anchor="end">1.0%</text><line x1="46" y1="137.0" x2="660" y2="137.0" stroke="#E3DDD4" stroke-width="0.8"/><text x="38" y="140.5" font-size="10" fill="#7C7B77" text-anchor="end">2.0%</text><line x1="46" y1="85.5" x2="660" y2="85.5" stroke="#E3DDD4" stroke-width="0.8"/><text x="38" y="89.0" font-size="10" fill="#7C7B77" text-anchor="end">3.0%</text><line x1="46" y1="34.0" x2="660" y2="34.0" stroke="#E3DDD4" stroke-width="0.8"/><text x="38" y="37.5" font-size="10" fill="#7C7B77" text-anchor="end">4.0%</text><polyline points="97.2,49.4 199.5,56.1 301.8,64.4 404.2,79.3 506.5,101.5 608.8,110.2" fill="none" stroke="#2F6F6B" stroke-width="2.2"/><polyline points="97.2,150.4 199.5,145.2 301.8,139.1 404.2,144.7 506.5,161.2 608.8,171.5" fill="none" stroke="#B8862F" stroke-width="2.2"/><polyline points="97.2,130.8 199.5,142.2 301.8,157.6 404.2,166.9 506.5,174.1 608.8,174.1" fill="none" stroke="#A73F2D" stroke-width="2.6"/><circle cx="97.2" cy="49.4" r="3" fill="#2F6F6B"/><circle cx="199.5" cy="56.1" r="3" fill="#2F6F6B"/><circle cx="301.8" cy="64.4" r="3" fill="#2F6F6B"/><circle cx="404.2" cy="79.3" r="3" fill="#2F6F6B"/><circle cx="506.5" cy="101.5" r="3" fill="#2F6F6B"/><circle cx="608.8" cy="110.2" r="4" fill="#A73F2D"/><text x="97.2" y="41.4" font-size="9.5" fill="#22262B" text-anchor="middle">3.70</text><text x="608.8" y="102.2" font-size="9.5" fill="#22262B" text-anchor="middle">2.52</text><circle cx="97.2" cy="150.4" r="3" fill="#B8862F"/><circle cx="199.5" cy="145.2" r="3" fill="#B8862F"/><circle cx="301.8" cy="139.1" r="3" fill="#B8862F"/><circle cx="404.2" cy="144.7" r="3" fill="#B8862F"/><circle cx="506.5" cy="161.2" r="3" fill="#B8862F"/><circle cx="608.8" cy="171.5" r="4" fill="#A73F2D"/><text x="97.2" y="164.4" font-size="9.5" fill="#22262B" text-anchor="middle">1.74</text><text x="608.8" y="185.5" font-size="9.5" fill="#22262B" text-anchor="middle">1.33</text><circle cx="97.2" cy="130.8" r="3" fill="#A73F2D"/><circle cx="199.5" cy="142.2" r="3" fill="#A73F2D"/><circle cx="301.8" cy="157.6" r="3" fill="#A73F2D"/><circle cx="404.2" cy="166.9" r="3" fill="#A73F2D"/><circle cx="506.5" cy="174.1" r="3" fill="#A73F2D"/><circle cx="608.8" cy="174.1" r="4" fill="#A73F2D"/><text x="97.2" y="122.8" font-size="9.5" fill="#22262B" text-anchor="middle">2.12</text><text x="608.8" y="166.1" font-size="9.5" fill="#22262B" text-anchor="middle">1.28</text><text x="404.2" y="38.0" font-size="10" fill="#A73F2D">2026H1 两端降幅首次匹配（资产 −28BP ／ 负债 −27BP）</text><text x="97.2" y="258.0" font-size="10.5" fill="#7C7B77" text-anchor="middle">2021</text><text x="199.5" y="258.0" font-size="10.5" fill="#7C7B77" text-anchor="middle">2022</text><text x="301.8" y="258.0" font-size="10.5" fill="#7C7B77" text-anchor="middle">2023</text><text x="404.2" y="258.0" font-size="10.5" fill="#7C7B77" text-anchor="middle">2024</text><text x="506.5" y="258.0" font-size="10.5" fill="#7C7B77" text-anchor="middle">2025</text><text x="608.8" y="258.0" font-size="10.5" fill="#7C7B77" text-anchor="middle">2026H1</text><line x1="46" y1="240" x2="660" y2="240" stroke="#7C7B77" stroke-width="1"/><line x1="46" y1="13.5" x2="64" y2="13.5" stroke="#2F6F6B" stroke-width="2.4"/><circle cx="55" cy="13.5" r="3" fill="#2F6F6B"/><text x="69" y="17.5" font-size="10.5" fill="#22262B">生息资产平均收益率</text><line x1="224" y1="13.5" x2="242" y2="13.5" stroke="#B8862F" stroke-width="2.4"/><circle cx="233" cy="13.5" r="3" fill="#B8862F"/><text x="247" y="17.5" font-size="10.5" fill="#22262B">计息负债平均付息率</text><line x1="402" y1="13.5" x2="420" y2="13.5" stroke="#A73F2D" stroke-width="2.4"/><circle cx="411" cy="13.5" r="3" fill="#A73F2D"/><text x="425" y="17.5" font-size="10.5" fill="#22262B">净息差</text></svg><figcaption>图 3　净息差两端拆解：生息资产收益率 × 计息负债付息率</figcaption></figure>
+<h3>表 6　净息差与资产负债定价（%）</h3>
+<div class="rsp-table rsp-w6"><table class="financial compact"><thead><tr><th>期间</th><th>净息差（NIM）</th><th>净利差</th><th>生息资产平均收益率</th><th>计息负债平均付息率</th><th>两者降幅差</th></tr></thead><tbody><tr class="total"><td><strong>2021</strong></td><td>2.12</td><td>1.96</td><td>3.70</td><td>1.74</td><td>—</td></tr><tr class="total"><td><strong>2022</strong></td><td>1.90</td><td>1.73</td><td>3.57</td><td>1.84</td><td>资产 −13BP／负债 <strong>＋10BP</strong></td></tr><tr class="total"><td><strong>2023</strong></td><td>1.60</td><td>1.45</td><td>3.41</td><td>1.96</td><td>资产 −16BP／负债 <strong>＋12BP</strong></td></tr><tr class="total"><td><strong>2024</strong></td><td>1.42</td><td>1.27</td><td>3.12</td><td>1.85</td><td>资产 −29BP／负债 −11BP</td></tr><tr class="total"><td><strong>2025</strong></td><td>1.28</td><td>1.16</td><td>2.69</td><td>1.53</td><td>资产 −43BP／负债 −32BP</td></tr><tr class="total"><td><strong>2026H1</strong></td><td>1.28\*</td><td>1.19\*</td><td>2.52\*</td><td>1.33\*</td><td>资产 −28BP／负债 −27BP（同比）</td></tr></tbody></table></div>
+<p class="note">注：\* 2026H1 为年化数据，与 2025 年<strong>上半年</strong>（NIM 1.32%、生息资产 2.80%、计息负债 1.60%）同比比较。</p>
+<p><strong>读表要点</strong>：<strong>2026H1 净息差 1.28%，与 2025 全年持平，同比降幅收窄至 4BP</strong>——这是五年下行通道中首次出现企稳信号。更关键的是<strong>降幅缺口的收敛</strong>：2025 年资产端降 43BP 而负债端仅降 32BP（净损失 11BP）；2026H1 资产端降 28BP、负债端降 27BP，<strong>两端降幅首次基本匹配（仅差 1BP）</strong>。</p>
+<figure><svg viewBox="0 0 680 300" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="'TsangerJinKai02','Songti SC','Noto Serif CJK SC',serif"><rect x="0" y="0" width="680" height="300" fill="#FBF9F4" rx="4"/><line x1="46" y1="240.0" x2="660" y2="240.0" stroke="#E3DDD4" stroke-width="0.8"/><text x="38" y="243.5" font-size="10" fill="#7C7B77" text-anchor="end">0</text><line x1="46" y1="198.8" x2="660" y2="198.8" stroke="#E3DDD4" stroke-width="0.8"/><text x="38" y="202.3" font-size="10" fill="#7C7B77" text-anchor="end">1,500</text><line x1="46" y1="157.6" x2="660" y2="157.6" stroke="#E3DDD4" stroke-width="0.8"/><text x="38" y="161.1" font-size="10" fill="#7C7B77" text-anchor="end">3,000</text><line x1="46" y1="116.4" x2="660" y2="116.4" stroke="#E3DDD4" stroke-width="0.8"/><text x="38" y="119.9" font-size="10" fill="#7C7B77" text-anchor="end">4,500</text><line x1="46" y1="75.2" x2="660" y2="75.2" stroke="#E3DDD4" stroke-width="0.8"/><text x="38" y="78.7" font-size="10" fill="#7C7B77" text-anchor="end">6,000</text><line x1="46" y1="34.0" x2="660" y2="34.0" stroke="#E3DDD4" stroke-width="0.8"/><text x="38" y="37.5" font-size="10" fill="#7C7B77" text-anchor="end">7,500</text><rect x="73.6" y="81.2" width="47.1" height="158.8" fill="#1B365D"/><rect x="73.6" y="59.2" width="47.1" height="22.1" fill="#B8862F"/><rect x="73.6" y="42.3" width="47.1" height="16.9" fill="#2F6F6B"/><text x="97.2" y="36.3" font-size="9.5" fill="#A73F2D" text-anchor="middle">19.7%</text><rect x="176.0" y="78.0" width="47.1" height="162.0" fill="#1B365D"/><rect x="176.0" y="55.7" width="47.1" height="22.3" fill="#B8862F"/><rect x="176.0" y="49.2" width="47.1" height="6.5" fill="#2F6F6B"/><text x="199.5" y="43.2" font-size="9.5" fill="#A73F2D" text-anchor="middle">15.1%</text><rect x="278.3" y="83.0" width="47.1" height="157.0" fill="#1B365D"/><rect x="278.3" y="61.0" width="47.1" height="22.0" fill="#B8862F"/><rect x="278.3" y="49.2" width="47.1" height="11.8" fill="#2F6F6B"/><text x="301.8" y="43.2" font-size="9.5" fill="#A73F2D" text-anchor="middle">17.7%</text><rect x="380.6" y="80.5" width="47.1" height="159.5" fill="#1B365D"/><rect x="380.6" y="59.7" width="47.1" height="20.8" fill="#B8862F"/><rect x="380.6" y="44.8" width="47.1" height="14.9" fill="#2F6F6B"/><text x="404.2" y="38.8" font-size="9.5" fill="#A73F2D" text-anchor="middle">18.3%</text><rect x="483.0" y="83.6" width="47.1" height="156.4" fill="#1B365D"/><rect x="483.0" y="59.4" width="47.1" height="24.2" fill="#B8862F"/><rect x="483.0" y="40.8" width="47.1" height="18.6" fill="#2F6F6B"/><text x="506.5" y="34.8" font-size="9.5" fill="#A73F2D" text-anchor="middle">21.5%</text><rect x="585.3" y="154.2" width="47.1" height="85.8" fill="#1B365D"/><rect x="585.3" y="141.3" width="47.1" height="12.9" fill="#B8862F"/><rect x="585.3" y="127.1" width="47.1" height="14.2" fill="#2F6F6B"/><text x="608.8" y="121.1" font-size="9.5" fill="#A73F2D" text-anchor="middle">24.0%</text><text x="97.2" y="258.0" font-size="10.5" fill="#7C7B77" text-anchor="middle">2021</text><text x="199.5" y="258.0" font-size="10.5" fill="#7C7B77" text-anchor="middle">2022</text><text x="301.8" y="258.0" font-size="10.5" fill="#7C7B77" text-anchor="middle">2023</text><text x="404.2" y="258.0" font-size="10.5" fill="#7C7B77" text-anchor="middle">2024</text><text x="506.5" y="258.0" font-size="10.5" fill="#7C7B77" text-anchor="middle">2025</text><text x="608.8" y="258.0" font-size="10.5" fill="#7C7B77" text-anchor="middle">2026H1</text><line x1="46" y1="240" x2="660" y2="240" stroke="#7C7B77" stroke-width="1"/><rect x="46" y="8" width="11" height="11" fill="#1B365D" rx="1"/><text x="62" y="17.5" font-size="10.5" fill="#22262B">利息净收入</text><rect x="214" y="8" width="11" height="11" fill="#B8862F" rx="1"/><text x="230" y="17.5" font-size="10.5" fill="#22262B">手续费及佣金净收入</text><rect x="382" y="8" width="11" height="11" fill="#2F6F6B" rx="1"/><text x="398" y="17.5" font-size="10.5" fill="#22262B">其他非息收入</text><text x="660" y="17.5" font-size="10" fill="#7C7B77" text-anchor="end">柱顶＝非利息收入占比</text></svg><figcaption>图 4　营业收入结构堆积：利息净收入／中收／其他非息（柱顶＝非利息收入占比）</figcaption></figure>
+<h3>表 7　分季度经营数据（2025 年，人民币百万元）</h3>
+<div class="rsp-table rsp-w5"><table class="financial compact"><thead><tr><th>季度</th><th>营业收入</th><th>占全年比重</th><th>归母净利润</th><th>占全年比重</th></tr></thead><tbody><tr><td>第一季度</td><td>186,674</td><td>25.74%</td><td>71,931</td><td>24.71%</td></tr><tr><td>第二季度</td><td>183,263</td><td>25.27%</td><td>67,579</td><td>23.22%</td></tr><tr><td>第三季度</td><td>180,939</td><td>24.95%</td><td>81,349</td><td>27.95%</td></tr><tr><td>第四季度</td><td>174,430</td><td>24.05%</td><td>70,182</td><td>24.11%</td></tr><tr class="total"><td><strong>全年</strong></td><td><strong>725,306</strong></td><td><strong>100.00%</strong></td><td><strong>291,041</strong></td><td><strong>100.00%</strong></td></tr></tbody></table></div>
+<p><strong>读表要点</strong>：<strong>收入端呈完美的逐季递减</strong>（186,674 → 183,263 → 180,939 → 174,430），与息差逐季收窄一致；<strong>利润端则无此规律</strong>，Q3 单季归母净利润 81,349 百万元为全年最高（占全年 27.95%），Q2 最低。<strong>因此农行的单季利润不具备线性外推性</strong>，收入端的季度递减才是趋势读数。</p>
+<h3>表 8　手续费及佣金收入结构（2025 年 vs 2024 年，人民币百万元）</h3>
+<div class="rsp-table rsp-w5"><table class="financial compact longtable"><thead><tr><th>项目</th><th>2025 年</th><th>2024 年</th><th>增减额</th><th>增长率</th></tr></thead><tbody><tr><td>结算与清算业务</td><td>10,661</td><td>9,618</td><td>1,043</td><td>+10.84%</td></tr><tr><td>顾问和咨询业务</td><td>12,927</td><td>14,231</td><td>−1,304</td><td>−9.16%</td></tr><tr class="total"><td><strong>代理业务</strong></td><td><strong>30,464</strong></td><td><strong>16,221</strong></td><td><strong>14,243</strong></td><td><strong>+87.81%</strong></td></tr><tr><td>银行卡</td><td>16,600</td><td>16,741</td><td>−141</td><td>−0.84%</td></tr><tr><td>电子银行业务</td><td>25,648</td><td>27,605</td><td>−1,957</td><td>−7.09%</td></tr><tr><td>信贷承诺</td><td>1,010</td><td>1,111</td><td>−101</td><td>−9.09%</td></tr><tr><td>托管及其他受托业务</td><td>4,283</td><td>4,021</td><td>262</td><td>+6.52%</td></tr><tr><td>其他业务</td><td>361</td><td>417</td><td>−56</td><td>−13.43%</td></tr><tr class="total"><td><strong>手续费及佣金收入（小计）</strong></td><td><strong>101,954</strong></td><td><strong>89,965</strong></td><td><strong>11,989</strong></td><td><strong>+13.33%</strong></td></tr><tr><td>减：手续费及佣金支出</td><td>13,869</td><td>14,398</td><td>−529</td><td>−3.67%</td></tr><tr class="total"><td><strong>手续费及佣金净收入</strong></td><td><strong>88,085</strong></td><td><strong>75,567</strong></td><td><strong>12,518</strong></td><td><strong>+16.56%</strong></td></tr></tbody></table></div>
+<p><strong>读表要点</strong>：<strong>八项中收业务中有六项负增长或近乎零增长，全部增量来自"代理业务"一项</strong>（+142.43 亿元，占中收净增额 125.18 亿元的 <strong>113.8%</strong>，即其余项目合计为净减）。年报归因于"深入推进财富管理业务转型，理财和代销基金收入增加"。同时<strong>手续费支出的下降（−3.67%）也在放大净收入增速</strong>——收入端 +13.33% 被放大为净收入 +16.56%。</p>
+<figure><svg viewBox="0 0 680 310" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="'TsangerJinKai02','Songti SC','Noto Serif CJK SC',serif"><rect x="0" y="0" width="680" height="310" fill="#FBF9F4" rx="4"/><line x1="50" y1="176.0" x2="660" y2="176.0" stroke="#E3DDD4" stroke-width="0.8"/><text x="42" y="179.5" font-size="9.5" fill="#7C7B77" text-anchor="end">0.0%</text><line x1="50" y1="142.0" x2="660" y2="142.0" stroke="#E3DDD4" stroke-width="0.8"/><text x="42" y="145.5" font-size="9.5" fill="#7C7B77" text-anchor="end">0.4%</text><line x1="50" y1="108.0" x2="660" y2="108.0" stroke="#E3DDD4" stroke-width="0.8"/><text x="42" y="111.5" font-size="9.5" fill="#7C7B77" text-anchor="end">0.8%</text><line x1="50" y1="74.0" x2="660" y2="74.0" stroke="#E3DDD4" stroke-width="0.8"/><text x="42" y="77.5" font-size="9.5" fill="#7C7B77" text-anchor="end">1.2%</text><line x1="50" y1="40.0" x2="660" y2="40.0" stroke="#E3DDD4" stroke-width="0.8"/><text x="42" y="43.5" font-size="9.5" fill="#7C7B77" text-anchor="end">1.6%</text><polyline points="100.8,54.5 202.5,59.5 304.2,63.0 405.8,65.5 507.5,68.1 609.2,69.8" fill="none" stroke="#1B365D" stroke-width="2.2"/><circle cx="100.8" cy="54.5" r="2.6" fill="#1B365D"/><circle cx="202.5" cy="59.5" r="2.6" fill="#1B365D"/><circle cx="304.2" cy="63.0" r="2.6" fill="#1B365D"/><circle cx="405.8" cy="65.5" r="2.6" fill="#1B365D"/><circle cx="507.5" cy="68.1" r="2.6" fill="#1B365D"/><circle cx="609.2" cy="69.8" r="4" fill="#A73F2D"/><polyline points="100.8,84.2 202.5,84.2 304.2,84.2 405.8,75.7 507.5,69.8 609.2,70.6" fill="none" stroke="#B8862F" stroke-width="2.2"/><circle cx="100.8" cy="84.2" r="2.6" fill="#B8862F"/><circle cx="202.5" cy="84.2" r="2.6" fill="#B8862F"/><circle cx="304.2" cy="84.2" r="2.6" fill="#B8862F"/><circle cx="405.8" cy="75.7" r="2.6" fill="#B8862F"/><circle cx="507.5" cy="69.8" r="2.6" fill="#B8862F"/><circle cx="609.2" cy="70.6" r="4" fill="#A73F2D"/><text x="50" y="160" font-size="10" fill="#A73F2D">2024 年起逾期率快速抬升，与不良率差距收窄至 1BP</text><line x1="50" y1="176" x2="660" y2="176" stroke="#7C7B77" stroke-width="1"/><rect x="78.5" y="274.9" width="44.7" height="13.1" fill="#CFC7BA" rx="1"/><text x="100.8" y="270.9" font-size="9.5" fill="#22262B" text-anchor="middle">75.2</text><rect x="180.1" y="266.6" width="44.7" height="21.4" fill="#CFC7BA" rx="1"/><text x="202.5" y="262.6" font-size="9.5" fill="#22262B" text-anchor="middle">78.5</text><rect x="281.8" y="259.6" width="44.7" height="28.4" fill="#CFC7BA" rx="1"/><text x="304.2" y="255.6" font-size="9.5" fill="#22262B" text-anchor="middle">81.3</text><rect x="383.5" y="235.2" width="44.7" height="52.8" fill="#CFC7BA" rx="1"/><text x="405.8" y="231.2" font-size="9.5" fill="#22262B" text-anchor="middle">91.0</text><rect x="485.1" y="215.3" width="44.7" height="72.7" fill="#CFC7BA" rx="1"/><text x="507.5" y="211.3" font-size="9.5" fill="#22262B" text-anchor="middle">98.9</text><rect x="586.8" y="213.8" width="44.7" height="74.2" fill="#A73F2D" rx="1"/><text x="609.2" y="209.8" font-size="9.5" fill="#A73F2D" text-anchor="middle">99.5</text><line x1="50" y1="212.6" x2="660" y2="212.6" stroke="#A73F2D" stroke-width="1" stroke-dasharray="4 3"/><text x="56" y="207.6" font-size="9.5" fill="#A73F2D" text-anchor="start">100% 警戒线</text><line x1="50" y1="288" x2="660" y2="288" stroke="#7C7B77" stroke-width="1"/><text x="100.8" y="304.0" font-size="10" fill="#7C7B77" text-anchor="middle">2021</text><text x="202.5" y="304.0" font-size="10" fill="#7C7B77" text-anchor="middle">2022</text><text x="304.2" y="304.0" font-size="10" fill="#7C7B77" text-anchor="middle">2023</text><text x="405.8" y="304.0" font-size="10" fill="#7C7B77" text-anchor="middle">2024</text><text x="507.5" y="304.0" font-size="10" fill="#7C7B77" text-anchor="middle">2025</text><text x="609.2" y="304.0" font-size="10" fill="#7C7B77" text-anchor="middle">2026H1</text><line x1="50" y1="20" x2="68" y2="20" stroke="#1B365D" stroke-width="2.2"/><circle cx="59" cy="20" r="3" fill="#1B365D"/><text x="73" y="24" font-size="10.5" fill="#22262B">不良贷款率</text><line x1="236" y1="20" x2="254" y2="20" stroke="#B8862F" stroke-width="2.2"/><circle cx="245" cy="20" r="3" fill="#B8862F"/><text x="259" y="24" font-size="10.5" fill="#22262B">逾期贷款占比</text><rect x="422" y="14.5" width="11" height="11" fill="#CFC7BA" rx="1"/><text x="445" y="24" font-size="10.5" fill="#22262B">逾期／不良（%，柱）</text></svg><figcaption>图 5　不良率与逾期占比、逾期／不良比值（剪刀差）</figcaption></figure>
+<h3>表 9　逾期贷款期限结构与剪刀差（人民币百万元）</h3>
+<div class="rsp-table rsp-w9"><table class="financial compact"><thead><tr><th>期末</th><th>≤90 天</th><th>91—360 天</th><th>361 天—3 年</th><th>3 年以上</th><th>逾期合计</th><th>逾期率</th><th>逾期／不良</th><th>逾期 90 天以上／不良</th></tr></thead><tbody><tr class="total"><td><strong>2021</strong></td><td>74,359</td><td>52,847</td><td>40,886</td><td>16,829</td><td>184,921</td><td>1.08%</td><td>75.2%</td><td>45.0%</td></tr><tr class="total"><td><strong>2022</strong></td><td>103,332</td><td>54,504</td><td>42,584</td><td>12,419</td><td>212,839</td><td>1.08%</td><td>78.5%</td><td>40.4%</td></tr><tr class="total"><td><strong>2023</strong></td><td>111,027</td><td>70,775</td><td>51,052</td><td>11,676</td><td>244,530</td><td>1.08%</td><td>81.3%</td><td>44.4%</td></tr><tr class="total"><td><strong>2024</strong></td><td>100,140</td><td>109,826</td><td>66,322</td><td>16,809</td><td>293,097</td><td>1.18%</td><td>91.0%</td><td>59.9%</td></tr><tr class="total"><td><strong>2025</strong></td><td>92,435</td><td>124,041</td><td>101,498</td><td>21,573</td><td>339,547</td><td>1.25%</td><td>98.9%</td><td>71.9%</td></tr><tr class="total"><td><strong>2026H1</strong></td><td>98,275</td><td>125,698</td><td>113,161</td><td>20,759</td><td>357,893</td><td>1.24%</td><td>99.5%</td><td>72.2%</td></tr></tbody></table></div>
+<p><strong>读表要点</strong>：<strong>逾期／不良比值从 2021 年的 75.2% 抬升至 2026H1 的 99.5%，已逼近 100% 临界线</strong>；"逾期 90 天以上／不良"从 45.0% 升至 72.2%。这是本报告识别出的<strong>最重要的前瞻性风险信号</strong>，详见 4.4 节。需注意，农行的<strong>逾期贷款率（1.24%）仍低于不良贷款率（1.25%）</strong>，与部分同业"逾期已超不良"的格局不同——这是农行不良认定偏严的正面证据，但两者的差距正在快速收窄。</p>
+<h3>表 10　实际税率与税盾拆解（人民币百万元）</h3>
+<div class="rsp-table rsp-w8"><table class="financial compact"><thead><tr><th>期间</th><th>税前利润</th><th>所得税费用</th><th>实际税率</th><th>免税收入影响</th><th>占税前利润</th><th>不可扣除项影响</th><th>占税前利润</th></tr></thead><tbody><tr class="total"><td><strong>2021</strong></td><td>295,880</td><td>53,944</td><td>18.23%</td><td>−42,983</td><td>14.53%</td><td>23,311</td><td>7.88%</td></tr><tr class="total"><td><strong>2022</strong></td><td>306,453</td><td>47,587</td><td>15.53%</td><td>−46,587</td><td>15.20%</td><td>20,390</td><td>6.65%</td></tr><tr class="total"><td><strong>2023</strong></td><td>307,419</td><td>37,599</td><td>12.23%</td><td>−51,884</td><td>16.88%</td><td>16,106</td><td>5.24%</td></tr><tr class="total"><td><strong>2024</strong></td><td>319,201</td><td>36,530</td><td>11.44%</td><td>−60,683</td><td>19.01%</td><td>21,228</td><td>6.65%</td></tr><tr class="total"><td><strong>2025</strong></td><td>323,689</td><td>31,686</td><td>9.79%</td><td>−69,598</td><td>21.50%</td><td>23,746</td><td>7.34%</td></tr><tr class="total"><td><strong>2025H1</strong></td><td>160,540</td><td>20,597</td><td>12.83%</td><td>−33,214</td><td>20.69%</td><td>15,506</td><td>9.66%</td></tr><tr class="total"><td><strong>2026H1</strong></td><td>181,769</td><td>33,707</td><td>18.54%</td><td>−37,960</td><td>20.88%</td><td>27,566</td><td>15.16%</td></tr></tbody></table></div>
+<p class="note">注：免税收入主要为中国国债及地方政府债券利息收入；不可扣除项为"不得扣除的成本、费用和损失及其他的纳税影响"。</p>
+<p><strong>读表要点</strong>：<strong>实际税率从 2021 年的 18.23% 一路降至 2025 年的 9.79%（下降 8.44 个百分点）</strong>，2026H1 却骤然回升至 <strong>18.54%</strong>，回到 2021 年水平。驱动因素双向：免税收入影响从 14.53% 升至 21.50%（红利），但不可扣除项影响在 <strong>2026H1 单期从 9.66% 跳升至 15.16%</strong>（拖累）。这是 2026H1 归母净利润仅 +4.93% 而税前利润 +13.23% 的<strong>核心解释</strong>，详见 4.2 节。</p>
+<h3>表 11　股东回报（人民币元／亿元）</h3>
+<div class="rsp-table rsp-w7"><table class="financial compact"><thead><tr><th>年度</th><th>每 10 股派息（含税，元）</th><th>其中：中期</th><th>其中：末期</th><th>现金分红总额（亿元）</th><th>归母净利润（亿元）</th><th>分红率</th></tr></thead><tbody><tr class="total"><td><strong>2023</strong></td><td>2.309</td><td>—</td><td>2.309</td><td>808.11</td><td>2,693.56</td><td>30.00%</td></tr><tr class="total"><td><strong>2024</strong></td><td>2.419</td><td>1.164</td><td>1.255</td><td>846.61</td><td>2,820.83</td><td>30.01%</td></tr><tr class="total"><td><strong>2025</strong></td><td>2.495</td><td>1.195</td><td>1.300</td><td>873.21</td><td>2,910.41</td><td>30.00%</td></tr><tr class="total"><td><strong>2026H1</strong></td><td>1.297（中期）</td><td>1.297</td><td>—</td><td>453.93</td><td>1,463.81</td><td>31.01%</td></tr></tbody></table></div>
+<p class="note">注：以 3,499.83 亿股普通股为基数计算；2024 年起实施中期分红。</p>
+<p><strong>读表要点</strong>：<strong>分红率连续三年精确落在 30.00%—30.01%</strong>，是六大行中分红政策最"刚性"的机构之一。派息绝对额随利润稳步增长（808.11 → 846.61 → 873.21 亿元），2026 年中期分红率小幅提升至 31.01%。<strong>但需与 ROE 一并看</strong>：加权平均 ROE 五年从 11.57% 降至 10.16%，净资产增速高于利润增速，<strong>30% 的分红率封顶意味着留存收益仍在累积，ROE 的分母端压力不减</strong>。</p>
+<figure><svg viewBox="0 0 680 300" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="'TsangerJinKai02','Songti SC','Noto Serif CJK SC',serif"><rect x="0" y="0" width="680" height="300" fill="#FBF9F4" rx="4"/><line x1="50" y1="218.0" x2="584" y2="218.0" stroke="#E3DDD4" stroke-width="0.8"/><text x="42" y="221.5" font-size="10" fill="#7C7B77" text-anchor="end">0.0%</text><line x1="50" y1="173.5" x2="584" y2="173.5" stroke="#E3DDD4" stroke-width="0.8"/><text x="42" y="177.0" font-size="10" fill="#7C7B77" text-anchor="end">0.4%</text><line x1="50" y1="129.0" x2="584" y2="129.0" stroke="#E3DDD4" stroke-width="0.8"/><text x="42" y="132.5" font-size="10" fill="#7C7B77" text-anchor="end">0.8%</text><line x1="50" y1="84.5" x2="584" y2="84.5" stroke="#E3DDD4" stroke-width="0.8"/><text x="42" y="88.0" font-size="10" fill="#7C7B77" text-anchor="end">1.2%</text><line x1="50" y1="40.0" x2="584" y2="40.0" stroke="#E3DDD4" stroke-width="0.8"/><text x="42" y="43.5" font-size="10" fill="#7C7B77" text-anchor="end">1.6%</text><text x="636" y="221.5" font-size="10" fill="#2F6F6B" text-anchor="start">0BP</text><text x="636" y="162.2" font-size="10" fill="#2F6F6B" text-anchor="start">8BP</text><text x="636" y="102.8" font-size="10" fill="#2F6F6B" text-anchor="start">16BP</text><text x="636" y="43.5" font-size="10" fill="#2F6F6B" text-anchor="start">24BP</text><rect x="86.7" y="83.4" width="49.8" height="134.6" fill="#A73F2D" rx="1"/><text x="111.6" y="79.4" font-size="9" fill="#A73F2D" text-anchor="middle">1.21</text><rect x="141.5" y="73.4" width="49.8" height="144.6" fill="#CFC7BA" rx="1"/><text x="166.4" y="69.4" font-size="9" fill="#22262B" text-anchor="middle">1.30</text><rect x="264.7" y="92.3" width="49.8" height="125.7" fill="#A73F2D" rx="1"/><text x="289.6" y="88.3" font-size="9" fill="#A73F2D" text-anchor="middle">1.13</text><rect x="319.5" y="76.7" width="49.8" height="141.3" fill="#CFC7BA" rx="1"/><text x="344.4" y="72.7" font-size="9" fill="#22262B" text-anchor="middle">1.27</text><rect x="442.7" y="101.2" width="49.8" height="116.8" fill="#A73F2D" rx="1"/><text x="467.6" y="97.2" font-size="9" fill="#A73F2D" text-anchor="middle">1.05</text><rect x="497.5" y="78.9" width="49.8" height="139.1" fill="#CFC7BA" rx="1"/><text x="522.4" y="74.9" font-size="9" fill="#22262B" text-anchor="middle">1.25</text><polyline points="139.0,151.2 317.0,114.2 495.0,69.7" fill="none" stroke="#2F6F6B" stroke-width="2.4"/><circle cx="139.0" cy="151.2" r="3" fill="#2F6F6B"/><text x="139.0" y="143.2" font-size="9.5" fill="#2F6F6B" text-anchor="middle">9BP</text><circle cx="317.0" cy="114.2" r="3" fill="#2F6F6B"/><text x="317.0" y="106.2" font-size="9.5" fill="#2F6F6B" text-anchor="middle">14BP</text><circle cx="495.0" cy="69.7" r="4" fill="#A73F2D"/><text x="495.0" y="61.7" font-size="9.5" fill="#2F6F6B" text-anchor="middle">20BP</text><text x="139.0" y="237.0" font-size="10.5" fill="#7C7B77" text-anchor="middle">2024</text><text x="317.0" y="237.0" font-size="10.5" fill="#7C7B77" text-anchor="middle">2025</text><text x="495.0" y="237.0" font-size="10.5" fill="#7C7B77" text-anchor="middle">2026H1</text><line x1="50" y1="218" x2="584" y2="218" stroke="#7C7B77" stroke-width="1"/><rect x="50" y="12" width="11" height="11" fill="#A73F2D" rx="1"/><text x="66" y="21.5" font-size="10.5" fill="#22262B">县域不良率（%，左轴）</text><rect x="230" y="12" width="11" height="11" fill="#CFC7BA" rx="1"/><text x="246" y="21.5" font-size="10.5" fill="#22262B">全行不良率（%，左轴）</text><line x1="390" y1="17.5" x2="410" y2="17.5" stroke="#2F6F6B" stroke-width="2.4"/><text x="416" y="21.5" font-size="10.5" fill="#22262B">不良率优势（BP，线，右轴）</text><text x="317" y="262" font-size="9.5" fill="#7C7B77" text-anchor="middle">2025 年县域贷款收益率 3.00% vs 全行 2.88%（＋12BP）；县域存款付息率 1.28% vs 全行 1.34%（−6BP）</text></svg><figcaption>图 6　县域与全行不良贷款率对照及不良率优势（BP）</figcaption></figure>
+<h3>表 12　县域金融与全行关键指标对照（%）</h3>
+<div class="rsp-table"><table class="financial compact longtable"><thead><tr><th>指标</th><th>2024 年</th><th>2025 年</th><th>2026H1</th></tr></thead><tbody><tr><td>县域贷款平均收益率</td><td>3.54</td><td>3.00</td><td>2.83\*</td></tr><tr><td>全行发放贷款和垫款平均收益率</td><td>3.41</td><td>2.88</td><td>—</td></tr><tr class="total"><td><strong>收益率溢价（县域 − 全行）</strong></td><td><strong>+13BP</strong></td><td><strong>+12BP</strong></td><td>—</td></tr><tr><td>县域存款平均付息率</td><td>1.54</td><td>1.28</td><td>1.09\*</td></tr><tr><td>全行吸收存款平均付息率</td><td>1.63</td><td>1.34</td><td>—</td></tr><tr class="total"><td><strong>付息率优势（全行 − 县域）</strong></td><td><strong>+9BP</strong></td><td><strong>+6BP</strong></td><td>—</td></tr><tr><td>县域不良贷款率</td><td>1.21</td><td>1.13</td><td>1.05</td></tr><tr><td>全行不良贷款率</td><td>1.30</td><td>1.27</td><td>1.25</td></tr><tr class="total"><td><strong>不良率优势（全行 − 县域）</strong></td><td><strong>+9BP</strong></td><td><strong>+14BP</strong></td><td><strong>+20BP</strong></td></tr><tr><td>县域拨备覆盖率</td><td>338.33</td><td>336.21</td><td>350.76</td></tr><tr><td>县域贷存款比例</td><td>74.92</td><td>76.04</td><td>79.79</td></tr></tbody></table></div>
+<p class="note">注：\* 2026H1 县域数据为年化后数据，其余为半年度口径。</p>
+<p><strong>读表要点</strong>：<strong>县域金融在资产收益（更贵）、负债成本（更便宜）、资产质量（更好）三个维度同时优于全行</strong>——这是农业银行区别于其他国有大行的<strong>结构性护城河</strong>，且优势在扩大（不良率优势从 9BP 扩大至 20BP）。详见 4.7 节。</p>
+<h2>三、三张财务数据表：关键变化数据与趋势含义</h2>
+<h3>3.1 利润表：收入零增长与利润两位数增长的八年背离</h3>
+<div class="rsp-table"><table class="financial compact"><thead><tr><th>关键科目</th><th>变化轨迹（2021 → 2026H1）</th><th>趋势方向</th><th>趋势含义</th></tr></thead><tbody><tr><td>营业收入</td><td>719,915 → 725,306（五年 <strong>+0.75%</strong>）</td><td><strong>基本停滞</strong></td><td>规模扩张未能转化为收入增长，价格（利率）因素全额抵消了量的贡献</td></tr><tr><td>利息净收入</td><td>577,987 → 569,594（五年 <strong>−1.45%</strong>）</td><td>微降后企稳</td><td>2023 年见顶（589,883 为 2022 年），2025 年为五年最低，2026H1 同比 <strong>+10.54%</strong> 重回增长</td></tr><tr><td>手续费及佣金净收入</td><td>80,329 → 88,085（五年 <strong>+9.66%</strong>）</td><td>波动向上</td><td>2024 年曾跌至 75,567，2025 年靠代理业务反弹至历史新高</td></tr><tr><td>信用减值损失</td><td>165,886 → 127,189（五年 <strong>−23.33%</strong>）</td><td>持续下行后<strong>反转</strong></td><td>2021—2025 连续五年压降，2026H1 同比 <strong>+12.93%</strong>，拐点出现</td></tr><tr><td>税前利润</td><td>295,880 → 323,689（五年 <strong>+9.40%</strong>）</td><td>稳健增长</td><td>增长完全由减值损失压降驱动，而非收入</td></tr><tr><td>所得税费用</td><td>53,944 → 31,686（五年 <strong>−41.26%</strong>）</td><td>持续下行后<strong>反转</strong></td><td>免税收入增长是主因，2026H1 同比 <strong>+63.65%</strong></td></tr><tr><td>归母净利润</td><td>241,183 → 291,041（五年 <strong>+20.67%</strong>）</td><td>稳健增长</td><td><strong>增速为税前利润增速的 2.2 倍</strong>，差额由税负下降贡献</td></tr></tbody></table></div>
+<p><strong>三表联动看利润表</strong>：农行利润表的本质是<strong>"收入停滞 + 成本压降 + 税负下行"三重组合</strong>。收入端五年零增长；减值损失五年累计压降 386.97 亿元（相当于 2025 年归母净利润的 13.3%）；所得税费用五年累计减少 222.58 亿元。<strong>后两项合计为利润贡献约 610 亿元，恰好解释了归母净利润 498.58 亿元的增量。</strong> 换言之，<strong>过去五年的利润增长与主营收入增长基本无关</strong>——这一结构在 2026H1 出现了双向反转（减值损失回升、税率回升），是本报告最需要警惕的变化。</p>
+<h3>3.2 资产负债表：资产扩张与资本消耗的赛跑</h3>
+<div class="rsp-table"><table class="financial compact"><thead><tr><th>关键科目</th><th>变化轨迹（2021 → 2026H1）</th><th>趋势方向</th><th>趋势含义</th></tr></thead><tbody><tr><td>总资产</td><td>29,069,155 → 51,058,873（<strong>+75.65%</strong>）</td><td>加速扩张</td><td>五年半年翻 0.76 倍，2026H1 突破 51 万亿</td></tr><tr><td>发放贷款和垫款</td><td>17,175,073 → 28,824,760（<strong>+67.83%</strong>）</td><td>加速扩张</td><td>2025 年单年新增 2.23 万亿元，2026H1 半年再增 1.69 万亿元</td></tr><tr><td>金融投资</td><td>8,230,043 → 17,854,606（<strong>+116.9%</strong>）</td><td><strong>增速超过贷款</strong></td><td>2025 年单年新增 2.47 万亿元，<strong>超过同期贷款新增额</strong>，是免税收入增长的资产来源</td></tr><tr><td>吸收存款</td><td>21,907,127 → 34,050,893（<strong>+55.43%</strong>）</td><td>稳定增长</td><td>增速持续低于贷款与投资</td></tr><tr><td>存贷比</td><td>78.40% → 84.65%（<strong>+6.25 个百分点</strong>）</td><td>持续上行</td><td>资产扩张更依赖贷款投放，流动性缓冲变薄</td></tr><tr><td>风险加权资产</td><td>17,849,566 → 26,281,608（<strong>+47.24%</strong>）</td><td>上行</td><td>增速低于总资产（+75.65%），<strong>风险密度在下降</strong></td></tr><tr><td>归母权益</td><td>2,414,605 → 3,328,014（<strong>+37.83%</strong>）</td><td>稳定积累</td><td><strong>增速显著低于 RWA（+47.24%）</strong>，是资本充足率下行的算术原因</td></tr><tr><td>核心一级资本充足率</td><td>11.44% → 10.80%（<strong>−0.64 个百分点</strong>）</td><td>下行</td><td>2026H1 较 2024 年高点 11.42% 已回落 0.62 个百分点</td></tr></tbody></table></div>
+<p><strong>三表联动看资产负债表</strong>：<strong>"总资产 +75.65% vs 归母权益 +37.83%"的增速差，是资本充足率下行的全部答案。</strong> 五年半年内资产扩张了 0.76 倍，而内生资本积累只增厚了 0.38 倍——中间缺口由利润留存（30% 分红率）与外部资本工具（其他一级资本、二级资本）填补。2026H1 的读数已提示<strong>这一模式正接近其可持续边界</strong>：核心一级资本充足率 10.80%，风险加权资产半年增长 5.92% 而归母权益仅增 2.81%。</p>
+<h3>3.3 现金流量表：银行现金流量表不具质量指示性</h3>
+<div class="rsp-table rsp-w7"><table class="financial compact"><thead><tr><th>科目（人民币百万元）</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th><th>2026H1</th></tr></thead><tbody><tr><td>经营活动产生的现金流量净额</td><td>239,615</td><td>1,322,003</td><td>1,825,282</td><td>1,353,042</td><td>2,112,907</td><td>287,612</td></tr><tr><td>每股经营活动现金流量净额（元）</td><td>0.68</td><td>3.78</td><td>5.22</td><td>3.87</td><td>6.04</td><td>0.82</td></tr></tbody></table></div>
+<div class="callout warn"><strong>⚠️ 重要提示——银行经营活动现金流不具质量指示性</strong><br>银行的经营活动现金流主要由<strong>客户存款、同业负债与拆入资金的增减</strong>决定，而非收入与利润的实现。农行该科目五年内波动区间为 239,615 至 2,112,907 百万元（<strong>振幅达 8.8 倍</strong>），并在 2020 年为负值（−60,936）。2025 年单季数据更能说明问题：一季度经营现金流为 <strong>−768,830</strong> 百万元，二季度为 <strong>+1,774,634</strong> 百万元——<strong>同一会计年度内相邻两个季度的方向完全相反</strong>。<br><strong>因此本报告不将经营活动现金流用于评价农行的经营质量</strong>，该判断应回到净利润、净息差、不良率等银行专属指标（详见第九章"银行专属指标替代口径说明"）。</div>
+<h2>四、数据变化趋势与原因分析</h2>
+<h3>4.1 收入端：五年零增长的内在结构</h3>
+<p>营业收入从 2021 年 719,915 百万元到 2025 年 725,306 百万元，<strong>五年仅增长 0.75%，年均 0.19%</strong>。这一"零增长"是三项对冲的结果：</p>
+<ul><li><strong>量（正向）</strong>：生息资产平均余额从 27,237,605 增至 44,634,483 百万元，<strong>五年增长 63.9%</strong>；</li><li><strong>价（负向）</strong>：生息资产平均收益率从 3.70% 降至 2.69%，<strong>五年下降 101BP</strong>；</li><li><strong>其他非息（波动）</strong>：2025 年为 67,627 百万元，较 2024 年增加 13,331 百万元。</li></ul>
+<p>年报给出的<strong>规模—利率双向拆解</strong>为这一对冲提供了精确证据：2025 年利息净收入较上年减少 110.98 亿元，其中<strong>规模增长导致增加 440.49 亿元，利率变动导致减少 551.47 亿元</strong>——<strong>利率的负贡献是规模正贡献的 1.25 倍</strong>。同一逻辑在资产端分项上更为极端：2025 年发放贷款和垫款的利息收入变动中，<strong>规模贡献 +64,331、利率贡献 −128,643</strong>，即<strong>利率的负向冲击是规模贡献的近两倍</strong>。</p>
+<p><strong>结论</strong>：农行过去五年的收入停滞，本质上是 <strong>"以量补价"未能补足</strong>的结果——规模扩张了 63.9%，但价格下行 101BP 将其完全抵消。</p>
+<h3>4.2 利润端：归母净利润增速为何系统性地快于收入（本报告核心洞见）</h3>
+<p>五年间营业收入累计 +0.75%，而归母净利润累计 <strong>+20.67%</strong>，两者相差 <strong>19.92 个百分点</strong>。这一背离有三个可量化的来源：</p>
+<p><strong>来源一：信用减值损失连续五年压降</strong></p>
+<div class="rsp-table"><table class="financial compact"><thead><tr><th>年度</th><th>信用减值损失（百万元）</th><th>同比</th></tr></thead><tbody><tr><td>2021</td><td>165,886</td><td>—</td></tr><tr><td>2022</td><td>145,266</td><td>−12.44%</td></tr><tr><td>2023</td><td>135,707</td><td>−6.58%</td></tr><tr><td>2024</td><td>130,840</td><td>−3.59%</td></tr><tr><td>2025</td><td>127,189</td><td>−2.79%</td></tr><tr class="total"><td><strong>五年累计减少</strong></td><td><strong>−38,697</strong></td><td><strong>−23.33%</strong></td></tr></tbody></table></div>
+<p>减值损失的下降<strong>逐年放缓</strong>（−12.44% → −2.79%），说明这一"利润引擎"的能量正在耗尽。<strong>2026H1 该科目同比 +12.93%（97,955 → 110,620），正式转向</strong>。</p>
+<p><strong>来源二：实际税率从 18.23% 降至 9.79%（核心贡献）</strong></p>
+<p>这是农行利润增长<strong>最不显眼但贡献最大</strong>的来源。用<strong>税率回算法</strong>检验：</p>
+<ul><li><strong>2023 年（最极端的一年）</strong>：税前利润 307,419 百万元，同比仅 <strong>+0.39%</strong>（306,453 → 307,419）——<strong>实质上是零增长</strong>；但实际税率从 15.53% 降至 12.23%。<strong>若按 2022 年税率 15.53% 回算，2023 年净利润为 259,677 百万元，对 2022 年实际净利润 258,866 百万元仅增长 0.31%</strong>，而报表口径净利润增速为 <strong>+4.29%</strong>。<strong>即 2023 年净利润 4.29% 的增长中有约 4 个百分点、即九成以上来自税率下行，而非经营改善。</strong></li><li><strong>2025 年</strong>：税前利润 323,689 百万元，同比 <strong>+1.41%</strong>；实际税率从 11.44% 降至 9.79%。<strong>若按 2024 年税率回算，2025 年净利润为 286,628 百万元，同比仅 +1.40%</strong>；而报表口径净利润增速为 <strong>+3.30%</strong>。<strong>税率下行贡献了 2025 年净利润增速中的约 1.90 个百分点，占比 57.6%。</strong></li></ul>
+<p>税率下行的来源是可解释且"高质量"的：<strong>免税收入（国债及地方政府债券利息）的纳税影响从 2021 年的 −42,983 百万元增至 2025 年的 −69,598 百万元（+61.9%），占税前利润比重从 14.53% 升至 21.50%</strong>。这与资产负债表上"金融投资五年增长 116.9%、增速超过贷款"完全对应——<strong>农行通过增配免税债券资产，系统性地降低了税负。</strong> 这是真实的、可持续的税务规划，而非会计操纵。</p>
+<p><strong>来源三：2026H1 的双向反转（最重要的最新变化）</strong></p>
+<p>2026H1 出现了<strong>利润桥上的显著错位</strong>：</p>
+<div class="rsp-table"><table class="financial compact"><thead><tr><th>项目</th><th>2026H1</th><th>2025H1</th><th>同比</th></tr></thead><tbody><tr><td>营业收入</td><td>410,871</td><td>369,937</td><td><strong>+11.07%</strong></td></tr><tr><td>信用减值损失</td><td>110,620</td><td>97,955</td><td>+12.93%</td></tr><tr><td>税前利润</td><td>181,769</td><td>160,540</td><td><strong>+13.23%</strong></td></tr><tr><td>所得税费用</td><td>33,707</td><td>20,597</td><td><strong>+63.65%</strong></td></tr><tr><td>净利润</td><td>148,062</td><td>139,943</td><td>+5.80%</td></tr><tr class="total"><td><strong>归母净利润</strong></td><td><strong>146,381</strong></td><td><strong>139,510</strong></td><td><strong>+4.93%</strong></td></tr></tbody></table></div>
+<p><strong>税前利润增长 13.23%，归母净利润只增长 4.93%，8.3 个百分点的缺口几乎全部由所得税解释</strong>：实际税率从 12.83% 回升至 <strong>18.54%（+5.71 个百分点）</strong>。而税率回升的根因在调节表中一目了然——<strong>"不得扣除的成本、费用和损失及其他的纳税影响"从 15,506 百万元跳升至 27,566 百万元，单期增幅 +77.77%，占税前利润比重从 9.66% 升至 15.16%（接近翻倍）</strong>。</p>
+<p>这一科目的跳升具有明确的<strong>资产质量含义</strong>：银行不可抵扣项的主体是<strong>核销损失与资产减值损失</strong>。与之一致的是，<strong>2026H1 贷款核销额为 61,670 百万元，较 2025H1 的 49,104 百万元增长 25.59%</strong>。</p>
+<p><strong>结论</strong>：2026H1 农行的报表呈现出一个"<strong>经营改善、税负回归</strong>"的组合——利息净收入恢复 +10.54% 增长、营收加速至 +11.07%，但被加大核销与税率回归对冲，最终归母净利润仅 +4.93%。<strong>投资者应以税前利润（+13.23%）而非归母净利润（+4.93%）判断其主业的真实改善幅度，同时严密监控不可抵扣项的后续走势。</strong></p>
+<h3>4.3 净息差：下行通道的末端与"两端匹配"信号</h3>
+<p>净息差五年从 2.12% 降至 1.28%，<strong>累计收窄 84BP（−39.6%）</strong>。将其拆为资产端与负债端两条曲线，可以看清三个不同阶段：</p>
+<ul><li><strong>阶段一（2021—2023）：单向资产端冲击</strong>。生息资产收益率从 3.70% 降至 3.41%（−29BP），而计息负债付息率<strong>反向上升</strong> 22BP（1.74% → 1.96%）。<strong>这一阶段净息差损失 52BP，完全由资产端承受，且负债端在恶化。</strong> 原因：LPR 持续下调 + 存款定期化推高付息成本。</li><li><strong>阶段二（2024—2025）：负债端转为助力</strong>。资产端降 57BP（3.41% → 2.69%），负债端也降 43BP（1.96% → 1.53%）。<strong>负债端的降幅首次接近资产端</strong>，得益于存款利率市场化调整机制的持续传导。</li><li><strong>阶段三（2026H1）：两端降幅首次匹配</strong>。资产端同比降 28BP（2.80% → 2.52%），负债端同比降 27BP（1.60% → 1.33%），<strong>缺口仅 1BP</strong>——这是五年来首次。<strong>净息差 1.28% 与 2025 年全年持平，同比降幅收窄至 4BP。</strong></li></ul>
+<p><strong>以量补价的量化测算</strong>：2025 年生息资产平均余额 44,634,483 百万元，<strong>每 1BP 净息差约等于 44.63 亿元年化利息净收入</strong>。两组对算可以精确解释五年利息净收入的零增长：</p>
+<ul><li><strong>价格效应</strong>：若净息差维持 2021 年的 2.12% 不变，2025 年利息净收入应为 <strong>946,251 百万元</strong>（44,634,483 × 2.12%），实际为 569,594 百万元——<strong>"价"的因素吞噬约 3,766.57 亿元</strong>。</li><li><strong>规模效应</strong>：同期生息资产平均余额从 27,237,605 增至 44,634,483 百万元（<strong>+63.9%</strong>），按 2021 年净息差计算，规模增长本应贡献 <strong>+368,814 百万元（3,688.14 亿元）</strong>。</li></ul>
+<p><strong>两者仅相差 78.43 亿元——价格损失与规模收益几乎完全对冲。</strong> 这正是五年间利息净收入从 577,987 微降至 569,594 百万元（<strong>−1.45%</strong>）的算术答案。<strong>农行用 63.9% 的规模扩张，仅仅够"买回"息差收窄 84BP 的损失，未能创造净增量。</strong></p>
+<p><strong>前瞻判断</strong>：负债端成本已降至 1.33%（2026H1 年化），继续大幅下行的空间收窄；资产端收益率 2.52% 受 LPR 与市场利率约束。<strong>若 2026 全年净息差维持在 1.28%，则利息净收入的增长将完全依赖规模——而规模扩张受资本充足率约束（核心一级 10.80%）。</strong> 这是农行下一阶段的核心约束。</p>
+<h3>4.4 资产质量：总量改善 vs 结构恶化的剪刀差</h3>
+<p>这是本报告识别出的<strong>最重要的风险主题</strong>。</p>
+<p><strong>4.4.1 总量指标：持续改善</strong></p>
+<p>不良贷款率连续五年下降（1.43% → 1.25%），"不良＋关注"合计从 2.90% 收敛至 2.61%。<strong>在行业内这是相当优秀的读数</strong>，且农行的<strong>逾期贷款率（1.24%）低于不良贷款率（1.25%）</strong>——延续其"不良认定标准严格"的一贯特征。</p>
+<p><strong>4.4.2 抵补能力：改善已经停滞</strong></p>
+<div class="rsp-table rsp-w7"><table class="financial compact"><thead><tr><th>年末</th><th>贷款减值准备余额（百万元）</th><th>准备同比</th><th>不良余额同比</th><th>分子－分母</th><th>拨备覆盖率</th><th>贷款拨备率</th></tr></thead><tbody><tr><td>2022</td><td>820,228</td><td>—</td><td>+10.29%</td><td>—</td><td>302.60%</td><td>4.16%</td></tr><tr><td>2023</td><td>913,918</td><td><strong>+11.42%</strong></td><td>+10.96%</td><td><strong>+0.46pct</strong></td><td><strong>303.87%</strong></td><td>4.05%</td></tr><tr><td>2024</td><td>965,226</td><td><strong>+5.61%</strong></td><td>+7.12%</td><td><strong>−1.51pct</strong></td><td><strong>299.61%</strong></td><td>3.88%</td></tr><tr><td>2025</td><td>1,004,780</td><td><strong>+4.10%</strong></td><td>+6.61%</td><td><strong>−2.51pct</strong></td><td><strong>292.55%</strong></td><td>3.71%</td></tr><tr><td>2026H1</td><td>1,043,347</td><td>+3.83%（半年）</td><td>+4.71%（半年）</td><td><strong>−0.88pct</strong></td><td><strong>290.10%</strong></td><td>3.63%</td></tr></tbody></table></div>
+<p class="note">注：贷款减值准备余额取自各年报"贷款减值准备变动情况"表合计（含核算至其他综合收益项下的票据与福费廷减值准备），该口径与拨备覆盖率、贷款拨备率的分母口径一致，<strong>与资产负债表中"贷款减值准备"科目金额不同</strong>（后者不含 OCI 部分，如 2022 年末为 782,859）。校验：913,918 ÷ 300,760 = 303.87% ✓；1,004,780 ÷ 343,456 = 292.55% ✓；1,043,347 ÷ 359,652 = 290.11% ✓。</p>
+<p><strong>关键读数</strong>：这张表给出了拨备覆盖率变动的<strong>完整归因</strong>——<strong>"准备增速 − 不良增速"的正负号精确决定覆盖率的方向</strong>。2023 年准备增速（+11.42%）快于不良（+10.96%），覆盖率<strong>上升</strong> 1.27 个百分点；<strong>自 2024 年起连续三期负缺口</strong>（−1.51pct、−2.51pct、−0.88pct），覆盖率连续下降 4.26、7.06、2.45 个百分点。贷款拨备率同步从 4.16% 连续降至 3.63%——这是"<strong>计提速度慢于规模与风险增长速度</strong>"最直接的证据。<strong>结论：农行的风险抵补能力自 2024 年起不再增厚，而是在持续被消耗。</strong></p>
+<p><strong>4.4.3 剪刀差：逾期向不良的迁移正在加速（红旗信号）</strong></p>
+<p>回到表 9：</p>
+<div class="rsp-table"><table class="financial compact"><thead><tr><th>期末</th><th>逾期／不良</th><th>逾期 90 天以上／不良</th><th>逾期率 − 不良率</th></tr></thead><tbody><tr><td>2021</td><td>75.2%</td><td>45.0%</td><td><strong>−0.35pct</strong></td></tr><tr><td>2022</td><td>78.5%</td><td>40.4%</td><td><strong>−0.29pct</strong></td></tr><tr><td>2023</td><td>81.3%</td><td>44.4%</td><td><strong>−0.25pct</strong></td></tr><tr><td>2024</td><td>91.0%</td><td>59.9%</td><td><strong>−0.12pct</strong></td></tr><tr><td>2025</td><td>98.9%</td><td>71.9%</td><td><strong>−0.02pct</strong></td></tr><tr><td>2026H1</td><td><strong>99.5%</strong></td><td><strong>72.2%</strong></td><td><strong>−0.01pct</strong></td></tr></tbody></table></div>
+<p><strong>逾期／不良比值六年间从 75.2% 升至 99.5%（+24.3 个百分点），已逼近 100% 临界线。</strong> 按本技能量化判据，<strong>＞100% 即逾期贷款规模超过不良余额，是资产质量的强红旗</strong>；<strong>99.5% 意味着距离该临界点仅剩 0.5 个百分点</strong>。同期"逾期 90 天以上／不良"从 45.0% 升至 72.2%（+27.2 个百分点）——<strong>实质性逾期的确认比例在系统性上升</strong>。</p>
+<p><strong>逾期贷款绝对额的增速更值得注意</strong>：2021—2023 年逾期合计稳定在 184,921—244,530 百万元（逾期率 1.08%），2024 年起加速：293,097（+19.9%）→ 339,547（+15.8%）→ 357,893（2026H1）。<strong>其中 91 天至 3 年区间的逾期从 2023 年的 122,827 百万元增至 2026H1 的 238,859 百万元（+94.5%）——接近翻倍。</strong></p>
+<p><strong>平衡证据（必须并列陈述）</strong>："关注类占比"从 1.47% 收敛至 1.38%，"不良＋关注"从 2.90% 降至 2.61%。<strong>因此正确结论不是"风险总量上升"，而是"风险正在从关注类向逾期区间迁移"</strong> ——存量风险的暴露节奏在加快，而新增风险（关注类）在收敛。</p>
+<p><strong>4.4.4 结构性恶化：零售风险全面暴露</strong></p>
+<p>这是总量指标完全掩盖的地方。2025 年不良结构出现<strong>方向性反转</strong>：</p>
+<div class="rsp-table rsp-w6"><table class="financial compact longtable"><thead><tr><th>项目</th><th>2025 年不良余额</th><th>占比</th><th>不良率</th><th>2024 年不良率</th><th>变动</th></tr></thead><tbody><tr class="total"><td><strong>公司类贷款</strong></td><td>211,471</td><td>61.6%</td><td>1.37%</td><td>1.58%</td><td><strong>−21BP</strong></td></tr><tr><td>短期公司类贷款</td><td>47,156</td><td>13.7%</td><td>1.13%</td><td>1.80%</td><td>−67BP</td></tr><tr><td>中长期公司类贷款</td><td>164,315</td><td>47.9%</td><td>1.45%</td><td>1.50%</td><td>−5BP</td></tr><tr class="total"><td><strong>个人贷款</strong></td><td>124,287</td><td>36.2%</td><td><strong>1.34%</strong></td><td><strong>1.03%</strong></td><td><strong>＋31BP</strong></td></tr><tr><td>个人住房贷款</td><td>44,235</td><td>12.9%</td><td>0.92%</td><td>0.73%</td><td><strong>＋19BP</strong></td></tr><tr><td>信用卡透支</td><td>15,956</td><td>4.6%</td><td>1.88%</td><td>1.46%</td><td><strong>＋42BP</strong></td></tr><tr><td>个人经营类贷款</td><td>55,232</td><td>16.1%</td><td><strong>1.85%</strong></td><td>1.39%</td><td><strong>＋46BP</strong></td></tr><tr><td>个人消费贷款</td><td>8,842</td><td>2.6%</td><td>1.46%</td><td>1.55%</td><td>−9BP</td></tr><tr><td>境外及其他贷款</td><td>7,698</td><td>2.2%</td><td>2.02%</td><td>2.10%</td><td>−8BP</td></tr><tr class="total"><td><strong>合计</strong></td><td><strong>343,456</strong></td><td>100.0%</td><td><strong>1.27%</strong></td><td>1.30%</td><td>−3BP</td></tr></tbody></table></div>
+<p><strong>关键读数</strong>：<strong>公司类不良余额下降 5.1%（222,774 → 211,471）、不良率降 21BP；个人贷款不良余额上升 36.3%（91,211 → 124,287）、不良率升 31BP。</strong> 2026H1 趋势延续并加剧：个人不良余额进一步升至 133,438 百万元、不良率 <strong>1.39%</strong>（首次<strong>超过</strong>公司类的 1.31%），其中<strong>个人经营类贷款不良率 1.92%、信用卡透支 2.05%</strong>。</p>
+<p><strong>零售不良的三条细线</strong>：个人经营贷（1.39% → 1.85% → 1.92%）、信用卡（1.46% → 1.88% → 2.05%）、个人住房贷款（0.73% → 0.92% → 0.89%）。前两项是<strong>典型的宏观敏感型零售资产</strong>，其不良率在两年内上升 46—59BP，反映的是一般性居民部门资产负债表压力。</p>
+<p><strong>行业维度</strong>：公司类不良中，<strong>房地产业不良率 5.40%（占公司类不良 22.3%，为各行业最高）</strong>，与 2024 年持平；批发和零售业 2.44%（＋12BP）；水利、环境和公共设施管理业从 1.83% 降至 1.31%（−52BP）；交通运输业从 0.66% 骤降至 0.16%（−50BP）。<strong>对公房地产风险已高位横盘，未见恶化，但仍是单一最大风险敞口。</strong></p>
+<p><strong>4.4.5 处置力度：核销创历史新高</strong></p>
+<div class="rsp-table"><table class="financial compact"><thead><tr><th>期间</th><th>核销额（百万元）</th><th>不良生成额（百万元）\*</th></tr></thead><tbody><tr><td>2021</td><td>59,252</td><td>67,921</td></tr><tr><td>2022</td><td>57,584</td><td>82,864</td></tr><tr><td>2023</td><td>47,367</td><td>77,065</td></tr><tr><td>2024</td><td>75,778</td><td>97,183</td></tr><tr><td>2025</td><td><strong>92,769</strong></td><td><strong>114,060</strong></td></tr><tr><td>2026H1</td><td>61,670</td><td>77,866</td></tr></tbody></table></div>
+<p class="note">注：\* 不良生成额 = 不良余额变动 ＋ 当期核销额（近似口径，未扣减清收回款与转让）。</p>
+<p><strong>2025 年核销额 927.69 亿元为五年最高（较 2023 年低点增长 95.9%）；2026H1 核销 616.70 亿元，同比再增 25.59%。</strong> 以 2025 年平均发放贷款和垫款 26,163,780 百万元为基数，<strong>不良生成率约 0.44%</strong>，高于当年信用减值损失计提率（127,189 ÷ 26,163,780 ≈ 0.49%，扣除收回后净计提更低）。<strong>"核销加速 + 拨备计提放缓"的组合，正是拨备覆盖率下行与不可抵扣税项跳升的共同来源。</strong></p>
+<h3>4.5 中收：2025 年的"一枝独秀"与 2026H1 的高基数反转</h3>
+<p>2025 年中收净收入 <strong>88,085 百万元（+16.56%）</strong>，为近五年最高；但结构极不均衡（见表 8）：<strong>八项业务中六项负增长，全部增量来自代理业务（+142.43 亿元，+87.81%）</strong>，年报归因于理财与代销基金收入增加。</p>
+<p>2026H1 该逻辑发生<strong>反向摆动</strong>：中收净收入 46,959 百万元，<strong>同比 −8.71%</strong>；<strong>代理业务从 15,807 骤降至 9,509 百万元（−39.84%）</strong>。年报明确解释："<strong>主要受上年同期存量理财一次性收益高基数影响</strong>"。</p>
+<p><strong>这一对读极具价值</strong>：2025 年代理业务 +87.81% 中包含<strong>一次性因素</strong>（存量理财收益），它在 2026H1 形成高基数而消失。<strong>因此 2025 年的中收高增长不可外推，2026H1 的中收负增长亦不代表渠道能力退化。</strong> 观察中收应回到排除代理业务后的"常规七项"：2026H1 电子银行 −0.5%、顾问咨询 +2.2%、银行卡 +2.5%、结算清算 +3.9%、托管 +11.5%——<strong>低速但为正，这才是农行中收的真实基础增速（约 2%—4%）</strong>。托管及其他受托业务是唯一连续两期正增长的品种（2025 +6.52%、2026H1 +11.51%），值得关注。</p>
+<h3>4.6 其他非息：投资收益成为 2026H1 的新引擎</h3>
+<p>2026H1 其他非息收入 51,668 百万元，<strong>同比 +43.36%（+156.45 亿元）</strong>，成为营收 +11.07% 的第二大贡献项。拆解如下：</p>
+<div class="rsp-table"><table class="financial compact"><thead><tr><th>项目（人民币百万元）</th><th>2026H1</th><th>2025H1</th></tr></thead><tbody><tr><td>投资收益</td><td>44,353</td><td>23,153</td></tr><tr><td>公允价值变动损益</td><td>−280</td><td>4,992</td></tr><tr><td>汇兑收益</td><td>1,629</td><td>2,306</td></tr></tbody></table></div>
+<p><strong>投资收益 44,353 百万元，同比 +91.6%</strong>；年报归因于"债权投资的投资收益增加"。<strong>公允价值变动损益则由 +4,992 转为 −280，方向反转。</strong> 两者合计仍净增 159.28 亿元。</p>
+<p><strong>必须提示的敏感度</strong>：这一科目的高增长与<strong>债券市场行情高度相关</strong>。2025 年其他非息 67,627 百万元（+24.6%）、2026H1 +43.4%，连续两期高增均建立在债市表现之上。<strong>若债市转入调整，投资收益与公允价值变动可能同时反向，成为营收的下拉项</strong>——这是农行 2026 年余下期间最需要跟踪的波动来源。</p>
+<h3>4.7 县域金融：被市场低估的结构性护城河</h3>
+<p>表 12 已给出核心对照。展开三个维度：</p>
+<p><strong>（1）资产定价优势</strong>：2025 年县域贷款平均收益率 <strong>3.00%</strong>，高于全行发放贷款和垫款平均收益率 <strong>2.88%</strong>，溢价 <strong>12BP</strong>；2024 年溢价 13BP。在整体利率下行 43BP 的年份里，<strong>县域资产的收益率溢价保持了稳定</strong>。</p>
+<p><strong>（2）负债成本优势</strong>：2025 年县域存款平均付息率 <strong>1.28%</strong>，低于全行吸收存款平均付息率 <strong>1.34%</strong>，优势 <strong>6BP</strong>（2024 年为 9BP）。县域网点密度与客户黏性带来了更便宜的存款。</p>
+<p><strong>（3）资产质量优势（且在扩大）</strong>：县域不良贷款率 <strong>1.13%</strong>，低于全行 <strong>1.27%</strong>；2026H1 进一步降至 <strong>1.05%</strong>，全行 1.25%，<strong>优势从 9BP（2024）扩大至 14BP（2025）再到 20BP（2026H1）</strong>。县域拨备覆盖率 336.21%（2025）、<strong>350.76%（2026H1）</strong>，显著高于全行的 292.55%／290.10%。</p>
+<p><strong>综合含义</strong>：<strong>"更贵的资产 + 更便宜的负债 + 更低的坏账"</strong> —— 这是银行经营的"不可能三角"中被同时实现的罕见组合，也是农业银行相对其他国有大行的<strong>最核心差异化优势</strong>。县域贷款占境内贷款比重已达 41.0% 且增速（11.0%）持续高于全行，意味着<strong>这一优势对整体财务表现的贡献仍在提升</strong>。<strong>在利率下行、零售风险上升的环境中，农行的县域基本盘提供了比同业更强的抗压性</strong>——这一点在市场以"净息差与资产质量"为主要估值锚时被系统性低估。</p>
+<h3>4.8 资本与分红：内生积累速度落后于风险资产扩张</h3>
+<p><strong>资本充足率的算术</strong>：2026H1 风险加权资产 26,281,608 百万元，较 2025 年末增长 <strong>5.92%</strong>；而归母权益仅从 3,237,182 增至 3,328,014 百万元（<strong>+2.81%</strong>）。<strong>风险资产增速是内生资本增速的 2.1 倍</strong>，直接导致核心一级资本充足率从 11.08% 降至 <strong>10.80%（−28BP，半年内）</strong>。2025 全年亦为同一模式（RWA +9.77% vs 归母权益 +4.73%）。</p>
+<p><strong>距监管红线的缓冲</strong>：农行为全球系统重要性银行（G-SIBs）第一组，同时是国内系统重要性银行第四组，核心一级资本充足率监管要求含附加资本后一般在 <strong>8.5%</strong> 左右（附加 1.0 个百分点，另需计提逆周期资本缓冲）。<strong>2026H1 的 10.80% 距离该线约 230BP，绝对缓冲仍然充裕</strong>，但下降斜率需要关注。</p>
+<p><strong>分红政策的含义</strong>：分红率连续三年锁定在 30.00%—30.01%（表 11），<strong>在六大行中偏低</strong>。这一政策在 ROE 下行期产生双重效应：<strong>正面</strong>是留存收益支撑内生资本、缓解核心一级资本压力；<strong>负面</strong>是 30% 的派息率封顶意味着<strong>股息率改善只能来自利润增长与估值下移</strong>，无法通过提升派息率实现。2026H1 中期分红率小幅升至 31.01%，是积极的边际信号。</p>
+<h2>五、关键内容总结</h2>
+<h3>5.1 核心业务与竞争优势</h3>
+<ul><li><strong>独一份的县域金融网络</strong>：县域贷款 10.9 万亿元（占境内贷款 41.0%），增速 11.0% 高于全行 11.4 个百分点；连续 5 年服务乡村振兴监管考核"优秀"，为 20 家全国性金融机构唯一一家。<strong>该业务同时具备更高的资产收益率（+12BP）、更低的存款付息率（−6BP）、更低的不良率（−14 至 −20BP）</strong>，构成难以复制的护城河。</li><li><strong>网点与渠道纵深</strong>：向乡镇迁建网点 179 个，建成惠农服务站 1,742 个，县域手机银行月活客户数 1.3 亿户，"惠农 e 贷"余额 1.84 万亿元（+22.9%）。</li><li><strong>重点领域信贷优势</strong>：科技贷款余额 4.7 万亿元（+20.1%）；制造业贷款余额 3.72 万亿元（+14.6%）；含信用卡在内的个人消费贷款余额 1.45 万亿元（+9.0%）；粮食保供、乡村产业、乡村建设领域贷款增速分别为 20.3%、19.5%、9.6%。</li><li><strong>资金实力</strong>：全口径客户存款余额 38.69 万亿元（+3.71 万亿元）；<strong>本外币存款偏离度 0.58%，为可比同业最优，且是唯一连续 7 个季度低于 3% 的机构</strong>。</li></ul>
+<h3>5.2 经营里程碑（2021—2026H1）</h3>
+<div class="rsp-table"><table class="financial compact longtable"><thead><tr><th>期间</th><th>里程碑</th></tr></thead><tbody><tr><td>2021—2022</td><td>总资产从 29.07 万亿增至 33.93 万亿，两年增长 16.7%</td></tr><tr><td>2023</td><td>自 2023-01-01 起执行新保险合同准则，追溯调整 2022 年报表</td></tr><tr><td>2023</td><td>不良贷款率降至 1.33%，拨备覆盖率 303.87% 为五年最高</td></tr><tr><td>2024</td><td>按新《商业银行资本管理办法》计量资本，资本充足率跃升至 18.19%（含口径因素）；<strong>首次实施中期分红</strong></td></tr><tr><td>2024</td><td>总资产突破 43 万亿元，贷款新增 2.29 万亿元</td></tr><tr><td>2025</td><td><strong>总资产 48.78 万亿元</strong>，贷款新增 2.23 万亿元、金融投资新增 2.47 万亿元（<strong>投资新增超过贷款新增</strong>）</td></tr><tr><td>2025</td><td>净利润 2,920 亿元、营业收入 7,253 亿元，延续"双正增长"；不良率 1.27%（−3BP）；拨备余额保持万亿元以上</td></tr><tr><td>2025</td><td>全年每 10 股派息 2.495 元，股息合计 873.21 亿元（含税）</td></tr><tr><td>2026H1</td><td><strong>总资产突破 51 万亿元</strong>；利息净收入同比 +10.54% 恢复增长；净息差 1.28% 与上年持平，同比降幅收窄至 4BP</td></tr><tr><td>2026H1</td><td>县域不良率降至 1.05%，县域拨备覆盖率升至 350.76%</td></tr></tbody></table></div>
+<h3>5.3 主要风险</h3>
+<ol><li><strong>逾期／不良剪刀差逼近 100% 临界线（首要风险）</strong>：该比值从 2021 年 75.2% 升至 2026H1 <strong>99.5%</strong>；"逾期 90 天以上／不良"从 45.0% 升至 <strong>72.2%</strong>；91 天至 3 年区间逾期余额增长 94.5%。虽然"关注＋不良"合计在收敛（2.90% → 2.61%），但<strong>存量风险向逾期区间的迁移正在加速</strong>。</li><li><strong>零售资产质量全面承压</strong>：个人贷款不良率从 1.03%（2024）升至 1.34%（2025）再至 <strong>1.39%（2026H1）</strong>，2026H1 首次超过公司类不良率；个人经营类贷款 1.92%、信用卡透支 <strong>2.05%</strong>，为各品种最高。</li><li><strong>风险抵补能力停止增厚</strong>：贷款减值准备增速（2025 +4.10%）低于不良余额增速（+6.61%）；拨备覆盖率连续两年下降（303.87% → 299.61% → 292.55% → 290.10%）；贷款拨备率从 4.05% 降至 3.63%。</li><li><strong>税负回归对利润的直接冲击</strong>：实际税率从 2025 年的 9.79% 回升至 2026H1 的 <strong>18.54%</strong>；不可抵扣项（核销与减值损失为主）占税前利润比重从 9.66% 倍增至 15.16%，2026H1 所得税费用同比 <strong>+63.65%</strong>，直接压低归母净利润增速至 +4.93%。</li><li><strong>净息差继续下行的空间约束</strong>：负债端付息率已降至 1.33%，进一步下行空间收窄；若 NIM 维持 1.28%，利息净收入增长将完全依赖规模，而规模扩张受核心一级资本充足率（10.80%）约束。</li><li><strong>其他非息收入对债市的高度敏感</strong>：2026H1 投资收益 +91.6%、其他非息 +43.4%，建立在债市表现之上；公允价值变动已由 +4,992 转为 −280。债市调整将同时冲击收入与资本。</li><li><strong>对公房地产敞口</strong>：房地产业不良率 <strong>5.40%</strong>，占公司类不良 22.3%，为各行业最高（虽已高位横盘）。</li><li><strong>中收的季节性与一次性因素</strong>：2025 年代理业务 +87.81% 含存量理财一次性收益，2026H1 即转为 −39.84%；中收的常规增速仅约 2%—4%。</li></ol>
+<h2>六、结论</h2>
+<p><strong>农业银行过去五年（2021—2025）的财务表现可以概括为："规模高速扩张、收入零增长、利润靠成本与税负"</strong>。总资产增长 67.8%、贷款增长 58.0%、存款增长 49.0%；但营业收入五年仅 +0.75%，归母净利润 +20.67% 的增量几乎全部来自<strong>信用减值损失的五年压降（−386.97 亿元）与实际税率的持续下行（18.23% → 9.79%）</strong>。这并非低质量的利润——免税债券配置是真实的资产结构优化——但它<strong>并不反映主营业务的成长性</strong>。</p>
+<p><strong>2026 年上半年是这份五年序列的第一个真正转折点，且转折是双向的：</strong></p>
+<p><strong>向上的部分</strong>：利息净收入恢复 <strong>+10.54%</strong> 增长（此前三年持续承压）；营业收入加速至 <strong>+11.07%</strong>；净息差 1.28% 与上年持平、同比降幅收窄至 <strong>4BP</strong>，且<strong>资产端与负债端降幅首次匹配（28BP vs 27BP）</strong>；县域不良率降至 1.05%、拨备覆盖率升至 350.76%。<strong>"以量补价"的拐点可能在 2026H1 已经出现。</strong></p>
+<p><strong>向下的部分</strong>：信用减值损失同比 <strong>+12.93%</strong>、核销同比 <strong>+25.59%</strong>；实际税率从 12.83% 回升至 <strong>18.54%</strong>，所得税费用 <strong>+63.65%</strong>，使税前利润 +13.23% 只能转化为归母净利润 +4.93%；逾期／不良比值 <strong>99.5%</strong>，距 100% 红旗线仅剩 0.5 个百分点；零售不良率首次超过对公。</p>
+<p><strong>综合判断</strong>：<strong>农行的经营层面正在改善，但报表层面正在承受"风险处置 + 税负回归"的双重调整。</strong> 投资者应以<strong>税前利润（+13.23%）</strong>而非归母净利润（+4.93%）判断其主业动能，并以<strong>"逾期／不良比值"与"贷款拨备率"</strong>作为两个最关键的前瞻监控指标。<strong>其县域金融护城河（更高收益、更低成本、更低不良，且优势在扩大）是相对同业最具确定性的差异化优势，也是当前估值定价中最容易被忽视的部分。</strong></p>
+<h2>七、附录：数据来源与口径</h2>
+<h3>A.1 数据来源清单</h3>
+<div class="rsp-table"><table class="financial compact dense"><thead><tr><th>文件</th><th>覆盖期间</th><th>说明</th></tr></thead><tbody><tr><td>农业银行 2021 年年度报告</td><td>2021 年（含 2020 年比较数）</td><td>未按新保险合同准则重述</td></tr><tr><td>农业银行 2022 年年度报告</td><td>2022 年（含 2021、2020 年比较数）</td><td>原披露口径</td></tr><tr><td>农业银行 2023 年年度报告</td><td>2023 年（含 2022 年<strong>调整前／调整后</strong>双列）</td><td>新保险合同准则首次执行</td></tr><tr><td>农业银行 2024 年年度报告</td><td>2024 年（含 2023、2022 年比较数）</td><td>新资本管理办法首次适用</td></tr><tr><td>农业银行 2025 年年度报告</td><td>2025 年（含 2024、2023 年比较数）</td><td>本报告 2025 年数据主要来源</td></tr><tr><td>农业银行 2025 年半年度报告</td><td>2025H1（含 2024H1 比较数）</td><td>用于 2026H1 同比对照</td></tr><tr><td>农业银行 2026 年半年度报告</td><td>2026H1（含 2025H1、2025 年末比较数）</td><td>最新期间数据来源</td></tr></tbody></table></div>
+<h3>A.2 口径与计算方法声明</h3>
+<ol><li><strong>币种与单位</strong>：人民币百万元（另有说明者除外）。<strong>每股数据</strong>以 3,499.83 亿股普通股为基数，基本每股收益采用年报披露值。</li><li><strong>不良贷款余额</strong>：采用各年报"贷款五级分类分布情况"表的不良贷款合计（不含应计利息）。<strong>贷款拨备率</strong> ＝ 贷款减值准备余额 ÷ 发放贷款和垫款总额（不含应计利息），减值准备取"贷款减值准备变动情况"表合计（含核算至 OCI 项下的票据与福费廷减值准备）。</li><li><strong>逾期贷款</strong>：采用各年报"按逾期期限划分的逾期贷款结构"表合计金额（本集团口径）。<strong>逾期／不良</strong>与<strong>逾期 90 天以上／不良</strong>为本报告计算的比率，非年报直接披露项。</li><li><strong>净息差（NIM）</strong>：＝ 利息净收入 ÷ 生息资产平均余额，采用年报披露值；净利差 ＝ 生息资产平均收益率 − 计息负债平均付息率。</li><li><strong>不良生成额</strong>：＝ 期末不良余额 − 期初不良余额 ＋ 当期核销额（近似口径，未扣减清收回款与资产转让）。</li><li><strong>期间数据</strong>：2026H1 属半年度（1—6 月）口径或 2026 年 6 月 30 日时点数据；标注 <code>*</code> 者为年化数据。<strong>半年度数据不可与年度数据直接相减。</strong></li><li><strong>未重述期间</strong>：本报告不含 2021 年及以前按新保险合同准则重述的数据（年报未披露），故 2022 年与 2021 年之间的收入类比较含口径差异。</li><li><strong>数据原则</strong>：数据准确度优先于完整度——凡年报未披露的项目均留"—"，未做推算或估计。本报告全部数据取自中国农业银行 2021—2025 年年度报告及 2025、2026 年半年度报告的公开披露。</li></ol>
+<h3>A.3 未披露项说明</h3>
+<p>以下项目年报未单独披露，本报告一律留空、不做推算：2021—2023 年"其他非利息收入"的明细构成（投资收益／公允价值变动分项仅 2024 年起披露完整）；县域金融的营业收入与净利润绝对额（年报仅披露比率指标）；各年度的不良贷款转让／清收回收金额（仅披露核销额，非处置全额）。</p>
+</body>
+</html>

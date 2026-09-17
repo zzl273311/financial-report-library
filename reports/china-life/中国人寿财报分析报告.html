@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>中国人寿（601628.SH / 2628.HK）财报分析报告</title>
+<meta name="author" content="财报分析">
+<meta name="generator" content="financial-report-analysis">
+<style>
+  @font-face { font-family:"TsangerJinKai02"; src:url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W04.ttf") format("truetype"); font-weight:400; font-style:normal; font-display: swap; }
+  @font-face { font-family:"TsangerJinKai02"; src:url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W05.ttf") format("truetype"); font-weight:500; font-style:normal; font-display: swap; }
+  @page { size:A4; margin:16mm 18mm 18mm 18mm; background:#F7F4EE;
+    @bottom-center { content: counter(page) "  ·  财报分析"; font-family:"Songti SC","Noto Serif CJK SC",serif; font-size:9pt; color:#6b6a64; } }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  :root { --parchment:#F7F4EE; --ivory:#FBF9F4; --near-black:#22262B; --dark-warm:#3E4145; --olive:#504e49; --stone:#7C7B77; --brand:#A73F2D; --brand-deep:#8A3223; --accent:#A73F2D; --accent-soft:#F1E3DD; --gold:#B8862F; --teal:#2F6F6B; --blue:#1B365D; --border:#E3DDD4; --border-soft:#EAE5DC; --serif:"TsangerJinKai02","Source Han Serif SC","Noto Serif CJK SC","Songti SC","STSong","SimSun",Georgia,serif; }
+  html,body{background:var(--parchment);}
+  @media screen { body{max-width:210mm;margin:0 auto;padding:16mm 18mm 18mm 18mm;} }
+  body{color:var(--near-black);font-family:var(--serif);font-size:10pt;line-height:1.5;letter-spacing:0.3pt;widows:3;orphans:3;}
+  strong{font-weight:500;} .hl{color:var(--brand);font-weight:500;}
+  .report-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12pt;padding-bottom:10pt;border-bottom:0.5pt solid var(--border);}
+  .ticker-block{flex:1;} .ticker-eyebrow{font-size:9pt;color:var(--brand);letter-spacing:1.5pt;text-transform:uppercase;font-weight:500;margin-bottom:4pt;}
+  .ticker-name{font-family:var(--serif);font-size:22pt;font-weight:500;color:var(--near-black);line-height:1.15;margin-bottom:4pt;}
+  .ticker-sub{font-size:10pt;color:var(--olive);line-height:1.4;}
+  .price-block{text-align:right;padding-top:4pt;} .price-current{font-family:var(--serif);font-size:24pt;font-weight:500;color:var(--near-black);line-height:1;font-variant-numeric:tabular-nums;}
+  .price-change{font-size:10pt;font-weight:500;margin-top:2pt;color:var(--brand);} .price-date{font-size:9pt;color:var(--stone);margin-top:2pt;}
+  .metrics{display:flex;gap:14pt;margin-bottom:16pt;padding:6pt 0;border-top:0.3pt dotted var(--border);border-bottom:0.3pt dotted var(--border);}
+  .metric{flex:1;display:flex;align-items:baseline;gap:4pt;} .metric-value{font-family:var(--serif);font-size:15pt;font-weight:500;color:var(--brand);line-height:1;font-variant-numeric:tabular-nums;white-space:nowrap;}
+  .metric-label{font-size:8.5pt;color:var(--olive);line-height:1.3;white-space:nowrap;}
+  h2{font-family:var(--serif);font-size:15pt;font-weight:500;color:var(--near-black);margin:16pt 0 6pt 0;break-after:avoid;position:relative;padding-left:13pt;}
+  h2::before{content:"";position:absolute;left:0;top:2.5pt;width:4pt;height:13pt;background:var(--accent);border-radius:1pt;}
+  h3{font-size:12pt;font-weight:500;color:var(--dark-warm);margin:10pt 0 4pt 0;break-after:avoid;}
+  p{margin:0 0 8pt 0;line-height:1.5;widows:2;orphans:2;}
+  ul,ol{margin:4pt 0 8pt 0;padding-left:18pt;line-height:1.5;} li::marker{color:var(--brand);}
+  .tag{display:inline-block;background:var(--accent-soft);color:var(--brand-deep);font-size:9pt;font-weight:500;padding:1pt 6pt;border-radius:3pt;margin-right:3pt;}
+  table{width:100%;border-collapse:collapse;font-size:9pt;margin:8pt 0;break-inside:avoid;}
+  table th{text-align:left;font-weight:500;color:var(--dark-warm);padding:6pt 8pt;border-bottom:1pt solid var(--accent);background:transparent;}
+  table td{padding:5pt 8pt;border-bottom:0.25pt solid var(--border);vertical-align:top;}
+  table.compact th{padding:3pt 6pt;font-size:8pt;} table.compact td{padding:2.5pt 6pt;font-size:8pt;line-height:1.4;}
+  table.financial td:not(:first-child){text-align:right;font-variant-numeric:tabular-nums;}
+  table.financial th:not(:first-child){text-align:right;}
+  table .total td{font-weight:500;border-top:0.6pt solid var(--border);border-bottom:none;color:var(--near-black);}
+  .note{font-size:8.5pt;color:var(--stone);margin:2pt 0 8pt 0;}
+  .callout{background:var(--ivory);padding:8pt 12pt;border-radius:3pt;margin:10pt 0;line-height:1.5;break-inside:avoid;border-left:3pt solid var(--accent);}
+  .callout .quote{margin:6pt 0;color:var(--olive);}
+  figure{margin:12pt 0;break-inside:avoid;} figcaption{font-size:9pt;color:var(--stone);margin-top:4pt;text-align:center;}
+  .risk-grid{display:grid;grid-template-columns:1fr 1fr;gap:10pt;margin:8pt 0;} .risk-item{padding:6pt 10pt;background:var(--ivory);border-radius:3pt;break-inside:avoid;border-left:2.5pt solid var(--accent);}
+  .risk-label{font-size:9pt;font-weight:500;color:var(--brand);margin-bottom:2pt;} .risk-desc{font-size:9pt;color:var(--olive);line-height:1.4;}
+  .analyst-box{background:var(--ivory);border-radius:4pt;padding:10pt 14pt;margin:12pt 0;break-inside:avoid;border-left:3pt solid var(--accent);}
+  .analyst-label{font-size:9pt;color:var(--brand);letter-spacing:0.5pt;text-transform:uppercase;margin-bottom:4pt;}
+  .page-break{break-before:page;}
+  .report-footer{display:flex;justify-content:space-between;font-size:8.5pt;color:var(--stone);margin-top:18pt;padding-top:6pt;border-top:0.3pt dotted var(--border);}
+</style>
+
+<!-- rsp-mobile-adapt : 响应式适配层（仅屏幕生效，不影响打印/PDF） -->
+<style id="rsp-mobile-adapt">
+/* ========== 1. 全局：屏幕端基础修正 ========== */
+@media screen {
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body { overflow-wrap: break-word; }
+  img, svg, canvas, video, iframe { max-width: 100%; }
+  svg[viewBox], svg[viewbox] { height: auto; }
+
+  /* 表格横向滚动容器：宽表不压字、不撑破页面 */
+  .rsp-table {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    margin: 8pt 0;
+    position: relative;
+  }
+  .rsp-table > table { margin: 0; }
+  .rsp-table::-webkit-scrollbar { height: 7px; }
+  .rsp-table::-webkit-scrollbar-track { background: transparent; }
+  .rsp-table::-webkit-scrollbar-thumb { background: #D8D1C4; border-radius: 4px; }
+  /* 内容确实溢出时，右侧给一层渐变暗示"还能往右滑" */
+  .rsp-table[data-rsp-scroll] {
+    background: linear-gradient(to left, rgba(167,63,45,.10), rgba(167,63,45,0) 28px);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 28px 100%;
+  }
+}
+
+/* ========== 2. 平板 / 窄窗口：边距先收，避免内容被挤 ========== */
+@media screen and (max-width: 900px) {
+  body { padding: 22px 22px 46px 22px !important; }
+  .report-header { flex-wrap: wrap; gap: 12pt; }
+  .metrics { flex-wrap: wrap; gap: 10pt 18pt; }
+  .metric { flex: 1 1 42%; min-width: 0; }
+  .report-footer { flex-wrap: wrap; gap: 4pt 14pt; }
+
+  /* 宽表改为横向滚动：给每列保留最小可读宽度，不再把汉字挤成竖排 */
+  .rsp-w5 > table { min-width: 310px !important; }
+  .rsp-w6 > table { min-width: 372px !important; }
+  .rsp-w7 > table { min-width: 434px !important; }
+  .rsp-w8 > table { min-width: 496px !important; }
+  .rsp-w9 > table { min-width: 558px !important; }
+  .rsp-w10 > table { min-width: 620px !important; }
+  .rsp-w11 > table { min-width: 682px !important; }
+  .rsp-w12 > table { min-width: 744px !important; }
+  .rsp-w13 > table { min-width: 806px !important; }
+  .rsp-w14 > table { min-width: 868px !important; }
+  .rsp-w15 > table { min-width: 930px !important; }
+  .rsp-w16 > table { min-width: 992px !important; }
+}
+
+/* ========== 3. 手机：指标卡两列、页头转纵向 ========== */
+@media screen and (max-width: 720px) {
+  body {
+    max-width: 100% !important;
+    padding: 18px 16px 44px 16px !important;
+    font-size: 10.5pt;
+  }
+  h2 { font-size: 15pt !important; margin: 20pt 0 7pt 0 !important; }
+  h3 { font-size: 12.5pt !important; }
+  h1 { font-size: 19pt !important; }
+  p, li { line-height: 1.62; }
+  ul, ol { padding-left: 17pt; }
+
+  .report-header { flex-direction: column; align-items: stretch; gap: 8pt; }
+  .price-block { text-align: left; padding-top: 0; }
+  .price-current { font-size: 24pt !important; }
+  .ticker-name { font-size: 21pt !important; }
+  .ticker-sub { font-size: 9.5pt !important; }
+
+  .metrics { gap: 9pt 12pt; }
+  .metric { flex: 1 1 45%; }
+  .metric-value { font-size: 15pt !important; }
+  .metric-label { font-size: 8.5pt !important; white-space: normal !important; }
+
+  table, .kami-table { font-size: 9pt !important; }
+  .longtable { font-size: 8.5pt !important; }
+  .wide { font-size: 7.5pt !important; }
+  .dense { font-size: 8pt !important; }
+  table th, table td, .kami-table th, .kami-table td { padding: 5pt 6pt !important; }
+
+  blockquote, .quote, .note, .warn, .callout, .risk-item { padding: 9pt 11pt !important; }
+  .risk-grid { grid-template-columns: 1fr !important; }
+  .report-footer { flex-direction: column; align-items: flex-start; gap: 3pt; }
+}
+
+/* ========== 4. 小屏手机：指标卡单列、边距收到最紧 ========== */
+@media screen and (max-width: 430px) {
+  body { padding: 14px 12px 38px 12px !important; }
+  h2 { font-size: 14pt !important; }
+  h3 { font-size: 11.5pt !important; }
+  .ticker-name { font-size: 19pt !important; }
+  .price-current { font-size: 21pt !important; }
+  .metric { flex: 1 1 100%; }
+  .metric-value { font-size: 16pt !important; }
+  ul, ol { padding-left: 15pt; }
+  table, .kami-table { font-size: 8.5pt !important; }
+}
+
+/* ========== 5. 打印：把包裹层还原成透明，PDF 版式与补丁前完全一致 ========== */
+@media print {
+  .rsp-table { margin: 0; padding: 0; overflow: visible !important; background: none !important; }
+  .rsp-table > table { margin: 8pt 0; min-width: 0 !important; }
+  [class*="rsp-w"] > table { min-width: 0 !important; }
+}
+</style>
+</head>
+<body>
+
+<div class="report-header">
+  <div class="ticker-block">
+    <div class="ticker-eyebrow">寿险行业龙头 · 财报分析</div>
+    <div class="ticker-name">中国人寿 <span style="font-size:13pt;color:var(--stone);">601628.SH / 2628.HK</span></div>
+    <div class="ticker-sub">中国最大寿险公司；A+H 上市；2025 总保费首破 7,000 亿元，内含价值稳居行业首位</div>
+  </div>
+  <div class="price-block">
+    <div class="price-current">1,540.78<span style="font-size:12pt;"> 亿元</span></div>
+    <div class="price-change">2025 归母净利润 · 同比 +44.1%</div>
+    <div class="price-date">数据截至 2025 年报 / 2026 半年报</div>
+  </div>
+</div>
+
+<div class="metrics">
+  <div class="metric"><div class="metric-value">7,298.87</div><div class="metric-label">2025 总保费（亿元，+8.7%）</div></div>
+  <div class="metric"><div class="metric-value">1.47 万亿</div><div class="metric-label">2025 内含价值（行业首位）</div></div>
+  <div class="metric"><div class="metric-value">457.52</div><div class="metric-label">2025 新业务价值（亿元，+35.7%）</div></div>
+  <div class="metric"><div class="metric-value">174.01%</div><div class="metric-label">2025 综合偿付能力充足率</div></div>
+</div>
+
+<h2>核心结论</h2>
+<p>中国人寿 2025 年交出"速度与质量并举"的答卷：总保费首破 <span class="hl">7,000 亿元</span>，归母净利润 <span class="hl">1,540.78 亿元</span>创历史新高（同比 +44.1%），一年新业务价值（NBV）同比 +35.7% 至 457.52 亿元，内含价值稳居 1.47 万亿元。增长并非单靠规模，而是<b>资负联动深化、业务结构向浮动收益型与长期期交转型、投资端把握权益机会</b>三者共振的结果。2026 上半年延续强劲，归母净利已达 1,344.89 亿元（同比 +228.6%）。但需清醒认识：阶段性高增高度依赖权益市场与利率环境，利率下行周期的浮亏敞口、利差损压力与偿付能力边际回落，是中长期核心约束。</p>
+<div class="callout"><div class="quote">一句话：规模与价值双升的寿险龙头，短期业绩弹性充足；长期价值取决于低利率下"负债成本—资产波动—资本充足"三角平衡能力。</div></div>
+
+<h2>收入与利润趋势</h2>
+<figure>
+<svg font-family="'Songti SC','Noto Serif CJK SC',serif" viewBox="0 0 680 340" width="100%">
+  <text x="20" y="22" font-size="11" fill="#22262B" font-weight="500">图 1　营业收入与归母净利润趋势（单位：亿元；2026H1 为半年口径）</text>
+  <line x1="50" y1="300" x2="660" y2="300" stroke="#E3DDD4" stroke-width="1"/>
+  <!-- 2022 -->
+  <rect x="52" y="152.7" width="34" height="147.3" fill="#1B365D"/>
+  <rect x="90" y="274.8" width="34" height="25.2" fill="#A73F2D"/>
+  <text x="69" y="146" font-size="7.5" fill="#1B365D" text-anchor="middle">3,888.95</text>
+  <text x="107" y="268" font-size="7.5" fill="#A73F2D" text-anchor="middle">666.80</text>
+  <text x="88" y="316" font-size="8.5" fill="#7C7B77" text-anchor="middle">2022</text>
+  <!-- 2023 -->
+  <rect x="162" y="146.6" width="34" height="153.4" fill="#1B365D"/>
+  <rect x="200" y="280.6" width="34" height="19.4" fill="#A73F2D"/>
+  <text x="179" y="140" font-size="7.5" fill="#1B365D" text-anchor="middle">4,050.40</text>
+  <text x="217" y="274" font-size="7.5" fill="#A73F2D" text-anchor="middle">511.84</text>
+  <text x="198" y="316" font-size="8.5" fill="#7C7B77" text-anchor="middle">2023</text>
+  <!-- 2024 -->
+  <rect x="272" y="100.0" width="34" height="200.0" fill="#1B365D"/>
+  <rect x="310" y="259.5" width="34" height="40.5" fill="#A73F2D"/>
+  <text x="289" y="93" font-size="7.5" fill="#1B365D" text-anchor="middle">5,285.67</text>
+  <text x="327" y="253" font-size="7.5" fill="#A73F2D" text-anchor="middle">1,069.35</text>
+  <text x="308" y="316" font-size="8.5" fill="#7C7B77" text-anchor="middle">2024</text>
+  <!-- 2025 -->
+  <rect x="382" y="66.8" width="34" height="233.2" fill="#1B365D"/>
+  <rect x="420" y="241.7" width="34" height="58.3" fill="#A73F2D"/>
+  <text x="399" y="60" font-size="7.5" fill="#1B365D" text-anchor="middle">6,156.78</text>
+  <text x="437" y="235" font-size="7.5" fill="#A73F2D" text-anchor="middle">1,540.78</text>
+  <text x="418" y="316" font-size="8.5" fill="#7C7B77" text-anchor="middle">2025</text>
+  <!-- 2026H1 -->
+  <rect x="492" y="135.6" width="34" height="164.4" fill="#8090A8"/>
+  <rect x="530" y="249.1" width="34" height="50.9" fill="#C97A6A"/>
+  <text x="509" y="129" font-size="7.5" fill="#8090A8" text-anchor="middle">4,343.07</text>
+  <text x="547" y="243" font-size="7.5" fill="#C97A6A" text-anchor="middle">1,344.89</text>
+  <text x="528" y="316" font-size="8.5" fill="#7C7B77" text-anchor="middle">2026H1</text>
+  <!-- 图例 -->
+  <rect x="560" y="40" width="12" height="12" fill="#1B365D"/><text x="576" y="50" font-size="8" fill="#3E4145">营业收入</text>
+  <rect x="560" y="56" width="12" height="12" fill="#A73F2D"/><text x="576" y="66" font-size="8" fill="#3E4145">归母净利润</text>
+</svg>
+<figcaption>图 1　营业收入与归母净利润趋势（重述口径；2026H1 为半年值，未年化）</figcaption>
+</figure>
+
+<h2>核心财务与价值指标对比</h2>
+<p class="note">以下采用 2022–2025 年新保险合同准则重述口径（一致可比）；2021 年及以前为旧准则，规模不可直接比较，仅作背景。金额单位：人民币百万元，比率与每股除外。</p>
+<div class="rsp-table rsp-w6"><table class="financial compact">
+<thead><tr><th>指标</th><th>2022 年</th><th>2023 年</th><th>2024 年</th><th>2025 年</th><th>2026 H1</th></tr></thead>
+<tbody>
+<tr><td>营业收入</td><td>388,895</td><td>405,040</td><td>528,567</td><td>615,678</td><td>434,307</td></tr>
+<tr><td>归母净利润</td><td>66,680</td><td>51,184</td><td>106,935</td><td>154,078</td><td>134,489</td></tr>
+<tr><td>基本每股收益（元）</td><td>2.36</td><td>1.81</td><td>3.78</td><td>5.45</td><td>4.76</td></tr>
+<tr><td>加权平均 ROE（%）</td><td>17.26</td><td>14.75</td><td>21.59</td><td>27.81</td><td>21.07*</td></tr>
+<tr><td>经营活动现金流净额</td><td>345,284</td><td>384,366</td><td>378,795</td><td>459,925</td><td>282,879</td></tr>
+<tr><td>总资产</td><td>5,010,068</td><td>5,653,727</td><td>6,769,546</td><td>7,591,004</td><td>8,090,712</td></tr>
+<tr><td>归母股东权益</td><td>366,021</td><td>327,784</td><td>509,675</td><td>595,205</td><td>664,203</td></tr>
+<tr><td>投资资产</td><td>4,811,893</td><td>5,412,529</td><td>6,611,071</td><td>7,423,705</td><td>7,946,101</td></tr>
+<tr><td>总投资收益率（%）</td><td>3.90</td><td>2.57</td><td>5.50</td><td>6.09</td><td>5.58</td></tr>
+</tbody></table></div>
+<p class="note">* 2026 H1 的 ROE 为上半年口径，非年化。</p>
+
+<div class="rsp-table rsp-w6"><table class="financial compact">
+<thead><tr><th>寿险核心价值指标</th><th>2022 年</th><th>2023 年</th><th>2024 年</th><th>2025 年</th><th>2026 H1</th></tr></thead>
+<tbody>
+<tr><td>总保费</td><td>615,190</td><td>641,380</td><td>671,457</td><td>729,887</td><td>536,634</td></tr>
+<tr><td>新单保费</td><td>184,767</td><td>210,813</td><td>214,172</td><td>234,079</td><td>180,039</td></tr>
+<tr><td>续期保费</td><td>430,423</td><td>430,567</td><td>457,285</td><td>495,808</td><td>356,595</td></tr>
+<tr><td>一年新业务价值 NBV</td><td>36,004</td><td>36,860</td><td>33,709</td><td>45,752</td><td>38,167</td></tr>
+<tr><td>内含价值 EV</td><td>1,194,220</td><td>1,260,567</td><td>1,401,146</td><td>1,467,876</td><td>1,614,207</td></tr>
+<tr><td>综合偿付能力充足率（%）</td><td>206.78</td><td>219.00</td><td>207.76</td><td>174.01</td><td>197.78</td></tr>
+<tr><td>核心偿付能力充足率（%）</td><td>143.59</td><td>158.00</td><td>153.34</td><td>128.77</td><td>156.80</td></tr>
+<tr><td>退保率（%）</td><td>0.95</td><td>1.11</td><td>1.01</td><td>0.95</td><td>0.45</td></tr>
+</tbody></table></div>
+
+<h2>价值指标趋势：NBV 与内含价值</h2>
+<figure>
+<svg font-family="'Songti SC','Noto Serif CJK SC',serif" viewBox="0 0 680 340" width="100%">
+  <text x="20" y="22" font-size="11" fill="#22262B" font-weight="500">图 2　一年新业务价值（柱，左轴）与内含价值（折线，右轴）趋势（单位：亿元）</text>
+  <line x1="50" y1="300" x2="660" y2="300" stroke="#E3DDD4" stroke-width="1"/>
+  <!-- NBV 柱 teal -->
+  <rect x="56" y="127.8" width="34" height="172.2" fill="#2F6F6B"/>
+  <rect x="166" y="123.6" width="34" height="176.4" fill="#2F6F6B"/>
+  <rect x="276" y="138.7" width="34" height="161.3" fill="#2F6F6B"/>
+  <rect x="386" y="81.1" width="34" height="218.9" fill="#2F6F6B"/>
+  <rect x="496" y="117.4" width="34" height="182.6" fill="#2F6F6B"/>
+  <text x="73" y="121" font-size="7.5" fill="#2F6F6B" text-anchor="middle">360.04</text>
+  <text x="183" y="117" font-size="7.5" fill="#2F6F6B" text-anchor="middle">368.60</text>
+  <text x="293" y="132" font-size="7.5" fill="#2F6F6B" text-anchor="middle">337.09</text>
+  <text x="403" y="74" font-size="7.5" fill="#2F6F6B" text-anchor="middle">457.52</text>
+  <text x="513" y="111" font-size="7.5" fill="#2F6F6B" text-anchor="middle">381.67</text>
+  <!-- EV 折线 brand -->
+  <polyline points="73,137.8 183,128.7 293,109.5 403,100.7 513,80.9" fill="none" stroke="#A73F2D" stroke-width="2.5"/>
+  <circle cx="73" cy="137.8" r="4" fill="#A73F2D"/><circle cx="183" cy="128.7" r="4" fill="#A73F2D"/><circle cx="293" cy="109.5" r="4" fill="#A73F2D"/><circle cx="403" cy="100.7" r="4" fill="#A73F2D"/><circle cx="513" cy="80.9" r="4" fill="#A73F2D"/>
+  <text x="73" y="153" font-size="7.5" fill="#A73F2D" text-anchor="middle">11,942</text>
+  <text x="183" y="144" font-size="7.5" fill="#A73F2D" text-anchor="middle">12,606</text>
+  <text x="293" y="125" font-size="7.5" fill="#A73F2D" text-anchor="middle">14,011</text>
+  <text x="403" y="116" font-size="7.5" fill="#A73F2D" text-anchor="middle">14,679</text>
+  <text x="513" y="96" font-size="7.5" fill="#A73F2D" text-anchor="middle">16,142</text>
+  <text x="88" y="316" font-size="8.5" fill="#7C7B77" text-anchor="middle">2022</text>
+  <text x="198" y="316" font-size="8.5" fill="#7C7B77" text-anchor="middle">2023</text>
+  <text x="308" y="316" font-size="8.5" fill="#7C7B77" text-anchor="middle">2024</text>
+  <text x="418" y="316" font-size="8.5" fill="#7C7B77" text-anchor="middle">2025</text>
+  <text x="528" y="316" font-size="8.5" fill="#7C7B77" text-anchor="middle">2026H1</text>
+  <rect x="560" y="40" width="12" height="12" fill="#2F6F6B"/><text x="576" y="50" font-size="8" fill="#3E4145">NBV（亿元）</text>
+  <rect x="560" y="56" width="12" height="12" fill="#A73F2D"/><text x="576" y="66" font-size="8" fill="#3E4145">EV（亿元）</text>
+</svg>
+<figcaption>图 2　NBV 触底回升、内含价值稳步增厚（2022 年 EV 为 2023 年报重述值）</figcaption>
+</figure>
+
+<div class="page-break"></div>
+<h2>三张财务报表关键变化（2025 vs 2024）</h2>
+
+<h3>合并利润表</h3>
+<div class="rsp-table"><table class="financial compact">
+<thead><tr><th>项目</th><th>2025 年</th><th>2024 年</th><th>变动</th></tr></thead>
+<tbody>
+<tr><td>保险服务收入</td><td>214,136</td><td>208,161</td><td>+2.9%</td></tr>
+<tr><td>利息收入</td><td>128,286</td><td>120,958</td><td>+6.1%</td></tr>
+<tr><td>投资收益</td><td>198,457</td><td>70,378</td><td>+182.0%</td></tr>
+<tr><td>公允价值变动损益</td><td>63,307</td><td>118,160</td><td>-46.4%</td></tr>
+<tr class="total"><td>营业收入</td><td>615,678</td><td>528,567</td><td>+16.5%</td></tr>
+<tr><td>保险服务费用</td><td>(148,736)</td><td>(180,544)</td><td>-17.6%</td></tr>
+<tr><td>承保财务损益</td><td>(258,858)</td><td>(209,952)</td><td>+23.3%</td></tr>
+<tr class="total"><td>营业利润</td><td>181,998</td><td>115,600</td><td>+57.4%</td></tr>
+<tr class="total"><td>归母净利润</td><td>154,078</td><td>106,935</td><td>+44.1%</td></tr>
+</tbody></table></div>
+<p class="note">轨迹与含义：投资收益同比 +182% 是 2025 年利润弹性的主因，且公允价值变动损益回落显示收益更多由"已实现"贡献，利润质量更实；保险服务费用下降反映承保端结构优化。</p>
+
+<h3>合并资产负债表</h3>
+<div class="rsp-table"><table class="financial compact">
+<thead><tr><th>项目</th><th>2025 年末</th><th>2024 年末</th><th>变动</th></tr></thead>
+<tbody>
+<tr class="total"><td>资产总计</td><td>7,591,004</td><td>6,769,546</td><td>+12.1%</td></tr>
+<tr><td>　其中：交易性金融资产</td><td>2,067,288</td><td>1,908,098</td><td>+8.3%</td></tr>
+<tr><td>　其中：其他债权投资</td><td>3,926,042</td><td>3,458,895</td><td>+13.5%</td></tr>
+<tr><td>保险合同负债</td><td>6,376,114</td><td>5,825,026</td><td>+9.5%</td></tr>
+<tr><td>卖出回购金融资产款</td><td>331,863</td><td>151,564</td><td>+119.0%</td></tr>
+<tr><td>其他综合收益</td><td>(185,335)</td><td>(131,969)</td><td>扩大</td></tr>
+<tr><td>未分配利润</td><td>485,603</td><td>362,377</td><td>+34.0%</td></tr>
+<tr class="total"><td>归母股东权益</td><td>595,205</td><td>509,675</td><td>+16.8%</td></tr>
+</tbody></table></div>
+<p class="note">轨迹与含义：资产扩张主因投资资产增长；净资产因利润留存增厚，但其他综合收益浮亏扩大（利率下行导致其他债权投资公允价值变动 -118,174 百万元）暴露利率风险。</p>
+
+<h3>合并现金流量表</h3>
+<div class="rsp-table"><table class="financial compact">
+<thead><tr><th>项目</th><th>2025 年</th><th>2024 年</th><th>变动</th></tr></thead>
+<tbody>
+<tr><td>经营活动现金流净额</td><td>459,925</td><td>378,795</td><td>+21.4%</td></tr>
+<tr><td>投资活动现金流净额</td><td>(547,368)</td><td>(354,620)</td><td>净流出扩大</td></tr>
+<tr><td>筹资活动现金流净额</td><td>144,341</td><td>(86,759)</td><td>由负转正</td></tr>
+<tr><td>现金及现金等价物净增加</td><td>56,868</td><td>(62,556)</td><td>转正</td></tr>
+</tbody></table></div>
+<p class="note">轨迹与含义：经营现金流强劲（签单保费现金流入 9,650 亿）是利润含金量压舱石；投资净流出扩大对应加配资产；筹资由负转正主因卖出回购净增 1,806 亿，属主动负债管理。</p>
+
+<h2>投资资产配置（2025 年末）</h2>
+<figure>
+<svg font-family="'Songti SC','Noto Serif CJK SC',serif" viewBox="0 0 680 300" width="100%">
+  <text x="20" y="22" font-size="11" fill="#22262B" font-weight="500">图 3　2025 年末投资资产配置结构（占投资资产 %）</text>
+  <!-- 固定到期日 70.51 -->
+  <text x="170" y="58" font-size="9" fill="#22262B" text-anchor="end">固定到期日金融资产</text>
+  <rect x="180" y="44" width="372.3" height="22" fill="#A73F2D"/>
+  <text x="560" y="60" font-size="9" fill="#A73F2D">70.51%</text>
+  <!-- 权益类 22.57 -->
+  <text x="170" y="98" font-size="9" fill="#22262B" text-anchor="end">权益类金融资产</text>
+  <rect x="180" y="84" width="119.2" height="22" fill="#B8862F"/>
+  <text x="306" y="100" font-size="9" fill="#B8862F">22.57%</text>
+  <!-- 联营合营 4.15 -->
+  <text x="170" y="138" font-size="9" fill="#22262B" text-anchor="end">联营及合营企业投资</text>
+  <rect x="180" y="124" width="21.9" height="22" fill="#2F6F6B"/>
+  <text x="206" y="140" font-size="9" fill="#2F6F6B">4.15%</text>
+  <!-- 现金及其他 2.61 -->
+  <text x="170" y="178" font-size="9" fill="#22262B" text-anchor="end">现金及其他</text>
+  <rect x="180" y="164" width="13.8" height="22" fill="#1B365D"/>
+  <text x="198" y="180" font-size="9" fill="#1B365D">2.61%</text>
+  <!-- 投资性房地产 0.16 -->
+  <text x="170" y="218" font-size="9" fill="#22262B" text-anchor="end">投资性房地产</text>
+  <rect x="180" y="204" width="0.84" height="22" fill="#7C7B77"/>
+  <text x="188" y="220" font-size="9" fill="#7C7B77">0.16%</text>
+  <text x="180" y="262" font-size="8.5" fill="#7C7B77">固收（债券为主）打底、权益增强：股票+基金占比由 2024 年末 12.18% 升至 2025 年末 16.89%</text>
+</svg>
+<figcaption>图 3　投资资产配置（2025 年末；信用资产外评 AAA 级占比超 99%）</figcaption>
+</figure>
+
+<h2>分维度深入分析</h2>
+
+<h3>负债端（保险业务）：结构转型见效，价值率提升</h3>
+<ul>
+<li><span class="tag">个险</span>2025 年总保费 5,517.90 亿元（+4.3%），续期保费 4,422.85 亿元（+7.9%）；十年期及以上首年期交占个险首年期交 58.48%；个险 NBV 392.99 亿元（+25.5%）；分红险等浮动收益型产品占个险首年期交比重跃升至近 60%，降低负债刚性成本。</li>
+<li><span class="tag">银保</span>总保费 1,108.74 亿元（+45.5%，首破千亿），新单保费 585.06 亿元（+95.7%）；"报行合一"控费下仍规模与价值双升，客户经理人均产能 +53.7%。</li>
+<li><span class="tag">结构</span>人寿/年金/健康险新单比重约 31.75%/32.11%/31.23%，浮动收益型业务在首年期交中占比近 50%。</li>
+<li><span class="tag">品质</span>退保率 0.95%（2026 H1 0.45%），14 个月保单持续率 92.10%（2026 H1 93.50%），客户留存改善。</li>
+</ul>
+
+<h3>资产端（投资）：收益弹性释放，权益敞口上升</h3>
+<ul>
+<li>总投资收益率 2025 年 6.09%、2026 H1 5.58%（三年平均 4.76%）；2025 总投资收益 3,876.94 亿元（+25.8%）。</li>
+<li>配置"固收打底、权益增强"：债券为主（57.36%），股票+基金占比升至 16.89%，运用私募证券基金、高股息策略；信用资产 AAA 级占比超 99%。</li>
+<li>关注：权益配置提升在牛市增厚利润，市场下行时放大波动（2023 年收益率仅 2.57% 为前车之鉴）。</li>
+</ul>
+
+<h3>价值端与资本：NBV/EV 双升，偿付能力边际承压</h3>
+<ul>
+<li><span class="tag">NBV</span>2025 年 457.52 亿元（+35.7%），个险 NBV 率（按首年保费）由 25.7% 升至 35.0%；2026 H1 已达 381.67 亿元（同比 +33.7%）。</li>
+<li><span class="tag">EV</span>2025 年 1.47 万亿（+4.8%），2026 上半年 1.61 万亿；预期回报 + 新业务价值为内生增长主力，市场价值调整受利率下行拖累。</li>
+<li><span class="tag">偿付能力</span>综合 174.01%、核心 128.77%（2026 H1 回升至 197.78%/156.80%），远高于监管红线；下降主因规模扩张与权益风险因子上升、利率下行压低实际资本，需持续通过利润留存与资本管理维系。</li>
+</ul>
+
+<h2>2026 年上半年经营情况（最新）</h2>
+<div class="rsp-table"><table class="financial compact">
+<thead><tr><th>指标</th><th>2026 H1</th><th>2025 H1</th><th>同比</th></tr></thead>
+<tbody>
+<tr><td>营业收入</td><td>434,307</td><td>239,235</td><td>+81.5%</td></tr>
+<tr><td>归母净利润</td><td>134,489</td><td>40,931</td><td>+228.6%</td></tr>
+<tr><td>总保费</td><td>536,634</td><td>525,088</td><td>+2.2%</td></tr>
+<tr><td>上半年 NBV</td><td>38,167</td><td>28,546</td><td>+33.7%</td></tr>
+<tr><td>总投资收益</td><td>314,504</td><td>127,506</td><td>+146.6%</td></tr>
+<tr><td>总投资收益率</td><td>5.58%</td><td>—</td><td>—</td></tr>
+<tr><td>内含价值</td><td>1,614,207</td><td>1,467,876*</td><td>+9.96%</td></tr>
+<tr><td>综合/核心偿付能力</td><td>197.78%/156.80%</td><td>174.01%/128.77%</td><td>+23.77/+28.03 pct</td></tr>
+</tbody></table></div>
+<p class="note">* 2025 年末数。点评：权益市场向好带动总投资收益翻倍，归母净利同比 +228.6% 至 1,344.89 亿元，已接近 2025 全年 87%；NBV、EV、偿付能力同步改善，开局强劲，但下半年若权益波动，高基数或难延续。</p>
+
+<h2>主要风险与关注</h2>
+<div class="risk-grid">
+<div class="risk-item"><div class="risk-label">利率风险</div><div class="risk-desc">长端利率下行压低再投资收益率，并导致其他债权投资浮亏（2025 年其他综合收益 -185,335 百万元），影响 EV 假设与偿付能力。</div></div>
+<div class="risk-item"><div class="risk-label">权益市场波动</div><div class="risk-desc">权益配置约 22.6%，投资收益对资本市场敏感度显著提高，2023 低收益与 2025 高收益为双向例证。</div></div>
+<div class="risk-item"><div class="risk-label">利差损压力</div><div class="risk-desc">存量高预定利率保单在低利率下仍承压，需以业务结构优化（浮动收益型）持续对冲。</div></div>
+<div class="risk-item"><div class="risk-label">偿付能力边际下行</div><div class="risk-desc">综合偿付能力由 2021 年 262% 降至 2025 年 174%，长期需通过留存与资本工具维系。</div></div>
+<div class="risk-item"><div class="risk-label">退保与持续率</div><div class="risk-desc">当前退保率低、持续率改善，若产品竞争力或收益不及预期，存量稳定性或承压。</div></div>
+<div class="risk-item"><div class="risk-label">收益兑现可持续性</div><div class="risk-desc">2025 高增部分来自投资收益"由浮转实"，后续若市场转弱，利润同比增速或明显回落。</div></div>
+</div>
+
+<div class="analyst-box">
+  <div class="analyst-label">分析总结</div>
+  <p>中国人寿作为寿险龙头，2025 年以"资负联动 + 结构转型 + 投资顺势"实现规模与价值双升，盈利创历史新高，NBV、EV、资本实力仍居行业领先。2026 上半年延续强劲。但<b>短期业绩弹性高度依赖权益与利率环境</b>；中长期投资价值取决于其在低利率周期中持续管控负债成本、平滑资产波动、并实现"规模—价值—资本"三角平衡的能力。综合判断：短期弹性充足，长期需关注利率与权益双扰动的稳健性。</p>
+</div>
+
+<div class="report-footer">
+  <span>中国人寿（601628.SH / 2628.HK）财报分析报告</span>
+  <span>2026-09-15 · 数据来源：公司定期报告（2007–2026）</span>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,1702 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>片仔癀（600436.SH）财报对比分析报告</title>
+<meta name="author" content="财报分析">
+<meta name="generator" content="financial-report-analysis">
+<style>
+
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W04.ttf") format("truetype");
+    font-weight: 400; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W05.ttf") format("truetype");
+    font-weight: 500; font-style: normal; font-display: swap;
+  }
+  @page {
+    size: A4;
+    margin: 16mm 18mm 18mm 18mm;
+    background: #F7F4EE;
+    @bottom-center {
+      content: counter(page) "  ·  财报分析";
+      font-family: "TsangerJinKai02", "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", Georgia, serif;
+      font-size: 9pt; color: #6b6a64;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --parchment:#F7F4EE; --ivory:#FBF9F4; --near-black:#22262B; --dark-warm:#3E4145;
+    --olive:#504e49; --stone:#7C7B77; --brand:#A73F2D; --brand-deep:#8A3223;
+    --accent:#A73F2D; --accent-soft:#F1E3DD; --gold:#B8862F; --teal:#2F6F6B; --blue:#1B365D;
+    --border:#E3DDD4; --border-soft:#EAE5DC;
+    --tag-bg:#F1E3DD; --positive:#A73F2D; --negative:#2F6F6B;
+    --serif: "TsangerJinKai02", "Source Han Serif SC", "Source Han Serif CN", "Noto Serif CJK SC", "Noto Serif SC", "Songti SC", "STSong", "SimSun", Georgia, serif;
+    --rhythm-module:14pt; --rhythm-section:18pt;
+  }
+  html, body { background: var(--parchment); }
+  @media screen { body { max-width: 210mm; margin: 0 auto; padding: 16mm 18mm 18mm 18mm; } }
+  body { color: var(--near-black); font-family: var(--serif); font-size: 10pt; line-height: 1.5;
+    letter-spacing: 0.3pt; widows: 3; orphans: 3; }
+  strong { font-weight: 500; }
+  .hl { color: var(--brand); font-weight: 500; }
+
+  .report-header { display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: var(--rhythm-module); padding-bottom: 10pt; border-bottom: 0.5pt solid var(--border); }
+  .ticker-block { flex: 1; }
+  .ticker-eyebrow { font-size: 9pt; color: var(--brand); letter-spacing: 1.5pt; text-transform: uppercase;
+    font-weight: 500; margin-bottom: 4pt; }
+  .ticker-name { font-family: var(--serif); font-size: 24pt; font-weight: 500; color: var(--near-black);
+    line-height: 1.15; margin-bottom: 4pt; }
+  .ticker-sub { font-size: 10pt; color: var(--olive); line-height: 1.4; }
+  .price-block { text-align: right; padding-top: 4pt; }
+  .price-current { font-family: var(--serif); font-size: 28pt; font-weight: 500; color: var(--near-black);
+    line-height: 1; font-variant-numeric: tabular-nums; }
+  .price-change { font-size: 10pt; font-weight: 500; margin-top: 2pt; font-variant-numeric: tabular-nums; }
+  .price-change.up { color: var(--positive); }
+  .price-date { font-size: 9pt; color: var(--stone); margin-top: 2pt; }
+
+  .metrics { display: flex; gap: 14pt; margin-bottom: 16pt; padding: 6pt 0;
+    border-top: 0.3pt dotted var(--border); border-bottom: 0.3pt dotted var(--border); }
+  .metric { flex: 1; display: flex; align-items: baseline; gap: 4pt; }
+  .metric-value { font-family: var(--serif); font-size: 16pt; font-weight: 500; color: var(--brand);
+    line-height: 1; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .metric-label { font-size: 9pt; color: var(--olive); line-height: 1.3; white-space: nowrap; }
+
+  h2 { font-family: var(--serif); font-size: 16pt; font-weight: 500; color: var(--near-black);
+    margin: 18pt 0 6pt 0; break-after: avoid; }
+  h3 { font-size: 13pt; font-weight: 500; color: var(--dark-warm); margin: 12pt 0 4pt 0; break-after: avoid; }
+  p { margin: 0 0 8pt 0; line-height: 1.5; widows: 2; orphans: 2; }
+  ul, ol { margin: 4pt 0 8pt 0; padding-left: 18pt; line-height: 1.5; }
+  ul li::marker { color: var(--brand); } ol li::marker { color: var(--brand); font-weight: 500; }
+
+  .tag { display: inline-block; background: var(--tag-bg); color: var(--brand); font-size: 9pt;
+    font-weight: 500; padding: 1pt 6pt; border-radius: 3pt; margin-right: 3pt; }
+
+  table, .kami-table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin: 8pt 0; break-inside: avoid; }
+  table th, .kami-table th { text-align: left; font-weight: 500; color: var(--dark-warm);
+    padding: 6pt 8pt; border-bottom: 0.6pt solid var(--border); background: transparent; }
+  table td, .kami-table td { padding: 5pt 8pt; border-bottom: 0.25pt solid var(--border); vertical-align: top; }
+  table.compact th, .kami-table.compact th { padding: 3pt 6pt; font-size: 8pt; }
+  table.compact td, .kami-table.compact td { padding: 2.5pt 6pt; font-size: 8pt; line-height: 1.4; }
+  table.financial td:not(:first-child), .kami-table.financial td:not(:first-child) {
+    text-align: right; font-variant-numeric: tabular-nums; }
+  table.financial th:not(:first-child), .kami-table.financial th:not(:first-child) { text-align: right; }
+  table .total td, .kami-table .total td { font-weight: 500; border-top: 0.6pt solid var(--border);
+    border-bottom: none; color: var(--near-black); }
+  .note { font-size: 8.5pt; color: var(--stone); margin: 2pt 0 8pt 0; }
+
+  .callout { background: var(--ivory); padding: 8pt 12pt; border-radius: 3pt; margin: 10pt 0;
+    line-height: 1.5; break-inside: avoid; }
+  .callout .quote { margin: 6pt 0; color: var(--olive); }
+
+  figure { margin: 12pt 0; break-inside: avoid; }
+  figcaption { font-size: 9pt; color: var(--stone); margin-top: 4pt; text-align: center; }
+
+  .risk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10pt; margin: 8pt 0; }
+  .risk-item { padding: 6pt 10pt; background: var(--ivory); border-radius: 3pt; break-inside: avoid; }
+  .risk-label { font-size: 9pt; font-weight: 500; color: var(--brand); margin-bottom: 2pt; }
+  .risk-desc { font-size: 9pt; color: var(--olive); line-height: 1.4; }
+
+  .analyst-box { background: var(--ivory); border-radius: 4pt; padding: 10pt 14pt; margin: 12pt 0;
+    break-inside: avoid; }
+  .analyst-label { font-size: 9pt; color: var(--brand); letter-spacing: 0.5pt; text-transform: uppercase;
+    margin-bottom: 4pt; }
+
+  .page-break { break-before: page; }
+
+  /* ===== 富配色增强：砖红主色 #A73F2D + 四色数据 + 深炭标题 #22262B ===== */
+  h2 { position: relative; padding-left: 13pt; }
+  h2::before { content:""; position:absolute; left:0; top:2.5pt; width:4pt; height:13pt;
+    background:var(--accent); border-radius:1pt; }
+  table th, .kami-table th { border-bottom: 1pt solid var(--accent); }
+  .metric:nth-child(1) .metric-value { color: var(--accent); }
+  .metric:nth-child(2) .metric-value { color: var(--gold); }
+  .metric:nth-child(3) .metric-value { color: var(--teal); }
+  .metric:nth-child(4) .metric-value { color: var(--blue); }
+  .callout { border-left: 3pt solid var(--accent); }
+  .analyst-box { border-left: 3pt solid var(--accent); }
+  .risk-item { border-left: 2.5pt solid var(--accent); }
+  .tag { background: var(--accent-soft); color: var(--brand-deep); }
+  .price-current { color: var(--near-black); }
+  .ticker-sub { color: var(--stone); }
+
+/* ===== 本报告补充 ===== */
+.report-footer { display:flex; justify-content:space-between; margin-top:18pt; padding-top:8pt;
+  border-top:0.5pt solid var(--border); font-size:8.5pt; color:var(--stone); }
+h1 { font-family:var(--serif); font-size:20pt; font-weight:500; color:var(--near-black);
+  margin:0 0 6pt 0; line-height:1.3; }
+.report-meta { font-size:9pt; color:var(--stone); margin-bottom:10pt; padding-bottom:8pt;
+  border-bottom:0.5pt solid var(--border); }
+h2 { font-size:15pt; }
+h3 { font-size:12pt; }
+table.longtable { break-inside:auto; }
+table.longtable thead { display:table-header-group; }
+table.longtable tr { break-inside:avoid; }
+table, .kami-table { margin: 5pt 0; }
+table th { font-size:8.4pt; padding: 4pt 7pt; }
+table td { font-size:8.6pt; padding: 3.2pt 7pt; }
+table.financial td:first-child, table.financial th:first-child { white-space:nowrap; }
+.note { font-size:8.3pt; line-height:1.45; color:var(--olive); }
+.callout.warn { background:#FBF3F0; border-left:3pt solid var(--brand); }
+.risk-grid { grid-template-columns:1fr; }
+figure svg { display:block; width:100%; height:auto; }
+.page-break { break-before:page; }
+
+.metric-label{white-space:normal;}
+
+</style>
+
+<!-- rsp-mobile-adapt : 响应式适配层（仅屏幕生效，不影响打印/PDF） -->
+<style id="rsp-mobile-adapt">
+/* ========== 1. 全局：屏幕端基础修正 ========== */
+@media screen {
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body { overflow-wrap: break-word; }
+  img, svg, canvas, video, iframe { max-width: 100%; }
+  svg[viewBox], svg[viewbox] { height: auto; }
+
+  /* 表格横向滚动容器：宽表不压字、不撑破页面 */
+  .rsp-table {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    margin: 8pt 0;
+    position: relative;
+  }
+  .rsp-table > table { margin: 0; }
+  .rsp-table::-webkit-scrollbar { height: 7px; }
+  .rsp-table::-webkit-scrollbar-track { background: transparent; }
+  .rsp-table::-webkit-scrollbar-thumb { background: #D8D1C4; border-radius: 4px; }
+  /* 内容确实溢出时，右侧给一层渐变暗示"还能往右滑" */
+  .rsp-table[data-rsp-scroll] {
+    background: linear-gradient(to left, rgba(167,63,45,.10), rgba(167,63,45,0) 28px);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 28px 100%;
+  }
+}
+
+/* ========== 2. 平板 / 窄窗口：边距先收，避免内容被挤 ========== */
+@media screen and (max-width: 900px) {
+  body { padding: 22px 22px 46px 22px !important; }
+  .report-header { flex-wrap: wrap; gap: 12pt; }
+  .metrics { flex-wrap: wrap; gap: 10pt 18pt; }
+  .metric { flex: 1 1 42%; min-width: 0; }
+  .report-footer { flex-wrap: wrap; gap: 4pt 14pt; }
+
+  /* 宽表改为横向滚动：给每列保留最小可读宽度，不再把汉字挤成竖排 */
+  .rsp-w5 > table { min-width: 310px !important; }
+  .rsp-w6 > table { min-width: 372px !important; }
+  .rsp-w7 > table { min-width: 434px !important; }
+  .rsp-w8 > table { min-width: 496px !important; }
+  .rsp-w9 > table { min-width: 558px !important; }
+  .rsp-w10 > table { min-width: 620px !important; }
+  .rsp-w11 > table { min-width: 682px !important; }
+  .rsp-w12 > table { min-width: 744px !important; }
+  .rsp-w13 > table { min-width: 806px !important; }
+  .rsp-w14 > table { min-width: 868px !important; }
+  .rsp-w15 > table { min-width: 930px !important; }
+  .rsp-w16 > table { min-width: 992px !important; }
+}
+
+/* ========== 3. 手机：指标卡两列、页头转纵向 ========== */
+@media screen and (max-width: 720px) {
+  body {
+    max-width: 100% !important;
+    padding: 18px 16px 44px 16px !important;
+    font-size: 10.5pt;
+  }
+  h2 { font-size: 15pt !important; margin: 20pt 0 7pt 0 !important; }
+  h3 { font-size: 12.5pt !important; }
+  h1 { font-size: 19pt !important; }
+  p, li { line-height: 1.62; }
+  ul, ol { padding-left: 17pt; }
+
+  .report-header { flex-direction: column; align-items: stretch; gap: 8pt; }
+  .price-block { text-align: left; padding-top: 0; }
+  .price-current { font-size: 24pt !important; }
+  .ticker-name { font-size: 21pt !important; }
+  .ticker-sub { font-size: 9.5pt !important; }
+
+  .metrics { gap: 9pt 12pt; }
+  .metric { flex: 1 1 45%; }
+  .metric-value { font-size: 15pt !important; }
+  .metric-label { font-size: 8.5pt !important; white-space: normal !important; }
+
+  table, .kami-table { font-size: 9pt !important; }
+  .longtable { font-size: 8.5pt !important; }
+  .wide { font-size: 7.5pt !important; }
+  .dense { font-size: 8pt !important; }
+  table th, table td, .kami-table th, .kami-table td { padding: 5pt 6pt !important; }
+
+  blockquote, .quote, .note, .warn, .callout, .risk-item { padding: 9pt 11pt !important; }
+  .risk-grid { grid-template-columns: 1fr !important; }
+  .report-footer { flex-direction: column; align-items: flex-start; gap: 3pt; }
+}
+
+/* ========== 4. 小屏手机：指标卡单列、边距收到最紧 ========== */
+@media screen and (max-width: 430px) {
+  body { padding: 14px 12px 38px 12px !important; }
+  h2 { font-size: 14pt !important; }
+  h3 { font-size: 11.5pt !important; }
+  .ticker-name { font-size: 19pt !important; }
+  .price-current { font-size: 21pt !important; }
+  .metric { flex: 1 1 100%; }
+  .metric-value { font-size: 16pt !important; }
+  ul, ol { padding-left: 15pt; }
+  table, .kami-table { font-size: 8.5pt !important; }
+}
+
+/* ========== 5. 打印：把包裹层还原成透明，PDF 版式与补丁前完全一致 ========== */
+@media print {
+  .rsp-table { margin: 0; padding: 0; overflow: visible !important; background: none !important; }
+  .rsp-table > table { margin: 8pt 0; min-width: 0 !important; }
+  [class*="rsp-w"] > table { min-width: 0 !important; }
+}
+</style>
+</head>
+<body>
+<h1>片仔癀（600436.SH）财报对比分析报告</h1>
+<div class="report-meta">数据来源：公司 2019—2025 年年度报告及 2026 年半年度报告（上海证券交易所指定披露渠道）　|　记账本位币：人民币　|　会计准则：中国企业会计准则（CAS）　|　编制说明：见附录 A.2</div>
+<h2>一、公司概况与业绩全景</h2>
+<h3>1.1 公司基本情况</h3>
+<p>漳州片仔癀药业股份有限公司（简称"片仔癀"）前身为 1956 年组建的漳州制药厂，1999 年完成改制，<strong>2003 年 6 月在上海证券交易所上市</strong>（600436.SH）。2006 年被商务部认定为首批"中华老字号"企业。公司控股股东为漳州市九龙江集团有限公司（地方国资），截至 2026 年 6 月 30 日总股本 603,317,210 股。</p>
+<p>公司业务分为三大板块：</p>
+<ul><li><strong>医药制造业</strong>：核心产品为<strong>片仔癀</strong>（锭剂与胶囊剂两种剂型，成分与功能主治相同），配方与工艺属<strong>国家绝密级</strong>，是公司利润的绝对主体；另有心脑血管用药（片仔癀牌安宫牛黄丸）、茵胆平肝胶囊、复方片仔癀系列等。</li><li><strong>医药流通业</strong>：以厦门片仔癀宏仁医药等子公司为主体开展药品分销，收入体量大但毛利率极低（约 8%），属"规模型薄利"板块。</li><li><strong>化妆品业</strong>：以"片仔癀"品牌开展日化美妆业务（珍珠霜、珍珠膏等），毛利率接近 58%，但收入占比不足 7%。</li></ul>
+<p>销售渠道包括片仔癀国药堂（含国医堂、名医馆）、连锁药房、区域经销及线上零售；境外渠道覆盖中国香港、中国澳门、泰国、新加坡、越南、加拿大等市场。</p>
+<h3>1.2 报告口径说明</h3>
+<div class="rsp-table"><table class="">
+<thead><tr>
+<th>项目</th>
+<th>说明</th>
+</tr></thead><tbody>
+<tr>
+<td>数据来源</td>
+<td>公司 2019—2025 年年度报告、2026 年半年度报告（上交所指定披露渠道）</td>
+</tr>
+<tr>
+<td>记账本位币</td>
+<td>人民币（CNY）</td>
+</tr>
+<tr>
+<td>会计准则</td>
+<td>中国企业会计准则（CAS）；无境外准则调节项（公司公告境内外准则差异"不适用"）</td>
+</tr>
+<tr>
+<td>期间口径</td>
+<td>年度数据为 1—12 月，2026H1 为 1—6 月；2026H1 的同比基期为 2025H1</td>
+</tr>
+<tr>
+<td>特殊说明</td>
+<td>公司 2021 年与 2022 年的"经营活动现金流"列报口径发生变更（购买/到期定期存单在经营活动与投资活动之间的列报归属调整），两年数据不可直接比较</td>
+</tr>
+</tbody></table></div>
+<h3>1.3 业绩全景速览</h3>
+<p>片仔癀在 2019—2024 年连续六年保持营收与净利润双增长，<strong>2025 年出现上市 20 余年来首次年度营收、净利润双降</strong>，且 2026 年上半年延续下滑。核心矛盾是：在核心原料（天然牛黄、天然麝香）价格大幅上涨推动<strong>产品成本刚性上行</strong>的同时，<strong>终端需求与渠道价格体系承压</strong>，公司既无法继续通过提价转移成本，也难以靠放量抵消价格下行。</p>
+<div class="callout"><div class="quote"><strong>数据可信度提示</strong>：本报告全部金额取自定期报告原文，未做估算。凡推算列（如肝病用药单价）均在表注标明推算口径；未披露项以"—"表示，不以估算值填充。</div></div>
+<figure>
+<svg viewBox="0 0 680 306" xmlns="http://www.w3.org/2000/svg" font-family="'Songti SC','Noto Serif CJK SC',serif">
+<line x1="60" y1="246.0" x2="660" y2="246.0" stroke="#E3DDD4" stroke-width="1"/>
+<text x="52" y="249.5" font-size="9" fill="#7C7B77" text-anchor="end">0</text>
+<line x1="60" y1="196.5" x2="660" y2="196.5" stroke="#E3DDD4" stroke-width="1"/>
+<text x="52" y="200.0" font-size="9" fill="#7C7B77" text-anchor="end">30</text>
+<line x1="60" y1="147.0" x2="660" y2="147.0" stroke="#E3DDD4" stroke-width="1"/>
+<text x="52" y="150.5" font-size="9" fill="#7C7B77" text-anchor="end">60</text>
+<line x1="60" y1="97.5" x2="660" y2="97.5" stroke="#E3DDD4" stroke-width="1"/>
+<text x="52" y="101.0" font-size="9" fill="#7C7B77" text-anchor="end">90</text>
+<line x1="60" y1="48.0" x2="660" y2="48.0" stroke="#E3DDD4" stroke-width="1"/>
+<text x="52" y="51.5" font-size="9" fill="#7C7B77" text-anchor="end">120</text>
+<text x="52" y="36" font-size="9" fill="#7C7B77" text-anchor="end">亿元</text>
+<line x1="60" y1="246.0" x2="660" y2="246.0" stroke="#CFC7BA" stroke-width="1.2"/>
+<rect x="77.2" y="151.6" width="40.5" height="94.4" fill="#CFC7BA" rx="1"/>
+<text x="97.5" y="146.6" font-size="9.5" fill="#3E4145" text-anchor="middle">57.22</text>
+<text x="97.5" y="263.0" font-size="10" fill="#7C7B77" text-anchor="middle">2019</text>
+<rect x="152.2" y="138.6" width="40.5" height="107.4" fill="#CFC7BA" rx="1"/>
+<text x="172.5" y="133.6" font-size="9.5" fill="#3E4145" text-anchor="middle">65.11</text>
+<text x="172.5" y="263.0" font-size="10" fill="#7C7B77" text-anchor="middle">2020</text>
+<rect x="227.2" y="113.6" width="40.5" height="132.4" fill="#CFC7BA" rx="1"/>
+<text x="247.5" y="108.6" font-size="9.5" fill="#3E4145" text-anchor="middle">80.22</text>
+<text x="247.5" y="263.0" font-size="10" fill="#7C7B77" text-anchor="middle">2021</text>
+<rect x="302.2" y="102.5" width="40.5" height="143.5" fill="#CFC7BA" rx="1"/>
+<text x="322.5" y="97.5" font-size="9.5" fill="#3E4145" text-anchor="middle">86.94</text>
+<text x="322.5" y="263.0" font-size="10" fill="#7C7B77" text-anchor="middle">2022</text>
+<rect x="377.2" y="80.0" width="40.5" height="166.0" fill="#CFC7BA" rx="1"/>
+<text x="397.5" y="75.0" font-size="9.5" fill="#3E4145" text-anchor="middle">100.58</text>
+<text x="397.5" y="263.0" font-size="10" fill="#7C7B77" text-anchor="middle">2023</text>
+<rect x="452.2" y="68.0" width="40.5" height="178.0" fill="#B8862F" rx="1"/>
+<text x="472.5" y="63.0" font-size="9.5" fill="#FFFFFF" text-anchor="middle">107.88</text>
+<text x="472.5" y="263.0" font-size="10" fill="#7C7B77" text-anchor="middle">2024</text>
+<rect x="527.2" y="97.5" width="40.5" height="148.5" fill="#A73F2D" rx="1"/>
+<text x="547.5" y="92.5" font-size="9.5" fill="#FFFFFF" text-anchor="middle">90.01</text>
+<text x="547.5" y="263.0" font-size="10" fill="#7C7B77" text-anchor="middle">2025</text>
+<rect x="602.2" y="170.5" width="40.5" height="75.5" fill="#A73F2D" opacity="0.55" rx="1"/>
+<text x="622.5" y="165.5" font-size="9.5" fill="#FFFFFF" text-anchor="middle">45.73</text>
+<text x="622.5" y="263.0" font-size="10" fill="#7C7B77" text-anchor="middle">2026H1</text>
+<rect x="64.0" y="26.6" width="103.2" height="10.3" fill="#FBF9F4" opacity="0.88" rx="2"/><text x="64.0" y="34.0" font-size="9.0" fill="#A73F2D" text-anchor="start">2024 年峰值 107.88 亿元</text>
+<rect x="574.4" y="44.6" width="81.6" height="10.3" fill="#FBF9F4" opacity="0.88" rx="2"/><text x="656.0" y="52.0" font-size="9.0" fill="#A73F2D" text-anchor="end">2025 年首次营收净利双降</text>
+<text x="360.0" y="286.0" font-size="8.5" fill="#7C7B77" text-anchor="middle">注：2026H1 为半年度数据（淡色柱），不可与全年直接比较</text>
+</svg>
+<figcaption>图 1　营业收入趋势（2019—2026H1）</figcaption>
+</figure>
+<h2>二、核心财务数据对比</h2>
+<h3>表 1　经营业绩与盈利能力（2019—2026H1）</h3>
+<div class="rsp-table rsp-w9"><table class="financial longtable">
+<thead><tr>
+<th>指标</th>
+<th>2019</th>
+<th>2020</th>
+<th>2021</th>
+<th>2022</th>
+<th>2023</th>
+<th>2024</th>
+<th>2025</th>
+<th>2026H1</th>
+</tr></thead><tbody>
+<tr>
+<td>营业收入（亿元）</td>
+<td>57.22</td>
+<td>65.11</td>
+<td>80.22</td>
+<td>86.94</td>
+<td>100.58</td>
+<td>107.88</td>
+<td>90.01</td>
+<td>45.73</td>
+</tr>
+<tr>
+<td>收入同比（%）</td>
+<td>+20.06</td>
+<td>+13.79</td>
+<td>+23.20</td>
+<td>+8.38</td>
+<td>+15.69</td>
+<td>+7.26</td>
+<td>-16.56</td>
+<td>-14.98</td>
+</tr>
+<tr>
+<td>归母净利润（亿元）</td>
+<td>13.74</td>
+<td>16.72</td>
+<td>24.31</td>
+<td>24.72</td>
+<td>27.97</td>
+<td>29.77</td>
+<td>21.59</td>
+<td>10.93</td>
+</tr>
+<tr>
+<td>归母同比（%）</td>
+<td>+30.72</td>
+<td>+21.66</td>
+<td>+45.46</td>
+<td>+1.66</td>
+<td>+13.15</td>
+<td>+6.43</td>
+<td>-27.49</td>
+<td>-24.22</td>
+</tr>
+<tr>
+<td>扣非归母净利润（亿元）</td>
+<td>13.55</td>
+<td>15.89</td>
+<td>24.06</td>
+<td>24.76</td>
+<td>28.54</td>
+<td>30.41</td>
+<td>20.00</td>
+<td>10.55</td>
+</tr>
+<tr>
+<td>扣非同比（%）</td>
+<td>—</td>
+<td>+17.31</td>
+<td>+51.40</td>
+<td>+2.89</td>
+<td>+15.26</td>
+<td>+6.55</td>
+<td>-34.25</td>
+<td>-27.41</td>
+</tr>
+<tr>
+<td>毛利率（%）</td>
+<td>44.24</td>
+<td>45.16</td>
+<td>50.72</td>
+<td>45.64</td>
+<td>46.76</td>
+<td>42.74</td>
+<td>36.43</td>
+<td>39.83</td>
+</tr>
+<tr>
+<td>归母净利率（%）</td>
+<td>24.01</td>
+<td>25.68</td>
+<td>30.31</td>
+<td>28.43</td>
+<td>27.81</td>
+<td>27.60</td>
+<td>23.98</td>
+<td>23.90</td>
+</tr>
+<tr>
+<td>销售费用率（%）</td>
+<td>9.14</td>
+<td>9.93</td>
+<td>8.11</td>
+<td>5.56</td>
+<td>7.78</td>
+<td>4.80</td>
+<td>4.45</td>
+<td>6.09</td>
+</tr>
+<tr>
+<td>管理费用率（%）</td>
+<td>4.77</td>
+<td>5.15</td>
+<td>4.70</td>
+<td>3.81</td>
+<td>3.65</td>
+<td>3.16</td>
+<td>3.99</td>
+<td>3.47</td>
+</tr>
+<tr>
+<td>研发费用率（%）</td>
+<td>2.09</td>
+<td>1.50</td>
+<td>2.49</td>
+<td>2.65</td>
+<td>2.31</td>
+<td>2.50</td>
+<td>2.80</td>
+<td>2.86</td>
+</tr>
+<tr>
+<td>加权平均 ROE（%）</td>
+<td>23.64</td>
+<td>23.07</td>
+<td>27.68</td>
+<td>23.50</td>
+<td>22.64</td>
+<td>21.36</td>
+<td>14.84</td>
+<td>7.26</td>
+</tr>
+<tr>
+<td>基本每股收益（元）</td>
+<td>2.28</td>
+<td>2.77</td>
+<td>4.03</td>
+<td>4.10</td>
+<td>4.64</td>
+<td>4.93</td>
+<td>3.58</td>
+<td>1.81</td>
+</tr>
+<tr>
+<td><strong>扣非加权 ROE（%）</strong></td>
+<td>23.30</td>
+<td>21.93</td>
+<td>27.39</td>
+<td>23.54</td>
+<td>23.10</td>
+<td>21.82</td>
+<td>13.75</td>
+<td>7.01</td>
+</tr>
+</tbody></table></div>
+<div class="callout"><div class="quote"><strong>表注</strong>：①各年数据取当年年度报告"主要会计数据"本期数；2026H1 取自 2026 年半年度报告。②2020—2023 年毛利率、费用率按当年合并利润表"营业成本/销售费用/管理费用/研发费用 ÷ 营业收入"计算，与年报"主营业务分行业"表的毛利率（主营口径，不含其他业务）存在约 0.5 个百分点以内的差异。③2021 年归母净利润在 2021 年报为 24.31 亿元，在 2022—2023 年报的对比列中为 24.32 亿元（追溯调整 44.52 万元），差异 0.02%，本表采用原报口径。</div></div>
+<h3>表 2　资产负债与偿债结构（2019 年末—2026H1 末）</h3>
+<div class="rsp-table rsp-w8"><table class="financial longtable">
+<thead><tr>
+<th>指标</th>
+<th>2020末</th>
+<th>2021末</th>
+<th>2022末</th>
+<th>2023末</th>
+<th>2024末</th>
+<th>2025末</th>
+<th>2026H1末</th>
+</tr></thead><tbody>
+<tr>
+<td>总资产（亿元）</td>
+<td>102.06</td>
+<td>124.95</td>
+<td>146.04</td>
+<td>170.80</td>
+<td>175.40</td>
+<td>175.60</td>
+<td>185.14</td>
+</tr>
+<tr>
+<td>总负债（亿元）</td>
+<td>19.49</td>
+<td>23.59</td>
+<td>27.80</td>
+<td>31.60</td>
+<td>27.01</td>
+<td>24.72</td>
+<td>33.66</td>
+</tr>
+<tr>
+<td>归母净资产（亿元）</td>
+<td>78.62</td>
+<td>97.05</td>
+<td>113.30</td>
+<td>133.76</td>
+<td>142.72</td>
+<td>145.39</td>
+<td>146.11</td>
+</tr>
+<tr>
+<td>少数股东权益（亿元）</td>
+<td>3.94</td>
+<td>4.32</td>
+<td>4.94</td>
+<td>5.44</td>
+<td>5.67</td>
+<td>5.49</td>
+<td>5.37</td>
+</tr>
+<tr>
+<td><strong>资产负债率（%）</strong></td>
+<td>19.10</td>
+<td>18.88</td>
+<td>19.04</td>
+<td>18.50</td>
+<td>15.40</td>
+<td>14.08</td>
+<td>18.18</td>
+</tr>
+<tr>
+<td>货币资金（亿元）</td>
+<td>51.68</td>
+<td>70.97</td>
+<td>24.96</td>
+<td>11.59</td>
+<td>14.88</td>
+<td>12.56</td>
+<td>21.14</td>
+</tr>
+<tr>
+<td>类现金合计（亿元）</td>
+<td>51.81</td>
+<td>71.08</td>
+<td>94.46</td>
+<td>103.12</td>
+<td>85.05</td>
+<td>60.23</td>
+<td>71.72</td>
+</tr>
+<tr>
+<td><strong>存货（亿元）</strong></td>
+<td>21.91</td>
+<td>24.38</td>
+<td>26.28</td>
+<td>33.79</td>
+<td>49.67</td>
+<td>66.79</td>
+<td>59.54</td>
+</tr>
+<tr>
+<td>存货／总资产（%）</td>
+<td>21.47</td>
+<td>19.51</td>
+<td>17.99</td>
+<td>19.78</td>
+<td>28.32</td>
+<td><strong>38.04</strong></td>
+<td>32.16</td>
+</tr>
+<tr>
+<td>合同负债（亿元）</td>
+<td>2.84</td>
+<td>3.27</td>
+<td>4.69</td>
+<td>2.37</td>
+<td>2.71</td>
+<td>2.69</td>
+<td>1.97</td>
+</tr>
+<tr>
+<td>有息负债（亿元）</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>11.48</td>
+<td>10.62</td>
+<td>10.34</td>
+</tr>
+</tbody></table></div>
+<div class="callout"><div class="quote"><strong>表注</strong>：①类现金＝货币资金＋其他流动资产中的定期存款＋其他非流动资产中的定期存款（2025 年报附注明确"其他流动资产减少主要系一年期以内定期存款减少"，2022—2024 年该项目主要为定期存款）；2020—2021 年因分类尚未拆分，类现金≈货币资金。②有息负债＝短期借款＋长期借款＋一年内到期的非流动负债＋租赁负债，2020—2023 年未逐年拆分，故留"—"。③2026H1 末资产负债率回升至 18.18%，主因中期应付股利 9.48 亿元计入其他应付款。</div></div>
+<h3>表 3　现金流量质量（2019—2026H1）</h3>
+<div class="rsp-table rsp-w9"><table class="financial longtable">
+<thead><tr>
+<th>指标</th>
+<th>2019</th>
+<th>2020</th>
+<th>2021</th>
+<th>2022</th>
+<th>2023</th>
+<th>2024</th>
+<th>2025</th>
+<th>2026H1</th>
+</tr></thead><tbody>
+<tr>
+<td>经营活动现金流净额（亿元）</td>
+<td>-8.79</td>
+<td>14.67</td>
+<td>4.62</td>
+<td>68.73</td>
+<td>22.07</td>
+<td>13.14</td>
+<td><strong>0.77</strong></td>
+<td>16.25</td>
+</tr>
+<tr>
+<td>投资活动现金流净额（亿元）</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>13.24</td>
+<td>17.38</td>
+<td>-6.85</td>
+</tr>
+<tr>
+<td>筹资活动现金流净额（亿元）</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>-22.41</td>
+<td>-20.75</td>
+<td>-0.56</td>
+</tr>
+<tr>
+<td>现金及等价物净增加（亿元）</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>4.06</td>
+<td>-2.62</td>
+<td>8.77</td>
+</tr>
+<tr>
+<td>期末现金及等价物（亿元）</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>14.83</td>
+<td>12.21</td>
+<td>20.98</td>
+</tr>
+<tr>
+<td>销售收现／营业收入（%）</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>111.45</td>
+<td>104.02</td>
+<td>97.92</td>
+</tr>
+<tr>
+<td>经营现金流／归母净利（%）</td>
+<td>-63.97</td>
+<td>87.75</td>
+<td>19.01</td>
+<td>278.00</td>
+<td>78.88</td>
+<td>44.13</td>
+<td><strong>3.57</strong></td>
+<td>148.63</td>
+</tr>
+<tr>
+<td>资本支出（亿元）</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>10.68</td>
+<td>3.40</td>
+<td>3.83</td>
+</tr>
+<tr>
+<td>自由现金流（亿元）</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>2.46</td>
+<td><strong>-2.63</strong></td>
+<td>12.42</td>
+</tr>
+</tbody></table></div>
+<div class="callout"><div class="quote"><strong>表注</strong>：①资本支出＝现金流量表"购建固定资产、无形资产和其他长期资产支付的现金"；自由现金流＝经营活动现金流净额−资本支出。②2021 与 2022 年经营活动现金流因定期存单列报口径变更（买存单列投资/收本息列经营）而不可比，两年比值仅作参考。③2025 年经营现金流／归母净利仅 3.57%，为上市以来（除 2019 年负值外）最低。</div></div>
+<h3>表 4　分行业收入与毛利率（2025 年 与 2026H1）</h3>
+<div class="rsp-table rsp-w7"><table class="financial">
+<thead><tr>
+<th>分行业</th>
+<th>2025 收入（亿元）</th>
+<th>2025 毛利率（%）</th>
+<th>2025 收入同比（%）</th>
+<th>2026H1 收入（亿元）</th>
+<th>2026H1 毛利率（%）</th>
+<th>2026H1 收入同比（%）</th>
+</tr></thead><tbody>
+<tr>
+<td>医药制造业</td>
+<td>44.41</td>
+<td>59.29</td>
+<td>-21.57</td>
+<td>24.52</td>
+<td>60.62</td>
+<td>-17.87</td>
+</tr>
+<tr>
+<td>医药流通业</td>
+<td>37.55</td>
+<td>7.62</td>
+<td>-8.05</td>
+<td>17.00</td>
+<td>8.24</td>
+<td>-14.00</td>
+</tr>
+<tr>
+<td>医药行业小计</td>
+<td>81.97</td>
+<td>35.62</td>
+<td>-15.91</td>
+<td>41.52</td>
+<td>39.17</td>
+<td>-16.33</td>
+</tr>
+<tr>
+<td>化妆品业</td>
+<td>5.67</td>
+<td>57.54</td>
+<td>-24.64</td>
+<td>3.10</td>
+<td>58.16</td>
+<td>-3.25</td>
+</tr>
+<tr>
+<td>其他</td>
+<td>2.06</td>
+<td>13.01</td>
+<td>-19.87</td>
+<td>0.93</td>
+<td>12.12</td>
+<td>+12.61</td>
+</tr>
+<tr class="total">
+<td><strong>合计</strong></td>
+<td><strong>89.69</strong></td>
+<td><strong>36.49</strong></td>
+<td><strong>-16.61</strong></td>
+<td><strong>45.55</strong></td>
+<td><strong>39.91</strong></td>
+<td><strong>-15.10</strong></td>
+</tr>
+</tbody></table></div>
+<div class="callout"><div class="quote"><strong>表注</strong>：本表为主营业务口径（合计 89.69 亿元），与表 1 的营业收入（90.01 亿元）差额为其他业务收入。医药流通业占 2026H1 营业收入 37.3%，但毛利率仅 8.24%，是"高收入占比、低利润贡献"的低效环节。</div></div>
+<h3>表 5　分产品收入与毛利率（2025 年 与 2026H1）</h3>
+<div class="rsp-table rsp-w7"><table class="financial">
+<thead><tr>
+<th>分产品</th>
+<th>2025 收入（亿元）</th>
+<th>2025 毛利率（%）</th>
+<th>2025 收入同比（%）</th>
+<th>2026H1 收入（亿元）</th>
+<th>2026H1 毛利率（%）</th>
+<th>2026H1 收入同比（%）</th>
+</tr></thead><tbody>
+<tr>
+<td>肝病用药</td>
+<td>42.68</td>
+<td>61.29</td>
+<td>-19.63</td>
+<td>23.48</td>
+<td>62.77</td>
+<td>-18.92</td>
+</tr>
+<tr>
+<td>心脑血管用药</td>
+<td>1.15</td>
+<td>7.95</td>
+<td>-59.42</td>
+<td>0.77</td>
+<td>10.15</td>
+<td>+28.82</td>
+</tr>
+<tr>
+<td>其他（医药制造）</td>
+<td>0.58</td>
+<td>14.62</td>
+<td>-15.00</td>
+<td>0.26</td>
+<td>17.28</td>
+<td>-9.02</td>
+</tr>
+<tr>
+<td>医药制造业小计</td>
+<td>44.41</td>
+<td>59.29</td>
+<td>-21.57</td>
+<td>24.52</td>
+<td>60.62</td>
+<td>-17.87</td>
+</tr>
+</tbody></table></div>
+<div class="callout"><div class="quote"><strong>表注</strong>：肝病用药即片仔癀（锭剂＋胶囊），2025 年贡献医药制造业收入的 96.1%。心脑血管用药主要为片仔癀牌安宫牛黄丸，2025 年因高基数及渠道去库大幅下滑 59.42%，2026H1 恢复正增长。</div></div>
+<h3>表 6　肝病用药产销与单价（2024—2025 年）</h3>
+<div class="rsp-table rsp-w10"><table class="financial">
+<thead><tr>
+<th>期间</th>
+<th>销量（万盒）</th>
+<th>销量同比（%）</th>
+<th>产量（万盒）</th>
+<th>产量同比（%）</th>
+<th>库存量（万盒）</th>
+<th>库存量同比（%）</th>
+<th>收入（亿元）</th>
+<th>单价（元/盒）</th>
+<th>单价同比（%）</th>
+</tr></thead><tbody>
+<tr>
+<td>2024</td>
+<td>418.87</td>
+<td>—</td>
+<td>399.20</td>
+<td>—</td>
+<td>14.10</td>
+<td>—</td>
+<td>53.10</td>
+<td>1,267.8</td>
+<td>—</td>
+</tr>
+<tr>
+<td>2025</td>
+<td>526.98</td>
+<td>+25.81</td>
+<td>564.42</td>
+<td>+41.39</td>
+<td>51.54</td>
+<td><strong>+265.53</strong></td>
+<td>42.68</td>
+<td>809.8</td>
+<td><strong>-36.12</strong></td>
+</tr>
+</tbody></table></div>
+<div class="callout"><div class="quote"><strong>表注</strong>：①销量、产量、库存量取自 2025 年年报"产销量情况分析表"（单位：万盒）。②2024 年销量、产量、库存量为按 2025 年披露的同比增速倒算值；2024 年收入按 2025 年收入与同比增速倒算。③单价＝收入÷销量，为<strong>推算值</strong>，仅供趋势参考——"盒"的规格可能随包装组合变化，不宜与终端零售价（片仔癀锭剂 760 元/粒）直接对照。</div></div>
+<h3>表 7　2025 年分季度经营数据</h3>
+<div class="rsp-table rsp-w5"><table class="financial">
+<thead><tr>
+<th>项目</th>
+<th>第一季度</th>
+<th>第二季度</th>
+<th>第三季度</th>
+<th>第四季度</th>
+</tr></thead><tbody>
+<tr>
+<td>营业收入（万元）</td>
+<td>314,152.91</td>
+<td>223,700.80</td>
+<td>206,382.90</td>
+<td>155,904.57</td>
+</tr>
+<tr>
+<td>归母净利润（万元）</td>
+<td>99,978.37</td>
+<td>44,252.56</td>
+<td>68,703.84</td>
+<td><strong>2,928.54</strong></td>
+</tr>
+<tr>
+<td>扣非归母净利润（万元）</td>
+<td>100,504.18</td>
+<td>44,783.12</td>
+<td>43,777.24</td>
+<td>10,897.22</td>
+</tr>
+<tr>
+<td>经营活动现金流净额（万元）</td>
+<td>91,591.46</td>
+<td>-54,037.05</td>
+<td>11,119.32</td>
+<td>-40,971.08</td>
+</tr>
+<tr>
+<td>归母净利润占全年（%）</td>
+<td>46.32</td>
+<td>20.50</td>
+<td>31.83</td>
+<td><strong>1.36</strong></td>
+</tr>
+</tbody></table></div>
+<div class="callout"><div class="quote"><strong>表注</strong>：Q4 归母净利润 2,928.54 万元仅为 Q3 的 4.3%、前三季度单季均值的 5.4%，且扣非归母（10,897.22 万元）显著高于归母（2,928.54 万元），说明 Q4 有约 0.80 亿元非经常性损失落在归母口径。</div></div>
+<h3>表 8　分红与股东回报（2020—2026H1）</h3>
+<div class="rsp-table rsp-w7"><table class="financial">
+<thead><tr>
+<th>年度</th>
+<th>中期派息（元/10股）</th>
+<th>末期派息（元/10股）</th>
+<th>合计（元/10股）</th>
+<th>分红总额（亿元）</th>
+<th>归母净利润（亿元）</th>
+<th>分红率（%）</th>
+</tr></thead><tbody>
+<tr>
+<td>2020</td>
+<td>—</td>
+<td>9.00</td>
+<td>9.00</td>
+<td>5.43</td>
+<td>16.72</td>
+<td>32.48</td>
+</tr>
+<tr>
+<td>2021</td>
+<td>—</td>
+<td>12.10</td>
+<td>12.10</td>
+<td>7.30</td>
+<td>24.31</td>
+<td>30.02</td>
+</tr>
+<tr>
+<td>2022</td>
+<td>—</td>
+<td>12.50</td>
+<td>12.50</td>
+<td>7.54</td>
+<td>24.72</td>
+<td>30.50</td>
+</tr>
+<tr>
+<td>2023</td>
+<td>—</td>
+<td>23.20</td>
+<td>23.20</td>
+<td>14.00</td>
+<td>27.97</td>
+<td>50.04</td>
+</tr>
+<tr>
+<td>2024</td>
+<td>11.50</td>
+<td>18.20</td>
+<td><strong>29.70</strong></td>
+<td><strong>17.92</strong></td>
+<td>29.77</td>
+<td>60.19</td>
+</tr>
+<tr>
+<td>2025</td>
+<td>14.00</td>
+<td>15.70</td>
+<td><strong>29.70</strong></td>
+<td><strong>17.92</strong></td>
+<td>21.59</td>
+<td><strong>83.01</strong></td>
+</tr>
+<tr>
+<td>2026H1</td>
+<td>10.70</td>
+<td>—</td>
+<td>10.70</td>
+<td>6.46</td>
+<td>10.93</td>
+<td>59.06</td>
+</tr>
+</tbody></table></div>
+<div class="callout"><div class="quote"><strong>表注</strong>：①2024 年度与 2025 年度的分红总额完全相同（均为 1,791,852,113.70 元），即公司连续两年维持<strong>每股 2.97 元</strong>的绝对派息额，仅调整中期与末期之间的分配比例。②2026H1 中期分红降至每股 1.07 元（2025 年中期为每股 1.40 元，−23.6%），与同期归母净利润 −24.22% 基本同步，<strong>标志"绝对额锚定"策略的松动</strong>。③截至 2025 年末，公司上市以来累计 23 年实施现金分红，累计派发现金红利 85.51 亿元。</div></div>
+<h3>表 9　研发投入与研发强度（2019—2026H1）</h3>
+<div class="rsp-table rsp-w6"><table class="financial">
+<thead><tr>
+<th>期间</th>
+<th>研发费用（亿元）</th>
+<th>同比（%）</th>
+<th>占营业收入（%）</th>
+<th>资本化比重（%）</th>
+<th>研发人员（人）</th>
+</tr></thead><tbody>
+<tr>
+<td>2019</td>
+<td>1.19</td>
+<td>—</td>
+<td>2.09</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>2020</td>
+<td>0.98</td>
+<td>-18.35</td>
+<td>1.50</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>2021</td>
+<td>2.00</td>
+<td>+104.52</td>
+<td>2.49</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>2022</td>
+<td>2.30</td>
+<td>+15.29</td>
+<td>2.65</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>2023</td>
+<td>2.32</td>
+<td>+1.01</td>
+<td>2.31</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>2024</td>
+<td>2.70</td>
+<td>+16.02</td>
+<td>2.50</td>
+<td>0.00</td>
+<td>—</td>
+</tr>
+<tr>
+<td>2025</td>
+<td>2.52</td>
+<td>-6.43</td>
+<td>2.80</td>
+<td>0.00</td>
+<td>235</td>
+</tr>
+<tr>
+<td>2026H1</td>
+<td>1.31</td>
+<td>+8.53</td>
+<td>2.86</td>
+<td>0.00</td>
+<td>—</td>
+</tr>
+</tbody></table></div>
+<div class="callout"><div class="quote"><strong>表注</strong>：研发投入全额费用化（资本化比重 0.00%），会计处理审慎。2025 年研发人员 235 人，占员工总数 8.14%（博士 4 人、硕士 79 人）。同业可比公司（云南白药、同仁堂等）平均研发投入 20,177.54 万元，公司 25,223.12 万元高于同业平均。</div></div>
+<h2>三、三张财务数据表：关键变化与趋势含义</h2>
+<h3>3.1 损益表：从"量价齐升"到"量增价减"</h3>
+<div class="rsp-table"><table class="">
+<thead><tr>
+<th>关键科目</th>
+<th>变化轨迹</th>
+<th>趋势方向</th>
+<th>趋势含义</th>
+</tr></thead><tbody>
+<tr>
+<td>营业收入</td>
+<td>57.22 → 107.88 亿元（2019—2024），2025 年 90.01 亿元（−16.56%），2026H1 45.73 亿元（−14.98%）</td>
+<td>六年上行后连续两期双位数下滑，2025 年收入退回 2021—2022 年水平</td>
+<td>增长引擎失速，非单季扰动</td>
+</tr>
+<tr>
+<td>毛利率</td>
+<td>44.24% → 50.72%（2021 峰值）→ 42.74%（2024）→ <strong>36.43%（2025）</strong> → 39.83%（2026H1）</td>
+<td>2021 年见顶后连续四年下行，2025 年单年回落 6.31 个百分点</td>
+<td>成本上行＋产品结构下移双重挤压，是本轮利润下滑的主因</td>
+</tr>
+<tr>
+<td>归母净利润</td>
+<td>13.74 → 29.77 亿元（2024 峰值），2025 年 21.59 亿元（−27.49%），2026H1 10.93 亿元（−24.22%）</td>
+<td>降幅持续大于收入降幅</td>
+<td>经营杠杆为负：固定成本无法随收入同比例收缩</td>
+</tr>
+<tr>
+<td>扣非归母净利润</td>
+<td>2025 年 20.00 亿元（−34.25%），2026H1 10.55 亿元（−27.41%）</td>
+<td><strong>降幅比归母净利润低口径大 6.8pp</strong></td>
+<td>非经常性损益 2025 年贡献 +1.59 亿元（主要来自金融资产公允价值变动 +2.05 亿元），掩盖了主业更深的滑坡</td>
+</tr>
+<tr>
+<td>销售费用</td>
+<td>2025 年 4.01 亿元（−22.52%），2026H1 2.79 亿元（<strong>+27.50%</strong>）</td>
+<td>2025 年随收入压降，2026H1 逆势大增</td>
+<td>收入下滑期主动加大市场投放以保份额，属"主动调整"而非"被动失血"</td>
+</tr>
+<tr>
+<td>加权 ROE</td>
+<td>27.68%（2021 峰值）→ 21.36%（2024）→ <strong>14.84%（2025）</strong> → 7.26%（2026H1）</td>
+<td>连续四年下行，2025 年单年回落 6.52 个百分点</td>
+<td>分子（利润）收缩快于分母（净资产），股东回报效率显著下降</td>
+</tr>
+</tbody></table></div>
+<div class="callout"><div class="quote"><strong>损益表核心判断</strong>：本轮下滑不是"费用失控"，而是<strong>毛利端失守</strong>。2025 年销售费用同比压降 22.52%、高于收入降幅，管理费用率仅上升 0.83pp，说明公司已在压缩开支；但毛利率 6.31pp 的坍缩足以吞噬全部费用节约——以 2025 年营业收入计，毛利率每下降 1 个百分点约减少毛利 0.90 亿元，相当于当年销售费用节约额（1.17 亿元）的八成。</div></div>
+<h3>3.2 资产负债表：存货成为最大的资产结构变量</h3>
+<div class="rsp-table"><table class="">
+<thead><tr>
+<th>关键科目</th>
+<th>变化轨迹</th>
+<th>趋势方向</th>
+<th>趋势含义</th>
+</tr></thead><tbody>
+<tr>
+<td>存货</td>
+<td>21.91 → 49.67（2024）→ <strong>66.79 亿元（2025 末）</strong> → 59.54 亿元（2026H1 末）</td>
+<td>五年增长 205%，2025 年单年 +34.46%；2026H1 首次回落（−10.85%）</td>
+<td>2025 年前为<strong>战略囤积</strong>（应对牛黄、麝香涨价），2026H1 转为<strong>被动去库</strong></td>
+</tr>
+<tr>
+<td>存货／总资产</td>
+<td>21.47% → 28.32%（2024 末）→ <strong>38.04%（2025 末）</strong> → 32.16%（2026H1 末）</td>
+<td>2025 年接近总资产四成</td>
+<td>资产流动性下降，存货减值风险成为关键审计事项（审计师已将其列为关键审计事项）</td>
+</tr>
+<tr>
+<td>类现金</td>
+<td>51.81 → 103.12（2023 末）→ 85.05（2024 末）→ <strong>60.23 亿元（2025 末）</strong> → 71.72 亿元（2026H1 末）</td>
+<td>2023 年见顶后连续两年下降</td>
+<td>定期存款被用于采购原料与分红，2023—2025 年类现金净减少 42.89 亿元</td>
+</tr>
+<tr>
+<td>合同负债</td>
+<td>2.84 → 4.69（2022 末）→ 2.71（2024 末）→ 2.69（2025 末）→ <strong>1.97 亿元（2026H1 末）</strong></td>
+<td>2022 年见顶后趋势下行，2026H1 同比降幅显著</td>
+<td>渠道打款意愿走弱，是收入前瞻的一级预警信号</td>
+</tr>
+<tr>
+<td>资产负债率</td>
+<td>19.10% → 14.08%（2025 末）→ 18.18%（2026H1 末）</td>
+<td>长期低位，2025 年末为近年最低</td>
+<td>账面杠杆极低，但 2026H1 末回升系应付股利 9.48 亿元所致，非有息负债扩张</td>
+</tr>
+<tr>
+<td>有息负债</td>
+<td>11.48（2024 末）→ 10.62（2025 末）→ 10.34 亿元（2026H1 末）</td>
+<td>规模稳定、略有压降</td>
+<td>有息负债占总资产仅 5.6%，财务风险可忽略；但净现金头寸仍充裕（71.72 − 10.34 = 61.38 亿元）</td>
+</tr>
+</tbody></table></div>
+<div class="callout"><div class="quote"><strong>资产负债表核心判断</strong>：公司资产负债表依然"干净"（低杠杆、高净现金、无商誉），但<strong>资产结构已从"现金型"转向"存货型"</strong>。存货占总资产比重两年内从 19.78%（2023 末）升至 38.04%（2025 末），意味着资产质量评价的关键已从"有没有钱"变为"存货能不能卖掉、值不值这个价"。</div></div>
+<h3>3.3 现金流量表：利润与现金的背离达到历史极值</h3>
+<div class="rsp-table"><table class="">
+<thead><tr>
+<th>关键科目</th>
+<th>变化轨迹</th>
+<th>趋势方向</th>
+<th>趋势含义</th>
+</tr></thead><tbody>
+<tr>
+<td>经营活动现金流净额</td>
+<td>13.14（2024）→ <strong>0.77 亿元（2025）</strong> → 16.25 亿元（2026H1）</td>
+<td>2025 年骤降 94.14%，2026H1 同比 +332.58%</td>
+<td>2025 年被原料采购吞噬；2026H1 改善<strong>来自采购端收缩而非收入端修复</strong></td>
+</tr>
+<tr>
+<td>购买商品支付的现金</td>
+<td>82.30（2024）→ 73.11（2025）→ 18.86 亿元（2026H1，同比 −52.47%）</td>
+<td>2026H1 锐减</td>
+<td>停止囤货是经营现金流改善的<strong>唯一来源</strong>：同期销售收现仅 44.77 亿元（−16.82%）</td>
+</tr>
+<tr>
+<td>销售收现／营业收入</td>
+<td>111.45%（2024）→ 104.02%（2025）→ 97.92%（2026H1）</td>
+<td>连续两年下行，2026H1 跌破 100%</td>
+<td>回款质量边际走弱，应收账款 2026H1 末增至 10.18 亿元（较 2025 年末 +35.14%）</td>
+</tr>
+<tr>
+<td>经营现金流／归母净利</td>
+<td>44.13%（2024）→ <strong>3.57%（2025）</strong> → 148.63%（2026H1）</td>
+<td>2025 年创上市以来（除 2019 年负值外）新低</td>
+<td>2025 年利润"含金量"极差；2026H1 大幅回升但由采购收缩贡献，不可外推</td>
+</tr>
+<tr>
+<td>自由现金流</td>
+<td>2.46（2024）→ <strong>-2.63 亿元（2025）</strong> → 12.42 亿元（2026H1）</td>
+<td>2025 年转负</td>
+<td>当年分红 17.92 亿元<strong>无法由经营现金流覆盖</strong>，实际由动用定期存款（类现金减少 24.82 亿元）支撑</td>
+</tr>
+<tr>
+<td>分配股利支付的现金</td>
+<td>21.36（2024）→ 19.69 亿元（2025）</td>
+<td>略降</td>
+<td>现金分红总额维持 17.92 亿元不变，但支付能力已明显弱化</td>
+</tr>
+</tbody></table></div>
+<div class="callout"><div class="quote"><strong>现金流量表核心判断</strong>：2025 年是"利润还在、现金没了"的典型年份——归母净利润 21.59 亿元，经营现金流仅 0.77 亿元。2026H1 经营现金流回升至 16.25 亿元看似修复，但拆解后可见<strong>销售收现仍在下降（−16.82%）、改善全部来自采购支付减少（−20.81 亿元）</strong>。这意味着：<strong>当前现金流的改善是"少买原料"的结果，可持续性取决于去库进度，而收入端的造血能力尚未恢复。</strong></div></div>
+<figure>
+<svg viewBox="0 0 680 306" xmlns="http://www.w3.org/2000/svg" font-family="'Songti SC','Noto Serif CJK SC',serif">
+<line x1="60" y1="246.0" x2="646" y2="246.0" stroke="#E3DDD4" stroke-width="1"/>
+<text x="52" y="249.5" font-size="9" fill="#7C7B77" text-anchor="end">-15</text>
+<line x1="60" y1="213.0" x2="646" y2="213.0" stroke="#E3DDD4" stroke-width="1.4"/>
+<text x="52" y="216.5" font-size="9" fill="#7C7B77" text-anchor="end">0</text>
+<line x1="60" y1="180.0" x2="646" y2="180.0" stroke="#E3DDD4" stroke-width="1"/>
+<text x="52" y="183.5" font-size="9" fill="#7C7B77" text-anchor="end">15</text>
+<line x1="60" y1="147.0" x2="646" y2="147.0" stroke="#E3DDD4" stroke-width="1"/>
+<text x="52" y="150.5" font-size="9" fill="#7C7B77" text-anchor="end">30</text>
+<line x1="60" y1="114.0" x2="646" y2="114.0" stroke="#E3DDD4" stroke-width="1"/>
+<text x="52" y="117.5" font-size="9" fill="#7C7B77" text-anchor="end">45</text>
+<line x1="60" y1="81.0" x2="646" y2="81.0" stroke="#E3DDD4" stroke-width="1"/>
+<text x="52" y="84.5" font-size="9" fill="#7C7B77" text-anchor="end">60</text>
+<line x1="60" y1="48.0" x2="646" y2="48.0" stroke="#E3DDD4" stroke-width="1"/>
+<text x="52" y="51.5" font-size="9" fill="#7C7B77" text-anchor="end">75</text>
+<text x="52" y="38" font-size="9" fill="#7C7B77" text-anchor="end">亿元</text>
+<polyline points="96.6,182.8 169.9,176.2 243.1,159.5 316.4,158.6 389.6,151.5 462.9,147.5 536.1,165.5 609.4,189.0" fill="none" stroke="#1B365D" stroke-width="2"/>
+<polyline points="96.6,232.3 169.9,180.7 243.1,202.8 316.4,61.8 389.6,164.4 462.9,184.1 536.1,211.3 609.4,177.2" fill="none" stroke="#A73F2D" stroke-width="2"/>
+<circle cx="96.6" cy="182.8" r="2.6" fill="#1B365D"/>
+<circle cx="169.9" cy="176.2" r="2.6" fill="#1B365D"/>
+<circle cx="243.1" cy="159.5" r="2.6" fill="#1B365D"/>
+<circle cx="316.4" cy="158.6" r="2.6" fill="#1B365D"/>
+<circle cx="389.6" cy="151.5" r="2.6" fill="#1B365D"/>
+<circle cx="462.9" cy="147.5" r="2.6" fill="#1B365D"/>
+<circle cx="536.1" cy="165.5" r="2.6" fill="#1B365D"/>
+<circle cx="609.4" cy="189.0" r="2.6" fill="#1B365D"/>
+<circle cx="96.6" cy="232.3" r="2.6" fill="#A73F2D"/>
+<text x="96.6" y="263.0" font-size="10" fill="#7C7B77" text-anchor="middle">2019</text>
+<circle cx="169.9" cy="180.7" r="2.6" fill="#A73F2D"/>
+<text x="169.9" y="263.0" font-size="10" fill="#7C7B77" text-anchor="middle">2020</text>
+<circle cx="243.1" cy="202.8" r="2.6" fill="#A73F2D"/>
+<text x="243.1" y="263.0" font-size="10" fill="#7C7B77" text-anchor="middle">2021</text>
+<circle cx="316.4" cy="61.8" r="2.6" fill="#A73F2D"/>
+<text x="316.4" y="263.0" font-size="10" fill="#7C7B77" text-anchor="middle">2022</text>
+<circle cx="389.6" cy="164.4" r="2.6" fill="#A73F2D"/>
+<text x="389.6" y="263.0" font-size="10" fill="#7C7B77" text-anchor="middle">2023</text>
+<circle cx="462.9" cy="184.1" r="2.6" fill="#A73F2D"/>
+<text x="462.9" y="263.0" font-size="10" fill="#7C7B77" text-anchor="middle">2024</text>
+<circle cx="536.1" cy="211.3" r="2.6" fill="#A73F2D"/>
+<text x="536.1" y="263.0" font-size="10" fill="#7C7B77" text-anchor="middle">2025</text>
+<circle cx="609.4" cy="177.2" r="2.6" fill="#A73F2D"/>
+<text x="609.4" y="263.0" font-size="10" fill="#7C7B77" text-anchor="middle">2026H1</text>
+<rect x="59.6" y="228.5" width="33.0" height="10.3" fill="#FBF9F4" opacity="0.88" rx="2"/><text x="92.6" y="235.8" font-size="9.0" fill="#A73F2D" text-anchor="end">-8.79</text>
+<rect x="623.4" y="173.4" width="33.0" height="10.3" fill="#FBF9F4" opacity="0.88" rx="2"/><text x="623.4" y="180.8" font-size="9.0" fill="#A73F2D" text-anchor="start">16.25</text>
+<rect x="59.6" y="178.9" width="33.0" height="10.3" fill="#FBF9F4" opacity="0.88" rx="2"/><text x="92.6" y="186.3" font-size="9.0" fill="#1B365D" text-anchor="end">13.74</text>
+<rect x="623.4" y="185.1" width="33.0" height="10.3" fill="#FBF9F4" opacity="0.88" rx="2"/><text x="623.4" y="192.5" font-size="9.0" fill="#1B365D" text-anchor="start">10.93</text>
+<rect x="323.4" y="149.9" width="140.4" height="9.2" fill="#FBF9F4" opacity="0.88" rx="2"/><text x="393.6" y="156.4" font-size="8.0" fill="#7C7B77" text-anchor="middle">2022 年 68.73（定期存单列报口径变更，不可比）</text>
+<line x1="60" y1="26" x2="82" y2="26" stroke="#A73F2D" stroke-width="2"/><text x="88" y="29.5" font-size="9.5" fill="#22262B" text-anchor="start">经营活动现金流净额</text>
+<line x1="260" y1="26" x2="282" y2="26" stroke="#1B365D" stroke-width="2"/><text x="288" y="29.5" font-size="9.5" fill="#22262B" text-anchor="start">归母净利润</text>
+</svg>
+<figcaption>图 2　经营活动现金流净额与归母净利润对照（2019—2026H1）</figcaption>
+</figure>
+<h3>3.4 三表联动</h3>
+<ul><li><strong>损益表看"经营真相"</strong>：报表口径归母净利润 −27.49%，但剔除金融资产公允价值变动等非经常性损益后的<strong>扣非归母净利润降幅达 −34.25%</strong>，主业下滑比账面更深。</li><li><strong>资产负债表看"风险沉淀"</strong>：利润下滑未转化为杠杆上升（有息负债仅 10.34 亿元），而是<strong>沉淀为 66.79 亿元的存货</strong>（其中相当部分为高价原料）。风险不在偿债，而在存货的可变现价值。</li><li><strong>现金流量表看"现金来源"</strong>：2025 年现金来源从"经营"切换为"变卖定期存款"，2026H1 又切换为"减少采购"。<strong>经营活动本身的净造血能力连续两年未恢复正常</strong>，这是三张表中最需要跟踪的一项。</li></ul>
+<h2>四、数据变化趋势与原因分析</h2>
+<h3>4.1 收入：销量大增而收入大降，"量价背离"是本轮下滑的核心</h3>
+<p>2025 年肝病用药（片仔癀）<strong>销量同比 +25.81%（526.98 万盒）、产量同比 +41.39%</strong>，而<strong>收入同比 −19.63%</strong>。销量增速与收入增速相差 45.4 个百分点，对应<strong>推算单价下降约 36.12%</strong>（1,267.8 → 809.8 元/盒）。</p>
+<p>这一背离有三种可能解释，报告期内证据同时支持前两种：</p>
+<ol><li><strong>产品结构下移</strong>：2026H1 公司推出"安宫牛黄丸普丸装（体培牛黄、人工麝香）"，并加大普药在国药堂渠道铺货（铺货率超 95%）。低单价规格占比提升，必然拉低平均单价。</li><li><strong>渠道价格体系松动</strong>：公司 2026H1 明确表述"从严规范渠道管理，提升服务质量，<strong>线上终端售价稳步回升</strong>"——反向印证此前线上终端售价曾下行。2025 年线上渠道收入同比 <strong>−43.13%</strong>，2026H1 转为 <strong>+42.24%</strong>（公司披露线上渠道营收同比增长 58%），说明 2025 年是线上价格与销量同步受压的一年。</li><li>核心大单品的提价策略失效：2023 年 5 月公司曾将片仔癀锭剂零售价由 590 元/粒上调至 760 元/粒（+28.8%，为历史最大涨幅）。本轮下滑表明<strong>该次提价的需求消化尚未完成，且在此轮原料涨价周期中已不具备再次提价的空间</strong>。</li></ol>
+<div class="callout"><div class="quote"><strong>关键含义</strong>：当"提价→收入增长"的传导链断裂，公司只能以价换量，而<strong>以价换量在以品牌溢价为护城河的商业模式中具有不可逆性</strong>——价格一旦下探，品牌锚点即被削弱。这是判断片仔癀能否重回增长的最关键变量。</div></div>
+<h3>4.2 成本：原料价格刚性上行 + 产品结构下移，双杀毛利率</h3>
+<p>毛利率从 2021 年峰值 50.72% 降至 2025 年 36.43%，累计回落 14.29 个百分点。可分解为两个方向相反、强度不同的力量：</p>
+<ul><li><strong>原料端（推升成本）</strong>：天然牛黄、天然麝香为片仔癀独家配方的核心原料，供给刚性极强。2023 年 5 月行业数据显示，天然牛黄价格 800 元/g，较 2021 年 1 月上涨 86%；天然麝香 450 元/g，上涨 18%。公司 2025 年末存货中"原材料储备增加"是存货暴增的主因——<strong>这是为锁定成本而进行的战略备库</strong>。</li><li><strong>结构端（压低毛利）</strong>：低毛利业务占比上升。医药流通业毛利率仅 7.62%（2025）/8.24%（2026H1），但占收入比重从结构上看始终接近四成；化妆品业 2025 年收入 −24.64%，占比进一步缩小，高毛利业务的占比不升反降。</li></ul>
+<p>值得注意的<strong>积极信号</strong>：2026H1 医药制造业毛利率回升至 60.62%（同比 +0.67pp），肝病用药毛利率 62.77%（同比 <strong>+1.27pp</strong>），说明<strong>产品结构改善与原料成本传导之间存在时滞</strong>——公司正通过调整产品组合（如普丸装）逐步修复制造业毛利。但流通业毛利率继续下行（−0.54pp）拖累整体。</p>
+<figure>
+<svg viewBox="0 0 680 296" xmlns="http://www.w3.org/2000/svg" font-family="'Songti SC','Noto Serif CJK SC',serif">
+<line x1="60" y1="236.0" x2="646" y2="236.0" stroke="#E3DDD4" stroke-width="1"/>
+<text x="52" y="239.5" font-size="9" fill="#7C7B77" text-anchor="end">0%</text>
+<line x1="60" y1="204.7" x2="646" y2="204.7" stroke="#E3DDD4" stroke-width="1"/>
+<text x="52" y="208.2" font-size="9" fill="#7C7B77" text-anchor="end">10%</text>
+<line x1="60" y1="173.3" x2="646" y2="173.3" stroke="#E3DDD4" stroke-width="1"/>
+<text x="52" y="176.8" font-size="9" fill="#7C7B77" text-anchor="end">20%</text>
+<line x1="60" y1="142.0" x2="646" y2="142.0" stroke="#E3DDD4" stroke-width="1"/>
+<text x="52" y="145.5" font-size="9" fill="#7C7B77" text-anchor="end">30%</text>
+<line x1="60" y1="110.7" x2="646" y2="110.7" stroke="#E3DDD4" stroke-width="1"/>
+<text x="52" y="114.2" font-size="9" fill="#7C7B77" text-anchor="end">40%</text>
+<line x1="60" y1="79.3" x2="646" y2="79.3" stroke="#E3DDD4" stroke-width="1"/>
+<text x="52" y="82.8" font-size="9" fill="#7C7B77" text-anchor="end">50%</text>
+<line x1="60" y1="48.0" x2="646" y2="48.0" stroke="#E3DDD4" stroke-width="1"/>
+<text x="52" y="51.5" font-size="9" fill="#7C7B77" text-anchor="end">60%</text>
+<line x1="60" y1="236.0" x2="646" y2="236.0" stroke="#CFC7BA" stroke-width="1.2"/>
+<polyline points="96.6,97.4 169.9,94.5 243.1,77.1 316.4,93.0 389.6,89.5 462.9,102.1 536.1,121.9 609.4,111.2" fill="none" stroke="#A73F2D" stroke-width="2.2"/>
+<polyline points="96.6,160.8 169.9,155.5 243.1,141.0 316.4,146.9 389.6,148.9 462.9,149.5 536.1,160.9 609.4,161.1" fill="none" stroke="#2F6F6B" stroke-width="2.2"/>
+<circle cx="96.6" cy="97.4" r="2.6" fill="#A73F2D"/>
+<circle cx="169.9" cy="94.5" r="2.6" fill="#A73F2D"/>
+<circle cx="243.1" cy="77.1" r="2.6" fill="#A73F2D"/>
+<circle cx="316.4" cy="93.0" r="2.6" fill="#A73F2D"/>
+<circle cx="389.6" cy="89.5" r="2.6" fill="#A73F2D"/>
+<circle cx="462.9" cy="102.1" r="2.6" fill="#A73F2D"/>
+<circle cx="536.1" cy="121.9" r="2.6" fill="#A73F2D"/>
+<circle cx="609.4" cy="111.2" r="2.6" fill="#A73F2D"/>
+<circle cx="96.6" cy="160.8" r="2.6" fill="#2F6F6B"/>
+<text x="96.6" y="253.0" font-size="10" fill="#7C7B77" text-anchor="middle">2019</text>
+<circle cx="169.9" cy="155.5" r="2.6" fill="#2F6F6B"/>
+<text x="169.9" y="253.0" font-size="10" fill="#7C7B77" text-anchor="middle">2020</text>
+<circle cx="243.1" cy="141.0" r="2.6" fill="#2F6F6B"/>
+<text x="243.1" y="253.0" font-size="10" fill="#7C7B77" text-anchor="middle">2021</text>
+<circle cx="316.4" cy="146.9" r="2.6" fill="#2F6F6B"/>
+<text x="316.4" y="253.0" font-size="10" fill="#7C7B77" text-anchor="middle">2022</text>
+<circle cx="389.6" cy="148.9" r="2.6" fill="#2F6F6B"/>
+<text x="389.6" y="253.0" font-size="10" fill="#7C7B77" text-anchor="middle">2023</text>
+<circle cx="462.9" cy="149.5" r="2.6" fill="#2F6F6B"/>
+<text x="462.9" y="253.0" font-size="10" fill="#7C7B77" text-anchor="middle">2024</text>
+<circle cx="536.1" cy="160.9" r="2.6" fill="#2F6F6B"/>
+<text x="536.1" y="253.0" font-size="10" fill="#7C7B77" text-anchor="middle">2025</text>
+<circle cx="609.4" cy="161.1" r="2.6" fill="#2F6F6B"/>
+<text x="609.4" y="253.0" font-size="10" fill="#7C7B77" text-anchor="middle">2026H1</text>
+<rect x="54.2" y="93.5" width="38.4" height="10.3" fill="#FBF9F4" opacity="0.88" rx="2"/><text x="92.6" y="100.9" font-size="9.0" fill="#A73F2D" text-anchor="end">44.24%</text>
+<rect x="623.4" y="107.3" width="38.4" height="10.3" fill="#FBF9F4" opacity="0.88" rx="2"/><text x="623.4" y="114.7" font-size="9.0" fill="#A73F2D" text-anchor="start">39.83%</text>
+<rect x="54.2" y="156.9" width="38.4" height="10.3" fill="#FBF9F4" opacity="0.88" rx="2"/><text x="92.6" y="164.3" font-size="9.0" fill="#2F6F6B" text-anchor="end">24.01%</text>
+<rect x="623.4" y="157.2" width="38.4" height="10.3" fill="#FBF9F4" opacity="0.88" rx="2"/><text x="623.4" y="164.6" font-size="9.0" fill="#2F6F6B" text-anchor="start">23.90%</text>
+<rect x="191.5" y="60.7" width="103.2" height="10.3" fill="#FBF9F4" opacity="0.88" rx="2"/><text x="243.1" y="68.1" font-size="9.0" fill="#A73F2D" text-anchor="middle">2021 年毛利率峰值 50.72%</text>
+<rect x="473.7" y="130.5" width="124.8" height="10.3" fill="#FBF9F4" opacity="0.88" rx="2"/><text x="536.1" y="137.9" font-size="9.0" fill="#A73F2D" text-anchor="middle">2025 年 36.43%（−6.31pp）</text>
+<line x1="60" y1="26" x2="82" y2="26" stroke="#A73F2D" stroke-width="2.2"/><text x="88" y="29.5" font-size="9.5" fill="#22262B" text-anchor="start">毛利率</text>
+<line x1="180" y1="26" x2="202" y2="26" stroke="#2F6F6B" stroke-width="2.2"/><text x="208" y="29.5" font-size="9.5" fill="#22262B" text-anchor="start">归母净利率</text>
+</svg>
+<figcaption>图 3　毛利率与归母净利率走势（2019—2026H1）</figcaption>
+</figure>
+<h3>4.3 存货：从"战略囤积"到"被动去库"</h3>
+<p>存货是本轮财报中变化最剧烈的科目，五年增长 205%（21.91 → 66.79 亿元），2025 年单年增长 34.46%。需要区分两个阶段：</p>
+<ul><li><strong>2020—2025 年（主动囤积期）</strong>：面对牛黄、麝香价格持续上涨，公司选择"一边提价、一边加大原料储备"。这一策略在原料价格上行期具有合理性——提前锁定低价原料可平滑未来成本。但代价是<strong>占用大量营运资金并推高存货减值风险</strong>（审计师已将"存货可变现净值的确定"列为关键审计事项，2025 年末存货跌价准备余额 1,902.07 万元）。</li><li><strong>2026H1（被动去库期）</strong>：存货降至 59.54 亿元（−10.85%），同期购买商品支付的现金锐减 52.47%。<strong>但库存去化的背景是收入仍未回升</strong>（2026H1 收入 −14.98%），因此更像"需求不足下的被动收缩"而非"主动优化"。</li></ul>
+<div class="callout"><div class="quote"><strong>关键判据</strong>：健康去库应表现为"存货下降＋收入企稳/回升"；当前是"存货下降＋收入继续下滑"，属<strong>收缩型去库</strong>。后续需重点跟踪：存货占总资产比重是否回到 25% 以下，以及肝病用药"库存量"（2025 年末 +265.53% 至 51.54 万盒）是否同步回落。</div></div>
+<figure>
+<svg viewBox="0 0 680 312" xmlns="http://www.w3.org/2000/svg" font-family="'Songti SC','Noto Serif CJK SC',serif">
+<line x1="66" y1="248.0" x2="640" y2="248.0" stroke="#E3DDD4" stroke-width="1"/>
+<text x="58" y="251.5" font-size="9" fill="#7C7B77" text-anchor="end">0</text>
+<line x1="66" y1="199.0" x2="640" y2="199.0" stroke="#E3DDD4" stroke-width="1"/>
+<text x="58" y="202.5" font-size="9" fill="#7C7B77" text-anchor="end">20</text>
+<line x1="66" y1="150.0" x2="640" y2="150.0" stroke="#E3DDD4" stroke-width="1"/>
+<text x="58" y="153.5" font-size="9" fill="#7C7B77" text-anchor="end">40</text>
+<line x1="66" y1="101.0" x2="640" y2="101.0" stroke="#E3DDD4" stroke-width="1"/>
+<text x="58" y="104.5" font-size="9" fill="#7C7B77" text-anchor="end">60</text>
+<line x1="66" y1="52.0" x2="640" y2="52.0" stroke="#E3DDD4" stroke-width="1"/>
+<text x="58" y="55.5" font-size="9" fill="#7C7B77" text-anchor="end">80</text>
+<text x="648" y="251.5" font-size="9" fill="#2F6F6B" text-anchor="start">0%</text>
+<text x="648" y="212.3" font-size="9" fill="#2F6F6B" text-anchor="start">10%</text>
+<text x="648" y="173.1" font-size="9" fill="#2F6F6B" text-anchor="start">20%</text>
+<text x="648" y="133.9" font-size="9" fill="#2F6F6B" text-anchor="start">30%</text>
+<text x="648" y="94.7" font-size="9" fill="#2F6F6B" text-anchor="start">40%</text>
+<text x="648" y="55.5" font-size="9" fill="#2F6F6B" text-anchor="start">50%</text>
+<text x="58" y="38" font-size="9" fill="#7C7B77" text-anchor="end">亿元</text>
+<text x="648" y="38" font-size="9" fill="#2F6F6B" text-anchor="start">占总资产</text>
+<line x1="66" y1="248.0" x2="640" y2="248.0" stroke="#CFC7BA" stroke-width="1.2"/>
+<rect x="84.6" y="194.3" width="37.3" height="53.7" fill="#CFC7BA" rx="1"/>
+<text x="103.3" y="207.3" font-size="9" fill="#3E4145" text-anchor="middle">21.91</text>
+<text x="103.3" y="265.0" font-size="10" fill="#7C7B77" text-anchor="middle">2020</text>
+<rect x="159.2" y="188.3" width="37.3" height="59.7" fill="#CFC7BA" rx="1"/>
+<text x="177.9" y="201.3" font-size="9" fill="#3E4145" text-anchor="middle">24.38</text>
+<text x="177.9" y="265.0" font-size="10" fill="#7C7B77" text-anchor="middle">2021</text>
+<rect x="233.8" y="183.6" width="37.3" height="64.4" fill="#CFC7BA" rx="1"/>
+<text x="252.4" y="196.6" font-size="9" fill="#3E4145" text-anchor="middle">26.28</text>
+<text x="252.4" y="265.0" font-size="10" fill="#7C7B77" text-anchor="middle">2022</text>
+<rect x="308.4" y="165.2" width="37.3" height="82.8" fill="#CFC7BA" rx="1"/>
+<text x="327.0" y="178.2" font-size="9" fill="#3E4145" text-anchor="middle">33.79</text>
+<text x="327.0" y="265.0" font-size="10" fill="#7C7B77" text-anchor="middle">2023</text>
+<rect x="382.9" y="126.3" width="37.3" height="121.7" fill="#CFC7BA" rx="1"/>
+<text x="401.6" y="139.3" font-size="9" fill="#3E4145" text-anchor="middle">49.67</text>
+<text x="401.6" y="265.0" font-size="10" fill="#7C7B77" text-anchor="middle">2024</text>
+<rect x="457.5" y="84.4" width="37.3" height="163.6" fill="#A73F2D" rx="1"/>
+<text x="476.1" y="97.4" font-size="9" fill="#FFFFFF" text-anchor="middle">66.79</text>
+<text x="476.1" y="265.0" font-size="10" fill="#7C7B77" text-anchor="middle">2025</text>
+<rect x="532.1" y="102.1" width="37.3" height="145.9" fill="#CFC7BA" rx="1"/>
+<text x="550.7" y="115.1" font-size="9" fill="#3E4145" text-anchor="middle">59.54</text>
+<text x="550.7" y="265.0" font-size="10" fill="#7C7B77" text-anchor="middle">2026H1</text>
+<polyline points="103.3,163.8 177.9,171.5 252.4,177.5 327.0,170.5 401.6,137.0 476.1,98.9 550.7,121.9" fill="none" stroke="#2F6F6B" stroke-width="2.2"/>
+<circle cx="103.3" cy="163.8" r="2.8" fill="#2F6F6B"/>
+<circle cx="177.9" cy="171.5" r="2.8" fill="#2F6F6B"/>
+<circle cx="252.4" cy="177.5" r="2.8" fill="#2F6F6B"/>
+<circle cx="327.0" cy="170.5" r="2.8" fill="#2F6F6B"/>
+<circle cx="401.6" cy="137.0" r="2.8" fill="#2F6F6B"/>
+<circle cx="476.1" cy="98.9" r="2.8" fill="#2F6F6B"/>
+<circle cx="550.7" cy="121.9" r="2.8" fill="#2F6F6B"/>
+<rect x="60.9" y="160.0" width="38.4" height="10.3" fill="#FBF9F4" opacity="0.88" rx="2"/><text x="99.3" y="167.3" font-size="9.0" fill="#2F6F6B" text-anchor="end">21.47%</text>
+<rect x="490.1" y="95.0" width="38.4" height="10.3" fill="#FBF9F4" opacity="0.88" rx="2"/><text x="490.1" y="102.4" font-size="9.0" fill="#2F6F6B" text-anchor="start">38.04%</text>
+<rect x="564.7" y="118.1" width="38.4" height="10.3" fill="#FBF9F4" opacity="0.88" rx="2"/><text x="564.7" y="125.4" font-size="9.0" fill="#2F6F6B" text-anchor="start">32.16%</text>
+<rect x="360.3" y="69.0" width="157.2" height="10.3" fill="#FBF9F4" opacity="0.88" rx="2"/><text x="438.9" y="76.4" font-size="9.0" fill="#A73F2D" text-anchor="middle">2025 年末 66.79 亿元、占总资产 38.04%</text>
+<text x="353.0" y="288.0" font-size="8.5" fill="#7C7B77" text-anchor="middle">注：2026H1 为半年末数据（末位柱为年度/半年度口径混排，仅供参考趋势）</text>
+</svg>
+<figcaption>图 4　存货金额与占总资产比重（2020 年末—2026H1 末）</figcaption>
+</figure>
+<h3>4.4 利润成色：投资收益与费用端对利润的双向影响</h3>
+<ul><li><strong>投资收益贡献上升</strong>：2025 年投资收益 3.54 亿元（2024 年 1.46 亿元），其中<strong>对联营企业和合营企业的投资收益 2.27 亿元</strong>（2024 年为 −0.12 亿元），占归母净利润的 10.5%。2026H1 投资收益 1.12 亿元（其中权益法 0.57 亿元），同比增长 42.4%。<strong>这类收益计入经常性损益，扣非口径无法剔除</strong>，会系统性高估主业盈利。</li><li><strong>公允价值变动反向拖累</strong>：2025 年公允价值变动收益 −0.98 亿元，但"非金融企业持有金融资产/负债产生的公允价值变动损益及处置损益"在非经常性损益中列示为 <strong>+2.05 亿元</strong>（两者口径不同，前者为利润表科目，后者为非经常性损益明细项）。这是 2025 年归母净利润（−27.49%）降幅小于扣非（−34.25%）的主要原因。</li><li><strong>实际税率稳定</strong>：2025 年实际税率 15.55%（2024 年 15.35%）、2026H1 为 15.79%（2025H1 为 15.11%），<strong>未通过税负调节利润</strong>。这与其他行业部分公司"靠税率下行贡献利润增长"的情形形成对比，片仔癀的报表质量在这一点上是干净的。</li><li><strong>费用端已在收缩</strong>：2025 年销售费用 −22.52%、研发费用 −6.43%，三项费用合计同比压降；2026H1 销售费用逆势 +27.50%，管理费用 +1.78%，研发费用 +8.53%——<strong>在收入下滑期逆势增加投入，是"主动调整"的典型特征</strong>。</li></ul>
+<h3>4.5 分红：从"比例锚"到"绝对额锚"，再到随利润回落</h3>
+<p>分红政策的三段式演变是观察公司治理逻辑的窗口：</p>
+<div class="rsp-table"><table class="">
+<thead><tr>
+<th>阶段</th>
+<th>年度</th>
+<th>特征</th>
+<th>分红率</th>
+</tr></thead><tbody>
+<tr>
+<td>比例锚定期</td>
+<td>2020—2022</td>
+<td>每年偶有中期分红，年度分红率稳定在 30% 出头（章程规定不少于 30%）</td>
+<td>30.02%—32.48%</td>
+</tr>
+<tr>
+<td>提升期</td>
+<td>2023</td>
+<td>分红率跳升至 50%，无中期分红</td>
+<td>50.04%</td>
+</tr>
+<tr>
+<td><strong>绝对额锚定期</strong></td>
+<td>2024—2025</td>
+<td>引入中期分红，<strong>两年分红总额完全相同（17.92 亿元）</strong>，即锁定每股 2.97 元</td>
+<td>60.19% → <strong>83.01%</strong></td>
+</tr>
+<tr>
+<td><strong>随利润回落</strong></td>
+<td>2026H1</td>
+<td>中期分红降至每股 1.07 元（−23.6%），与利润降幅同步</td>
+<td>59.06%</td>
+</tr>
+</tbody></table></div>
+<p><strong>2025 年 83.01% 的分红率是本次财报中最具戏剧性的数字</strong>：在归母净利润下滑 27.49% 的同时，公司维持绝对分红额不变，导致分红率跳升 22.82 个百分点。而当年经营现金流仅 0.77 亿元、自由现金流为 −2.63 亿元——<strong>17.92 亿元分红实际由动用定期存款支付</strong>。</p>
+<div class="callout"><div class="quote"><strong>两面陈述</strong>：正面看，控股股东（九龙江集团）在 2026H1 完成 5 亿元增持并承诺 12 个月内不减持，高分红与增持共同构成信心信号；负面看，<strong>"利润下滑＋分红不变"的组合在现金流为负的年份不可持续</strong>，2026H1 中期分红已开始随利润下调，说明"绝对额锚定"策略已经松动。对投资者而言，未来分红的核心变量是<strong>自由现金流能否恢复</strong>，而非当期利润。</div></div>
+<h3>4.6 渠道与终端：结构在改善，但总量在收缩</h3>
+<ul><li><strong>线下渠道</strong>：国药堂（含国医堂、名医馆）数量由 2025 年末的 582 家增至 2026 年 6 月的 <strong>618 家</strong>（2026H1 新增 76 家，其中 38 家落户空白区域）；累计签约名医 246 名（含 6 名国医大师）。终端门店覆盖超 12 万家。</li><li><strong>线下收入</strong>：2026H1 线下收入 43.85 亿元（−16.40%），<strong>渠道扩张未能阻止收入下滑</strong>——说明问题在单店动销而非网点密度。</li><li><strong>线上渠道</strong>：2026H1 线上收入 1.69 亿元（+42.24%，公司口径营收 +58%），毛利率 40.21%（同比 +0.83pp）。这是所有渠道中唯一正增长项，但体量仅占 3.7%，<strong>不足以对冲线下 16.40% 的下滑</strong>。片仔癀锭剂在天猫、京东、抖音三个平台的 OTC 肝胆用药类目销量均居第一。</li><li><strong>境外渠道</strong>：2026H1 境外收入 1.93 亿元（−25.91%），但毛利率高达 68.13%（+1.03pp）。公司完成中国香港、泰国合计 17 个专柜二次验收，新增加拿大经销商。</li></ul>
+<div class="callout"><div class="quote"><strong>渠道结论</strong>：<strong>结构性优化（线上增长、国药堂扩张、境外高毛利）与总量收缩同时发生</strong>。判断拐点的关键是"单店/单渠道动销何时止跌"，而不是渠道数量的继续增加。</div></div>
+<figure>
+<svg viewBox="0 0 680 290" xmlns="http://www.w3.org/2000/svg" font-family="'Songti SC','Noto Serif CJK SC',serif">
+<line x1="66" y1="232.0" x2="646" y2="232.0" stroke="#E3DDD4" stroke-width="1"/>
+<text x="58" y="235.5" font-size="9" fill="#7C7B77" text-anchor="end">0</text>
+<line x1="66" y1="196.8" x2="646" y2="196.8" stroke="#E3DDD4" stroke-width="1"/>
+<text x="58" y="200.3" font-size="9" fill="#7C7B77" text-anchor="end">10</text>
+<line x1="66" y1="161.6" x2="646" y2="161.6" stroke="#E3DDD4" stroke-width="1"/>
+<text x="58" y="165.1" font-size="9" fill="#7C7B77" text-anchor="end">20</text>
+<line x1="66" y1="126.4" x2="646" y2="126.4" stroke="#E3DDD4" stroke-width="1"/>
+<text x="58" y="129.9" font-size="9" fill="#7C7B77" text-anchor="end">30</text>
+<line x1="66" y1="91.2" x2="646" y2="91.2" stroke="#E3DDD4" stroke-width="1"/>
+<text x="58" y="94.7" font-size="9" fill="#7C7B77" text-anchor="end">40</text>
+<line x1="66" y1="56.0" x2="646" y2="56.0" stroke="#E3DDD4" stroke-width="1"/>
+<text x="58" y="59.5" font-size="9" fill="#7C7B77" text-anchor="end">50</text>
+<text x="58" y="40" font-size="9" fill="#7C7B77" text-anchor="end">亿元</text>
+<line x1="66" y1="232.0" x2="646" y2="232.0" stroke="#CFC7BA" stroke-width="1.2"/>
+<rect x="95.9" y="75.7" width="40.6" height="156.3" fill="#B8862F" rx="1"/>
+<text x="116.2" y="71.7" font-size="9" fill="#3E4145" text-anchor="middle">44.41</text>
+<rect x="140.5" y="145.7" width="40.6" height="86.3" fill="#A73F2D" opacity="0.62" rx="1"/>
+<text x="160.8" y="141.7" font-size="9" fill="#A73F2D" text-anchor="middle">24.52</text>
+<text x="138.5" y="249.0" font-size="10" fill="#7C7B77" text-anchor="middle">医药制造业</text>
+<rect x="240.9" y="99.8" width="40.6" height="132.2" fill="#B8862F" rx="1"/>
+<text x="261.2" y="95.8" font-size="9" fill="#3E4145" text-anchor="middle">37.55</text>
+<rect x="285.5" y="172.2" width="40.6" height="59.8" fill="#A73F2D" opacity="0.62" rx="1"/>
+<text x="305.8" y="168.2" font-size="9" fill="#A73F2D" text-anchor="middle">17.00</text>
+<text x="283.5" y="249.0" font-size="10" fill="#7C7B77" text-anchor="middle">医药流通业</text>
+<rect x="385.9" y="212.0" width="40.6" height="20.0" fill="#B8862F" rx="1"/>
+<text x="406.2" y="208.0" font-size="9" fill="#3E4145" text-anchor="middle">5.67</text>
+<rect x="430.5" y="221.1" width="40.6" height="10.9" fill="#A73F2D" opacity="0.62" rx="1"/>
+<text x="450.8" y="217.1" font-size="9" fill="#A73F2D" text-anchor="middle">3.10</text>
+<text x="428.5" y="249.0" font-size="10" fill="#7C7B77" text-anchor="middle">化妆品业</text>
+<rect x="530.9" y="224.7" width="40.6" height="7.3" fill="#B8862F" rx="1"/>
+<text x="551.2" y="220.7" font-size="9" fill="#3E4145" text-anchor="middle">2.06</text>
+<rect x="575.5" y="228.7" width="40.6" height="3.3" fill="#A73F2D" opacity="0.62" rx="1"/>
+<text x="595.8" y="224.7" font-size="9" fill="#A73F2D" text-anchor="middle">0.93</text>
+<text x="573.5" y="249.0" font-size="10" fill="#7C7B77" text-anchor="middle">其他</text>
+<rect x="66" y="20" width="11" height="9" fill="#B8862F" rx="1"/><text x="83" y="28.5" font-size="9.5" fill="#22262B" text-anchor="start">2025 年全年</text>
+<rect x="196" y="20" width="11" height="9" fill="#A73F2D" opacity="0.62" rx="1"/><text x="213" y="28.5" font-size="9.5" fill="#22262B" text-anchor="start">2026H1（半年度）</text>
+<text x="356.0" y="272.0" font-size="8.5" fill="#7C7B77" text-anchor="middle">注：医药流通业以 37.3% 的收入占比仅贡献约 7% 的分部毛利，属"规模大、利润薄"环节</text>
+</svg>
+<figcaption>图 5　分行业收入结构（2025 年与 2026H1）</figcaption>
+</figure>
+<h2>五、关键内容总结</h2>
+<h3>5.1 核心业务与竞争优势</h3>
+<ul><li><strong>配方壁垒（最强护城河）</strong>：片仔癀为国家绝密级配方与工艺，独家生产，理论上不可被仿制。年报载明该产品拥有<strong>中国发明专利 16 件</strong>，终止日期分布在 2029—2043 年；同时属于中药保护品种。</li><li><strong>原料壁垒</strong>：天然麝香为国家严格配额管理物资，公司是少数获准使用的企业之一；天然牛黄资源极度稀缺。原料稀缺性既是成本压力的源头，也是竞争者无法进入的门槛。</li><li><strong>品牌壁垒</strong>：首批"中华老字号"，"药中茅台"的市场认知度高。2026H1 片仔癀锭剂在天猫、京东、抖音三大平台的 OTC 肝胆用药类目销量均列第一。</li><li><strong>渠道壁垒</strong>：国药堂（含国医堂、名医馆）618 家，签约名医 246 名（含唐祖宣、韦贵康、王世民、张大宁、李佃贵、王琦 6 位国医大师），终端门店覆盖超 12 万家——<strong>"名医资源＋专卖渠道"的组合在国内中药企业中具有稀缺性</strong>。</li><li><strong>财务壁垒（同时也是效率拖累）</strong>：资产负债率长期低于 20%，有息负债仅 10.34 亿元，净现金约 61.38 亿元，无商誉。这一结构抗风险能力强，但在利润下行期会成为 ROE 的分母拖累。</li></ul>
+<h3>5.2 产品与研发管线进展</h3>
+<ul><li><strong>在研管线规模</strong>：截至 2026 年 6 月，公司在研新药项目共 19 项——6 个中药创新药、6 个古代经典名方、6 个化学药创新药、1 个生物药创新药。其中 <strong>10 个项目进入临床研发关键阶段</strong>（6 个中药创新药、4 个化学药创新药），6 个项目达成里程碑节点。</li><li><strong>重点品种进展</strong>：</li><li><strong>片仔癀治疗原发性肝癌新功能主治 II 期临床研究</strong>已完成数据统计分析；</li><li>中药 1 类新药<strong>温胆片</strong>（抗焦虑）、化学药 1 类创新药 <strong>PZH2108 片</strong>（癌性疼痛）获省级创新药立项支持；</li><li>结直肠癌靶向治疗创新药物 <strong>PZH3122</strong> 临床前研究（2025 年新立项）、肿瘤靶向创新药 <strong>PZH2113</strong> Ⅰ期临床研究；</li><li><strong>保元汤颗粒</strong>（古代经典名方）已提交中国澳门药品注册申请；</li><li>与复旦大学附属华山医院合作的"安宫牛黄丸治疗超早期高血压性脑出血的临床研究"获国家科技重大专项立项并启动。</li><li><strong>大品种二次开发</strong>：推进 12 项以片仔癀为主的临床研究及 36 项非临床药理毒理研究，其中 3 项非临床药理药效研究形成总结报告。</li><li><strong>产品矩阵扩充</strong>：推出<strong>安宫牛黄丸普丸装（体培牛黄、人工麝香）</strong>——以人工替代原料降低对稀缺天然原料的依赖，是应对成本压力的关键产品策略；片仔癀系列普药在国药堂专卖渠道铺货率超 95%。化妆品板块完成 2 项发明专利申报、取得 3 项发明专利授权，自研活性成分"雪肌因""金线莲提取物"进入产品转化。</li></ul>
+<h3>5.3 主要风险</h3>
+<div class="rsp-table"><table class="">
+<thead><tr>
+<th>风险类别</th>
+<th>具体表现</th>
+<th>量化依据</th>
+</tr></thead><tbody>
+<tr>
+<td><strong>收入持续下滑风险</strong></td>
+<td>连续两期营收、净利双降；线下渠道扩张未能阻止收入下滑</td>
+<td>2025 年收入 −16.56%，2026H1 −14.98%；线下 2026H1 −16.40%</td>
+</tr>
+<tr>
+<td><strong>提价能力失效风险</strong></td>
+<td>2023 年提价 28.8% 后的需求消化未完成，本轮原料涨价周期中无再次提价空间</td>
+<td>肝病用药销量 +25.81% 而收入 −19.63%（2025 年），推算单价 −36.12%</td>
+</tr>
+<tr>
+<td><strong>原料成本刚性风险</strong></td>
+<td>天然牛黄、天然麝香供给刚性，价格上行趋势难逆</td>
+<td>天然牛黄 2023 年 5 月 800 元/g，较 2021 年初 +86%</td>
+</tr>
+<tr>
+<td><strong>存货减值风险</strong></td>
+<td>存货 66.79 亿元（2025 末）占总资产 38.04%，其中大量为高价原料</td>
+<td>审计师将"存货可变现净值的确定"列为关键审计事项</td>
+</tr>
+<tr>
+<td><strong>利润质量风险</strong></td>
+<td>参股企业权益法投资收益占归母净利润 10.5%，扣非口径无法剔除</td>
+<td>2025 年权益法投资收益 2.27 亿元；扣非降幅（−34.25%）显著大于归母（−27.49%）</td>
+</tr>
+<tr>
+<td><strong>分红可持续性风险</strong></td>
+<td>分红率 83.01% 但自由现金流 −2.63 亿元，靠动用定期存款支付</td>
+<td>2025 年经营现金流 0.77 亿元 vs 分红 17.92 亿元</td>
+</tr>
+<tr>
+<td><strong>渠道蓄水池收缩风险</strong></td>
+<td>合同负债趋势下行，渠道打款意愿走弱</td>
+<td>合同负债 2.69 → 1.97 亿元（2025 末 → 2026H1 末）</td>
+</tr>
+<tr>
+<td><strong>低效板块拖累风险</strong></td>
+<td>医药流通业占收入 37.3% 而毛利率仅 8.24%</td>
+<td>2026H1 流通业收入 17.00 亿元、毛利率 −0.54pp</td>
+</tr>
+</tbody></table></div>
+<h2>六、结论</h2>
+<ol><li><strong>这是一次"原料成本推动 + 终端需求承压"叠加的周期性调整，而非公司护城河的瓦解。</strong> 国家绝密配方、稀缺原料配额、中华老字号品牌与 618 家国药堂构成的壁垒依然完整，公司资产负债率 14.08%、净现金约 61 亿元、无商誉，不存在偿债与流动性风险。</li></ol>
+<ol><li><strong>但调整的深度与长度均超出市场此前预期。</strong> 2025 年是公司上市以来首次年度营收、净利润双降；2026H1 未见拐点。毛利率从 2021 年峰值回落 14.29 个百分点至 36.43%，加权 ROE 从 27.68% 降至 14.84%，"药中茅台"的高盈利能力正在被重新定价。</li></ol>
+<ol><li><strong>最需警惕的不是利润表，而是两张"质量表"。</strong> 一是<strong>现金流量表</strong>：2025 年经营现金流仅 0.77 亿元、自由现金流 −2.63 亿元，分红靠消耗定期存款；2026H1 的现金流改善全部来自采购收缩而非收入修复。二是<strong>资产负债表</strong>：存货占总资产 38.04%，风险已从"杠杆"转移到"存货可变现价值"。</li></ol>
+<ol><li><strong>利润成色需要打折看。</strong> 剔除金融资产公允价值变动等非经常性损益后，2025 年扣非归母净利润降幅（−34.25%）比账面归母（−27.49%）大 6.8 个百分点；参股企业权益法投资收益 2.27 亿元（占归母净利 10.5%）计入经常性损益，扣非口径无法剔除。<strong>建议以扣非归母净利润作为判断主业趋势的主口径。</strong></li></ol>
+<ol><li><strong>前瞻性观察指标（按优先级）</strong>：</li></ol>
+<ul><li>① <strong>肝病用药"库存量"是否回落</strong>（2025 年末 51.54 万盒，同比 +265.53%）——渠道与成品端压力的直接读数；</li><li>② <strong>合同负债能否止跌回升</strong>（2026H1 末 1.97 亿元）——渠道打款意愿的领先指标；</li><li>③ <strong>存货占总资产比重能否回到 25% 以下</strong>——去库是否从"被动"转为"主动"；</li><li>④ <strong>单季度毛利率与销售费用率的组合</strong>——2026H1 销售费用率逆势升至 6.09%，需观察是短期投放还是长期费用中枢上移；</li><li>⑤ <strong>分红绝对额是否继续下调</strong>——2026H1 中期分红已降至每股 1.07 元，"绝对额锚定"策略松动的确认信号。</li></ul>
+<ol><li><strong>对报表使用者的操作提示</strong>：在收入端未出现"销量止跌＋单价企稳"双重确认前，任何基于"低估值＋高分红"的买入逻辑都需谨慎——<strong>当前 83.01% 的分红率不是估值支撑，而是现金流承压的结果</strong>。</li></ol>
+<h2>附录　数据来源与口径</h2>
+<h3>A.1 所采用文件清单</h3>
+<div class="rsp-table rsp-w5"><table class="">
+<thead><tr>
+<th>序号</th>
+<th>文件名</th>
+<th>披露日期</th>
+<th>覆盖期间</th>
+<th>用途</th>
+</tr></thead><tbody>
+<tr>
+<td>1</td>
+<td>漳州片仔癀药业股份有限公司 2019 年年度报告</td>
+<td>2020-04</td>
+<td>2019 年度（含 2018、2017 对比）</td>
+<td>2019 年利润表、总资产</td>
+</tr>
+<tr>
+<td>2</td>
+<td>漳州片仔癀药业股份有限公司 2020 年年度报告</td>
+<td>2021-04</td>
+<td>2020 年度（含 2019、2018 对比）</td>
+<td>存续备查</td>
+</tr>
+<tr>
+<td>3</td>
+<td>漳州片仔癀药业股份有限公司 2021 年年度报告</td>
+<td>2022-04</td>
+<td>2021 年度（含 2020、2019 对比）</td>
+<td>2021 年三年主要会计数据、2020—2021 资产负债表与利润表</td>
+</tr>
+<tr>
+<td>4</td>
+<td>漳州片仔癀药业股份有限公司 2022 年年度报告</td>
+<td>2023-04</td>
+<td>2022 年度（含 2021、2020 对比）</td>
+<td>2022 年主要会计数据、2022 年末资产负债表</td>
+</tr>
+<tr>
+<td>5</td>
+<td>漳州片仔癀药业股份有限公司 2023 年年度报告</td>
+<td>2024-04</td>
+<td>2023 年度（含 2022、2021 对比）</td>
+<td>2023 年主要会计数据、2023 年末资产负债表</td>
+</tr>
+<tr>
+<td>6</td>
+<td>漳州片仔癀药业股份有限公司 2024 年年度报告</td>
+<td>2025-04</td>
+<td>2024 年度（含 2023、2022 对比）</td>
+<td>2024 年主要会计数据、分红方案</td>
+</tr>
+<tr>
+<td>7</td>
+<td>漳州片仔癀药业股份有限公司 2025 年年度报告</td>
+<td>2026-04-30</td>
+<td>2025 年度（含 2024、2023 对比）</td>
+<td>2025 年三大报表、分行业分产品数据、产销量、分红、研发、渠道</td>
+</tr>
+<tr>
+<td>8</td>
+<td>漳州片仔癀药业股份有限公司 2026 年半年度报告</td>
+<td>2026-08-29</td>
+<td>2026 年 1—6 月（含 2025H1 对比）</td>
+<td>2026H1 三大报表、分行业分产品数据、中期分红、研发进展</td>
+</tr>
+</tbody></table></div>
+<h3>A.2 口径与处理声明</h3>
+<ol><li><strong>币种与单位</strong>：全部为人民币。正文与表格统一折算为<strong>亿元</strong>（保留两位小数），分行业数据原披露单位为万元，已按 1 亿元＝10,000 万元换算。</li><li><strong>会计准则</strong>：中国企业会计准则（CAS）。公司公告"境内外会计准则下会计数据差异"为"不适用"，无准则调节项。</li><li><strong>追溯重述处理</strong>：2021 年归母净利润在 2021 年报为 24.31 亿元、在 2022—2023 年报对比列为 24.32 亿元（差异 44.52 万元，占 0.02%）。本报告统一采用<strong>各年年报原报口径（本期数）</strong>，以保证与公开行情软件年度历史数据可对照。</li><li><strong>不可比期间提示</strong>：①2021 与 2022 年"经营活动现金流"列报口径变更（定期存单的购买与到期在经营活动/投资活动之间调整），两年数据不可直接比较；②2026H1 为半年度数据，与全年数据不可直接对照，其同比基期为 2025H1。</li><li><strong>推算值声明</strong>：表 6 中 2024 年销量、产量、库存量及单价为按披露增速倒算的<strong>推算值</strong>，已在表注标明；其余全部为定期报告原文数据。凡未披露项一律留"—"，不以估算值填充。</li><li><strong>非经常性损益</strong>：2025 年合计 +1.59 亿元（其中金融资产公允价值变动及处置损益 +2.05 亿元）；2024 年 −0.64 亿元；2023 年 −0.56 亿元。</li><li><strong>实际税率</strong>：2025 年 15.55%、2024 年 15.35%、2026H1 15.79%、2025H1 15.11%——期间基本稳定，<strong>未发现通过税负调节利润的迹象</strong>。</li></ol>
+<h3>A.3 后续跟踪与验证清单</h3>
+<div class="rsp-table"><table class="">
+<thead><tr>
+<th>序号</th>
+<th>跟踪项</th>
+<th>当前读数</th>
+<th>拐点判据</th>
+</tr></thead><tbody>
+<tr>
+<td>1</td>
+<td>肝病用药销量与单价</td>
+<td>2025 年销量 526.98 万盒（+25.81%）、推算单价 809.8 元/盒（−36.12%）</td>
+<td>销量止跌且推算单价连续两期回升</td>
+</tr>
+<tr>
+<td>2</td>
+<td>肝病用药库存量</td>
+<td>2025 年末 51.54 万盒（+265.53%）</td>
+<td>库存量回落至 30 万盒以下</td>
+</tr>
+<tr>
+<td>3</td>
+<td>合同负债</td>
+<td>2026H1 末 1.97 亿元</td>
+<td>连续两期回升，且同比转正</td>
+</tr>
+<tr>
+<td>4</td>
+<td>存货／总资产</td>
+<td>2025 末 38.04%、2026H1 末 32.16%</td>
+<td>回落至 25% 以下</td>
+</tr>
+<tr>
+<td>5</td>
+<td>单季毛利率</td>
+<td>2026H1 39.83%（2025 年 36.43%）</td>
+<td>连续两季稳定在 40% 以上</td>
+</tr>
+<tr>
+<td>6</td>
+<td>销售费用率</td>
+<td>2026H1 6.09%（2025 年 4.45%）</td>
+<td>费用率上行是否伴随收入转正</td>
+</tr>
+<tr>
+<td>7</td>
+<td>经营现金流／归母净利</td>
+<td>2025 年 3.57%、2026H1 148.63%</td>
+<td>稳定在 60%—120% 区间</td>
+</tr>
+<tr>
+<td>8</td>
+<td>中期／年度分红绝对额</td>
+<td>2026H1 中期 1.07 元/股（−23.6%）</td>
+<td>分红额止跌即为现金流修复信号</td>
+</tr>
+</tbody></table></div>
+<div class="callout"><div class="quote"><strong>使用提示</strong>：上表第 1、2 项为最前置的领先指标——肝病用药的销量与库存量在年报"产销量情况分析表"中披露，是唯一能穿透"收入总额"直接观察核心大单品动销的数据，建议优先跟踪。</div></div>
+<div class="report-footer"><span>片仔癀（600436.SH）财报对比分析</span><span>2026 年 9 月</span></div>
+</body>
+</html>

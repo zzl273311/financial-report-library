@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>网易（9999.HK）财报分析报告</title>
+<meta name="generator" content="financial-report-analysis">
+<style>
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W04.ttf") format("truetype");
+    font-weight: 400; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W05.ttf") format("truetype");
+    font-weight: 500; font-style: normal; font-display: swap;
+  }
+  @page {
+    size: A4;
+    margin: 16mm 18mm 18mm 18mm;
+    background: #F7F4EE;
+    @bottom-center {
+      content: counter(page) "  ·  财报分析";
+      font-family: "TsangerJinKai02", "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", Georgia, serif;
+      font-size: 9pt; color: #6b6a64;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --parchment:#F7F4EE; --ivory:#FBF9F4; --near-black:#22262B; --dark-warm:#3E4145;
+    --olive:#504e49; --stone:#7C7B77; --brand:#A73F2D; --brand-deep:#8A3223;
+    --accent:#A73F2D; --accent-soft:#F1E3DD; --gold:#B8862F; --teal:#2F6F6B; --blue:#1B365D;
+    --border:#E3DDD4; --border-soft:#EAE5DC;
+    --tag-bg:#F1E3DD; --positive:#A73F2D; --negative:#2F6F6B;
+    --serif: "TsangerJinKai02", "Source Han Serif SC", "Source Han Serif CN", "Noto Serif CJK SC", "Noto Serif SC", "Songti SC", "STSong", "SimSun", Georgia, serif;
+    --rhythm-module:14pt; --rhythm-section:18pt;
+  }
+  html, body { background: var(--parchment); }
+  @media screen { body { max-width: 210mm; margin: 0 auto; padding: 16mm 18mm 18mm 18mm; } }
+  body { color: var(--near-black); font-family: var(--serif); font-size: 10pt; line-height: 1.5;
+    letter-spacing: 0.3pt; widows: 3; orphans: 3; }
+  strong { font-weight: 500; }
+  .hl { color: var(--brand); font-weight: 500; }
+
+  .report-header { display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: var(--rhythm-module); padding-bottom: 10pt; border-bottom: 0.5pt solid var(--border); }
+  .ticker-block { flex: 1; }
+  .ticker-eyebrow { font-size: 9pt; color: var(--brand); letter-spacing: 1.5pt; text-transform: uppercase;
+    font-weight: 500; margin-bottom: 4pt; }
+  .ticker-name { font-family: var(--serif); font-size: 24pt; font-weight: 500; color: var(--near-black);
+    line-height: 1.15; margin-bottom: 4pt; }
+  .ticker-sub { font-size: 10pt; color: var(--olive); line-height: 1.4; }
+  .price-block { text-align: right; padding-top: 4pt; }
+  .price-current { font-family: var(--serif); font-size: 28pt; font-weight: 500; color: var(--near-black);
+    line-height: 1; font-variant-numeric: tabular-nums; }
+  .price-change { font-size: 10pt; font-weight: 500; margin-top: 2pt; font-variant-numeric: tabular-nums; }
+  .price-change.up { color: var(--positive); }
+  .price-date { font-size: 9pt; color: var(--stone); margin-top: 2pt; }
+
+  .metrics { display: flex; gap: 14pt; margin-bottom: 16pt; padding: 6pt 0;
+    border-top: 0.3pt dotted var(--border); border-bottom: 0.3pt dotted var(--border); }
+  .metric { flex: 1; min-width: 0; display: flex; align-items: baseline; gap: 4pt; flex-wrap: wrap; }
+  .metric-value { font-family: var(--serif); font-size: 16pt; font-weight: 500; color: var(--brand);
+    line-height: 1; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  /* white-space 必须为 normal：设为 nowrap 时 flex 项不收缩，4 张指标卡的标签会互相压字并冲出页面右缘 */
+  .metric-label { font-size: 9pt; color: var(--olive); line-height: 1.3; white-space: normal; }
+
+  h2 { font-family: var(--serif); font-size: 16pt; font-weight: 500; color: var(--near-black);
+    margin: 18pt 0 6pt 0; break-after: avoid; }
+  h3 { font-size: 13pt; font-weight: 500; color: var(--dark-warm); margin: 12pt 0 4pt 0; break-after: avoid; }
+  p { margin: 0 0 8pt 0; line-height: 1.5; widows: 2; orphans: 2; }
+  ul, ol { margin: 4pt 0 8pt 0; padding-left: 18pt; line-height: 1.5; }
+  ul li::marker { color: var(--brand); } ol li::marker { color: var(--brand); font-weight: 500; }
+
+  .tag { display: inline-block; background: var(--tag-bg); color: var(--brand); font-size: 9pt;
+    font-weight: 500; padding: 1pt 6pt; border-radius: 3pt; margin-right: 3pt; }
+
+  table, .kami-table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin: 8pt 0; break-inside: avoid; }
+  table th, .kami-table th { text-align: left; font-weight: 500; color: var(--dark-warm);
+    padding: 6pt 8pt; border-bottom: 0.6pt solid var(--border); background: transparent; }
+  table td, .kami-table td { padding: 5pt 8pt; border-bottom: 0.25pt solid var(--border); vertical-align: top; }
+  table.compact th, .kami-table.compact th { padding: 3pt 6pt; font-size: 8pt; }
+  table.compact td, .kami-table.compact td { padding: 2.5pt 6pt; font-size: 8pt; line-height: 1.4; }
+  table.financial td:not(:first-child), .kami-table.financial td:not(:first-child) {
+    text-align: right; font-variant-numeric: tabular-nums; }
+  table.financial th:not(:first-child), .kami-table.financial th:not(:first-child) { text-align: right; }
+  table .total td, .kami-table .total td { font-weight: 500; border-top: 0.6pt solid var(--border);
+    border-bottom: none; color: var(--near-black); }
+  .note { font-size: 8.5pt; color: var(--stone); margin: 2pt 0 8pt 0; }
+
+  .callout { background: var(--ivory); padding: 8pt 12pt; border-radius: 3pt; margin: 10pt 0;
+    line-height: 1.5; break-inside: avoid; }
+  .callout .quote { margin: 6pt 0; color: var(--olive); }
+
+  figure { margin: 12pt 0; break-inside: avoid; }
+  figcaption { font-size: 9pt; color: var(--stone); margin-top: 4pt; text-align: center; }
+
+  .risk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10pt; margin: 8pt 0; }
+  .risk-item { padding: 6pt 10pt; background: var(--ivory); border-radius: 3pt; break-inside: avoid; }
+  .risk-label { font-size: 9pt; font-weight: 500; color: var(--brand); margin-bottom: 2pt; }
+  .risk-desc { font-size: 9pt; color: var(--olive); line-height: 1.4; }
+
+  .analyst-box { background: var(--ivory); border-radius: 4pt; padding: 10pt 14pt; margin: 12pt 0;
+    break-inside: avoid; }
+  .analyst-label { font-size: 9pt; color: var(--brand); letter-spacing: 0.5pt; text-transform: uppercase;
+    margin-bottom: 4pt; }
+
+  .page-break { break-before: page; }
+
+  /* ===== 富配色增强：砖红主色 #A73F2D + 四色数据 + 深炭标题 #22262B ===== */
+  h2 { position: relative; padding-left: 13pt; }
+  h2::before { content:""; position:absolute; left:0; top:2.5pt; width:4pt; height:13pt;
+    background:var(--accent); border-radius:1pt; }
+  table th, .kami-table th { border-bottom: 1pt solid var(--accent); }
+  .metric:nth-child(1) .metric-value { color: var(--accent); }
+  .metric:nth-child(2) .metric-value { color: var(--gold); }
+  .metric:nth-child(3) .metric-value { color: var(--teal); }
+  .metric:nth-child(4) .metric-value { color: var(--blue); }
+  .callout { border-left: 3pt solid var(--accent); }
+  .analyst-box { border-left: 3pt solid var(--accent); }
+  .risk-item { border-left: 2.5pt solid var(--accent); }
+  .tag { background: var(--accent-soft); color: var(--brand-deep); }
+  .price-current { color: var(--near-black); }
+  .ticker-sub { color: var(--stone); }
+
+
+  .figbox{padding:8pt 4pt;background:#FBF9F4;border:0.5pt solid #E3DDD4;border-radius:3pt}
+  svg{display:block;width:100%;height:auto}
+  table.longtable{break-inside:auto}
+  table.longtable thead{display:table-header-group}
+  table.longtable tr{break-inside:avoid}
+  table.wide{font-size:6.6pt;table-layout:fixed}
+  table.wide th,table.wide td{padding:2pt 3pt}
+  table.dense th,table.dense td{font-size:7.8pt;padding:2pt 5pt;line-height:1.34}
+  h1{font-size:20pt;font-weight:500;margin:0 0 8pt 0;color:#22262B}
+  h4{font-size:11pt;font-weight:500;color:#3E4145;margin:8pt 0 3pt 0}
+  code{font-family:Georgia,serif;font-size:9pt;color:#8A3223}
+  .callout.warn{border-left:2.4pt solid #A73F2D}
+</style>
+<!-- rsp-mobile-adapt : 响应式适配层（仅屏幕生效，不影响打印/PDF） -->
+<style id="rsp-mobile-adapt">
+/* ========== 1. 全局：屏幕端基础修正 ========== */
+@media screen {
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body { overflow-wrap: break-word; }
+  img, svg, canvas, video, iframe { max-width: 100%; }
+  svg[viewBox], svg[viewbox] { height: auto; }
+
+  /* 表格横向滚动容器：宽表不压字、不撑破页面 */
+  .rsp-table {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    margin: 8pt 0;
+    position: relative;
+  }
+  .rsp-table > table { margin: 0; }
+  .rsp-table::-webkit-scrollbar { height: 7px; }
+  .rsp-table::-webkit-scrollbar-track { background: transparent; }
+  .rsp-table::-webkit-scrollbar-thumb { background: #D8D1C4; border-radius: 4px; }
+  /* 内容确实溢出时，右侧给一层渐变暗示"还能往右滑" */
+  .rsp-table[data-rsp-scroll] {
+    background: linear-gradient(to left, rgba(167,63,45,.10), rgba(167,63,45,0) 28px);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 28px 100%;
+  }
+}
+
+/* ========== 2. 平板 / 窄窗口：边距先收，避免内容被挤 ========== */
+@media screen and (max-width: 900px) {
+  body { padding: 22px 22px 46px 22px !important; }
+  .report-header { flex-wrap: wrap; gap: 12pt; }
+  .metrics { flex-wrap: wrap; gap: 10pt 18pt; }
+  .metric { flex: 1 1 42%; min-width: 0; }
+  .report-footer { flex-wrap: wrap; gap: 4pt 14pt; }
+
+  /* 宽表改为横向滚动：给每列保留最小可读宽度，不再把汉字挤成竖排 */
+  .rsp-w5 > table { min-width: 310px !important; }
+  .rsp-w6 > table { min-width: 372px !important; }
+  .rsp-w7 > table { min-width: 434px !important; }
+  .rsp-w8 > table { min-width: 496px !important; }
+  .rsp-w9 > table { min-width: 558px !important; }
+  .rsp-w10 > table { min-width: 620px !important; }
+  .rsp-w11 > table { min-width: 682px !important; }
+  .rsp-w12 > table { min-width: 744px !important; }
+  .rsp-w13 > table { min-width: 806px !important; }
+  .rsp-w14 > table { min-width: 868px !important; }
+  .rsp-w15 > table { min-width: 930px !important; }
+  .rsp-w16 > table { min-width: 992px !important; }
+}
+
+/* ========== 3. 手机：指标卡两列、页头转纵向 ========== */
+@media screen and (max-width: 720px) {
+  body {
+    max-width: 100% !important;
+    padding: 18px 16px 44px 16px !important;
+    font-size: 10.5pt;
+  }
+  h2 { font-size: 15pt !important; margin: 20pt 0 7pt 0 !important; }
+  h3 { font-size: 12.5pt !important; }
+  h1 { font-size: 19pt !important; }
+  p, li { line-height: 1.62; }
+  ul, ol { padding-left: 17pt; }
+
+  .report-header { flex-direction: column; align-items: stretch; gap: 8pt; }
+  .price-block { text-align: left; padding-top: 0; }
+  .price-current { font-size: 24pt !important; }
+  .ticker-name { font-size: 21pt !important; }
+  .ticker-sub { font-size: 9.5pt !important; }
+
+  .metrics { gap: 9pt 12pt; }
+  .metric { flex: 1 1 45%; }
+  .metric-value { font-size: 15pt !important; }
+  .metric-label { font-size: 8.5pt !important; white-space: normal !important; }
+
+  table, .kami-table { font-size: 9pt !important; }
+  .longtable { font-size: 8.5pt !important; }
+  .wide { font-size: 7.5pt !important; }
+  .dense { font-size: 8pt !important; }
+  table th, table td, .kami-table th, .kami-table td { padding: 5pt 6pt !important; }
+
+  blockquote, .quote, .note, .warn, .callout, .risk-item { padding: 9pt 11pt !important; }
+  .risk-grid { grid-template-columns: 1fr !important; }
+  .report-footer { flex-direction: column; align-items: flex-start; gap: 3pt; }
+}
+
+/* ========== 4. 小屏手机：指标卡单列、边距收到最紧 ========== */
+@media screen and (max-width: 430px) {
+  body { padding: 14px 12px 38px 12px !important; }
+  h2 { font-size: 14pt !important; }
+  h3 { font-size: 11.5pt !important; }
+  .ticker-name { font-size: 19pt !important; }
+  .price-current { font-size: 21pt !important; }
+  .metric { flex: 1 1 100%; }
+  .metric-value { font-size: 16pt !important; }
+  ul, ol { padding-left: 15pt; }
+  table, .kami-table { font-size: 8.5pt !important; }
+}
+
+/* ========== 5. 打印：把包裹层还原成透明，PDF 版式与补丁前完全一致 ========== */
+@media print {
+  .rsp-table { margin: 0; padding: 0; overflow: visible !important; background: none !important; }
+  .rsp-table > table { margin: 8pt 0; min-width: 0 !important; }
+  [class*="rsp-w"] > table { min-width: 0 !important; }
+}
+</style>
+</head>
+<body>
+<h1>网易股份有限公司（NetEase, Inc.）财报分析报告</h1>
+<p><strong>股票代码</strong>：港交所 9999　|　纳斯达克 NTES</p>
+<p><strong>分析区间</strong>：2019—2025 财年，以及 2026 年上半年</p>
+<p><strong>最新披露</strong>：2026 年第二季度及截至 2026 年 6 月 30 日止六个月中期业绩公告（2026-08-20）</p>
+<p><strong>会计准则</strong>：美国公认会计原则（US GAAP）</p>
+<p><strong>报告币种</strong>：人民币（原始披露单位为千元，本表统一折算为亿元并保留一位小数）</p>
+<div class="callout warn"><p class="quote">口径说明：本报告中 2025 年度数据取自 2025 年度报告（Form 20-F）与 2025 年第四季度及财政年度业绩公告；2019—2024 年度数据取自相应年度的第四季度及财政年度业绩公告（含上年比较列）；2026 年上半年数据取自 2026 年中期业绩公告。列分两块——年度块与半年度块，块内一律按时间递增，分界处以竖线标出，<strong>跨块不可直接相减</strong>；半年度块的同比读作「2026H1 ÷ 2025H1 − 1」。</p></div>
+<h2>一、公司概况</h2>
+<h3>1.1 基本信息与上市沿革</h3>
+<p>网易股份有限公司（NetEase, Inc.）于开曼群岛注册成立，是中国领先的互联网与游戏服务提供商。公司于 <strong>2000 年 7 月</strong>完成首次公开发行并在美国纳斯达克上市（现为纳斯达克全球精选市场，代号 NTES）；<strong>2020 年 6 月</strong>在香港联交所主板完成二次上市，以每股 123.00 港元的价格全球发行普通股 197,202,000 股，未扣除承销及发售费用的募集资金约 <strong>242.56 亿港元</strong>。</p>
+<p>截至 2026 年 2 月 28 日，公司已发行普通股 3,190,640,526 股。创始人丁磊通过 Shining Globe International Limited 持有 1,450,300,000 股，占比 <strong>45.5%</strong>，控制权稳固。</p>
+<p>截至 2025 年 12 月 31 日，公司共有 <strong>25,382 名全职员工</strong>，其中研发人员占 <strong>47.8%</strong>（约 1.21 万人）；游戏及相关增值服务 16,074 人、有道 3,595 人、网易云音乐 1,288 人、创新及其他业务 4,425 人。</p>
+<h3>1.2 业务分部</h3>
+<div class="rsp-table"><table class="">
+<thead><tr><th>分部</th><th>业务内容</th><th>上市平台</th></tr></thead>
+<tbody>
+<tr><td>游戏及相关增值服务</td><td>手游、端游、主机游戏的自主研发与运营，含暴雪系列代理</td><td>集团主体</td></tr>
+<tr><td>有道</td><td>智能学习与广告解决方案</td><td>纽交所 DAO</td></tr>
+<tr><td>网易云音乐</td><td>在线音乐平台与内容社区</td><td>港交所 9899</td></tr>
+<tr><td>创新及其他业务</td><td>网易严选自营生活方式品牌、广告及其他增值服务</td><td>集团主体</td></tr>
+</tbody></table></div>
+<h3>1.3 口径与重述说明（必读）</h3>
+<ol><li><strong>分部口径于 2021 年重述</strong>。2021 年及以前分部为「在线游戏服务 / 有道 / 创新及其他」，2022 年起改为「游戏及相关增值服务 / 有道 / 网易云音乐 / 创新及其他业务」（云音乐自创新业务中拆出）。同一会计年度在两份公告中数字不同：2021 年「在线游戏服务」旧口径为 628.1 亿元，重述后「游戏及相关增值服务」为 <strong>678.2 亿元</strong>；「创新及其他」为 124.5 亿元（旧）与 <strong>74.3 亿元</strong>（重述后）。<strong>本表一律采用次年公告的重述列</strong>，否则会出现 2021→2022 的假性断崖。</li><li><strong>2019 年归母净利润含一次性收益</strong>。2019 年归母净利润 212.4 亿元包含考拉出售等一次性项目，持续经营口径仅 <strong>132.7 亿元</strong>，因此 2020 年「−43.2%」的同比降幅不具可比性，不可据此判断经营恶化。</li><li><strong>Non-GAAP 口径</strong>。网易将非公认会计准则下归属于公司股东的净利润定义为<strong>剔除股权激励费用后</strong>的归母净利润；2019—2020 年披露的是「持续经营」口径的 Non-GAAP 数。</li><li><strong>季度业绩公告不含分部表</strong>。2025H1 中期业绩公告未披露资产负债表，故表 2 的半年度块仅有 2026H1 一列；2026H1 分部数据仅有公告正文的亿元约数（表 4-2）。</li><li><strong>港交所披露起始于 2020 年二次上市</strong>，2019 年及以前数据取自 2020 年度业绩公告的比较列，更早年度不在交易所披露范围内。</li></ol>
+<h2>二、核心财务数据对比</h2>
+<h3>表 1　综合损益表（人民币亿元）</h3>
+<div class="rsp-table rsp-w10"><table class="financial longtable">
+<thead><tr><th>项目</th><th>2019</th><th>2020</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th><th>2025H1</th><th>2026H1</th></tr></thead>
+<tbody>
+<tr><td>净收入</td><td>592.4</td><td>736.7</td><td>876.1</td><td>965.0</td><td>1,034.7</td><td>1,053.0</td><td>1,126.3</td><td>567.2</td><td>607.0</td></tr>
+<tr><td>同比</td><td>—</td><td>+24.4%</td><td>+18.9%</td><td>+10.2%</td><td>+7.2%</td><td>+1.8%</td><td>+7.0%</td><td>—</td><td>+7.0%</td></tr>
+<tr><td>营业成本</td><td>—</td><td>346.8</td><td>406.4</td><td>437.3</td><td>404.0</td><td>394.9</td><td>402.2</td><td>201.9</td><td>182.6</td></tr>
+<tr><td>毛利润</td><td>315.6</td><td>389.8</td><td>469.7</td><td>527.7</td><td>630.6</td><td>658.1</td><td>724.0</td><td>365.3</td><td>424.3</td></tr>
+<tr><td>毛利率</td><td>53.3%</td><td>52.9%</td><td>53.6%</td><td>54.7%</td><td>60.9%</td><td>62.5%</td><td>64.3%</td><td>64.4%</td><td>69.9%</td></tr>
+<tr><td>销售及市场费用</td><td>—</td><td>107.0</td><td>122.1</td><td>134.0</td><td>139.7</td><td>141.5</td><td>146.2</td><td>62.7</td><td>71.2</td></tr>
+<tr><td>一般及管理费用</td><td>—</td><td>33.7</td><td>42.6</td><td>47.0</td><td>49.0</td><td>45.5</td><td>42.3</td><td>20.1</td><td>14.4</td></tr>
+<tr><td><strong>研发费用</strong></td><td>84.1</td><td>103.7</td><td>140.8</td><td>150.4</td><td>164.8</td><td>175.2</td><td>177.2</td><td>87.4</td><td>91.3</td></tr>
+<tr><td>研发费用率</td><td>14.2%</td><td>14.1%</td><td>16.1%</td><td>15.6%</td><td>15.9%</td><td>16.6%</td><td>15.7%</td><td>15.4%</td><td>15.0%</td></tr>
+<tr><td>营业利润</td><td>137.9</td><td>145.4</td><td>164.2</td><td>196.3</td><td>277.1</td><td>295.8</td><td>358.3</td><td>195.0</td><td>247.5</td></tr>
+<tr><td>所得税</td><td>29.1</td><td>30.4</td><td>41.3</td><td>50.3</td><td>47.0</td><td>54.6</td><td>60.3</td><td>34.7</td><td>49.8</td></tr>
+<tr><td>有效税率</td><td>12.0%</td><td>19.8%</td><td>19.6%</td><td>20.2%</td><td>13.8%</td><td>15.3%</td><td>14.8%</td><td>15.0%</td><td>21.7%</td></tr>
+<tr><td>净利润（含少数股东）</td><td>214.3</td><td>123.3</td><td>169.8</td><td>198.4</td><td>293.6</td><td>302.6</td><td>348.0</td><td>196.4</td><td>180.1</td></tr>
+<tr><td><strong>归母净利润</strong></td><td><strong>212.4</strong>†</td><td><strong>120.6</strong></td><td><strong>168.6</strong></td><td><strong>203.4</strong></td><td><strong>294.2</strong></td><td><strong>297.0</strong></td><td><strong>337.6</strong></td><td><strong>189.0</strong></td><td><strong>176.5</strong></td></tr>
+<tr><td>同比</td><td>—</td><td>−43.2%</td><td>+39.8%</td><td>+20.6%</td><td>+44.6%</td><td>+1.0%</td><td>+13.7%</td><td>—</td><td>−6.6%</td></tr>
+<tr><td>Non-GAAP 归母净利润</td><td>156.6†</td><td>147.1</td><td>197.6</td><td>228.1</td><td>326.1</td><td>335.1</td><td>373.4</td><td>207.7</td><td>190.2</td></tr>
+<tr><td>归母净利率</td><td>35.8%</td><td>16.4%</td><td>19.2%</td><td>21.1%</td><td>28.4%</td><td>28.2%</td><td>30.0%</td><td>33.3%</td><td>29.1%</td></tr>
+<tr><td>经营活动现金流量净额</td><td>172.2</td><td>248.9</td><td>249.3</td><td>277.1</td><td>353.3</td><td>396.8</td><td>507.4</td><td>229.7</td><td>237.1</td></tr>
+</tbody></table></div>
+<p>† 2019 年归母净利润与 Non-GAAP 归母净利润均含考拉出售等一次性收益（持续经营口径分别为 132.7 亿元与 156.6 亿元中未单独拆分的对应部分），不可与后续年度直接比较。2019 年营业成本、销售与管理费用未单列，留「—」。有效税率为所得税 ÷ 税前利润的计算值。</p>
+<figure><div class="figbox"><svg viewBox="0 0 680 326" xmlns="http://www.w3.org/2000/svg"><line x1="66" y1="226.0" x2="596" y2="226.0" stroke="#EFEBE3" stroke-width="1"/><text x="58" y="229.5" text-anchor="end" font-size="9.5" fill="#7C7B77">0</text><line x1="66" y1="176.0" x2="596" y2="176.0" stroke="#EFEBE3" stroke-width="1"/><text x="58" y="179.5" text-anchor="end" font-size="9.5" fill="#7C7B77">300</text><line x1="66" y1="126.0" x2="596" y2="126.0" stroke="#EFEBE3" stroke-width="1"/><text x="58" y="129.5" text-anchor="end" font-size="9.5" fill="#7C7B77">600</text><line x1="66" y1="76.0" x2="596" y2="76.0" stroke="#EFEBE3" stroke-width="1"/><text x="58" y="79.5" text-anchor="end" font-size="9.5" fill="#7C7B77">900</text><line x1="66" y1="26.0" x2="596" y2="26.0" stroke="#EFEBE3" stroke-width="1"/><text x="58" y="29.5" text-anchor="end" font-size="9.5" fill="#7C7B77">1,200</text><line x1="620" y1="26" x2="620" y2="226" stroke="#EFEBE3" stroke-width="1"/><text x="626" y="229.5" text-anchor="start" font-size="9.5" fill="#8A3223">0</text><text x="626" y="179.5" text-anchor="start" font-size="9.5" fill="#8A3223">100</text><text x="626" y="129.5" text-anchor="start" font-size="9.5" fill="#8A3223">200</text><text x="626" y="79.5" text-anchor="start" font-size="9.5" fill="#8A3223">300</text><text x="626" y="29.5" text-anchor="start" font-size="9.5" fill="#8A3223">400</text><rect x="87.2" y="127.3" width="33.3" height="98.7" fill="#CFC7BA" rx="2"/><text x="103.9" y="242.0" text-anchor="middle" font-size="9.5" fill="#504e49">2019</text><text x="103.9" y="255.0" text-anchor="middle" font-size="9" fill="#22262B">592.4</text><rect x="162.9" y="103.2" width="33.3" height="122.8" fill="#CFC7BA" rx="2"/><text x="179.6" y="242.0" text-anchor="middle" font-size="9.5" fill="#504e49">2020</text><text x="179.6" y="255.0" text-anchor="middle" font-size="9" fill="#22262B">736.7</text><rect x="238.6" y="80.0" width="33.3" height="146.0" fill="#CFC7BA" rx="2"/><text x="255.3" y="242.0" text-anchor="middle" font-size="9.5" fill="#504e49">2021</text><text x="255.3" y="255.0" text-anchor="middle" font-size="9" fill="#22262B">876.1</text><rect x="314.3" y="65.2" width="33.3" height="160.8" fill="#CFC7BA" rx="2"/><text x="331.0" y="242.0" text-anchor="middle" font-size="9.5" fill="#504e49">2022</text><text x="331.0" y="255.0" text-anchor="middle" font-size="9" fill="#22262B">965.0</text><rect x="390.1" y="53.5" width="33.3" height="172.5" fill="#CFC7BA" rx="2"/><text x="406.7" y="242.0" text-anchor="middle" font-size="9.5" fill="#504e49">2023</text><text x="406.7" y="255.0" text-anchor="middle" font-size="9" fill="#22262B">1,034.7</text><rect x="465.8" y="50.5" width="33.3" height="175.5" fill="#CFC7BA" rx="2"/><text x="482.4" y="242.0" text-anchor="middle" font-size="9.5" fill="#504e49">2024</text><text x="482.4" y="255.0" text-anchor="middle" font-size="9" fill="#22262B">1,053.0</text><rect x="541.5" y="38.3" width="33.3" height="187.7" fill="#A73F2D" rx="2"/><text x="558.1" y="242.0" text-anchor="middle" font-size="9.5" fill="#504e49">2025</text><text x="558.1" y="255.0" text-anchor="middle" font-size="9" fill="#22262B">1,126.3</text><path d="M103.9,119.8 L179.6,165.7 L255.3,141.7 L331.0,124.3 L406.7,78.9 L482.4,77.5 L558.1,57.2" fill="none" stroke="#8A3223" stroke-width="2.2"/><circle cx="103.9" cy="119.8" r="3.4" fill="#FBF9F4" stroke="#8A3223" stroke-width="2"/><rect x="87.1" y="102.8" width="33.5" height="12" fill="#FBF9F4" opacity="0.92" rx="2"/><text x="103.9" y="112.8" text-anchor="middle" font-size="9.5" fill="#8A3223">212.4</text><circle cx="179.6" cy="165.7" r="3.4" fill="#FBF9F4" stroke="#8A3223" stroke-width="2"/><rect x="162.8" y="148.7" width="33.5" height="12" fill="#FBF9F4" opacity="0.92" rx="2"/><text x="179.6" y="158.7" text-anchor="middle" font-size="9.5" fill="#8A3223">120.6</text><circle cx="255.3" cy="141.7" r="3.4" fill="#FBF9F4" stroke="#8A3223" stroke-width="2"/><rect x="238.5" y="124.7" width="33.5" height="12" fill="#FBF9F4" opacity="0.92" rx="2"/><text x="255.3" y="134.7" text-anchor="middle" font-size="9.5" fill="#8A3223">168.6</text><circle cx="331.0" cy="124.3" r="3.4" fill="#FBF9F4" stroke="#8A3223" stroke-width="2"/><rect x="314.2" y="107.3" width="33.5" height="12" fill="#FBF9F4" opacity="0.92" rx="2"/><text x="331.0" y="117.3" text-anchor="middle" font-size="9.5" fill="#8A3223">203.4</text><circle cx="406.7" cy="78.9" r="3.4" fill="#FBF9F4" stroke="#8A3223" stroke-width="2"/><rect x="389.9" y="61.9" width="33.5" height="12" fill="#FBF9F4" opacity="0.92" rx="2"/><text x="406.7" y="71.9" text-anchor="middle" font-size="9.5" fill="#8A3223">294.2</text><circle cx="482.4" cy="77.5" r="3.4" fill="#FBF9F4" stroke="#8A3223" stroke-width="2"/><rect x="465.7" y="60.5" width="33.5" height="12" fill="#FBF9F4" opacity="0.92" rx="2"/><text x="482.4" y="70.5" text-anchor="middle" font-size="9.5" fill="#8A3223">297.0</text><circle cx="558.1" cy="57.2" r="3.4" fill="#FBF9F4" stroke="#8A3223" stroke-width="2"/><rect x="541.4" y="40.2" width="33.5" height="12" fill="#FBF9F4" opacity="0.92" rx="2"/><text x="558.1" y="50.2" text-anchor="middle" font-size="9.5" fill="#8A3223">337.6</text><rect x="66" y="276" width="11" height="11" fill="#CFC7BA" rx="2"/><text x="82" y="285.5" font-size="9.5" fill="#504e49">净收入（左轴，值标注于年份下方）</text><line x1="298" y1="281.5" x2="318" y2="281.5" stroke="#8A3223" stroke-width="2.2"/><circle cx="308" cy="281.5" r="3.2" fill="#FBF9F4" stroke="#8A3223" stroke-width="2"/><text x="324" y="285.5" font-size="9.5" fill="#504e49">归母净利润（右轴）</text></svg></div><figcaption>图 1　2019—2025 年净收入与归母净利润</figcaption></figure><h3>表 2　综合财务状况表（人民币亿元）</h3>
+<div class="rsp-table rsp-w5"><table class="financial longtable">
+<thead><tr><th>项目</th><th>2023-12-31</th><th>2024-12-31</th><th>2025-12-31</th><th>2026-06-30</th></tr></thead>
+<tbody>
+<tr><td>资产总额</td><td>1,859.2</td><td>1,959.9</td><td>2,214.2</td><td>2,322.1</td></tr>
+<tr><td>负债总额</td><td>578.4</td><td>535.0</td><td>563.1</td><td>606.5</td></tr>
+<tr><td>网易股东权益</td><td>1,242.9</td><td>1,386.9</td><td>1,603.0</td><td>1,670.9</td></tr>
+<tr><td>资产负债率</td><td>31.1%</td><td>27.3%</td><td>25.4%</td><td>26.1%</td></tr>
+<tr><td>现金及现金等价物</td><td>214.3</td><td>513.8</td><td>471.7</td><td>228.1</td></tr>
+<tr><td>定期存款（流动＋非流动）</td><td>1,019.1</td><td>784.7</td><td>956.3</td><td>1,022.4</td></tr>
+<tr><td>短期投资</td><td>44.4</td><td>107.6</td><td>228.0</td><td>506.0</td></tr>
+<tr><td><strong>类现金合计</strong></td><td><strong>1,277.7</strong></td><td><strong>1,406.1</strong></td><td><strong>1,656.1</strong></td><td><strong>1,756.5</strong></td></tr>
+<tr><td>借款合计</td><td>196.7</td><td>122.3</td><td>63.8</td><td>126.0</td></tr>
+<tr><td><strong>净现金（类现金−借款）</strong></td><td><strong>1,081.0</strong></td><td><strong>1,283.7</strong></td><td><strong>1,592.2</strong></td><td><strong>1,630.5</strong></td></tr>
+<tr><td><strong>合同负债（递延收入）</strong></td><td><strong>133.6</strong></td><td><strong>153.0</strong></td><td><strong>205.1</strong></td><td><strong>193.0</strong></td></tr>
+</tbody></table></div>
+<p>注：类现金＝现金及现金等价物＋定期存款＋短期投资，<strong>不含受限制现金</strong>；公司披露口径的净现金另含受限制现金，故 2024 年末为 1,315 亿元、2025 年末为 1,635 亿元、2026 年 6 月末为 1,675 亿元，略高于本表计算值。2025H1 中期业绩公告未披露资产负债表，故半年度块仅 2026H1 一列。</p>
+<h3>表 3　现金流量表（人民币亿元）</h3>
+<div class="rsp-table rsp-w9"><table class="financial longtable">
+<thead><tr><th>项目</th><th>2020</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th><th>2025H1</th><th>2026H1</th></tr></thead>
+<tbody>
+<tr><td>经营活动净额</td><td>248.9</td><td>249.3</td><td>277.1</td><td>353.3</td><td>396.8</td><td>507.4</td><td>229.7</td><td>237.1</td></tr>
+<tr><td>投资活动净额</td><td>−291.9</td><td>−70.8</td><td>−73.7</td><td>−170.4</td><td>+179.2</td><td>−331.8</td><td>−89.5</td><td>−424.2</td></tr>
+<tr><td>融资活动净额</td><td>+99.1</td><td>−125.9</td><td>−102.4</td><td>−214.7</td><td>−273.4</td><td>−201.6</td><td>−102.4</td><td>−49.8</td></tr>
+<tr><td>现金及受限现金净增减</td><td>+57.7</td><td>+52.1</td><td>+102.1</td><td>−338.2</td><td>+302.7</td><td>−29.8</td><td>+36.9</td><td>−242.3</td></tr>
+<tr><td>期末现金及受限现金</td><td>121.7</td><td>173.8</td><td>275.9</td><td>242.1</td><td>544.7</td><td>514.9</td><td>—</td><td>—</td></tr>
+</tbody></table></div>
+<p>注：投资活动的大额进出主要来自定期存款的滚动与短期投资买卖，并非资本开支（2025 年购买物业、设备及软件仅 10.65 亿元，购买无形资产、内容及版权 9.87 亿元）。2020 年融资活动净流入 99.1 亿元包含当年香港二次上市募集资金。</p>
+<figure><div class="figbox"><svg viewBox="0 0 680 284" xmlns="http://www.w3.org/2000/svg"><line x1="66" y1="236.0" x2="470" y2="236.0" stroke="#EFEBE3" stroke-width="1"/><text x="58" y="239.5" text-anchor="end" font-size="9.5" fill="#7C7B77">0</text><line x1="66" y1="183.5" x2="470" y2="183.5" stroke="#EFEBE3" stroke-width="1"/><text x="58" y="187.0" text-anchor="end" font-size="9.5" fill="#7C7B77">315</text><line x1="66" y1="131.0" x2="470" y2="131.0" stroke="#EFEBE3" stroke-width="1"/><text x="58" y="134.5" text-anchor="end" font-size="9.5" fill="#7C7B77">631</text><line x1="66" y1="78.5" x2="470" y2="78.5" stroke="#EFEBE3" stroke-width="1"/><text x="58" y="82.0" text-anchor="end" font-size="9.5" fill="#7C7B77">946</text><line x1="66" y1="26.0" x2="470" y2="26.0" stroke="#EFEBE3" stroke-width="1"/><text x="58" y="29.5" text-anchor="end" font-size="9.5" fill="#7C7B77">1,261</text><rect x="86.2" y="123.1" width="40.4" height="112.9" fill="#A73F2D"/><text x="106.4" y="183.0" text-anchor="middle" font-size="8.5" fill="#FFFFFF">77%</text><rect x="86.2" y="114.2" width="40.4" height="8.9" fill="#B8862F"/><rect x="86.2" y="102.5" width="40.4" height="11.7" fill="#2F6F6B"/><rect x="86.2" y="90.2" width="40.4" height="12.4" fill="#CFC7BA"/><text x="106.4" y="84.2" text-anchor="middle" font-size="9.5" fill="#22262B">876</text><text x="106.4" y="254.0" text-anchor="middle" font-size="10" fill="#504e49">2021</text><rect x="167.0" y="111.9" width="40.4" height="124.1" fill="#A73F2D"/><text x="187.2" y="177.4" text-anchor="middle" font-size="8.5" fill="#FFFFFF">77%</text><rect x="167.0" y="103.5" width="40.4" height="8.3" fill="#B8862F"/><rect x="167.0" y="88.6" width="40.4" height="15.0" fill="#2F6F6B"/><rect x="167.0" y="75.4" width="40.4" height="13.2" fill="#CFC7BA"/><text x="187.2" y="69.4" text-anchor="middle" font-size="9.5" fill="#22262B">965</text><text x="187.2" y="254.0" text-anchor="middle" font-size="10" fill="#504e49">2022</text><rect x="247.8" y="100.2" width="40.4" height="135.8" fill="#A73F2D"/><text x="268.0" y="171.6" text-anchor="middle" font-size="8.5" fill="#FFFFFF">79%</text><rect x="247.8" y="91.2" width="40.4" height="9.0" fill="#B8862F"/><rect x="247.8" y="78.1" width="40.4" height="13.1" fill="#2F6F6B"/><rect x="247.8" y="63.7" width="40.4" height="14.4" fill="#CFC7BA"/><text x="268.0" y="57.7" text-anchor="middle" font-size="9.5" fill="#22262B">1,035</text><text x="268.0" y="254.0" text-anchor="middle" font-size="10" fill="#504e49">2023</text><rect x="328.6" y="96.8" width="40.4" height="139.2" fill="#A73F2D"/><text x="348.8" y="169.9" text-anchor="middle" font-size="8.5" fill="#FFFFFF">79%</text><rect x="328.6" y="87.4" width="40.4" height="9.4" fill="#B8862F"/><rect x="328.6" y="74.2" width="40.4" height="13.2" fill="#2F6F6B"/><rect x="328.6" y="60.7" width="40.4" height="13.5" fill="#CFC7BA"/><text x="348.8" y="54.7" text-anchor="middle" font-size="9.5" fill="#22262B">1,053</text><text x="348.8" y="254.0" text-anchor="middle" font-size="10" fill="#504e49">2024</text><rect x="409.4" y="82.6" width="40.4" height="153.4" fill="#A73F2D"/><text x="429.6" y="162.8" text-anchor="middle" font-size="8.5" fill="#FFFFFF">82%</text><rect x="409.4" y="72.8" width="40.4" height="9.8" fill="#B8862F"/><rect x="409.4" y="59.8" width="40.4" height="12.9" fill="#2F6F6B"/><rect x="409.4" y="48.5" width="40.4" height="11.3" fill="#CFC7BA"/><text x="429.6" y="42.5" text-anchor="middle" font-size="9.5" fill="#22262B">1,126</text><text x="429.6" y="254.0" text-anchor="middle" font-size="10" fill="#504e49">2025</text><rect x="492" y="35" width="11" height="11" fill="#A73F2D" rx="2"/><text x="508" y="44" font-size="9.5" fill="#504e49">游戏及相关增值服务</text><rect x="492" y="55" width="11" height="11" fill="#B8862F" rx="2"/><text x="508" y="64" font-size="9.5" fill="#504e49">有道</text><rect x="492" y="75" width="11" height="11" fill="#2F6F6B" rx="2"/><text x="508" y="84" font-size="9.5" fill="#504e49">网易云音乐</text><rect x="492" y="95" width="11" height="11" fill="#CFC7BA" rx="2"/><text x="508" y="104" font-size="9.5" fill="#504e49">创新及其他业务</text><text x="66" y="274" font-size="9" fill="#7C7B77">单位：人民币亿元　柱顶数字为当年合计</text></svg></div><figcaption>图 2　2021—2025 年分部收入结构</figcaption></figure><h3>表 4　分部收入与毛利率（2021—2025，重述口径，人民币亿元）</h3>
+<div class="rsp-table rsp-w6"><table class="financial longtable">
+<thead><tr><th>分部</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th></tr></thead>
+<tbody>
+<tr><td>游戏及相关增值服务</td><td>678.2</td><td>745.7</td><td>815.7</td><td>836.2</td><td>921.5</td></tr>
+<tr><td>占净收入</td><td>77.4%</td><td>77.3%</td><td>78.8%</td><td>79.4%</td><td>81.8%</td></tr>
+<tr><td>分部毛利率</td><td>61.7%</td><td>62.7%</td><td>68.2%</td><td>68.7%</td><td>69.7%</td></tr>
+<tr><td>有道</td><td>53.5</td><td>50.1</td><td>53.9</td><td>56.3</td><td>59.1</td></tr>
+<tr><td>分部毛利率</td><td>51.4%</td><td>51.5%</td><td>51.4%</td><td>48.9%</td><td>44.3%</td></tr>
+<tr><td>网易云音乐</td><td>70.0</td><td>89.9</td><td>78.7</td><td>79.5</td><td>77.6</td></tr>
+<tr><td>分部毛利率</td><td>2.0%</td><td>14.4%</td><td>26.7%</td><td>33.7%</td><td>35.7%</td></tr>
+<tr><td>创新及其他业务</td><td>74.3</td><td>79.2</td><td>86.5</td><td>81.0</td><td>68.1</td></tr>
+<tr><td>分部毛利率</td><td>28.4%</td><td>26.6%</td><td>29.7%</td><td>35.8%</td><td>40.8%</td></tr>
+<tr><td><strong>净收入合计</strong></td><td><strong>876.1</strong></td><td><strong>965.0</strong></td><td><strong>1,034.7</strong></td><td><strong>1,053.0</strong></td><td><strong>1,126.3</strong></td></tr>
+</tbody></table></div>
+<h3>表 4-2　分部收入（半年度，公告披露约数，人民币亿元）</h3>
+<div class="rsp-table"><table class="financial longtable">
+<thead><tr><th>分部</th><th>2025H1</th><th>2026H1</th><th>同比</th></tr></thead>
+<tbody>
+<tr><td>游戏及相关增值服务</td><td>469</td><td>507</td><td>+8.3%</td></tr>
+<tr><td>有道</td><td>27</td><td>28</td><td>+3.6%</td></tr>
+<tr><td>网易云音乐</td><td>38</td><td>40</td><td>+3.4%</td></tr>
+<tr><td>创新及其他业务</td><td>33</td><td>32</td><td>−4.0%</td></tr>
+<tr><td><strong>净收入合计</strong></td><td><strong>567</strong></td><td><strong>607</strong></td><td><strong>+7.0%</strong></td></tr>
+</tbody></table></div>
+<p>注：半年度分部数据仅公告正文的亿元整数约数，未披露分部毛利率。</p>
+<figure><div class="figbox"><svg viewBox="0 0 680 306" xmlns="http://www.w3.org/2000/svg"><line x1="66" y1="226.0" x2="596" y2="226.0" stroke="#EFEBE3" stroke-width="1"/><text x="58" y="229.5" text-anchor="end" font-size="9.5" fill="#7C7B77">0</text><line x1="66" y1="197.4" x2="596" y2="197.4" stroke="#EFEBE3" stroke-width="1"/><text x="58" y="200.9" text-anchor="end" font-size="9.5" fill="#7C7B77">10</text><line x1="66" y1="168.9" x2="596" y2="168.9" stroke="#EFEBE3" stroke-width="1"/><text x="58" y="172.4" text-anchor="end" font-size="9.5" fill="#7C7B77">20</text><line x1="66" y1="140.3" x2="596" y2="140.3" stroke="#EFEBE3" stroke-width="1"/><text x="58" y="143.8" text-anchor="end" font-size="9.5" fill="#7C7B77">30</text><line x1="66" y1="111.7" x2="596" y2="111.7" stroke="#EFEBE3" stroke-width="1"/><text x="58" y="115.2" text-anchor="end" font-size="9.5" fill="#7C7B77">40</text><line x1="66" y1="83.1" x2="596" y2="83.1" stroke="#EFEBE3" stroke-width="1"/><text x="58" y="86.6" text-anchor="end" font-size="9.5" fill="#7C7B77">50</text><line x1="66" y1="54.6" x2="596" y2="54.6" stroke="#EFEBE3" stroke-width="1"/><text x="58" y="58.1" text-anchor="end" font-size="9.5" fill="#7C7B77">60</text><line x1="66" y1="26.0" x2="596" y2="26.0" stroke="#EFEBE3" stroke-width="1"/><text x="58" y="29.5" text-anchor="end" font-size="9.5" fill="#7C7B77">70</text><path d="M103.9,73.7 L179.6,74.9 L255.3,72.9 L331.0,69.7 L406.7,52.0 L482.4,47.4 L558.1,42.3" fill="none" stroke="#A73F2D" stroke-width="2.4"/><circle cx="103.9" cy="73.7" r="3.4" fill="#FBF9F4" stroke="#A73F2D" stroke-width="2"/><circle cx="179.6" cy="74.9" r="3.4" fill="#FBF9F4" stroke="#A73F2D" stroke-width="2"/><circle cx="255.3" cy="72.9" r="3.4" fill="#FBF9F4" stroke="#A73F2D" stroke-width="2"/><circle cx="331.0" cy="69.7" r="3.4" fill="#FBF9F4" stroke="#A73F2D" stroke-width="2"/><circle cx="406.7" cy="52.0" r="3.4" fill="#FBF9F4" stroke="#A73F2D" stroke-width="2"/><circle cx="482.4" cy="47.4" r="3.4" fill="#FBF9F4" stroke="#A73F2D" stroke-width="2"/><circle cx="558.1" cy="42.3" r="3.4" fill="#FBF9F4" stroke="#A73F2D" stroke-width="2"/><text x="97.9" y="66.7" text-anchor="end" font-size="9.5" fill="#A73F2D">53.3%</text><text x="564.1" y="35.3" text-anchor="start" font-size="9.5" fill="#A73F2D">64.3%</text><path d="M103.9,185.4 L179.6,185.7 L255.3,180.0 L331.0,181.4 L406.7,180.6 L482.4,178.6 L558.1,181.1" fill="none" stroke="#2F6F6B" stroke-width="2.4"/><circle cx="103.9" cy="185.4" r="3.4" fill="#FBF9F4" stroke="#2F6F6B" stroke-width="2"/><circle cx="179.6" cy="185.7" r="3.4" fill="#FBF9F4" stroke="#2F6F6B" stroke-width="2"/><circle cx="255.3" cy="180.0" r="3.4" fill="#FBF9F4" stroke="#2F6F6B" stroke-width="2"/><circle cx="331.0" cy="181.4" r="3.4" fill="#FBF9F4" stroke="#2F6F6B" stroke-width="2"/><circle cx="406.7" cy="180.6" r="3.4" fill="#FBF9F4" stroke="#2F6F6B" stroke-width="2"/><circle cx="482.4" cy="178.6" r="3.4" fill="#FBF9F4" stroke="#2F6F6B" stroke-width="2"/><circle cx="558.1" cy="181.1" r="3.4" fill="#FBF9F4" stroke="#2F6F6B" stroke-width="2"/><text x="97.9" y="178.4" text-anchor="end" font-size="9.5" fill="#2F6F6B">14.2%</text><text x="564.1" y="174.1" text-anchor="start" font-size="9.5" fill="#2F6F6B">15.7%</text><text x="103.9" y="243.0" text-anchor="middle" font-size="9.5" fill="#504e49">2019</text><text x="179.6" y="243.0" text-anchor="middle" font-size="9.5" fill="#504e49">2020</text><text x="255.3" y="243.0" text-anchor="middle" font-size="9.5" fill="#504e49">2021</text><text x="331.0" y="243.0" text-anchor="middle" font-size="9.5" fill="#504e49">2022</text><text x="406.7" y="243.0" text-anchor="middle" font-size="9.5" fill="#504e49">2023</text><text x="482.4" y="243.0" text-anchor="middle" font-size="9.5" fill="#504e49">2024</text><text x="558.1" y="243.0" text-anchor="middle" font-size="9.5" fill="#504e49">2025</text><line x1="66" y1="268" x2="86" y2="268" stroke="#A73F2D" stroke-width="2.4"/><text x="92" y="271.5" font-size="9.5" fill="#504e49">毛利率</text><line x1="196" y1="268" x2="216" y2="268" stroke="#2F6F6B" stroke-width="2.4"/><text x="222" y="271.5" font-size="9.5" fill="#504e49">研发费用率</text><text x="336" y="271.5" font-size="9" fill="#7C7B77">（中间年份数值见 表 1）</text></svg></div><figcaption>图 3　2019—2025 年毛利率与研发费用率</figcaption></figure><h3>表 5　分季度经营数据（人民币亿元）</h3>
+<div class="rsp-table rsp-w7"><table class="financial longtable">
+<thead><tr><th>项目</th><th>2025Q1</th><th>2025Q2</th><th>2025Q3</th><th>2025Q4</th><th>2026Q1</th><th>2026Q2</th></tr></thead>
+<tbody>
+<tr><td>净收入</td><td>288.3</td><td>278.9</td><td>283.6</td><td>275.5</td><td>305.9</td><td>301.1</td></tr>
+<tr><td>毛利润</td><td>184.8</td><td>180.5</td><td>181.8</td><td>176.9</td><td>212.2</td><td>212.2</td></tr>
+<tr><td>毛利率</td><td>64.1%</td><td>64.7%</td><td>64.1%</td><td>64.2%</td><td>69.3%</td><td>70.5%</td></tr>
+<tr><td>归母净利润</td><td>103.0</td><td>86.0</td><td>86.2</td><td>62.4</td><td>106.7</td><td>69.8</td></tr>
+<tr><td>归母净利率</td><td>35.7%</td><td>30.8%</td><td>30.4%</td><td>22.7%</td><td>34.9%</td><td>23.2%</td></tr>
+<tr><td>有效税率</td><td>—</td><td>14.7%</td><td>13.0%</td><td>16.4%</td><td>18.9%</td><td>25.5%</td></tr>
+</tbody></table></div>
+<h2>三、三张财务数据表：关键变化数据与趋势含义</h2>
+<figure><div class="figbox"><svg viewBox="0 0 680 326" xmlns="http://www.w3.org/2000/svg"><line x1="66" y1="226.0" x2="596" y2="226.0" stroke="#EFEBE3" stroke-width="1"/><text x="58" y="229.5" text-anchor="end" font-size="9.5" fill="#7C7B77">0</text><line x1="66" y1="176.0" x2="596" y2="176.0" stroke="#EFEBE3" stroke-width="1"/><text x="58" y="179.5" text-anchor="end" font-size="9.5" fill="#7C7B77">80</text><line x1="66" y1="126.0" x2="596" y2="126.0" stroke="#EFEBE3" stroke-width="1"/><text x="58" y="129.5" text-anchor="end" font-size="9.5" fill="#7C7B77">160</text><line x1="66" y1="76.0" x2="596" y2="76.0" stroke="#EFEBE3" stroke-width="1"/><text x="58" y="79.5" text-anchor="end" font-size="9.5" fill="#7C7B77">240</text><line x1="66" y1="26.0" x2="596" y2="26.0" stroke="#EFEBE3" stroke-width="1"/><text x="58" y="29.5" text-anchor="end" font-size="9.5" fill="#7C7B77">320</text><line x1="620" y1="26" x2="620" y2="226" stroke="#EFEBE3" stroke-width="1"/><text x="626" y="229.5" text-anchor="start" font-size="9.5" fill="#8A3223">0</text><text x="626" y="179.5" text-anchor="start" font-size="9.5" fill="#8A3223">10</text><text x="626" y="129.5" text-anchor="start" font-size="9.5" fill="#8A3223">20</text><text x="626" y="79.5" text-anchor="start" font-size="9.5" fill="#8A3223">30</text><text x="626" y="29.5" text-anchor="start" font-size="9.5" fill="#8A3223">40</text><rect x="90.7" y="45.8" width="38.9" height="180.2" fill="#CFC7BA" rx="2"/><text x="110.2" y="242.0" text-anchor="middle" font-size="9.5" fill="#504e49">2025Q1</text><text x="110.2" y="255.0" text-anchor="middle" font-size="9" fill="#22262B">288.3</text><rect x="179.1" y="51.7" width="38.9" height="174.3" fill="#CFC7BA" rx="2"/><text x="198.5" y="242.0" text-anchor="middle" font-size="9.5" fill="#504e49">2025Q2</text><text x="198.5" y="255.0" text-anchor="middle" font-size="9" fill="#22262B">278.9</text><rect x="267.4" y="48.7" width="38.9" height="177.3" fill="#CFC7BA" rx="2"/><text x="286.8" y="242.0" text-anchor="middle" font-size="9.5" fill="#504e49">2025Q3</text><text x="286.8" y="255.0" text-anchor="middle" font-size="9" fill="#22262B">283.6</text><rect x="355.7" y="53.8" width="38.9" height="172.2" fill="#CFC7BA" rx="2"/><text x="375.2" y="242.0" text-anchor="middle" font-size="9.5" fill="#504e49">2025Q4</text><text x="375.2" y="255.0" text-anchor="middle" font-size="9" fill="#22262B">275.5</text><rect x="444.1" y="34.8" width="38.9" height="191.2" fill="#CFC7BA" rx="2"/><text x="463.5" y="242.0" text-anchor="middle" font-size="9.5" fill="#504e49">2026Q1</text><text x="463.5" y="255.0" text-anchor="middle" font-size="9" fill="#22262B">305.9</text><rect x="532.4" y="37.8" width="38.9" height="188.2" fill="#A73F2D" rx="2"/><text x="551.8" y="242.0" text-anchor="middle" font-size="9.5" fill="#504e49">2026Q2</text><text x="551.8" y="255.0" text-anchor="middle" font-size="9" fill="#22262B">301.1</text><path d="M110.2,47.5 L198.5,72.0 L286.8,74.0 L375.2,112.5 L463.5,51.5 L551.8,110.0" fill="none" stroke="#8A3223" stroke-width="2.2"/><circle cx="110.2" cy="47.5" r="3.4" fill="#FBF9F4" stroke="#8A3223" stroke-width="2"/><rect x="93.4" y="30.5" width="33.5" height="12" fill="#FBF9F4" opacity="0.92" rx="2"/><text x="110.2" y="40.5" text-anchor="middle" font-size="9.5" fill="#8A3223">35.7%</text><circle cx="198.5" cy="72.0" r="3.4" fill="#FBF9F4" stroke="#8A3223" stroke-width="2"/><rect x="181.7" y="55.0" width="33.5" height="12" fill="#FBF9F4" opacity="0.92" rx="2"/><text x="198.5" y="65.0" text-anchor="middle" font-size="9.5" fill="#8A3223">30.8%</text><circle cx="286.8" cy="74.0" r="3.4" fill="#FBF9F4" stroke="#8A3223" stroke-width="2"/><rect x="270.1" y="57.0" width="33.5" height="12" fill="#FBF9F4" opacity="0.92" rx="2"/><text x="286.8" y="67.0" text-anchor="middle" font-size="9.5" fill="#8A3223">30.4%</text><circle cx="375.2" cy="112.5" r="3.4" fill="#FBF9F4" stroke="#8A3223" stroke-width="2"/><rect x="358.4" y="95.5" width="33.5" height="12" fill="#FBF9F4" opacity="0.92" rx="2"/><text x="375.2" y="105.5" text-anchor="middle" font-size="9.5" fill="#8A3223">22.7%</text><circle cx="463.5" cy="51.5" r="3.4" fill="#FBF9F4" stroke="#8A3223" stroke-width="2"/><rect x="446.7" y="34.5" width="33.5" height="12" fill="#FBF9F4" opacity="0.92" rx="2"/><text x="463.5" y="44.5" text-anchor="middle" font-size="9.5" fill="#8A3223">34.9%</text><circle cx="551.8" cy="110.0" r="3.4" fill="#FBF9F4" stroke="#8A3223" stroke-width="2"/><rect x="535.1" y="93.0" width="33.5" height="12" fill="#FBF9F4" opacity="0.92" rx="2"/><text x="551.8" y="103.0" text-anchor="middle" font-size="9.5" fill="#8A3223">23.2%</text><rect x="66" y="276" width="11" height="11" fill="#CFC7BA" rx="2"/><text x="82" y="285.5" font-size="9.5" fill="#504e49">季度净收入（左轴，值标注于年份下方）</text><line x1="298" y1="281.5" x2="318" y2="281.5" stroke="#8A3223" stroke-width="2.2"/><circle cx="308" cy="281.5" r="3.2" fill="#FBF9F4" stroke="#8A3223" stroke-width="2"/><text x="324" y="285.5" font-size="9.5" fill="#504e49">归母净利率（右轴）</text></svg></div><figcaption>图 4　2025Q1—2026Q2 季度净收入与归母净利率</figcaption></figure><h3>3.1 损益表：收入平稳、毛利跃升、利润被非经营项拖累</h3>
+<div class="rsp-table"><table class="longtable">
+<thead><tr><th>科目</th><th>变化轨迹</th><th>趋势方向</th><th>趋势含义</th></tr></thead>
+<tbody>
+<tr><td>净收入</td><td>592.4 → 1,126.3 亿元，七年 CAGR 11.3%，但 2024 年仅 +1.8%</td><td>稳中放缓</td><td>公司已从规模扩张期进入成熟运营期，增长依赖存量产品的长线运营与新游补充，而非用户红利</td></tr>
+<tr><td>毛利率</td><td>53.3% → 64.3%，2023 年单年 +6.2pct，2026H1 达 69.9%</td><td>持续向上</td><td>自研高毛利游戏占比提升、代理游戏版权成本与收入分成下降；这是七年中最具确定性的积极变化</td></tr>
+<tr><td>研发费用</td><td>84.1 → 177.2 亿元，费用率 14.2%→15.7%</td><td>绝对额增、占比先升后降</td><td>投入强度在 2024 年触顶（16.6%）后回落，说明收入增长开始跑赢研发投入</td></tr>
+<tr><td>一般及管理费用</td><td>49.0（2023）→ 42.3 亿元（2025），2026H1 仅 14.4 亿元</td><td>明显下降</td><td>与员工总数两年精简 12.9% 相互印证，属主动提效而非被动收缩</td></tr>
+<tr><td>归母净利润</td><td>294.2 → 337.6 亿元（+13.7%），但 2026H1 −6.6%</td><td>年度增、半年降</td><td>利润的方向在 2026 年发生反转，但反转来源在经营之外（见 3.4）</td></tr>
+<tr><td>有效税率</td><td>20.2%（2022）→ 13.8%（2023）→ 15.3%（2024）→ 14.8%（2025）→ <strong>21.7%（2026H1）</strong></td><td>由降转升</td><td>这是当前最需要跟踪的变量：税率中枢上移将直接压制净利率</td></tr>
+</tbody></table></div>
+<h3>3.2 财务状况表：类现金膨胀、杠杆去化、递延收入先扬后抑</h3>
+<div class="rsp-table"><table class="longtable">
+<thead><tr><th>科目</th><th>变化轨迹</th><th>趋势方向</th><th>趋势含义</th></tr></thead>
+<tbody>
+<tr><td>类现金合计</td><td>1,277.7 → 1,756.5 亿元（2023 末→2026H1 末）</td><td>持续膨胀</td><td>两年半增加 478.8 亿元，而同期归母净利润累计约 805 亿元，现金留存率极高</td></tr>
+<tr><td>借款合计</td><td>196.7 → 63.8 亿元（2023 末→2025 末），2026H1 回升至 126.0 亿元</td><td>先去杠杆、后小幅回补</td><td>2025 年长期借款清零；2026H1 短期借款回升主要是资金摆布而非融资需求</td></tr>
+<tr><td>资产负债率</td><td>31.1% → 25.4%，2026H1 26.1%</td><td>稳中有降</td><td>负债以合同负债、应付工资及计提费用为主，无真实偿债压力</td></tr>
+<tr><td>合同负债</td><td>133.6 → 205.1 亿元（+53.5%），2026H1 回落至 193.0 亿元</td><td>先大幅抬升后回落</td><td>2025 年末已收未确认的游戏流水显著增厚，为 2026 年收入提供支撑；2026H1 回落 6.0% 需观察是否季节性</td></tr>
+<tr><td>网易股东权益</td><td>1,242.9 → 1,670.9 亿元</td><td>稳步增厚</td><td>增长几乎全部来自留存收益，2025 年回购与分红合计仅约 145 亿元</td></tr>
+</tbody></table></div>
+<h3>3.3 现金流量表：经营造血强劲，投资端大幅吞吐</h3>
+<div class="rsp-table"><table class="">
+<thead><tr><th>科目</th><th>变化轨迹</th><th>趋势方向</th><th>趋势含义</th></tr></thead>
+<tbody>
+<tr><td>经营活动净额</td><td>172.2 → 507.4 亿元，七年增长 1.95 倍</td><td>持续走强</td><td>2025 年经营现金流为归母净利润的 1.50 倍（2024 年 1.34 倍），利润的现金含量在提高</td></tr>
+<tr><td>投资活动净额</td><td>−291.9 → +179.2 → −331.8 亿元，正负交替</td><td>大幅波动</td><td>主体是定期存款与短期投资的滚动，非资本开支；2025 年净流出 331.8 亿元对应短期投资与定期存款同时增加</td></tr>
+<tr><td>融资活动净额</td><td>+99.1（2020，含上市募资）→ −273.4（2024）→ −201.6（2025）</td><td>持续净流出</td><td>2024 年起转为大额分红与回购；2025 年支付股东股利 138.3 亿元、回购仅 6.4 亿元</td></tr>
+<tr><td>期末现金及受限现金</td><td>121.7 → 514.9 亿元</td><td>大幅累积</td><td>现金主要沉淀于定期存款与短期投资，而非经营性现金</td></tr>
+</tbody></table></div>
+<figure><div class="figbox"><svg viewBox="0 0 680 326" xmlns="http://www.w3.org/2000/svg"><line x1="66" y1="226.0" x2="596" y2="226.0" stroke="#EFEBE3" stroke-width="1"/><text x="58" y="229.5" text-anchor="end" font-size="9.5" fill="#7C7B77">0</text><line x1="66" y1="189.6" x2="596" y2="189.6" stroke="#EFEBE3" stroke-width="1"/><text x="58" y="193.1" text-anchor="end" font-size="9.5" fill="#7C7B77">100</text><line x1="66" y1="153.3" x2="596" y2="153.3" stroke="#EFEBE3" stroke-width="1"/><text x="58" y="156.8" text-anchor="end" font-size="9.5" fill="#7C7B77">200</text><line x1="66" y1="116.9" x2="596" y2="116.9" stroke="#EFEBE3" stroke-width="1"/><text x="58" y="120.4" text-anchor="end" font-size="9.5" fill="#7C7B77">300</text><line x1="66" y1="80.5" x2="596" y2="80.5" stroke="#EFEBE3" stroke-width="1"/><text x="58" y="84.0" text-anchor="end" font-size="9.5" fill="#7C7B77">400</text><line x1="66" y1="44.2" x2="596" y2="44.2" stroke="#EFEBE3" stroke-width="1"/><text x="58" y="47.7" text-anchor="end" font-size="9.5" fill="#7C7B77">500</text><line x1="620" y1="26" x2="620" y2="226" stroke="#EFEBE3" stroke-width="1"/><text x="626" y="229.5" text-anchor="start" font-size="9.5" fill="#8A3223">0</text><text x="626" y="189.5" text-anchor="start" font-size="9.5" fill="#8A3223">0.5</text><text x="626" y="149.5" text-anchor="start" font-size="9.5" fill="#8A3223">1</text><text x="626" y="109.5" text-anchor="start" font-size="9.5" fill="#8A3223">1.5</text><text x="626" y="69.5" text-anchor="start" font-size="9.5" fill="#8A3223">2</text><text x="626" y="29.5" text-anchor="start" font-size="9.5" fill="#8A3223">2.5</text><rect x="90.7" y="135.5" width="38.9" height="90.5" fill="#CFC7BA" rx="2"/><text x="110.2" y="242.0" text-anchor="middle" font-size="9.5" fill="#504e49">2020</text><text x="110.2" y="255.0" text-anchor="middle" font-size="9" fill="#22262B">248.9</text><rect x="179.1" y="135.3" width="38.9" height="90.7" fill="#CFC7BA" rx="2"/><text x="198.5" y="242.0" text-anchor="middle" font-size="9.5" fill="#504e49">2021</text><text x="198.5" y="255.0" text-anchor="middle" font-size="9" fill="#22262B">249.3</text><rect x="267.4" y="125.2" width="38.9" height="100.8" fill="#CFC7BA" rx="2"/><text x="286.8" y="242.0" text-anchor="middle" font-size="9.5" fill="#504e49">2022</text><text x="286.8" y="255.0" text-anchor="middle" font-size="9" fill="#22262B">277.1</text><rect x="355.7" y="97.5" width="38.9" height="128.5" fill="#CFC7BA" rx="2"/><text x="375.2" y="242.0" text-anchor="middle" font-size="9.5" fill="#504e49">2023</text><text x="375.2" y="255.0" text-anchor="middle" font-size="9" fill="#22262B">353.3</text><rect x="444.1" y="81.7" width="38.9" height="144.3" fill="#CFC7BA" rx="2"/><text x="463.5" y="242.0" text-anchor="middle" font-size="9.5" fill="#504e49">2024</text><text x="463.5" y="255.0" text-anchor="middle" font-size="9" fill="#22262B">396.8</text><rect x="532.4" y="41.5" width="38.9" height="184.5" fill="#A73F2D" rx="2"/><text x="551.8" y="242.0" text-anchor="middle" font-size="9.5" fill="#504e49">2025</text><text x="551.8" y="255.0" text-anchor="middle" font-size="9" fill="#22262B">507.4</text><path d="M110.2,61.2 L198.5,107.6 L286.8,117.2 L375.2,130.0 L463.5,118.8 L551.8,106.0" fill="none" stroke="#8A3223" stroke-width="2.2"/><circle cx="110.2" cy="61.2" r="3.4" fill="#FBF9F4" stroke="#8A3223" stroke-width="2"/><rect x="96.1" y="44.2" width="28.0" height="12" fill="#FBF9F4" opacity="0.92" rx="2"/><text x="110.2" y="54.2" text-anchor="middle" font-size="9.5" fill="#8A3223">2.06</text><circle cx="198.5" cy="107.6" r="3.4" fill="#FBF9F4" stroke="#8A3223" stroke-width="2"/><rect x="184.5" y="90.6" width="28.0" height="12" fill="#FBF9F4" opacity="0.92" rx="2"/><text x="198.5" y="100.6" text-anchor="middle" font-size="9.5" fill="#8A3223">1.48</text><circle cx="286.8" cy="117.2" r="3.4" fill="#FBF9F4" stroke="#8A3223" stroke-width="2"/><rect x="272.8" y="100.2" width="28.0" height="12" fill="#FBF9F4" opacity="0.92" rx="2"/><text x="286.8" y="110.2" text-anchor="middle" font-size="9.5" fill="#8A3223">1.36</text><circle cx="375.2" cy="130.0" r="3.4" fill="#FBF9F4" stroke="#8A3223" stroke-width="2"/><rect x="361.1" y="113.0" width="28.0" height="12" fill="#FBF9F4" opacity="0.92" rx="2"/><text x="375.2" y="123.0" text-anchor="middle" font-size="9.5" fill="#8A3223">1.20</text><circle cx="463.5" cy="118.8" r="3.4" fill="#FBF9F4" stroke="#8A3223" stroke-width="2"/><rect x="449.5" y="101.8" width="28.0" height="12" fill="#FBF9F4" opacity="0.92" rx="2"/><text x="463.5" y="111.8" text-anchor="middle" font-size="9.5" fill="#8A3223">1.34</text><circle cx="551.8" cy="106.0" r="3.4" fill="#FBF9F4" stroke="#8A3223" stroke-width="2"/><rect x="537.8" y="89.0" width="28.0" height="12" fill="#FBF9F4" opacity="0.92" rx="2"/><text x="551.8" y="99.0" text-anchor="middle" font-size="9.5" fill="#8A3223">1.50</text><rect x="66" y="276" width="11" height="11" fill="#CFC7BA" rx="2"/><text x="82" y="285.5" font-size="9.5" fill="#504e49">经营活动现金流净额（左轴，值标注于年份下方）</text><line x1="298" y1="281.5" x2="318" y2="281.5" stroke="#8A3223" stroke-width="2.2"/><circle cx="308" cy="281.5" r="3.2" fill="#FBF9F4" stroke="#8A3223" stroke-width="2"/><text x="324" y="285.5" font-size="9.5" fill="#504e49">经营现金流÷归母净利润（右轴）</text></svg></div><figcaption>图 5　2020—2025 年经营活动现金流与利润现金含量</figcaption></figure><h3>3.4 三表联动</h3>
+<ul><li><strong>损益表看经营真相</strong>：2026H1 毛利率 69.9%（+5.5pct）、营业利润 247.5 亿元（+26.9%），主业质量全面提升；但归母净利润 176.5 亿元反而 −6.6%。</li><li><strong>财务状况表看资本结构</strong>：无真实杠杆，1,756.5 亿元类现金对 126.0 亿元借款；合同负债 205.1 亿元是收入的前瞻蓄水池。</li><li><strong>现金流量表看现金来源</strong>：现金完全由经营贡献，2025 年经营净流入 507.4 亿元覆盖 138.3 亿元分红后仍有巨额结余。</li></ul>
+<p><strong>三表合并的唯一解释</strong>：2026H1 的利润下滑不是经营问题。按利润桥拆解（图 6），毛利增加 59.0 亿元，而<strong>其他收入净额减少 53.5 亿元、所得税增加 15.2 亿元</strong>，两项合计 68.7 亿元，超过毛利增量——这 6.6% 的利润降幅是"表外"因素造成的。</p>
+<h2>四、数据变化趋势与原因分析</h2>
+<h3>4.1 收入：从双位数增长切换到个位数，游戏是唯一引擎</h3>
+<p>收入增速由 2020 年 +24.4%、2021 年 +18.9% 逐步降至 2024 年 +1.8%，2025 年回升至 +7.0%，2026H1 维持 +7.0%。结构上，增长几乎全部来自游戏及相关增值服务：</p>
+<ul><li>游戏分部 2025 年 921.5 亿元（+10.2%），占集团 81.8%；2026H1 约 507 亿元（+8.3%），占比升至约 83.5%。</li><li>非游戏三块（有道＋云音乐＋创新及其他）2025 年合计 204.8 亿元，同比 <strong>−5.5%</strong>，占比由 2024 年 20.6% 降至 18.2%。</li></ul>
+<p>增长来源（公司口径）：《梦幻西游》电脑版、《第五人格》，以及新上线的《燕云十六声》《漫威争锋》；暴雪系列游戏回归后全年营收创历史新高。2026H1 增量主要来自《梦幻西游》系列、《燕云十六声》和《蛋仔派对》。</p>
+<h3>4.2 毛利率：七年抬升 11 个百分点，是本次分析中最扎实的正面证据</h3>
+<p>毛利率 53.3%（2019）→ 64.3%（2025）→ 69.9%（2026H1）。分年度看，2023 年单年 +6.2pct 是分水岭，此后每年稳定 +1.4 至 +1.8pct，2026H1 再 +5.5pct。</p>
+<p>驱动因素有三：① 自研游戏占比提升（代理游戏需支付版权费与分成）；② 代理游戏版权成本与收入分成下降（2025Q4 营业成本同比 −5.3%，公司明确归因于此）；③ 云音乐内容成本优化带动分部毛利率从 2.0%（2021）升至 35.7%（2025）。</p>
+<h3>4.3 费用：研发投入仍在增长，管理端主动精简</h3>
+<ul><li>研发费用 2025 年 177.2 亿元（+1.1%），占收入 15.7%；研发人员约 1.21 万人，占员工总数 47.8%。研发费用率在 2024 年触顶 16.6% 后回落，说明收入增速重新跑赢研发投入。</li><li>销售及市场费用 146.2 亿元，占收入 13.0%（2024 年 13.4%），基本持平——<strong>增长并非靠买量堆出</strong>，这是判断增长质量的关键旁证。</li><li>一般及管理费用 42.3 亿元，同比 −7.1%，是唯一绝对额下降的费用项；2026H1 更降至 14.4 亿元（占收入 2.4%），与员工总数从 29,128 精简至 25,382 完全对应。</li></ul>
+<p><strong>人效提升</strong>：人均创收由 2023 年 355 万元升至 2025 年 444 万元（+25.0%）。</p>
+<h3>4.4 利润：2026 年的"增收不增利"必须做利润桥</h3>
+<p>2026H1 归母净利润 176.5 亿元，同比 −6.6%，与 +7.0% 的收入增速和 +16.2% 的毛利增速形成鲜明反差。逐项拆解（单位：亿元）：</p>
+<div class="rsp-table"><table class="financial longtable">
+<thead><tr><th>桥段</th><th>金额</th><th>说明</th></tr></thead>
+<tbody>
+<tr><td>2025H1 归母净利润</td><td>189.0</td><td>起点</td></tr>
+<tr><td>毛利增加</td><td>+59.0</td><td>365.3 → 424.3</td></tr>
+<tr><td>营业费用增加</td><td>−6.6</td><td>170.3 → 176.9</td></tr>
+<tr><td>其他收入净额减少</td><td>−53.5</td><td>投资收益 +10.2 → −29.5；汇兑 +1.2 → −10.6</td></tr>
+<tr><td>所得税增加</td><td>−15.2</td><td>34.7 → 49.8；有效税率 15.0% → 21.7%</td></tr>
+<tr><td>少数股东损益减少</td><td>+3.8</td><td>−7.3 → −3.6</td></tr>
+<tr class="total"><td><strong>2026H1 归母净利润</strong></td><td><strong>176.5</strong></td><td>终点</td></tr>
+</tbody></table></div>
+<p>结论：<strong>经营层面贡献 +52.4 亿元，非经营层面扣掉 −68.7 亿元</strong>。若有效税率维持 15.0%，2026H1 归母净利润约为 200.4 亿元，同比 <strong>+6.0%</strong>——即"增收不增利"完全由税率与投资/汇兑两项解释。</p>
+<figure><div class="figbox"><svg viewBox="0 0 680 316" xmlns="http://www.w3.org/2000/svg"><line x1="66" y1="194.7" x2="640" y2="194.7" stroke="#EFEBE3" stroke-width="1"/><text x="58" y="198.2" text-anchor="end" font-size="9.5" fill="#7C7B77">0</text><line x1="66" y1="132.8" x2="640" y2="132.8" stroke="#EFEBE3" stroke-width="1"/><text x="58" y="136.3" text-anchor="end" font-size="9.5" fill="#7C7B77">100</text><line x1="66" y1="71.0" x2="640" y2="71.0" stroke="#EFEBE3" stroke-width="1"/><text x="58" y="74.5" text-anchor="end" font-size="9.5" fill="#7C7B77">200</text><line x1="66" y1="194.7" x2="640" y2="194.7" stroke="#7C7B77" stroke-width="0.9"/><rect x="86.5" y="77.8" width="41.0" height="116.8" fill="#A73F2D" rx="1.5"/><text x="107.0" y="71.8" text-anchor="middle" font-size="9.5" fill="#22262B">+189.0</text><text x="107.0" y="253.0" text-anchor="middle" font-size="9" fill="#504e49">2025H1</text><rect x="168.5" y="41.3" width="41.0" height="36.5" fill="#2F6F6B" rx="1.5"/><text x="189.0" y="35.3" text-anchor="middle" font-size="9.5" fill="#22262B">+59.0</text><text x="189.0" y="253.0" text-anchor="middle" font-size="9" fill="#504e49">毛利</text><rect x="250.5" y="41.3" width="41.0" height="4.1" fill="#8A3223" rx="1.5"/><text x="271.0" y="35.3" text-anchor="middle" font-size="9.5" fill="#22262B">-6.6</text><text x="271.0" y="253.0" text-anchor="middle" font-size="9" fill="#504e49">营业费用</text><rect x="332.5" y="45.4" width="41.0" height="33.1" fill="#8A3223" rx="1.5"/><text x="353.0" y="39.4" text-anchor="middle" font-size="9.5" fill="#22262B">-53.5</text><text x="353.0" y="253.0" text-anchor="middle" font-size="9" fill="#504e49">其他收支</text><rect x="414.5" y="78.5" width="41.0" height="9.4" fill="#8A3223" rx="1.5"/><text x="435.0" y="72.5" text-anchor="middle" font-size="9.5" fill="#22262B">-15.2</text><text x="435.0" y="253.0" text-anchor="middle" font-size="9" fill="#504e49">所得税</text><rect x="496.5" y="85.5" width="41.0" height="2.3" fill="#2F6F6B" rx="1.5"/><text x="517.0" y="79.5" text-anchor="middle" font-size="9.5" fill="#22262B">+3.8</text><text x="517.0" y="253.0" text-anchor="middle" font-size="9" fill="#504e49">少数股东</text><rect x="578.5" y="85.5" width="41.0" height="109.1" fill="#1B365D" rx="1.5"/><text x="599.0" y="79.5" text-anchor="middle" font-size="9.5" fill="#22262B">+176.5</text><text x="599.0" y="253.0" text-anchor="middle" font-size="9" fill="#504e49">2026H1</text><text x="66" y="294" font-size="9" fill="#7C7B77">单位：人民币亿元　青色＝正向贡献，砖红＝负向拖累，起止柱为净值（归母净利润）</text></svg></div><figcaption>图 6　2026H1 归母净利润同比变动桥（对 2025H1）</figcaption></figure><h3>4.5 分部：游戏越强，非游戏越弱</h3>
+<div class="rsp-table rsp-w5"><table class="financial">
+<thead><tr><th>分部</th><th>2025 年收入</th><th>同比</th><th>2025 年毛利率</th><th>毛利率变动</th></tr></thead>
+<tbody>
+<tr><td>游戏及相关增值服务</td><td>921.5</td><td>+10.2%</td><td>69.7%</td><td>+1.0pct</td></tr>
+<tr><td>有道</td><td>59.1</td><td>+5.0%</td><td>44.3%</td><td>−4.6pct</td></tr>
+<tr><td>网易云音乐</td><td>77.6</td><td>−2.4%</td><td>35.7%</td><td>+2.0pct</td></tr>
+<tr><td>创新及其他业务</td><td>68.1</td><td>−15.9%</td><td>40.8%</td><td>+5.0pct</td></tr>
+</tbody></table></div>
+<ul><li><strong>游戏</strong>：在线游戏占该分部 97.3%，毛利率 69.7% 且仍在提升，是唯一"收入与毛利率同向改善"的分部。</li><li><strong>有道</strong>：收入增长但毛利率连续两年下滑（51.4%→48.9%→44.3%），是四大分部中唯一恶化项，反映学习服务与智能硬件的结构变化。</li><li><strong>云音乐</strong>：收入小幅下滑但毛利率改善幅度最大（2021 年 2.0% → 2025 年 35.7%），内容成本管控见效；2026H1 收入回升 +3.4%。</li><li><strong>创新及其他</strong>：收入 −15.9%，公司口径为分部间内部交易抵消增加及电商收入下降，但毛利率反而 +5.0pct，属"缩量提质"。</li></ul>
+<h2>五、关键内容总结</h2>
+<h3>5.1 核心业务与竞争优势</h3>
+<ol><li><strong>长线运营能力是网易最深的护城河</strong>。《梦幻西游》电脑版自 2004 年上线、《大话西游2》自 2002 年上线，二十余年后仍在贡献增量；《第五人格》《蛋仔派对》《逆水寒》手游持续更新。这种"老游戏不衰退"的能力在中国游戏行业极为稀缺，直接体现为高毛利与低销售费用率。</li><li><strong>自研团队规模居行业头部</strong>，聚焦手游、端游与主机游戏，是毛利率持续抬升与代理依赖下降的根因。</li><li><strong>AI 已系统化嵌入研发全链路</strong>（美术、策划、编程、动画、质量保障），管理层称其"显著增强大体量、规模化的生产能力"，并已在多款旗舰产品中落地 AI 原生玩法。若该能力提升单位内容产出，毛利率仍有上行空间。</li><li><strong>全球化取得实质进展</strong>：《逆水寒》手游全球上线，《燕云十六声》多平台累计玩家超 8,000 万，《漫威争锋》获多项行业认可。</li></ol>
+<h3>5.2 产品与运营里程碑</h3>
+<ul><li><strong>2025 年</strong>：《燕云十六声》《漫威争锋》上线并贡献增量；暴雪系列回归后全年营收创历史新高。</li><li><strong>2026 年</strong>：《遗忘之海》于 2026 年 7 月在中国市场正式上线；《无限大》《归唐》研发工作有序推进。</li><li><strong>有道</strong>：2026Q2 推出「子曰 4」（Confucius 4）大模型，以更低推理成本实现行业领先的数理推理能力，并提升 AI Agent 能力。</li><li><strong>云音乐</strong>：订阅会员规模持续增长，推动以音乐为核心的商业化。</li></ul>
+<h3>5.3 组织与人效</h3>
+<p>全职员工 29,128（2023 末）→ 26,028（2024 末）→ 25,382（2025 末），两年减少 <strong>12.9%</strong>；同期收入 +10.6%，人均创收 +25.0%。研发人员占比维持在 47.8% 的高位，说明精简主要发生在非研发条线，研发能力未受影响。这是"主动提效"而非"被动收缩"的重要旁证。</p>
+<h3>5.4 股东回报</h3>
+<ul><li><strong>分红</strong>：2025 年支付股东股利 138.3 亿元（2024 年 111.7 亿元）；2025Q4 单季股利每股 0.232 美元（每股 ADS 1.16 美元）。</li><li><strong>回购</strong>：50 亿美元回购计划已延长至 2029 年 1 月 9 日；截至 2025 年末累计回购约 22.1 百万股 ADS（约 20 亿美元），<strong>执行进度偏慢</strong>。年度回购支出波动极大：2024 年 88.3 亿元 → 2025 年仅 6.4 亿元 → 2026H1 回升至 31.1 亿元。</li><li><strong>财务能力</strong>：1,756.5 亿元类现金与 500 亿元量级的年度经营现金流，意味着当前分红与回购力度远未触及上限。</li></ul>
+<h3>5.5 主要风险</h3>
+<ol><li><strong>业务高度集中于游戏</strong>：2026H1 游戏占比约 83.5%，单一行业的监管、版号、产品周期波动对集团业绩的放大效应显著。</li><li><strong>有效税率中枢上移</strong>：20.2%（2022）→ 13.8%（2023）→ 15.3%（2024）→ 14.8%（2025）→ <strong>21.7%（2026H1）→ 25.5%（2026Q2）</strong>。公告仅表述为"各期间对适用税务义务及权利的估计"，未给出具体原因。若 25% 成为新常态，净利率将被系统性压制约 5—8 个百分点。</li><li><strong>非经营项波动剧烈</strong>：2026H1 投资净损失 29.5 亿元、汇兑净损失 10.6 亿元，而 2025H1 分别为收益 10.2 亿元与 1.2 亿元——摆动幅度近 52 亿元，单季度即可改写利润方向。</li><li><strong>非游戏业务整体萎缩</strong>：三块非游戏业务 2025 年合计 −5.5%，有道毛利率连续两年下滑，第二增长曲线尚未形成。</li><li><strong>人员持续精简的长期影响</strong>：两年减员 12.9% 短期提效，但对产品创新与人才梯队的影响需持续观察。</li><li><strong>竞争与监管</strong>：20-F 明确将腾讯列为首要竞争对手；海外扩张同时受 GDPR、《数字服务法案》、《网络弹性法案》等约束，合规成本趋升。</li></ol>
+<h2>六、结论</h2>
+<p>网易当前的经营画像可以概括为：<strong>一家增长平稳（个位数到低双位数）、盈利质量优异、现金极度充沛，但增长引擎单一、利润受非经营项扰动加剧的游戏公司。</strong></p>
+<p>2019—2025 的七年，公司完成了从"多业务扩张"到"聚焦高毛利游戏主业"的收敛：收入 CAGR 11.3%，毛利率从 53.3% 抬升 11.0 个百分点至 64.3%，营业利润率从 23.3% 升至 31.8%，经营现金流从 172.2 亿元增至 507.4 亿元，员工总数在末两年反而精简 12.9%。这是一条非常清晰的<strong>质量型增长</strong>曲线——不靠买量、不靠加杠杆、不靠外延并购。</p>
+<p>2026 年是这条曲线上的一次压力测试。收入与毛利率仍在改善（2026Q2 毛利率 70.5% 创历史新高），但有效税率与投资/汇兑损益把净利润压成了负增长。判断网易的关键是严格区分这两层：<strong>经营层面在变好，账面利润在波动</strong>。若税率回升是阶段性的，2026 全年净利润大概率仍能回到正增长；若 25% 成为新常态，则需在估值中下修净利率假设约 5—8 个百分点。</p>
+<p><strong>最值得跟踪的三个前瞻指标</strong>：</p>
+<ol><li><strong>合同负债（递延收入）的环比变化</strong>——2025 年末 205.1 亿元（+34.1%）为 2026 年提供支撑，2026H1 末回落至 193.0 亿元，下一个观察点是 2026 年末能否重回 200 亿元以上；</li><li><strong>有效税率</strong>——能否回到 15% 附近，是决定 2026 年利润方向的第一变量；</li><li><strong>非游戏业务能否止跌</strong>——三块业务合计占收入 18.2%，若继续萎缩，单引擎风险将进一步放大。</li></ol>
+<h2>七、附录：数据来源与口径</h2>
+<h3>7.1 数据来源清单</h3>
+<p>数据全部取自香港交易所披露易（hkexnews.hk）网易（股份代号 9999）公开披露文件。本次共下载 <strong>35 份</strong>财报文件，全部成功（无失败、无缺失），覆盖 2020—2026 年全部 6 份年度报告与历年季度/中期业绩公告。本报告实际引用的原始文件如下：</p>
+<div class="rsp-table"><table class="dense longtable">
+<thead><tr><th>序号</th><th>文件</th><th>披露日期</th><th>用途</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>2026 年第二季度业绩及截至 2026 年 6 月 30 日止六个月中期业绩公告</td><td>2026-08-20</td><td>2026H1 全部数据、2025H1 比较数、2026H1 资产负债表</td></tr>
+<tr><td>2</td><td>2025 年度报告（Form 20-F）</td><td>2026-04-15</td><td>员工人数与结构、股权结构、风险因素、竞争表述</td></tr>
+<tr><td>3</td><td>2025 年第四季度及财政年度未经审计财务业绩公告</td><td>2026-02-11</td><td>2025/2024 年度三大报表与分部信息</td></tr>
+<tr><td>4—8</td><td>2021—2024 年各年第四季度及财政年度业绩公告</td><td>2022-02 至 2025-02</td><td>2020—2024 年度三大报表与分部信息（含上年比较列）</td></tr>
+<tr><td>9</td><td>2020 年第四季度及财政年度业绩公告</td><td>2021-02</td><td>2019—2020 年度数据（2019 年取自比较列）</td></tr>
+<tr><td>10</td><td>2020 年度报告</td><td>2021-04</td><td>上市沿革、募资额</td></tr>
+<tr><td>11</td><td>2025 年第一季度、2026 年第一季度业绩公告</td><td>2025-05、2026-05</td><td>季度序列</td></tr>
+</tbody></table></div>
+<h3>7.2 口径与计算说明</h3>
+<ol><li><strong>单位换算</strong>：原始披露单位为人民币千元，本表统一除以 100,000 折算为亿元并保留一位小数；所有百分比均按人民币口径计算。</li><li><strong>美元折算汇率</strong>：2025 年末 1 美元＝6.9931 元人民币；2026 年 6 月末 1 美元＝6.7851 元人民币（均为美国联邦储备委员会 H.10 统计公布的当月最后一个交易日中午买入汇率）。本报告未使用美元列。</li><li><strong>分部口径</strong>：一律采用 2021 年重述后的四分部口径（见 1.3 第 1 条）。</li><li><strong>有效税率</strong>：所得税 ÷ 税前利润的计算值；2025/2024 年度及 2025H1/2026H1 与公告披露值一致。</li><li><strong>类现金与净现金</strong>：类现金＝现金及现金等价物＋定期存款（流动与非流动）＋短期投资，不含受限制现金；净现金＝类现金−借款。公司披露口径的净现金另含受限制现金，两者差异约 40—43 亿元，已在表 2 表注说明。</li><li><strong>利润桥</strong>：图 6 与 4.4 节的桥段为按公告数据逐项计算，起点 189.0＋59.0−6.6−53.5−15.2＋3.8＝176.5，与披露值一致（尾差为四舍五入）。</li><li><strong>未披露项一律留「—」</strong>，不作估算或倒算：2019 年营业成本与销售/管理费用、2025H1 资产负债表、2025H1 与 2026H1 分部毛利率。</li></ol>
+<p><strong>数据可信度提示</strong>：</p>
+<ul><li>2026 年上半年数据<strong>未经审计</strong>，与全年口径可能存在审计差异。</li><li>2026H1 分部数据为公告正文的亿元整数约数，与年度精确数不可直接相加减。</li><li>2019 年数据受一次性收益影响，任何跨 2019/2020 的同比比较均不具实质意义。</li></ul>
+</body></html>

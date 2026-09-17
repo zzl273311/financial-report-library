@@ -3,16 +3,17 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>江苏银行（600919.SH）2011—2025 财务数据对比分析报告</title>
 <meta name="author" content="财报分析 skill">
 <meta name="generator" content="financial-report-analysis">
 <style>
   @font-face { font-family: "TsangerJinKai02";
     src: url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W04.ttf") format("truetype");
-    font-weight: 400; font-style: normal; }
+    font-weight: 400; font-style: normal; font-display: swap; }
   @font-face { font-family: "TsangerJinKai02";
     src: url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W05.ttf") format("truetype");
-    font-weight: 500; font-style: normal; }
+    font-weight: 500; font-style: normal; font-display: swap; }
   @page { size: A4; margin: 15mm 14mm 16mm 14mm; background: #F7F4EE;
     @bottom-center { content: counter(page) "  ·  财报分析";
       font-family: "TsangerJinKai02","Source Han Serif SC","Noto Serif CJK SC","Songti SC",Georgia,serif;
@@ -91,6 +92,116 @@
   .report-footer { display: flex; justify-content: space-between; margin-top: 16pt; padding-top: 6pt;
     border-top: 0.4pt solid var(--border); font-size: 8pt; color: var(--stone); }
 </style>
+
+<!-- rsp-mobile-adapt : 响应式适配层（仅屏幕生效，不影响打印/PDF） -->
+<style id="rsp-mobile-adapt">
+/* ========== 1. 全局：屏幕端基础修正 ========== */
+@media screen {
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body { overflow-wrap: break-word; }
+  img, svg, canvas, video, iframe { max-width: 100%; }
+  svg[viewBox], svg[viewbox] { height: auto; }
+
+  /* 表格横向滚动容器：宽表不压字、不撑破页面 */
+  .rsp-table {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    margin: 8pt 0;
+    position: relative;
+  }
+  .rsp-table > table { margin: 0; }
+  .rsp-table::-webkit-scrollbar { height: 7px; }
+  .rsp-table::-webkit-scrollbar-track { background: transparent; }
+  .rsp-table::-webkit-scrollbar-thumb { background: #D8D1C4; border-radius: 4px; }
+  /* 内容确实溢出时，右侧给一层渐变暗示"还能往右滑" */
+  .rsp-table[data-rsp-scroll] {
+    background: linear-gradient(to left, rgba(167,63,45,.10), rgba(167,63,45,0) 28px);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 28px 100%;
+  }
+}
+
+/* ========== 2. 平板 / 窄窗口：边距先收，避免内容被挤 ========== */
+@media screen and (max-width: 900px) {
+  body { padding: 22px 22px 46px 22px !important; }
+  .report-header { flex-wrap: wrap; gap: 12pt; }
+  .metrics { flex-wrap: wrap; gap: 10pt 18pt; }
+  .metric { flex: 1 1 42%; min-width: 0; }
+  .report-footer { flex-wrap: wrap; gap: 4pt 14pt; }
+
+  /* 宽表改为横向滚动：给每列保留最小可读宽度，不再把汉字挤成竖排 */
+  .rsp-w5 > table { min-width: 310px !important; }
+  .rsp-w6 > table { min-width: 372px !important; }
+  .rsp-w7 > table { min-width: 434px !important; }
+  .rsp-w8 > table { min-width: 496px !important; }
+  .rsp-w9 > table { min-width: 558px !important; }
+  .rsp-w10 > table { min-width: 620px !important; }
+  .rsp-w11 > table { min-width: 682px !important; }
+  .rsp-w12 > table { min-width: 744px !important; }
+  .rsp-w13 > table { min-width: 806px !important; }
+  .rsp-w14 > table { min-width: 868px !important; }
+  .rsp-w15 > table { min-width: 930px !important; }
+  .rsp-w16 > table { min-width: 992px !important; }
+}
+
+/* ========== 3. 手机：指标卡两列、页头转纵向 ========== */
+@media screen and (max-width: 720px) {
+  body {
+    max-width: 100% !important;
+    padding: 18px 16px 44px 16px !important;
+    font-size: 10.5pt;
+  }
+  h2 { font-size: 15pt !important; margin: 20pt 0 7pt 0 !important; }
+  h3 { font-size: 12.5pt !important; }
+  h1 { font-size: 19pt !important; }
+  p, li { line-height: 1.62; }
+  ul, ol { padding-left: 17pt; }
+
+  .report-header { flex-direction: column; align-items: stretch; gap: 8pt; }
+  .price-block { text-align: left; padding-top: 0; }
+  .price-current { font-size: 24pt !important; }
+  .ticker-name { font-size: 21pt !important; }
+  .ticker-sub { font-size: 9.5pt !important; }
+
+  .metrics { gap: 9pt 12pt; }
+  .metric { flex: 1 1 45%; }
+  .metric-value { font-size: 15pt !important; }
+  .metric-label { font-size: 8.5pt !important; white-space: normal !important; }
+
+  table, .kami-table { font-size: 9pt !important; }
+  .longtable { font-size: 8.5pt !important; }
+  .wide { font-size: 7.5pt !important; }
+  .dense { font-size: 8pt !important; }
+  table th, table td, .kami-table th, .kami-table td { padding: 5pt 6pt !important; }
+
+  blockquote, .quote, .note, .warn, .callout, .risk-item { padding: 9pt 11pt !important; }
+  .risk-grid { grid-template-columns: 1fr !important; }
+  .report-footer { flex-direction: column; align-items: flex-start; gap: 3pt; }
+}
+
+/* ========== 4. 小屏手机：指标卡单列、边距收到最紧 ========== */
+@media screen and (max-width: 430px) {
+  body { padding: 14px 12px 38px 12px !important; }
+  h2 { font-size: 14pt !important; }
+  h3 { font-size: 11.5pt !important; }
+  .ticker-name { font-size: 19pt !important; }
+  .price-current { font-size: 21pt !important; }
+  .metric { flex: 1 1 100%; }
+  .metric-value { font-size: 16pt !important; }
+  ul, ol { padding-left: 15pt; }
+  table, .kami-table { font-size: 8.5pt !important; }
+}
+
+/* ========== 5. 打印：把包裹层还原成透明，PDF 版式与补丁前完全一致 ========== */
+@media print {
+  .rsp-table { margin: 0; padding: 0; overflow: visible !important; background: none !important; }
+  .rsp-table > table { margin: 8pt 0; min-width: 0 !important; }
+  [class*="rsp-w"] > table { min-width: 0 !important; }
+}
+</style>
 </head>
 <body>
 
@@ -122,7 +233,7 @@
 <h2>一、公司概况</h2>
 
 <h3>1.1 基本信息</h3>
-<table class="compact">
+<div class="rsp-table"><table class="compact">
   <thead><tr><th style="width:22%;">项目</th><th>内容</th></tr></thead>
   <tbody>
     <tr><td>公司全称</td><td>江苏银行股份有限公司</td></tr>
@@ -133,7 +244,7 @@
     <tr><td>经营范围</td><td>公司金融、零售与财富管理、金融市场、资产管理（苏银理财）、金融租赁（苏银金租）、消费金融（苏银凯基）</td></tr>
     <tr><td>区域布局</td><td>根植江苏（机构县域全覆盖），辐射长三角、京津冀、粤港澳大湾区三大经济圈</td></tr>
   </tbody>
-</table>
+</table></div>
 
 <h3>1.2 上市沿革（决定 15 年数据需分段解读）</h3>
 <ul>
@@ -324,7 +435,7 @@
 </figure>
 
 <h2>表 1　经营业绩与盈利能力（2011—2025，附 2026H1）</h2>
-<table class="financial compact">
+<div class="rsp-table rsp-w7"><table class="financial compact">
   <thead><tr><th>年度</th><th>营业收入<br>（亿元）</th><th>同比</th><th>归母净利润<br>（亿元）</th><th>同比</th><th>基本每股<br>收益（元）</th><th>加权平均<br>ROE（%）</th></tr></thead>
   <tbody>
 <tr><td>2011</td><td>165.24</td><td>—</td><td>58.34 <sup>a</sup></td><td>—</td><td>0.64</td><td>22.77</td></tr>
@@ -344,12 +455,12 @@
 <tr class="tot"><td>2025</td><td class="hi">879.42</td><td class="hi">+8.82%</td><td class="hi">345.01</td><td class="hi">+8.35%</td><td class="hi">1.76</td><td class="hi">13.14</td></tr>
 <tr><td>2026H1</td><td>489.52</td><td>+9.11%</td><td>218.76</td><td>+8.09%</td><td>1.13</td><td>15.72 <sup>b</sup></td></tr>
   </tbody>
-</table>
+</table></div>
 <p class="note"><sup>a</sup> 2011—2013 年报表口径为"净利润（含少数股东损益）"；2014 年起为"归属于上市公司股东的净利润"。因当时少数股东损益金额极小，口径差异不影响趋势判断。　<sup>b</sup> 2026H1 为年化值。</p>
 <p>十五年间营业收入增长 4.32 倍（CAGR 12.7%）、归母净利润增长 4.91 倍（CAGR 13.5%）。利润增速长期高于收入增速，2021—2022 年为增速峰值（+30.72%、+28.90%），2023 年起换挡至 8%—13% 区间，2026H1 增速 8.09% 显示企稳迹象。</p>
 
 <h2>表 2　资产负债与存贷款规模（2011—2025 年末，附 2026H1）</h2>
-<table class="financial compact">
+<div class="rsp-table rsp-w7"><table class="financial compact">
   <thead><tr><th>期末</th><th>总资产<br>（亿元）</th><th>总负债<br>（亿元）</th><th>股东权益<br>（亿元）</th><th>各项存款<br>（亿元）</th><th>各项贷款<br>（亿元）</th><th>存贷比<br>（%）</th></tr></thead>
   <tbody>
 <tr><td>2011</td><td>5,141.46</td><td>4,863.34</td><td>278.12</td><td>4,350.05</td><td>2,908.25</td><td>66.55 <sup>c</sup></td></tr>
@@ -369,11 +480,11 @@
 <tr class="tot"><td>2025</td><td class="hi">49,313.16</td><td class="hi">45,817.34</td><td class="hi">3,495.82</td><td class="hi">25,387.48</td><td class="hi">24,690.61</td><td class="hi">87.45</td></tr>
 <tr><td>2026H1</td><td>56,111.02</td><td>52,474.16</td><td>3,636.85</td><td>29,802.71</td><td>27,702.58</td><td>84.79</td></tr>
   </tbody>
-</table>
+</table></div>
 <p class="note"><sup>c</sup> 2011—2013 年为年报披露的<strong>人民币口径</strong>存贷比，与 2019 年起的披露口径不可直接比较（该行 2016 年才上市）。　<sup>d</sup> 2023 年末各项贷款按 2024/2025 年报追溯调整后为 <strong>18,931.27 亿元</strong>（原 2023 年报披露 18,017.97 亿元），差异源于金融租赁子公司长期应收款并入贷款统计。2014—2018 年年报未按同一口径披露存贷比，故留"—"。</p>
 <p>总资产从 5,141 亿元增至 <span class="hl">49,313 亿元</span>（15 年放大 9.6 倍），2026H1 达 5.61 万亿元。2023 年以来扩张明显加速：2023 +14.20%、2024 +16.07%、2025 +24.78%、2026H1 半年 +13.79%（年化近 28%），显著高于同期行业平均。</p>
 <h2>表 3　资产质量与风险抵补（2015—2025 年末，附 2026H1）</h2>
-<table class="financial compact">
+<div class="rsp-table rsp-w7"><table class="financial compact">
   <thead><tr><th>期末</th><th>不良贷款率<br>（%）</th><th>不良余额<br>（亿元）</th><th>关注类<br>占比（%）</th><th>不良+关注<br>（%）</th><th>拨备覆盖率<br>（%）</th><th>拨贷比<br>（%）</th></tr></thead>
   <tbody>
 <tr><td>2015</td><td>1.43</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
@@ -389,12 +500,12 @@
 <tr class="tot"><td>2025</td><td class="hi">0.84</td><td class="hi">206.37</td><td class="hi">1.32</td><td class="hi">2.16</td><td class="hi">322.98</td><td class="hi">2.70</td></tr>
 <tr><td>2026H1</td><td>0.81</td><td>224.40</td><td>1.15</td><td>1.96</td><td>304.83</td><td>2.47</td></tr>
   </tbody>
-</table>
+</table></div>
 <p class="note"><sup>e</sup> 经 2023 年起"金融租赁子公司长期应收款并入贷款统计"的口径调整追溯重述：2021 年拨贷比 3.33%→3.45%；2022 年拨备覆盖率 362.07%→393.89%、拨贷比 3.41%→3.55%；2023 年不良率 0.91%→0.89%、拨备覆盖率 378.13%→389.53%。本表统一采用<strong>最新追溯调整后口径</strong>以保证跨年可比。不良贷款余额取自各年报"贷款五级分类"表（次级+可疑+损失）加总；关注类占比 2015—2019 年年报未按此口径单列，留"—"。</p>
 <p>不良贷款率自 1.43%（2015）连续下降至 <span class="hl">0.84%</span>（2025），为上市以来最优，2026H1 进一步降至 <span class="hl">0.81%</span>，在 A 股上市银行中处于最低梯队。"不良+关注"合计从 2.68%（2020）降至 1.96%（2026H1），潜在风险敞口同步收敛。</p>
 
 <h2>表 4　资本充足率与经营效率（2016—2025 年末，附 2026H1）</h2>
-<table class="financial compact">
+<div class="rsp-table rsp-w6"><table class="financial compact">
   <thead><tr><th>期末</th><th>资本充足率<br>（%）</th><th>一级资本<br>充足率（%）</th><th>核心一级资本<br>充足率（%）</th><th>流动性比例<br>（%）</th><th>成本收入比<br>（%）</th></tr></thead>
   <tbody>
 <tr><td>2016</td><td>11.51</td><td>9.02</td><td>9.01</td><td>52.15</td><td>29.21</td></tr>
@@ -409,12 +520,12 @@
 <tr class="tot"><td>2025</td><td class="hi">12.87</td><td class="hi">11.67</td><td class="hi">8.93</td><td class="hi">121.42</td><td class="hi">26.67</td></tr>
 <tr><td>2026H1</td><td>12.40</td><td>11.19</td><td>8.67</td><td>115.73</td><td>20.43 <sup>f</sup></td></tr>
   </tbody>
-</table>
+</table></div>
 <p class="note"><sup>f</sup> 2026H1 成本收入比为半年数，因收入季节性不可与全年直接比较。核心一级资本充足率监管要求（含系统重要性银行附加资本）为不低于 8.5%。</p>
 
 
 <h2>表 5　营业收入结构（2020—2025，附 2026H1；单位：亿元）</h2>
-<table class="financial compact">
+<div class="rsp-table rsp-w9"><table class="financial compact">
   <thead><tr><th>期间</th><th>营业收入</th><th>利息净收入</th><th>占比</th><th>手续费净收入</th><th>占比</th><th>投资收益</th><th>占比</th><th>其他非息</th></tr></thead>
   <tbody>
 <tr><td>2020</td><td>520.26</td><td>369.87</td><td>71.09%</td><td>53.57</td><td>10.30%</td><td>82.83</td><td>15.92%</td><td>14.00</td></tr>
@@ -425,7 +536,7 @@
 <tr class="tot"><td>2025</td><td class="hi">879.42</td><td class="hi">675.18</td><td class="hi">76.78%</td><td class="hi">56.55</td><td class="hi">6.43%</td><td class="hi">126.90</td><td class="hi">14.43%</td><td class="hi">20.79</td></tr>
 <tr><td>2026H1</td><td>489.52</td><td>368.92</td><td>75.37%</td><td>31.94</td><td>6.53%</td><td>68.86</td><td>14.07%</td><td>19.80</td></tr>
   </tbody>
-</table>
+</table></div>
 <p class="note">"其他非息"= 营业收入 − 利息净收入 − 手续费及佣金净收入 − 投资收益，包含其他收益、公允价值变动净收益、汇兑净收益、其他业务收入与资产处置收益。2019 年及以前因新金融工具准则（IFRS9）切换导致利息收入/投资收益归集口径发生较大变化，跨 2018/2019 比较不具可比性，故本表自 2020 年起列示。</p>
 
 <h2>图 4　营业收入结构（2020—2025）</h2>
@@ -483,7 +594,7 @@
 </figure>
 
 <h2>表 6　净息差与资产负债定价（2016—2025，附 2026H1；单位：%）</h2>
-<table class="financial compact">
+<div class="rsp-table rsp-w7"><table class="financial compact">
   <thead><tr><th>期间</th><th>净息差</th><th>净利差</th><th>生息资产<br>收益率</th><th>计息负债<br>付息率</th><th>发放贷款及垫款<br>平均利率</th><th>吸收存款<br>平均利率</th></tr></thead>
   <tbody>
 <tr><td>2016</td><td>1.70</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
@@ -498,11 +609,11 @@
 <tr class="tot"><td>2025</td><td class="hi">1.73</td><td class="hi">1.71</td><td class="hi">3.52</td><td class="hi">1.81</td><td class="hi">4.27</td><td class="hi">1.71</td></tr>
 <tr><td>2026H1</td><td>1.64</td><td>1.62</td><td>3.21</td><td>1.59</td><td>3.92</td><td>1.46</td></tr>
   </tbody>
-</table>
+</table></div>
 <p class="note">净息差、净利差按"还原口径利息净收入"计算（新金融工具准则施行后，以公允价值计量且其变动计入当期损益的金融资产持有期间形成的收益不再计入利息收入）；生息资产/计息负债平均余额为每日余额平均数。2016—2020 年年报仅披露净息差，未同步披露净利差/生息资产收益率系列，故留"—"。</p>
 
 <h2>表 7　分季度经营数据（2025 年、2026H1；单位：亿元）</h2>
-<table class="financial compact">
+<div class="rsp-table"><table class="financial compact">
   <thead><tr><th>期间</th><th>营业收入</th><th>归母净利润</th><th>归母净利润占全年比重</th></tr></thead>
   <tbody>
 <tr><td>2025Q1</td><td>223.04</td><td>97.80</td><td>28.34%</td></tr>
@@ -514,11 +625,11 @@
 <tr><td>2026Q2</td><td>247.71</td><td>112.94</td><td>—</td></tr>
 <tr><td>2026H1 合计</td><td>489.52</td><td>218.76</td><td>—</td></tr>
   </tbody>
-</table>
+</table></div>
 <p>2025 年第四季度归母净利润仅 39.18 亿元，不足前三季度单季（约 98—105 亿元）的 40%，是全年最重要的异常点；同期营业收入 207.60 亿元仅比前三季度均值低 7.3%——收入正常而利润崩塌，指向支出端（拨备与费用）的集中释放。</p>
 
 <h2>表 8　手续费及佣金收入结构（2025 vs 2024；单位：亿元）</h2>
-<table class="financial compact">
+<div class="rsp-table"><table class="financial compact">
   <thead><tr><th>项目</th><th>2025 年</th><th>2024 年</th><th>同比</th></tr></thead>
   <tbody>
 <tr><td>代理手续费收入</td><td>33.05</td><td>30.86</td><td>+7.09%</td></tr>
@@ -532,7 +643,7 @@
 <tr><td>手续费及佣金支出合计</td><td>10.76</td><td>18.65</td><td>−42.29%</td></tr>
 <tr class="tot"><td>手续费及佣金净收入</td><td class="hi">56.55</td><td class="hi">44.17</td><td class="hi">+28.03%</td></tr>
   </tbody>
-</table>
+</table></div>
 <p>2025 年手续费净收入大增 28.03%，但收入端仅增长 7.15%，<strong>增量的约 64% 来自支出端压降</strong>（结算与清算手续费支出从 11.78 亿元降至 5.51 亿元、银行卡手续费支出从 2.75 亿元降至 0.90 亿元）。这是"净收入增长"与"中间业务真实扩张"之间的重要区分，且支出压降属一次性空间。</p>
 <h2>三、关键变化数据与趋势含义</h2>
 
@@ -542,7 +653,7 @@
 <p><strong>主线三：营业利润 −0.30% 与净利润 +8.94% 之间的 9.24 个百分点缺口，来自所得税费用骤降 39.93%。</strong>所得税费用从 2024 年的 79.62 亿元降至 47.83 亿元，实际税率由 19.29% 降至 11.65%。年报附注分解为：按 25% 法定税率计算 102.67 亿元，减非应税收入影响 65.20 亿元，加不可抵扣的费用及其他影响 10.36 亿元。→ <strong>趋势含义</strong>：税率下行的主因是"不可抵扣的费用及其他影响"从 39.79 亿元降至 10.36 亿元（−29.43 亿元），贡献了 2025 年净利润增速中约 8 个百分点的税盾效应，需以<strong>税前利润</strong>判断主业动能。</p>
 
 <h3>3.2 资产负债表：规模扩张与结构迁移</h3>
-<table>
+<div class="rsp-table"><table>
   <thead><tr><th style="width:24%">变化</th><th>数据轨迹与趋势含义</th></tr></thead>
   <tbody>
 <tr><td><strong>总资产进入"加速档"</strong></td><td>2.98 万亿（2022）→ 3.40 万亿（2023，+14.20%）→ 3.95 万亿（2024，+16.07%）→ <strong>4.93 万亿（2025，+24.78%）</strong> → 5.61 万亿（2026H1）。在净息差持续收窄环境下，"以量补价"成为维持收入增长的必要手段，但代价是更快的资本消耗与资本充足率摊薄（13.31%→12.99%→12.87%→12.40%）。</td></tr>
@@ -550,21 +661,21 @@
 <tr><td><strong>资产端向对公倾斜，零售贷款负增长</strong></td><td>2025 年对公贷款 16,620.37 亿元（+26.11%）、零售贷款 6,604.43 亿元（<strong>−2.13%</strong>）、贴现 1,465.81 亿元（+43.03%）。对公中基础设施贷款 7,374 亿元（+40%，占对公 44%）、制造业贷款 3,577 亿元（+18%，占 22%）。零售贷款在 2024—2026H1 连续收缩（6,748→6,604→6,496 亿元），代价是对公集中度上升且利率下行更快（贷款平均利率 4.27%，较 2023 年 −91BP）。</td></tr>
 <tr><td><strong>权益增厚依赖永续债与留存</strong></td><td>股东权益 3,496 亿元（2025，+11.45%）；每股净资产 11.47→12.73→<strong>14.06</strong>→14.79 元。2025 年其他权益工具（永续债）增加 100.03 亿元至 799.78 亿元。永续债利息在计算归母普通股股东 ROE 时需扣除，是"加权平均 ROE 13.14%"与"每股净资产增速 10.45%"之间的口径差异来源。</td></tr>
   </tbody>
-</table>
+</table></div>
 
 <h3>3.3 现金流量表：银行报表的特殊读法</h3>
 <p>经营活动产生的现金流量净额（亿元）：−1,051.38（2017）→ −920.48（2018）→ −579.58（2019）→ −192.84（2020）→ 649.85（2021）→ −38.13（2022）→ 2,135.99（2023）→ 368.46（2024）→ <strong>5,606.51（2025）</strong>。</p>
 <p>→ <strong>趋势含义</strong>：银行经营活动现金流的主要驱动是存款与同业负债的净变动，而非经营利润，因此<strong>波动幅度可达数千亿元且正负交替</strong>，不具利润质量指示意义。2025 年 5,606.51 亿元的大额净流入对应的是当年存款净增 4,229 亿元及同业存放等负债科目扩张，应理解为"负债端扩张的现金体现"，<strong>不能解读为经营质量改善</strong>。2025 年第四季度经营活动现金流净额 1,586.98 亿元为正，与当季利润仅 39.18 亿元形成强烈反差，进一步印证银行现金流与利润的脱钩。</p>
 
 <h3>3.4 三表联动结论</h3>
-<table>
+<div class="rsp-table"><table>
   <thead><tr><th style="width:15%">报表</th><th style="width:15%">看什么</th><th>江苏银行 2025 年的答案</th></tr></thead>
   <tbody>
 <tr><td>损益表</td><td>主业真相</td><td>利息净收入 +20.66% 是真实的、由规模驱动的增长；但非息收入 −17.84%、拨备 +19.90%、费用 +17.35% 使营业利润同比 −0.30%；<strong>归母净利润 +8.35% 全部来自税率下行（税盾约 29.9 亿元），剔除后为负增长；利润总额同比 −0.49%</strong></td></tr>
 <tr><td>资产负债表</td><td>扩张代价</td><td>资产 +24.78% 创上市新高，靠对公与存款高增支撑，代价是净息差降至 1.73%、资本充足率降至 12.87%、零售贷款负增长</td></tr>
 <tr><td>现金流量表</td><td>现金来源</td><td>5,606.51 亿元经营净流入来自负债扩张，不构成质量信号</td></tr>
   </tbody>
-</table>
+</table></div>
 
 <h2>四、数据变化趋势与原因分析</h2>
 
@@ -613,7 +724,7 @@
 <p><strong>质量提示</strong>：2025 年 28.03% 的净收入增长中，收入端仅贡献 4.49 亿元、支出端压降贡献 7.89 亿元（占增量 63.7%）。支出压降属一次性空间，2026 年起难以重复贡献，这是判断 2026 年中收增速时的重要背景。</p>
 
 <h3>4.6 专题：2025 年"收入 +8.82%、营业利润 −0.30%"的完整拆解</h3>
-<table class="financial compact">
+<div class="rsp-table rsp-w5"><table class="financial compact">
   <thead><tr><th>拆解项</th><th>2025 年</th><th>2024 年</th><th>变动</th><th>对营业利润影响</th></tr></thead>
   <tbody>
 <tr><td>营业收入</td><td>879.42</td><td>808.15</td><td>+71.27</td><td>+71.27</td></tr>
@@ -634,7 +745,7 @@
 <tr><td>净利润</td><td>362.84</td><td>333.06</td><td>+29.78</td><td>—</td></tr>
 <tr class="tot"><td>归属于母公司股东的净利润</td><td>345.01</td><td>318.43</td><td>+26.58</td><td><strong>+8.35%</strong></td></tr>
   </tbody>
-</table>
+</table></div>
 <p><strong>结论</strong>：2025 年归母净利润 +8.35% 的构成是——<strong>拨备多提 36.57 亿元、费用多支 34.67 亿元合计吃掉 71.24 亿元收入增量；随后由所得税费用减少 31.79 亿元（主要来自"不可抵扣的费用及其他影响"从 39.79 亿元降至 10.36 亿元）回补了全部利润缺口并额外贡献约 29.78 亿元净利润增量</strong>。</p>
 <p><strong>如何解读</strong>：不宜简单判定为"经营恶化"或"利润虚增"，而应作两点区分：</p>
 <ul>
@@ -657,7 +768,7 @@
 <p>江苏省最大法人银行，全国 20 家系统重要性银行之一；机构实现江苏县域全覆盖，业务辐射长三角、京津冀、粤港澳大湾区三大经济圈。战略框架为五大战略目标（最具价值的银行、服务领先的银行、智能创新的银行、员工满意的银行、政治过硬的银行）+ 六大业务战略（做实公司业务、做大零售业务、做优金融市场业务、加速数字金融、深化区域布局、实施 ESG 战略）。<strong>区位优势是核心竞争力来源</strong>：江苏省 GDP 与制造业体量位居全国前列。</p>
 
 <h3>5.2 公司金融：对公是 2025 年规模扩张的主引擎</h3>
-<table class="financial compact">
+<div class="rsp-table rsp-w5"><table class="financial compact">
   <thead><tr><th>指标</th><th>2024 年末</th><th>2025 年末</th><th>同比</th><th>2026H1</th></tr></thead>
   <tbody>
 <tr><td>对公贷款</td><td>13,179 亿元</td><td>16,620 亿元</td><td>+26.11%</td><td>19,400 亿元</td></tr>
@@ -668,7 +779,7 @@
 <tr><td>涉农贷款</td><td>—</td><td>超 2,870 亿元</td><td>—</td><td>—</td></tr>
 <tr><td>绿色融资规模</td><td>约 5,502 亿元</td><td>超 7,400 亿元</td><td>+34.5%</td><td>突破 9,200 亿元（+24.3%）</td></tr>
   </tbody>
-</table>
+</table></div>
 <p class="note">表中"约"值系按年报披露的同比增速反算，仅作规模量级参考；其余为年报披露值。2025 年债务融资工具承销规模超 2,800 亿元，列城商行首位；科技金融授信支持专精特新、高新技术企业、科技型中小企业等高质量客户数量列全省第一。</p>
 
 <h3>5.3 零售与财富管理：城商行体系内的绝对领先</h3>
@@ -687,13 +798,13 @@
 <p>手机银行月活首超 800 万户，城商行第一；参与"多边央行数字货币桥"项目；2025 年新开立数字人民币钱包 34 万个，全年累计交易额突破 3,600 亿元。冠名"江苏省城市足球联赛"，线上打造手机银行"苏超"专区以场景获客。</p>
 
 <h3>5.6 股东回报</h3>
-<table class="financial compact">
+<div class="rsp-table"><table class="financial compact">
   <thead><tr><th>年度</th><th>每 10 股现金股利（元）</th><th>现金分红总额（亿元）</th><th>占归母净利润比例</th></tr></thead>
   <tbody>
 <tr><td>2024</td><td>5.206</td><td>95.54</td><td>30.00%</td></tr>
 <tr class="tot"><td>2025</td><td class="hi">5.641</td><td class="hi">103.52</td><td class="hi">30.00%</td></tr>
   </tbody>
-</table>
+</table></div>
 <p>2025 年采用<strong>中期 + 年度两次分红</strong>：半年度每 10 股派 3.309 元（60.72 亿元，占半年度归母净利润 30%），年度拟每 10 股派 2.332 元（42.80 亿元），全年合计 103.52 亿元。该行章程规定"每年以现金形式分配的利润不少于当年实现的可供分配利润的 10%"，实际执行稳定在 30%。</p>
 
 <h3>5.7 需剔除的低价值 / 噪音信息</h3>
@@ -739,7 +850,7 @@
 <h2>附录　数据来源与口径</h2>
 
 <h3>A.1 采用文件清单</h3>
-<table class="compact">
+<div class="rsp-table"><table class="compact">
   <thead><tr><th style="width:14%">期间</th><th style="width:40%">采用文件</th><th>版本说明</th></tr></thead>
   <tbody>
 <tr><td>2011</td><td>江苏银行 2011 年年度报告摘要</td><td>该行上市前，仅摘要可用；2011 年数据同时经 2013 年年报"报告期主要会计数据"交叉验证</td></tr>
@@ -751,7 +862,7 @@
 <tr><td>2025</td><td>江苏银行 2025 年年度报告</td><td>最新完整年度报告</td></tr>
 <tr><td>2026H1</td><td>江苏银行 2026 年半年度报告</td><td>最新中期报告</td></tr>
   </tbody>
-</table>
+</table></div>
 
 <h3>A.2 关键口径说明</h3>
 <ol>

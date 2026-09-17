@@ -54,7 +54,9 @@
     scrim: document.getElementById("scrim"),
     notice: document.getElementById("notice"),
     noticeText: document.getElementById("noticeText"),
-    noticeClose: document.getElementById("noticeClose")
+    noticeClose: document.getElementById("noticeClose"),
+    btnExpandAll: document.getElementById("btnExpandAll"),
+    btnCollapseAll: document.getElementById("btnCollapseAll")
   };
 
   var state = { current: null, query: "", open: {} };
@@ -155,6 +157,7 @@
 
     el.tree.innerHTML = html;
     el.tree.dataset.hits = String(hits);
+    updateTools();
   }
 
   function markActive() {
@@ -170,6 +173,29 @@
         if (head) head.setAttribute("aria-expanded", "true");
       }
     });
+  }
+
+  /* ---------- 展开 / 收起全部 ---------- */
+
+  function setAllOpen(open) {
+    state.open = {};
+    if (open) {
+      companies.forEach(function (c) { state.open[c.id] = true; });
+    }
+    renderTree();
+    markActive();
+    updateTools();
+  }
+
+  function updateTools() {
+    if (!el.btnExpandAll || !el.btnCollapseAll) return;
+    var q = state.query.trim();
+    // 搜索态下所有分组强制展开，此时「收起全部」无实际意义
+    var allOpen = companies.length > 0 && companies.every(function (c) {
+      return !!state.open[c.id];
+    });
+    el.btnExpandAll.disabled = !!q || allOpen;
+    el.btnCollapseAll.disabled = !!q || !companies.some(function (c) { return !!state.open[c.id]; });
   }
 
   /* ---------- 欢迎页 ---------- */
@@ -226,6 +252,44 @@
     el.stage.dataset.state = mode;
   }
 
+  function revealReport() {
+    if (el.stage.dataset.state === "loading") setStage("ready");
+  }
+
+  /* 撤掉"正在载入"遮罩。
+     不能只依赖 iframe 的 load 事件：报告内嵌的 @font-face 走外链 CDN，
+     该请求一旦卡住（慢网 / 被墙），load 永远不会触发，遮罩就会一直盖着正文。
+     所以这里用两条更早的信号：子文档进入 interactive + 硬性兜底计时。 */
+  function armRevealWatch(expectedSrc) {
+    clearInterval(showReport._poll);
+    clearTimeout(showReport._t);
+
+    var done = false;
+    var want = null;
+    try { want = new URL(expectedSrc, location.href).href; } catch (err) { /* 忽略 */ }
+
+    function finish() {
+      if (done) return;
+      done = true;
+      clearInterval(showReport._poll);
+      clearTimeout(showReport._t);
+      revealReport();
+    }
+
+    // 同源（http/https）时可读子文档：正文一解析完就露出，不等外链字体
+    showReport._poll = setInterval(function () {
+      try {
+        var d = el.viewer.contentDocument;
+        if (!d || d.readyState === "loading") return;
+        if (want && d.location && d.location.href !== want) return; // 还是上一份文档
+        finish();
+      } catch (err) { /* 跨域 / file:// 读不到，交给兜底 */ }
+    }, 120);
+
+    // 硬兜底：即便外链资源卡死，2.5s 后也把正文露出来
+    showReport._t = setTimeout(finish, 2500);
+  }
+
   function showReport(r, opts) {
     opts = opts || {};
     state.current = r;
@@ -257,13 +321,9 @@
     var src = isFileProtocol() ? raw : raw.split("/").map(encodeURIComponent).join("/");
 
     setStage("loading");
-    el.viewer.onload = function () { setStage("ready"); };
-    // 兜底：报告体量大 / 外部字体慢时不至于一直转圈
-    clearTimeout(showReport._t);
-    showReport._t = setTimeout(function () {
-      if (el.stage.dataset.state === "loading") setStage("ready");
-    }, 9000);
+    el.viewer.onload = revealReport;
     el.viewer.src = src;
+    armRevealWatch(src);
 
     markActive();
     if (window.innerWidth <= 880) closeRail();
@@ -280,6 +340,8 @@
     el.btnOpen.hidden = true;
     el.btnPdf.hidden = true;
     el.btnReload.hidden = true;
+    clearInterval(showReport._poll);
+    clearTimeout(showReport._t);
     el.viewer.removeAttribute("src");
     setStage("empty");
     markActive();
@@ -314,6 +376,7 @@
       li.classList.toggle("open", willOpen);
       head.setAttribute("aria-expanded", willOpen ? "true" : "false");
       state.open[cid] = willOpen;
+      updateTools();
       return;
     }
     var item = e.target.closest(".report-item");
@@ -358,6 +421,9 @@
   el.btnReload.addEventListener("click", function () {
     if (state.current) showReport(state.current, { silent: true });
   });
+
+  if (el.btnExpandAll) el.btnExpandAll.addEventListener("click", function () { setAllOpen(true); });
+  if (el.btnCollapseAll) el.btnCollapseAll.addEventListener("click", function () { setAllOpen(false); });
 
   el.railToggle.addEventListener("click", function () {
     el.rail.classList.toggle("open");

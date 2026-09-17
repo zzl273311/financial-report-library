@@ -3,6 +3,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>藏格矿业（000408.SZ）2015—2025 财务数据对比分析报告</title>
 <meta name="author" content="财报分析">
 <meta name="generator" content="financial-report-analysis">
@@ -10,12 +11,12 @@
   @font-face {
     font-family: "TsangerJinKai02";
     src: url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W04.ttf") format("truetype");
-    font-weight: 400; font-style: normal;
+    font-weight: 400; font-style: normal; font-display: swap;
   }
   @font-face {
     font-family: "TsangerJinKai02";
     src: url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W05.ttf") format("truetype");
-    font-weight: 500; font-style: normal;
+    font-weight: 500; font-style: normal; font-display: swap;
   }
   @page {
     size: A4;
@@ -134,6 +135,116 @@
     padding-top: 8pt; border-top: 0.5pt solid var(--border);
     font-size: 8.5pt; color: var(--stone); }
 </style>
+
+<!-- rsp-mobile-adapt : 响应式适配层（仅屏幕生效，不影响打印/PDF） -->
+<style id="rsp-mobile-adapt">
+/* ========== 1. 全局：屏幕端基础修正 ========== */
+@media screen {
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body { overflow-wrap: break-word; }
+  img, svg, canvas, video, iframe { max-width: 100%; }
+  svg[viewBox], svg[viewbox] { height: auto; }
+
+  /* 表格横向滚动容器：宽表不压字、不撑破页面 */
+  .rsp-table {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    margin: 8pt 0;
+    position: relative;
+  }
+  .rsp-table > table { margin: 0; }
+  .rsp-table::-webkit-scrollbar { height: 7px; }
+  .rsp-table::-webkit-scrollbar-track { background: transparent; }
+  .rsp-table::-webkit-scrollbar-thumb { background: #D8D1C4; border-radius: 4px; }
+  /* 内容确实溢出时，右侧给一层渐变暗示"还能往右滑" */
+  .rsp-table[data-rsp-scroll] {
+    background: linear-gradient(to left, rgba(167,63,45,.10), rgba(167,63,45,0) 28px);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 28px 100%;
+  }
+}
+
+/* ========== 2. 平板 / 窄窗口：边距先收，避免内容被挤 ========== */
+@media screen and (max-width: 900px) {
+  body { padding: 22px 22px 46px 22px !important; }
+  .report-header { flex-wrap: wrap; gap: 12pt; }
+  .metrics { flex-wrap: wrap; gap: 10pt 18pt; }
+  .metric { flex: 1 1 42%; min-width: 0; }
+  .report-footer { flex-wrap: wrap; gap: 4pt 14pt; }
+
+  /* 宽表改为横向滚动：给每列保留最小可读宽度，不再把汉字挤成竖排 */
+  .rsp-w5 > table { min-width: 310px !important; }
+  .rsp-w6 > table { min-width: 372px !important; }
+  .rsp-w7 > table { min-width: 434px !important; }
+  .rsp-w8 > table { min-width: 496px !important; }
+  .rsp-w9 > table { min-width: 558px !important; }
+  .rsp-w10 > table { min-width: 620px !important; }
+  .rsp-w11 > table { min-width: 682px !important; }
+  .rsp-w12 > table { min-width: 744px !important; }
+  .rsp-w13 > table { min-width: 806px !important; }
+  .rsp-w14 > table { min-width: 868px !important; }
+  .rsp-w15 > table { min-width: 930px !important; }
+  .rsp-w16 > table { min-width: 992px !important; }
+}
+
+/* ========== 3. 手机：指标卡两列、页头转纵向 ========== */
+@media screen and (max-width: 720px) {
+  body {
+    max-width: 100% !important;
+    padding: 18px 16px 44px 16px !important;
+    font-size: 10.5pt;
+  }
+  h2 { font-size: 15pt !important; margin: 20pt 0 7pt 0 !important; }
+  h3 { font-size: 12.5pt !important; }
+  h1 { font-size: 19pt !important; }
+  p, li { line-height: 1.62; }
+  ul, ol { padding-left: 17pt; }
+
+  .report-header { flex-direction: column; align-items: stretch; gap: 8pt; }
+  .price-block { text-align: left; padding-top: 0; }
+  .price-current { font-size: 24pt !important; }
+  .ticker-name { font-size: 21pt !important; }
+  .ticker-sub { font-size: 9.5pt !important; }
+
+  .metrics { gap: 9pt 12pt; }
+  .metric { flex: 1 1 45%; }
+  .metric-value { font-size: 15pt !important; }
+  .metric-label { font-size: 8.5pt !important; white-space: normal !important; }
+
+  table, .kami-table { font-size: 9pt !important; }
+  .longtable { font-size: 8.5pt !important; }
+  .wide { font-size: 7.5pt !important; }
+  .dense { font-size: 8pt !important; }
+  table th, table td, .kami-table th, .kami-table td { padding: 5pt 6pt !important; }
+
+  blockquote, .quote, .note, .warn, .callout, .risk-item { padding: 9pt 11pt !important; }
+  .risk-grid { grid-template-columns: 1fr !important; }
+  .report-footer { flex-direction: column; align-items: flex-start; gap: 3pt; }
+}
+
+/* ========== 4. 小屏手机：指标卡单列、边距收到最紧 ========== */
+@media screen and (max-width: 430px) {
+  body { padding: 14px 12px 38px 12px !important; }
+  h2 { font-size: 14pt !important; }
+  h3 { font-size: 11.5pt !important; }
+  .ticker-name { font-size: 19pt !important; }
+  .price-current { font-size: 21pt !important; }
+  .metric { flex: 1 1 100%; }
+  .metric-value { font-size: 16pt !important; }
+  ul, ol { padding-left: 15pt; }
+  table, .kami-table { font-size: 8.5pt !important; }
+}
+
+/* ========== 5. 打印：把包裹层还原成透明，PDF 版式与补丁前完全一致 ========== */
+@media print {
+  .rsp-table { margin: 0; padding: 0; overflow: visible !important; background: none !important; }
+  .rsp-table > table { margin: 8pt 0; min-width: 0 !important; }
+  [class*="rsp-w"] > table { min-width: 0 !important; }
+}
+</style>
 </head>
 <body>
 
@@ -228,7 +339,7 @@
 <h2>财务数据对比 · 综合损益表</h2>
 <p class="note">单位：亿元；基本每股收益单位为元；加权平均净资产收益率为加权平均口径。<br>
 * 2015 年为按 2016 年报追溯重述口径（视为藏格钾肥纳入合并范围）；2015 年年报由原壳公司"金谷源"披露，当年营业收入 1.20 亿元、归母净利润 −0.60 亿元、总资产 4.64 亿元，与重述口径不具可比性。</p>
-<table class="financial compact">
+<div class="rsp-table rsp-w12"><table class="financial compact">
   <thead><tr><th>项目</th><th>2015*</th><th>2016</th><th>2017</th><th>2018</th><th>2019</th><th>2020</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th></tr></thead>
   <tbody>
     <tr><td>营业收入</td><td>27.28</td><td>26.03</td><td>31.73</td><td>26.81</td><td>20.19</td><td>19.03</td><td>36.23</td><td>81.94</td><td>52.26</td><td>32.51</td><td>35.77</td></tr>
@@ -237,11 +348,11 @@
     <tr><td>基本每股收益（元）</td><td>0.59</td><td>0.50</td><td>0.61</td><td>0.43</td><td>0.15</td><td>0.11</td><td>0.73</td><td>3.57</td><td>2.18</td><td>1.64</td><td>2.46</td></tr>
     <tr class="total"><td>加权平均净资产收益率</td><td>42.83%</td><td>21.56%</td><td>18.49%</td><td>12.24%</td><td>4.72%</td><td>2.93%</td><td>16.39%</td><td>50.09%</td><td>27.62%</td><td>19.40%</td><td>24.71%</td></tr>
   </tbody>
-</table>
+</table></div>
 <p class="note">注：2022 年归母净利润采用 2023、2024 年报追溯调整后数据（因《企业会计准则解释第 16 号》调整）。2025 年归母净利润 38.52 亿元中，巨龙铜业权益法投资收益 27.82 亿元，占比 72.23%；同期扣非净利润 40.31 亿元<strong>高于</strong>归母净利润，因权益法投资收益计入经常性损益，扣非口径未剔除该项。</p>
 
 <h2>财务数据对比 · 综合财务状况表</h2>
-<table class="financial compact">
+<div class="rsp-table rsp-w12"><table class="financial compact">
   <thead><tr><th>项目</th><th>2015*</th><th>2016</th><th>2017</th><th>2018</th><th>2019</th><th>2020</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th></tr></thead>
   <tbody>
     <tr><td>总资产</td><td>52.84</td><td>73.61</td><td>77.45</td><td>93.85</td><td>96.44</td><td>86.78</td><td>106.25</td><td>135.40</td><td>140.92</td><td>150.83</td><td>176.92</td></tr>
@@ -251,11 +362,11 @@
     <tr><td>负债合计</td><td>23.66</td><td>13.73</td><td>12.10</td><td>19.50</td><td>17.37</td><td>7.61</td><td>11.71</td><td>14.13</td><td>10.41</td><td>12.36</td><td>14.77</td></tr>
     <tr class="total"><td>资产负债率</td><td>44.79%</td><td>18.65%</td><td>15.62%</td><td>20.78%</td><td>18.01%</td><td>8.76%</td><td>11.02%</td><td>10.44%</td><td>7.39%</td><td>8.20%</td><td>8.35%</td></tr>
   </tbody>
-</table>
+</table></div>
 <p class="note">注：长期股权投资 2019 年起为对西藏巨龙铜业有限公司的参股投资（2018 年及以前合并口径无重大长期股权投资）；2019 年末数取自 2019 年报审计说明之"长期股权投资—巨龙铜业"账面价值 25.57 亿元。资产负债率＝负债合计÷总资产，已与年报管理层讨论与分析披露值逐项核对一致（2022—2025 年分别为 10.44%／7.39%／8.20%／8.35%）。</p>
 
 <h2>财务数据对比 · 现金流量表</h2>
-<table class="financial compact">
+<div class="rsp-table rsp-w11"><table class="financial compact">
   <thead><tr><th>项目</th><th>2016</th><th>2017</th><th>2018</th><th>2019</th><th>2020</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th></tr></thead>
   <tbody>
     <tr><td>经营活动产生的现金流量净额</td><td>4.03</td><td>−0.66</td><td>8.88</td><td>2.77</td><td>−1.74</td><td>20.35</td><td>54.30</td><td>29.84</td><td>9.19</td><td>21.00</td></tr>
@@ -264,7 +375,7 @@
     <tr><td>现金及现金等价物净增加额</td><td>12.86</td><td>−7.26</td><td>−7.70</td><td>0.22</td><td>3.72</td><td>3.45</td><td>19.80</td><td>−11.93</td><td>−7.33</td><td>11.15</td></tr>
     <tr class="total"><td>期末现金及现金等价物余额</td><td>15.56</td><td>8.30</td><td>0.60</td><td>0.82</td><td>4.54</td><td>8.00</td><td>28.00</td><td>15.87</td><td>8.53</td><td>19.67</td></tr>
   </tbody>
-</table>
+</table></div>
 <p class="note">注：单位亿元；2016 年初（2015 年末）期末现金及现金等价物余额为 2.71 亿元。2018 年投资活动净流出 16.88 亿元主要为巨龙铜业股权受让与项目建设，是当年现金余额降至 0.60 亿元的直接原因。</p>
 
 <div class="page-break"></div>
@@ -272,7 +383,7 @@
 <p class="note">从损益表、财务状况表、现金流量表中提炼变化最显著的科目，逐一标注数值轨迹、趋势方向与经营/财务含义。</p>
 
 <h3>损益表 · 关键变化</h3>
-<table class="compact">
+<div class="rsp-table"><table class="compact">
   <thead><tr><th style="width:15%;">科目</th><th style="width:30%;">变化轨迹</th><th style="width:13%;">趋势方向</th><th>趋势含义</th></tr></thead>
   <tbody>
     <tr><td>营业收入</td><td>19.03（2020）→ 81.94（2022）→ 32.51（2024）→ 35.77（2025）</td><td>单峰后回落后企稳</td><td>2021—2022 年爆发源于碳酸锂含税均价 21.69 万元/吨，2023—2024 年腰斩源于锂价降至 8.50 万元/吨。收入由价格主导，产能扩张未带来台阶式跃升。</td></tr>
@@ -281,10 +392,10 @@
     <tr><td>加权平均 ROE</td><td>2.93%（2020）→ 50.09%（2022）→ 24.71%（2025）</td><td>高位回落后再抬升</td><td>2025 年 ROE 回升 5.31 个百分点，但驱动因素已从"锂价弹性"切换为"参股铜矿权益法收益"，盈利质量的周期属性发生变化。</td></tr>
     <tr><td>扣非与归母的关系</td><td>2019—2022 年扣非持续高于归母 → 2025 年扣非 40.31 亿高于归母 38.52 亿</td><td>扣非持续跑赢</td><td>权益法投资收益被认定为经常性损益，扣非口径<strong>并不能剔除铜矿收益</strong>，不能用"扣非"判断主业盈利。</td></tr>
   </tbody>
-</table>
+</table></div>
 
 <h3>财务状况表 · 关键变化</h3>
-<table class="compact">
+<div class="rsp-table"><table class="compact">
   <thead><tr><th style="width:15%;">科目</th><th style="width:30%;">变化轨迹</th><th style="width:13%;">趋势方向</th><th>趋势含义</th></tr></thead>
   <tbody>
     <tr><td>资产负债率</td><td>44.79%（2015）→ 18.01%（2019）→ 8.76%（2020）→ 7.77%（2026H1）</td><td>长期下行、低位稳定</td><td>从借壳后高杠杆降至不足 8%，财务风险基本出清；2026H1 货币资金 28.35 亿元对应负债合计约 14.5 亿元，实质处于<strong>净现金状态</strong>。</td></tr>
@@ -293,10 +404,10 @@
     <tr><td>货币资金</td><td>17.33（2016）→ 0.60（2018）→ 28.00（2022）→ 19.72（2025）→ 28.35（2026H1）</td><td>V 型反转后高位波动</td><td>2018 年 0.60 亿元为历史极值低点（资金占用＋流动性紧张）；2022 年锂价高点积累 28.00 亿元；2024 年因大额分红回购回落，2025 年重新回升。</td></tr>
     <tr><td>负债合计</td><td>23.66（2015）→ 7.61（2020）→ 14.77（2025）</td><td>先降后小幅回升</td><td>2025 年增加主要来自新增长期借款 2.30 亿元与合同负债 2.48 亿元，属经营扩张性负债，而非偿债压力。</td></tr>
   </tbody>
-</table>
+</table></div>
 
 <h3>现金流量表 · 关键变化</h3>
-<table class="compact">
+<div class="rsp-table"><table class="compact">
   <thead><tr><th style="width:15%;">科目</th><th style="width:30%;">变化轨迹</th><th style="width:13%;">趋势方向</th><th>趋势含义</th></tr></thead>
   <tbody>
     <tr><td>经营活动现金流量净额</td><td>4.03（2016）→ −1.74（2020）→ 54.30（2022）→ 9.19（2024）→ 21.00（2025）</td><td>大起大落后修复</td><td>与钾锂价格高度同向；2020 年为唯一负值年份。2025 年回升 128.49% 至 21.00 亿元，但<strong>仅为当年净利润的 54.5%</strong>。</td></tr>
@@ -304,7 +415,7 @@
     <tr><td>筹资活动现金流量净额</td><td>9.31（2016）→ 0.80（2021）→ −33.05（2022）→ −27.70（2023）→ −16.21（2024）→ −13.22（2025）</td><td>由净流入转为长期大额净流出</td><td>2022—2025 年连续四年净流出合计约 <strong>90 亿元</strong>，主要用途是现金分红与股份回购注销。公司已从"融资驱动"转向"回报驱动"。</td></tr>
     <tr><td>现金及现金等价物净增加额</td><td>12.86（2016）→ −7.70（2018）→ 19.80（2022）→ −11.93（2023）→ 11.15（2025）</td><td>波动加剧</td><td>2023—2024 年连续为负（经营现金流下滑叠加分红流出）；2025 年转为净流入，其中投资活动由 −0.31 亿元转为 +3.37 亿元，主因是<strong>收到巨龙铜业分红款</strong>。</td></tr>
   </tbody>
-</table>
+</table></div>
 
 <div class="callout">
   <div class="quote"><strong>三表联动 · 一句话看懂这家公司的真实状态</strong><br>
@@ -387,7 +498,7 @@
 </ul>
 
 <h3>产能与重点项目进展</h3>
-<table class="compact">
+<div class="rsp-table"><table class="compact">
   <thead><tr><th style="width:22%;">产品 / 项目</th><th style="width:20%;">规模</th><th>进展与意义</th></tr></thead>
   <tbody>
     <tr><td>氯化钾（现有）</td><td>设计产能 120 万吨/年<br>利用率 86.10%</td><td>2025 年产量 103.32 万吨、销量 108.43 万吨，产销率保持高位。察尔汗盐湖主力矿区已获批氯化钾资源总量 9.84 亿吨。</td></tr>
@@ -399,7 +510,7 @@
     <tr><td>年产 200 万吨工业盐</td><td>预计 2026 年产销 150 万吨</td><td>已完成可研、安环报告评审及项目备案，完成环评编制，系共伴生矿综合利用的关键落点。</td></tr>
     <tr><td>探矿勘探</td><td>—</td><td>大浪滩黑北钾盐矿完成深层卤水第一阶段详查野外钻探；碱石山钾盐矿《普查报告》通过评审；小梁山—大风山钾盐矿取得新的探矿权证书。</td></tr>
   </tbody>
-</table>
+</table></div>
 
 <h3>重大事项与治理</h3>
 <ul>

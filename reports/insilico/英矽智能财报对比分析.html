@@ -3,6 +3,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>英矽智能 · 财报对比与趋势分析</title>
 <meta name="description" content="基于招股书、2025 年报与 2026 中报的财务数据对比、趋势与原因分析及关键内容总结">
 <meta name="keywords" content="英矽智能,财报分析,AI 药物发现,财务对比,趋势分析,港交所 3696">
@@ -11,12 +12,12 @@
   @font-face {
     font-family: "TsangerJinKai02";
     src: url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W04.ttf") format("truetype");
-    font-weight: 400; font-style: normal;
+    font-weight: 400; font-style: normal; font-display: swap;
   }
   @font-face {
     font-family: "TsangerJinKai02";
     src: url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W05.ttf") format("truetype");
-    font-weight: 500; font-style: normal;
+    font-weight: 500; font-style: normal; font-display: swap;
   }
   @page {
     size: A4;
@@ -131,6 +132,116 @@
   .price-current { color: var(--near-black); }
   .ticker-sub { color: var(--stone); }
 </style>
+
+<!-- rsp-mobile-adapt : 响应式适配层（仅屏幕生效，不影响打印/PDF） -->
+<style id="rsp-mobile-adapt">
+/* ========== 1. 全局：屏幕端基础修正 ========== */
+@media screen {
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body { overflow-wrap: break-word; }
+  img, svg, canvas, video, iframe { max-width: 100%; }
+  svg[viewBox], svg[viewbox] { height: auto; }
+
+  /* 表格横向滚动容器：宽表不压字、不撑破页面 */
+  .rsp-table {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    margin: 8pt 0;
+    position: relative;
+  }
+  .rsp-table > table { margin: 0; }
+  .rsp-table::-webkit-scrollbar { height: 7px; }
+  .rsp-table::-webkit-scrollbar-track { background: transparent; }
+  .rsp-table::-webkit-scrollbar-thumb { background: #D8D1C4; border-radius: 4px; }
+  /* 内容确实溢出时，右侧给一层渐变暗示"还能往右滑" */
+  .rsp-table[data-rsp-scroll] {
+    background: linear-gradient(to left, rgba(167,63,45,.10), rgba(167,63,45,0) 28px);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 28px 100%;
+  }
+}
+
+/* ========== 2. 平板 / 窄窗口：边距先收，避免内容被挤 ========== */
+@media screen and (max-width: 900px) {
+  body { padding: 22px 22px 46px 22px !important; }
+  .report-header { flex-wrap: wrap; gap: 12pt; }
+  .metrics { flex-wrap: wrap; gap: 10pt 18pt; }
+  .metric { flex: 1 1 42%; min-width: 0; }
+  .report-footer { flex-wrap: wrap; gap: 4pt 14pt; }
+
+  /* 宽表改为横向滚动：给每列保留最小可读宽度，不再把汉字挤成竖排 */
+  .rsp-w5 > table { min-width: 310px !important; }
+  .rsp-w6 > table { min-width: 372px !important; }
+  .rsp-w7 > table { min-width: 434px !important; }
+  .rsp-w8 > table { min-width: 496px !important; }
+  .rsp-w9 > table { min-width: 558px !important; }
+  .rsp-w10 > table { min-width: 620px !important; }
+  .rsp-w11 > table { min-width: 682px !important; }
+  .rsp-w12 > table { min-width: 744px !important; }
+  .rsp-w13 > table { min-width: 806px !important; }
+  .rsp-w14 > table { min-width: 868px !important; }
+  .rsp-w15 > table { min-width: 930px !important; }
+  .rsp-w16 > table { min-width: 992px !important; }
+}
+
+/* ========== 3. 手机：指标卡两列、页头转纵向 ========== */
+@media screen and (max-width: 720px) {
+  body {
+    max-width: 100% !important;
+    padding: 18px 16px 44px 16px !important;
+    font-size: 10.5pt;
+  }
+  h2 { font-size: 15pt !important; margin: 20pt 0 7pt 0 !important; }
+  h3 { font-size: 12.5pt !important; }
+  h1 { font-size: 19pt !important; }
+  p, li { line-height: 1.62; }
+  ul, ol { padding-left: 17pt; }
+
+  .report-header { flex-direction: column; align-items: stretch; gap: 8pt; }
+  .price-block { text-align: left; padding-top: 0; }
+  .price-current { font-size: 24pt !important; }
+  .ticker-name { font-size: 21pt !important; }
+  .ticker-sub { font-size: 9.5pt !important; }
+
+  .metrics { gap: 9pt 12pt; }
+  .metric { flex: 1 1 45%; }
+  .metric-value { font-size: 15pt !important; }
+  .metric-label { font-size: 8.5pt !important; white-space: normal !important; }
+
+  table, .kami-table { font-size: 9pt !important; }
+  .longtable { font-size: 8.5pt !important; }
+  .wide { font-size: 7.5pt !important; }
+  .dense { font-size: 8pt !important; }
+  table th, table td, .kami-table th, .kami-table td { padding: 5pt 6pt !important; }
+
+  blockquote, .quote, .note, .warn, .callout, .risk-item { padding: 9pt 11pt !important; }
+  .risk-grid { grid-template-columns: 1fr !important; }
+  .report-footer { flex-direction: column; align-items: flex-start; gap: 3pt; }
+}
+
+/* ========== 4. 小屏手机：指标卡单列、边距收到最紧 ========== */
+@media screen and (max-width: 430px) {
+  body { padding: 14px 12px 38px 12px !important; }
+  h2 { font-size: 14pt !important; }
+  h3 { font-size: 11.5pt !important; }
+  .ticker-name { font-size: 19pt !important; }
+  .price-current { font-size: 21pt !important; }
+  .metric { flex: 1 1 100%; }
+  .metric-value { font-size: 16pt !important; }
+  ul, ol { padding-left: 15pt; }
+  table, .kami-table { font-size: 8.5pt !important; }
+}
+
+/* ========== 5. 打印：把包裹层还原成透明，PDF 版式与补丁前完全一致 ========== */
+@media print {
+  .rsp-table { margin: 0; padding: 0; overflow: visible !important; background: none !important; }
+  .rsp-table > table { margin: 8pt 0; min-width: 0 !important; }
+  [class*="rsp-w"] > table { min-width: 0 !important; }
+}
+</style>
 </head>
 <body>
 
@@ -204,7 +315,7 @@
 <div class="page-break"></div>
 <h2>财务数据对比 · 综合损益表</h2>
 <p class="note">单位：千美元；"—" 表示该期未于摘要中单列披露。H1'2025 / H1'2026 分别为 2025 / 2026 上半年（未经审核）。</p>
-<table class="financial compact">
+<div class="rsp-table rsp-w7"><table class="financial compact">
   <thead><tr><th>项目</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th><th>H1'25</th><th>H1'26</th></tr></thead>
   <tbody>
     <tr><td>收入</td><td>30,147</td><td>51,180</td><td>85,834</td><td>56,239</td><td>27,456</td><td>106,303</td></tr>
@@ -219,10 +330,10 @@
     <tr class="total"><td>年内 / 期内亏损</td><td>(221,828)</td><td>(211,640)</td><td>(17,096)</td><td>(352,316)</td><td>(19,215)</td><td>35,537</td></tr>
     <tr class="total"><td>经调整亏损 / 利润</td><td>(70,804)</td><td>(67,361)</td><td>(22,665)</td><td>(43,834)</td><td>(15,409)</td><td>51,227</td></tr>
   </tbody>
-</table>
+</table></div>
 
 <h2>财务数据对比 · 综合财务状况表</h2>
-<table class="financial compact">
+<div class="rsp-table rsp-w7"><table class="financial compact">
   <thead><tr><th>项目</th><th>2022</th><th>2023</th><th>2024</th><th>H1'25</th><th>2025</th><th>2026H1</th></tr></thead>
   <tbody>
     <tr><td>总资产</td><td>234,786</td><td>202,795</td><td>144,002</td><td>241,311</td><td>489,983</td><td>619,689</td></tr>
@@ -231,11 +342,11 @@
     <tr><td>银行结余及现金</td><td>—</td><td>—</td><td>125,942</td><td>212,130</td><td>393,338</td><td>357,617¹</td></tr>
     <tr><td>资产负债率</td><td>—</td><td>—</td><td>0%</td><td>—</td><td>0%</td><td>2.4%</td></tr>
   </tbody>
-</table>
+</table></div>
 <p class="note">¹ 2026 上半年末另含原到期日三个月以上定期存款 1.089 亿美元，流动性充裕。</p>
 
 <h2>财务数据对比 · 现金流量表</h2>
-<table class="financial compact">
+<div class="rsp-table"><table class="financial compact">
   <thead><tr><th>项目</th><th>2025</th><th>2024</th></tr></thead>
   <tbody>
     <tr><td>经营活动所用现金净额</td><td>(76,766)</td><td>(57,401)</td></tr>
@@ -244,14 +355,14 @@
     <tr><td>现金及现金等价物净增加（减少）</td><td>266,683</td><td>(51,518)</td></tr>
     <tr class="total"><td>年末现金及现金等价物</td><td>393,338</td><td>125,942</td></tr>
   </tbody>
-</table>
+</table></div>
 
 <!-- ========== 关键变化与趋势含义 ========== -->
 <h2>三张财务数据表：关键变化与趋势含义</h2>
 <p class="note">从损益表、财务状况表、现金流量表中提炼变化最显著的科目，逐一标注数值轨迹、趋势方向与经营/财务含义。</p>
 
 <h3>综合损益表</h3>
-<table class="kami-table compact">
+<div class="rsp-table"><table class="kami-table compact">
   <thead><tr><th>关键科目</th><th>变化轨迹（千美元）</th><th>趋势方向</th><th>趋势含义</th></tr></thead>
   <tbody>
     <tr><td>收入</td><td>30,147 → 51,180 → 85,834 → 56,239 → H1'26 106,303</td><td>先升后落再爆发</td><td>项目制"脉冲式"收入，2026H1 新授权首付款推动同比 +287%，验证变现能力但可持续性存疑</td></tr>
@@ -260,10 +371,10 @@
     <tr><td>毛利率</td><td>63.4% → 75.4% → 90.4% → 81.5% → 83.8% → 90.3%</td><td>高位波动 80%–90%</td><td>高毛利授权业务主导，高占比年份源于高毛利管线交易</td></tr>
     <tr><td>FVTPL 公允价值变动</td><td>(138,100) → (126,133) → 9,004 → (296,701) → ~0</td><td>2025 极值后归零</td><td>优先股 IPO 转股后该科目消失，是 2025 报告亏损主因，亦使其"失真"</td></tr>
   </tbody>
-</table>
+</table></div>
 
 <h3>综合财务状况表</h3>
-<table class="kami-table compact">
+<div class="rsp-table"><table class="kami-table compact">
   <thead><tr><th>关键科目</th><th>变化轨迹（千美元）</th><th>趋势方向</th><th>趋势含义</th></tr></thead>
   <tbody>
     <tr><td>总权益（亏绌）</td><td>(449,543) → (650,158) → (663,923) → 452,026(2025末) → 547,055</td><td>巨额赤字→转正并增长</td><td>IPO 募资 + 优先股转普通股，资本结构根本性修复，资不抵债消除</td></tr>
@@ -272,10 +383,10 @@
     <tr><td>银行结余及现金</td><td>125,942(2024末) → 212,130 → 393,338(2025末) → 357,617 + 108,950 定存(2026中)</td><td>充裕且稳定</td><td>现金储备充足，安全垫厚，足以覆盖研发与运营现金流出</td></tr>
     <tr><td>资产负债率</td><td>— → 0%(2025末) → 2.4%(2026中)</td><td>极低</td><td>几乎无杠杆，财务稳健；但亦反映尚未充分利用债务扩张</td></tr>
   </tbody>
-</table>
+</table></div>
 
 <h3>现金流量表</h3>
-<table class="kami-table compact">
+<div class="rsp-table"><table class="kami-table compact">
   <thead><tr><th>关键科目</th><th>变化轨迹（千美元）</th><th>趋势方向</th><th>趋势含义</th></tr></thead>
   <tbody>
     <tr><td>经营活动所用现金净额</td><td>(57,401) → (76,766)</td><td>流出扩大</td><td>研发投入与运营支出仍高于经营现金回款，属成长阶段常态</td></tr>
@@ -283,7 +394,7 @@
     <tr><td>融资活动净额</td><td>(1,538) → 393,744</td><td>由净流出转巨额净流入</td><td>IPO 募资（普通股 2.75 亿 + 优先股 1.21 亿）是现金跃升唯一主因</td></tr>
     <tr><td>年末现金及现金等价物</td><td>125,942 → 393,338</td><td>+212%</td><td>上市融资直接增厚现金，为后续研发与运营提供保障</td></tr>
   </tbody>
-</table>
+</table></div>
 
 <div class="callout">
   <div class="quote"><b>三表联动：</b>损益表看"经营真相"（经调整改善、2026H1 盈利），财务状况表看"资本重构"（负债消失、权益转正），现金流量表看"现金来源"（全靠 IPO 募资）。三者共同印证：英矽智能已从"资不抵债的烧钱研发公司"转型为"现金充裕、开始盈利兑现的 AI 药物发现平台"。</div>

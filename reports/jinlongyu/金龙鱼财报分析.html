@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>金龙鱼（300999.SZ）财报分析报告</title>
+<meta name="author" content="财报分析">
+<meta name="generator" content="financial-report-analysis">
+<style>
+
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W04.ttf") format("truetype");
+    font-weight: 400; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W05.ttf") format("truetype");
+    font-weight: 500; font-style: normal; font-display: swap;
+  }
+  @page {
+    size: A4;
+    margin: 16mm 18mm 18mm 18mm;
+    background: #F7F4EE;
+    @bottom-center {
+      content: counter(page) "  ·  财报分析";
+      font-family: "TsangerJinKai02", "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", Georgia, serif;
+      font-size: 9pt; color: #6b6a64;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --parchment:#F7F4EE; --ivory:#FBF9F4; --near-black:#22262B; --dark-warm:#3E4145;
+    --olive:#504e49; --stone:#7C7B77; --brand:#A73F2D; --brand-deep:#8A3223;
+    --accent:#A73F2D; --accent-soft:#F1E3DD; --gold:#B8862F; --teal:#2F6F6B; --blue:#1B365D;
+    --border:#E3DDD4; --border-soft:#EAE5DC;
+    --tag-bg:#F1E3DD; --positive:#A73F2D; --negative:#2F6F6B;
+    --serif: "TsangerJinKai02", "Source Han Serif SC", "Source Han Serif CN", "Noto Serif CJK SC", "Noto Serif SC", "Songti SC", "STSong", "SimSun", Georgia, serif;
+    --rhythm-module:14pt; --rhythm-section:18pt;
+  }
+  html, body { background: var(--parchment); }
+  @media screen { body { max-width: 210mm; margin: 0 auto; padding: 16mm 18mm 18mm 18mm; } }
+  body { color: var(--near-black); font-family: var(--serif); font-size: 10pt; line-height: 1.5;
+    letter-spacing: 0.3pt; widows: 3; orphans: 3; }
+  strong { font-weight: 500; }
+  .hl { color: var(--brand); font-weight: 500; }
+
+  .report-header { display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: var(--rhythm-module); padding-bottom: 10pt; border-bottom: 0.5pt solid var(--border); }
+  .ticker-block { flex: 1; }
+  .ticker-eyebrow { font-size: 9pt; color: var(--brand); letter-spacing: 1.5pt; text-transform: uppercase;
+    font-weight: 500; margin-bottom: 4pt; }
+  .ticker-name { font-family: var(--serif); font-size: 24pt; font-weight: 500; color: var(--near-black);
+    line-height: 1.15; margin-bottom: 4pt; }
+  .ticker-sub { font-size: 10pt; color: var(--olive); line-height: 1.4; }
+  .price-block { text-align: right; padding-top: 4pt; }
+  .price-current { font-family: var(--serif); font-size: 28pt; font-weight: 500; color: var(--near-black);
+    line-height: 1; font-variant-numeric: tabular-nums; }
+  .price-change { font-size: 10pt; font-weight: 500; margin-top: 2pt; font-variant-numeric: tabular-nums; }
+  .price-change.up { color: var(--positive); }
+  .price-date { font-size: 9pt; color: var(--stone); margin-top: 2pt; }
+
+  .metrics { display: flex; gap: 14pt; margin-bottom: 16pt; padding: 6pt 0;
+    border-top: 0.3pt dotted var(--border); border-bottom: 0.3pt dotted var(--border); }
+  .metric { flex: 1; display: flex; align-items: baseline; gap: 4pt; }
+  .metric-value { font-family: var(--serif); font-size: 16pt; font-weight: 500; color: var(--brand);
+    line-height: 1; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .metric-label { font-size: 9pt; color: var(--olive); line-height: 1.3; white-space: nowrap; }
+
+  h2 { font-family: var(--serif); font-size: 16pt; font-weight: 500; color: var(--near-black);
+    margin: 18pt 0 6pt 0; break-after: avoid; }
+  h3 { font-size: 13pt; font-weight: 500; color: var(--dark-warm); margin: 12pt 0 4pt 0; break-after: avoid; }
+  p { margin: 0 0 8pt 0; line-height: 1.5; widows: 2; orphans: 2; }
+  ul, ol { margin: 4pt 0 8pt 0; padding-left: 18pt; line-height: 1.5; }
+  ul li::marker { color: var(--brand); } ol li::marker { color: var(--brand); font-weight: 500; }
+
+  .tag { display: inline-block; background: var(--tag-bg); color: var(--brand); font-size: 9pt;
+    font-weight: 500; padding: 1pt 6pt; border-radius: 3pt; margin-right: 3pt; }
+
+  table, .kami-table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin: 8pt 0; break-inside: avoid; }
+  table th, .kami-table th { text-align: left; font-weight: 500; color: var(--dark-warm);
+    padding: 6pt 8pt; border-bottom: 0.6pt solid var(--border); background: transparent; }
+  table td, .kami-table td { padding: 5pt 8pt; border-bottom: 0.25pt solid var(--border); vertical-align: top; }
+  table.compact th, .kami-table.compact th { padding: 3pt 6pt; font-size: 8pt; }
+  table.compact td, .kami-table.compact td { padding: 2.5pt 6pt; font-size: 8pt; line-height: 1.4; }
+  table.financial td:not(:first-child), .kami-table.financial td:not(:first-child) {
+    text-align: right; font-variant-numeric: tabular-nums; }
+  table.financial th:not(:first-child), .kami-table.financial th:not(:first-child) { text-align: right; }
+  table .total td, .kami-table .total td { font-weight: 500; border-top: 0.6pt solid var(--border);
+    border-bottom: none; color: var(--near-black); }
+  .note { font-size: 8.5pt; color: var(--stone); margin: 2pt 0 8pt 0; }
+
+  .callout { background: var(--ivory); padding: 8pt 12pt; border-radius: 3pt; margin: 10pt 0;
+    line-height: 1.5; break-inside: avoid; }
+  .callout .quote { margin: 6pt 0; color: var(--olive); }
+
+  figure { margin: 12pt 0; break-inside: avoid; }
+  figcaption { font-size: 9pt; color: var(--stone); margin-top: 4pt; text-align: center; }
+
+  .risk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10pt; margin: 8pt 0; }
+  .risk-item { padding: 6pt 10pt; background: var(--ivory); border-radius: 3pt; break-inside: avoid; }
+  .risk-label { font-size: 9pt; font-weight: 500; color: var(--brand); margin-bottom: 2pt; }
+  .risk-desc { font-size: 9pt; color: var(--olive); line-height: 1.4; }
+
+  .analyst-box { background: var(--ivory); border-radius: 4pt; padding: 10pt 14pt; margin: 12pt 0;
+    break-inside: avoid; }
+  .analyst-label { font-size: 9pt; color: var(--brand); letter-spacing: 0.5pt; text-transform: uppercase;
+    margin-bottom: 4pt; }
+
+  .page-break { break-before: page; }
+
+  /* ===== 富配色增强：砖红主色 #A73F2D + 四色数据 + 深炭标题 #22262B ===== */
+  h2 { position: relative; padding-left: 13pt; }
+  h2::before { content:""; position:absolute; left:0; top:2.5pt; width:4pt; height:13pt;
+    background:var(--accent); border-radius:1pt; }
+  table th, .kami-table th { border-bottom: 1pt solid var(--accent); }
+  .metric:nth-child(1) .metric-value { color: var(--accent); }
+  .metric:nth-child(2) .metric-value { color: var(--gold); }
+  .metric:nth-child(3) .metric-value { color: var(--teal); }
+  .metric:nth-child(4) .metric-value { color: var(--blue); }
+  .callout { border-left: 3pt solid var(--accent); }
+  .analyst-box { border-left: 3pt solid var(--accent); }
+  .risk-item { border-left: 2.5pt solid var(--accent); }
+  .tag { background: var(--accent-soft); color: var(--brand-deep); }
+  .price-current { color: var(--near-black); }
+  .ticker-sub { color: var(--stone); }
+
+  h2 { margin-top: var(--rhythm-section); margin-bottom: 8pt; font-size: 14pt; }
+  h3 { margin-top: 12pt; margin-bottom: 6pt; font-size: 11.5pt; color: var(--brand-deep); break-after: avoid; }
+  h4 { margin-top: 10pt; margin-bottom: 5pt; font-size: 10.5pt; }
+  p { margin-bottom: 6pt; }
+  ul, ol { margin: 4pt 0 8pt 16pt; }
+  li { margin-bottom: 3pt; }
+  table { margin: 6pt 0 10pt 0; }
+  table th, table td { font-size: 8.4pt; padding: 3.6pt 5.5pt; }
+  table.wide th, table.wide td { font-size: 6.9pt; padding: 2.7pt 3.4pt; }
+  table.longtable { break-inside: auto; }
+  table.longtable thead { display: table-header-group; }
+  table.longtable tr { break-inside: avoid; }
+  table.fixed { table-layout: fixed; }
+  table.fixed td, table.fixed th { overflow-wrap: break-word; }
+  .note { background: var(--ivory); border-left: 2.5pt solid var(--gold); padding: 6pt 10pt;
+           margin: 5pt 0 10pt 0; border-radius: 2pt; font-size: 8.6pt; color: #504e49; }
+  hr.rule { border: none; border-top: 0.5pt solid var(--border); margin: 12pt 0; }
+  code { font-family: "SF Mono", Menlo, monospace; font-size: 8.4pt; background: #F1E3DD;
+          padding: 0 2pt; border-radius: 2pt; }
+  .report-footer { display: flex; justify-content: space-between; margin-top: 18pt;
+          padding-top: 8pt; border-top: 0.5pt solid var(--border); font-size: 8pt; color: var(--stone); }
+  .metrics-tbl { margin: 12pt 0 14pt 0; padding: 6pt 0;
+          border-top: 0.3pt dotted var(--border); border-bottom: 0.3pt dotted var(--border); }
+  .metrics-tbl table { width: 100%; table-layout: fixed; border-collapse: separate;
+          border-spacing: 8pt 0; margin: 0; }
+  .metrics-tbl td { width: 25%; vertical-align: top; border: none !important; border-left: 2.5pt solid var(--accent) !important;
+          background: var(--ivory); border-radius: 3pt; padding: 8pt 10pt; }
+  .metrics-tbl td:nth-child(2) { border-left-color: var(--gold) !important; }
+  .metrics-tbl td:nth-child(3) { border-left-color: var(--teal) !important; }
+  .metrics-tbl td:nth-child(4) { border-left-color: var(--blue) !important; }
+  .metric-value { font-size: 15pt; font-weight: 500; line-height: 1.1; white-space: nowrap; }
+  .metric-value span { font-size: 10pt; }
+  .metrics-tbl td:nth-child(1) .metric-value { color: var(--accent); }
+  .metrics-tbl td:nth-child(2) .metric-value { color: var(--gold); }
+  .metrics-tbl td:nth-child(3) .metric-value { color: var(--teal); }
+  .metrics-tbl td:nth-child(4) .metric-value { color: var(--blue); }
+  .metric-label { font-size: 8.2pt; color: var(--olive); line-height: 1.35; margin-top: 3pt; white-space: normal; }
+  .page-break { break-before: page; }
+  blockquote { border-left: 3pt solid var(--accent); background: var(--ivory); padding: 6pt 10pt; margin: 8pt 0; }
+</style>
+
+<!-- rsp-mobile-adapt : 响应式适配层（仅屏幕生效，不影响打印/PDF） -->
+<style id="rsp-mobile-adapt">
+/* ========== 1. 全局：屏幕端基础修正 ========== */
+@media screen {
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body { overflow-wrap: break-word; }
+  img, svg, canvas, video, iframe { max-width: 100%; }
+  svg[viewBox], svg[viewbox] { height: auto; }
+
+  /* 表格横向滚动容器：宽表不压字、不撑破页面 */
+  .rsp-table {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    margin: 8pt 0;
+    position: relative;
+  }
+  .rsp-table > table { margin: 0; }
+  .rsp-table::-webkit-scrollbar { height: 7px; }
+  .rsp-table::-webkit-scrollbar-track { background: transparent; }
+  .rsp-table::-webkit-scrollbar-thumb { background: #D8D1C4; border-radius: 4px; }
+  /* 内容确实溢出时，右侧给一层渐变暗示"还能往右滑" */
+  .rsp-table[data-rsp-scroll] {
+    background: linear-gradient(to left, rgba(167,63,45,.10), rgba(167,63,45,0) 28px);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 28px 100%;
+  }
+}
+
+/* ========== 2. 平板 / 窄窗口：边距先收，避免内容被挤 ========== */
+@media screen and (max-width: 900px) {
+  body { padding: 22px 22px 46px 22px !important; }
+  .report-header { flex-wrap: wrap; gap: 12pt; }
+  .metrics { flex-wrap: wrap; gap: 10pt 18pt; }
+  .metric { flex: 1 1 42%; min-width: 0; }
+  .report-footer { flex-wrap: wrap; gap: 4pt 14pt; }
+
+  /* 宽表改为横向滚动：给每列保留最小可读宽度，不再把汉字挤成竖排 */
+  .rsp-w5 > table { min-width: 310px !important; }
+  .rsp-w6 > table { min-width: 372px !important; }
+  .rsp-w7 > table { min-width: 434px !important; }
+  .rsp-w8 > table { min-width: 496px !important; }
+  .rsp-w9 > table { min-width: 558px !important; }
+  .rsp-w10 > table { min-width: 620px !important; }
+  .rsp-w11 > table { min-width: 682px !important; }
+  .rsp-w12 > table { min-width: 744px !important; }
+  .rsp-w13 > table { min-width: 806px !important; }
+  .rsp-w14 > table { min-width: 868px !important; }
+  .rsp-w15 > table { min-width: 930px !important; }
+  .rsp-w16 > table { min-width: 992px !important; }
+}
+
+/* ========== 3. 手机：指标卡两列、页头转纵向 ========== */
+@media screen and (max-width: 720px) {
+  body {
+    max-width: 100% !important;
+    padding: 18px 16px 44px 16px !important;
+    font-size: 10.5pt;
+  }
+  h2 { font-size: 15pt !important; margin: 20pt 0 7pt 0 !important; }
+  h3 { font-size: 12.5pt !important; }
+  h1 { font-size: 19pt !important; }
+  p, li { line-height: 1.62; }
+  ul, ol { padding-left: 17pt; }
+
+  .report-header { flex-direction: column; align-items: stretch; gap: 8pt; }
+  .price-block { text-align: left; padding-top: 0; }
+  .price-current { font-size: 24pt !important; }
+  .ticker-name { font-size: 21pt !important; }
+  .ticker-sub { font-size: 9.5pt !important; }
+
+  .metrics { gap: 9pt 12pt; }
+  .metric { flex: 1 1 45%; }
+  .metric-value { font-size: 15pt !important; }
+  .metric-label { font-size: 8.5pt !important; white-space: normal !important; }
+
+  table, .kami-table { font-size: 9pt !important; }
+  .longtable { font-size: 8.5pt !important; }
+  .wide { font-size: 7.5pt !important; }
+  .dense { font-size: 8pt !important; }
+  table th, table td, .kami-table th, .kami-table td { padding: 5pt 6pt !important; }
+
+  blockquote, .quote, .note, .warn, .callout, .risk-item { padding: 9pt 11pt !important; }
+  .risk-grid { grid-template-columns: 1fr !important; }
+  .report-footer { flex-direction: column; align-items: flex-start; gap: 3pt; }
+}
+
+/* ========== 4. 小屏手机：指标卡单列、边距收到最紧 ========== */
+@media screen and (max-width: 430px) {
+  body { padding: 14px 12px 38px 12px !important; }
+  h2 { font-size: 14pt !important; }
+  h3 { font-size: 11.5pt !important; }
+  .ticker-name { font-size: 19pt !important; }
+  .price-current { font-size: 21pt !important; }
+  .metric { flex: 1 1 100%; }
+  .metric-value { font-size: 16pt !important; }
+  ul, ol { padding-left: 15pt; }
+  table, .kami-table { font-size: 8.5pt !important; }
+}
+
+/* ========== 5. 打印：把包裹层还原成透明，PDF 版式与补丁前完全一致 ========== */
+@media print {
+  .rsp-table { margin: 0; padding: 0; overflow: visible !important; background: none !important; }
+  .rsp-table > table { margin: 8pt 0; min-width: 0 !important; }
+  [class*="rsp-w"] > table { min-width: 0 !important; }
+}
+</style>
+</head>
+<body>
+
+<div class="report-header">
+  <div class="ticker-block">
+    <div class="ticker-eyebrow">FY2019—FY2025 + 2026H1 ｜ 财报分析报告</div>
+    <div class="ticker-name">金龙鱼 <span style="font-size:14pt;color:var(--stone);">300999.SZ</span></div>
+    <div class="ticker-sub">益海嘉里金龙鱼食品集团股份有限公司 ｜ 深圳证券交易所创业板 ｜ 上市日 2020-10-15<br>
+      厨房食品 · 饲料原料及油脂科技 ｜ 单位：亿元 ｜ 会计准则：CAS（安永华明审计）</div>
+  </div>
+  <div class="price-block">
+    <div class="price-current" style="font-size:20pt;">83 个</div>
+    <div class="price-change up" style="color:var(--brand);">已投产生产基地</div>
+    <div class="price-date">截至 2026-06-30</div>
+  </div>
+</div>
+
+<div class="metrics-tbl">
+<div class="rsp-table"><table><tr>
+  <td><div class="metric-value">2,451.26<span>亿</span></div><div class="metric-label">2025 年营业收入（+2.87%）</div></td>
+  <td><div class="metric-value">1.29<span>%</span></div><div class="metric-label">2025 年归母净利率</div></td>
+  <td><div class="metric-value">39.55<span>%</span></div><div class="metric-label">2025 年分红率</div></td>
+  <td><div class="metric-value">10.01<span>亿</span></div><div class="metric-label">2026H1 经营现金流</div></td>
+</tr></table></div>
+</div>
+
+
+<div class="callout">
+  <div class="quote"><strong>一句话结论：</strong>金龙鱼是一家「规模巨大、利润率极薄、利润由价差而非收入决定」的农产品加工企业。
+  七年营业收入增长 43.6%（1,707.43→2,451.26 亿元），归母净利润却下滑 41.7%（54.08→31.53 亿元）；
+  公司自述套保衍生工具的已实现损益「从业务角度应计入主营业务毛利」，但因未完全满足套期会计要求被划入非经常性损益——
+  这使「扣非净利润」这一最常用的指标在金龙鱼身上<strong>系统性失效</strong>（七年累计非经常性损益仅 +4.70 亿元，占累计归母净利润 1.74%，
+  而年度间摆动幅度达 43.24 亿元）。</div>
+</div>
+
+<p><strong>分析期间：2019—2025 年度（含 2026 年半年度）｜数据来源：公司在深圳证券交易所披露的年度报告、半年度报告及季度报告</strong></p>
+<hr class="rule">
+<h2>口径与数据来源说明</h2>
+<div class="rsp-table"><table class="longtable">
+<thead><tr><th>项目</th><th>说明</th></tr></thead><tbody>
+<tr><td>公司全称</td><td>益海嘉里金龙鱼食品集团股份有限公司</td></tr>
+<tr><td>证券代码 / 交易所</td><td>300999.SZ / 深圳证券交易所创业板</td></tr>
+<tr><td>上市日期</td><td>2020 年 10 月 15 日（首发 542,159,154 股）</td></tr>
+<tr><td>控股股东</td><td>丰益香港（Wilmar 丰益国际通过其持有，实际控制人为郭孔丰）</td></tr>
+<tr><td>记账本位币</td><td>人民币</td></tr>
+<tr><td>会计准则</td><td>中国企业会计准则（CAS），审计机构为安永华明会计师事务所（特殊普通合伙）</td></tr>
+<tr><td>货币单位</td><td>除特别注明外，均为<strong>亿元</strong>（原始报表单位为千元，1 亿元 = 100,000 千元）</td></tr>
+<tr><td>报告期口径</td><td>年度数据一律取<strong>各年年报「本期数」</strong>；2024 年因会计政策变更，凡与 2025 年直接比较的项目统一采用<strong>追溯调整后</strong>口径（差异见 表 14）</td></tr>
+<tr><td>上市前数据</td><td>交易所披露始于 2020 年上市，2019 年数据取自 2020 年年度报告合并利润表「上期」列及主要会计数据；2019 年末资产负债表与现金流量表未在交易所披露，表中留「—」</td></tr>
+<tr><td>缺项处理</td><td>报告未披露即留「—」，不作推算、不与其他科目合并</td></tr>
+</tbody></table></div>
+<hr class="rule">
+<h2>一、公司概况</h2>
+<h3>1.1 基本信息</h3>
+<p>金龙鱼是国内规模最大的农产品和食品加工企业之一，主营业务为<strong>厨房食品</strong>与<strong>饲料原料及油脂科技</strong>产品的研发、生产与销售，覆盖油籽压榨、油脂精炼、油脂灌装、专用油脂、油脂科技、水稻循环经济、玉米/小麦/大豆加工及其延伸产业链、食品原辅料、蛋鸡养殖、功能性大健康产品、中央厨房食品园区等产业环节。</p>
+<p><strong>公司自述的核心竞争力有三条</strong>：① 综合企业群模式——截至 2026 年 6 月 30 日在全国拥有 <strong>83 个已投产生产基地</strong>，通过共享基础设施、能源、后勤与管理团队降低成本，并把产业链上下游工厂集合在同一基地内（一间工厂的产成品即另一间工厂的原材料）；② 循环经济模式——以水稻循环经济为样本，稻壳发电、稻壳灰提取白炭黑与活性炭、米糠榨取稻米油，对大豆/玉米/小麦「吃干榨净」；③ 全渠道营销网络——零售、餐饮、食品工业、电商四大事业部，覆盖大型商超、连锁餐饮、酒店集团、生鲜电商、食品工业、饲料生产、日化企业等。</p>
+<h3>1.2 业务结构：一个「高收入、极薄利润」的加工生意</h3>
+<p>理解金龙鱼的全部财务特征，先从下面这组对比开始——</p>
+<div class="rsp-table rsp-w8"><table class="">
+<thead><tr><th>指标</th><th>2019</th><th>2020</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th></tr></thead><tbody>
+<tr><td>营业收入（亿元）</td><td>1,707.43</td><td>1,949.22</td><td>2,262.25</td><td>2,574.85</td><td>2,515.24</td><td>2,382.79</td><td>2,451.26</td></tr>
+<tr><td>毛利率</td><td>11.40%</td><td>12.33%</td><td>8.18%</td><td>5.68%</td><td>4.83%</td><td>5.36%</td><td>6.43%</td></tr>
+<tr><td><strong>归母净利率</strong></td><td><strong>3.17%</strong></td><td><strong>3.08%</strong></td><td><strong>1.83%</strong></td><td><strong>1.17%</strong></td><td><strong>1.13%</strong></td><td><strong>1.05%</strong></td><td><strong>1.29%</strong></td></tr>
+</tbody></table></div>
+<p>一家年收入超过 2,400 亿元的公司，2024 年的归母净利润只有 25.02 亿元——<strong>归母净利率 1.05%，即每 100 元收入只留下 1.05 元利润</strong>。这是本报告所有分析的起点：金龙鱼不是一家靠品牌溢价赚钱的消费品公司，而是一家<strong>以吨计的农产品加工企业</strong>，其利润 = 销量 × 单位价差，且价差由原料价格、压榨利润、套期保值节奏共同决定，公司对价格几乎没有定价权。</p>
+<h3>1.3 上市沿革</h3>
+<p>公司于 2020 年 10 月 15 日在创业板上市，发行 542,159,154 股。截至 2025 年 12 月 31 日总股本 5,421,591,536 股，报告期内未发生股本变动。控股股东丰益香港已<strong>连续四年自愿延长首发前限售股份锁定期</strong>（每次一年），2026 年 7 月再次延长一年。</p>
+<hr class="rule">
+<h2>二、核心财务数据对比</h2>
+<figure><svg viewBox="0 0 680 300" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="'TsangerJinKai02','Source Han Serif SC','Noto Serif CJK SC','Songti SC',Georgia,serif">
+<line x1="62" y1="238.0" x2="560" y2="238.0" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="56.0" y="241.5" font-size="9" fill="#7C7B77" text-anchor="end" font-weight="400">0</text>
+<line x1="62" y1="193.0" x2="560" y2="193.0" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="56.0" y="196.5" font-size="9" fill="#7C7B77" text-anchor="end" font-weight="400">700</text>
+<line x1="62" y1="148.0" x2="560" y2="148.0" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="56.0" y="151.5" font-size="9" fill="#7C7B77" text-anchor="end" font-weight="400">1,400</text>
+<line x1="62" y1="103.0" x2="560" y2="103.0" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="56.0" y="106.5" font-size="9" fill="#7C7B77" text-anchor="end" font-weight="400">2,100</text>
+<line x1="62" y1="58.0" x2="560" y2="58.0" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="56.0" y="61.5" font-size="9" fill="#7C7B77" text-anchor="end" font-weight="400">2,800</text>
+<line x1="560" y1="238.0" x2="612" y2="238.0" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="618.0" y="241.5" font-size="9" fill="#2F6F6B" text-anchor="start" font-weight="400">0</text>
+<line x1="560" y1="186.6" x2="612" y2="186.6" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="618.0" y="190.1" font-size="9" fill="#2F6F6B" text-anchor="start" font-weight="400">20</text>
+<line x1="560" y1="135.1" x2="612" y2="135.1" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="618.0" y="138.6" font-size="9" fill="#2F6F6B" text-anchor="start" font-weight="400">40</text>
+<line x1="560" y1="83.7" x2="612" y2="83.7" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="618.0" y="87.2" font-size="9" fill="#2F6F6B" text-anchor="start" font-weight="400">60</text>
+<line x1="62" y1="238" x2="560" y2="238" stroke="#E3DDD4" stroke-width="0.9"/>
+<rect x="76.9" y="128.2" width="32.4" height="109.8" fill="#CFC7BA"/>
+<text x="93.1" y="122.2" font-size="9" fill="#3E4145" text-anchor="middle" font-weight="400">1,707</text>
+<text x="93.1" y="253.0" font-size="9" fill="#7C7B77" text-anchor="middle" font-weight="400">2019</text>
+<rect x="139.2" y="112.7" width="32.4" height="125.3" fill="#CFC7BA"/>
+<text x="155.4" y="106.7" font-size="9" fill="#3E4145" text-anchor="middle" font-weight="400">1,949</text>
+<text x="155.4" y="253.0" font-size="9" fill="#7C7B77" text-anchor="middle" font-weight="400">2020</text>
+<rect x="201.4" y="92.6" width="32.4" height="145.4" fill="#CFC7BA"/>
+<text x="217.6" y="86.6" font-size="9" fill="#3E4145" text-anchor="middle" font-weight="400">2,262</text>
+<text x="217.6" y="253.0" font-size="9" fill="#7C7B77" text-anchor="middle" font-weight="400">2021</text>
+<rect x="263.7" y="72.5" width="32.4" height="165.5" fill="#2F6F6B"/>
+<text x="279.9" y="66.5" font-size="9" fill="#1F4F4C" text-anchor="middle" font-weight="400">2,575</text>
+<text x="279.9" y="253.0" font-size="9" fill="#7C7B77" text-anchor="middle" font-weight="400">2022</text>
+<rect x="325.9" y="76.3" width="32.4" height="161.7" fill="#2F6F6B"/>
+<text x="342.1" y="70.3" font-size="9" fill="#1F4F4C" text-anchor="middle" font-weight="400">2,515</text>
+<text x="342.1" y="253.0" font-size="9" fill="#7C7B77" text-anchor="middle" font-weight="400">2023</text>
+<rect x="388.2" y="84.8" width="32.4" height="153.2" fill="#2F6F6B"/>
+<text x="404.4" y="78.8" font-size="9" fill="#1F4F4C" text-anchor="middle" font-weight="400">2,383</text>
+<text x="404.4" y="253.0" font-size="9" fill="#7C7B77" text-anchor="middle" font-weight="400">2024</text>
+<rect x="450.4" y="80.4" width="32.4" height="157.6" fill="#B8862F"/>
+<text x="466.6" y="74.4" font-size="9" fill="#8A6A22" text-anchor="middle" font-weight="400">2,451</text>
+<text x="466.6" y="253.0" font-size="9" fill="#7C7B77" text-anchor="middle" font-weight="400">2025</text>
+<rect x="512.7" y="159.0" width="32.4" height="79.0" fill="#A73F2D" opacity="0.55"/>
+<text x="528.9" y="153.0" font-size="9" fill="#8A3223" text-anchor="middle" font-weight="400">1,229</text>
+<text x="528.9" y="253.0" font-size="9" fill="#7C7B77" text-anchor="middle" font-weight="400">2026H1</text>
+<polyline points="93.1,98.9 155.4,83.7 217.6,131.7 279.9,160.6 342.1,164.8 404.4,173.7 466.6,156.9 528.9,179.0" fill="none" stroke="#1B365D" stroke-width="1.8"/>
+<circle cx="93.1" cy="98.9" r="2.8" fill="#1B365D"/>
+<circle cx="155.4" cy="83.7" r="2.8" fill="#1B365D"/>
+<circle cx="217.6" cy="131.7" r="2.8" fill="#1B365D"/>
+<circle cx="279.9" cy="160.6" r="2.8" fill="#1B365D"/>
+<circle cx="342.1" cy="164.8" r="2.8" fill="#1B365D"/>
+<circle cx="404.4" cy="173.7" r="2.8" fill="#1B365D"/>
+<circle cx="466.6" cy="156.9" r="2.8" fill="#1B365D"/>
+<circle cx="528.9" cy="179.0" r="2.8" fill="#1B365D"/>
+<rect x="79.1" y="82.4" width="32.1" height="12.2" fill="#FBF9F4" opacity="0.92"/>
+<text x="95.1" y="90.9" font-size="9" fill="#1B365D" text-anchor="middle">54.08</text>
+<rect x="510.8" y="162.5" width="32.1" height="12.2" fill="#FBF9F4" opacity="0.92"/>
+<text x="526.9" y="171.0" font-size="9" fill="#1B365D" text-anchor="middle">22.94</text>
+<text x="56.0" y="46.0" font-size="9" fill="#7C7B77" text-anchor="end" font-weight="400">营业收入（亿元）</text>
+<text x="618.0" y="46.0" font-size="9" fill="#2F6F6B" text-anchor="start" font-weight="400">归母净利润</text>
+<rect x="62" y="14" width="10" height="8" fill="#CFC7BA"/>
+<text x="77.0" y="22.0" font-size="9" fill="#22262B" text-anchor="start" font-weight="400">营业收入</text>
+<line x1="157" y1="18" x2="177" y2="18" stroke="#1B365D" stroke-width="1.8"/>
+<circle cx="167" cy="18" r="2.8" fill="#1B365D"/>
+<text x="182.0" y="22.0" font-size="9" fill="#22262B" text-anchor="start" font-weight="400">归母净利润（右轴，亿元；仅标首末值）</text>
+</svg><figcaption>图 1　营业收入与归母净利润（2019—2025 年 + 2026H1）　注：柱为营业收入（左轴），折线为归母净利润（右轴，仅标注首末值）</figcaption></figure><h3>表 1　综合损益表（2019—2025 年 + 2026H1）</h3>
+<p>单位：亿元</p>
+<div class="rsp-table rsp-w9"><table class="longtable">
+<thead><tr><th>项目</th><th>2019</th><th>2020</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th><th><strong>2026H1</strong></th></tr></thead><tbody>
+<tr><td><strong>营业收入</strong></td><td><strong>1,707.43</strong></td><td><strong>1,949.22</strong></td><td><strong>2,262.25</strong></td><td><strong>2,574.85</strong></td><td><strong>2,515.24</strong></td><td><strong>2,382.79</strong></td><td><strong>2,451.26</strong></td><td><strong>1,228.52</strong></td></tr>
+<tr><td>同比</td><td>—</td><td>+14.16%</td><td>+16.06%</td><td>+13.82%</td><td>−2.32%</td><td>−5.27%</td><td>+2.87%</td><td>+6.20%</td></tr>
+<tr><td>营业成本</td><td>1,512.76</td><td>1,708.88</td><td>2,077.23</td><td>2,428.68</td><td>2,393.66</td><td>2,254.97</td><td>2,293.64</td><td>1,151.00</td></tr>
+<tr><td>毛利率</td><td>11.40%</td><td>12.33%</td><td>8.18%</td><td>5.68%</td><td>4.83%</td><td>5.36%</td><td>6.43%</td><td>6.31%</td></tr>
+<tr><td>税金及附加</td><td>4.10</td><td>4.56</td><td>5.46</td><td>6.34</td><td>6.64</td><td>6.97</td><td>7.70</td><td>3.86</td></tr>
+<tr><td>销售费用</td><td>80.25</td><td>84.72</td><td>66.26</td><td>59.86</td><td>60.73</td><td>62.86</td><td>65.40</td><td>31.69</td></tr>
+<tr><td>管理费用</td><td>25.74</td><td>28.53</td><td>34.18</td><td>32.90</td><td>35.24</td><td>36.36</td><td>36.79</td><td>18.51</td></tr>
+<tr><td>研发费用</td><td>1.84</td><td>1.83</td><td>2.56</td><td>2.44</td><td>2.67</td><td>2.74</td><td>2.88</td><td>1.28</td></tr>
+<tr><td>财务费用</td><td>5.54</td><td>−8.29</td><td>2.59</td><td>7.09</td><td>0.64</td><td>4.28</td><td>5.71</td><td>1.34</td></tr>
+<tr><td>其他收益</td><td>2.34</td><td>3.45</td><td>2.49</td><td>3.24</td><td>3.73</td><td>3.27</td><td>3.32</td><td>1.90</td></tr>
+<tr><td>投资收益</td><td>10.13</td><td>−22.90</td><td>−17.09</td><td>0.19</td><td>12.35</td><td>22.81</td><td>8.66</td><td>5.61</td></tr>
+<tr><td>公允价值变动收益</td><td>2.62</td><td>−12.59</td><td>8.66</td><td>−2.62</td><td>4.38</td><td>0.22</td><td>3.50</td><td>2.63</td></tr>
+<tr><td>信用减值损失</td><td>−0.33</td><td>−0.01</td><td>−0.14</td><td>−0.10</td><td>−0.69</td><td>−0.16</td><td>−0.00</td><td>−0.11</td></tr>
+<tr><td>资产减值损失</td><td>−21.02</td><td>−7.40</td><td>−4.59</td><td>−1.62</td><td>−1.38</td><td>−4.41</td><td>−2.11</td><td>+1.52</td></tr>
+<tr><td>营业利润</td><td>70.69</td><td>89.19</td><td>64.30</td><td>38.17</td><td>33.91</td><td>36.29</td><td>52.38</td><td>32.46</td></tr>
+<tr><td>利润总额</td><td>69.58</td><td>89.46</td><td>61.77</td><td>38.66</td><td>34.16</td><td>36.56</td><td>48.89</td><td>32.63</td></tr>
+<tr><td>利润总额同比</td><td>—</td><td>+28.57%</td><td>−30.96%</td><td>−37.41%</td><td>−11.65%</td><td>+7.04%</td><td>+33.71%</td><td>+20.28%</td></tr>
+<tr><td>所得税费用</td><td>13.94</td><td>23.81</td><td>16.89</td><td>7.41</td><td>6.31</td><td>11.88</td><td>15.09</td><td>8.82</td></tr>
+<tr><td><strong>实际税率</strong></td><td><strong>20.04%</strong></td><td><strong>26.62%</strong></td><td><strong>27.34%</strong></td><td><strong>19.17%</strong></td><td><strong>18.46%</strong></td><td><strong>32.49%</strong></td><td><strong>30.87%</strong></td><td><strong>27.03%</strong></td></tr>
+<tr><td>净利润</td><td>55.64</td><td>65.65</td><td>44.89</td><td>31.25</td><td>27.85</td><td>24.69</td><td>33.79</td><td>23.81</td></tr>
+<tr><td><strong>归母净利润</strong></td><td><strong>54.08</strong></td><td><strong>60.01</strong></td><td><strong>41.32</strong></td><td><strong>30.11</strong></td><td><strong>28.48</strong></td><td><strong>25.02</strong></td><td><strong>31.53</strong></td><td><strong>22.94</strong></td></tr>
+<tr><td>归母净利润同比</td><td>—</td><td>+10.94%</td><td>−31.15%</td><td>−27.12%</td><td>−5.43%</td><td>−12.16%</td><td>+26.01%</td><td>+30.69%</td></tr>
+<tr><td>少数股东损益</td><td>1.56</td><td>5.64</td><td>3.57</td><td>1.14</td><td>−0.63</td><td>−0.33</td><td>2.27</td><td>0.87</td></tr>
+<tr><td>扣非归母净利润</td><td>44.78</td><td>87.92</td><td>49.96</td><td>31.84</td><td>13.21</td><td>9.69</td><td>28.45</td><td>14.81</td></tr>
+<tr><td>基本每股收益（元）</td><td>1.11</td><td>1.21</td><td>0.76</td><td>0.56</td><td>0.53</td><td>0.46</td><td>0.58</td><td>0.42</td></tr>
+<tr><td>加权平均 ROE</td><td>—</td><td>8.63%</td><td>4.85%</td><td>3.43%</td><td>3.16%</td><td>2.70%</td><td>3.32%</td><td>2.36%（半年）</td></tr>
+</tbody></table></div>
+<div class="note"><strong>口径说明</strong>：2024 年营业收入/营业成本采用 2026 年 2 月会计政策变更后的追溯调整数。按 2024 年年报原口径（调整前）营业收入为 2,388.66 亿元、同比 −5.03%，毛利率 5.35%；调整后为 2,382.79 亿元、同比 −5.27%，毛利率 5.36%。两者差异源于标准仓单列报重分类，详见 表 14。2026H1 的同比基数为 2025H1（营业收入 1,156.82 亿元、归母净利润 17.56 亿元、扣非归母 13.89 亿元、加权 ROE 1.86%）。</div>
+<figure><svg viewBox="0 0 680 262" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="'TsangerJinKai02','Source Han Serif SC','Noto Serif CJK SC','Songti SC',Georgia,serif">
+<line x1="62" y1="200.0" x2="620" y2="200.0" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="56.0" y="203.5" font-size="9" fill="#7C7B77" text-anchor="end" font-weight="400">0</text>
+<line x1="62" y1="169.7" x2="620" y2="169.7" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="56.0" y="173.2" font-size="9" fill="#7C7B77" text-anchor="end" font-weight="400">20</text>
+<line x1="62" y1="139.4" x2="620" y2="139.4" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="56.0" y="142.9" font-size="9" fill="#7C7B77" text-anchor="end" font-weight="400">40</text>
+<line x1="62" y1="109.1" x2="620" y2="109.1" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="56.0" y="112.6" font-size="9" fill="#7C7B77" text-anchor="end" font-weight="400">60</text>
+<line x1="62" y1="78.7" x2="620" y2="78.7" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="56.0" y="82.2" font-size="9" fill="#7C7B77" text-anchor="end" font-weight="400">80</text>
+<line x1="62" y1="200" x2="620" y2="200" stroke="#E3DDD4" stroke-width="0.9"/>
+<rect x="78.0" y="118.0" width="22.3" height="82.0" fill="#A73F2D"/>
+<text x="89.2" y="113.0" font-size="8.5" fill="#8A3223" text-anchor="middle" font-weight="400">54.1</text>
+<rect x="103.4" y="132.1" width="22.3" height="67.9" fill="#B8862F"/>
+<text x="114.5" y="127.1" font-size="8.5" fill="#8A6A22" text-anchor="middle" font-weight="400">44.8</text>
+<text x="101.9" y="215.0" font-size="9" fill="#7C7B77" text-anchor="middle" font-weight="400">2019</text>
+<rect x="157.8" y="109.0" width="22.3" height="91.0" fill="#A73F2D"/>
+<text x="168.9" y="104.0" font-size="8.5" fill="#8A3223" text-anchor="middle" font-weight="400">60.0</text>
+<rect x="183.1" y="66.7" width="22.3" height="133.3" fill="#B8862F"/>
+<text x="194.2" y="61.7" font-size="8.5" fill="#8A6A22" text-anchor="middle" font-weight="400">87.9</text>
+<text x="181.6" y="215.0" font-size="9" fill="#7C7B77" text-anchor="middle" font-weight="400">2020</text>
+<rect x="237.5" y="137.4" width="22.3" height="62.6" fill="#A73F2D"/>
+<text x="248.6" y="132.4" font-size="8.5" fill="#8A3223" text-anchor="middle" font-weight="400">41.3</text>
+<rect x="262.8" y="124.3" width="22.3" height="75.7" fill="#B8862F"/>
+<text x="273.9" y="119.3" font-size="8.5" fill="#8A6A22" text-anchor="middle" font-weight="400">50.0</text>
+<text x="261.3" y="215.0" font-size="9" fill="#7C7B77" text-anchor="middle" font-weight="400">2021</text>
+<rect x="317.2" y="154.4" width="22.3" height="45.6" fill="#A73F2D"/>
+<text x="328.3" y="149.4" font-size="8.5" fill="#8A3223" text-anchor="middle" font-weight="400">30.1</text>
+<rect x="342.5" y="151.7" width="22.3" height="48.3" fill="#B8862F"/>
+<text x="353.7" y="146.7" font-size="8.5" fill="#8A6A22" text-anchor="middle" font-weight="400">31.8</text>
+<text x="341.0" y="215.0" font-size="9" fill="#7C7B77" text-anchor="middle" font-weight="400">2022</text>
+<rect x="396.9" y="156.8" width="22.3" height="43.2" fill="#A73F2D"/>
+<text x="408.1" y="151.8" font-size="8.5" fill="#8A3223" text-anchor="middle" font-weight="400">28.5</text>
+<rect x="422.2" y="180.0" width="22.3" height="20.0" fill="#B8862F"/>
+<text x="433.4" y="175.0" font-size="8.5" fill="#8A6A22" text-anchor="middle" font-weight="400">13.2</text>
+<text x="420.7" y="215.0" font-size="9" fill="#7C7B77" text-anchor="middle" font-weight="400">2023</text>
+<rect x="476.6" y="162.1" width="22.3" height="37.9" fill="#A73F2D"/>
+<text x="487.8" y="157.1" font-size="8.5" fill="#8A3223" text-anchor="middle" font-weight="400">25.0</text>
+<rect x="501.9" y="185.3" width="22.3" height="14.7" fill="#B8862F"/>
+<text x="513.1" y="180.3" font-size="8.5" fill="#8A6A22" text-anchor="middle" font-weight="400">9.7</text>
+<text x="500.4" y="215.0" font-size="9" fill="#7C7B77" text-anchor="middle" font-weight="400">2024</text>
+<rect x="556.3" y="152.2" width="22.3" height="47.8" fill="#A73F2D"/>
+<text x="567.5" y="147.2" font-size="8.5" fill="#8A3223" text-anchor="middle" font-weight="400">31.5</text>
+<rect x="581.6" y="156.9" width="22.3" height="43.1" fill="#B8862F"/>
+<text x="592.8" y="151.9" font-size="8.5" fill="#8A6A22" text-anchor="middle" font-weight="400">28.4</text>
+<text x="580.1" y="215.0" font-size="9" fill="#7C7B77" text-anchor="middle" font-weight="400">2025</text>
+<rect x="62" y="14" width="10" height="8" fill="#A73F2D"/>
+<text x="77.0" y="22.0" font-size="9" fill="#22262B" text-anchor="start" font-weight="400">归母净利润</text>
+<rect x="158" y="14" width="10" height="8" fill="#B8862F"/>
+<text x="173.0" y="22.0" font-size="9" fill="#22262B" text-anchor="start" font-weight="400">扣非归母净利润（亿元）</text>
+<rect x="362.0" y="35.5" width="231.2" height="12.2" fill="#FBF9F4" opacity="0.92"/>
+<text x="362.0" y="44.0" font-size="9" fill="#A73F2D" text-anchor="start">2020 年扣非 &gt; 归母；2024 年扣非仅为归母的 38.7%</text>
+</svg><figcaption>图 2　归母净利润与扣非归母净利润对比（2019—2025 年）　注：两口径七年累计仅差 4.70 亿元，年度间差异却高达 43.24 亿元</figcaption></figure><h3>表 2　利润驱动因素拆解：归母 / 扣非 / 非经常性损益</h3>
+<p>单位：亿元</p>
+<div class="rsp-table rsp-w9"><table class="longtable">
+<thead><tr><th>项目</th><th>2019</th><th>2020</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th><th>2026H1</th></tr></thead><tbody>
+<tr><td>归母净利润</td><td>54.08</td><td>60.01</td><td>41.32</td><td>30.11</td><td>28.48</td><td>25.02</td><td>31.53</td><td>22.94</td></tr>
+<tr><td>扣非归母净利润</td><td>44.78</td><td>87.92</td><td>49.96</td><td>31.84</td><td>13.21</td><td>9.69</td><td>28.45</td><td>14.81</td></tr>
+<tr><td><strong>非经常性损益净额</strong></td><td><strong>+9.31</strong></td><td><strong>−27.91</strong></td><td><strong>−8.65</strong></td><td><strong>−1.73</strong></td><td><strong>+15.26</strong></td><td><strong>+15.33</strong></td><td><strong>+3.08</strong></td><td><strong>+8.13</strong></td></tr>
+<tr><td>其中：金融资产/负债公允价值变动及处置损益</td><td>—</td><td>—</td><td>—</td><td>—</td><td>+15.18</td><td>+17.92</td><td>+12.09</td><td>—</td></tr>
+<tr><td>与鲁花集团换股交易损益（税前）</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>+3.94</td><td>—</td><td>—</td></tr>
+<tr><td>换股交易对应所得税</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td><strong>−5.50</strong></td><td>—</td><td>—</td></tr>
+<tr><td>预计诉讼损失等（税前）</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td><strong>−8.60</strong></td><td>—</td></tr>
+<tr><td>处置家乐氏合资公司 50% 股权（税前）</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td><strong>+3.09</strong></td></tr>
+<tr><td>扣非归母 / 归母</td><td>82.8%</td><td>146.5%</td><td>120.9%</td><td>105.7%</td><td>46.4%</td><td>38.7%</td><td>90.2%</td><td>64.6%</td></tr>
+<tr class="total"><td><strong>七年累计（2019—2025）</strong></td><td>累计归母 <strong>270.55</strong>，累计扣非归母 <strong>265.85</strong>，累计非经常性损益 <strong>+4.70</strong></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+</tbody></table></div>
+<h3>表 3　金融资产与衍生工具损益（归母利润的「第二引擎」）</h3>
+<p>单位：亿元</p>
+<div class="rsp-table rsp-w9"><table class="longtable">
+<thead><tr><th>项目</th><th>2019</th><th>2020</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th><th>2026H1</th></tr></thead><tbody>
+<tr><td>投资收益</td><td>10.13</td><td>−22.90</td><td>−17.09</td><td>0.19</td><td>12.35</td><td>22.81</td><td>8.66</td><td>5.61</td></tr>
+<tr><td>公允价值变动收益</td><td>2.62</td><td>−12.59</td><td>8.66</td><td>−2.62</td><td>4.38</td><td>0.22</td><td>3.50</td><td>2.63</td></tr>
+<tr><td><strong>合计</strong></td><td><strong>+12.74</strong></td><td><strong>−35.49</strong></td><td><strong>−8.43</strong></td><td><strong>−2.44</strong></td><td><strong>+16.73</strong></td><td><strong>+23.03</strong></td><td><strong>+12.17</strong></td><td><strong>+8.24</strong></td></tr>
+<tr><td>占归母净利润比重</td><td>+23.6%</td><td>−59.1%</td><td>−20.4%</td><td>−8.1%</td><td>+58.7%</td><td>+92.1%</td><td>+38.6%</td><td>+35.9%</td></tr>
+<tr class="total"><td><strong>七年累计（2019—2025）</strong></td><td><strong>+18.32</strong>（占累计归母净利润 6.8%）</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+</tbody></table></div>
+<div class="note"><strong>口径说明</strong>：公司自述「非经常性损益主要产生于正常经营活动中用来管理商品价格和外汇风险的衍生工具、结构性存款和权益性金融资产的损益……其中的衍生工具因未完全满足套期会计的要求，因此在会计角度属于非经常性损益。<strong>从业务角度，所有期货损益的已实现部分应计入主营业务毛利，未实现部分应随着未来现货销售而同步计入主营业务毛利。</strong>」——这一句是理解金龙鱼报表的核心，详见 §4.3。</div>
+<h3>表 4　综合财务状况表（2019—2025 年末 + 2026 年 6 月末）</h3>
+<p>单位：亿元</p>
+<div class="rsp-table rsp-w9"><table class="longtable">
+<thead><tr><th>项目</th><th>2019 末</th><th>2020 末</th><th>2021 末</th><th>2022 末</th><th>2023 末</th><th>2024 末</th><th>2025 末</th><th><strong>2026/6/30</strong></th></tr></thead><tbody>
+<tr><td>货币资金</td><td>—</td><td>553.34</td><td>438.35</td><td>394.62</td><td>592.96</td><td>529.06</td><td>442.04</td><td>485.84</td></tr>
+<tr><td>交易性金融资产</td><td>—</td><td>24.93</td><td>119.80</td><td>201.05</td><td>205.16</td><td>111.60</td><td>235.19</td><td>233.24</td></tr>
+<tr><td>衍生金融资产</td><td>—</td><td>8.74</td><td>5.21</td><td>5.84</td><td>7.55</td><td>15.75</td><td>8.58</td><td>—</td></tr>
+<tr><td>应收账款</td><td>—</td><td>71.33</td><td>88.03</td><td>110.42</td><td>116.43</td><td>88.89</td><td>99.04</td><td>104.21</td></tr>
+<tr><td>预付款项</td><td>—</td><td>50.91</td><td>42.55</td><td>44.11</td><td>28.72</td><td>32.23</td><td>37.84</td><td>44.72</td></tr>
+<tr><td><strong>存货</strong></td><td>—</td><td><strong>401.82</strong></td><td><strong>469.06</strong></td><td><strong>530.66</strong></td><td><strong>475.89</strong></td><td><strong>544.39</strong></td><td><strong>541.34</strong></td><td><strong>525.66</strong></td></tr>
+<tr><td>流动资产合计</td><td>—</td><td>1,199.06</td><td>1,250.18</td><td>1,361.26</td><td>1,494.50</td><td>1,404.29</td><td>1,449.88</td><td>1,487.49</td></tr>
+<tr><td>固定资产</td><td>—</td><td>271.78</td><td>321.96</td><td>361.31</td><td>403.63</td><td>448.46</td><td>465.34</td><td>456.62</td></tr>
+<tr><td>在建工程</td><td>—</td><td>63.41</td><td>71.68</td><td>96.92</td><td>103.08</td><td>81.04</td><td>41.20</td><td>42.03</td></tr>
+<tr><td>无形资产</td><td>—</td><td>126.20</td><td>138.50</td><td>147.56</td><td>148.82</td><td>147.18</td><td>144.03</td><td>—</td></tr>
+<tr><td>商誉</td><td>—</td><td>59.88</td><td>59.88</td><td>59.88</td><td>59.88</td><td>59.88</td><td>61.11</td><td>—</td></tr>
+<tr><td><strong>资产总计</strong></td><td><strong>1,706.85</strong></td><td><strong>1,791.77</strong></td><td><strong>2,072.50</strong></td><td><strong>2,279.43</strong></td><td><strong>2,385.00</strong></td><td><strong>2,250.59</strong></td><td><strong>2,287.20</strong></td><td><strong>2,333.59</strong></td></tr>
+<tr><td>短期借款</td><td>—</td><td>623.83</td><td>787.24</td><td>880.13</td><td>954.01</td><td>801.61</td><td>811.53</td><td>865.25</td></tr>
+<tr><td>应付票据</td><td>—</td><td>10.76</td><td>15.63</td><td>27.97</td><td>40.87</td><td>119.48</td><td>193.43</td><td>192.56</td></tr>
+<tr><td>应付账款</td><td>—</td><td>57.48</td><td>54.96</td><td>60.79</td><td>89.64</td><td>48.83</td><td>61.39</td><td>71.00</td></tr>
+<tr><td><strong>合同负债</strong></td><td>—</td><td><strong>46.12</strong></td><td><strong>46.89</strong></td><td><strong>43.50</strong></td><td><strong>29.81</strong></td><td><strong>33.27</strong></td><td><strong>36.38</strong></td><td><strong>18.43</strong></td></tr>
+<tr><td>一年内到期的非流动负债</td><td>—</td><td>0.63</td><td>24.36</td><td>27.34</td><td>98.31</td><td>85.17</td><td>10.42</td><td>21.86</td></tr>
+<tr><td>流动负债合计</td><td>—</td><td>856.95</td><td>1,030.02</td><td>1,164.86</td><td>1,299.59</td><td>1,191.66</td><td>1,216.74</td><td>1,252.77</td></tr>
+<tr><td>长期借款</td><td>—</td><td>47.37</td><td>110.03</td><td>157.22</td><td>103.58</td><td>50.11</td><td>36.15</td><td>33.58</td></tr>
+<tr><td>应付债券</td><td>—</td><td>—</td><td>5.00</td><td>5.01</td><td>5.01</td><td>5.01</td><td>5.01</td><td>5.07</td></tr>
+<tr><td><strong>负债合计</strong></td><td>—</td><td><strong>916.84</strong></td><td><strong>1,161.42</strong></td><td><strong>1,346.60</strong></td><td><strong>1,425.35</strong></td><td><strong>1,268.54</strong></td><td><strong>1,277.70</strong></td><td><strong>1,312.52</strong></td></tr>
+<tr><td><strong>资产负债率</strong></td><td>—</td><td><strong>51.17%</strong></td><td><strong>56.04%</strong></td><td><strong>59.08%</strong></td><td><strong>59.76%</strong></td><td><strong>56.36%</strong></td><td><strong>55.86%</strong></td><td><strong>56.24%</strong></td></tr>
+<tr><td>归母净资产</td><td>647.99</td><td>835.34</td><td>867.01</td><td>887.07</td><td>914.96</td><td>937.37</td><td>964.32</td><td>974.81</td></tr>
+<tr><td>少数股东权益</td><td>—</td><td>39.60</td><td>44.08</td><td>45.76</td><td>44.69</td><td>44.69</td><td>45.18</td><td>46.26</td></tr>
+<tr><td>所有者权益合计</td><td>—</td><td>874.93</td><td>911.08</td><td>932.83</td><td>959.65</td><td>982.06</td><td>1,009.50</td><td>1,021.07</td></tr>
+</tbody></table></div>
+<figure><svg viewBox="0 0 680 280" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="'TsangerJinKai02','Source Han Serif SC','Noto Serif CJK SC','Songti SC',Georgia,serif">
+<line x1="62" y1="214.0" x2="604" y2="214.0" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="56.0" y="217.5" font-size="9" fill="#7C7B77" text-anchor="end" font-weight="400">0%</text>
+<line x1="62" y1="189.4" x2="604" y2="189.4" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="56.0" y="192.9" font-size="9" fill="#7C7B77" text-anchor="end" font-weight="400">2%</text>
+<line x1="62" y1="164.8" x2="604" y2="164.8" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="56.0" y="168.3" font-size="9" fill="#7C7B77" text-anchor="end" font-weight="400">4%</text>
+<line x1="62" y1="140.2" x2="604" y2="140.2" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="56.0" y="143.7" font-size="9" fill="#7C7B77" text-anchor="end" font-weight="400">6%</text>
+<line x1="62" y1="115.5" x2="604" y2="115.5" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="56.0" y="119.0" font-size="9" fill="#7C7B77" text-anchor="end" font-weight="400">8%</text>
+<line x1="62" y1="90.9" x2="604" y2="90.9" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="56.0" y="94.4" font-size="9" fill="#7C7B77" text-anchor="end" font-weight="400">10%</text>
+<line x1="62" y1="66.3" x2="604" y2="66.3" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="56.0" y="69.8" font-size="9" fill="#7C7B77" text-anchor="end" font-weight="400">12%</text>
+<line x1="62" y1="214" x2="604" y2="214" stroke="#E3DDD4" stroke-width="0.9"/>
+<polyline points="95.9,73.7 163.6,62.2 231.4,113.3 299.1,144.1 366.9,154.6 434.6,148.0 502.4,134.9 570.1,136.3" fill="none" stroke="#B8862F" stroke-width="1.8"/>
+<circle cx="95.9" cy="73.7" r="2.6" fill="#B8862F"/>
+<circle cx="163.6" cy="62.2" r="2.6" fill="#B8862F"/>
+<circle cx="231.4" cy="113.3" r="2.6" fill="#B8862F"/>
+<circle cx="299.1" cy="144.1" r="2.6" fill="#B8862F"/>
+<circle cx="366.9" cy="154.6" r="2.6" fill="#B8862F"/>
+<circle cx="434.6" cy="148.0" r="2.6" fill="#B8862F"/>
+<circle cx="502.4" cy="134.9" r="2.6" fill="#B8862F"/>
+<circle cx="570.1" cy="136.3" r="2.6" fill="#B8862F"/>
+<polyline points="95.9,175.0 163.6,176.1 231.4,191.5 299.1,199.6 366.9,200.1 434.6,201.1 502.4,198.1 570.1,191.0" fill="none" stroke="#2F6F6B" stroke-width="1.8"/>
+<circle cx="95.9" cy="175.0" r="2.6" fill="#2F6F6B"/>
+<circle cx="163.6" cy="176.1" r="2.6" fill="#2F6F6B"/>
+<circle cx="231.4" cy="191.5" r="2.6" fill="#2F6F6B"/>
+<circle cx="299.1" cy="199.6" r="2.6" fill="#2F6F6B"/>
+<circle cx="366.9" cy="200.1" r="2.6" fill="#2F6F6B"/>
+<circle cx="434.6" cy="201.1" r="2.6" fill="#2F6F6B"/>
+<circle cx="502.4" cy="198.1" r="2.6" fill="#2F6F6B"/>
+<circle cx="570.1" cy="191.0" r="2.6" fill="#2F6F6B"/>
+<polyline points="95.9,64.5 163.6,84.6 231.4,117.9 299.1,145.2 366.9,146.4 434.6,136.1 502.4,128.7 570.1,128.1" fill="none" stroke="#A73F2D" stroke-width="1.8" stroke-dasharray="4 3"/>
+<circle cx="95.9" cy="64.5" r="2.6" fill="#A73F2D"/>
+<circle cx="163.6" cy="84.6" r="2.6" fill="#A73F2D"/>
+<circle cx="231.4" cy="117.9" r="2.6" fill="#A73F2D"/>
+<circle cx="299.1" cy="145.2" r="2.6" fill="#A73F2D"/>
+<circle cx="366.9" cy="146.4" r="2.6" fill="#A73F2D"/>
+<circle cx="434.6" cy="136.1" r="2.6" fill="#A73F2D"/>
+<circle cx="502.4" cy="128.7" r="2.6" fill="#A73F2D"/>
+<circle cx="570.1" cy="128.1" r="2.6" fill="#A73F2D"/>
+<text x="95.9" y="229.0" font-size="9" fill="#7C7B77" text-anchor="middle" font-weight="400">2019</text>
+<text x="163.6" y="229.0" font-size="9" fill="#7C7B77" text-anchor="middle" font-weight="400">2020</text>
+<text x="231.4" y="229.0" font-size="9" fill="#7C7B77" text-anchor="middle" font-weight="400">2021</text>
+<text x="299.1" y="229.0" font-size="9" fill="#7C7B77" text-anchor="middle" font-weight="400">2022</text>
+<text x="366.9" y="229.0" font-size="9" fill="#7C7B77" text-anchor="middle" font-weight="400">2023</text>
+<text x="434.6" y="229.0" font-size="9" fill="#7C7B77" text-anchor="middle" font-weight="400">2024</text>
+<text x="502.4" y="229.0" font-size="9" fill="#7C7B77" text-anchor="middle" font-weight="400">2025</text>
+<text x="570.1" y="229.0" font-size="9" fill="#7C7B77" text-anchor="middle" font-weight="400">2026H1</text>
+<rect x="71.2" y="81.1" width="37.3" height="12.2" fill="#FBF9F4" opacity="0.92"/>
+<text x="89.9" y="89.7" font-size="9" fill="#B8862F" text-anchor="middle">11.40%</text>
+<rect x="540.1" y="141.8" width="32.1" height="12.2" fill="#FBF9F4" opacity="0.92"/>
+<text x="556.1" y="150.3" font-size="9" fill="#B8862F" text-anchor="middle">6.31%</text>
+<rect x="107.2" y="47.9" width="37.3" height="12.2" fill="#FBF9F4" opacity="0.92"/>
+<text x="125.9" y="56.5" font-size="9" fill="#A73F2D" text-anchor="middle">12.15%</text>
+<rect x="548.1" y="110.5" width="32.1" height="12.2" fill="#FBF9F4" opacity="0.92"/>
+<text x="564.1" y="119.1" font-size="9" fill="#A73F2D" text-anchor="middle">6.98%</text>
+<rect x="119.9" y="169.4" width="32.1" height="12.2" fill="#FBF9F4" opacity="0.92"/>
+<text x="119.9" y="178.0" font-size="9" fill="#2F6F6B" text-anchor="start">3.17%</text>
+<rect x="576.1" y="192.4" width="32.1" height="12.2" fill="#FBF9F4" opacity="0.92"/>
+<text x="576.1" y="201.0" font-size="9" fill="#2F6F6B" text-anchor="start">1.87%</text>
+<line x1="62" y1="14" x2="76" y2="14" stroke="#B8862F" stroke-width="1.8"/>
+<text x="81.0" y="18.0" font-size="9" fill="#22262B" text-anchor="start" font-weight="400">毛利率</text>
+<line x1="140" y1="14" x2="154" y2="14" stroke="#A73F2D" stroke-width="1.8" stroke-dasharray="4 3"/>
+<text x="159.0" y="18.0" font-size="9" fill="#22262B" text-anchor="start" font-weight="400">毛利率＋金融损益/营业收入</text>
+<line x1="328" y1="14" x2="342" y2="14" stroke="#2F6F6B" stroke-width="1.8"/>
+<text x="347.0" y="18.0" font-size="9" fill="#22262B" text-anchor="start" font-weight="400">归母净利率</text>
+</svg><figcaption>图 3　毛利率、归母净利率与「毛利率＋金融损益/营业收入」（2019—2025 年 + 2026H1）　注：虚线为合并加工的价差代理变量，比归母净利率平滑得多</figcaption></figure><h3>表 5　杠杆与流动性：有息负债、类现金与净债务</h3>
+<p>单位：亿元</p>
+<div class="rsp-table rsp-w8"><table class="longtable">
+<thead><tr><th>项目</th><th>2020 末</th><th>2021 末</th><th>2022 末</th><th>2023 末</th><th>2024 末</th><th>2025 末</th><th>2026/6/30</th></tr></thead><tbody>
+<tr><td>有息负债合计</td><td>673.67</td><td>927.99</td><td>1,070.86</td><td>1,162.03</td><td>943.10</td><td>864.73</td><td>927.22</td></tr>
+<tr><td>有息负债同比</td><td>—</td><td>+37.75%</td><td>+15.40%</td><td>+8.51%</td><td>−18.82%</td><td>−8.31%</td><td>+7.23%（较年初）</td></tr>
+<tr><td>类现金（货币资金＋交易性金融资产）</td><td>578.27</td><td>558.16</td><td>595.67</td><td>798.12</td><td>640.66</td><td>677.23</td><td>719.08</td></tr>
+<tr><td><strong>净债务（类现金 − 有息负债）</strong></td><td><strong>+95.40</strong></td><td><strong>+369.84</strong></td><td><strong>+475.19</strong></td><td><strong>+363.91</strong></td><td><strong>+302.44</strong></td><td><strong>+187.50</strong></td><td><strong>+208.14</strong></td></tr>
+<tr><td>有息负债 / 总资产</td><td>37.60%</td><td>44.78%</td><td>46.98%</td><td>48.72%</td><td>41.90%</td><td>37.81%</td><td>39.73%</td></tr>
+<tr><td>有息负债 / 归母净资产</td><td>80.65%</td><td>107.03%</td><td>120.72%</td><td>126.99%</td><td>100.61%</td><td>89.67%</td><td>95.12%</td></tr>
+</tbody></table></div>
+<div class="note"><strong>口径说明</strong>：有息负债 = 短期借款 ＋ 一年内到期的非流动负债 ＋ 长期借款 ＋ 应付债券 ＋ 租赁负债。类现金中「交易性金融资产」主要为结构性存款与权益性金融资产。2026/6/30 数为半年报期末数，与年初比较。</div>
+<figure><svg viewBox="0 0 680 280" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="'TsangerJinKai02','Source Han Serif SC','Noto Serif CJK SC','Songti SC',Georgia,serif">
+<line x1="62" y1="210.0" x2="556" y2="210.0" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="56.0" y="213.5" font-size="9" fill="#7C7B77" text-anchor="end" font-weight="400">0</text>
+<line x1="62" y1="171.5" x2="556" y2="171.5" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="56.0" y="175.0" font-size="9" fill="#7C7B77" text-anchor="end" font-weight="400">130</text>
+<line x1="62" y1="133.0" x2="556" y2="133.0" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="56.0" y="136.5" font-size="9" fill="#7C7B77" text-anchor="end" font-weight="400">260</text>
+<line x1="62" y1="94.5" x2="556" y2="94.5" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="56.0" y="98.0" font-size="9" fill="#7C7B77" text-anchor="end" font-weight="400">390</text>
+<line x1="62" y1="56.0" x2="556" y2="56.0" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="56.0" y="59.5" font-size="9" fill="#7C7B77" text-anchor="end" font-weight="400">520</text>
+<line x1="556" y1="210.0" x2="608" y2="210.0" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="614.0" y="213.5" font-size="9" fill="#2F6F6B" text-anchor="start" font-weight="400">0%</text>
+<line x1="556" y1="170.8" x2="608" y2="170.8" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="614.0" y="174.3" font-size="9" fill="#2F6F6B" text-anchor="start" font-weight="400">14%</text>
+<line x1="556" y1="131.6" x2="608" y2="131.6" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="614.0" y="135.1" font-size="9" fill="#2F6F6B" text-anchor="start" font-weight="400">28%</text>
+<line x1="556" y1="92.4" x2="608" y2="92.4" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="614.0" y="95.9" font-size="9" fill="#2F6F6B" text-anchor="start" font-weight="400">42%</text>
+<line x1="62" y1="210" x2="556" y2="210" stroke="#E3DDD4" stroke-width="0.9"/>
+<rect x="81.1" y="181.7" width="32.5" height="28.3" fill="#CFC7BA"/>
+<text x="97.3" y="175.7" font-size="9" fill="#3E4145" text-anchor="middle" font-weight="400">95</text>
+<text x="97.3" y="225.0" font-size="9" fill="#7C7B77" text-anchor="middle" font-weight="400">2020</text>
+<rect x="151.6" y="100.5" width="32.5" height="109.5" fill="#CFC7BA"/>
+<text x="167.9" y="94.5" font-size="9" fill="#3E4145" text-anchor="middle" font-weight="400">370</text>
+<text x="167.9" y="225.0" font-size="9" fill="#7C7B77" text-anchor="middle" font-weight="400">2021</text>
+<rect x="222.2" y="69.3" width="32.5" height="140.7" fill="#CFC7BA"/>
+<text x="238.4" y="63.3" font-size="9" fill="#3E4145" text-anchor="middle" font-weight="400">475</text>
+<text x="238.4" y="225.0" font-size="9" fill="#7C7B77" text-anchor="middle" font-weight="400">2022</text>
+<rect x="292.8" y="102.2" width="32.5" height="107.8" fill="#CFC7BA"/>
+<text x="309.0" y="96.2" font-size="9" fill="#3E4145" text-anchor="middle" font-weight="400">364</text>
+<text x="309.0" y="225.0" font-size="9" fill="#7C7B77" text-anchor="middle" font-weight="400">2023</text>
+<rect x="363.3" y="120.4" width="32.5" height="89.6" fill="#CFC7BA"/>
+<text x="379.6" y="114.4" font-size="9" fill="#3E4145" text-anchor="middle" font-weight="400">302</text>
+<text x="379.6" y="225.0" font-size="9" fill="#7C7B77" text-anchor="middle" font-weight="400">2024</text>
+<rect x="433.9" y="154.5" width="32.5" height="55.5" fill="#A73F2D"/>
+<text x="450.1" y="148.5" font-size="9" fill="#8A3223" text-anchor="middle" font-weight="400">188</text>
+<text x="450.1" y="225.0" font-size="9" fill="#7C7B77" text-anchor="middle" font-weight="400">2025</text>
+<rect x="504.5" y="148.4" width="32.5" height="61.6" fill="#CFC7BA"/>
+<text x="520.7" y="142.4" font-size="9" fill="#3E4145" text-anchor="middle" font-weight="400">208</text>
+<text x="520.7" y="225.0" font-size="9" fill="#7C7B77" text-anchor="middle" font-weight="400">2026H1</text>
+<polyline points="97.3,104.7 167.9,84.6 238.4,78.5 309.0,73.6 379.6,92.7 450.1,104.1 520.7,98.8" fill="none" stroke="#2F6F6B" stroke-width="1.8"/>
+<circle cx="97.3" cy="104.7" r="2.6" fill="#2F6F6B"/>
+<circle cx="167.9" cy="84.6" r="2.6" fill="#2F6F6B"/>
+<circle cx="238.4" cy="78.5" r="2.6" fill="#2F6F6B"/>
+<circle cx="309.0" cy="73.6" r="2.6" fill="#2F6F6B"/>
+<circle cx="379.6" cy="92.7" r="2.6" fill="#2F6F6B"/>
+<circle cx="450.1" cy="104.1" r="2.6" fill="#2F6F6B"/>
+<circle cx="520.7" cy="98.8" r="2.6" fill="#2F6F6B"/>
+<rect x="78.6" y="87.2" width="37.3" height="12.2" fill="#FBF9F4" opacity="0.92"/>
+<text x="97.3" y="95.7" font-size="9" fill="#2F6F6B" text-anchor="middle">37.60%</text>
+<rect x="498.1" y="81.2" width="37.3" height="12.2" fill="#FBF9F4" opacity="0.92"/>
+<text x="516.7" y="89.8" font-size="9" fill="#2F6F6B" text-anchor="middle">39.73%</text>
+<text x="56.0" y="44.0" font-size="9" fill="#7C7B77" text-anchor="end" font-weight="400">净债务（亿元）</text>
+<text x="614.0" y="44.0" font-size="9" fill="#2F6F6B" text-anchor="start" font-weight="400">有息/总资产</text>
+<rect x="362.0" y="21.5" width="231.2" height="12.2" fill="#FBF9F4" opacity="0.92"/>
+<text x="362.0" y="30.0" font-size="9" fill="#A73F2D" text-anchor="start">2022 年末净债务见顶 475.19 亿元，三年压降 60.5%</text>
+</svg><figcaption>图 4　净债务与有息负债/总资产（2020—2025 年末 + 2026H1）　注：净债务＝有息负债−类现金；柱为净债务（左轴），折线为有息负债/总资产（右轴）</figcaption></figure><h3>表 6　现金流量表与资本开支</h3>
+<p>单位：亿元</p>
+<div class="rsp-table rsp-w9"><table class="longtable">
+<thead><tr><th>项目</th><th>2019</th><th>2020</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th><th>2026H1</th></tr></thead><tbody>
+<tr><td>销售商品、提供劳务收到的现金</td><td>—</td><td>2,238.95</td><td>2,436.23</td><td>2,750.05</td><td>2,688.80</td><td>2,609.05</td><td>2,645.34</td><td>1,303.20</td></tr>
+<tr><td><strong>收现比（收现 / 营业收入）</strong></td><td>—</td><td>114.86%</td><td>107.69%</td><td>106.80%</td><td>106.90%</td><td>109.50%</td><td>107.92%</td><td>106.08%</td></tr>
+<tr><td>购买商品、接受劳务支付的现金</td><td>—</td><td>2,054.50</td><td>2,241.56</td><td>2,597.65</td><td>2,396.22</td><td>2,401.61</td><td>2,303.88</td><td>1,191.51</td></tr>
+<tr><td>支付的各项税费</td><td>—</td><td>33.24</td><td>44.70</td><td>35.64</td><td>25.02</td><td>25.65</td><td>42.55</td><td>18.92</td></tr>
+<tr><td><strong>经营活动产生的现金流量净额</strong></td><td><strong>135.28</strong></td><td><strong>11.99</strong></td><td><strong>7.25</strong></td><td><strong>7.25</strong></td><td><strong>149.21</strong></td><td><strong>60.38</strong></td><td><strong>154.45</strong></td><td><strong>10.01</strong></td></tr>
+<tr><td>购建固定资产、无形资产等支付的现金（资本开支）</td><td>—</td><td>71.45</td><td>96.51</td><td>113.61</td><td>106.99</td><td>70.79</td><td>47.89</td><td>20.91</td></tr>
+<tr><td><strong>自由现金流（经营净额 − 资本开支）</strong></td><td>—</td><td><strong>−59.46</strong></td><td><strong>−89.26</strong></td><td><strong>−106.36</strong></td><td><strong>+42.22</strong></td><td><strong>−10.42</strong></td><td><strong>+106.56</strong></td><td><strong>−10.90</strong></td></tr>
+<tr><td>投资活动产生的现金流量净额</td><td>—</td><td>−130.18</td><td>−215.65</td><td>−119.53</td><td>−176.81</td><td>−22.79</td><td>−151.89</td><td>−62.47</td></tr>
+<tr><td>取得借款收到的现金</td><td>—</td><td>737.46</td><td>1,054.79</td><td>1,334.16</td><td>1,395.70</td><td>1,437.50</td><td>1,569.21</td><td>870.26</td></tr>
+<tr><td>偿还债务支付的现金</td><td>—</td><td>837.65</td><td>759.48</td><td>1,115.56</td><td>1,225.17</td><td>1,601.16</td><td>1,649.00</td><td>806.36</td></tr>
+<tr><td>筹资活动产生的现金流量净额</td><td>—</td><td>+125.59</td><td>+100.66</td><td>+132.25</td><td>+132.76</td><td>−98.86</td><td>−46.92</td><td>+52.24</td></tr>
+<tr><td>分配股利、利润或偿付利息支付的现金</td><td>—</td><td>22.56</td><td>26.72</td><td>29.71</td><td>31.13</td><td>29.02</td><td>25.46</td><td>19.75</td></tr>
+<tr><td>现金及现金等价物净增加额</td><td>—</td><td>+6.64</td><td>−108.30</td><td>+22.84</td><td>+105.95</td><td>−70.80</td><td>−45.23</td><td>—</td></tr>
+<tr><td>期末现金及现金等价物余额</td><td>—</td><td>234.03</td><td>125.73</td><td>148.57</td><td>254.52</td><td>183.72</td><td>138.49</td><td>137.86</td></tr>
+<tr><td>经营现金流 / 归母净利润</td><td>2.50</td><td>0.20</td><td>0.18</td><td>0.24</td><td>5.24</td><td>2.41</td><td>4.90</td><td>0.44</td></tr>
+<tr class="total"><td><strong>累计口径（2020—2025）</strong></td><td>累计经营现金流 <strong>390.53</strong>，累计资本开支 <strong>507.25</strong>，累计自由现金流 <strong>−116.72</strong>，累计经营现金流 / 累计归母净利润 = <strong>1.80 倍</strong></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+</tbody></table></div>
+<div class="note"><strong>口径说明</strong>：「期末现金及现金等价物余额」与资产负债表「货币资金」差额较大（2025 年末 138.49 亿元 vs 442.04 亿元），差额主要为三个月以上定期存款、保证金等受限或非现金等价物资金。2024 年经营活动现金流量净额采用追溯调整后 60.38 亿元（调整前 49.94 亿元）。</div>
+<figure><svg viewBox="0 0 680 300" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="'TsangerJinKai02','Source Han Serif SC','Noto Serif CJK SC','Songti SC',Georgia,serif">
+<line x1="62" y1="256.4" x2="616" y2="256.4" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="56.0" y="259.9" font-size="9" fill="#7C7B77" text-anchor="end" font-weight="400">-120</text>
+<line x1="62" y1="240.9" x2="616" y2="240.9" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="56.0" y="244.4" font-size="9" fill="#7C7B77" text-anchor="end" font-weight="400">-80</text>
+<line x1="62" y1="225.5" x2="616" y2="225.5" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="56.0" y="229.0" font-size="9" fill="#7C7B77" text-anchor="end" font-weight="400">-40</text>
+<line x1="62" y1="210.0" x2="616" y2="210.0" stroke="#E3DDD4" stroke-width="1.1"/>
+<text x="56.0" y="213.5" font-size="9" fill="#7C7B77" text-anchor="end" font-weight="400">0</text>
+<line x1="62" y1="194.5" x2="616" y2="194.5" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="56.0" y="198.0" font-size="9" fill="#7C7B77" text-anchor="end" font-weight="400">40</text>
+<line x1="62" y1="179.1" x2="616" y2="179.1" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="56.0" y="182.6" font-size="9" fill="#7C7B77" text-anchor="end" font-weight="400">80</text>
+<line x1="62" y1="163.6" x2="616" y2="163.6" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="56.0" y="167.1" font-size="9" fill="#7C7B77" text-anchor="end" font-weight="400">120</text>
+<line x1="62" y1="148.1" x2="616" y2="148.1" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="56.0" y="151.6" font-size="9" fill="#7C7B77" text-anchor="end" font-weight="400">160</text>
+<rect x="80.8" y="205.4" width="25.9" height="4.6" fill="#2F6F6B"/>
+<text x="93.7" y="200.4" font-size="8.5" fill="#1F4F4C" text-anchor="middle" font-weight="400">12.0</text>
+<rect x="109.7" y="182.4" width="25.9" height="27.6" fill="#B8862F"/>
+<text x="122.6" y="177.4" font-size="8.5" fill="#8A6A22" text-anchor="middle" font-weight="400">71.5</text>
+<text x="108.2" y="225.0" font-size="9" fill="#7C7B77" text-anchor="middle" font-weight="400">2020</text>
+<rect x="173.1" y="207.2" width="25.9" height="2.8" fill="#2F6F6B"/>
+<text x="186.1" y="202.2" font-size="8.5" fill="#1F4F4C" text-anchor="middle" font-weight="400">7.2</text>
+<rect x="202.0" y="172.7" width="25.9" height="37.3" fill="#B8862F"/>
+<text x="214.9" y="167.7" font-size="8.5" fill="#8A6A22" text-anchor="middle" font-weight="400">96.5</text>
+<text x="200.5" y="225.0" font-size="9" fill="#7C7B77" text-anchor="middle" font-weight="400">2021</text>
+<rect x="265.5" y="207.2" width="25.9" height="2.8" fill="#2F6F6B"/>
+<text x="278.4" y="202.2" font-size="8.5" fill="#1F4F4C" text-anchor="middle" font-weight="400">7.2</text>
+<rect x="294.3" y="166.1" width="25.9" height="43.9" fill="#B8862F"/>
+<text x="307.3" y="161.1" font-size="8.5" fill="#8A6A22" text-anchor="middle" font-weight="400">113.6</text>
+<text x="292.8" y="225.0" font-size="9" fill="#7C7B77" text-anchor="middle" font-weight="400">2022</text>
+<rect x="357.8" y="152.3" width="25.9" height="57.7" fill="#2F6F6B"/>
+<text x="370.7" y="147.3" font-size="8.5" fill="#1F4F4C" text-anchor="middle" font-weight="400">149.2</text>
+<rect x="386.7" y="168.6" width="25.9" height="41.4" fill="#B8862F"/>
+<text x="399.6" y="163.6" font-size="8.5" fill="#8A6A22" text-anchor="middle" font-weight="400">107.0</text>
+<text x="385.2" y="225.0" font-size="9" fill="#7C7B77" text-anchor="middle" font-weight="400">2023</text>
+<rect x="450.1" y="186.7" width="25.9" height="23.3" fill="#2F6F6B"/>
+<text x="463.1" y="181.7" font-size="8.5" fill="#1F4F4C" text-anchor="middle" font-weight="400">60.4</text>
+<rect x="479.0" y="182.6" width="25.9" height="27.4" fill="#B8862F"/>
+<text x="491.9" y="177.6" font-size="8.5" fill="#8A6A22" text-anchor="middle" font-weight="400">70.8</text>
+<text x="477.5" y="225.0" font-size="9" fill="#7C7B77" text-anchor="middle" font-weight="400">2024</text>
+<rect x="542.5" y="150.3" width="25.9" height="59.7" fill="#2F6F6B"/>
+<text x="555.4" y="145.3" font-size="8.5" fill="#1F4F4C" text-anchor="middle" font-weight="400">154.4</text>
+<rect x="571.3" y="191.5" width="25.9" height="18.5" fill="#B8862F"/>
+<text x="584.3" y="186.5" font-size="8.5" fill="#8A6A22" text-anchor="middle" font-weight="400">47.9</text>
+<text x="569.8" y="225.0" font-size="9" fill="#7C7B77" text-anchor="middle" font-weight="400">2025</text>
+<polyline points="108.2,233.0 200.5,244.5 292.8,251.1 385.2,193.7 477.5,214.0 569.8,168.8" fill="none" stroke="#A73F2D" stroke-width="1.8"/>
+<circle cx="108.2" cy="233.0" r="2.6" fill="#A73F2D"/>
+<circle cx="200.5" cy="244.5" r="2.6" fill="#A73F2D"/>
+<circle cx="292.8" cy="251.1" r="2.6" fill="#A73F2D"/>
+<circle cx="385.2" cy="193.7" r="2.6" fill="#A73F2D"/>
+<circle cx="477.5" cy="214.0" r="2.6" fill="#A73F2D"/>
+<circle cx="569.8" cy="168.8" r="2.6" fill="#A73F2D"/>
+<rect x="92.1" y="236.4" width="32.1" height="12.2" fill="#FBF9F4" opacity="0.92"/>
+<text x="108.2" y="245.0" font-size="9" fill="#A73F2D" text-anchor="middle">-59.5</text>
+<rect x="274.2" y="254.6" width="37.3" height="12.2" fill="#FBF9F4" opacity="0.92"/>
+<text x="292.8" y="263.1" font-size="9" fill="#A73F2D" text-anchor="middle">-106.4</text>
+<rect x="553.8" y="151.2" width="32.1" height="12.2" fill="#FBF9F4" opacity="0.92"/>
+<text x="569.8" y="159.8" font-size="9" fill="#A73F2D" text-anchor="middle">106.6</text>
+<rect x="62" y="14" width="10" height="8" fill="#2F6F6B"/>
+<text x="77.0" y="22.0" font-size="9" fill="#22262B" text-anchor="start" font-weight="400">经营活动现金流净额</text>
+<rect x="200" y="14" width="10" height="8" fill="#B8862F"/>
+<text x="215.0" y="22.0" font-size="9" fill="#22262B" text-anchor="start" font-weight="400">资本开支</text>
+<line x1="284" y1="18" x2="304" y2="18" stroke="#A73F2D" stroke-width="1.8"/>
+<circle cx="294" cy="18" r="2.6" fill="#A73F2D"/>
+<text x="309.0" y="22.0" font-size="9" fill="#22262B" text-anchor="start" font-weight="400">自由现金流（亿元）</text>
+</svg><figcaption>图 5　经营活动现金流、资本开支与自由现金流（2020—2025 年）　注：柱为经营现金流（青）与资本开支（金），均用左轴；折线为自由现金流</figcaption></figure><h3>表 7　分产品收入与毛利率（2020—2025 年 + 2026H1）</h3>
+<p>单位：亿元</p>
+<div class="rsp-table rsp-w9"><table class="longtable">
+<thead><tr><th>产品</th><th>2019</th><th>2020</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th><th>2026H1</th></tr></thead><tbody>
+<tr><td><strong>厨房食品</strong></td><td>—</td><td>1,212.02</td><td>1,419.79</td><td>1,571.32</td><td>1,476.47</td><td>1,454.23</td><td>1,509.78</td><td>774.24</td></tr>
+<tr><td>占分部收入比</td><td>—</td><td>62.6%</td><td>63.2%</td><td>61.4%</td><td>59.1%</td><td>61.3%</td><td>62.0%</td><td>63.0%</td></tr>
+<tr><td>同比</td><td>—</td><td>—</td><td>+17.14%</td><td>+10.67%</td><td>−6.04%</td><td>−1.51%</td><td>+3.95%</td><td>+8.21%</td></tr>
+<tr><td><strong>毛利率</strong></td><td>—</td><td>—</td><td>8.30%</td><td>6.68%</td><td>6.41%</td><td>6.92%</td><td><strong>7.32%</strong></td><td><strong>7.15%</strong></td></tr>
+<tr><td><strong>饲料原料及油脂科技</strong></td><td>—</td><td>724.90</td><td>825.15</td><td>986.06</td><td>1,022.46</td><td>916.39</td><td>923.98</td><td>445.12</td></tr>
+<tr><td>占分部收入比</td><td>—</td><td>37.4%</td><td>36.8%</td><td>38.6%</td><td>40.9%</td><td>38.7%</td><td>38.0%</td><td>36.2%</td></tr>
+<tr><td>同比</td><td>—</td><td>—</td><td>+13.83%</td><td>−3.60% 注</td><td>+3.69%</td><td>−10.37%</td><td>+1.28%</td><td>+3.09%</td></tr>
+<tr><td><strong>毛利率</strong></td><td>—</td><td>—</td><td>7.41%</td><td>3.81%</td><td>2.19%</td><td>2.43%</td><td><strong>5.00%</strong></td><td><strong>4.39%</strong></td></tr>
+<tr><td>其他（含租赁等）</td><td>—</td><td>12.29</td><td>17.32</td><td>17.47</td><td>16.31</td><td>18.04</td><td>17.50</td><td>9.16</td></tr>
+<tr><td><strong>合计</strong></td><td>—</td><td>1,949.22</td><td>2,262.25</td><td>2,574.85</td><td>2,515.24</td><td>2,388.66</td><td>2,451.26</td><td>1,228.52</td></tr>
+<tr><td><strong>综合毛利率</strong></td><td>11.40%</td><td>12.33%</td><td>8.18%</td><td>5.68%</td><td>4.83%</td><td>5.35%</td><td>6.43%</td><td>6.31%</td></tr>
+</tbody></table></div>
+<div class="note">注：2022 年分产品同比增速来自 2022 年年报（饲料原料及油脂科技 2022 年分部收入 986.06 亿元 vs 2021 年 825.15 亿元，实际同比 +19.50%）。2024 年「合计」列采用<strong>调整前</strong>口径 2,388.66 亿元，与分产品明细同源；与 2025 年比较时请使用 表 1 的调整后 2,382.79 亿元。</div>
+<h3>表 8　分销售模式收入与毛利率</h3>
+<p>单位：亿元</p>
+<div class="rsp-table rsp-w8"><table class="longtable">
+<thead><tr><th>销售模式</th><th>2020</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th><th>2026H1（厨房食品）</th></tr></thead><tbody>
+<tr><td>经销</td><td>640.54</td><td>660.27</td><td>744.49</td><td>734.69</td><td>741.88</td><td>774.22</td><td>380.05</td></tr>
+<tr><td>占营业收入比</td><td>32.86%</td><td>29.19%</td><td>28.91% 注</td><td>29.21%</td><td>31.06%</td><td>31.58%</td><td>—</td></tr>
+<tr><td>毛利率</td><td>—</td><td>—</td><td>6.85%</td><td>7.88%</td><td>8.11%</td><td><strong>8.20%</strong></td><td><strong>8.84%</strong></td></tr>
+<tr><td>直销</td><td>1,308.67</td><td>1,601.98</td><td>1,830.37</td><td>1,780.55</td><td>1,640.91</td><td>1,677.04</td><td>394.19</td></tr>
+<tr><td>占营业收入比</td><td>67.14%</td><td>70.81%</td><td>71.09% 注</td><td>70.79%</td><td>68.94%</td><td>68.42%</td><td>—</td></tr>
+<tr><td>毛利率</td><td>—</td><td>—</td><td>5.20%</td><td>3.57%</td><td>4.12%</td><td><strong>5.61%</strong></td><td><strong>5.53%</strong></td></tr>
+<tr><td>餐饮等渠道／直销毛利率差</td><td>—</td><td>—</td><td>−1.65pp</td><td>−4.31pp</td><td>−3.99pp</td><td>−2.59pp</td><td><strong>−3.31pp</strong></td></tr>
+</tbody></table></div>
+<div class="note">注：2022 年占比来自 2022 年年报分销售模式数据。2026H1 项下为<strong>厨房食品分部</strong>口径（半年报仅披露厨房食品的经销/直销拆分）；2026H1 经销收入 380.05 亿元同比 +6.18%、直销 394.19 亿元同比 +10.24%。</div>
+<figure><svg viewBox="0 0 680 300" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="'TsangerJinKai02','Source Han Serif SC','Noto Serif CJK SC','Songti SC',Georgia,serif">
+<line x1="62" y1="226.0" x2="556" y2="226.0" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="56.0" y="229.5" font-size="9" fill="#7C7B77" text-anchor="end" font-weight="400">0</text>
+<line x1="62" y1="184.5" x2="556" y2="184.5" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="56.0" y="188.0" font-size="9" fill="#7C7B77" text-anchor="end" font-weight="400">700</text>
+<line x1="62" y1="143.0" x2="556" y2="143.0" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="56.0" y="146.5" font-size="9" fill="#7C7B77" text-anchor="end" font-weight="400">1,400</text>
+<line x1="62" y1="101.5" x2="556" y2="101.5" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="56.0" y="105.0" font-size="9" fill="#7C7B77" text-anchor="end" font-weight="400">2,100</text>
+<line x1="62" y1="60.0" x2="556" y2="60.0" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="56.0" y="63.5" font-size="9" fill="#7C7B77" text-anchor="end" font-weight="400">2,800</text>
+<line x1="556" y1="226.0" x2="608" y2="226.0" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="614.0" y="229.5" font-size="9" fill="#2F6F6B" text-anchor="start" font-weight="400">0%</text>
+<line x1="556" y1="190.4" x2="608" y2="190.4" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="614.0" y="193.9" font-size="9" fill="#2F6F6B" text-anchor="start" font-weight="400">3%</text>
+<line x1="556" y1="154.9" x2="608" y2="154.9" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="614.0" y="158.4" font-size="9" fill="#2F6F6B" text-anchor="start" font-weight="400">6%</text>
+<line x1="556" y1="119.3" x2="608" y2="119.3" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="614.0" y="122.8" font-size="9" fill="#2F6F6B" text-anchor="start" font-weight="400">9%</text>
+<line x1="556" y1="83.7" x2="608" y2="83.7" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="614.0" y="87.2" font-size="9" fill="#2F6F6B" text-anchor="start" font-weight="400">12%</text>
+<line x1="62" y1="226" x2="556" y2="226" stroke="#E3DDD4" stroke-width="0.9"/>
+<rect x="84.2" y="154.1" width="37.9" height="71.9" fill="#A73F2D"/>
+<rect x="84.2" y="111.2" width="37.9" height="43.0" fill="#B8862F"/>
+<text x="103.2" y="193.1" font-size="8.5" fill="#FFFFFF" text-anchor="middle" font-weight="400">1,212</text>
+<text x="103.2" y="135.7" font-size="8.5" fill="#4A3508" text-anchor="middle" font-weight="400">725</text>
+<text x="103.2" y="241.0" font-size="9" fill="#7C7B77" text-anchor="middle" font-weight="400">2020</text>
+<rect x="166.6" y="141.8" width="37.9" height="84.2" fill="#A73F2D"/>
+<rect x="166.6" y="92.9" width="37.9" height="48.9" fill="#B8862F"/>
+<text x="185.5" y="186.9" font-size="8.5" fill="#FFFFFF" text-anchor="middle" font-weight="400">1,420</text>
+<text x="185.5" y="120.4" font-size="8.5" fill="#4A3508" text-anchor="middle" font-weight="400">825</text>
+<text x="185.5" y="241.0" font-size="9" fill="#7C7B77" text-anchor="middle" font-weight="400">2021</text>
+<rect x="248.9" y="132.8" width="37.9" height="93.2" fill="#A73F2D"/>
+<rect x="248.9" y="74.4" width="37.9" height="58.5" fill="#B8862F"/>
+<text x="267.8" y="182.4" font-size="8.5" fill="#FFFFFF" text-anchor="middle" font-weight="400">1,571</text>
+<text x="267.8" y="106.6" font-size="8.5" fill="#4A3508" text-anchor="middle" font-weight="400">986</text>
+<text x="267.8" y="241.0" font-size="9" fill="#7C7B77" text-anchor="middle" font-weight="400">2022</text>
+<rect x="331.2" y="138.5" width="37.9" height="87.5" fill="#A73F2D"/>
+<rect x="331.2" y="77.8" width="37.9" height="60.6" fill="#B8862F"/>
+<text x="350.2" y="185.2" font-size="8.5" fill="#FFFFFF" text-anchor="middle" font-weight="400">1,476</text>
+<text x="350.2" y="111.2" font-size="8.5" fill="#4A3508" text-anchor="middle" font-weight="400">1,022</text>
+<text x="350.2" y="241.0" font-size="9" fill="#7C7B77" text-anchor="middle" font-weight="400">2023</text>
+<rect x="413.6" y="139.8" width="37.9" height="86.2" fill="#A73F2D"/>
+<rect x="413.6" y="85.5" width="37.9" height="54.3" fill="#B8862F"/>
+<text x="432.5" y="185.9" font-size="8.5" fill="#FFFFFF" text-anchor="middle" font-weight="400">1,454</text>
+<text x="432.5" y="115.6" font-size="8.5" fill="#4A3508" text-anchor="middle" font-weight="400">916</text>
+<text x="432.5" y="241.0" font-size="9" fill="#7C7B77" text-anchor="middle" font-weight="400">2024</text>
+<rect x="495.9" y="136.5" width="37.9" height="89.5" fill="#A73F2D"/>
+<rect x="495.9" y="81.7" width="37.9" height="54.8" fill="#B8862F"/>
+<text x="514.8" y="184.2" font-size="8.5" fill="#FFFFFF" text-anchor="middle" font-weight="400">1,510</text>
+<text x="514.8" y="112.1" font-size="8.5" fill="#4A3508" text-anchor="middle" font-weight="400">924</text>
+<text x="514.8" y="241.0" font-size="9" fill="#7C7B77" text-anchor="middle" font-weight="400">2025</text>
+<polyline points="103.2,79.8 185.5,129.0 267.8,158.7 350.2,168.7 432.5,162.6 514.8,149.8" fill="none" stroke="#2F6F6B" stroke-width="1.8"/>
+<circle cx="103.2" cy="79.8" r="2.6" fill="#2F6F6B"/>
+<circle cx="185.5" cy="129.0" r="2.6" fill="#2F6F6B"/>
+<circle cx="267.8" cy="158.7" r="2.6" fill="#2F6F6B"/>
+<circle cx="350.2" cy="168.7" r="2.6" fill="#2F6F6B"/>
+<circle cx="432.5" cy="162.6" r="2.6" fill="#2F6F6B"/>
+<circle cx="514.8" cy="149.8" r="2.6" fill="#2F6F6B"/>
+<rect x="88.5" y="62.3" width="37.3" height="12.2" fill="#FBF9F4" opacity="0.92"/>
+<text x="107.2" y="70.8" font-size="9" fill="#2F6F6B" text-anchor="middle">12.33%</text>
+<rect x="251.8" y="162.1" width="32.1" height="12.2" fill="#FBF9F4" opacity="0.92"/>
+<text x="267.8" y="170.7" font-size="9" fill="#2F6F6B" text-anchor="middle">5.68%</text>
+<rect x="498.8" y="132.2" width="32.1" height="12.2" fill="#FBF9F4" opacity="0.92"/>
+<text x="514.8" y="140.8" font-size="9" fill="#2F6F6B" text-anchor="middle">6.43%</text>
+<rect x="62" y="14" width="10" height="8" fill="#A73F2D"/>
+<text x="77.0" y="22.0" font-size="9" fill="#22262B" text-anchor="start" font-weight="400">厨房食品</text>
+<rect x="138" y="14" width="10" height="8" fill="#B8862F"/>
+<text x="153.0" y="22.0" font-size="9" fill="#22262B" text-anchor="start" font-weight="400">饲料原料及油脂科技（亿元，左轴）</text>
+<line x1="348" y1="18" x2="368" y2="18" stroke="#2F6F6B" stroke-width="1.8"/>
+<circle cx="358" cy="18" r="2.6" fill="#2F6F6B"/>
+<text x="373.0" y="22.0" font-size="9" fill="#22262B" text-anchor="start" font-weight="400">综合毛利率（右轴）</text>
+</svg><figcaption>图 6　分产品收入与综合毛利率（2020—2025 年）　注：堆叠柱为分部收入（左轴），折线为综合毛利率（右轴）</figcaption></figure><h3>表 9　分地区收入结构</h3>
+<p>单位：亿元</p>
+<div class="rsp-table rsp-w7"><table class="longtable">
+<thead><tr><th>地区</th><th>2020</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th></tr></thead><tbody>
+<tr><td>境内</td><td>1,910.89</td><td>2,213.23</td><td>2,521.90</td><td>2,462.12</td><td>2,316.67</td><td>2,383.32</td></tr>
+<tr><td>占比</td><td>98.03%</td><td>97.83%</td><td>97.94%</td><td>97.89%</td><td>97.22%</td><td>97.23%</td></tr>
+<tr><td>境外</td><td>38.33</td><td>49.02</td><td>52.95</td><td>53.12</td><td>66.13</td><td>67.94</td></tr>
+<tr><td>占比</td><td>1.97%</td><td>2.17%</td><td>2.06%</td><td>2.11%</td><td>2.78%</td><td>2.77%</td></tr>
+<tr><td>同比</td><td>—</td><td>+27.90%</td><td>+8.02%</td><td>+0.32%</td><td>+24.49%</td><td>+2.74%</td></tr>
+</tbody></table></div>
+<div class="note">2026H1：境内 1,193.86 亿元（97.18%）、境外 34.66 亿元（2.82%）。</div>
+<h3>表 10　产销量、库存量与吨价</h3>
+<p>单位：千吨；吨价＝元/吨</p>
+<div class="rsp-table rsp-w9"><table class="longtable">
+<thead><tr><th>项目</th><th>2020</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th><th>2025H1</th><th>2026H1</th></tr></thead><tbody>
+<tr><td>销售量</td><td>45,173</td><td>43,500</td><td>45,073</td><td>50,092</td><td>53,513</td><td>56,754</td><td>26,548</td><td>27,564</td></tr>
+<tr><td>同比</td><td>—</td><td>−3.70%</td><td>+3.62%</td><td>+11.14%</td><td>+6.06%</td><td>+6.06%</td><td>—</td><td>+3.83%</td></tr>
+<tr><td>生产量</td><td>37,467</td><td>35,439</td><td>38,722</td><td>42,256</td><td>46,697</td><td>47,997</td><td>21,719</td><td>23,066</td></tr>
+<tr><td>库存量</td><td>2,296</td><td>2,554</td><td>3,007</td><td>2,794</td><td>3,184</td><td>2,672</td><td>2,581</td><td>2,657</td></tr>
+<tr><td><strong>综合吨价（元/吨）</strong></td><td><strong>4,315</strong></td><td><strong>5,201</strong></td><td><strong>5,713</strong></td><td><strong>5,021</strong></td><td><strong>4,453</strong></td><td><strong>4,319</strong></td><td><strong>4,358</strong></td><td><strong>4,457</strong></td></tr>
+<tr><td>厨房食品销量</td><td>—</td><td>—</td><td>—</td><td>—</td><td>24,041</td><td>25,183</td><td>11,870</td><td>12,438</td></tr>
+<tr><td>厨房食品吨价</td><td>—</td><td>—</td><td>—</td><td>—</td><td>6,049</td><td>5,995</td><td>6,028</td><td>6,225</td></tr>
+<tr><td>饲料原料及油脂科技销量</td><td>—</td><td>—</td><td>—</td><td>—</td><td>29,472</td><td>31,571</td><td>14,678</td><td>15,126</td></tr>
+<tr><td>该分部吨价</td><td>—</td><td>—</td><td>—</td><td>—</td><td>3,109</td><td>2,927</td><td>2,942</td><td>2,943</td></tr>
+</tbody></table></div>
+<div class="note"><strong>口径说明</strong>：2024 年销售量采用 2025 年年报比较列口径（53,513 千吨），2024 年年报原披露为 53,714 千吨；库存量 2024 年采用 2025 年年报比较列（3,184 千吨），原披露 3,263 千吨。分产品产销量仅 2024 年起披露，2020—2023 年留「—」。吨价为<strong>推算值</strong>（分部收入 ÷ 销量），可用于判断量价方向，不等同于公司披露的终端售价。</div>
+<h3>表 11　产能与产能利用率</h3>
+<p>单位：千吨；利用率为「实际产能 / 设计产能」（公司披露口径）</p>
+<div class="rsp-table rsp-w10"><table class="longtable">
+<thead><tr><th>主要工段</th><th>2024 设计</th><th>2024 实际</th><th>2024 利用率</th><th>2025 设计</th><th>2025 实际</th><th>2025 利用率</th><th>2026H1 设计</th><th>2026H1 实际</th><th>2026H1 利用率</th></tr></thead><tbody>
+<tr><td>油籽压榨</td><td>29,341</td><td>16,707</td><td>56.9%</td><td>29,608</td><td>16,086</td><td><strong>54.3%</strong></td><td>14,705</td><td>7,455</td><td><strong>50.7%</strong></td></tr>
+<tr><td>油脂精炼</td><td>11,576</td><td>5,785</td><td>50.0%</td><td>11,429</td><td>5,558</td><td><strong>48.6%</strong></td><td>5,691</td><td>2,605</td><td><strong>45.8%</strong></td></tr>
+<tr><td>油脂灌装</td><td>15,827</td><td>5,594</td><td>35.3%</td><td>15,772</td><td>5,507</td><td><strong>34.9%</strong></td><td>7,894</td><td>2,756</td><td><strong>34.9%</strong></td></tr>
+<tr><td>水稻加工</td><td>6,435</td><td>4,476</td><td>69.6%</td><td>7,453</td><td>4,963</td><td><strong>66.6%</strong></td><td>3,943</td><td>2,303</td><td><strong>58.4%</strong></td></tr>
+<tr><td>小麦加工</td><td>16,896</td><td>12,359</td><td>73.1%</td><td>17,358</td><td>12,526</td><td><strong>72.2%</strong></td><td>8,679</td><td>6,356</td><td><strong>73.2%</strong></td></tr>
+</tbody></table></div>
+<div class="note"><strong>口径说明</strong>：2026H1 的「设计产能」为半年度口径（约为年度的一半），故可直接计算利用率。上表利用率为<strong>公司披露的「实际产能 / 设计产能」比值</strong>，仅反映公司自身口径下的开工水平，不等同于行业通用的产能利用率指标。</div>
+<h3>表 12　2025 年分季度经营数据</h3>
+<p>单位：亿元</p>
+<div class="rsp-table rsp-w7"><table class="">
+<thead><tr><th>季度</th><th>营业收入</th><th>归母净利润</th><th>扣非归母</th><th>非经常性损益</th><th>经营活动现金流量净额</th><th>归母占全年比重</th></tr></thead><tbody>
+<tr><td>第一季度</td><td>590.79</td><td>9.81</td><td>8.62</td><td>+1.19</td><td>+102.84</td><td>31.13%</td></tr>
+<tr><td>第二季度</td><td>566.03</td><td>7.74</td><td>5.27</td><td>+2.47</td><td>+43.41</td><td>24.55%</td></tr>
+<tr><td>第三季度</td><td>685.88</td><td>9.93</td><td>6.28</td><td>+3.65</td><td>+129.72</td><td>31.50%</td></tr>
+<tr><td><strong>第四季度</strong></td><td><strong>608.55</strong></td><td><strong>4.04</strong></td><td><strong>8.27</strong></td><td><strong>−4.23</strong></td><td><strong>−121.52</strong></td><td><strong>12.82%</strong></td></tr>
+</tbody></table></div>
+<figure><svg viewBox="0 0 680 282" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="'TsangerJinKai02','Source Han Serif SC','Noto Serif CJK SC','Songti SC',Georgia,serif">
+<line x1="62" y1="208.0" x2="556" y2="208.0" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="56.0" y="211.5" font-size="9" fill="#7C7B77" text-anchor="end" font-weight="400">0.0</text>
+<line x1="62" y1="179.2" x2="556" y2="179.2" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="56.0" y="182.7" font-size="9" fill="#7C7B77" text-anchor="end" font-weight="400">0.5</text>
+<line x1="62" y1="150.3" x2="556" y2="150.3" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="56.0" y="153.8" font-size="9" fill="#7C7B77" text-anchor="end" font-weight="400">1.0</text>
+<line x1="62" y1="121.5" x2="556" y2="121.5" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="56.0" y="125.0" font-size="9" fill="#7C7B77" text-anchor="end" font-weight="400">1.5</text>
+<line x1="62" y1="92.6" x2="556" y2="92.6" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="56.0" y="96.1" font-size="9" fill="#7C7B77" text-anchor="end" font-weight="400">2.0</text>
+<line x1="62" y1="63.8" x2="556" y2="63.8" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="56.0" y="67.3" font-size="9" fill="#7C7B77" text-anchor="end" font-weight="400">2.5</text>
+<line x1="556" y1="208.0" x2="608" y2="208.0" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="614.0" y="211.5" font-size="9" fill="#2F6F6B" text-anchor="start" font-weight="400">0%</text>
+<line x1="556" y1="173.9" x2="608" y2="173.9" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="614.0" y="177.4" font-size="9" fill="#2F6F6B" text-anchor="start" font-weight="400">10%</text>
+<line x1="556" y1="139.8" x2="608" y2="139.8" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="614.0" y="143.3" font-size="9" fill="#2F6F6B" text-anchor="start" font-weight="400">20%</text>
+<line x1="556" y1="105.7" x2="608" y2="105.7" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="614.0" y="109.2" font-size="9" fill="#2F6F6B" text-anchor="start" font-weight="400">30%</text>
+<line x1="556" y1="71.6" x2="608" y2="71.6" stroke="#EFEBE3" stroke-width="0.7"/>
+<text x="614.0" y="75.1" font-size="9" fill="#2F6F6B" text-anchor="start" font-weight="400">40%</text>
+<line x1="62" y1="208" x2="556" y2="208" stroke="#E3DDD4" stroke-width="0.9"/>
+<rect x="85.1" y="144.0" width="36.2" height="64.0" fill="#CFC7BA"/>
+<text x="103.2" y="223.0" font-size="9" fill="#7C7B77" text-anchor="middle" font-weight="400">2020</text>
+<rect x="167.4" y="163.6" width="36.2" height="44.4" fill="#CFC7BA"/>
+<text x="185.5" y="223.0" font-size="9" fill="#7C7B77" text-anchor="middle" font-weight="400">2021</text>
+<rect x="249.7" y="163.6" width="36.2" height="44.4" fill="#CFC7BA"/>
+<text x="267.8" y="223.0" font-size="9" fill="#7C7B77" text-anchor="middle" font-weight="400">2022</text>
+<rect x="332.1" y="144.0" width="36.2" height="64.0" fill="#CFC7BA"/>
+<text x="350.2" y="223.0" font-size="9" fill="#7C7B77" text-anchor="middle" font-weight="400">2023</text>
+<rect x="414.4" y="144.0" width="36.2" height="64.0" fill="#CFC7BA"/>
+<text x="432.5" y="223.0" font-size="9" fill="#7C7B77" text-anchor="middle" font-weight="400">2024</text>
+<rect x="496.7" y="75.3" width="36.2" height="132.7" fill="#A73F2D"/>
+<text x="514.8" y="223.0" font-size="9" fill="#7C7B77" text-anchor="middle" font-weight="400">2025</text>
+<polyline points="103.2,173.8 185.5,173.6 267.8,160.8 350.2,136.0 432.5,126.0 514.8,73.2" fill="none" stroke="#2F6F6B" stroke-width="1.8"/>
+<circle cx="103.2" cy="173.8" r="2.6" fill="#2F6F6B"/>
+<circle cx="185.5" cy="173.6" r="2.6" fill="#2F6F6B"/>
+<circle cx="267.8" cy="160.8" r="2.6" fill="#2F6F6B"/>
+<circle cx="350.2" cy="136.0" r="2.6" fill="#2F6F6B"/>
+<circle cx="432.5" cy="126.0" r="2.6" fill="#2F6F6B"/>
+<circle cx="514.8" cy="73.2" r="2.6" fill="#2F6F6B"/>
+<rect x="89.7" y="129.4" width="26.9" height="12.2" fill="#FBF9F4" opacity="0.92"/>
+<text x="103.2" y="138.0" font-size="9" fill="#3E4145" text-anchor="middle">1.11</text>
+<rect x="172.1" y="149.0" width="26.9" height="12.2" fill="#FBF9F4" opacity="0.92"/>
+<text x="185.5" y="157.6" font-size="9" fill="#3E4145" text-anchor="middle">0.77</text>
+<rect x="254.4" y="149.0" width="26.9" height="12.2" fill="#FBF9F4" opacity="0.92"/>
+<text x="267.8" y="157.6" font-size="9" fill="#3E4145" text-anchor="middle">0.77</text>
+<rect x="336.7" y="129.4" width="26.9" height="12.2" fill="#FBF9F4" opacity="0.92"/>
+<text x="350.2" y="138.0" font-size="9" fill="#3E4145" text-anchor="middle">1.11</text>
+<rect x="419.1" y="129.4" width="26.9" height="12.2" fill="#FBF9F4" opacity="0.92"/>
+<text x="432.5" y="138.0" font-size="9" fill="#3E4145" text-anchor="middle">1.11</text>
+<rect x="501.4" y="60.8" width="26.9" height="12.2" fill="#FBF9F4" opacity="0.92"/>
+<text x="514.8" y="69.3" font-size="9" fill="#8A3223" text-anchor="middle">2.30</text>
+<rect x="84.5" y="156.3" width="37.3" height="12.2" fill="#FBF9F4" opacity="0.92"/>
+<text x="103.2" y="164.8" font-size="9" fill="#2F6F6B" text-anchor="middle">10.03%</text>
+<rect x="331.5" y="118.4" width="37.3" height="12.2" fill="#FBF9F4" opacity="0.92"/>
+<text x="350.2" y="127.0" font-size="9" fill="#2F6F6B" text-anchor="middle">21.13%</text>
+<rect x="496.2" y="55.6" width="37.3" height="12.2" fill="#FBF9F4" opacity="0.92"/>
+<text x="514.8" y="64.2" font-size="9" fill="#2F6F6B" text-anchor="middle">39.55%</text>
+<text x="56.0" y="46.0" font-size="9" fill="#7C7B77" text-anchor="end" font-weight="400">每 10 股派息（元）</text>
+<text x="614.0" y="46.0" font-size="9" fill="#2F6F6B" text-anchor="start" font-weight="400">分红率</text>
+</svg><figcaption>图 7　每 10 股派息与分红率（2020—2025 年）　注：柱为每 10 股派息（元，左轴），折线为分红率（右轴）</figcaption></figure><h3>表 13　股东回报</h3>
+<div class="rsp-table rsp-w7"><table class="longtable">
+<thead><tr><th>项目</th><th>2020</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th></tr></thead><tbody>
+<tr><td>每 10 股派息（元，含税）</td><td>1.11</td><td>0.77</td><td>0.77</td><td>1.11</td><td>1.11</td><td><strong>2.30</strong></td></tr>
+<tr><td>现金分红总额（亿元）</td><td>6.02</td><td>4.17</td><td>4.17</td><td>6.02</td><td>6.02</td><td><strong>12.47</strong></td></tr>
+<tr><td>归母净利润（亿元）</td><td>60.01</td><td>41.32</td><td>30.11</td><td>28.48</td><td>25.02</td><td>31.53</td></tr>
+<tr><td><strong>分红率</strong></td><td><strong>10.03%</strong></td><td><strong>10.10%</strong></td><td><strong>13.86%</strong></td><td><strong>21.13%</strong></td><td><strong>24.05%</strong></td><td><strong>39.55%</strong></td></tr>
+<tr class="total"><td><strong>累计（2020—2025）</strong></td><td>累计分红 38.87 亿元 / 累计归母 216.46 亿元 = <strong>17.96%</strong></td><td></td><td></td><td></td><td></td><td></td></tr>
+</tbody></table></div>
+<div class="note">报告期内公司<strong>未实施中期分红</strong>（已核对 2020—2026 年半年度报告，无中期利润分配方案），上表即为各年度全部现金分红。</div>
+<h3>表 14　2024 年数据追溯重述清单</h3>
+<p>单位：千元</p>
+<div class="rsp-table"><table class="longtable">
+<thead><tr><th>会计科目</th><th>调整前</th><th>调整后</th><th>差异</th></tr></thead><tbody>
+<tr><td>营业收入</td><td>238,866,319</td><td>238,279,409</td><td>−586,910</td></tr>
+<tr><td>营业成本</td><td>226,079,558</td><td>225,497,495</td><td>−582,063</td></tr>
+<tr><td>投资收益</td><td>2,276,539</td><td>2,281,386</td><td>+4,847</td></tr>
+<tr><td>存货</td><td>54,438,943</td><td>53,476,581</td><td>−962,362</td></tr>
+<tr><td>其他流动资产</td><td>4,494,600</td><td>5,456,962</td><td>+962,362</td></tr>
+<tr><td>销售商品、提供劳务收到的现金</td><td>260,905,431</td><td>260,265,699</td><td>−639,732</td></tr>
+<tr><td>购买商品、接受劳务支付的现金</td><td>240,160,810</td><td>238,477,387</td><td>−1,683,423</td></tr>
+<tr><td>收回投资收到的现金</td><td>74,510,268</td><td>75,150,000</td><td>+639,732</td></tr>
+<tr><td>投资支付的现金</td><td>73,905,762</td><td>75,589,185</td><td>+1,683,423</td></tr>
+<tr><td>经营活动产生的现金流量净额</td><td>4,994,157</td><td>6,037,848</td><td>+1,043,691</td></tr>
+</tbody></table></div>
+<div class="note"><strong>变更原因与效力</strong>：依据财政部会计司 2025 年发布的相关会计处理实施问答——「将收取的对价与所出售标准仓单的账面价值的差额计入投资收益；期末持有尚未出售的标准仓单，应将其列报为其他流动资产」。公司于 2026 年 2 月 26 日披露《关于会计政策变更的公告》（公告编号：2026-006），<strong>仅追溯重述 2024 年数据</strong>，2023 年及以前未重述。因此跨 2023／2024 分界的存货、其他流动资产、投资收益及经营活动现金流量净额<strong>不可直接比较</strong>。</div>
+<h3>表 15　实际税率归因与「税率回算」检验</h3>
+<div class="rsp-table rsp-w5"><table class="longtable">
+<thead><tr><th>项目（千元）</th><th>2023</th><th>2024</th><th>2025</th><th>2026H1</th></tr></thead><tbody>
+<tr><td>利润总额</td><td>3,415,627</td><td>3,656,270</td><td>4,888,880</td><td>3,263,495</td></tr>
+<tr><td>按法定/适用税率计算的所得税费用</td><td>853,907</td><td>914,068</td><td>1,222,220</td><td>815,874</td></tr>
+<tr><td>子公司适用不同税率的影响</td><td>−157,618</td><td>−192,858</td><td>−31,298</td><td>−39,226</td></tr>
+<tr><td>调整以前期间所得税的影响</td><td>+2,890</td><td>−22,445</td><td>+7,916</td><td>−16,006</td></tr>
+<tr><td>非应税收入的影响</td><td>−133,987</td><td>−141,014</td><td>−221,355</td><td>−107,382</td></tr>
+<tr><td><strong>不可抵扣的成本、费用和损失的影响</strong></td><td><strong>+28,063</strong></td><td><strong>+58,245</strong></td><td><strong>+172,711</strong></td><td><strong>+44,950</strong></td></tr>
+<tr><td>使用前期未确认递延所得税资产的可抵扣亏损的影响</td><td>−6,763</td><td>−6,344</td><td>−12,691</td><td>−1,182</td></tr>
+<tr><td><strong>本期未确认递延所得税资产的可抵扣暂时性差异或可抵扣亏损的影响</strong></td><td><strong>+95,840</strong></td><td><strong>+173,250</strong></td><td><strong>+405,890</strong></td><td><strong>+220,289</strong></td></tr>
+<tr><td><strong>归属于合营企业和联营企业的损益</strong></td><td><strong>−27,392</strong></td><td><strong>+428,924</strong></td><td><strong>−5,245</strong></td><td><strong>−32,231</strong></td></tr>
+<tr><td>税率变动对递延所得税余额的影响</td><td>+30</td><td>−952</td><td>+90</td><td>+2,332</td></tr>
+<tr><td>税额加倍减免（技术开发费加计扣除）</td><td>−24,371</td><td>−23,164</td><td>−28,823</td><td>−5,145</td></tr>
+<tr><td>所得税费用</td><td>630,599</td><td>1,187,710</td><td>1,509,415</td><td>882,273</td></tr>
+<tr><td><strong>实际税率</strong></td><td><strong>18.46%</strong></td><td><strong>32.49%</strong></td><td><strong>30.87%</strong></td><td><strong>27.03%</strong></td></tr>
+<tr><td>按<strong>上年实际税率</strong>回算本年净利润（亿元）</td><td>—</td><td>29.81</td><td>33.00</td><td>—</td></tr>
+<tr><td>当年披露净利润（亿元）</td><td>—</td><td>24.69</td><td>33.79</td><td>—</td></tr>
+<tr><td>差异（亿元）</td><td>—</td><td><strong>−5.12</strong></td><td><strong>−0.79</strong></td><td>—</td></tr>
+</tbody></table></div>
+<div class="note"><strong>回算方法</strong>：以<strong>上一年度的实际税率</strong>重算本年净利润 = 本年利润总额 ×（1 − 上年实际税率），与当年披露净利润比较。上表使用「净利润（含少数股东）」口径，因所得税对应利润总额口径。差异为负表示当年多缴税、税负侵蚀了利润。</div>
+<hr class="rule">
+<div class="page-break"></div><h2>三、三张财务数据表：关键变化数据与趋势含义</h2>
+<h3>3.1 利润表——「收入规模在涨，但利润几乎不由收入决定」</h3>
+<div class="rsp-table rsp-w5"><table class="longtable fixed">
+<colgroup><col style="width:6.2%"><col style="width:11.5%"><col style="width:26.7%"><col style="width:21.0%"><col style="width:34.6%"></colgroup>
+<thead><tr><th>#</th><th>变化最显著的科目</th><th>变化轨迹</th><th>趋势方向</th><th>趋势含义</th></tr></thead><tbody>
+<tr><td>1</td><td><strong>营业收入</strong></td><td>1,707→<wbr>1,949→<wbr>2,262→<wbr>2,575→<wbr>2,515→<wbr>2,383→<wbr>2,451 亿元；2022 年为峰值，2023—2024 连续两年下滑，2025 年重回增长</td><td>2022 年见顶后进入平台期，由「价驱动」转为「量驱动」</td><td>收入的天花板不在需求而在<strong>原料价格</strong>：2022 年是全球大豆/棕榈油价格历史高位年，此后原料回落直接压低产品售价，销售收入随之缩水，公司无法通过提价对冲</td></tr>
+<tr><td>2</td><td><strong>毛利率</strong></td><td>11.40%→<wbr>12.33%→<wbr>8.18%→<wbr>5.68%→<wbr>4.83%→<wbr>5.36%→<wbr>6.43%</td><td>2019—2023 年单边下行 6.6 个百分点，2024 年触底，2025 年回升 1.07pp</td><td><strong>毛利率是这家公司唯一真正的业绩变量</strong>。2021 年起毛利率跌破 10% 并持续压缩，说明加工价差被挤压；2025 年回升主要来自大豆压榨利润修复与面粉/大米业务原料成本下降</td></tr>
+<tr><td>3</td><td><strong>归母净利润</strong></td><td>54.08→<wbr>60.01→<wbr>41.32→<wbr>30.11→<wbr>28.48→<wbr>25.02→<wbr>31.53 亿元</td><td>2020 年为峰值，连续四年下滑（累计 −58.3%），2025 年反弹 +26.01%</td><td>归母净利润与营业收入的相关系数极低（收入 2022 年见顶、利润 2020 年见顶），<strong>利润对收入不敏感、对价差极度敏感</strong></td></tr>
+<tr><td>4</td><td><strong>投资收益＋公允价值变动</strong></td><td>12.74 →<wbr> −35.49 →<wbr> −8.43 →<wbr> −2.44 →<wbr> 16.73 →<wbr> 23.03 →<wbr> 12.17 亿元；最大波动幅度达 58.5 亿元</td><td>摆动幅度远大于归母净利润本身</td><td>这两项<strong>不是「副业」，而是主营压榨业务的会计镜像</strong>——套保工具损益在会计上归入非经常性，但在业务上是主营毛利的组成部分（详见 §4.3）</td></tr>
+<tr><td>5</td><td><strong>实际税率</strong></td><td>20.04%→<wbr>26.62%→<wbr>27.34%→<wbr>19.17%→<wbr>18.46%→<wbr>32.49%→<wbr>30.87%</td><td>2024 年出现 14.03pp 的单年跳升</td><td>2024 年归母净利润下滑 12.16%，而利润总额实际增长 7.04%——<strong>全部差额来自税负</strong>（鲁花换股交易确认收益 3.89 亿元却缴税 5.50 亿元，税后净损失 1.61 亿元，另加一次性税基调整）</td></tr>
+<tr><td>6</td><td><strong>资产减值损失</strong></td><td>−21.02→<wbr>−7.40→<wbr>−4.59→<wbr>−1.62→<wbr>−1.38→<wbr>−4.41→<wbr>−2.11 亿元</td><td>2019 年计提 21.02 亿元后逐年收敛，2024 年再度回升至 4.41 亿元</td><td>2019 年（上市前一年）的 21.02 亿元大额减值是历史遗留；2024 年回升与当年扣非净利润跌至 9.69 亿元同步出现，说明<strong>减值集中在经营压力年确认</strong></td></tr>
+</tbody></table></div>
+<p><strong>利润表结论</strong>：金龙鱼的利润表不能按「收入增长→<wbr>利润增长」的常规逻辑阅读。真正的驱动链条是：<strong>原料价格 →<wbr> 加工价差 →<wbr> 毛利率 →<wbr> 利润</strong>，而收入只是原料价格的放大镜像。2025 年利润 +26.01% 与 2024 年利润 −12.16% 都不是收入故事，前者是压榨利润修复 + 一次性收益，后者是税负跳升。</p>
+<h3>3.2 财务状况表——「从加杠杆扩张转向去杠杆收缩」</h3>
+<div class="rsp-table rsp-w5"><table class="longtable fixed">
+<colgroup><col style="width:6.2%"><col style="width:9.7%"><col style="width:19.7%"><col style="width:19.6%"><col style="width:44.8%"></colgroup>
+<thead><tr><th>#</th><th>变化最显著的科目</th><th>变化轨迹</th><th>趋势方向</th><th>趋势含义</th></tr></thead><tbody>
+<tr><td>1</td><td><strong>总资产</strong></td><td>1,791.77→<wbr>2,072.50→<wbr>2,279.43→<wbr>2,385.00→<wbr>2,250.59→<wbr>2,287.20 亿元</td><td>2020—2023 年扩张（+33.1%），2024 年收缩，2025 年小幅回升</td><td>资产扩张期对应 IPO 后的产能建设高峰，2024 年的收缩与资本开支下降、在建工程转固后的退出同步</td></tr>
+<tr><td>2</td><td><strong>在建工程</strong></td><td>63.41→<wbr>71.68→<wbr>96.92→<wbr>103.08→<wbr>81.04→<wbr>41.20 亿元</td><td>2023 年见顶后<strong>腰斩再腰斩</strong>，至 2025 年末仅为峰值的 40.0%</td><td>这是<strong>扩张周期结束最直接的证据</strong>。在建工程从 103.08 亿元降至 41.20 亿元（−60.0%），同期固定资产从 403.63 亿元升至 465.34 亿元，即「在建转固」已完成主体部分</td></tr>
+<tr><td>3</td><td><strong>短期借款</strong></td><td>623.83→<wbr>787.24→<wbr>880.13→<wbr>954.01→<wbr>801.61→<wbr>811.53 亿元</td><td>2023 年见顶（954.01 亿元）后连续两年回落</td><td>与在建工程同步见顶，说明前期债务主要投向产能建设；2024—2025 年的回落是主动降杠杆</td></tr>
+<tr><td>4</td><td><strong>应付票据</strong></td><td>10.76→<wbr>15.63→<wbr>27.97→<wbr>40.87→<wbr>119.48→<wbr>193.43 亿元</td><td>2024—2025 年<strong>爆发式增长</strong>（两年 +10.47 倍）</td><td>这是全表最反直觉的科目：在「去杠杆」的同时，应付款项类融资工具大幅扩张。<strong>应付票据 2024 年增 78.61 亿元、2025 年再增 73.95 亿元，两年合计 152.56 亿元</strong>，说明公司在压缩有息负债的同时，把部分融资需求转移到供应链金融（票据结算）通道，真实的资金占用压力并未同步下降</td></tr>
+<tr><td>5</td><td><strong>存货</strong></td><td>401.82→<wbr>469.06→<wbr>530.66→<wbr>475.89→<wbr>544.39→<wbr>541.34 亿元</td><td>长期在 400—545 亿元区间高位震荡，2025 年末占总资产 23.67%</td><td>存货规模约为当年营业成本的 23.6%，<strong>这是大宗的商品加工企业无法回避的营运资金占用</strong>。存货既是原料储备（战略资产）也是跌价风险敞口</td></tr>
+<tr><td>6</td><td><strong>净债务</strong></td><td>+95.40→<wbr>+369.84→<wbr>+475.19→<wbr>+363.91→<wbr>+302.44→<wbr>+187.50 亿元</td><td>2022 年末见顶 475.19 亿元后连续三年压降，累计降幅 <strong>−60.5%</strong></td><td>三年压降 287.69 亿元，是 2023—2025 年现金流量表「筹资活动持续净流出」的结果。净债务压降是本报告期内<strong>最确定的改善项</strong></td></tr>
+<tr><td>7</td><td><strong>合同负债</strong></td><td>46.12→<wbr>46.89→<wbr>43.50→<wbr>29.81→<wbr>33.27→<wbr>36.38 亿元</td><td>2022 年后中枢下移，2025 年小幅回升</td><td>合同负债（经销商预付款）反映渠道打款意愿。2023 年降至 29.81 亿元是本轮渠道压力的先行信号，2025 年回升至 36.38 亿元与当年经销商净增 950 家同步</td></tr>
+</tbody></table></div>
+<p><strong>财务状况表结论</strong>：金龙鱼在 2020—2023 年用债务与 IPO 募资完成了产能扩张，2024—2025 年进入「收缩—去杠杆」阶段：在建工程腰斩、净债务压降 60.5%、资本开支从 113.61 亿元降至 47.89 亿元。但<strong>应付票据两年暴增 10.47 倍</strong>是一个必须单列的观察项——它使账面「资产负债率下降 3.90pp」的改善被部分抵消。</p>
+<h3>3.3 现金流量表——「经营现金流不是利润的影子，而是采购节奏的影子」</h3>
+<div class="rsp-table rsp-w5"><table class="longtable fixed">
+<colgroup><col style="width:6.2%"><col style="width:12.3%"><col style="width:21.4%"><col style="width:27.4%"><col style="width:32.7%"></colgroup>
+<thead><tr><th>#</th><th>变化最显著的科目</th><th>变化轨迹</th><th>趋势方向</th><th>趋势含义</th></tr></thead><tbody>
+<tr><td>1</td><td><strong>经营活动现金流量净额</strong></td><td>135.28→<wbr>11.99→<wbr>7.25→<wbr>7.25→<wbr>149.21→<wbr>60.38→<wbr>154.45 亿元</td><td><strong>正负极端摆动</strong>：2021—2022 年连续两年仅 7.25 亿元，2023 年骤升至 149.21 亿元，2025 年 154.45 亿元，2026H1 又跌至 10.01 亿元</td><td>六年跨度内最高与最低相差 <strong>21.3 倍</strong>。这一项<strong>不具备利润质量的指示性</strong>——它的波动几乎完全由「购买商品支付的现金」和存货/应付款项的时点差决定</td></tr>
+<tr><td>2</td><td><strong>购买商品、接受劳务支付的现金</strong></td><td>2,054.50→<wbr>2,241.56→<wbr>2,597.65→<wbr>2,396.22→<wbr>2,401.61→<wbr>2,303.88→<wbr><strong>1,191.51（2026H1）</strong> 亿元</td><td>2026H1 同比 <strong>+19.94%</strong>，而同期营业成本仅 +6.45%</td><td>2026H1 经营现金流同比暴跌 93.16%（146.25→<wbr>10.01 亿元）的直接原因：<strong>采购付现增速比成本增速快 13.49pp</strong>，即公司以现金/预付替代了赊购结算。这不是回款恶化——收现比仍有 106.08%</td></tr>
+<tr><td>3</td><td><strong>资本开支</strong></td><td>71.45→<wbr>96.51→<wbr>113.61→<wbr>106.99→<wbr>70.79→<wbr>47.89 亿元</td><td>2022 年见顶后连续三年下降，2025 年仅为峰值的 <strong>42.2%</strong></td><td>与在建工程趋势完全一致，构成「扩张周期结束」的双重证据</td></tr>
+<tr><td>4</td><td><strong>自由现金流</strong></td><td>−59.46→<wbr>−89.26→<wbr>−106.36→<wbr>+42.22→<wbr>−10.42→<wbr>+106.56 亿元</td><td>2020—2022 年连续三年大额为负，2023 与 2025 年转正</td><td><strong>累计口径（2020—2025）自由现金流仍为 −116.72 亿元</strong>——六年间累计经营现金流 390.53 亿元不足以覆盖累计资本开支 507.25 亿元，缺口靠借款与 IPO 募资填补</td></tr>
+<tr><td>5</td><td><strong>偿还债务支付的现金</strong></td><td>837.65→<wbr>759.48→<wbr>1,115.56→<wbr>1,225.17→<wbr>1,601.16→<wbr>1,649.00 亿元</td><td>2024—2025 年连续两年超过「取得借款收到的现金」</td><td>2024 年起筹资活动由净流入转为净流出（+132.76 →<wbr> −98.86 →<wbr> −46.92 亿元），<strong>主动收缩资产负债表</strong></td></tr>
+<tr><td>6</td><td><strong>2025 年第四季度经营现金流</strong></td><td>Q1 +102.84 亿 / Q2 +43.41 亿 / Q3 +129.72 亿 / <strong>Q4 −121.52 亿</strong></td><td>单季由 +129.72 亿元转为 −121.52 亿元</td><td>单季波动幅度达 251.24 亿元。<strong>用季度或半年度现金流判断金龙鱼的经营质量会严重失真</strong></td></tr>
+</tbody></table></div>
+<p><strong>现金流量表结论</strong>：金龙鱼的经营现金流是「采购节奏 + 结算方式 + 存货/应付时点」的函数，不是利润的函数。收现比六年稳定在 <strong>106.80%—114.86%</strong> 区间（2026H1 为 106.08%），说明<strong>销售端回款从未出问题</strong>；现金流的大起大落全部来自采购端与应付端。判断这家公司的现金质量，应看「收现比是否稳定在 100% 以上」和「累计经营现金流 ÷ 累计归母净利润」（六年 <strong>1.80 倍</strong>，属健康水平），而不是看单期经营现金流净额。</p>
+<h3>3.4 三表联动</h3>
+<ul><li><strong>利润表看「价差真相」</strong>：归母净利润的七年轨迹（54.08→<wbr>60.01→<wbr>41.32→<wbr>30.11→<wbr>28.48→<wbr>25.02→<wbr>31.53 亿元）与毛利率轨迹（11.40%→<wbr>12.33%→<wbr>8.18%→<wbr>5.68%→<wbr>4.83%→<wbr>5.36%→<wbr>6.43%）几乎完全同构，与营业收入轨迹并不同构。<strong>毛利率是这家公司的「经营真相」</strong>。</li><li><strong>财务状况表看「周期位置」</strong>：在建工程从 103.08 亿元腰斩至 41.20 亿元、资本开支从 113.61 亿元降至 47.89 亿元、净债务从 475.19 亿元压降至 187.50 亿元——三项同步，明确指向<strong>公司已从资本开支驱动型扩张切换为存量运营 + 股东回报</strong>。分红率从 10.03% 升至 39.55% 是这一切换的财务表达。</li><li><strong>现金流量表看「资金去向」</strong>：累计经营现金流 390.53 亿元中，507.25 亿元投向资本开支（缺口 −116.72 亿元）；同时应付票据两年增加 152.56 亿元。<strong>「经营造血 →<wbr> 产能投资 →<wbr> 债务/供应链融资补缺口」是 2020—2025 年的完整资金链</strong>，而 2026H1 经营现金流骤降至 10.01 亿元、资本开支降至 20.91 亿元，正是这条链条在收缩期的形态。</li></ul>
+<hr class="rule">
+<h2>四、数据变化趋势与原因分析</h2>
+<h3>4.1 收入：从「价驱动」切换到「量驱动」</h3>
+<p>把收入和销量并排放，趋势一目了然：</p>
+<div class="rsp-table rsp-w5"><table class="longtable">
+<thead><tr><th>年度</th><th>营业收入同比</th><th>销售量同比</th><th>综合吨价</th><th>吨价同比</th></tr></thead><tbody>
+<tr><td>2020</td><td>+14.16%</td><td>—</td><td>4,315 元</td><td>—</td></tr>
+<tr><td>2021</td><td>+16.06%</td><td>−3.70%</td><td>5,201 元</td><td>+20.53%</td></tr>
+<tr><td>2022</td><td>+13.82%</td><td>+3.62%</td><td>5,713 元</td><td>+9.84%</td></tr>
+<tr><td>2023</td><td>−2.32%</td><td>+11.14%</td><td>5,021 元</td><td>−12.11%</td></tr>
+<tr><td>2024</td><td>−5.27%</td><td>+7.23%</td><td>4,453 元</td><td>−11.31%</td></tr>
+<tr><td>2025</td><td>+2.87%</td><td>+6.06%</td><td>4,319 元</td><td>−3.01%</td></tr>
+<tr><td>2026H1</td><td>+6.20%</td><td>+3.83%</td><td>4,457 元</td><td>+2.27%</td></tr>
+</tbody></table></div>
+<ul><li><strong>2021—2022 年是「价驱动」年份</strong>：销量 2021 年还下降 3.70%，但吨价上涨 20.53%，收入增长 16.06%。这两年恰是全球农产品价格上行周期，金龙鱼作为加工商把原料涨价传导到了产品售价上，实现了「收入增长但销量不增」。</li><li><strong>2023—2024 年是「价的回吐」</strong>：销量连续两年两位数/高个位数增长（+11.14%、+7.23%），吨价却连续两年下滑超 11%，收入反而负增长。<strong>这是本报告最容易被误读的一段</strong>——如果只看收入下滑会得出「需求萎缩」的结论，而事实恰恰相反，是公司<strong>用降价换取了销量增长</strong>。</li><li><strong>2025—2026H1 转向「量驱动」</strong>：2025 年销量 +6.06%、吨价 −3.01%，收入 +2.87%；2026H1 销量 +3.83%、吨价 +2.27%，收入 +6.20%。<strong>量价同步转正是最健康的组合</strong>，尤其 2026H1 厨房食品吨价从 6,028 元回升至 6,225 元（+3.26%），是 2022 年以来首次量价齐升。</li></ul>
+<p><strong>结论</strong>：金龙鱼的收入增长从来不是「卖得更多」或「卖得更贵」的单变量故事，而是<strong>原料价格周期在报表上的投影</strong>。判断这家公司的收入质量，必须同时读「销量同比」与「吨价同比」两列，单看收入增速会得出完全相反的结论。</p>
+<h3>4.2 利润：极薄利润率下的三重扰动</h3>
+<p>在 1.05%—3.17% 的归母净利率上，任何绝对值数亿元的项目都会造成利润的大幅波动。七年内有三重扰动反复出现：</p>
+<p><strong>（一）衍生工具与金融资产损益（波动幅度最大）</strong></p>
+<div class="rsp-table"><table class="longtable">
+<thead><tr><th>年度</th><th>投资收益＋公允价值变动（亿元）</th><th>归母净利润（亿元）</th><th>前者 / 后者</th></tr></thead><tbody>
+<tr><td>2019</td><td>+12.74</td><td>54.08</td><td>+23.6%</td></tr>
+<tr><td>2020</td><td><strong>−35.49</strong></td><td>60.01</td><td><strong>−59.1%</strong></td></tr>
+<tr><td>2021</td><td>−8.43</td><td>41.32</td><td>−20.4%</td></tr>
+<tr><td>2022</td><td>−2.44</td><td>30.11</td><td>−8.1%</td></tr>
+<tr><td>2023</td><td>+16.73</td><td>28.48</td><td>+58.7%</td></tr>
+<tr><td>2024</td><td><strong>+23.03</strong></td><td>25.02</td><td><strong>+92.1%</strong></td></tr>
+<tr><td>2025</td><td>+12.17</td><td>31.53</td><td>+38.6%</td></tr>
+</tbody></table></div>
+<p>2020 年这一项亏损 35.49 亿元（相当于当年归母净利润的 59.1%），2024 年又贡献 23.03 亿元——<strong>这是所有波动中最大的一项，比减值、比诉讼、比税率都大</strong>。</p>
+<p><strong>（二）资产减值损失</strong></p>
+<p>2019 年计提 21.02 亿元（上市前），此后收敛至 1.38 亿元（2023 年），2024 年回升至 4.41 亿元。值得注意的形态是：<strong>2025H1 与 2026H1 该科目均为正数（+2.07 亿元、+1.52 亿元，即净转回），而全年为净计提（−2.11 亿元）</strong>——说明减值计提高度集中在第四季度/下半年确认，与大宗商品年末估值调整的节奏一致。</p>
+<p><strong>（三）一次性诉讼与税务事项（2025 年新增）</strong></p>
+<p>2025 年公司就两起诉讼按谨慎性原则计提预计负债，合计减少当年净利润 <strong>7.33 亿元</strong>：</p>
+<ul><li>广州益海油品贸易合同诈骗案（一审判决共同退赔 18.81 亿元，公司以其账面净资产 2.61 亿元为限计提）→<wbr> 减少净利润约 <strong>2.61 亿元</strong>；</li><li>东莞富之源增值税进项税额转出税务争议（2012 年 7 月—2025 年 12 月）→<wbr> 减少净利润约 <strong>4.72 亿元</strong>。</li></ul>
+<p>两案均处二审，一审判决未生效。<strong>剔除该两项后，2025 年利润总额 56.92 亿元（+55.68%）、归母净利润 38.86 亿元（+55.31%）</strong>。这也是公司披露「归母 +26.01%」与「剔诉后归母 +55.31%」两个口径的原因。</p>
+<p><strong>结论</strong>：金龙鱼 2025 年的利润改善是真实的（扣非归母 28.45 亿元，同比 +193.68%），但其中包含原料成本下行的周期性成分；而 2024 年的利润下滑则主要由一次性税负造成，<strong>并非主营恶化</strong>。</p>
+<h3>4.3 「扣非」口径失效——本报告最关键的判据</h3>
+<p>这是分析金龙鱼最容易出错、也最有价值的一点。</p>
+<p><strong>表 2 的数据已经显示</strong>：归母净利润与扣非归母净利润的差额（即非经常性损益）在七年内从 <strong>−27.91 亿元</strong>摆动到 <strong>+15.33 亿元</strong>，摆动幅度 43.24 亿元。七年累计看：</p>
+<div class="rsp-table"><table class="">
+<thead><tr><th>口径</th><th>2019—2025 累计（亿元）</th></tr></thead><tbody>
+<tr class="total"><td><strong>累计归母净利润</strong></td><td>270.55</td></tr>
+<tr class="total"><td><strong>累计扣非归母净利润</strong></td><td><strong>265.85</strong></td></tr>
+<tr class="total"><td><strong>累计非经常性损益</strong></td><td><strong>+4.70</strong>（占累计归母的 1.74%）</td></tr>
+</tbody></table></div>
+<p><strong>七年累计的「非经常性损益」只有 4.70 亿元、占累计归母净利润不足 2%——即年度间看似巨大的「非经常性」项目，长期合计几乎为零。</strong></p>
+<p>这不是巧合。公司在每份年报中都明确说明：</p>
+<div class="note">「公司的非经常性损益主要产生于正常经营活动中用来管理商品价格和外汇风险的衍生工具、结构性存款和权益性金融资产的损益……其中的衍生工具因未完全满足套期会计的要求，因此在会计角度属于非经常性损益。<strong>从业务角度，所有期货损益的已实现部分应计入主营业务毛利，未实现部分应随着未来现货销售而同步计入主营业务毛利。</strong>」</div>
+<p>也就是说：金龙鱼在现货市场采购大豆/棕榈油，同时在期货市场做空保值。<strong>现货端的成本已计入「营业成本」，而期货端的损益被计入「投资收益/公允价值变动收益」并划入非经常性损益</strong>——毛利被系统性低估，非经常性损益被系统性放大。二者是同一笔生意的两半。</p>
+<p><strong>因此：</strong></p>
+<ol><li><strong>不能用「扣非净利润」判断金龙鱼的主业盈利。</strong> 2024 年扣非归母仅 9.69 亿元（扣非净利率 0.41%）看似主业崩溃，但这只是套保工具当年顺周期实现盈利 23.03 亿元被「扣掉」后的残值；同理，2020 年扣非归母 87.92 亿元（扣非净利率 4.51%）也不是主业盛况，而是当年套保亏损 35.49 亿元被「加回」后的虚高。<strong>两年都失真，方向相反。</strong></li><li><strong>两个口径应当合并使用</strong>：合理的主业盈利区间应落在归母净利润与扣非归母净利润之间。2025 年该区间为 <strong>28.45—31.53 亿元</strong>（2024 年为 9.69—25.02 亿元，区间宽达 15.33 亿元，本身就说明该年度的不可靠性）。</li><li><strong>关注指标应转向毛利率</strong>：因为现货成本与期货损益在会计上被拆散，合并起来的最直接代理变量就是「毛利率＋（投资收益＋公允价值变动）÷ 营业收入」。2025 年该合并比率为 6.43% ＋ 12.17/2,451.26 = <strong>6.93%</strong>；2024 年为 5.36% ＋ 23.03/2,382.79 = <strong>6.33%</strong>；2023 年为 4.83% ＋ 16.73/2,515.24 = <strong>5.49%</strong>。<strong>这条序列（5.49% →<wbr> 6.33% →<wbr> 6.93%）才是金龙鱼真实的加工价差走势</strong>，它比归母净利润序列平滑得多，也更具可比性。</li></ol>
+<h3>4.4 现金流：经营现金流波动巨大，累计自由现金流为负</h3>
+<div class="rsp-table rsp-w5"><table class="longtable">
+<thead><tr><th>年度</th><th>经营现金流（亿元）</th><th>资本开支（亿元）</th><th>自由现金流（亿元）</th><th>收现比</th></tr></thead><tbody>
+<tr><td>2020</td><td>11.99</td><td>71.45</td><td>−59.46</td><td>114.86%</td></tr>
+<tr><td>2021</td><td>7.25</td><td>96.51</td><td>−89.26</td><td>107.69%</td></tr>
+<tr><td>2022</td><td>7.25</td><td>113.61</td><td>−106.36</td><td>106.80%</td></tr>
+<tr><td>2023</td><td>149.21</td><td>106.99</td><td>+42.22</td><td>106.90%</td></tr>
+<tr><td>2024</td><td>60.38</td><td>70.79</td><td>−10.42</td><td>109.50%</td></tr>
+<tr><td>2025</td><td>154.45</td><td>47.89</td><td>+106.56</td><td>107.92%</td></tr>
+<tr class="total"><td><strong>累计</strong></td><td><strong>390.53</strong></td><td><strong>507.25</strong></td><td><strong>−116.72</strong></td><td>—</td></tr>
+<tr><td>2026H1</td><td>10.01</td><td>20.91</td><td>−10.90</td><td>106.08%</td></tr>
+</tbody></table></div>
+<p><strong>三个必须单列的事实：</strong></p>
+<ol><li><strong>收现比六年稳定在 106.80%—114.86%</strong>（2026H1 为 106.08%），从未跌破 100%。<strong>销售端回款质量良好，不存在渠道压货收不回款的问题。</strong></li><li><strong>2026H1 经营现金流同比 −93.16%（146.25→<wbr>10.01 亿元）不是回款问题</strong>：同期销售收现 1,242.08→<wbr>1,303.20 亿元（+4.92%），而购买商品付现 993.37→<wbr>1,191.51 亿元（<strong>+19.94%</strong>），采购付现增速比营业成本增速（+6.45%）快 13.49pp。公司自述原因为「采购节奏及结算方式的变化导致购买商品支付的现金有所增加」，数据完全吻合。</li><li><strong>累计自由现金流 −116.72 亿元</strong>：2020—2025 年累计经营现金流 390.53 亿元不足以覆盖累计资本开支 507.25 亿元。缺口由两部分填补——借款净额（2020—2023 年筹资活动净流入合计 491.26 亿元）与应付票据扩张（2024—2025 年两年增加 152.56 亿元）。<strong>这正是净债务在 2022 年见顶 475.19 亿元的直接来源。</strong></li></ol>
+<h3>4.5 杠杆与资本结构：从加杠杆扩张到去杠杆</h3>
+<div class="rsp-table rsp-w5"><table class="longtable">
+<thead><tr><th>年度</th><th>资产负债率</th><th>有息负债/总资产</th><th>净债务（亿元）</th><th>资本开支（亿元）</th></tr></thead><tbody>
+<tr><td>2020</td><td>51.17%</td><td>37.60%</td><td>+95.40</td><td>71.45</td></tr>
+<tr><td>2021</td><td>56.04%</td><td>44.78%</td><td>+369.84</td><td>96.51</td></tr>
+<tr><td>2022</td><td>59.08%</td><td>46.98%</td><td><strong>+475.19</strong></td><td>113.61</td></tr>
+<tr><td>2023</td><td><strong>59.76%</strong></td><td><strong>48.72%</strong></td><td>+363.91</td><td>106.99</td></tr>
+<tr><td>2024</td><td>56.36%</td><td>41.90%</td><td>+302.44</td><td>70.79</td></tr>
+<tr><td>2025</td><td>55.86%</td><td>37.81%</td><td><strong>+187.50</strong></td><td>47.89</td></tr>
+</tbody></table></div>
+<ul><li>2020—2023 年：资产负债率 +8.59pp、有息负债/总资产 +11.12pp、净债务从 95.40 亿元升至 363.91 亿元，<strong>四年是明确的加杠杆扩张期</strong>，同期资本开支累计 388.56 亿元。</li><li>2024—2025 年：资产负债率回落 3.90pp、有息负债/总资产回落 10.91pp、净债务压降 176.41 亿元（−48.5%），<strong>两年是明确的去杠杆期</strong>。压降速度快于资产负债率改善速度，说明<strong>公司在主动降低「付息负债」而保留了「不付息的经营性负债」</strong>。</li></ul>
+<p><strong>但必须提示一个反向信号</strong>：同期应付票据从 40.87 亿元（2023 年末）激增至 193.43 亿元（2025 年末），两年增加 152.56 亿元。应付票据虽不计入有息负债，但同样需要到期兑付。<strong>若将应付票据纳入广义有息负债，2025 年末广义有息负债为 1,058.16 亿元，占总资产 46.26%，与 2023 年的 50.43% 相比仅改善 4.17pp，远小于「有息负债/总资产」口径显示的 10.91pp 改善。</strong>这是评价本轮去杠杆力度时最需要修正的一处。</p>
+<h3>4.6 渠道：经销商「先扩后收」，是本轮最需跟踪的单一变量</h3>
+<div class="rsp-table"><table class="">
+<thead><tr><th>时点</th><th>经销商数量（家）</th><th>较上期变动</th><th>变动率</th></tr></thead><tbody>
+<tr><td>2024 年末</td><td>9,440</td><td>—</td><td>—</td></tr>
+<tr><td>2025 年末</td><td>10,390</td><td><strong>+950</strong></td><td><strong>+10.06%</strong></td></tr>
+<tr><td>2026 年 6 月末</td><td><strong>9,814</strong></td><td><strong>−576</strong></td><td><strong>−5.54%</strong></td></tr>
+</tbody></table></div>
+<p>分区域看，2026H1 的收缩是全区域性的，且<strong>北方区域降幅最大</strong>：</p>
+<div class="rsp-table rsp-w5"><table class="longtable">
+<thead><tr><th>区域</th><th>2026/6/30</th><th>2025/12/31</th><th>增减</th><th>变动率</th></tr></thead><tbody>
+<tr><td>东部</td><td>3,166</td><td>3,311</td><td>−145</td><td>−4.38%</td></tr>
+<tr><td>南部</td><td>1,080</td><td>1,155</td><td>−75</td><td>−6.49%</td></tr>
+<tr><td>西部</td><td>2,080</td><td>2,096</td><td>−16</td><td>−0.76%</td></tr>
+<tr><td>北部</td><td>2,007</td><td>2,221</td><td><strong>−214</strong></td><td><strong>−9.64%</strong></td></tr>
+<tr><td>中部</td><td>1,481</td><td>1,607</td><td>−126</td><td>−7.84%</td></tr>
+<tr><td><strong>合计</strong></td><td><strong>9,814</strong></td><td><strong>10,390</strong></td><td><strong>−576</strong></td><td><strong>−5.54%</strong></td></tr>
+</tbody></table></div>
+<p><strong>解读</strong>：2025 年经销商净增 950 家（+10.06%）与当年厨房食品收入 +3.95%、销量 +4.75% 同步，属正常扩张。2026H1 净减 576 家（−5.54%）的同时，厨房食品收入仍 +8.21%、销量 +4.79%——<strong>渠道数量下降而收入增长，通常意味着公司在主动优化低效经销商、提升单商产出</strong>。但这一结论需要后续至少两个季度验证：若 2026H2 经销商继续减少而收入增速回落，则应改判为渠道信心下滑。</p>
+<p>值得注意的是，同期<strong>前五大经销客户集中度极低</strong>（2025 年前五大经销客户合计占经销收入 3.71%，2026H1 为 4.39%），说明公司不依赖大商，经销商结构分散，单一渠道风险的传导相对缓慢。</p>
+<h3>4.7 分红：从成长期到回报期的确认</h3>
+<div class="rsp-table rsp-w5"><table class="longtable">
+<thead><tr><th>年度</th><th>每 10 股派息（元）</th><th>分红总额（亿元）</th><th>分红率</th><th>资本开支（亿元）</th></tr></thead><tbody>
+<tr><td>2020</td><td>1.11</td><td>6.02</td><td>10.03%</td><td>71.45</td></tr>
+<tr><td>2021</td><td>0.77</td><td>4.17</td><td>10.10%</td><td>96.51</td></tr>
+<tr><td>2022</td><td>0.77</td><td>4.17</td><td>13.86%</td><td>113.61</td></tr>
+<tr><td>2023</td><td>1.11</td><td>6.02</td><td>21.13%</td><td>106.99</td></tr>
+<tr><td>2024</td><td>1.11</td><td>6.02</td><td>24.05%</td><td>70.79</td></tr>
+<tr><td>2025</td><td><strong>2.30</strong></td><td><strong>12.47</strong></td><td><strong>39.55%</strong></td><td>47.89</td></tr>
+</tbody></table></div>
+<p><strong>分红率与资本开支呈现清晰的替代关系</strong>：资本开支从 2022 年峰值 113.61 亿元降至 2025 年 47.89 亿元（−57.8%）的同时，分红率从 13.86% 升至 39.55%（+25.69pp），2025 年每 10 股派息同比翻倍（1.11→<wbr>2.30 元）。</p>
+<p><strong>这是成长性见顶后估值逻辑切换的标准信号</strong>，但也应两面陈述：2025 年分红总额 12.47 亿元仅占当年经营现金流 154.45 亿元的 8.1%，<strong>分红对现金流的压力很小</strong>；与此同时，公司仍在承担着累计自由现金流为负（2020—2025 年 −116.72 亿元）与净债务 187.50 亿元的现实，<strong>分红率的进一步提升空间受制于去杠杆节奏</strong>。</p>
+<hr class="rule">
+<div class="page-break"></div><h2>五、关键内容总结</h2>
+<h3>5.1 核心业务与竞争优势</h3>
+<div class="rsp-table"><table class="longtable">
+<thead><tr><th>维度</th><th>内容</th></tr></thead><tbody>
+<tr><td>主营构成（2025 年）</td><td>厨房食品 1,509.78 亿元（62.0%）、饲料原料及油脂科技 923.98 亿元（38.0%）、其他 17.50 亿元</td></tr>
+<tr><td>主要产品</td><td>食用油、大米、面粉及挂面、调味品、日化（洗洁精等）、杂粮、豆粉、酵母、牛奶、央厨产品、鸡蛋、大健康产品</td></tr>
+<tr><td>生产基地</td><td>截至 2026/6/30：<strong>83 个已投产生产基地</strong>，另有部分新基地在建</td></tr>
+<tr><td>员工</td><td>2025 年末在职员工 <strong>36,565 人</strong>（生产 11,720、销售 14,115、技术 6,811、财务 1,621、行政 2,298）</td></tr>
+<tr><td>研发投入</td><td>2025 年 2.88 亿元，占营业收入 <strong>0.12%</strong>（2020—2025 年占比稳定在 0.09%—0.12%）</td></tr>
+<tr><td>客户集中度</td><td>前五大客户合计占销售总额 <strong>7.11%</strong>，其中关联方（丰益国际及其控股公司）占 2.52%</td></tr>
+<tr><td>供应商集中度</td><td>前五大供应商合计占采购总额 <strong>28.11%</strong>，其中关联方占 <strong>10.68%</strong>（主要为棕榈及月桂酸油采购，2025 年向丰益国际采购棕榈及月桂酸油 99.50 亿元，占同类交易 54.54%）</td></tr>
+</tbody></table></div>
+<p><strong>护城河判断</strong>：金龙鱼的优势是<strong>结构性成本优势</strong>而非定价权——① 综合企业群（83 个基地共享基础设施，产业链上下游同址，一间工厂的产成品是另一间工厂的原材料）；② 循环经济（稻壳发电、稻壳灰提取白炭黑/活性炭、米糠榨油）把副产品变成第二收入源；③ 全渠道网络（零售/餐饮/食品工业/电商四大事业部）。这些优势<strong>降低了单位成本，但没有改变「价格接受者」的地位</strong>——年报自述「中国食用油行业竞争较为集中」，而公司毛利率七年从 11.40% 压缩至 6.43% 的事实，说明成本优势只够守住份额，不足以守住利润率。</p>
+<h3>5.2 产能与项目进展</h3>
+<p><strong>产能利用率是全表最应关注的结构性问题。</strong> 2025 年公司披露的五个主要工段中：</p>
+<div class="rsp-table"><table class="longtable">
+<thead><tr><th>工段</th><th>2025 年利用率</th><th>2024 年利用率</th><th>变动</th></tr></thead><tbody>
+<tr><td>油籽压榨</td><td>54.3%</td><td>56.9%</td><td>−2.6pp</td></tr>
+<tr><td>油脂精炼</td><td>48.6%</td><td>50.0%</td><td>−1.4pp</td></tr>
+<tr><td>油脂灌装</td><td><strong>34.9%</strong></td><td>35.3%</td><td>−0.4pp</td></tr>
+<tr><td>水稻加工</td><td>66.6%</td><td>69.6%</td><td>−3.0pp</td></tr>
+<tr><td>小麦加工</td><td>72.2%</td><td>73.1%</td><td>−0.9pp</td></tr>
+</tbody></table></div>
+<p><strong>五个工段利用率全部下降，且油脂灌装长期停留在 35% 附近、油脂精炼不足 50%。</strong> 这说明 IPO 后的产能扩张已明显超前于需求，行业性产能过剩是当前压制毛利率的最深层原因。2026H1 油籽压榨利用率进一步降至 50.7%、水稻加工降至 58.4%，趋势未见扭转。</p>
+<p><strong>在建工程与募投项目</strong>：2026H1 末在建工程 42.03 亿元（2023 年末峰值 103.08 亿元）。2026H1 年报披露部分募投项目未达预计收益，并存在项目终止、实施地点变更、建设主体变更等调整（涉及「益海嘉里华南粮油食品加工基地」「益海嘉里（潮州）」「益海嘉里（太原）」等多个项目）。<strong>扩张节奏的收缩已是公开事实。</strong></p>
+<p><strong>新业务方向</strong>：① <strong>中央厨房食品园区</strong>——依托现有生产基地建立食品园区，自加工央厨产品并引进其他央厨企业及上下游企业共享资源；② <strong>蛋鸡养殖与蛋品</strong>——2026 年 7 月发布「186 安鲜鸡蛋生产标准体系」（186 项细分标准，覆盖饲料营养、饲养生物安全、质量控制、集蛋筛选、物流溯源五大环节），产品已在京东、天猫、盒马、奥乐齐、餐饮及食品工业渠道销售；③ <strong>功能性大健康产品</strong>与「从传统米面油向营养健康型米面油」的战略转型。</p>
+<h3>5.3 重大合作与合约</h3>
+<ul><li><strong>渠道定制合作</strong>：2026H1 与山姆、盒马、便利店等渠道合作推出覆盖杂粮、面粉、挂面、便当等多个品类的定制新品。</li><li><strong>股权处置</strong>：2026H1 将分别持有的益海嘉里家乐氏食品（上海）有限公司 50% 股权、益海嘉里家乐氏食品（昆山）有限公司 50% 股权转让给玛氏箭牌糖果（中国）有限公司，交易实现税前利润 <strong>3.09 亿元</strong>、归属母公司净利润 <strong>2.63 亿元</strong>（详见《关于转让参股公司股权的公告》公告编号 2026-001）。</li><li><strong>换股交易（2024 年）</strong>：将所持有的与山东鲁花集团有限公司共同投资的部分合资公司股权，与鲁花集团进行换股交易，实现税前利润 <strong>3.89 亿元</strong>，同时基于股权交易价格与原始投资成本的差额<strong>需缴纳所得税 5.50 亿元</strong>（公告编号 2024-044、2024-069）。该交易对 2024 年归母净利润的净影响为 <strong>−1.61 亿元</strong>。</li><li><strong>日常关联交易（2025 年）</strong>：向丰益国际及其控股子公司采购棕榈及月桂酸油 99.50 亿元（占同类交易 54.54%）、水稻及加工品 3.58 亿元；向 ADM 及其控股子公司采购商品 70.05 亿元（占同类交易 8.83%）；向关联方销售商品合计约 59.66 亿元。</li><li><strong>控股股东承诺</strong>：丰益香港连续四年自愿延长首发前限售股份锁定期（每次一年），2026 年 7 月再次延长一年。</li></ul>
+<h3>5.4 主要风险</h3>
+<p>按对公司价值的潜在影响排序：</p>
+<p><strong>（一）诉讼与或有事项风险（2025—2026 年最大不确定性）</strong></p>
+<ul><li>广州益海油品贸易合同诈骗案：一审判决构成合同诈骗罪帮助犯，判处罚金 100 万元，并需对被害单位经济损失 <strong>18.81 亿元</strong>与云南惠嘉承担共同退赔责任。公司已计提预计负债 2.61 亿元（以广州益海账面净资产为限），已提起上诉，二审审理中。<strong>若二审维持原判且退赔责任超出公司估计，影响可能远超 2.61 亿元。</strong></li><li>东莞富之源增值税争议：涉及 2012 年 7 月—2025 年 12 月少计不可抵扣进项税额转出，已减少 2025 年净利润 4.72 亿元，已提起上诉，二审审理中。</li></ul>
+<p><strong>（二）原材料价格波动风险（长期存在，不可对冲殆尽）</strong> 大豆、棕榈油、菜籽、小麦、水稻价格直接决定加工价差。公司通过期货套保管理风险，但套保工具未完全满足套期会计要求，导致<strong>损益在「营业成本」与「非经常性损益」之间被拆分</strong>，报表利润因此剧烈波动（七年内该项从 −35.49 亿元摆动到 +23.03 亿元）。<strong>套保降低了经营风险，却放大了报表风险。</strong></p>
+<p><strong>（三）产能利用率偏低与行业产能过剩</strong> 五个主要工段利用率 2025 年全部下降，油脂灌装长期仅 35% 左右。IPO 募投项目部分未达预计收益，存在项目终止与变更。<strong>产能过剩意味着即使需求恢复，毛利率的修复也将受制于价格竞争。</strong></p>
+<p><strong>（四）所得税与税收优惠变化</strong> 实际税率七年内从 18.46% 跳升至 32.49%（2024 年）。公司年报明确将「所得税税收优惠变化风险」列为风险因素之一。<strong>在 1.05%—3.17% 的归母净利率上，税率每变动 1pp 约影响净利润 0.35—0.49 亿元</strong>（以 2025 年利润总额 48.89 亿元计）。</p>
+<p><strong>（五）存货规模较大</strong> 2025 年末存货 541.34 亿元，占总资产 23.67%，约为当年营业成本的 23.6%。大宗商品价格下行期存在跌价风险（2019 年曾计提资产减值 21.02 亿元）。</p>
+<p><strong>（六）现金流波动与应付票据快速扩张</strong> 经营现金流六年内最高与最低相差 21.3 倍；应付票据两年增加 152.56 亿元。<strong>供应链融资通道的扩张虽然不计入有息负债，但到期兑付压力是刚性的。</strong></p>
+<p><strong>（七）汇率风险</strong> 境外收入占比 2.77%—2.82%（2025 年 67.94 亿元），但采购端涉及大量进口大豆、棕榈油，外币敞口远大于境外收入占比所显示的水平。</p>
+<hr class="rule">
+<h2>六、结论</h2>
+<p><strong>1. 这是一家「规模巨大、利润率极薄、利润由价差决定」的农产品加工企业，其报表不能用消费品公司的框架阅读。</strong></p>
+<p>七年数据给出的核心事实是：营业收入 1,707.43→<wbr>2,451.26 亿元（+43.6%），而归母净利润 54.08→<wbr>31.53 亿元（<strong>−41.7%</strong>），毛利率从 11.40% 压缩至 6.43%。<strong>收入翻倍式的成长与利润的长期下滑同时发生</strong>，因为收入只是原料价格的镜像，而利润取决于加工价差。2025 年归母净利润 +26.01% 是 2020 年以来的首次显著反弹，扣非归母 28.45 亿元（+193.68%）确认了主营的修复。</p>
+<p><strong>2. 最关键的判据是：「扣非净利润」这个指标对金龙鱼失效。</strong></p>
+<p>七年间非经常性损益从 −27.91 亿元摆动到 +15.33 亿元（幅度 43.24 亿元），但<strong>七年累计仅 +4.70 亿元、占累计归母净利润 1.74%</strong>。原因在于公司自述的会计事实：套保衍生工具未完全满足套期会计要求，<strong>现货成本进了「营业成本」、期货损益进了「非经常性损益」</strong>——它们是同一笔生意的两半。</p>
+<p>因此 <strong>2024 年扣非归母 9.69 亿元（扣非净利率 0.41%）与 2020 年扣非归母 87.92 亿元（4.51%）都是失真的，且方向相反。</strong> 合理的主业盈利应取两个口径之间的区间（2025 年：28.45—31.53 亿元）。替代指标是「<strong>毛利率 ＋（投资收益＋公允价值变动）÷ 营业收入</strong>」，这条序列七年为 5.49%（2023）→<wbr> 6.33%（2024）→<wbr> 6.93%（2025），是判断金龙鱼真实加工价差的最佳代理变量。</p>
+<p><strong>3. 2024 年的利润下滑是税负导致的，不是经营恶化；2025 年的利润增长含一次性因素。</strong></p>
+<p>2024 年利润总额 <strong>增长 7.04%</strong>，而归母净利润<strong>下滑 12.16%</strong>——全部差额来自实际税率从 18.46% 跳升至 32.49%（+14.03pp），主因是鲁花换股交易「确认税前收益 3.89 亿元、缴纳所得税 5.50 亿元」，税后净损失 1.61 亿元。按上年税率回算，2024 年净利润应为 29.81 亿元，而披露值为 24.69 亿元，<strong>差额 5.12 亿元全部来自税负</strong>。</p>
+<p>2025 年归母净利润 31.53 亿元（+26.01%）中包含两起诉讼计提的 7.33 亿元损失；剔除后为 38.86 亿元（+55.31%）。但 2025 年 6.43% 的毛利率仍低于 2019 年的 11.40%，<strong>改善是周期性的（大豆压榨利润修复、面粉/大米原料成本下降），而非结构性的</strong>。</p>
+<p><strong>4. 六年资金链的完整图景是「经营造血不足以覆盖产能投资」，2024 年起进入收缩期。</strong></p>
+<p>2020—2025 年累计经营现金流 390.53 亿元，累计资本开支 507.25 亿元，<strong>累计自由现金流 −116.72 亿元</strong>。缺口由借款净额与应付票据填补，净债务于 2022 年末见顶 475.19 亿元。</p>
+<p>2024—2025 年，公司同步执行了三件事：<strong>在建工程从 103.08 亿元腰斩至 41.20 亿元（2023 年末峰值口径）、资本开支从 113.61 亿元降至 47.89 亿元、净债务压降 60.5% 至 187.50 亿元</strong>；同时把分红率从 13.86% 提升至 39.55%（2025 年每 10 股派 2.30 元，同比翻倍）。<strong>资本开支、杠杆与股东回报三者的反向变动，构成本轮最清晰的战略转向信号。</strong></p>
+<p><strong>5. 需要持续跟踪的三个变量（按优先级）：</strong></p>
+<div class="rsp-table"><table class="longtable">
+<thead><tr><th>优先级</th><th>跟踪变量</th><th>判据</th></tr></thead><tbody>
+<tr><td>高</td><td>两起诉讼的二审结果</td><td>广州益海案退赔责任若超出已计提的 2.61 亿元，将形成新的利润冲击</td></tr>
+<tr><td>高</td><td>应付票据规模与结构</td><td>2025 年末 193.43 亿元、两年增 152.56 亿元；若继续扩张，「去杠杆」的成色需重估</td></tr>
+<tr><td>中</td><td>经销商数量与单商产出</td><td>2026H1 净减 576 家（−5.54%）而收入仍 +8.21%；若 H2 收入增速随渠道收缩回落，则渠道信心下滑成立</td></tr>
+<tr><td>中</td><td>产能利用率</td><td>五个工段 2025 年全部下降、油脂灌装仅 34.9%；利用率不回升，毛利率修复不可持续</td></tr>
+<tr><td>中</td><td>2026H1 经营现金流 −93.16% 是否延续</td><td>公司解释为采购节奏与结算方式变化；若 H2 未回补，需重新评估</td></tr>
+</tbody></table></div>
+<hr class="rule">
+<div class="page-break"></div><h2>七、附录：数据来源与口径</h2>
+<h3>A.1 采用文件清单</h3>
+<div class="rsp-table rsp-w5"><table class="longtable fixed">
+<colgroup><col style="width:6.8%"><col style="width:23.0%"><col style="width:11.2%"><col style="width:21.9%"><col style="width:37.2%"></colgroup>
+<thead><tr><th>序号</th><th>文件名称</th><th>披露日期</th><th>覆盖期间</th><th>用途</th></tr></thead><tbody>
+<tr><td>1</td><td>2025 年年度报告</td><td>2026-04-18</td><td>2025 年度、2024 年比较数（调整后）</td><td>主表 2025/2024 数据；分产品、分渠道、分地区、产销量、产能、经销商、分红、诉讼、所得税附注</td></tr>
+<tr><td>2</td><td>2024 年年度报告</td><td>2025-04</td><td>2024 年度、2023 年比较数</td><td>2024 年调整前数据；鲁花换股交易说明；2024 年非经常性损益明细</td></tr>
+<tr><td>3</td><td>2023 年年度报告</td><td>2024-03</td><td>2023 年度、2022/2021 年比较数</td><td>2023 年数据；2022/2021 年分产品与毛利率</td></tr>
+<tr><td>4</td><td>2022 年年度报告</td><td>2023-04</td><td>2022 年度、2021/2020 年比较数</td><td>2022 年数据；2021/2020 年分产品与毛利率</td></tr>
+<tr><td>5</td><td>2021 年年度报告</td><td>2022-03</td><td>2021 年度、2020/2019 年比较数</td><td>2021 年数据；2019 年主要会计数据</td></tr>
+<tr><td>6</td><td>2020 年年度报告</td><td>2021-03</td><td>2020 年度、2019 年比较数</td><td>2020 年数据；<strong>2019 年合并利润表全部科目</strong></td></tr>
+<tr><td>7</td><td>2026 年半年度报告</td><td>2026-08-12</td><td>2026H1、2025H1 比较数</td><td>2026H1 三大报表；分产品毛利；厨房食品分渠道；经销商变动；家乐氏股权处置</td></tr>
+<tr><td>8</td><td>2025 年半年度报告</td><td>2025-08</td><td>2025H1、2024H1 比较数</td><td>2025H1 三大报表（同比基数）</td></tr>
+<tr><td>9</td><td>2022—2026 年各季度报告（共 9 份）</td><td>各期</td><td>单季度</td><td>未单独引用（相关数据已在年报「分季度主要财务指标」中披露）</td></tr>
+<tr><td>10</td><td>2020—2025 年各年度报告摘要（共 6 份）</td><td>各期</td><td>各年度</td><td>交叉校验</td></tr>
+</tbody></table></div>
+<p><strong>共下载 51 份公告文件</strong>（含定期报告、业绩快报、业绩说明会通知、可持续发展报告），全部纳入核对范围；本报告正文引用的数据均取自上述 8 份主文件的「本期数」或「上期比较数」。</p>
+<h3>A.2 关键口径声明</h3>
+<ol><li><strong>货币单位</strong>：原始报表单位为千元；本报告统一换算为亿元（1 亿元 = 100,000 千元），换算后保留两位小数，可能与公司披露的亿元数存在末位尾差。</li><li><strong>2024 年双口径</strong>：2024 年营业收入、营业成本、投资收益、存货、其他流动资产、销售商品收现、购买商品付现、收回投资收现、投资付现、经营活动现金流量净额等 10 个科目因 2026 年 2 月会计政策变更（标准仓单列报）被追溯重述，仅重述 2024 年。<strong>凡与 2025 年直接比较的项目统一采用调整后口径</strong>，与 2024 年年报原文对比时须注意差异（详见 表 14）。</li><li><strong>2019 年数据的来源特殊性</strong>：公司 2020 年 10 月上市，交易所披露始于 2020 年。2019 年损益数据取自 2020 年年度报告合并利润表「上期」列与「主要会计数据」表；2019 年末资产负债表、2019 年现金流量表未在交易所披露，相关表格留「—」，<strong>未作任何推算</strong>。</li><li><strong>归母净利润为主线口径</strong>：全文「归母净利润」均指「归属于上市公司股东的净利润」；涉及含少数股东的口径时显式标注为「净利润（含少数股东）」。所得税对应利润总额口径，故 表 15 的税率回算使用「净利润」而非「归母净利润」。</li><li><strong>吨价为推算值</strong>：综合吨价 = 营业收入 ÷ 销售量；分部吨价 = 分部收入 ÷ 分部销量。因产品结构（油、米、面、粕、油脂科技产品）单位价值差异极大，吨价仅可用于判断量价方向与年度比较，<strong>不等同于任何单一产品的终端售价</strong>。</li><li><strong>产能利用率为公司披露口径</strong>：以「实际产能 ÷ 设计产能」计算，2026H1 的设计产能为半年度口径。该指标仅反映公司自身口径的开工水平，与行业通用产能利用率定义可能不同。</li><li><strong>2024 年同比增速的双值</strong>：营业收入同比按调整后为 −5.27%、按调整前（2024 年年报原文）为 −5.03%；毛利率按调整后为 5.36%、按调整前为 5.35%。本报告主表采用调整后口径。</li><li><strong>未披露即留空</strong>：分产品产销量、分产品毛利率、分销售模式毛利率等科目在部分年度未披露，一律留「—」，<strong>未使用任何推算、插值或外部数据填补</strong>。</li><li><strong>分红不含中期分配</strong>：已逐个核对 2020—2026 年半年度报告，确认报告期内未实施中期分红，表 13 的派息额即为各年度全部现金分红。</li></ol>
+<h3>A.3 数据抽取与校验方法</h3>
+<div class="rsp-table"><table class="longtable">
+<thead><tr><th>环节</th><th>方法</th></tr></thead><tbody>
+<tr><td>文本抽取</td><td><code>pdftotext -layout</code>（poppler），保留列结构，输出至 <code>text/</code> 目录，共 9 份年报/半年报</td></tr>
+<tr><td>报表定位</td><td>按「1、合并资产负债表」「3、合并利润表」「5、合并现金流量表」锚定区间，避免误取母公司报表数</td></tr>
+<tr><td>科目匹配</td><td>剥离「一、」「其中：」「减：」「1.」等前缀后按科目名首字匹配；对跨行折行科目（如「购建固定资产、无形资产和其他长期资产支付的现金」）采用 3 行滑窗拼接</td></tr>
+<tr><td>交叉校验</td><td>① 各年「本期数」与次年「上期数」逐项对比；② 营业利润＝营业收入−营业总成本＋其他收益＋投资收益＋公允价值变动＋减值＋资产处置 的加总验证；③ 资产负债表「资产总计＝负债和所有者权益总计」平衡验证；④ 2026H1 半年报「上年同期」列与 2025 年半年报本期数逐项比对</td></tr>
+<tr><td>派生指标</td><td>全部由 <code>tools/derive.py</code> 计算，脚本与原始抽取结果（<code>tools/fin_raw.json</code>、<code>tools/fin_h1.json</code>）留档可复核</td></tr>
+</tbody></table></div>
+<p><strong>核对状态（如实声明）</strong>：数据抽取与加总校验已完成（build verified）；报告已渲染为 HTML/PDF 并逐页导出 170 dpi 位图核对（visuals checked）——7 张图与 33 张表的分页、图注归属、柱顶/节点数值标注均已确认可读，图例与坐标轴未被遮挡。<strong>仍未核对项</strong>：不同 PDF 阅读器下的字体替代可能与本次截图存在差异（正文使用仓耳今楷，缺失时回退宋体）。</p>
+
+<div class="report-footer">
+  <span>数据来源：公司在深圳证券交易所披露的年度报告、半年度报告及季度报告（共 51 份公告，正文引用 8 份主文件）</span>
+  <span>2026-09</span>
+</div>
+
+</body>
+</html>
