@@ -65,14 +65,22 @@
   .page-break { break-before: page; }
 </style>
 
+
+
 <!-- rsp-mobile-adapt : 响应式适配层（仅屏幕生效，不影响打印/PDF） -->
 <style id="rsp-mobile-adapt">
+/* rsp-mobile-adapt-v3 */
 /* ========== 1. 全局：屏幕端基础修正 ========== */
 @media screen {
   html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
   body { overflow-wrap: break-word; }
   img, svg, canvas, video, iframe { max-width: 100%; }
   svg[viewBox], svg[viewbox] { height: auto; }
+
+  /* 网格容器（两列对比等）：网格项默认 min-width:auto，会被内部宽表撑破
+     容器、把整页顶出横向滚动（报告里 .two-col 就栽在这上面）。放开收缩，
+     让里面的 .rsp-table 自己去横向滑动。 */
+  .risk-grid > *, .two-col > * { min-width: 0; }
 
   /* 表格横向滚动容器：宽表不压字、不撑破页面 */
   .rsp-table {
@@ -154,6 +162,29 @@
   .report-footer { flex-direction: column; align-items: flex-start; gap: 3pt; }
 }
 
+/* ========== 3b. 图表：窄屏保持图纸原尺寸 + 横向滑动 ========== */
+/* 报告里的图表是 SVG：viewBox 宽 680 + width:100%。缩到手机宽度（约 350px）
+   只剩 0.5×，图内字号从 11px 掉到 5px 完全不可读；而 SVG <text> 不会自动换行，
+   单纯放大字号必然溢出图框。这里改为**保持图纸原尺寸、允许左右滑动**——
+   与上面宽表同一套策略，宁可滑也不塌字号。仅屏幕生效，打印/PDF 不受影响。 */
+@media screen and (max-width: 720px) {
+  .rsp-fig {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    /* 图纸一定宽于屏幕，直接给右侧一层渐变，暗示"还能往右滑" */
+    background: linear-gradient(to left, rgba(167,63,45,.09), rgba(167,63,45,0) 26px);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 26px 100%;
+  }
+  .rsp-fig > svg { min-width: var(--rsp-fig-w, 680px); }
+  .rsp-fig::-webkit-scrollbar { height: 7px; }
+  .rsp-fig::-webkit-scrollbar-track { background: transparent; }
+  .rsp-fig::-webkit-scrollbar-thumb { background: #D8D1C4; border-radius: 4px; }
+}
+
 /* ========== 4. 小屏手机：指标卡单列、边距收到最紧 ========== */
 @media screen and (max-width: 430px) {
   body { padding: 14px 12px 38px 12px !important; }
@@ -174,6 +205,8 @@
   [class*="rsp-w"] > table { min-width: 0 !important; }
 }
 </style>
+
+
 </head>
 <body>
 
@@ -210,7 +243,7 @@
 
 <h2>二、季度轨迹：从补贴战谷底到修复</h2>
 <figure>
-<svg viewBox="0 0 680 300" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="Songti SC, Source Han Serif SC, Noto Serif CJK SC, serif">
+<div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 300" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="Songti SC, Source Han Serif SC, Noto Serif CJK SC, serif">
 <line x1="56" y1="242.0" x2="628" y2="242.0" stroke="#E3DDD4" stroke-width="0.6"/>
 <text x="48" y="245.0" text-anchor="end" font-size="9" fill="#7C7B77">-240</text>
 <line x1="56" y1="207.9" x2="628" y2="207.9" stroke="#E3DDD4" stroke-width="0.6"/>
@@ -262,7 +295,7 @@
 <text x="636" y="101.0" text-anchor="start" font-size="8.5" fill="#B8862F">1000</text>
 <text x="636" y="29.0" text-anchor="start" font-size="8.5" fill="#B8862F">1100</text>
 <text x="10" y="28" font-size="9" fill="#7C7B77">亿元</text>
-</svg>
+</svg></div>
 <figcaption>柱：季度经营溢利 /（亏损）（亿元，左轴）　虚线：季度收入（亿元，右轴）</figcaption>
 </figure>
 <p>曲线呈清晰 V 型：2025Q1 仍有 105.66 亿元经营溢利 → Q2 骤降至 2.26 亿元 → Q3 亏损 197.59 亿元（谷底）→ Q4 亏损 160.74 亿元 → 2026Q1 收窄至 64.70 亿元 → Q2 转正 26.91 亿元。值得注意的是，收入端在亏损最深的 Q3/Q4 并未下滑，说明亏损是<span class="hl">主动投放</span>而非需求萎缩。</p>
@@ -271,7 +304,7 @@
 
 <h2>三、分部盈利结构</h2>
 <figure>
-<svg viewBox="0 0 680 250" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="Songti SC, Source Han Serif SC, Noto Serif CJK SC, serif">
+<div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 250" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="Songti SC, Source Han Serif SC, Noto Serif CJK SC, serif">
 <line x1="56" y1="198.0" x2="660" y2="198.0" stroke="#E3DDD4" stroke-width="0.6"/>
 <text x="48" y="201.0" text-anchor="end" font-size="9" fill="#7C7B77">0</text>
 <line x1="56" y1="151.7" x2="660" y2="151.7" stroke="#E3DDD4" stroke-width="0.6"/>
@@ -309,10 +342,10 @@
 <rect x="156" y="220" width="9" height="9" fill="#B8862F" opacity="0.85"/>
 <text x="170" y="228" font-size="9" fill="#504E49">新业务</text>
 <text x="56" y="16" font-size="9" fill="#7C7B77">分部收入（亿元，2026H1 为半年数）</text>
-</svg>
+</svg></div>
 </figure>
 <figure>
-<svg viewBox="0 0 680 250" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="Songti SC, Source Han Serif SC, Noto Serif CJK SC, serif">
+<div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 250" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="Songti SC, Source Han Serif SC, Noto Serif CJK SC, serif">
 <line x1="56" y1="185.7" x2="660" y2="185.7" stroke="#E3DDD4" stroke-width="0.6"/>
 <text x="48" y="188.7" text-anchor="end" font-size="9" fill="#7C7B77">-200</text>
 <line x1="56" y1="144.8" x2="660" y2="144.8" stroke="#E3DDD4" stroke-width="0.6"/>
@@ -345,7 +378,7 @@
 <text x="602.6" y="163.7" text-anchor="middle" font-size="8.5" fill="#2F6F6B">-39</text>
 <text x="584.5" y="214.0" text-anchor="middle" font-size="9" fill="#504E49">2026H1</text>
 <text x="56" y="16" font-size="9" fill="#7C7B77">分部经营溢利 /（亏损）（亿元，左柱=核心本地商业，右柱=新业务）</text>
-</svg>
+</svg></div>
 </figure>
 
 <div class="rsp-table rsp-w8"><table class="financial "><thead><tr><th>期间</th><th>核心本地商业收入</th><th>核心经营溢利/（亏损）</th><th>利润率</th><th>新业务收入</th><th>新业务经营亏损</th><th>亏损率</th><th>未分配项目</th></tr></thead><tbody><tr><td>2022 年</td><td>1,607.59</td><td><span class="pos">295.03</span></td><td>18.4%</td><td>591.96</td><td>(283.79)</td><td>-47.9%</td><td>(69.44)</td></tr><tr><td>2023 年</td><td>2,069.07</td><td><span class="pos">386.99</span></td><td>18.7%</td><td>698.38</td><td>(201.66)</td><td>-28.9%</td><td>(51.17)</td></tr><tr><td>2024 年</td><td>2,502.47</td><td><span class="pos">524.15</span></td><td>20.9%</td><td>873.44</td><td>(72.73)</td><td>-8.3%</td><td>(82.97)</td></tr><tr><td>2025 年</td><td>2,608.26</td><td><span class="neg">(69.04)</span></td><td>-2.6%</td><td>1,040.29</td><td>(100.82)</td><td>-9.7%</td><td>(80.55)</td></tr><tr><td>2025H1</td><td>1,289.71</td><td><span class="pos">172.13</span></td><td>13.3%</td><td>487.26</td><td>(41.55)</td><td>-8.5%</td><td>(22.66)</td></tr><tr><td>2026H1</td><td>1,355.94</td><td><span class="pos">36.38</span></td><td>2.7%</td><td>600.88</td><td>(38.55)</td><td>-6.4%</td><td>(35.62)</td></tr></tbody></table></div>
@@ -361,7 +394,7 @@
 <div class="page-break"></div>
 <h2>四、长周期趋势（2019–2025 年度 + 2026H1）</h2>
 <figure>
-<svg viewBox="0 0 680 290" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="Songti SC, Source Han Serif SC, Noto Serif CJK SC, serif">
+<div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 290" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="Songti SC, Source Han Serif SC, Noto Serif CJK SC, serif">
 <line x1="56" y1="234.0" x2="626" y2="234.0" stroke="#E3DDD4" stroke-width="0.6"/>
 <text x="48" y="237.0" text-anchor="end" font-size="9" fill="#7C7B77">0</text>
 <line x1="56" y1="182.0" x2="626" y2="182.0" stroke="#E3DDD4" stroke-width="0.6"/>
@@ -414,7 +447,7 @@
 <text x="634" y="133.0" text-anchor="start" font-size="8.5" fill="#A73F2D">0%</text>
 <text x="634" y="81.0" text-anchor="start" font-size="8.5" fill="#A73F2D">8%</text>
 <text x="634" y="29.0" text-anchor="start" font-size="8.5" fill="#A73F2D">16%</text>
-</svg>
+</svg></div>
 <figcaption>柱：年度收入（亿元，左轴）　线：经营利润率（%，右轴）</figcaption>
 </figure>
 
@@ -422,7 +455,7 @@
 <div class="note">单位：人民币亿元。2018 年（上市首年）收入 652.27 亿元、经营亏损 110.86 亿元、年内亏损 1,154.93 亿元（含可转换可赎回优先股公允价值变动，不具可比性）。</div>
 
 <figure>
-<svg viewBox="0 0 680 260" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="Songti SC, Source Han Serif SC, Noto Serif CJK SC, serif">
+<div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 260" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="Songti SC, Source Han Serif SC, Noto Serif CJK SC, serif">
 <line x1="46" y1="212.0" x2="656" y2="212.0" stroke="#E3DDD4" stroke-width="0.6"/>
 <text x="38" y="215.0" text-anchor="end" font-size="9" fill="#7C7B77">0%</text>
 <line x1="46" y1="169.8" x2="656" y2="169.8" stroke="#E3DDD4" stroke-width="0.6"/>
@@ -467,7 +500,7 @@
 <text x="452.7" y="230.0" text-anchor="middle" font-size="9" fill="#504E49">2023</text>
 <text x="554.3" y="230.0" text-anchor="middle" font-size="9" fill="#504E49">2024</text>
 <text x="656.0" y="230.0" text-anchor="middle" font-size="9" fill="#504E49">2025</text>
-</svg>
+</svg></div>
 <figcaption>毛利率、销售及营销费用率、研发费用率（% 收入，2019–2025）</figcaption>
 </figure>
 
@@ -525,6 +558,25 @@
   <span>数据来源：港交所披露易 · 美团 2018–2026 年定期报告与业绩公告（本地核验 49 份）</span>
   <span>货币单位：人民币　编制：2026-09-16</span>
 </div>
+
+
+
+<!-- rsp-mobile-adapt : 溢出表格滑动提示 -->
+<script>
+(function(){
+  function mark(){
+    var boxes = document.querySelectorAll('.rsp-table');
+    for (var i=0;i<boxes.length;i++){
+      var b = boxes[i];
+      if (b.scrollWidth > b.clientWidth + 4) b.setAttribute('data-rsp-scroll','');
+      else b.removeAttribute('data-rsp-scroll');
+    }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mark);
+  else mark();
+  window.addEventListener('resize', function(){ clearTimeout(window.__rspT); window.__rspT=setTimeout(mark,180); });
+})();
+</script>
 
 </body>
 </html>

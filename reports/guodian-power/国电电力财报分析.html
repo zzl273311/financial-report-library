@@ -133,14 +133,22 @@
   @media print { .rsp-table { display: contents; } }
 </style>
 
+
+
 <!-- rsp-mobile-adapt : 响应式适配层（仅屏幕生效，不影响打印/PDF） -->
 <style id="rsp-mobile-adapt">
+/* rsp-mobile-adapt-v3 */
 /* ========== 1. 全局：屏幕端基础修正 ========== */
 @media screen {
   html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
   body { overflow-wrap: break-word; }
   img, svg, canvas, video, iframe { max-width: 100%; }
   svg[viewBox], svg[viewbox] { height: auto; }
+
+  /* 网格容器（两列对比等）：网格项默认 min-width:auto，会被内部宽表撑破
+     容器、把整页顶出横向滚动（报告里 .two-col 就栽在这上面）。放开收缩，
+     让里面的 .rsp-table 自己去横向滑动。 */
+  .risk-grid > *, .two-col > * { min-width: 0; }
 
   /* 表格横向滚动容器：宽表不压字、不撑破页面 */
   .rsp-table {
@@ -222,6 +230,29 @@
   .report-footer { flex-direction: column; align-items: flex-start; gap: 3pt; }
 }
 
+/* ========== 3b. 图表：窄屏保持图纸原尺寸 + 横向滑动 ========== */
+/* 报告里的图表是 SVG：viewBox 宽 680 + width:100%。缩到手机宽度（约 350px）
+   只剩 0.5×，图内字号从 11px 掉到 5px 完全不可读；而 SVG <text> 不会自动换行，
+   单纯放大字号必然溢出图框。这里改为**保持图纸原尺寸、允许左右滑动**——
+   与上面宽表同一套策略，宁可滑也不塌字号。仅屏幕生效，打印/PDF 不受影响。 */
+@media screen and (max-width: 720px) {
+  .rsp-fig {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    /* 图纸一定宽于屏幕，直接给右侧一层渐变，暗示"还能往右滑" */
+    background: linear-gradient(to left, rgba(167,63,45,.09), rgba(167,63,45,0) 26px);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 26px 100%;
+  }
+  .rsp-fig > svg { min-width: var(--rsp-fig-w, 680px); }
+  .rsp-fig::-webkit-scrollbar { height: 7px; }
+  .rsp-fig::-webkit-scrollbar-track { background: transparent; }
+  .rsp-fig::-webkit-scrollbar-thumb { background: #D8D1C4; border-radius: 4px; }
+}
+
 /* ========== 4. 小屏手机：指标卡单列、边距收到最紧 ========== */
 @media screen and (max-width: 430px) {
   body { padding: 14px 12px 38px 12px !important; }
@@ -242,6 +273,8 @@
   [class*="rsp-w"] > table { min-width: 0 !important; }
 }
 </style>
+
+
 </head>
 <body>
 
@@ -763,5 +796,24 @@
   <li>「火电度电标煤成本」为按入炉标煤量×入炉标煤单价÷火电发电量的估算值，未考虑存货变动，仅作跨期方向性比较。</li>
   <li>未披露项以「—」表示，未作任何推算或编造。</li>
 </ol>
+
+
+<!-- rsp-mobile-adapt : 溢出表格滑动提示 -->
+<script>
+(function(){
+  function mark(){
+    var boxes = document.querySelectorAll('.rsp-table');
+    for (var i=0;i<boxes.length;i++){
+      var b = boxes[i];
+      if (b.scrollWidth > b.clientWidth + 4) b.setAttribute('data-rsp-scroll','');
+      else b.removeAttribute('data-rsp-scroll');
+    }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mark);
+  else mark();
+  window.addEventListener('resize', function(){ clearTimeout(window.__rspT); window.__rspT=setTimeout(mark,180); });
+})();
+</script>
+
 </body>
 </html>

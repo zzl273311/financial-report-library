@@ -104,14 +104,22 @@
   .page-break { break-before: page; }
 </style>
 
+
+
 <!-- rsp-mobile-adapt : 响应式适配层（仅屏幕生效，不影响打印/PDF） -->
 <style id="rsp-mobile-adapt">
+/* rsp-mobile-adapt-v3 */
 /* ========== 1. 全局：屏幕端基础修正 ========== */
 @media screen {
   html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
   body { overflow-wrap: break-word; }
   img, svg, canvas, video, iframe { max-width: 100%; }
   svg[viewBox], svg[viewbox] { height: auto; }
+
+  /* 网格容器（两列对比等）：网格项默认 min-width:auto，会被内部宽表撑破
+     容器、把整页顶出横向滚动（报告里 .two-col 就栽在这上面）。放开收缩，
+     让里面的 .rsp-table 自己去横向滑动。 */
+  .risk-grid > *, .two-col > * { min-width: 0; }
 
   /* 表格横向滚动容器：宽表不压字、不撑破页面 */
   .rsp-table {
@@ -193,6 +201,29 @@
   .report-footer { flex-direction: column; align-items: flex-start; gap: 3pt; }
 }
 
+/* ========== 3b. 图表：窄屏保持图纸原尺寸 + 横向滑动 ========== */
+/* 报告里的图表是 SVG：viewBox 宽 680 + width:100%。缩到手机宽度（约 350px）
+   只剩 0.5×，图内字号从 11px 掉到 5px 完全不可读；而 SVG <text> 不会自动换行，
+   单纯放大字号必然溢出图框。这里改为**保持图纸原尺寸、允许左右滑动**——
+   与上面宽表同一套策略，宁可滑也不塌字号。仅屏幕生效，打印/PDF 不受影响。 */
+@media screen and (max-width: 720px) {
+  .rsp-fig {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    /* 图纸一定宽于屏幕，直接给右侧一层渐变，暗示"还能往右滑" */
+    background: linear-gradient(to left, rgba(167,63,45,.09), rgba(167,63,45,0) 26px);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 26px 100%;
+  }
+  .rsp-fig > svg { min-width: var(--rsp-fig-w, 680px); }
+  .rsp-fig::-webkit-scrollbar { height: 7px; }
+  .rsp-fig::-webkit-scrollbar-track { background: transparent; }
+  .rsp-fig::-webkit-scrollbar-thumb { background: #D8D1C4; border-radius: 4px; }
+}
+
 /* ========== 4. 小屏手机：指标卡单列、边距收到最紧 ========== */
 @media screen and (max-width: 430px) {
   body { padding: 14px 12px 38px 12px !important; }
@@ -213,6 +244,8 @@
   [class*="rsp-w"] > table { min-width: 0 !important; }
 }
 </style>
+
+
 </head>
 <body>
 
@@ -293,7 +326,7 @@
 <p>注 1：2021 年营业收入及归母净利润同比增速按上年（2020 年）数计算——2020 年营业收入 155,373 百万元、归母净利润 24,957 百万元、扣非后归母净利润 21,370 百万元（取自 2022 年年报"主要会计数据"表的 2020 年列）。公司 2022 年年报对 2022 年收入同比的表述为"+72%"、对 2022 年归母净利润同比的表述为"+102%"，与本表四舍五入一致。 注 2：2021 年扣非后加权平均净资产收益率 14.89% 取自 2022 年年报"主要财务指标"表的 2021 年比较列。</p>
 
 <figure>
-<svg viewBox="0 0 680 280" width="100%" font-family="'Songti SC','Noto Serif CJK SC',serif">
+<div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 280" width="100%" font-family="'Songti SC','Noto Serif CJK SC',serif">
   <text x="0" y="14" font-size="12" fill="#22262B" font-weight="600">营业收入与归母净利润（人民币百万元）</text>
   <text x="0" y="30" font-size="9" fill="#7C7B77">柱＝营业收入（左轴）　线＝归母净利润（右轴，与柱共用刻度比例）</text>
   <line x1="52" y1="220" x2="648" y2="220" stroke="#E3DDD4" stroke-width="1"/>
@@ -339,7 +372,7 @@
   <line x1="378" y1="257" x2="400" y2="257" stroke="#22262B" stroke-width="1.6"/>
   <circle cx="389" cy="257" r="3.2" fill="#F7F4EE" stroke="#22262B" stroke-width="1.6"/>
   <text x="406" y="261" font-size="8.5" fill="#504e49">归母净利润</text>
-</svg>
+</svg></div>
 <figcaption>图 1　营业收入与归母净利润五年趋势（单位：人民币百万元）</figcaption>
 </figure>
 <h3>表 2　综合财务状况表（单位：人民币百万元）</h3>
@@ -390,7 +423,7 @@
 <p>注：油气销售毛利 ＝ 油气销售收入 − 油气销售成本，贸易毛利同口径。2021—2025 年各年数据均由公司年报"营业收入和营业成本"附注直接披露的收入与成本相减得出，未作推算。三项分部收入之和与营业收入合计完全勾稽相符。</p>
 
 <figure>
-<svg viewBox="0 0 680 240" width="100%" font-family="'Songti SC','Noto Serif CJK SC',serif">
+<div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 240" width="100%" font-family="'Songti SC','Noto Serif CJK SC',serif">
   <text x="0" y="14" font-size="12" fill="#22262B" font-weight="600">营业收入构成：油气销售 vs 贸易业务（人民币百万元）</text>
   <text x="0" y="30" font-size="9" fill="#7C7B77">贸易业务收入占比 2023 年达 19.0% 峰值，但毛利率仅 6.8%—11.2%</text>
   <line x1="46" y1="182" x2="648" y2="182" stroke="#E3DDD4" stroke-width="1"/>
@@ -432,12 +465,12 @@
   <text x="304" y="239" font-size="8.5" fill="#504e49">油气销售（最新）</text>
   <rect x="440" y="230" width="10" height="10" fill="#B8862F"/>
   <text x="454" y="239" font-size="8.5" fill="#504e49">贸易收入</text>
-</svg>
+</svg></div>
 <figcaption>图 2　营业收入构成：油气销售与贸易业务（单位：人民币百万元）</figcaption>
 </figure>
 
 <figure>
-<svg viewBox="0 0 680 240" width="100%" font-family="'Songti SC','Noto Serif CJK SC',serif">
+<div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 240" width="100%" font-family="'Songti SC','Noto Serif CJK SC',serif">
   <text x="0" y="14" font-size="12" fill="#22262B" font-weight="600">实现油价 vs 桶油主要成本（美元／桶油当量）</text>
   <text x="0" y="30" font-size="9" fill="#7C7B77">油价下行三年，成本持续下移，桶油毛利空间反而扩大</text>
   <line x1="46" y1="190" x2="648" y2="190" stroke="#E3DDD4" stroke-width="1"/>
@@ -477,7 +510,7 @@
   <circle cx="331" cy="228" r="4" fill="#2F6F6B"/>
   <text x="348" y="232" font-size="8.5" fill="#504e49">桶油主要成本</text>
   <text x="540" y="232" font-size="8.5" fill="#7C7B77">2021 年桶油成本未单独披露</text>
-</svg>
+</svg></div>
 <figcaption>图 3　实现油价与桶油主要成本对照（单位：美元／桶油当量）</figcaption>
 </figure>
 <h3>表 5　经营与成本指标</h3>
@@ -724,5 +757,24 @@
   <span>数据来源：公司 2022—2026 年定期报告、ESG 报告（A 股法定披露）</span>
   <span>财务数据对比分析报告</span>
 </div>
+
+
+<!-- rsp-mobile-adapt : 溢出表格滑动提示 -->
+<script>
+(function(){
+  function mark(){
+    var boxes = document.querySelectorAll('.rsp-table');
+    for (var i=0;i<boxes.length;i++){
+      var b = boxes[i];
+      if (b.scrollWidth > b.clientWidth + 4) b.setAttribute('data-rsp-scroll','');
+      else b.removeAttribute('data-rsp-scroll');
+    }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mark);
+  else mark();
+  window.addEventListener('resize', function(){ clearTimeout(window.__rspT); window.__rspT=setTimeout(mark,180); });
+})();
+</script>
+
 </body>
 </html>

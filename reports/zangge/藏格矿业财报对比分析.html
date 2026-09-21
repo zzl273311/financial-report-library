@@ -136,14 +136,22 @@
     font-size: 8.5pt; color: var(--stone); }
 </style>
 
+
+
 <!-- rsp-mobile-adapt : 响应式适配层（仅屏幕生效，不影响打印/PDF） -->
 <style id="rsp-mobile-adapt">
+/* rsp-mobile-adapt-v3 */
 /* ========== 1. 全局：屏幕端基础修正 ========== */
 @media screen {
   html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
   body { overflow-wrap: break-word; }
   img, svg, canvas, video, iframe { max-width: 100%; }
   svg[viewBox], svg[viewbox] { height: auto; }
+
+  /* 网格容器（两列对比等）：网格项默认 min-width:auto，会被内部宽表撑破
+     容器、把整页顶出横向滚动（报告里 .two-col 就栽在这上面）。放开收缩，
+     让里面的 .rsp-table 自己去横向滑动。 */
+  .risk-grid > *, .two-col > * { min-width: 0; }
 
   /* 表格横向滚动容器：宽表不压字、不撑破页面 */
   .rsp-table {
@@ -225,6 +233,29 @@
   .report-footer { flex-direction: column; align-items: flex-start; gap: 3pt; }
 }
 
+/* ========== 3b. 图表：窄屏保持图纸原尺寸 + 横向滑动 ========== */
+/* 报告里的图表是 SVG：viewBox 宽 680 + width:100%。缩到手机宽度（约 350px）
+   只剩 0.5×，图内字号从 11px 掉到 5px 完全不可读；而 SVG <text> 不会自动换行，
+   单纯放大字号必然溢出图框。这里改为**保持图纸原尺寸、允许左右滑动**——
+   与上面宽表同一套策略，宁可滑也不塌字号。仅屏幕生效，打印/PDF 不受影响。 */
+@media screen and (max-width: 720px) {
+  .rsp-fig {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    /* 图纸一定宽于屏幕，直接给右侧一层渐变，暗示"还能往右滑" */
+    background: linear-gradient(to left, rgba(167,63,45,.09), rgba(167,63,45,0) 26px);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 26px 100%;
+  }
+  .rsp-fig > svg { min-width: var(--rsp-fig-w, 680px); }
+  .rsp-fig::-webkit-scrollbar { height: 7px; }
+  .rsp-fig::-webkit-scrollbar-track { background: transparent; }
+  .rsp-fig::-webkit-scrollbar-thumb { background: #D8D1C4; border-radius: 4px; }
+}
+
 /* ========== 4. 小屏手机：指标卡单列、边距收到最紧 ========== */
 @media screen and (max-width: 430px) {
   body { padding: 14px 12px 38px 12px !important; }
@@ -245,6 +276,8 @@
   [class*="rsp-w"] > table { min-width: 0 !important; }
 }
 </style>
+
+
 </head>
 <body>
 
@@ -274,7 +307,7 @@
 
 <h2>收入趋势</h2>
 <figure>
-<svg viewBox="0 0 680 268" width="100%" height="268" font-family="'Songti SC','Noto Serif CJK SC',serif" xmlns="http://www.w3.org/2000/svg">
+<div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 268" width="100%" height="268" font-family="'Songti SC','Noto Serif CJK SC',serif" xmlns="http://www.w3.org/2000/svg">
   <line x1="56" y1="24" x2="656" y2="24" stroke="#EFEBE3" stroke-width="0.6"/>
   <line x1="56" y1="89.3" x2="656" y2="89.3" stroke="#EFEBE3" stroke-width="0.6"/>
   <line x1="56" y1="154.7" x2="656" y2="154.7" stroke="#EFEBE3" stroke-width="0.6"/>
@@ -330,7 +363,7 @@
   <circle cx="195" cy="252.5" r="2.4" fill="#F7F4EE" stroke="#22262B" stroke-width="1.4"/>
   <text x="211" y="256" font-size="8.5" fill="#504e49">归母净利润（亿元）</text>
   <text x="656" y="256" font-size="8.5" fill="#7C7B77" text-anchor="end">数据来源：各年度经审计年报"主要会计数据和财务指标"</text>
-</svg>
+</svg></div>
 <figcaption>图 1　营业收入与归母净利润趋势（2016—2025，单位：亿元）</figcaption>
 </figure>
 <p class="note">2016—2020 年为缓慢下行期（治理危机＋钾肥价格低迷）；2021—2022 年为碳酸锂价格驱动下的爆发期，2022 年营收、净利双创历史峰值；2023—2024 年锂价回落导致连续两年下滑；2025 年结构性再平衡，收入回升但增量主要来自氯化钾量价齐升。</p>
@@ -426,7 +459,7 @@
 
 <h2>收入结构</h2>
 <figure>
-<svg viewBox="0 0 680 258" width="100%" height="258" font-family="'Songti SC','Noto Serif CJK SC',serif" xmlns="http://www.w3.org/2000/svg">
+<div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 258" width="100%" height="258" font-family="'Songti SC','Noto Serif CJK SC',serif" xmlns="http://www.w3.org/2000/svg">
   <line x1="56" y1="20" x2="656" y2="20" stroke="#EFEBE3" stroke-width="0.6"/>
   <line x1="56" y1="83.3" x2="656" y2="83.3" stroke="#EFEBE3" stroke-width="0.6"/>
   <line x1="56" y1="146.7" x2="656" y2="146.7" stroke="#EFEBE3" stroke-width="0.6"/>
@@ -482,7 +515,7 @@
   <rect x="204" y="240" width="11" height="9" fill="#B8862F"/>
   <text x="220" y="248" font-size="8.5" fill="#504e49">贸易及其他</text>
   <text x="656" y="248" font-size="8.5" fill="#7C7B77" text-anchor="end">数据来源：各年度年报"营业收入构成"</text>
-</svg>
+</svg></div>
 <figcaption>图 2　营业收入构成（2020—2025，单位：亿元，堆积柱）</figcaption>
 </figure>
 <p>收入结构 6 年间发生了一次完整的"钟摆运动"。2020 年氯化钾占比 95.94%，碳酸锂仅 3.34%；2022 年碳酸锂收入 43.23 亿元、占比 52.76%，<strong>首次超过氯化钾成为第一大收入来源</strong>；此后锂价下行使占比逐年回落至 2025 年的 16.57%，而氯化钾因量价齐升回升至 82.45%，重回绝对主导。这一结构说明：<strong>锂盐决定收入的弹性上限，钾肥决定收入的基本盘</strong>——2025 年公司收入的回升完全由钾肥板块（收入 +33.42%）支撑，碳酸锂收入则下降 41.98%。</p>
@@ -568,6 +601,25 @@
   <span>数据来源：藏格矿业（000408.SZ）2015—2025 年年度报告、2026 年半年度报告</span>
   <span>2026 年 9 月</span>
 </div>
+
+
+
+<!-- rsp-mobile-adapt : 溢出表格滑动提示 -->
+<script>
+(function(){
+  function mark(){
+    var boxes = document.querySelectorAll('.rsp-table');
+    for (var i=0;i<boxes.length;i++){
+      var b = boxes[i];
+      if (b.scrollWidth > b.clientWidth + 4) b.setAttribute('data-rsp-scroll','');
+      else b.removeAttribute('data-rsp-scroll');
+    }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mark);
+  else mark();
+  window.addEventListener('resize', function(){ clearTimeout(window.__rspT); window.__rspT=setTimeout(mark,180); });
+})();
+</script>
 
 </body>
 </html>

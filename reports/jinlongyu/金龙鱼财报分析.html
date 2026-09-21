@@ -166,14 +166,22 @@
   blockquote { border-left: 3pt solid var(--accent); background: var(--ivory); padding: 6pt 10pt; margin: 8pt 0; }
 </style>
 
+
+
 <!-- rsp-mobile-adapt : 响应式适配层（仅屏幕生效，不影响打印/PDF） -->
 <style id="rsp-mobile-adapt">
+/* rsp-mobile-adapt-v3 */
 /* ========== 1. 全局：屏幕端基础修正 ========== */
 @media screen {
   html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
   body { overflow-wrap: break-word; }
   img, svg, canvas, video, iframe { max-width: 100%; }
   svg[viewBox], svg[viewbox] { height: auto; }
+
+  /* 网格容器（两列对比等）：网格项默认 min-width:auto，会被内部宽表撑破
+     容器、把整页顶出横向滚动（报告里 .two-col 就栽在这上面）。放开收缩，
+     让里面的 .rsp-table 自己去横向滑动。 */
+  .risk-grid > *, .two-col > * { min-width: 0; }
 
   /* 表格横向滚动容器：宽表不压字、不撑破页面 */
   .rsp-table {
@@ -255,6 +263,29 @@
   .report-footer { flex-direction: column; align-items: flex-start; gap: 3pt; }
 }
 
+/* ========== 3b. 图表：窄屏保持图纸原尺寸 + 横向滑动 ========== */
+/* 报告里的图表是 SVG：viewBox 宽 680 + width:100%。缩到手机宽度（约 350px）
+   只剩 0.5×，图内字号从 11px 掉到 5px 完全不可读；而 SVG <text> 不会自动换行，
+   单纯放大字号必然溢出图框。这里改为**保持图纸原尺寸、允许左右滑动**——
+   与上面宽表同一套策略，宁可滑也不塌字号。仅屏幕生效，打印/PDF 不受影响。 */
+@media screen and (max-width: 720px) {
+  .rsp-fig {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    /* 图纸一定宽于屏幕，直接给右侧一层渐变，暗示"还能往右滑" */
+    background: linear-gradient(to left, rgba(167,63,45,.09), rgba(167,63,45,0) 26px);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 26px 100%;
+  }
+  .rsp-fig > svg { min-width: var(--rsp-fig-w, 680px); }
+  .rsp-fig::-webkit-scrollbar { height: 7px; }
+  .rsp-fig::-webkit-scrollbar-track { background: transparent; }
+  .rsp-fig::-webkit-scrollbar-thumb { background: #D8D1C4; border-radius: 4px; }
+}
+
 /* ========== 4. 小屏手机：指标卡单列、边距收到最紧 ========== */
 @media screen and (max-width: 430px) {
   body { padding: 14px 12px 38px 12px !important; }
@@ -275,6 +306,8 @@
   [class*="rsp-w"] > table { min-width: 0 !important; }
 }
 </style>
+
+
 </head>
 <body>
 
@@ -344,7 +377,7 @@
 <p>公司于 2020 年 10 月 15 日在创业板上市，发行 542,159,154 股。截至 2025 年 12 月 31 日总股本 5,421,591,536 股，报告期内未发生股本变动。控股股东丰益香港已<strong>连续四年自愿延长首发前限售股份锁定期</strong>（每次一年），2026 年 7 月再次延长一年。</p>
 <hr class="rule">
 <h2>二、核心财务数据对比</h2>
-<figure><svg viewBox="0 0 680 300" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="'TsangerJinKai02','Source Han Serif SC','Noto Serif CJK SC','Songti SC',Georgia,serif">
+<figure><div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 300" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="'TsangerJinKai02','Source Han Serif SC','Noto Serif CJK SC','Songti SC',Georgia,serif">
 <line x1="62" y1="238.0" x2="560" y2="238.0" stroke="#EFEBE3" stroke-width="0.7"/>
 <text x="56.0" y="241.5" font-size="9" fill="#7C7B77" text-anchor="end" font-weight="400">0</text>
 <line x1="62" y1="193.0" x2="560" y2="193.0" stroke="#EFEBE3" stroke-width="0.7"/>
@@ -408,7 +441,7 @@
 <line x1="157" y1="18" x2="177" y2="18" stroke="#1B365D" stroke-width="1.8"/>
 <circle cx="167" cy="18" r="2.8" fill="#1B365D"/>
 <text x="182.0" y="22.0" font-size="9" fill="#22262B" text-anchor="start" font-weight="400">归母净利润（右轴，亿元；仅标首末值）</text>
-</svg><figcaption>图 1　营业收入与归母净利润（2019—2025 年 + 2026H1）　注：柱为营业收入（左轴），折线为归母净利润（右轴，仅标注首末值）</figcaption></figure><h3>表 1　综合损益表（2019—2025 年 + 2026H1）</h3>
+</svg></div><figcaption>图 1　营业收入与归母净利润（2019—2025 年 + 2026H1）　注：柱为营业收入（左轴），折线为归母净利润（右轴，仅标注首末值）</figcaption></figure><h3>表 1　综合损益表（2019—2025 年 + 2026H1）</h3>
 <p>单位：亿元</p>
 <div class="rsp-table rsp-w9"><table class="longtable">
 <thead><tr><th>项目</th><th>2019</th><th>2020</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th><th><strong>2026H1</strong></th></tr></thead><tbody>
@@ -440,7 +473,7 @@
 <tr><td>加权平均 ROE</td><td>—</td><td>8.63%</td><td>4.85%</td><td>3.43%</td><td>3.16%</td><td>2.70%</td><td>3.32%</td><td>2.36%（半年）</td></tr>
 </tbody></table></div>
 <div class="note"><strong>口径说明</strong>：2024 年营业收入/营业成本采用 2026 年 2 月会计政策变更后的追溯调整数。按 2024 年年报原口径（调整前）营业收入为 2,388.66 亿元、同比 −5.03%，毛利率 5.35%；调整后为 2,382.79 亿元、同比 −5.27%，毛利率 5.36%。两者差异源于标准仓单列报重分类，详见 表 14。2026H1 的同比基数为 2025H1（营业收入 1,156.82 亿元、归母净利润 17.56 亿元、扣非归母 13.89 亿元、加权 ROE 1.86%）。</div>
-<figure><svg viewBox="0 0 680 262" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="'TsangerJinKai02','Source Han Serif SC','Noto Serif CJK SC','Songti SC',Georgia,serif">
+<figure><div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 262" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="'TsangerJinKai02','Source Han Serif SC','Noto Serif CJK SC','Songti SC',Georgia,serif">
 <line x1="62" y1="200.0" x2="620" y2="200.0" stroke="#EFEBE3" stroke-width="0.7"/>
 <text x="56.0" y="203.5" font-size="9" fill="#7C7B77" text-anchor="end" font-weight="400">0</text>
 <line x1="62" y1="169.7" x2="620" y2="169.7" stroke="#EFEBE3" stroke-width="0.7"/>
@@ -493,7 +526,7 @@
 <text x="173.0" y="22.0" font-size="9" fill="#22262B" text-anchor="start" font-weight="400">扣非归母净利润（亿元）</text>
 <rect x="362.0" y="35.5" width="231.2" height="12.2" fill="#FBF9F4" opacity="0.92"/>
 <text x="362.0" y="44.0" font-size="9" fill="#A73F2D" text-anchor="start">2020 年扣非 &gt; 归母；2024 年扣非仅为归母的 38.7%</text>
-</svg><figcaption>图 2　归母净利润与扣非归母净利润对比（2019—2025 年）　注：两口径七年累计仅差 4.70 亿元，年度间差异却高达 43.24 亿元</figcaption></figure><h3>表 2　利润驱动因素拆解：归母 / 扣非 / 非经常性损益</h3>
+</svg></div><figcaption>图 2　归母净利润与扣非归母净利润对比（2019—2025 年）　注：两口径七年累计仅差 4.70 亿元，年度间差异却高达 43.24 亿元</figcaption></figure><h3>表 2　利润驱动因素拆解：归母 / 扣非 / 非经常性损益</h3>
 <p>单位：亿元</p>
 <div class="rsp-table rsp-w9"><table class="longtable">
 <thead><tr><th>项目</th><th>2019</th><th>2020</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th><th>2026H1</th></tr></thead><tbody>
@@ -549,7 +582,7 @@
 <tr><td>少数股东权益</td><td>—</td><td>39.60</td><td>44.08</td><td>45.76</td><td>44.69</td><td>44.69</td><td>45.18</td><td>46.26</td></tr>
 <tr><td>所有者权益合计</td><td>—</td><td>874.93</td><td>911.08</td><td>932.83</td><td>959.65</td><td>982.06</td><td>1,009.50</td><td>1,021.07</td></tr>
 </tbody></table></div>
-<figure><svg viewBox="0 0 680 280" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="'TsangerJinKai02','Source Han Serif SC','Noto Serif CJK SC','Songti SC',Georgia,serif">
+<figure><div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 280" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="'TsangerJinKai02','Source Han Serif SC','Noto Serif CJK SC','Songti SC',Georgia,serif">
 <line x1="62" y1="214.0" x2="604" y2="214.0" stroke="#EFEBE3" stroke-width="0.7"/>
 <text x="56.0" y="217.5" font-size="9" fill="#7C7B77" text-anchor="end" font-weight="400">0%</text>
 <line x1="62" y1="189.4" x2="604" y2="189.4" stroke="#EFEBE3" stroke-width="0.7"/>
@@ -618,7 +651,7 @@
 <text x="159.0" y="18.0" font-size="9" fill="#22262B" text-anchor="start" font-weight="400">毛利率＋金融损益/营业收入</text>
 <line x1="328" y1="14" x2="342" y2="14" stroke="#2F6F6B" stroke-width="1.8"/>
 <text x="347.0" y="18.0" font-size="9" fill="#22262B" text-anchor="start" font-weight="400">归母净利率</text>
-</svg><figcaption>图 3　毛利率、归母净利率与「毛利率＋金融损益/营业收入」（2019—2025 年 + 2026H1）　注：虚线为合并加工的价差代理变量，比归母净利率平滑得多</figcaption></figure><h3>表 5　杠杆与流动性：有息负债、类现金与净债务</h3>
+</svg></div><figcaption>图 3　毛利率、归母净利率与「毛利率＋金融损益/营业收入」（2019—2025 年 + 2026H1）　注：虚线为合并加工的价差代理变量，比归母净利率平滑得多</figcaption></figure><h3>表 5　杠杆与流动性：有息负债、类现金与净债务</h3>
 <p>单位：亿元</p>
 <div class="rsp-table rsp-w8"><table class="longtable">
 <thead><tr><th>项目</th><th>2020 末</th><th>2021 末</th><th>2022 末</th><th>2023 末</th><th>2024 末</th><th>2025 末</th><th>2026/6/30</th></tr></thead><tbody>
@@ -630,7 +663,7 @@
 <tr><td>有息负债 / 归母净资产</td><td>80.65%</td><td>107.03%</td><td>120.72%</td><td>126.99%</td><td>100.61%</td><td>89.67%</td><td>95.12%</td></tr>
 </tbody></table></div>
 <div class="note"><strong>口径说明</strong>：有息负债 = 短期借款 ＋ 一年内到期的非流动负债 ＋ 长期借款 ＋ 应付债券 ＋ 租赁负债。类现金中「交易性金融资产」主要为结构性存款与权益性金融资产。2026/6/30 数为半年报期末数，与年初比较。</div>
-<figure><svg viewBox="0 0 680 280" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="'TsangerJinKai02','Source Han Serif SC','Noto Serif CJK SC','Songti SC',Georgia,serif">
+<figure><div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 280" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="'TsangerJinKai02','Source Han Serif SC','Noto Serif CJK SC','Songti SC',Georgia,serif">
 <line x1="62" y1="210.0" x2="556" y2="210.0" stroke="#EFEBE3" stroke-width="0.7"/>
 <text x="56.0" y="213.5" font-size="9" fill="#7C7B77" text-anchor="end" font-weight="400">0</text>
 <line x1="62" y1="171.5" x2="556" y2="171.5" stroke="#EFEBE3" stroke-width="0.7"/>
@@ -687,7 +720,7 @@
 <text x="614.0" y="44.0" font-size="9" fill="#2F6F6B" text-anchor="start" font-weight="400">有息/总资产</text>
 <rect x="362.0" y="21.5" width="231.2" height="12.2" fill="#FBF9F4" opacity="0.92"/>
 <text x="362.0" y="30.0" font-size="9" fill="#A73F2D" text-anchor="start">2022 年末净债务见顶 475.19 亿元，三年压降 60.5%</text>
-</svg><figcaption>图 4　净债务与有息负债/总资产（2020—2025 年末 + 2026H1）　注：净债务＝有息负债−类现金；柱为净债务（左轴），折线为有息负债/总资产（右轴）</figcaption></figure><h3>表 6　现金流量表与资本开支</h3>
+</svg></div><figcaption>图 4　净债务与有息负债/总资产（2020—2025 年末 + 2026H1）　注：净债务＝有息负债−类现金；柱为净债务（左轴），折线为有息负债/总资产（右轴）</figcaption></figure><h3>表 6　现金流量表与资本开支</h3>
 <p>单位：亿元</p>
 <div class="rsp-table rsp-w9"><table class="longtable">
 <thead><tr><th>项目</th><th>2019</th><th>2020</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th><th>2026H1</th></tr></thead><tbody>
@@ -709,7 +742,7 @@
 <tr class="total"><td><strong>累计口径（2020—2025）</strong></td><td>累计经营现金流 <strong>390.53</strong>，累计资本开支 <strong>507.25</strong>，累计自由现金流 <strong>−116.72</strong>，累计经营现金流 / 累计归母净利润 = <strong>1.80 倍</strong></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
 </tbody></table></div>
 <div class="note"><strong>口径说明</strong>：「期末现金及现金等价物余额」与资产负债表「货币资金」差额较大（2025 年末 138.49 亿元 vs 442.04 亿元），差额主要为三个月以上定期存款、保证金等受限或非现金等价物资金。2024 年经营活动现金流量净额采用追溯调整后 60.38 亿元（调整前 49.94 亿元）。</div>
-<figure><svg viewBox="0 0 680 300" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="'TsangerJinKai02','Source Han Serif SC','Noto Serif CJK SC','Songti SC',Georgia,serif">
+<figure><div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 300" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="'TsangerJinKai02','Source Han Serif SC','Noto Serif CJK SC','Songti SC',Georgia,serif">
 <line x1="62" y1="256.4" x2="616" y2="256.4" stroke="#EFEBE3" stroke-width="0.7"/>
 <text x="56.0" y="259.9" font-size="9" fill="#7C7B77" text-anchor="end" font-weight="400">-120</text>
 <line x1="62" y1="240.9" x2="616" y2="240.9" stroke="#EFEBE3" stroke-width="0.7"/>
@@ -776,7 +809,7 @@
 <line x1="284" y1="18" x2="304" y2="18" stroke="#A73F2D" stroke-width="1.8"/>
 <circle cx="294" cy="18" r="2.6" fill="#A73F2D"/>
 <text x="309.0" y="22.0" font-size="9" fill="#22262B" text-anchor="start" font-weight="400">自由现金流（亿元）</text>
-</svg><figcaption>图 5　经营活动现金流、资本开支与自由现金流（2020—2025 年）　注：柱为经营现金流（青）与资本开支（金），均用左轴；折线为自由现金流</figcaption></figure><h3>表 7　分产品收入与毛利率（2020—2025 年 + 2026H1）</h3>
+</svg></div><figcaption>图 5　经营活动现金流、资本开支与自由现金流（2020—2025 年）　注：柱为经营现金流（青）与资本开支（金），均用左轴；折线为自由现金流</figcaption></figure><h3>表 7　分产品收入与毛利率（2020—2025 年 + 2026H1）</h3>
 <p>单位：亿元</p>
 <div class="rsp-table rsp-w9"><table class="longtable">
 <thead><tr><th>产品</th><th>2019</th><th>2020</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th><th>2026H1</th></tr></thead><tbody>
@@ -806,7 +839,7 @@
 <tr><td>餐饮等渠道／直销毛利率差</td><td>—</td><td>—</td><td>−1.65pp</td><td>−4.31pp</td><td>−3.99pp</td><td>−2.59pp</td><td><strong>−3.31pp</strong></td></tr>
 </tbody></table></div>
 <div class="note">注：2022 年占比来自 2022 年年报分销售模式数据。2026H1 项下为<strong>厨房食品分部</strong>口径（半年报仅披露厨房食品的经销/直销拆分）；2026H1 经销收入 380.05 亿元同比 +6.18%、直销 394.19 亿元同比 +10.24%。</div>
-<figure><svg viewBox="0 0 680 300" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="'TsangerJinKai02','Source Han Serif SC','Noto Serif CJK SC','Songti SC',Georgia,serif">
+<figure><div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 300" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="'TsangerJinKai02','Source Han Serif SC','Noto Serif CJK SC','Songti SC',Georgia,serif">
 <line x1="62" y1="226.0" x2="556" y2="226.0" stroke="#EFEBE3" stroke-width="0.7"/>
 <text x="56.0" y="229.5" font-size="9" fill="#7C7B77" text-anchor="end" font-weight="400">0</text>
 <line x1="62" y1="184.5" x2="556" y2="184.5" stroke="#EFEBE3" stroke-width="0.7"/>
@@ -878,7 +911,7 @@
 <line x1="348" y1="18" x2="368" y2="18" stroke="#2F6F6B" stroke-width="1.8"/>
 <circle cx="358" cy="18" r="2.6" fill="#2F6F6B"/>
 <text x="373.0" y="22.0" font-size="9" fill="#22262B" text-anchor="start" font-weight="400">综合毛利率（右轴）</text>
-</svg><figcaption>图 6　分产品收入与综合毛利率（2020—2025 年）　注：堆叠柱为分部收入（左轴），折线为综合毛利率（右轴）</figcaption></figure><h3>表 9　分地区收入结构</h3>
+</svg></div><figcaption>图 6　分产品收入与综合毛利率（2020—2025 年）　注：堆叠柱为分部收入（左轴），折线为综合毛利率（右轴）</figcaption></figure><h3>表 9　分地区收入结构</h3>
 <p>单位：亿元</p>
 <div class="rsp-table rsp-w7"><table class="longtable">
 <thead><tr><th>地区</th><th>2020</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th></tr></thead><tbody>
@@ -924,7 +957,7 @@
 <tr><td>第三季度</td><td>685.88</td><td>9.93</td><td>6.28</td><td>+3.65</td><td>+129.72</td><td>31.50%</td></tr>
 <tr><td><strong>第四季度</strong></td><td><strong>608.55</strong></td><td><strong>4.04</strong></td><td><strong>8.27</strong></td><td><strong>−4.23</strong></td><td><strong>−121.52</strong></td><td><strong>12.82%</strong></td></tr>
 </tbody></table></div>
-<figure><svg viewBox="0 0 680 282" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="'TsangerJinKai02','Source Han Serif SC','Noto Serif CJK SC','Songti SC',Georgia,serif">
+<figure><div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 282" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="'TsangerJinKai02','Source Han Serif SC','Noto Serif CJK SC','Songti SC',Georgia,serif">
 <line x1="62" y1="208.0" x2="556" y2="208.0" stroke="#EFEBE3" stroke-width="0.7"/>
 <text x="56.0" y="211.5" font-size="9" fill="#7C7B77" text-anchor="end" font-weight="400">0.0</text>
 <line x1="62" y1="179.2" x2="556" y2="179.2" stroke="#EFEBE3" stroke-width="0.7"/>
@@ -987,7 +1020,7 @@
 <text x="514.8" y="64.2" font-size="9" fill="#2F6F6B" text-anchor="middle">39.55%</text>
 <text x="56.0" y="46.0" font-size="9" fill="#7C7B77" text-anchor="end" font-weight="400">每 10 股派息（元）</text>
 <text x="614.0" y="46.0" font-size="9" fill="#2F6F6B" text-anchor="start" font-weight="400">分红率</text>
-</svg><figcaption>图 7　每 10 股派息与分红率（2020—2025 年）　注：柱为每 10 股派息（元，左轴），折线为分红率（右轴）</figcaption></figure><h3>表 13　股东回报</h3>
+</svg></div><figcaption>图 7　每 10 股派息与分红率（2020—2025 年）　注：柱为每 10 股派息（元，左轴），折线为分红率（右轴）</figcaption></figure><h3>表 13　股东回报</h3>
 <div class="rsp-table rsp-w7"><table class="longtable">
 <thead><tr><th>项目</th><th>2020</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th></tr></thead><tbody>
 <tr><td>每 10 股派息（元，含税）</td><td>1.11</td><td>0.77</td><td>0.77</td><td>1.11</td><td>1.11</td><td><strong>2.30</strong></td></tr>
@@ -1280,6 +1313,25 @@
   <span>数据来源：公司在深圳证券交易所披露的年度报告、半年度报告及季度报告（共 51 份公告，正文引用 8 份主文件）</span>
   <span>2026-09</span>
 </div>
+
+
+
+<!-- rsp-mobile-adapt : 溢出表格滑动提示 -->
+<script>
+(function(){
+  function mark(){
+    var boxes = document.querySelectorAll('.rsp-table');
+    for (var i=0;i<boxes.length;i++){
+      var b = boxes[i];
+      if (b.scrollWidth > b.clientWidth + 4) b.setAttribute('data-rsp-scroll','');
+      else b.removeAttribute('data-rsp-scroll');
+    }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mark);
+  else mark();
+  window.addEventListener('resize', function(){ clearTimeout(window.__rspT); window.__rspT=setTimeout(mark,180); });
+})();
+</script>
 
 </body>
 </html>

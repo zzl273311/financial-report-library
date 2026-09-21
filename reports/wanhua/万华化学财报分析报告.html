@@ -97,14 +97,22 @@
   .page-break { break-before: page; }
 </style>
 
+
+
 <!-- rsp-mobile-adapt : 响应式适配层（仅屏幕生效，不影响打印/PDF） -->
 <style id="rsp-mobile-adapt">
+/* rsp-mobile-adapt-v3 */
 /* ========== 1. 全局：屏幕端基础修正 ========== */
 @media screen {
   html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
   body { overflow-wrap: break-word; }
   img, svg, canvas, video, iframe { max-width: 100%; }
   svg[viewBox], svg[viewbox] { height: auto; }
+
+  /* 网格容器（两列对比等）：网格项默认 min-width:auto，会被内部宽表撑破
+     容器、把整页顶出横向滚动（报告里 .two-col 就栽在这上面）。放开收缩，
+     让里面的 .rsp-table 自己去横向滑动。 */
+  .risk-grid > *, .two-col > * { min-width: 0; }
 
   /* 表格横向滚动容器：宽表不压字、不撑破页面 */
   .rsp-table {
@@ -186,6 +194,29 @@
   .report-footer { flex-direction: column; align-items: flex-start; gap: 3pt; }
 }
 
+/* ========== 3b. 图表：窄屏保持图纸原尺寸 + 横向滑动 ========== */
+/* 报告里的图表是 SVG：viewBox 宽 680 + width:100%。缩到手机宽度（约 350px）
+   只剩 0.5×，图内字号从 11px 掉到 5px 完全不可读；而 SVG <text> 不会自动换行，
+   单纯放大字号必然溢出图框。这里改为**保持图纸原尺寸、允许左右滑动**——
+   与上面宽表同一套策略，宁可滑也不塌字号。仅屏幕生效，打印/PDF 不受影响。 */
+@media screen and (max-width: 720px) {
+  .rsp-fig {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    /* 图纸一定宽于屏幕，直接给右侧一层渐变，暗示"还能往右滑" */
+    background: linear-gradient(to left, rgba(167,63,45,.09), rgba(167,63,45,0) 26px);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 26px 100%;
+  }
+  .rsp-fig > svg { min-width: var(--rsp-fig-w, 680px); }
+  .rsp-fig::-webkit-scrollbar { height: 7px; }
+  .rsp-fig::-webkit-scrollbar-track { background: transparent; }
+  .rsp-fig::-webkit-scrollbar-thumb { background: #D8D1C4; border-radius: 4px; }
+}
+
 /* ========== 4. 小屏手机：指标卡单列、边距收到最紧 ========== */
 @media screen and (max-width: 430px) {
   body { padding: 14px 12px 38px 12px !important; }
@@ -206,6 +237,8 @@
   [class*="rsp-w"] > table { min-width: 0 !important; }
 }
 </style>
+
+
 </head>
 <body>
 
@@ -301,7 +334,7 @@
 </table></div>
 <p class="note">注 1：2025 年营业收入同比 +11.62%、归母净利润同比 −3.88%、扣非归母净利润同比 −9.10%（年报披露口径）。<strong>扣非降幅大于归母降幅</strong>，说明非经常性损益（2025 年合计 3.84 亿元，含资产处置、政府补助等）对利润形成了一定缓冲。 注 2：毛利率＝（营业收入−营业成本）÷ 营业收入；归母净利率＝归母净利润÷ 营业收入。 注 3：2019 年同比增速按原报口径计算，与年报披露的重述后口径（营收 −6.57%、归母 −34.92%）不同，详见表注与§1.4。</p>
 <figure>
-<svg viewBox="0 0 680 310" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
+<div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 310" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
   <text x="64" y="20" font-size="10.5" fill="#22262B" font-weight="500">图 1　十年营业收入（柱）与归母净利润（线）轨迹（2016—2025，单位：亿元）</text>
   <text x="64" y="35" font-size="8.2" fill="#7C7B77">收入十年 6.75 倍、CAGR 23.63%；归母净利润 2021 年见顶后连续四年回落 49.2%</text>
   <rect x="64" y="46" width="11" height="9" fill="#A73F2D"/><text x="79" y="54" font-size="8.4" fill="#3E4145">营业收入（左轴）</text>
@@ -374,11 +407,11 @@
   <text x="553.6" y="264" font-size="7.6" fill="#7C7B77" text-anchor="middle">2024</text>
   <text x="611.2" y="264" font-size="7.6" fill="#7C7B77" text-anchor="middle">2025</text>
   <text x="64" y="280" font-size="7.6" fill="#7C7B77">注：左轴＝营业收入（柱，亿元），右轴＝归母净利润（线，亿元）。2025 年收入 +11.62%、归母净利润 −3.88%。</text>
-</svg>
+</svg></div>
 <figcaption>图 1　收入与利润的「剪刀差」：2025 年收入创新高（2,032.35 亿元），归母净利润却退回 2017—2018 年水平（数据来源：万华化学 2016—2025 年年度报告）</figcaption>
 </figure>
 <figure>
-<svg viewBox="0 0 680 300" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
+<div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 300" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
   <text x="64" y="20" font-size="10.5" fill="#22262B" font-weight="500">图 2　十年毛利率与归母净利率轨迹（2016—2025，单位：%）</text>
   <text x="64" y="35" font-size="8.2" fill="#7C7B77">毛利率自 2017 年 39.70% 高点持续下行至 2025 年 13.61%（十年最低）；2022 年出现断崖式下挫</text>
   <line x1="64" y1="50" x2="78" y2="50" stroke="#2F6F6B" stroke-width="2"/><circle cx="71" cy="50" r="2.6" fill="#2F6F6B"/><text x="84" y="53.5" font-size="8.4" fill="#3E4145">销售毛利率</text>
@@ -433,7 +466,7 @@
   <text x="64.0" y="189.1" font-size="7.6" fill="#A73F2D" text-anchor="middle">12.22</text>
   <text x="640.0" y="213.4" font-size="8.2" fill="#A73F2D" font-weight="500" text-anchor="middle">6.16</text>
   <text x="64" y="276" font-size="7.6" fill="#7C7B77">注：毛利率＝（营业收入−营业成本）÷营业收入；归母净利率＝归母净利润÷营业收入。</text>
-</svg>
+</svg></div>
 <figcaption>图 2　毛利率十年下行 26.09 个百分点：2022 年由 26.26% 骤降至 16.57%，主因低毛利石化业务随大乙烯投产而放量（数据来源：万华化学 2016—2025 年年度报告）</figcaption>
 </figure>
 <h3>2.2 表 2　十年资产负债与资本结构（年末数）</h3>
@@ -471,7 +504,7 @@
 </table></div>
 <p class="note">注 1：资本开支＝现金流量表"购建固定资产、无形资产和其他长期资产支付的现金"。 注 2：自由现金流＝经营活动现金流净额− 资本开支（本报告自定义口径）。 注 3：投资/筹资活动现金流净额仅回抽 2024—2025 年两期（2025 年年度报告的比较期）。 注 4：<strong>2023 年自由现金流 −163.01 亿元为十年最低</strong>，2025 年转为 <strong>+23.94 亿元</strong>，是资本开支周期见顶回落后的关键拐点。</p>
 <figure>
-<svg viewBox="0 0 680 310" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
+<div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 310" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
   <text x="64" y="20" font-size="10.5" fill="#22262B" font-weight="500">图 3　经营活动现金流（柱）与资本开支（线）对比（2016—2025，单位：亿元）</text>
   <text x="64" y="35" font-size="8.2" fill="#7C7B77">十年累计经营现金流 2,538.15 亿元，累计资本开支 2,300.99 亿元，投入强度达 90.7%</text>
   <rect x="64" y="46" width="11" height="9" fill="#A73F2D"/><text x="79" y="54" font-size="8.4" fill="#3E4145">经营活动现金流净额</text>
@@ -537,7 +570,7 @@
   <text x="553.6" y="264" font-size="7.6" fill="#7C7B77" text-anchor="middle">2024</text>
   <text x="611.2" y="264" font-size="7.6" fill="#7C7B77" text-anchor="middle">2025</text>
   <text x="64" y="280" font-size="7.6" fill="#7C7B77">注：2016 年资本开支未回抽，以空位表示。资本开支＝「购建固定资产、无形资产和其他长期资产支付的现金」。</text>
-</svg>
+</svg></div>
 <figcaption>图 3　2025 年经营现金流 331.05 亿元创历史新高，资本开支压降至 307.11 亿元，自由现金流由 2023 年 −163.01 亿元转为 +23.94 亿元（数据来源：万华化学 2016—2025 年年度报告）</figcaption>
 </figure>
 <h3>2.4 表 4　收入构成：分产品（2024—2026H1）</h3>
@@ -564,7 +597,7 @@
 </table></div>
 <p class="note">注：2025 年境外收入同比 +24.16%，显著快于境内 +2.21%，海外产能（匈牙利 BC）与全球营销网络成为增量主战场；但境外毛利率 11.50% 低于境内 15.45%。</p>
 <figure>
-<svg viewBox="0 0 680 290" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
+<div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 290" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
   <text x="64" y="20" font-size="10.5" fill="#22262B" font-weight="500">图 4　分产品主营业务收入：2025H1 vs 2026H1（单位：亿元）</text>
   <text x="64" y="35" font-size="8.2" fill="#7C7B77">三大板块同步放量，石化系列近乎翻倍（+36.6%），精细化学品及新材料 +44.3%</text>
   <rect x="64" y="46" width="11" height="9" fill="#1B365D"/><text x="79" y="54" font-size="8.4" fill="#3E4145">2025H1</text>
@@ -601,7 +634,7 @@
   <text x="572.3" y="190.3" font-size="7.6" fill="#A73F2D" text-anchor="middle">130</text>
   <text x="550.5" y="246" font-size="8.0" fill="#3E4145" text-anchor="middle">其他</text>
   <text x="64" y="264" font-size="7.6" fill="#7C7B77">注：两者均为 1—6 月半年口径，可直接比较；不含产品间抵销（2025H1 −82.42 亿元、2026H1 −98.40 亿元）。</text>
-</svg>
+</svg></div>
 <figcaption>图 4　2026H1 分产品收入全面增长，石化系列从 349.34 亿元增至 477.38 亿元，是收入增量的最大来源（数据来源：万华化学 2026 年半年度报告）</figcaption>
 </figure>
 <h3>2.5 表 5　2026 年半年度最新经营数据</h3>
@@ -791,5 +824,24 @@
   <li><strong>未披露项</strong>：一律以 <code>—</code> 表示，未做推算填补。表 4 中 2024 年分产品收入为按 2025 年同比变动率反推的<strong>推算值</strong>，已明确标注。</li>
 </ol>
 <p><strong>文件清单</strong>：基于 <code>万华化学/</code> 目录 179 份公告文件（2000—2026 年，下载成功率 100%）中的 11 份核心年报/半年报编制。</p>
+
+
+<!-- rsp-mobile-adapt : 溢出表格滑动提示 -->
+<script>
+(function(){
+  function mark(){
+    var boxes = document.querySelectorAll('.rsp-table');
+    for (var i=0;i<boxes.length;i++){
+      var b = boxes[i];
+      if (b.scrollWidth > b.clientWidth + 4) b.setAttribute('data-rsp-scroll','');
+      else b.removeAttribute('data-rsp-scroll');
+    }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mark);
+  else mark();
+  window.addEventListener('resize', function(){ clearTimeout(window.__rspT); window.__rspT=setTimeout(mark,180); });
+})();
+</script>
+
 </body>
 </html>

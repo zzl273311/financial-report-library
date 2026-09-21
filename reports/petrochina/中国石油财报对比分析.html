@@ -99,14 +99,22 @@
   .page-break { break-before: page; }
 </style>
 
+
+
 <!-- rsp-mobile-adapt : 响应式适配层（仅屏幕生效，不影响打印/PDF） -->
 <style id="rsp-mobile-adapt">
+/* rsp-mobile-adapt-v3 */
 /* ========== 1. 全局：屏幕端基础修正 ========== */
 @media screen {
   html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
   body { overflow-wrap: break-word; }
   img, svg, canvas, video, iframe { max-width: 100%; }
   svg[viewBox], svg[viewbox] { height: auto; }
+
+  /* 网格容器（两列对比等）：网格项默认 min-width:auto，会被内部宽表撑破
+     容器、把整页顶出横向滚动（报告里 .two-col 就栽在这上面）。放开收缩，
+     让里面的 .rsp-table 自己去横向滑动。 */
+  .risk-grid > *, .two-col > * { min-width: 0; }
 
   /* 表格横向滚动容器：宽表不压字、不撑破页面 */
   .rsp-table {
@@ -188,6 +196,29 @@
   .report-footer { flex-direction: column; align-items: flex-start; gap: 3pt; }
 }
 
+/* ========== 3b. 图表：窄屏保持图纸原尺寸 + 横向滑动 ========== */
+/* 报告里的图表是 SVG：viewBox 宽 680 + width:100%。缩到手机宽度（约 350px）
+   只剩 0.5×，图内字号从 11px 掉到 5px 完全不可读；而 SVG <text> 不会自动换行，
+   单纯放大字号必然溢出图框。这里改为**保持图纸原尺寸、允许左右滑动**——
+   与上面宽表同一套策略，宁可滑也不塌字号。仅屏幕生效，打印/PDF 不受影响。 */
+@media screen and (max-width: 720px) {
+  .rsp-fig {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    /* 图纸一定宽于屏幕，直接给右侧一层渐变，暗示"还能往右滑" */
+    background: linear-gradient(to left, rgba(167,63,45,.09), rgba(167,63,45,0) 26px);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 26px 100%;
+  }
+  .rsp-fig > svg { min-width: var(--rsp-fig-w, 680px); }
+  .rsp-fig::-webkit-scrollbar { height: 7px; }
+  .rsp-fig::-webkit-scrollbar-track { background: transparent; }
+  .rsp-fig::-webkit-scrollbar-thumb { background: #D8D1C4; border-radius: 4px; }
+}
+
 /* ========== 4. 小屏手机：指标卡单列、边距收到最紧 ========== */
 @media screen and (max-width: 430px) {
   body { padding: 14px 12px 38px 12px !important; }
@@ -208,6 +239,8 @@
   [class*="rsp-w"] > table { min-width: 0 !important; }
 }
 </style>
+
+
 </head>
 <body>
 
@@ -309,7 +342,7 @@
 <div class="callout"><p><strong>表 1 注</strong>：<br>1. 2025 年年度报告列示的国际准则五年摘要中，2020—2023 年数据已按 2024 年收购中国石油集团电能有限公司（中油电能，2024 年 10 月 29 日起并表）的<strong>同一控制下企业合并</strong>要求追溯重述，故本表 2021—2025 五年为<strong>同一口径</strong>，可直接比较。<br>2. <strong>CAS 口径 2021 年数据</strong>取自 2023 年年度报告（已按《企业会计准则解释第 16 号》追溯调整），<strong>未包含中油电能并轨重述</strong>：故 CAS 口径下 2021→2022 年同比含并轨影响；国际准则口径下 2021 年营业收入与归母净利润分别为 2,615,967 百万元与 92,129 百万元。<br>3. <strong>扣非归母净利润连续五年高于归母净利润</strong>——2021 年 99,439 &gt; 92,069；2022 年 170,460 &gt; 148,883；2023 年 187,389 &gt; 161,414；2024 年 173,287 &gt; 164,676；2025 年 161,671 &gt; 157,302。这意味着公司的<strong>非经常性损益连续五年为负</strong>，主因非流动性资产处置损益（2025 年 −8,632 百万元、2024 年 −9,670 百万元）与"其他营业外收入和支出"（2025 年 −60 百万元、2024 年 −4,046 百万元）常年为净损失。<strong>这是利润质量偏"干净"的特征</strong>——报表利润没有被一次性收益虚增，反而被常年性的处置与营业外损失所拖累；同时也提示读者，用归母净利润评价其主业的真实盈利能力会<strong>低估</strong>而非高估。<br>4. 2025 年非经常性损益明细：非流动性资产处置损益 (8,632)、计入当期损益的政府补助 1,687、与正常经营业务无关的金融资产和金融负债产生的损益 1,514、应收款项减值准备转回 55、其他营业外收入和支出 (60)、其他符合非经常性损益定义的损益项目 385，小计 (5,051)，所得税影响额 766、少数股东损益影响额 (84)。<br>5. 2021 年归母净利润同比基数为 2020 年的 19,190 百万元（国际准则、已按中油电能并轨重述口径，取自 2024 年年度报告五年摘要）。CAS 口径下 2020 年归母净利润为 19,002 百万元、扣非为亏损 11,991 百万元，故 CAS 口径 2021 年扣非同比为"扭亏"。</p></div>
 
 <figure>
-<svg viewBox="0 0 680 280" width="100%" font-family="'Songti SC','Noto Serif CJK SC',serif">
+<div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 280" width="100%" font-family="'Songti SC','Noto Serif CJK SC',serif">
   <text x="0" y="14" font-size="12" fill="#22262B" font-weight="600">营业收入与归母净利润（人民币百万元）</text>
   <text x="0" y="30" font-size="9" fill="#7C7B77">柱＝营业收入（左轴，0—350 万）　线＝归母净利润（右轴，0—20 万）</text>
   <line x1="58" y1="220" x2="648" y2="220" stroke="#E3DDD4" stroke-width="1"/>
@@ -360,7 +393,7 @@
   <line x1="386" y1="257" x2="408" y2="257" stroke="#22262B" stroke-width="1.8"/>
   <circle cx="397" cy="257" r="3.4" fill="#F7F4EE" stroke="#22262B" stroke-width="1.6"/>
   <text x="414" y="261" font-size="8.5" fill="#504e49">归母净利润</text>
-</svg>
+</svg></div>
 <figcaption>图 1　营业收入与归母净利润五年趋势（单位：人民币百万元；双轴）</figcaption>
 </figure>
 <h3>表 2　综合财务状况表（国际财务报告会计准则口径；单位：人民币百万元）</h3>
@@ -391,7 +424,7 @@
 <div class="callout"><p><strong>表 2 注</strong>：<br>1. 债务总额、债务净额、资本负债率、油气资产、存货、货币资金、商誉等科目仅在 2024／2025 两年年报中并列披露，2021—2023 年未在同一年报中并列，故留"—"，不作推算。<br>2. 资本负债率＝有息债务 ÷（有息债务＋权益总额）。2025 末有息债务中固定利率 1,109.67 亿元（48.8%）、浮动利率 1,165.96 亿元（51.2%）；币种上人民币债务约占 55.8%、美元债务约 42.6%、其他币种约 1.6%。<br>3. 债务到期结构（未折现合同现金流）：须于一年内偿还 67,436；一至两年 15,602；两至五年 39,947；五年之后 <strong>124,204</strong>（2024 年末为 46,005）。<strong>五年以上长期债务一年内增长约 1.7 倍</strong>，是 2025 年"短期借款减少、长期借款增加"的直接结果，本质是<strong>债务期限结构的主动拉长</strong>，而非债务规模扩张（债务总额由 236,855 降至 227,563）。<br>4. 2026 年半年度报告因自 2026 年 1 月起合并新疆油田储气库、重庆相国寺储气库、辽河油田（盘锦）储气库三家公司，按同一控制下企业合并要求对比较期间数据追溯调整：2025 年末资产总额由 2,827,777 调整为 <strong>2,863,218</strong> 百万元，母公司股东权益由 1,585,837 调整为 <strong>1,617,063</strong> 百万元；支付对价约 397.33 亿元。</p></div>
 
 <figure>
-<svg viewBox="0 0 680 280" width="100%" font-family="'Songti SC','Noto Serif CJK SC',serif">
+<div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 280" width="100%" font-family="'Songti SC','Noto Serif CJK SC',serif">
   <text x="0" y="14" font-size="12" fill="#22262B" font-weight="600">资产负债率与归属于母公司股东权益</text>
   <text x="0" y="30" font-size="9" fill="#7C7B77">柱＝资产负债率（左轴，%）　线＝归母权益（右轴，百万元）——杠杆率下降同时权益不断增厚</text>
   <line x1="58" y1="220" x2="648" y2="220" stroke="#E3DDD4" stroke-width="1"/>
@@ -442,7 +475,7 @@
   <circle cx="411" cy="257" r="3.4" fill="#F7F4EE" stroke="#1B365D" stroke-width="1.6"/>
   <text x="428" y="261" font-size="8.5" fill="#504e49">归属于母公司股东权益</text>
   <text x="640" y="276" font-size="8" fill="#7C7B77" text-anchor="end">权益线仅标注首末值（中间年份见 表 2）；2025 年末有息负债占总资产 8.05%，债务净额 214.01 亿元</text>
-</svg>
+</svg></div>
 <figcaption>图 2　资产负债率与归属于母公司股东权益五年走势（双轴）</figcaption>
 </figure>
 <h3>表 3　现金流量表（国际财务报告会计准则口径；单位：人民币百万元）</h3>
@@ -461,7 +494,7 @@
 <div class="callout"><p><strong>表 3 注</strong>：<br>1. 2025 年末现金及现金等价物的币种结构：美元约 57.8%、人民币约 37.9%、港币约 2.7%、其他约 1.6%。<br>2. 投资活动净流出 2024 年达 3,073.47 亿元峰值，2025 年回落至 2,657.05 亿元（−13.5%），主因到期日三个月以上的定期存款减少及付现资本性支出减少；融资活动净流出 2025 年 1,113.35 亿元（−37.8%），主因偿还长短期借款减少。<br>3. 五年累计经营现金流 20,105.59 亿元 ÷ 累计归母净利润 7,244.35 亿元 = <strong>2.78 倍</strong>；五年累计自由现金流 6,644.11 亿元，相当于五年累计现金分红 3,713.86 亿元的 <strong>1.79 倍</strong>。这是重资产资源类公司的典型特征——<strong>折旧折耗金额巨大（2025 年 2,481.25 亿元）使利润的现金含量系统性高于 1</strong>。</p></div>
 
 <figure>
-<svg viewBox="0 0 680 280" width="100%" font-family="'Songti SC','Noto Serif CJK SC',serif">
+<div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 280" width="100%" font-family="'Songti SC','Noto Serif CJK SC',serif">
   <text x="0" y="14" font-size="12" fill="#22262B" font-weight="600">四大分部经营利润构成（人民币亿元）</text>
   <text x="0" y="30" font-size="9" fill="#7C7B77">上游占比在 2022 年达到 70.9% 峰值后回落至 2025 年 57.0%；天然气销售持续修复至 25.5%</text>
   <line x1="58" y1="220" x2="648" y2="220" stroke="#E3DDD4" stroke-width="1"/>
@@ -516,7 +549,7 @@
   <rect x="426" y="252" width="10" height="10" fill="#1B365D"/>
   <text x="440" y="261" font-size="8.5" fill="#504e49">天然气销售</text>
   <text x="640" y="276" font-size="8" fill="#7C7B77" text-anchor="end">各年分部合计／合并经营利润（亿元）：1,754／1,612　2,336／2,169　2,526／2,359　2,516／2,340　2,387／2,192</text>
-</svg>
+</svg></div>
 <figcaption>图 3　四大分部经营利润构成与结构演变（单位：人民币亿元，堆叠柱）</figcaption>
 </figure>
 <h3>表 4　营业收入与分部经营利润构成（分部口径，单位：亿元人民币）</h3>
@@ -549,7 +582,7 @@
 <div class="callout"><p><strong>表 4 注</strong>：<br>1. 分部名称为 2022 年起口径；2021 年及以前对应分部名称为"勘探与生产／炼油与化工／销售／天然气与管道"，业务范围一致，仅名称调整（2021 年"勘探与生产"经营利润 684.52 亿元、"炼油与化工"497.40 亿元、"销售"132.77 亿元、"天然气与管道"439.65 亿元）。<br>2. <strong>分部收入合计与合并营业收入的差额为分部间抵销</strong>（2025 年 20,106.35 亿元，占分部合计的 41.2%），主要是"销售"分部采购"炼油化工和新材料"分部产品形成的内部交易。<br>3. <strong>分部经营利润合计与合并经营利润的差额为总部及其他未分配项目</strong>（2025 年 −194.20 亿元），五年稳定在 −140 至 −195 亿元区间。<br>4. 海外业务不构成独立经营分部；其收入与利润已包含于上述各分部。海外业务收入占比在 2022 年达到 41.7% 高点后回落至 2025 年 33.9%。</p></div>
 
 <figure>
-<svg viewBox="0 0 680 280" width="100%" font-family="'Songti SC','Noto Serif CJK SC',serif">
+<div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 280" width="100%" font-family="'Songti SC','Noto Serif CJK SC',serif">
   <text x="0" y="14" font-size="12" fill="#22262B" font-weight="600">原油平均实现价格 vs 单位油气操作成本（美元／桶）</text>
   <text x="0" y="30" font-size="9" fill="#7C7B77">柱＝单位油气操作成本（左轴，0—20）　线＝实现油价（右轴，0—100）——油价 −30.4%，成本仅 −3.1%</text>
   <line x1="58" y1="220" x2="648" y2="220" stroke="#E3DDD4" stroke-width="1"/>
@@ -603,7 +636,7 @@
   <circle cx="463" cy="257" r="3.6" fill="#F7F4EE" stroke="#A73F2D" stroke-width="2"/>
   <text x="480" y="261" font-size="8.5" fill="#504e49">原油平均实现价格</text>
   <text x="640" y="276" font-size="8" fill="#7C7B77" text-anchor="end">口径提示：本图成本不含折旧折耗摊销与弃置费，与中国海油"桶油主要成本"不可直接比较</text>
-</svg>
+</svg></div>
 <figcaption>图 4　原油实现价格与单位油气操作成本对照（双轴；美元／桶）</figcaption>
 </figure>
 <h3>表 5　经营与成本指标（油气及炼化核心 KPI）</h3>
@@ -637,7 +670,7 @@
 <div class="callout"><p><strong>表 5 注</strong>：<br>1. 原油按 1 吨＝7.389 桶、天然气按 1 立方米＝35.315 立方英尺换算（公司披露口径）。<br>2. <strong>储量替代率公司未在 2021—2025 年年报中披露，故留"—"，不以"年末储量变动＋产量"倒算充作披露值。</strong><br>3. 部分经营指标（天然气销量、成品油销量与市场份额、加油站、车柴比等）在 2024 年及以后的年报中才以可比表格形式并列披露，2021—2023 年留"—"。<br>4. <strong>"单位油气操作成本"仅含操作成本，不含折旧折耗摊销、弃置费、税费等</strong>，与中国海洋石油等公司披露的"桶油主要成本"口径不同，<strong>不可跨公司直接比较</strong>。<br>5. 炼油单位现金加工成本 2023 年见顶（230.74 元／吨），2025 年微降至 224.28 元／吨，2026 年上半年回升至 232.59 元／吨（+10.2%，主因原油加工量下降摊薄效应减弱）。</p></div>
 
 <figure>
-<svg viewBox="0 0 680 280" width="100%" font-family="'Songti SC','Noto Serif CJK SC',serif">
+<div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 280" width="100%" font-family="'Songti SC','Noto Serif CJK SC',serif">
   <text x="0" y="14" font-size="12" fill="#22262B" font-weight="600">分季度归母净利润与 Q4 季节性（人民币亿元）</text>
   <text x="0" y="30" font-size="9" fill="#7C7B77">Q4（深红柱）连续四年落于前三季度之下，Q4 占全年比重稳定在 18.3%—19.7%</text>
   <line x1="58" y1="220" x2="648" y2="220" stroke="#E3DDD4" stroke-width="1"/>
@@ -697,7 +730,7 @@
   <rect x="286" y="252" width="10" height="10" fill="#A73F2D"/>
   <text x="300" y="261" font-size="8.5" fill="#504e49">Q4（季节低谷）</text>
   <text x="470" y="261" font-size="8.5" fill="#7C7B77">Q4 ÷ 前三季度单季均值：72.6% / 67.2% / 72.1% / 73.7%</text>
-</svg>
+</svg></div>
 <figcaption>图 5　分季度归母净利润与 Q4 季节性规律（单位：人民币亿元）</figcaption>
 </figure>
 <h3>表 6　分季度归母净利润（单位：人民币百万元）</h3>
@@ -927,5 +960,24 @@
   <span>数据来源：公司 2021—2026 年定期报告、ESG 报告（A 股法定披露）</span>
   <span>财务数据对比分析报告</span>
 </div>
+
+
+<!-- rsp-mobile-adapt : 溢出表格滑动提示 -->
+<script>
+(function(){
+  function mark(){
+    var boxes = document.querySelectorAll('.rsp-table');
+    for (var i=0;i<boxes.length;i++){
+      var b = boxes[i];
+      if (b.scrollWidth > b.clientWidth + 4) b.setAttribute('data-rsp-scroll','');
+      else b.removeAttribute('data-rsp-scroll');
+    }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mark);
+  else mark();
+  window.addEventListener('resize', function(){ clearTimeout(window.__rspT); window.__rspT=setTimeout(mark,180); });
+})();
+</script>
+
 </body>
 </html>

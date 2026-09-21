@@ -143,14 +143,22 @@
   code { font-family:var(--serif); }
 </style>
 
+
+
 <!-- rsp-mobile-adapt : 响应式适配层（仅屏幕生效，不影响打印/PDF） -->
 <style id="rsp-mobile-adapt">
+/* rsp-mobile-adapt-v3 */
 /* ========== 1. 全局：屏幕端基础修正 ========== */
 @media screen {
   html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
   body { overflow-wrap: break-word; }
   img, svg, canvas, video, iframe { max-width: 100%; }
   svg[viewBox], svg[viewbox] { height: auto; }
+
+  /* 网格容器（两列对比等）：网格项默认 min-width:auto，会被内部宽表撑破
+     容器、把整页顶出横向滚动（报告里 .two-col 就栽在这上面）。放开收缩，
+     让里面的 .rsp-table 自己去横向滑动。 */
+  .risk-grid > *, .two-col > * { min-width: 0; }
 
   /* 表格横向滚动容器：宽表不压字、不撑破页面 */
   .rsp-table {
@@ -232,6 +240,29 @@
   .report-footer { flex-direction: column; align-items: flex-start; gap: 3pt; }
 }
 
+/* ========== 3b. 图表：窄屏保持图纸原尺寸 + 横向滑动 ========== */
+/* 报告里的图表是 SVG：viewBox 宽 680 + width:100%。缩到手机宽度（约 350px）
+   只剩 0.5×，图内字号从 11px 掉到 5px 完全不可读；而 SVG <text> 不会自动换行，
+   单纯放大字号必然溢出图框。这里改为**保持图纸原尺寸、允许左右滑动**——
+   与上面宽表同一套策略，宁可滑也不塌字号。仅屏幕生效，打印/PDF 不受影响。 */
+@media screen and (max-width: 720px) {
+  .rsp-fig {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    /* 图纸一定宽于屏幕，直接给右侧一层渐变，暗示"还能往右滑" */
+    background: linear-gradient(to left, rgba(167,63,45,.09), rgba(167,63,45,0) 26px);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 26px 100%;
+  }
+  .rsp-fig > svg { min-width: var(--rsp-fig-w, 680px); }
+  .rsp-fig::-webkit-scrollbar { height: 7px; }
+  .rsp-fig::-webkit-scrollbar-track { background: transparent; }
+  .rsp-fig::-webkit-scrollbar-thumb { background: #D8D1C4; border-radius: 4px; }
+}
+
 /* ========== 4. 小屏手机：指标卡单列、边距收到最紧 ========== */
 @media screen and (max-width: 430px) {
   body { padding: 14px 12px 38px 12px !important; }
@@ -252,6 +283,8 @@
   [class*="rsp-w"] > table { min-width: 0 !important; }
 }
 </style>
+
+
 </head>
 <body>
 <div class="report-header">
@@ -1107,7 +1140,7 @@
 <h3>4.1 增长引擎熄火：从两位数到负增长</h3>
 <p>营业收入同比增速的五年轨迹为 <strong>10.4% →<wbr> 10.5% →<wbr> 7.7% →<wbr> 3.1% →<wbr> 0.9%</strong>，2026 上半年首次转负（−1.1%）。五年 CAGR（2021→<wbr>2025）为 5.5%，但增长几乎全部集中 2021—2023 年。</p>
 <p>更值得警惕的是<strong>主营业务收入</strong>——2026 上半年为 −3.1%，降幅接近总营收的三倍。两者差额由「其他业务收入」（主要为销售手机等终端产品）+11.2% 填补。<strong>这说明 2026 上半年的营收韧性来自终端销售而非通信主业。</strong></p>
-<figure><svg viewBox="0 0 680 276" width="100%" font-family="'Songti SC','Noto Serif CJK SC','Source Han Serif SC',serif" xmlns="http://www.w3.org/2000/svg">
+<figure><div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 276" width="100%" font-family="'Songti SC','Noto Serif CJK SC','Source Han Serif SC',serif" xmlns="http://www.w3.org/2000/svg">
 <rect x="0" y="0" width="680" height="276" fill="#FBF9F4"/>
 <line x1="66" y1="180.0" x2="600" y2="180.0" stroke="#E3DDD4" stroke-width="0.6"/>
 <text x="58" y="183.5" font-size="8.5" fill="#7C7B77" text-anchor="end">0</text>
@@ -1161,13 +1194,13 @@
 <circle cx="196" cy="232.0" r="2.6" fill="#2F6F6B"/>
 <text x="211" y="236.0" font-size="8.5" fill="#3E4145">同比增速（%）</text>
 <text x="66" y="262.0" font-size="8" fill="#7C7B77">注：2026H1 为半年度口径，淡色柱示之，不可与全年直接比较。</text>
-</svg><figcaption>图 1　营业收入与同比增速（2021—2025 年及 2026 上半年）</figcaption></figure>
+</svg></div><figcaption>图 1　营业收入与同比增速（2021—2025 年及 2026 上半年）</figcaption></figure>
 <h3>4.2 第一大收入来源进入结构性下滑，且降速在翻倍</h3>
 <p>无线上网业务是最大单一收入来源，其轨迹为 <strong>392,859（2021）→<wbr> 395,933 →<wbr> 394,797 →<wbr> 385,936 →<wbr> 369,092（2025）</strong>，占主营业务收入比重由 52.3% 降至 41.2%。关键在于降速：2024 年 −2.2% →<wbr> 2025 年 −4.4% →<wbr> <strong>2026 上半年 −10.8%（降速再次翻倍）</strong>。</p>
 <p>其驱动机制在运营指标上完全对应：</p>
 <ul><li><strong>移动 ARPU</strong>：49.3 元（2023）→<wbr> 48.5 →<wbr> 46.8 →<wbr> <strong>45.1 元</strong>（2026H1），两年下降 8.5%；</li><li><strong>DOU</strong>：15.9 →<wbr> 15.9 →<wbr> <strong>17.3 GB</strong>（2025，+8.8%），2026 上半年手机上网流量同比 <strong>+16.0%</strong>；</li><li><strong>MOU</strong>：242 →<wbr> 222 →<wbr> 204 分钟，语音持续被 OTT 替代。</li></ul>
 <p><strong>流量以两位数增长、收入以两位数下滑</strong>，意味着单位流量价值被系统性稀释。公司在 2026 半年报中明确将通信服务收入下滑归因于「加大套餐流量扩容」与「增值税税目政策调整」——前者是主动的价格让渡，后者是政策性的。这一组合意味着 ARPU 的下行具有内生性。</p>
-<figure><svg viewBox="0 0 680 276" width="100%" font-family="'Songti SC','Noto Serif CJK SC','Source Han Serif SC',serif" xmlns="http://www.w3.org/2000/svg">
+<figure><div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 276" width="100%" font-family="'Songti SC','Noto Serif CJK SC','Source Han Serif SC',serif" xmlns="http://www.w3.org/2000/svg">
 <rect x="0" y="0" width="680" height="276" fill="#FBF9F4"/>
 <line x1="66" y1="180.0" x2="600" y2="180.0" stroke="#E3DDD4" stroke-width="0.6"/>
 <text x="58" y="183.5" font-size="8.5" fill="#7C7B77" text-anchor="end">0.0</text>
@@ -1220,13 +1253,13 @@
 <circle cx="196" cy="232.0" r="2.6" fill="#2F6F6B"/>
 <text x="211" y="236.0" font-size="8.5" fill="#3E4145">DOU（GB/户/月）</text>
 <text x="66" y="262.0" font-size="8" fill="#7C7B77">注：流量持续增长而 ARPU 下行，单位流量价值被系统性稀释；2026H1 的 DOU 未披露，折线断开。</text>
-</svg><figcaption>图 2　移动 ARPU 与 DOU 剪刀差（2021—2026H1）</figcaption></figure>
+</svg></div><figcaption>图 2　移动 ARPU 与 DOU 剪刀差（2021—2026H1）</figcaption></figure>
 <h3>4.3 第二曲线：从「接得住」到「接不住」</h3>
 <p>应用及信息服务是过去五年的真正增长引擎：<strong>136,961（2021）→<wbr> 258,761（2025），五年 +88.9%</strong>，占主营比由 18.2% 升至 28.9%。但其增速已系统性放缓：<strong>33.2%（2022）→<wbr> 21.5% →<wbr> 10.0% →<wbr> 6.2%（2025）→<wbr> 6.6%（2026H1）</strong>。</p>
 <p>分年度的增量归因显示拐点已经出现：</p>
 <ul><li><strong>2025 年</strong>：主营业务收入增量 +6,062。其中应用及信息服务 +14,987、有线宽带 +11,377，合计 +26,364；无线上网 −16,844、语音 −3,457、短彩信 −1,220，合计 −21,521。<strong>第二曲线仍能覆盖主业下滑，净增 6,062。</strong></li><li><strong>2026 上半年</strong>：主营业务收入增量 <strong>−14,326</strong>。其中应用及信息服务 +8,976、有线宽带 +3,501，合计 +12,477；无线上网 <strong>−21,147</strong>、语音 −3,258、短彩信 −1,983，合计 −26,388。<strong>第二曲线的增量仅能覆盖主业缺口的 47.3%，净减 14,326。</strong></li></ul>
 <p><strong>这是本次分析最重要的结论：2026 上半年，中国移动的增长模型首次出现「第二曲线接不住主业下滑」的结构性缺口。</strong> 除非算力与智能服务重新加速，否则主营业务收入的下行将直接传导至利润表。</p>
-<figure><svg viewBox="0 0 680 292" width="100%" font-family="'Songti SC','Noto Serif CJK SC','Source Han Serif SC',serif" xmlns="http://www.w3.org/2000/svg">
+<figure><div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 292" width="100%" font-family="'Songti SC','Noto Serif CJK SC','Source Han Serif SC',serif" xmlns="http://www.w3.org/2000/svg">
 <rect x="0" y="0" width="680" height="292" fill="#FBF9F4"/>
 <line x1="66" y1="180.0" x2="600" y2="180.0" stroke="#E3DDD4" stroke-width="0.6"/>
 <text x="58" y="183.5" font-size="8.5" fill="#7C7B77" text-anchor="end">0</text>
@@ -1293,7 +1326,7 @@
 <rect x="264.5" y="244.0" width="9" height="9" fill="#9A8F80"/>
 <text x="277.5" y="252.0" font-size="8.5" fill="#3E4145">其他</text>
 <text x="66" y="278.0" font-size="8" fill="#7C7B77">数据来源：各年年报附注「营业收入」分产品披露，口径 2021—2025 一致可比。</text>
-</svg><figcaption>图 3　主营业务收入结构变迁（分产品口径，2021—2025）</figcaption></figure>
+</svg></div><figcaption>图 3　主营业务收入结构变迁（分产品口径，2021—2025）</figcaption></figure>
 <h3>4.4 2025 年利润转负的真相：一次性税务事件</h3>
 <p>2025 年归母净利润 −0.9%，是 A 股上市以来首次年度负增长。但拆解后可见主业并未恶化，完整的利润桥如下（单位：百万元）：</p>
 <div class="rsp-table"><table class="financial longtable">
@@ -1335,7 +1368,7 @@
 </tbody></table></div>
 <p>公司披露的同口径（剔除套餐收入分拆纳税影响）归母净利润增速为 <strong>+2.0%</strong>，扣非归母净利润 <strong>+4.3%</strong>，与上述拆解互相印证。</p>
 <p><strong>但需注意该事件的持续性风险</strong>：套餐收入分拆纳税是增值税税目适用问题，2026 上半年公司再次披露「增值税税目政策调整」影响，说明同类税务口径问题在 2026 年继续存在，只是已转入收入端（通信服务收入 −5.7%）而非营业外支出。2026 上半年营业收入同口径为正增长、归母净利润同口径为正增长，<strong>报表的负增长被政策因素显著放大</strong>。</p>
-<figure><svg viewBox="0 0 680 285" width="100%" font-family="'Songti SC','Noto Serif CJK SC','Source Han Serif SC',serif" xmlns="http://www.w3.org/2000/svg">
+<figure><div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 285" width="100%" font-family="'Songti SC','Noto Serif CJK SC','Source Han Serif SC',serif" xmlns="http://www.w3.org/2000/svg">
 <rect x="0" y="0" width="680" height="285" fill="#FBF9F4"/>
 <line x1="66" y1="185.0" x2="620" y2="185.0" stroke="#E3DDD4" stroke-width="0.6"/>
 <text x="58" y="188.5" font-size="8.5" fill="#7C7B77" text-anchor="end">130,000</text>
@@ -1373,7 +1406,7 @@
 <line x1="504.6" y1="93.4" x2="550.7" y2="93.4" stroke="#7C7B77" stroke-width="0.6" stroke-dasharray="2,2"/>
 <text x="573.8" y="201.0" font-size="8" fill="#7C7B77" text-anchor="middle">2025 归母</text>
 <text x="66" y="271.0" font-size="8" fill="#7C7B77">纵轴自 130,000 百万元起（非零起点）。2025 年营业利润实际 +2,160 百万元，归母转负全部由营业外支出暴增所致。</text>
-</svg><figcaption>图 4　2025 年归母净利润变动归因桥（百万元）</figcaption></figure>
+</svg></div><figcaption>图 4　2025 年归母净利润变动归因桥（百万元）</figcaption></figure>
 <h3>4.5 Q4 塌陷：2025 年显著加剧且可归因</h3>
 <p>2025 年 Q4 归母净利润 21,742，仅占全年 15.9%，为前三季度单季均值（38,451）的 <strong>56.5%</strong>；而 2024 年该比值为 <strong>74.4%</strong>。Q4 占比由 19.9% 降至 15.9%，降幅 4.0pp。</p>
 <p>该塌陷与营业外支出集中在 Q4 确认完全吻合——套餐收入分拆纳税影响作为一次性税务事项，通常在年末汇算时确认。<strong>因此 2025 年的 Q4 塌陷属可解释的一次性事件，不宜简单外推</strong>；但需警惕 2026 年若存在同类税务调整，Q4 仍将承压。</p>
@@ -1381,7 +1414,7 @@
 <p>自由现金流轨迹为 <strong>131,200 →<wbr> 95,600 →<wbr> 123,500 →<wbr> 151,700 →<wbr> 82,000（2025，−45.9%）</strong>，2026 上半年回升至 53,900（<strong>+111.6%</strong>）。</p>
 <p>关键判断：<strong>2025 年的腰斩并非投资扩张所致</strong>——同期资本开支反而下降 8.0% 至 150,900，且已连续四年下降（2022 年峰值 185,200 起累计 −18.5%）。下降全部来自经营端：经营活动现金流净额 −26.2%，主要发生在 2025Q1（31,317，仅为 2024Q1 的 55.0%）。</p>
 <p>2026 上半年经营活动现金流 +37.0%、自由现金流 +111.6%，验证了该下降的暂时性。<strong>资本开支进入下行周期是中期结构性利好</strong>：5G 大规模建设高峰已过，公司 2026 年资本开支预计继续下降，将释放更多自由现金流用于分红。</p>
-<figure><svg viewBox="0 0 680 276" width="100%" font-family="'Songti SC','Noto Serif CJK SC','Source Han Serif SC',serif" xmlns="http://www.w3.org/2000/svg">
+<figure><div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 276" width="100%" font-family="'Songti SC','Noto Serif CJK SC','Source Han Serif SC',serif" xmlns="http://www.w3.org/2000/svg">
 <rect x="0" y="0" width="680" height="276" fill="#FBF9F4"/>
 <line x1="66" y1="180.0" x2="600" y2="180.0" stroke="#E3DDD4" stroke-width="0.6"/>
 <text x="58" y="183.5" font-size="8.5" fill="#7C7B77" text-anchor="end">0</text>
@@ -1431,7 +1464,7 @@
 <circle cx="196" cy="232.0" r="2.6" fill="#2F6F6B"/>
 <text x="211" y="236.0" font-size="8.5" fill="#3E4145">自由现金流（亿元，约）</text>
 <text x="66" y="262.0" font-size="8" fill="#7C7B77">注：两项均为年报「约人民币 ×× 亿元」披露值的折算。资本开支连续四年下降，2025 年自由现金流腰斩源自经营端而非投资端。</text>
-</svg><figcaption>图 5　资本开支与自由现金流（2021—2025）</figcaption></figure>
+</svg></div><figcaption>图 5　资本开支与自由现金流（2021—2025）</figcaption></figure>
 <h3>4.7 应收账款：最被低估的风险</h3>
 <p>应收账款是本报告识别出的最突出风险项：</p>
 <div class="rsp-table"><table class="financial longtable">
@@ -1481,7 +1514,7 @@
 <p><strong>五年间应收账款增长 228.7%（37,185 →<wbr> 122,239），而同期营业收入仅增长 23.8%（848,258 →<wbr> 约 1,076,070 年化）</strong>，两者相差近十倍。应收占营收比由 4.4% 升至 11.4%，2026 上半年仍在加速。</p>
 <p>公司已在 2024 年报中说明：「应收账款增长较快，主要受公司业务和收入结构转型影响，公司政企市场收入占比持续提升」。这与「应用及信息服务」（含 DICT、算力、行业解决方案）成为增长引擎完全对应——<strong>政企与算力业务天然具有账期长、回款慢、需垫资的特征</strong>。</p>
 <p>因此，<strong>应用及信息服务的高增长伴随着收入质量的下降</strong>：它贡献了收入与账面利润，但贡献的现金流远低于传统通信业务，且形成持续的减值风险敞口。评估中国移动时，不应将「应用及信息服务 +88.9%」等同于等比例的价值创造。</p>
-<figure><svg viewBox="0 0 680 276" width="100%" font-family="'Songti SC','Noto Serif CJK SC','Source Han Serif SC',serif" xmlns="http://www.w3.org/2000/svg">
+<figure><div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 276" width="100%" font-family="'Songti SC','Noto Serif CJK SC','Source Han Serif SC',serif" xmlns="http://www.w3.org/2000/svg">
 <rect x="0" y="0" width="680" height="276" fill="#FBF9F4"/>
 <line x1="66" y1="180.0" x2="600" y2="180.0" stroke="#E3DDD4" stroke-width="0.6"/>
 <text x="58" y="183.5" font-size="8.5" fill="#7C7B77" text-anchor="end">0</text>
@@ -1535,7 +1568,7 @@
 <circle cx="196" cy="232.0" r="2.6" fill="#2F6F6B"/>
 <text x="211" y="236.0" font-size="8.5" fill="#3E4145">应收账款/营业收入（%）</text>
 <text x="66" y="262.0" font-size="8" fill="#7C7B77">注：2026H1 占比按半年收入年化计算。五年间应收账款 +228.7%，而营业收入仅 +23.8%。</text>
-</svg><figcaption>图 6　应收账款余额及其占营业收入比重（2021—2026H1）</figcaption></figure>
+</svg></div><figcaption>图 6　应收账款余额及其占营业收入比重（2021—2026H1）</figcaption></figure>
 <h3>4.8 股东回报：从成长股到红利股</h3>
 <p>在利润停滞的背景下，公司选择持续提升派息率：</p>
 <ul><li>派息率：<strong>67%（2022）→<wbr> 71% →<wbr> 73% →<wbr> 75%（2025）</strong>，三年提升 8pp，并指引 2026 年「稳中有升」；</li><li>每股股息（港元）：4.060 →<wbr> 4.410 →<wbr> 4.830 →<wbr> 5.090 →<wbr> <strong>5.270</strong>，四年累计 +29.8%，远超同期归母净利润 +18.2%；</li><li>资本开支连续四年下降，为分红释放空间。</li></ul>
@@ -1729,5 +1762,24 @@
 <ol><li>损益、资产负债、现金流年度数据分别取自各年度年报的「近三年主要会计数据和财务指标」、合并资产负债表与合并现金流量表；跨期数值已核对相邻年报的一致性，<strong>未发现追溯重述差异</strong>（如 2022 年数据在 2022 年报与 2023 年报中完全一致）。</li><li>表 4 分产品收入取自各年报附注「营业收入」明细，<strong>该口径 2021—2026H1 未变更，可直接比较</strong>。</li><li>资本开支与自由现金流原文以「约人民币 ×× 亿元」披露于管理层讨论，已按 ×100 折算为百万元并标注为约数；二者未在其他报表中以精确值披露，故不做同比精度校验。</li><li>2021 年派息率未在年报中明示，留「—」，未做估算。</li><li>2025 年「同口径」增速、2026 上半年「同口径」表述均为公司披露原文，本报告未对其做独立重算。</li><li>未披露或口径不可比之处一律留「—」，未做估算或倒推。</li></ol>
 <p><strong>核对状态</strong>：本报告全部数值均取自上述原始披露文件的文本抽取结果，关键指标（营业收入、归母净利润、EBITDA、应收账款、分产品收入、分季度数据）已做跨期交叉校验与加总验平。图表由数据数组生成，已做几何边界断言校验。</p>
 <div class="report-footer"><span>数据来源：中国移动上交所、港交所定期报告披露文件</span><span>报告类型：财务分析报告 · 2026-09</span></div>
+
+
+<!-- rsp-mobile-adapt : 溢出表格滑动提示 -->
+<script>
+(function(){
+  function mark(){
+    var boxes = document.querySelectorAll('.rsp-table');
+    for (var i=0;i<boxes.length;i++){
+      var b = boxes[i];
+      if (b.scrollWidth > b.clientWidth + 4) b.setAttribute('data-rsp-scroll','');
+      else b.removeAttribute('data-rsp-scroll');
+    }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mark);
+  else mark();
+  window.addEventListener('resize', function(){ clearTimeout(window.__rspT); window.__rspT=setTimeout(mark,180); });
+})();
+</script>
+
 </body>
 </html>

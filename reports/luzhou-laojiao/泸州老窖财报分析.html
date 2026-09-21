@@ -136,14 +136,22 @@
   table.tall tr { break-inside:avoid; }
 </style>
 
+
+
 <!-- rsp-mobile-adapt : 响应式适配层（仅屏幕生效，不影响打印/PDF） -->
 <style id="rsp-mobile-adapt">
+/* rsp-mobile-adapt-v3 */
 /* ========== 1. 全局：屏幕端基础修正 ========== */
 @media screen {
   html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
   body { overflow-wrap: break-word; }
   img, svg, canvas, video, iframe { max-width: 100%; }
   svg[viewBox], svg[viewbox] { height: auto; }
+
+  /* 网格容器（两列对比等）：网格项默认 min-width:auto，会被内部宽表撑破
+     容器、把整页顶出横向滚动（报告里 .two-col 就栽在这上面）。放开收缩，
+     让里面的 .rsp-table 自己去横向滑动。 */
+  .risk-grid > *, .two-col > * { min-width: 0; }
 
   /* 表格横向滚动容器：宽表不压字、不撑破页面 */
   .rsp-table {
@@ -225,6 +233,29 @@
   .report-footer { flex-direction: column; align-items: flex-start; gap: 3pt; }
 }
 
+/* ========== 3b. 图表：窄屏保持图纸原尺寸 + 横向滑动 ========== */
+/* 报告里的图表是 SVG：viewBox 宽 680 + width:100%。缩到手机宽度（约 350px）
+   只剩 0.5×，图内字号从 11px 掉到 5px 完全不可读；而 SVG <text> 不会自动换行，
+   单纯放大字号必然溢出图框。这里改为**保持图纸原尺寸、允许左右滑动**——
+   与上面宽表同一套策略，宁可滑也不塌字号。仅屏幕生效，打印/PDF 不受影响。 */
+@media screen and (max-width: 720px) {
+  .rsp-fig {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    /* 图纸一定宽于屏幕，直接给右侧一层渐变，暗示"还能往右滑" */
+    background: linear-gradient(to left, rgba(167,63,45,.09), rgba(167,63,45,0) 26px);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 26px 100%;
+  }
+  .rsp-fig > svg { min-width: var(--rsp-fig-w, 680px); }
+  .rsp-fig::-webkit-scrollbar { height: 7px; }
+  .rsp-fig::-webkit-scrollbar-track { background: transparent; }
+  .rsp-fig::-webkit-scrollbar-thumb { background: #D8D1C4; border-radius: 4px; }
+}
+
 /* ========== 4. 小屏手机：指标卡单列、边距收到最紧 ========== */
 @media screen and (max-width: 430px) {
   body { padding: 14px 12px 38px 12px !important; }
@@ -245,6 +276,8 @@
   [class*="rsp-w"] > table { min-width: 0 !important; }
 }
 </style>
+
+
 </head>
 <body>
 
@@ -295,7 +328,7 @@
   <li><strong>2025–2026H1（深度调整期）</strong>：2025 年营收 −17.52%、归母净利 −19.61%；2026H1 营收 −36.35%、归母净利 −43.37%，<strong>降幅显著大于同业</strong>。</li>
 </ol>
 <figure>
-<svg viewBox="0 0 680 300" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
+<div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 300" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
 <text x="70" y="20" font-size="10" fill="#22262B" font-weight="500">图 1　十年营业收入与归母净利润轨迹（2016–2025，单位：亿元）</text>
 <text x="70" y="34" font-size="8.2" fill="#7C7B77">收入十年 3.10 倍、利润十年 5.62 倍；2024 年双双见顶，2025 年同步回落</text>
 <rect x="250" y="40" width="10" height="9" fill="#1B365D"/><text x="264" y="48" font-size="8.5" fill="#3E4145">营业收入</text>
@@ -348,11 +381,11 @@
 <text x="646.0" y="189.7" font-size="8.2" fill="#A73F2D" font-weight="500">108.31</text>
 <text x="64.0" y="228.8" font-size="8.2" fill="#A73F2D" text-anchor="end">19.28</text>
 <text x="70" y="274" font-size="7.6" fill="#7C7B77">注：2024 年营收 +3.19%、归母净利 +1.71%（增速首次归零）；2025 年分别为 −17.52% 与 −19.61%。</text>
-</svg>
+</svg></div>
 <figcaption>图 1　十年收入与利润轨迹：2024 年归母净利润 134.73 亿元见顶后，2025 年回落至 108.31 亿元（数据来源：公司 2016–2025 年年报）</figcaption>
 </figure>
 <figure>
-<svg viewBox="0 0 680 300" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
+<div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 300" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
 <text x="70" y="20" font-size="10" fill="#22262B" font-weight="500">图 2　盈利能力三项指标轨迹（2016–2025，%）</text>
 <text x="70" y="34" font-size="8.2" fill="#7C7B77">毛利率与归母净利率同步上行至 2023 年见顶；加权 ROE 自 2023 年峰值连续两年回落</text>
 <rect x="250" y="40" width="10" height="9" fill="#B8862F"/><text x="264" y="48" font-size="8.5" fill="#3E4145">毛利率</text>
@@ -421,7 +454,7 @@
 <text x="646.0" y="204.1" font-size="8.2" fill="#A73F2D" font-weight="500">22.66</text>
 <text x="64.0" y="205.3" font-size="8.2" fill="#A73F2D" text-anchor="end">17.79</text>
 <text x="70" y="274" font-size="7.6" fill="#7C7B77">注：2016 年税金及附加受财会〔2016〕22 号重分类影响（仅 5–12 月计入），与后续年度不完全可比，趋势判断不受影响。</text>
-</svg>
+</svg></div>
 <figcaption>图 2　盈利能力轨迹：加权 ROE 自 2023 年峰值 35.07% 连续两年回落至 22.66%，两年累计下降 12.41 个百分点（数据来源：公司 2016–2025 年年报）</figcaption>
 </figure>
 <h2>二、核心财务数据对比</h2>
@@ -474,7 +507,7 @@
 </table></div>
 <p class="note">十年累计经营活动现金流净额 <strong>732.89 亿元</strong>，为累计归母净利润 <strong>744.91 亿元的 0.98 倍</strong>——<strong>利润的现金含量大致匹配但略低于 1</strong>（作为对照：同期山西汾酒为 <strong>0.95 倍</strong>、贵州茅台为 <strong>0.99 倍</strong>，三家均落在 0.95–0.99 区间）。 投资活动净流出多为<strong>酿酒工程技改项目建设投入</strong>（2025 年购建固定资产、无形资产等长期资产支付现金 25.50 亿元）与定期存款／理财滚动配置，而非金融资产投机。 筹资活动净流出在 2024 年（−103.29 亿元）与 2025 年（−118.20 亿元）急剧扩大，主要系<strong>分红大幅加码</strong>与<strong>归还银行借款</strong>双重作用。2025 年分配股利、利润或偿付利息支付的现金为 <strong>120.40 亿元</strong>，约为当年经营现金流（71.23 亿元）的 1.69 倍。</p>
 <figure>
-<svg viewBox="0 0 680 310" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
+<div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 310" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
 <text x="74" y="20" font-size="10" fill="#22262B" font-weight="500">图 4　销售量与吨酒价格的背离（2016–2025）</text>
 <text x="74" y="34" font-size="8.2" fill="#7C7B77">销量十年累计 −51.6%（柱，左轴），吨酒价格累计 6.55 倍（线，右轴）——「卖得更贵、卖得更少」</text>
 <rect x="286" y="40" width="10" height="9" fill="#2F6F6B"/><text x="300" y="48" font-size="8.5" fill="#3E4145">白酒销售量（吨，左轴）</text>
@@ -548,7 +581,7 @@
 <text x="551.7" y="260" font-size="7.6" fill="#7C7B77" text-anchor="middle">2024</text>
 <text x="607.9" y="260" font-size="7.6" fill="#7C7B77" text-anchor="middle">2025</text>
 <text x="74" y="276" font-size="7.6" fill="#7C7B77">注：2020／2021 年销售量口径不连续（2021 年 −35.64%，公司说明系二曲类产品销量减少），跨该点的吨价同比不具可比性。</text>
-</svg>
+</svg></div>
 <figcaption>图 4　量价背离：销量持续收缩而吨酒价格上行，2024–2025 年吨价首次连续两年回落（数据来源：公司 2016–2025 年年报产销量表、分行业收入表倒算）</figcaption>
 </figure>
 <h3>表 4　经营质量与渠道</h3>
@@ -611,7 +644,7 @@
 <p class="note">分红率＝现金分红总额 ÷ 归母净利润。2024 年起公司实行<strong>一年两次分红</strong>（中期 + 年度）。 公司《2024‑2026 年度股东分红回报规划》承诺：2024／2025／2026 年度现金分红总额占当年归母净利润比例<strong>分别不低于 65%、70%、75%，且均不低于人民币 85 亿元</strong>。2024 年实际 65.00%（恰好触及下限）、2025 年实际 78.48%（超出 70% 下限 8.48 个百分点）。 <strong>分红下限的数学含义</strong>：若 2026 年归母净利润低于 <strong>113.3 亿元</strong>，"不低于 75%"的要求即被"不低于 85 亿元"的绝对额下限取代。以 2026H1 归母净利润 43.39 亿元（−43.37%）推算，全年若落在 80–90 亿元区间，则 85 亿元的分红承诺对应<strong>分红率 94%–106%</strong>——分红将成为净资产与现金流的净消耗项。这是当前最需要跟踪的财务约束。</p>
 <h2>三、三张财务数据表：关键变化数据与趋势含义</h2>
 <figure>
-<svg viewBox="0 0 680 320" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
+<div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 320" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
 <text x="74" y="20" font-size="10" fill="#22262B" font-weight="500">图 3　2025 年利润总额变化归因（同比，单位：亿元）</text>
 <text x="74" y="34" font-size="8.2" fill="#7C7B77">毛利减少 50.19 亿元是唯一实质拖累；税金及附加与其他费用项合计对冲 14.60 亿元</text>
 <line x1="74" y1="228.4" x2="646" y2="228.4" stroke="#EFEBE3" stroke-width="0.7"/>
@@ -651,7 +684,7 @@
 <text x="610.2" y="88.1" font-size="8.4" fill="#B8862F" text-anchor="middle" font-weight="500">-35.51</text>
 <text x="610.2" y="264" font-size="7.2" fill="#7C7B77" text-anchor="middle">利润总额</text>
 <text x="74" y="282" font-size="7.6" fill="#7C7B77">注：税金及附加减少 8.26 亿元、销售费用减少 3.01 亿元、管理与研发合计减少 1.84 亿元；实际税率 25.86%→25.89%，基本持平。</text>
-</svg>
+</svg></div>
 <figcaption>图 3　2025 年利润桥：收入下滑 17.52% 带来毛利减少 50.19 亿元，费用与税金端合计对冲约 14.60 亿元，利润总额最终减少 35.51 亿元（数据来源：2025 年年报合并利润表及附注）</figcaption>
 </figure>
 <h3>3.1 利润表：从"结构升级"到"量价双杀"</h3>
@@ -729,7 +762,7 @@
 </ul>
 <p>同时经销商总数从 2020 年末的历史峰值 2,221 家降至 2025 年末 <strong>1,788 家（净减 433 家）</strong>，其中境外经销商从 174 家降至 93 家、2025 年小幅回升至 93 家。渠道在做<strong>结构性出清</strong>，而非简单收缩。</p>
 <figure>
-<svg viewBox="0 0 680 310" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
+<div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 310" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
 <text x="74" y="20" font-size="10" fill="#22262B" font-weight="500">图 5　合同负债与收现比的「先蓄后放」（2021–2026H1）</text>
 <text x="74" y="34" font-size="8.2" fill="#7C7B77">合同负债 2024 年末冲高至 39.78 亿元后连续两期回落；收现比 2024 年 128.34% 的高点源于渠道提前打款</text>
 <rect x="286" y="40" width="10" height="9" fill="#1B365D"/><text x="300" y="48" font-size="8.5" fill="#3E4145">期末合同负债（亿元，左轴）</text>
@@ -783,7 +816,7 @@
 <text x="495.5" y="260" font-size="7.6" fill="#7C7B77" text-anchor="middle">2025年</text>
 <text x="589.2" y="260" font-size="7.6" fill="#7C7B77" text-anchor="middle">2026H1</text>
 <text x="74" y="276" font-size="7.6" fill="#7C7B77">注：收现比＝「销售商品、提供劳务收到的现金」÷「营业收入」，右轴下限设为 90%。</text>
-</svg>
+</svg></div>
 <figcaption>图 5　渠道蓄水池与回款质量：合同负债自 2024 年末峰值回落 38.74%，收现比从 128.34% 回落至 102.60%（数据来源：公司各期定期报告）</figcaption>
 </figure>
 <h3>4.5 2026 年上半年：降幅远超同业，但现金流质量并未崩塌</h3>
@@ -809,7 +842,7 @@
   <li><strong>85 亿元分红下限的刚性约束</strong>（见 4.7 节）。</li>
 </ul>
 <figure>
-<svg viewBox="0 0 680 300" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
+<div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 300" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
 <text x="70" y="20" font-size="10" fill="#22262B" font-weight="500">图 6　类现金、有息负债与净现金（2016–2026H1，单位：亿元）</text>
 <text x="70" y="34" font-size="8.2" fill="#7C7B77">类现金 2024 年末见顶 352.73 亿元后连续两期净消耗；有息负债 2023 年峰值 115.21 亿元，2026H1 重新回升</text>
 <rect x="250" y="40" width="10" height="9" fill="#B8862F"/><text x="264" y="48" font-size="8.5" fill="#3E4145">类现金</text>
@@ -880,7 +913,7 @@
 <text x="646.0" y="223.8" font-size="8.2" fill="#A73F2D" font-weight="500">48.33</text>
 <text x="64.0" y="239.0" font-size="8.2" fill="#A73F2D" text-anchor="end">0.00</text>
 <text x="70" y="274" font-size="7.6" fill="#7C7B77">注：类现金＝货币资金＋交易性金融资产；有息负债＝短期借款＋长期借款＋应付债券＋租赁负债；净现金＝类现金−有息负债。</text>
-</svg>
+</svg></div>
 <figcaption>图 6　资本结构：净现金自 2024 年末 289.68 亿元连续回落至 231.10 亿元，公司进入「现金净消耗」阶段（数据来源：公司各年合并资产负债表）</figcaption>
 </figure>
 <h3>4.6 财务结构：与汾酒的"零负债"不同，泸州老窖是"高现金 + 真负债"</h3>
@@ -992,5 +1025,24 @@
   <li><strong>本报告不包含对未来的盈利预测</strong>，所有"若…则…"测算均为在公开承诺条款下的机械推算，不构成投资建议。</li>
 </ul>
 <p><strong>数据来源</strong>：深圳证券交易所 / 东方财富公告接口披露的公司定期报告原文，共 <strong>10 份年度报告（2016–2025，均为报告全文）</strong> 与相关半年度报告。全部 PDF 存放于 <code>财报分析/泸州老窖/</code>，抽取文本存放于 <code>text/</code> 子目录。</p>
+
+
+<!-- rsp-mobile-adapt : 溢出表格滑动提示 -->
+<script>
+(function(){
+  function mark(){
+    var boxes = document.querySelectorAll('.rsp-table');
+    for (var i=0;i<boxes.length;i++){
+      var b = boxes[i];
+      if (b.scrollWidth > b.clientWidth + 4) b.setAttribute('data-rsp-scroll','');
+      else b.removeAttribute('data-rsp-scroll');
+    }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mark);
+  else mark();
+  window.addEventListener('resize', function(){ clearTimeout(window.__rspT); window.__rspT=setTimeout(mark,180); });
+})();
+</script>
+
 </body>
 </html>

@@ -96,14 +96,22 @@
   .page-break { break-before: page; }
 </style>
 
+
+
 <!-- rsp-mobile-adapt : 响应式适配层（仅屏幕生效，不影响打印/PDF） -->
 <style id="rsp-mobile-adapt">
+/* rsp-mobile-adapt-v3 */
 /* ========== 1. 全局：屏幕端基础修正 ========== */
 @media screen {
   html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
   body { overflow-wrap: break-word; }
   img, svg, canvas, video, iframe { max-width: 100%; }
   svg[viewBox], svg[viewbox] { height: auto; }
+
+  /* 网格容器（两列对比等）：网格项默认 min-width:auto，会被内部宽表撑破
+     容器、把整页顶出横向滚动（报告里 .two-col 就栽在这上面）。放开收缩，
+     让里面的 .rsp-table 自己去横向滑动。 */
+  .risk-grid > *, .two-col > * { min-width: 0; }
 
   /* 表格横向滚动容器：宽表不压字、不撑破页面 */
   .rsp-table {
@@ -185,6 +193,29 @@
   .report-footer { flex-direction: column; align-items: flex-start; gap: 3pt; }
 }
 
+/* ========== 3b. 图表：窄屏保持图纸原尺寸 + 横向滑动 ========== */
+/* 报告里的图表是 SVG：viewBox 宽 680 + width:100%。缩到手机宽度（约 350px）
+   只剩 0.5×，图内字号从 11px 掉到 5px 完全不可读；而 SVG <text> 不会自动换行，
+   单纯放大字号必然溢出图框。这里改为**保持图纸原尺寸、允许左右滑动**——
+   与上面宽表同一套策略，宁可滑也不塌字号。仅屏幕生效，打印/PDF 不受影响。 */
+@media screen and (max-width: 720px) {
+  .rsp-fig {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    /* 图纸一定宽于屏幕，直接给右侧一层渐变，暗示"还能往右滑" */
+    background: linear-gradient(to left, rgba(167,63,45,.09), rgba(167,63,45,0) 26px);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 26px 100%;
+  }
+  .rsp-fig > svg { min-width: var(--rsp-fig-w, 680px); }
+  .rsp-fig::-webkit-scrollbar { height: 7px; }
+  .rsp-fig::-webkit-scrollbar-track { background: transparent; }
+  .rsp-fig::-webkit-scrollbar-thumb { background: #D8D1C4; border-radius: 4px; }
+}
+
 /* ========== 4. 小屏手机：指标卡单列、边距收到最紧 ========== */
 @media screen and (max-width: 430px) {
   body { padding: 14px 12px 38px 12px !important; }
@@ -205,6 +236,8 @@
   [class*="rsp-w"] > table { min-width: 0 !important; }
 }
 </style>
+
+
 </head>
 <body>
 
@@ -266,7 +299,7 @@
 <p class="note">注：① 2026H1 为 1—6 月半年口径，同比对照 2025H1（营业收入 617.77 亿元、归母净利润 72.00 亿元、扣非归母 70.16 亿元）。② <strong>2020→2021 年毛利率与销售费用率存在口径断层</strong>：2021 年起执行新收入准则，运输费由销售费用重分类至营业成本，2020 年营业成本由原列报的 618.06 亿元重述为 674.53 亿元。跨 2020/2021 分界的毛利率、销售费用率仅可作方向性比较，不宜直接计算增长率。③ 加权平均 ROE 为年度报告口径，2026H1 未披露加权值，留"—"。</p>
 <p><strong>十年量级</strong>：营业收入由 603.12 亿元增至 1,156.36 亿元（9 年 CAGR <strong>7.50%</strong>），归母净利润由 56.62 亿元增至 115.65 亿元（9 年 CAGR <strong>8.26%</strong>）。但增长的<strong>时间分布极不均衡</strong>——2023 年见顶后，2024 年营业收入回落 8.24%、归母净利润回落 18.94%，2025 年营业收入仅恢复至 1,156.36 亿元（仍低于 2023 年峰值 100.22 亿元的差距），而利润的大幅反弹主要来自减值项的消退而非主营改善（详见 §4.1、§4.2）。</p>
 <figure>
-<svg viewBox="0 0 680 300" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
+<div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 300" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
   <text x="64" y="20" font-size="10.5" fill="#22262B" font-weight="500">图 1　十年营业收入（柱）与归母净利润（线）轨迹（2016—2025，单位：亿元）</text>
   <text x="64" y="35" font-size="8.2" fill="#7C7B77">收入 9 年 CAGR 7.50%，2023 年见顶后连续两年零增长；归母净利润 2024 年深蹲、2025 年反弹</text>
   <rect x="64" y="47" width="11" height="9" fill="#CFC7BA"/><text x="79" y="55" font-size="8.4" fill="#3E4145">营业收入（左轴）</text>
@@ -331,11 +364,11 @@
   <text x="553.6" y="264" font-size="7.6" fill="#7C7B77" text-anchor="middle">2024</text>
   <text x="611.2" y="264" font-size="7.6" fill="#7C7B77" text-anchor="middle">2025</text>
   <text x="64" y="280" font-size="7.4" fill="#7C7B77">注：左轴＝营业收入（柱，亿元），右轴＝归母净利润（线，亿元）。</text>
-</svg>
+</svg></div>
 <figcaption>图 1　收入与利润的「剪刀差」：2025 年营业收入 1,156.36 亿元（+0.21%）仍低于 2023 年峰值 1,257.58 亿元，而归母净利润 115.65 亿元创历史新高——利润的反弹并非来自收入（数据来源：伊利股份 2018—2025 年年度报告）</figcaption>
 </figure>
 <figure>
-<svg viewBox="0 0 680 296" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
+<div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 296" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
   <text x="64" y="20" font-size="10.5" fill="#22262B" font-weight="500">图 2　十年综合毛利率与加权平均 ROE 轨迹（2016—2025，单位：%）</text>
   <text x="64" y="35" font-size="8.2" fill="#7C7B77">毛利率 2021 年因运输费重分类而台阶式下移 5.3 个百分点，此后连续四年回升；ROE 2024 年降至 15.81% 低点</text>
   <line x1="64" y1="50" x2="78" y2="50" stroke="#2F6F6B" stroke-width="2"/><circle cx="71" cy="50" r="2.6" fill="#2F6F6B"/><text x="84" y="53.5" font-size="8.4" fill="#3E4145">综合毛利率</text>
@@ -393,7 +426,7 @@
   <rect x="660.0" y="160.1" width="30.2" height="10.5" fill="#FBF9F4" opacity="0.88"/>
   <text x="660.0" y="167.9" font-size="7.8" fill="#A73F2D" text-anchor="start">20.87</text>
   <text x="64" y="276" font-size="7.4" fill="#7C7B77">注：2021 年起运输费由销售费用重分类至营业成本，2020/2021 之间为口径断层，不可直接比较。</text>
-</svg>
+</svg></div>
 <figcaption>图 2　毛利率与 ROE 的背离：2024—2025 年毛利率持续改善（32.50%→33.88%→34.58%），而 ROE 的 V 形（15.81%→20.87%）主要由减值项消退驱动（数据来源：伊利股份 2018—2025 年年度报告）</figcaption>
 </figure>
 <h3>2.2 表 2　资产负债结构与偿债能力（年末，2018—2025 ＋ 2026H1）</h3>
@@ -461,7 +494,7 @@
 <p class="note">注：2021 年起因运输费重分类，各产品毛利率与 2020 年及以前不可直接比较。2022 年奶粉及奶制品 +62.01% 主要来自澳优并表，非内生增长。2025 年"其他"产品收入 15.32 亿元（同比 +112.26%）而毛利率仅 1.78%（同比减少 21.77 个百分点），主要为低毛利的乳制品原料贸易类业务，对利润几无贡献。</p>
 <p><strong>结构迁移是本报告期最重要的业务变化</strong>：液体乳占主营业务收入的比重由 2018 年的 83.4% 降至 2025 年的 <strong>61.5%</strong>，奶粉及奶制品由 10.2% 升至 <strong>28.6%</strong>。伊利正在从"一家液体乳公司"转变为"液体乳＋奶粉双主业公司"。</p>
 <figure>
-<svg viewBox="0 0 680 292" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
+<div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 292" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
   <text x="64" y="20" font-size="10.5" fill="#22262B" font-weight="500">图 3　分产品主营业务收入结构变化（单位：亿元）</text>
   <text x="64" y="35" font-size="8.2" fill="#7C7B77">液体乳由 656.79 亿元微增至 704.22 亿元，奶粉由 80.45 亿元增至 327.69 亿元（4.07 倍）</text>
   <rect x="64" y="47" width="11" height="9" fill="#1B365D"/><text x="80" y="55" font-size="8.4" fill="#3E4145">液体乳</text>
@@ -507,7 +540,7 @@
   <text x="604.9" y="217.7" font-size="7.0" fill="#2F6F6B" text-anchor="middle">98.2</text>
   <text x="568.0" y="254" font-size="8.0" fill="#3E4145" text-anchor="middle">2025</text>
   <text x="64" y="270" font-size="7.4" fill="#7C7B77">注：2022 年奶粉 +62.01% 主要来自澳优并表，非内生增长。</text>
-</svg>
+</svg></div>
 <figcaption>图 3　液体乳占主营收入比重由 83.4%（2018）降至 61.5%（2025），奶粉及奶制品由 10.2% 升至 28.6%——伊利正从「液体乳公司」转向「液体乳＋奶粉双主业公司」（数据来源：伊利股份 2018—2025 年年度报告）</figcaption>
 </figure>
 <h3>2.5 表 5　分产品销量与吨价（2018—2025）</h3>
@@ -527,7 +560,7 @@
 <p class="note">注：吨价＝分产品主营业务收入÷该产品销售量，为本文计算的派生指标，非年报直接披露值。2020 年奶粉吨价骤降至 56,159 元/吨系 Westland 全年并表带来的低单价大包粉稀释，2022 年回升至 75,974 元/吨系澳优并表的高单价婴配粉拉动，均属并表口径变化而非可比价格变动。</p>
 <p><strong>液体乳出现量价齐跌</strong>：销量自 2023 年 969.47 万吨降至 2025 年 875.54 万吨（−9.69%），吨价自 2022 年峰值 8,944 元/吨降至 8,044 元/吨（−10.06%），两者叠加使收入由 855.40 亿元降至 704.22 亿元（−17.68%），已退回 2018—2019 年之间水平。年报将 2025 年液体乳收入减少 45.81 亿元拆解为：<strong>销量下降减收 4.80 亿元、产品结构调整减收 18.07 亿元、销售价格变动减收 22.94 亿元</strong>——即价格与结构因素合计贡献了 89.5% 的降幅，量的因素仅占 10.5%。</p>
 <figure>
-<svg viewBox="0 0 680 300" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
+<div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 300" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
   <text x="64" y="20" font-size="10.5" fill="#22262B" font-weight="500">图 4　液体乳销量（柱）与吨价（线）（2018—2025）</text>
   <text x="64" y="35" font-size="8.2" fill="#7C7B77">销量自 2023 年 969.47 万吨降至 875.54 万吨（−9.69%）；吨价自 2022 年 8,944 元/吨降至 8,044 元/吨（−10.06%）</text>
   <rect x="64" y="47" width="11" height="9" fill="#CFC7BA"/><text x="79" y="55" font-size="8.4" fill="#3E4145">液体乳销量（左轴，万吨）</text>
@@ -584,7 +617,7 @@
   <text x="532.0" y="264" font-size="7.6" fill="#7C7B77" text-anchor="middle">2024</text>
   <text x="604.0" y="264" font-size="7.6" fill="#7C7B77" text-anchor="middle">2025</text>
   <text x="64" y="280" font-size="7.4" fill="#7C7B77">注：吨价＝分产品主营业务收入÷销售量，为派生指标。折线仅标注首末值，中间年份见 表 5。</text>
-</svg>
+</svg></div>
 <figcaption>图 4　液体乳已陷入「量价齐跌」：2025 年收入 704.22 亿元，较 2023 年峰值缩水 17.68%，退回 2018—2019 年之间水平（数据来源：伊利股份 2018—2025 年年度报告产销量情况分析表）</figcaption>
 </figure>
 <h3>2.6 表 6　费用结构与研发投入（2017—2025 ＋ 2026H1）</h3>
@@ -686,7 +719,7 @@
 </table></div>
 <p><strong>结论</strong>：毛利改善（+8.88 亿元）与销售费用压降（+4.38 亿元）合计仅贡献 13.26 亿元，而减值消退净额（+39.45 亿元减投资收益 −22.70 亿元）贡献 16.75 亿元，税负下降贡献 7.73 个百分点（见 §4.2）。<strong>这轮利润高增长的主体是"2024 年的坑没有重演"，不是主营盈利能力发生了质变。</strong> 更稳妥的锚是：扣非归母净利润 2025 年 110.68 亿元 vs 2023 年 100.26 亿元，两年复合增速仅 <strong>+5.05%</strong>。</p>
 <figure>
-<svg viewBox="0 0 680 292" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
+<div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 292" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
   <text x="64" y="20" font-size="10.5" fill="#22262B" font-weight="500">图 5　归母净利润、扣非归母净利润与资产减值损失（单位：亿元）</text>
   <text x="64" y="35" font-size="8.2" fill="#7C7B77">2024 年资产减值 46.76 亿元（含商誉减值 30.75 亿元）砸出深坑，2025 年回落至 7.30 亿元</text>
   <rect x="64" y="47" width="11" height="9" fill="#2F6F6B"/><text x="80" y="55" font-size="8.4" fill="#3E4145">归母净利润</text>
@@ -732,7 +765,7 @@
   <text x="604.9" y="225.8" font-size="7.0" fill="#A73F2D" text-anchor="middle">7.3</text>
   <text x="568.0" y="254" font-size="8.0" fill="#3E4145" text-anchor="middle">2025</text>
   <text x="64" y="270" font-size="7.4" fill="#7C7B77">注：资产减值损失取利润表「资产减值损失（损失以负号填列）」的绝对值。</text>
-</svg>
+</svg></div>
 <figcaption>图 5　2025 年扣非归母净利润 +84.13% 的实质是「减值不再重演」：减值柱由 46.76 亿元降至 7.30 亿元，同期扣非归母由 60.11 亿元回升至 110.68 亿元；而 110.68 亿元 vs 2023 年 100.26 亿元，两年复合仅 +5.05%（数据来源：伊利股份 2022—2025 年年度报告）</figcaption>
 </figure>
 <h3>4.2 实际税率的"利润成色"检验：2025 年约 7.7 个百分点的增速来自税负下行</h3>
@@ -809,7 +842,7 @@
   <li>风险：① 647 亿元短期借款带来<strong>再融资与流动性风险</strong>，一旦货币市场收紧或公司信用溢价上升，利差可能瞬间反转；② 净利息收益依赖"存单收益率 &gt; 融资成本"的利率期限结构，若利率进一步下行且长短端利差收窄，这部分利润将快速消失；③ 该类收益属<strong>经常性但非经营性</strong>，不应计入对公司主业盈利能力的估值。</li>
 </ul>
 <figure>
-<svg viewBox="0 0 680 292" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
+<div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 292" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
   <text x="64" y="20" font-size="10.5" fill="#22262B" font-weight="500">图 6　类现金资产与有息负债对照（单位：亿元）</text>
   <text x="64" y="35" font-size="8.2" fill="#7C7B77">短期借款由 363.55 亿元升至 646.77 亿元，同期大额存单由 398.03 亿元升至 614.43 亿元</text>
   <rect x="64" y="47" width="11" height="9" fill="#B8862F"/><text x="80" y="55" font-size="8.4" fill="#3E4145">类现金资产</text>
@@ -841,7 +874,7 @@
   <text x="579.3" y="114.5" font-size="7.0" fill="#A73F2D" text-anchor="middle">650.7</text>
   <text x="544.0" y="254" font-size="8.0" fill="#3E4145" text-anchor="middle">2026H1 末</text>
   <text x="64" y="270" font-size="7.4" fill="#7C7B77">注：类现金＝货币资金＋其他流动资产中的定存＋其他非流动资产中的定存＋一年内到期的非流动资产（上限口径）。</text>
-</svg>
+</svg></div>
 <figcaption>图 6　资产负债率升至 63.56% 并非财务恶化：类现金始终高于有息负债，净现金由 +138.18 亿元扩大至约 +176.95 亿元——公司在扩张「低息融资＋大额存单」的利差交易（数据来源：伊利股份 2024—2025 年年度报告、2026 年半年度报告）</figcaption>
 </figure>
 <h2>五、关键内容总结</h2>
@@ -909,5 +942,24 @@
   <li>各年度数据统一采用<strong>当年年报本期数</strong>（即原报口径），未采用后续年度追溯重述后的比较数；跨期同比按各年报自行披露的增减比例填列，未披露处由本文按绝对值计算。</li>
   <li>未披露或未能取得的数据一律以"—"表示，不作估算、不作外推。</li>
 </ol>
+
+
+<!-- rsp-mobile-adapt : 溢出表格滑动提示 -->
+<script>
+(function(){
+  function mark(){
+    var boxes = document.querySelectorAll('.rsp-table');
+    for (var i=0;i<boxes.length;i++){
+      var b = boxes[i];
+      if (b.scrollWidth > b.clientWidth + 4) b.setAttribute('data-rsp-scroll','');
+      else b.removeAttribute('data-rsp-scroll');
+    }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mark);
+  else mark();
+  window.addEventListener('resize', function(){ clearTimeout(window.__rspT); window.__rspT=setTimeout(mark,180); });
+})();
+</script>
+
 </body>
 </html>

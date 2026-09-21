@@ -146,14 +146,22 @@
   table.longtable tr { break-inside:avoid; }
 </style>
 
+
+
 <!-- rsp-mobile-adapt : 响应式适配层（仅屏幕生效，不影响打印/PDF） -->
 <style id="rsp-mobile-adapt">
+/* rsp-mobile-adapt-v3 */
 /* ========== 1. 全局：屏幕端基础修正 ========== */
 @media screen {
   html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
   body { overflow-wrap: break-word; }
   img, svg, canvas, video, iframe { max-width: 100%; }
   svg[viewBox], svg[viewbox] { height: auto; }
+
+  /* 网格容器（两列对比等）：网格项默认 min-width:auto，会被内部宽表撑破
+     容器、把整页顶出横向滚动（报告里 .two-col 就栽在这上面）。放开收缩，
+     让里面的 .rsp-table 自己去横向滑动。 */
+  .risk-grid > *, .two-col > * { min-width: 0; }
 
   /* 表格横向滚动容器：宽表不压字、不撑破页面 */
   .rsp-table {
@@ -235,6 +243,29 @@
   .report-footer { flex-direction: column; align-items: flex-start; gap: 3pt; }
 }
 
+/* ========== 3b. 图表：窄屏保持图纸原尺寸 + 横向滑动 ========== */
+/* 报告里的图表是 SVG：viewBox 宽 680 + width:100%。缩到手机宽度（约 350px）
+   只剩 0.5×，图内字号从 11px 掉到 5px 完全不可读；而 SVG <text> 不会自动换行，
+   单纯放大字号必然溢出图框。这里改为**保持图纸原尺寸、允许左右滑动**——
+   与上面宽表同一套策略，宁可滑也不塌字号。仅屏幕生效，打印/PDF 不受影响。 */
+@media screen and (max-width: 720px) {
+  .rsp-fig {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    /* 图纸一定宽于屏幕，直接给右侧一层渐变，暗示"还能往右滑" */
+    background: linear-gradient(to left, rgba(167,63,45,.09), rgba(167,63,45,0) 26px);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 26px 100%;
+  }
+  .rsp-fig > svg { min-width: var(--rsp-fig-w, 680px); }
+  .rsp-fig::-webkit-scrollbar { height: 7px; }
+  .rsp-fig::-webkit-scrollbar-track { background: transparent; }
+  .rsp-fig::-webkit-scrollbar-thumb { background: #D8D1C4; border-radius: 4px; }
+}
+
 /* ========== 4. 小屏手机：指标卡单列、边距收到最紧 ========== */
 @media screen and (max-width: 430px) {
   body { padding: 14px 12px 38px 12px !important; }
@@ -255,6 +286,8 @@
   [class*="rsp-w"] > table { min-width: 0 !important; }
 }
 </style>
+
+
 </head>
 <body>
 <h1>从 44 家公司中选出 10 家：私募视角的投资排序（第 2 版）</h1>
@@ -307,8 +340,8 @@
 </tr>
 </tbody></table></div>
 <blockquote class="note"><strong>判据</strong>：分红的钱从哪来，比分红率数字本身重要得多。</blockquote>
-<figure><div class="fig"><svg viewBox="0 0 680 530" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="TsangerJinKai02, Source Han Serif SC, Songti SC, Georgia, serif">
-<rect x="0" y="0" width="680" height="530" fill="#FBF9F4"/>
+<figure><div class="fig"><div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 541" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="TsangerJinKai02, Source Han Serif SC, Songti SC, Georgia, serif">
+<rect x="0" y="0" width="680" height="541" fill="#FBF9F4"/>
 <text x="20" y="17" font-size="10.5" fill="#22262B" font-weight="500">图 1　候选池五维加权评分（0—9 分）</text>
 <line x1="86.0" y1="32" x2="86.0" y2="478" stroke="#EFEBE3" stroke-width="0.7"/>
 <text x="86.0" y="35.0" font-size="8.2" fill="#7C7B77" text-anchor="middle">0</text>
@@ -392,8 +425,9 @@
 <text x="477.0" y="474.0" font-size="8.4" fill="#7C7B77" text-anchor="start" font-weight="400">6.63</text>
 <text x="20" y="498.0" font-size="8.2" fill="#A73F2D">■ 入选组合（10 家）</text>
 <text x="200" y="498.0" font-size="8.2" fill="#7C7B77">■ 备选 / 未入选</text>
-<text x="20" y="522" font-size="8" fill="#7C7B77">注：权重为生意质量 25%、盈利质量与现金转化 20%、成长性 20%、资产负债表安全 20%、股东回报 15%。中国石油评分第 10 但因能源敞口已由质地更优的中国海油承担而未入选；泡泡玛特（第 11）与藏格矿业（第 12）因确定性折价与利润含金量移出，详见正文第五节。</text>
-</svg></div><figcaption>图 1　候选池五维加权评分</figcaption></figure><h2>三、入选的 10 家（排序）</h2>
+<text x="20" y="520.0" font-size="8" fill="#7C7B77">注：权重为生意质量 25%、盈利质量与现金转化 20%、成长性 20%、资产负债表安全 20%、股东回报 15%。中国石油评分第 10 但因能源敞口已由质地更优的中国海油承担而</text>
+<text x="20" y="531.0" font-size="8" fill="#7C7B77">未入选；泡泡玛特（第 11）与藏格矿业（第 12）因确定性折价与利润含金量移出，详见正文第五节。</text>
+</svg></div></div><figcaption>图 1　候选池五维加权评分</figcaption></figure><h2>三、入选的 10 家（排序）</h2>
 <div class="rsp-table rsp-w7"><table class="financial longtable wide">
 <thead><tr><th>排序</th><th>公司</th><th>代码</th><th>权重</th><th>核心逻辑</th><th>关键数据（报告原载）</th><th>最需要盯的风险</th></tr></thead>
 <tbody>
@@ -544,8 +578,8 @@
 <td>英矽智能</td><td>—</td><td>AI 制药的效率优势与管线（33 项 PCC、合约总价值约 110 亿美元、Rentosertib 2026 年 7 月在中国启动 III 期）真实，2026H1 收入 +287.2%、报告与经调整双盈利，但<strong>无商业化产品、收入脉冲式、经营现金流 2025 年仍净流出 7,676.6 万美元</strong>。不属于本组合的标的类型</td>
 </tr>
 </tbody></table></div>
-<figure><div class="fig"><svg viewBox="0 0 680 320" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="TsangerJinKai02, Source Han Serif SC, Songti SC, Georgia, serif">
-<rect x="0" y="0" width="680" height="320" fill="#FBF9F4"/>
+<figure><div class="fig"><div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 329" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="TsangerJinKai02, Source Han Serif SC, Songti SC, Georgia, serif">
+<rect x="0" y="0" width="680" height="329" fill="#FBF9F4"/>
 <text x="20" y="17" font-size="10.5" fill="#22262B" font-weight="500">图 2　十家公司建议组合权重（%）</text>
 <line x1="86.0" y1="30" x2="86.0" y2="266" stroke="#EFEBE3" stroke-width="0.7"/>
 <text x="86.0" y="33.0" font-size="8.2" fill="#7C7B77" text-anchor="middle">0%</text>
@@ -589,8 +623,9 @@
 <text x="353.0" y="261.5" font-size="8.4" fill="#2F6F6B">8%</text>
 <text x="20" y="286.0" font-size="8.2" fill="#2F6F6B">■ 核心仓（≥10%）</text>
 <text x="200" y="286.0" font-size="8.2" fill="#2F6F6B">■ 卫星仓（&lt;10%）</text>
-<text x="20" y="312" font-size="8" fill="#7C7B77">注：高现金流、高分红资产（茅台、海天、农夫山泉、中海油、网易、平安、招行）合计 70%；成长与平台弹性资产（腾讯、药明康德、汾酒）合计 30%。覆盖 7 个板块，单板块上限 22%。</text>
-</svg></div><figcaption>图 2　十家公司建议组合权重</figcaption></figure><h2>七、组合结构一览</h2>
+<text x="20" y="308.0" font-size="8" fill="#7C7B77">注：高现金流、高分红资产（茅台、海天、农夫山泉、中海油、网易、平安、招行）合计 70%；成长与平台弹性资产（腾讯、药明康德、汾酒）合计 30%。覆盖 7 个板块，单</text>
+<text x="20" y="319.0" font-size="8" fill="#7C7B77">一板块上限 22%。</text>
+</svg></div></div><figcaption>图 2　十家公司建议组合权重</figcaption></figure><h2>七、组合结构一览</h2>
 <div class="rsp-table"><table class="financial">
 <thead><tr><th>板块</th><th>公司</th><th>合计权重</th></tr></thead>
 <tbody>
@@ -630,5 +665,24 @@
 <li><strong>银行仓的地产敞口</strong>：招行地产不良 4.64%，需跟踪趋势。</li>
 </ol>
 <p>*数据来源：本工作区 43 份财报分析报告（覆盖 44 家公司，Markdown 原文）。所有数字为报告原载口径，未作推测或补全。*</p>
+
+
+<!-- rsp-mobile-adapt : 溢出表格滑动提示 -->
+<script>
+(function(){
+  function mark(){
+    var boxes = document.querySelectorAll('.rsp-table');
+    for (var i=0;i<boxes.length;i++){
+      var b = boxes[i];
+      if (b.scrollWidth > b.clientWidth + 4) b.setAttribute('data-rsp-scroll','');
+      else b.removeAttribute('data-rsp-scroll');
+    }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mark);
+  else mark();
+  window.addEventListener('resize', function(){ clearTimeout(window.__rspT); window.__rspT=setTimeout(mark,180); });
+})();
+</script>
+
 </body>
 </html>

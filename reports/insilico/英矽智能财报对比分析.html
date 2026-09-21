@@ -133,14 +133,22 @@
   .ticker-sub { color: var(--stone); }
 </style>
 
+
+
 <!-- rsp-mobile-adapt : 响应式适配层（仅屏幕生效，不影响打印/PDF） -->
 <style id="rsp-mobile-adapt">
+/* rsp-mobile-adapt-v3 */
 /* ========== 1. 全局：屏幕端基础修正 ========== */
 @media screen {
   html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
   body { overflow-wrap: break-word; }
   img, svg, canvas, video, iframe { max-width: 100%; }
   svg[viewBox], svg[viewbox] { height: auto; }
+
+  /* 网格容器（两列对比等）：网格项默认 min-width:auto，会被内部宽表撑破
+     容器、把整页顶出横向滚动（报告里 .two-col 就栽在这上面）。放开收缩，
+     让里面的 .rsp-table 自己去横向滑动。 */
+  .risk-grid > *, .two-col > * { min-width: 0; }
 
   /* 表格横向滚动容器：宽表不压字、不撑破页面 */
   .rsp-table {
@@ -222,6 +230,29 @@
   .report-footer { flex-direction: column; align-items: flex-start; gap: 3pt; }
 }
 
+/* ========== 3b. 图表：窄屏保持图纸原尺寸 + 横向滑动 ========== */
+/* 报告里的图表是 SVG：viewBox 宽 680 + width:100%。缩到手机宽度（约 350px）
+   只剩 0.5×，图内字号从 11px 掉到 5px 完全不可读；而 SVG <text> 不会自动换行，
+   单纯放大字号必然溢出图框。这里改为**保持图纸原尺寸、允许左右滑动**——
+   与上面宽表同一套策略，宁可滑也不塌字号。仅屏幕生效，打印/PDF 不受影响。 */
+@media screen and (max-width: 720px) {
+  .rsp-fig {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    /* 图纸一定宽于屏幕，直接给右侧一层渐变，暗示"还能往右滑" */
+    background: linear-gradient(to left, rgba(167,63,45,.09), rgba(167,63,45,0) 26px);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 26px 100%;
+  }
+  .rsp-fig > svg { min-width: var(--rsp-fig-w, 680px); }
+  .rsp-fig::-webkit-scrollbar { height: 7px; }
+  .rsp-fig::-webkit-scrollbar-track { background: transparent; }
+  .rsp-fig::-webkit-scrollbar-thumb { background: #D8D1C4; border-radius: 4px; }
+}
+
 /* ========== 4. 小屏手机：指标卡单列、边距收到最紧 ========== */
 @media screen and (max-width: 430px) {
   body { padding: 14px 12px 38px 12px !important; }
@@ -242,6 +273,8 @@
   [class*="rsp-w"] > table { min-width: 0 !important; }
 }
 </style>
+
+
 </head>
 <body>
 
@@ -277,7 +310,7 @@
 <!-- ========== 收入趋势 ========== -->
 <h2>收入趋势</h2>
 <figure>
-  <svg viewBox="0 0 680 250" xmlns="http://www.w3.org/2000/svg" font-family="'Songti SC','Noto Serif CJK SC',serif">
+  <div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 250" xmlns="http://www.w3.org/2000/svg" font-family="'Songti SC','Noto Serif CJK SC',serif">
     <line x1="60" y1="210" x2="660" y2="210" stroke="#E3DDD4" stroke-width="0.8"/>
     <!-- gridlines -->
     <line x1="60" y1="170" x2="660" y2="170" stroke="#EFEBE3" stroke-width="0.6"/>
@@ -307,7 +340,7 @@
     <text x="470" y="226" font-size="9" fill="#3E4145" text-anchor="middle">2025</text>
     <text x="590" y="226" font-size="9" fill="#3E4145" text-anchor="middle">H1'26</text>
     <text x="590" y="240" font-size="8" fill="#7C7B77" text-anchor="middle">(上半年)</text>
-  </svg>
+  </svg></div>
   <figcaption>图 1　收入趋势（2022–2025 为全年，H1'26 为半年度；单位：百万美元）</figcaption>
 </figure>
 
@@ -403,7 +436,7 @@
 <!-- ========== 收入结构 ========== -->
 <h2>收入结构 · 2026 上半年</h2>
 <figure>
-  <svg viewBox="0 0 680 170" xmlns="http://www.w3.org/2000/svg" font-family="'Songti SC','Noto Serif CJK SC',serif">
+  <div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 170" xmlns="http://www.w3.org/2000/svg" font-family="'Songti SC','Noto Serif CJK SC',serif">
     <text x="0" y="30" font-size="10" fill="#3E4145">药物发现及管线开发</text>
     <rect x="160" y="18" width="485" height="18" fill="#A73F2D"/>
     <text x="652" y="32" font-size="9" fill="#A73F2D" text-anchor="end">97.0%</text>
@@ -413,7 +446,7 @@
     <text x="0" y="120" font-size="10" fill="#3E4145">其他发现</text>
     <rect x="160" y="108" width="2.5" height="18" fill="#2F6F6B"/>
     <text x="170" y="122" font-size="9" fill="#22262B">0.5%</text>
-  </svg>
+  </svg></div>
   <figcaption>图 2　2026 上半年收入构成（金额 1.063 亿美元；药物发现与管线开发合并列示）</figcaption>
 </figure>
 <p>2025 全年收入 5,624 万美元中，药物发现 2,495 万（44.4%）、管线开发 2,389 万（42.5%）、软件 491 万（8.7%）、其他 249 万（4.4%）。对比可见：2025 年管线开发占比高（89.2% 集中于 2024 年的大额对外授权交易），2026 上半年则转为药物发现 + 管线开发双轮驱动且集中度更高，软件订阅维持稳定。</p>
@@ -449,6 +482,25 @@
   <span>数据来源：招股书、2025 年报、2026 中报（均按 IFRS）· 本报告为财务分析，不构成投资建议</span>
   <span>2026-09-11</span>
 </div>
+
+
+
+<!-- rsp-mobile-adapt : 溢出表格滑动提示 -->
+<script>
+(function(){
+  function mark(){
+    var boxes = document.querySelectorAll('.rsp-table');
+    for (var i=0;i<boxes.length;i++){
+      var b = boxes[i];
+      if (b.scrollWidth > b.clientWidth + 4) b.setAttribute('data-rsp-scroll','');
+      else b.removeAttribute('data-rsp-scroll');
+    }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mark);
+  else mark();
+  window.addEventListener('resize', function(){ clearTimeout(window.__rspT); window.__rspT=setTimeout(mark,180); });
+})();
+</script>
 
 </body>
 </html>

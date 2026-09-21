@@ -136,14 +136,22 @@
   table.tall tr { break-inside:avoid; }
 </style>
 
+
+
 <!-- rsp-mobile-adapt : 响应式适配层（仅屏幕生效，不影响打印/PDF） -->
 <style id="rsp-mobile-adapt">
+/* rsp-mobile-adapt-v3 */
 /* ========== 1. 全局：屏幕端基础修正 ========== */
 @media screen {
   html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
   body { overflow-wrap: break-word; }
   img, svg, canvas, video, iframe { max-width: 100%; }
   svg[viewBox], svg[viewbox] { height: auto; }
+
+  /* 网格容器（两列对比等）：网格项默认 min-width:auto，会被内部宽表撑破
+     容器、把整页顶出横向滚动（报告里 .two-col 就栽在这上面）。放开收缩，
+     让里面的 .rsp-table 自己去横向滑动。 */
+  .risk-grid > *, .two-col > * { min-width: 0; }
 
   /* 表格横向滚动容器：宽表不压字、不撑破页面 */
   .rsp-table {
@@ -225,6 +233,29 @@
   .report-footer { flex-direction: column; align-items: flex-start; gap: 3pt; }
 }
 
+/* ========== 3b. 图表：窄屏保持图纸原尺寸 + 横向滑动 ========== */
+/* 报告里的图表是 SVG：viewBox 宽 680 + width:100%。缩到手机宽度（约 350px）
+   只剩 0.5×，图内字号从 11px 掉到 5px 完全不可读；而 SVG <text> 不会自动换行，
+   单纯放大字号必然溢出图框。这里改为**保持图纸原尺寸、允许左右滑动**——
+   与上面宽表同一套策略，宁可滑也不塌字号。仅屏幕生效，打印/PDF 不受影响。 */
+@media screen and (max-width: 720px) {
+  .rsp-fig {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    /* 图纸一定宽于屏幕，直接给右侧一层渐变，暗示"还能往右滑" */
+    background: linear-gradient(to left, rgba(167,63,45,.09), rgba(167,63,45,0) 26px);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 26px 100%;
+  }
+  .rsp-fig > svg { min-width: var(--rsp-fig-w, 680px); }
+  .rsp-fig::-webkit-scrollbar { height: 7px; }
+  .rsp-fig::-webkit-scrollbar-track { background: transparent; }
+  .rsp-fig::-webkit-scrollbar-thumb { background: #D8D1C4; border-radius: 4px; }
+}
+
 /* ========== 4. 小屏手机：指标卡单列、边距收到最紧 ========== */
 @media screen and (max-width: 430px) {
   body { padding: 14px 12px 38px 12px !important; }
@@ -245,6 +276,8 @@
   [class*="rsp-w"] > table { min-width: 0 !important; }
 }
 </style>
+
+
 </head>
 <body>
 
@@ -294,7 +327,7 @@
 </ol>
 <p>一个必须并读的对照：<strong>2025 年归母净利润 −22.07%，而净利润总额（含少数股东）−28.38%</strong>——少数股东的利润降幅更大，说明<strong>拖累最重的恰是持股比例最低、少数股东占比最高的板块</strong>（详见 §4.2）。</p>
 <figure>
-<svg viewBox="0 0 680 300" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
+<div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 300" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
 <text x="70" y="20" font-size="10" fill="#22262B" font-weight="500">图 1　十年营业收入与归母净利润轨迹（2016–2025，单位：亿元）</text>
 <text x="70" y="34" font-size="8.2" fill="#7C7B77">收入十年仅 1.43 倍（CAGR 4.03%）、利润 1.27 倍（CAGR 2.73%）；双双于 2023／2024 年见顶后回落</text>
 <rect x="250" y="40" width="10" height="9" fill="#1B365D"/><text x="264" y="48" font-size="8.5" fill="#3E4145">营业收入</text>
@@ -347,11 +380,11 @@
 <text x="646.0" y="236.3" font-size="8.2" fill="#A73F2D" font-weight="500">11.89</text>
 <text x="64.0" y="230.6" font-size="8.2" fill="#A73F2D" text-anchor="end">9.33</text>
 <text x="70" y="274" font-size="7.6" fill="#7C7B77">注：2025 年营收 −7.21%（自 2020 年以来首次负增长）、归母净利润 −22.07%；2016 年数据取自 2017 年年报比较列。</text>
-</svg>
+</svg></div>
 <figcaption>图 1　十年收入与利润轨迹：营收 2024 年见顶 185.97 亿元、归母净利润 2023 年见顶 16.69 亿元，2025 年分别回落至 172.56／11.89 亿元（数据来源：公司 2016–2025 年年报）</figcaption>
 </figure>
 <figure>
-<svg viewBox="0 0 680 300" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
+<div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 300" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
 <text x="70" y="20" font-size="10" fill="#22262B" font-weight="500">图 2　盈利能力三项指标轨迹（2016–2025，%）</text>
 <text x="70" y="34" font-size="8.2" fill="#7C7B77">毛利率 2022 年见顶 48.80% 后连续三年下滑；加权 ROE 2023 年见顶 13.42% 后两年累计回落 4.56 个百分点</text>
 <rect x="250" y="40" width="10" height="9" fill="#B8862F"/><text x="264" y="48" font-size="8.5" fill="#3E4145">毛利率</text>
@@ -420,7 +453,7 @@
 <text x="646.0" y="218.0" font-size="8.2" fill="#A73F2D" font-weight="500">8.86</text>
 <text x="64.0" y="198.1" font-size="8.2" fill="#A73F2D" text-anchor="end">12.51</text>
 <text x="70" y="274" font-size="7.6" fill="#7C7B77">注：加权 ROE 为合并口径，含 36% 少数股东权益的摊薄效应，与全资型中药企业不可直接横向比较。</text>
-</svg>
+</svg></div>
 <figcaption>图 2　盈利能力轨迹：毛利率自 2022 年 48.80% 连续三年下滑至 42.87%（−5.93 pp），加权 ROE 2025 年降至 8.86%（数据来源：公司 2016–2025 年年报）</figcaption>
 </figure>
 <h2>二、核心财务数据对比</h2>
@@ -539,7 +572,7 @@
 </table></div>
 <p class="note">少数股东损益占比十年间从 <strong>41.56%（2017 年峰值）</strong> 单向收敛至 <strong>22.35%（2026H1）</strong>，累计下降 <strong>19.21 个百分点</strong>。这意味着<strong>净利润总额的降幅被结构性地"放大"在少数股东一侧</strong>：2025 年归母净利润 −22.07%，而净利润总额 −28.38%；2026H1 归母 −23.19%，净利润总额 −29.95%。<strong>用净利润总额判断公司整体经营恶化的幅度，会比归母口径更接近真相。</strong></p>
 <figure>
-<svg viewBox="0 0 680 300" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
+<div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 300" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
 <text x="70" y="20" font-size="10" fill="#22262B" font-weight="500">图 3　少数股东损益占比 vs 少数股东权益占比（2016–2026H1，%）</text>
 <text x="70" y="34" font-size="8.2" fill="#7C7B77">权益占比十年稳定在 35%–37%，损益占比却从 41.56% 单向收敛至 22.35%——差距即「被动提升」</text>
 <rect x="250" y="40" width="10" height="9" fill="#A73F2D"/><text x="264" y="48" font-size="8.5" fill="#3E4145">少数股东损益／净利润总额</text>
@@ -597,7 +630,7 @@
 <text x="646.0" y="123.7" font-size="8.2" fill="#2F6F6B" font-weight="500">35.62</text>
 <text x="64.0" y="116.2" font-size="8.2" fill="#2F6F6B" text-anchor="end">35.48</text>
 <text x="70" y="274" font-size="7.6" fill="#7C7B77">注：2025 年归母净利润 −22.07%，而净利润总额 −28.38%；少数股东损益降幅（−41.13%）显著大于归母降幅。</text>
-</svg>
+</svg></div>
 <figcaption>图 3　少数股东结构：损益占比十年累计下降 19.21 个百分点，而权益占比几乎未变，说明归母份额的改善来自非全资子公司更快恶化（数据来源：公司各期定期报告）</figcaption>
 </figure>
 <h3>表 8　主要子公司经营情况（2024 vs 2025）</h3>
@@ -623,7 +656,7 @@
 <p><strong>Q4 单季归母净利润已连续三年双位数下滑</strong>：2023 年 −34.24%、2024 年 −36.65%、2025 年 −93.29%；同期 Q4 营业收入同比为 −7.44%、+15.41%、−17.36%——<strong>2024 年 Q4 是"增收不增利"，2025 年 Q4 则转为收入与利润双杀</strong>。</p>
 <p class="note"><strong>这是全报告最值得警惕的一张表。</strong> 2020–2022 年 Q4 是公司的<strong>利润高峰季</strong>（Q4 ÷ 前三季均值 = 132.8%／100.2%／126.5%），2023 年起迅速塌陷（60.0% → 39.2% → <strong>3.0%</strong>）。2025 年 Q4 归母净利润仅 0.118 亿元、扣非转亏，<strong>Q4 对全年的利润贡献从三成量级降至不足 1%</strong>。若公司 Q4 仍能维持 2022 年的季节性水平（前三季均值 ×126.5%），2025 年归母净利润将高出约 4.8 亿元——<strong>换句话说，2025 年的利润下滑中，约六成可由 Q4 单季的异常塌陷解释</strong>（详见 §4.4）。</p>
 <figure>
-<svg viewBox="0 0 680 310" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
+<div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 310" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
 <text x="74" y="20" font-size="10" fill="#22262B" font-weight="500">图 5　Q4 利润贡献的塌陷（2019–2025）</text>
 <text x="74" y="34" font-size="8.2" fill="#7C7B77">全年归母净利润（柱，左轴）尚未跌破 2020 年水平，但 Q4 占全年比重（线，右轴）已从 30.68% 崩落至 0.99%</text>
 <rect x="286" y="40" width="10" height="9" fill="#2F6F6B"/><text x="300" y="48" font-size="8.5" fill="#3E4145">全年归母净利润（亿元，左轴）</text>
@@ -682,7 +715,7 @@
 <text x="515.6" y="260" font-size="7.6" fill="#7C7B77" text-anchor="middle">2024</text>
 <text x="595.9" y="260" font-size="7.6" fill="#7C7B77" text-anchor="middle">2025</text>
 <text x="74" y="276" font-size="7.6" fill="#7C7B77">注：2025Q4 营收 39.48 亿元（同比 −17.36%）、扣非归母净利润 −0.015 亿元（单季亏损）；全年降幅约六成可由 Q4 单季塌陷解释。</text>
-</svg>
+</svg></div>
 <figcaption>图 5　季节性逆转：2020–2022 年 Q4 为利润高峰季（占比 25%–31%），2025 年 Q4 归母净利润仅 0.118 亿元、占比降至 0.99%（数据来源：公司各年年度报告分季度数据）</figcaption>
 </figure>
 <h3>表 10　股东回报</h3>
@@ -728,7 +761,7 @@
   <tr><td>资产负债率</td><td>29.20% → 29.61% → 29.05% → 29.93% → 28.81% → 33.50% → 31.76% → 32.68% → 33.01% → <strong>30.19%</strong></td><td>十年仅上行 1 个百分点</td><td><strong>账面杠杆十年几乎未变</strong>，是中药企业中资产负债表最稳健的标的之一；但须注意该比率被 77 亿元少数股东权益"摊薄"，<strong>看归母口径的杠杆应以有息负债／归母权益衡量</strong></td></tr>
 </table></div>
 <figure>
-<svg viewBox="0 0 680 310" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
+<div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 310" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
 <text x="74" y="20" font-size="10" fill="#22262B" font-weight="500">图 6　存货余额与采购付现的「先囤后清」（2016–2025）</text>
 <text x="74" y="34" font-size="8.2" fill="#7C7B77">存货（柱，左轴）2022→2024 年暴增 60.3%；购买商品付现（线，右轴）2024 年见顶后 2025 年骤降 31.86 亿元</text>
 <rect x="286" y="40" width="10" height="9" fill="#B8862F"/><text x="300" y="48" font-size="8.5" fill="#3E4145">期末存货（亿元，左轴）</text>
@@ -801,7 +834,7 @@
 <text x="551.7" y="260" font-size="7.6" fill="#7C7B77" text-anchor="middle">2024</text>
 <text x="607.9" y="260" font-size="7.6" fill="#7C7B77" text-anchor="middle">2025</text>
 <text x="74" y="276" font-size="7.6" fill="#7C7B77">注：2026H1 末存货降至 93.93 亿元（较年初 −11.5%），为十年最大半年度降幅；心脑血管类库存量同比 +57.38%，积压集中在核心品类。</text>
-</svg>
+</svg></div>
 <figcaption>图 6　存货周期：2022–2024 年为贵细原料战略储备期，2025 年起转入被动去库存；采购付现的骤降是当年经营现金流改善的唯一来源（数据来源：公司各年合并资产负债表、现金流量表）</figcaption>
 </figure>
 <h3>3.3 合并现金流量表</h3>
@@ -816,7 +849,7 @@
   <tr><td>自由现金流</td><td>3.42 → 6.70 → 13.13 → 18.10 → 10.24 → 29.55 → 27.64 → 15.44 → <strong>2.41</strong> → 23.36</td><td>2024 年触底 2.41 亿元</td><td>十年累计自由现金流 149.99 亿元，<strong>对累计现金分红（约 52.5 亿元）覆盖倍数约 2.86 倍</strong>，分红未依赖加杠杆</td></tr>
 </table></div>
 <figure>
-<svg viewBox="0 0 680 310" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
+<div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 310" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
 <text x="74" y="20" font-size="10" fill="#22262B" font-weight="500">图 7　经营活动现金流与利润现金含量（2016–2025）</text>
 <text x="74" y="34" font-size="8.2" fill="#7C7B77">经营现金流（柱，左轴）波动剧烈；「经营现金流÷归母净利润」（线，右轴）2024 年触底 0.50 倍后 2025 年反弹至 2.26 倍</text>
 <rect x="286" y="40" width="10" height="9" fill="#2F6F6B"/><text x="300" y="48" font-size="8.5" fill="#3E4145">经营活动净额（亿元，左轴）</text>
@@ -889,7 +922,7 @@
 <text x="551.7" y="260" font-size="7.6" fill="#7C7B77" text-anchor="middle">2024</text>
 <text x="607.9" y="260" font-size="7.6" fill="#7C7B77" text-anchor="middle">2025</text>
 <text x="74" y="276" font-size="7.6" fill="#7C7B77">注：2025 年销售商品收现 184.52 亿元（−7.78%），采购付现 89.70 亿元（−31.86 亿元）——后者单项即贡献了经营现金流改善的全部金额。</text>
-</svg>
+</svg></div>
 <figcaption>图 7　现金含量：十年累计经营现金流 207.15 亿元 ÷ 累计归母净利润 121.37 亿元 = 1.71 倍，利润现金含量扎实；但 2025 年的倍数跃升来自采购收缩而非销售改善（数据来源：公司各年合并现金流量表）</figcaption>
 </figure>
 <h3>3.4 三表联动</h3>
@@ -915,7 +948,7 @@
   <li><strong>2026H1 工业降幅（−16.12%）小于商业降幅（−19.28%），但毛利率降幅工业（−1.47 pp）大于商业（−1.16 pp）</strong>：工业端承压来自贵细原料成本，商业端承压来自终端动销与价格治理，<strong>两者成因不同、需分开讨论</strong>。</li>
 </ol>
 <figure>
-<svg viewBox="0 0 680 300" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
+<div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 300" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
 <text x="70" y="20" font-size="10" fill="#22262B" font-weight="500">图 4　医药工业 × 医药商业毛利率与合并毛利率（2023–2026H1，%）</text>
 <text x="70" y="34" font-size="8.2" fill="#7C7B77">工业与商业毛利率差由 15.86 pp 扩大至 17.33 pp；商业板块持续下行是合并毛利率被压低的主因</text>
 <rect x="250" y="40" width="10" height="9" fill="#B8862F"/><text x="264" y="48" font-size="8.5" fill="#3E4145">医药工业毛利率</text>
@@ -962,7 +995,7 @@
 <text x="646.0" y="217.8" font-size="8.2" fill="#2F6F6B" font-weight="500">25.19</text>
 <text x="64.0" y="176.5" font-size="8.2" fill="#2F6F6B" text-anchor="end">31.11</text>
 <text x="70" y="274" font-size="7.6" fill="#7C7B77">注：工商两分部收入 2025 年合计 211.96 亿元，行业间抵销 41.52 亿元后合并营收为 172.56 亿元，分部直接加总将高估规模约 23%。</text>
-</svg>
+</svg></div>
 <figcaption>图 4　双板块毛利率：医药商业毛利率四年下滑 5.92 个百分点至 25.19%，合并毛利率被商业板块系统性压低约 4–5 个百分点（数据来源：公司 2023–2025 年年报、2026 年半年报分部数据）</figcaption>
 </figure>
 <h3>4.2 少数股东损益占比的十年收敛：归母净利润的"含金量"变化</h3>
@@ -1180,5 +1213,24 @@
 <ol>
   <li><strong>未披露项一律以"—"表示</strong>，不做推断、不用其他来源替代。分部收入之和与合并营业收入之间的"行业间抵销"金额在 2023 年年度报告中未列示，故该年相应单元格留空。</li>
 </ol>
+
+
+<!-- rsp-mobile-adapt : 溢出表格滑动提示 -->
+<script>
+(function(){
+  function mark(){
+    var boxes = document.querySelectorAll('.rsp-table');
+    for (var i=0;i<boxes.length;i++){
+      var b = boxes[i];
+      if (b.scrollWidth > b.clientWidth + 4) b.setAttribute('data-rsp-scroll','');
+      else b.removeAttribute('data-rsp-scroll');
+    }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mark);
+  else mark();
+  window.addEventListener('resize', function(){ clearTimeout(window.__rspT); window.__rspT=setTimeout(mark,180); });
+})();
+</script>
+
 </body>
 </html>

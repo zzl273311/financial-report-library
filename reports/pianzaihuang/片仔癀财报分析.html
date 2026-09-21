@@ -151,14 +151,22 @@ figure svg { display:block; width:100%; height:auto; }
 
 </style>
 
+
+
 <!-- rsp-mobile-adapt : 响应式适配层（仅屏幕生效，不影响打印/PDF） -->
 <style id="rsp-mobile-adapt">
+/* rsp-mobile-adapt-v3 */
 /* ========== 1. 全局：屏幕端基础修正 ========== */
 @media screen {
   html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
   body { overflow-wrap: break-word; }
   img, svg, canvas, video, iframe { max-width: 100%; }
   svg[viewBox], svg[viewbox] { height: auto; }
+
+  /* 网格容器（两列对比等）：网格项默认 min-width:auto，会被内部宽表撑破
+     容器、把整页顶出横向滚动（报告里 .two-col 就栽在这上面）。放开收缩，
+     让里面的 .rsp-table 自己去横向滑动。 */
+  .risk-grid > *, .two-col > * { min-width: 0; }
 
   /* 表格横向滚动容器：宽表不压字、不撑破页面 */
   .rsp-table {
@@ -240,6 +248,29 @@ figure svg { display:block; width:100%; height:auto; }
   .report-footer { flex-direction: column; align-items: flex-start; gap: 3pt; }
 }
 
+/* ========== 3b. 图表：窄屏保持图纸原尺寸 + 横向滑动 ========== */
+/* 报告里的图表是 SVG：viewBox 宽 680 + width:100%。缩到手机宽度（约 350px）
+   只剩 0.5×，图内字号从 11px 掉到 5px 完全不可读；而 SVG <text> 不会自动换行，
+   单纯放大字号必然溢出图框。这里改为**保持图纸原尺寸、允许左右滑动**——
+   与上面宽表同一套策略，宁可滑也不塌字号。仅屏幕生效，打印/PDF 不受影响。 */
+@media screen and (max-width: 720px) {
+  .rsp-fig {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    /* 图纸一定宽于屏幕，直接给右侧一层渐变，暗示"还能往右滑" */
+    background: linear-gradient(to left, rgba(167,63,45,.09), rgba(167,63,45,0) 26px);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 26px 100%;
+  }
+  .rsp-fig > svg { min-width: var(--rsp-fig-w, 680px); }
+  .rsp-fig::-webkit-scrollbar { height: 7px; }
+  .rsp-fig::-webkit-scrollbar-track { background: transparent; }
+  .rsp-fig::-webkit-scrollbar-thumb { background: #D8D1C4; border-radius: 4px; }
+}
+
 /* ========== 4. 小屏手机：指标卡单列、边距收到最紧 ========== */
 @media screen and (max-width: 430px) {
   body { padding: 14px 12px 38px 12px !important; }
@@ -260,6 +291,8 @@ figure svg { display:block; width:100%; height:auto; }
   [class*="rsp-w"] > table { min-width: 0 !important; }
 }
 </style>
+
+
 </head>
 <body>
 <h1>片仔癀（600436.SH）财报对比分析报告</h1>
@@ -301,7 +334,7 @@ figure svg { display:block; width:100%; height:auto; }
 <p>片仔癀在 2019—2024 年连续六年保持营收与净利润双增长，<strong>2025 年出现上市 20 余年来首次年度营收、净利润双降</strong>，且 2026 年上半年延续下滑。核心矛盾是：在核心原料（天然牛黄、天然麝香）价格大幅上涨推动<strong>产品成本刚性上行</strong>的同时，<strong>终端需求与渠道价格体系承压</strong>，公司既无法继续通过提价转移成本，也难以靠放量抵消价格下行。</p>
 <div class="callout"><div class="quote"><strong>数据可信度提示</strong>：本报告全部金额取自定期报告原文，未做估算。凡推算列（如肝病用药单价）均在表注标明推算口径；未披露项以"—"表示，不以估算值填充。</div></div>
 <figure>
-<svg viewBox="0 0 680 306" xmlns="http://www.w3.org/2000/svg" font-family="'Songti SC','Noto Serif CJK SC',serif">
+<div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 306" xmlns="http://www.w3.org/2000/svg" font-family="'Songti SC','Noto Serif CJK SC',serif">
 <line x1="60" y1="246.0" x2="660" y2="246.0" stroke="#E3DDD4" stroke-width="1"/>
 <text x="52" y="249.5" font-size="9" fill="#7C7B77" text-anchor="end">0</text>
 <line x1="60" y1="196.5" x2="660" y2="196.5" stroke="#E3DDD4" stroke-width="1"/>
@@ -341,7 +374,7 @@ figure svg { display:block; width:100%; height:auto; }
 <rect x="64.0" y="26.6" width="103.2" height="10.3" fill="#FBF9F4" opacity="0.88" rx="2"/><text x="64.0" y="34.0" font-size="9.0" fill="#A73F2D" text-anchor="start">2024 年峰值 107.88 亿元</text>
 <rect x="574.4" y="44.6" width="81.6" height="10.3" fill="#FBF9F4" opacity="0.88" rx="2"/><text x="656.0" y="52.0" font-size="9.0" fill="#A73F2D" text-anchor="end">2025 年首次营收净利双降</text>
 <text x="360.0" y="286.0" font-size="8.5" fill="#7C7B77" text-anchor="middle">注：2026H1 为半年度数据（淡色柱），不可与全年直接比较</text>
-</svg>
+</svg></div>
 <figcaption>图 1　营业收入趋势（2019—2026H1）</figcaption>
 </figure>
 <h2>二、核心财务数据对比</h2>
@@ -1246,7 +1279,7 @@ figure svg { display:block; width:100%; height:auto; }
 </tbody></table></div>
 <div class="callout"><div class="quote"><strong>现金流量表核心判断</strong>：2025 年是"利润还在、现金没了"的典型年份——归母净利润 21.59 亿元，经营现金流仅 0.77 亿元。2026H1 经营现金流回升至 16.25 亿元看似修复，但拆解后可见<strong>销售收现仍在下降（−16.82%）、改善全部来自采购支付减少（−20.81 亿元）</strong>。这意味着：<strong>当前现金流的改善是"少买原料"的结果，可持续性取决于去库进度，而收入端的造血能力尚未恢复。</strong></div></div>
 <figure>
-<svg viewBox="0 0 680 306" xmlns="http://www.w3.org/2000/svg" font-family="'Songti SC','Noto Serif CJK SC',serif">
+<div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 306" xmlns="http://www.w3.org/2000/svg" font-family="'Songti SC','Noto Serif CJK SC',serif">
 <line x1="60" y1="246.0" x2="646" y2="246.0" stroke="#E3DDD4" stroke-width="1"/>
 <text x="52" y="249.5" font-size="9" fill="#7C7B77" text-anchor="end">-15</text>
 <line x1="60" y1="213.0" x2="646" y2="213.0" stroke="#E3DDD4" stroke-width="1.4"/>
@@ -1295,7 +1328,7 @@ figure svg { display:block; width:100%; height:auto; }
 <rect x="323.4" y="149.9" width="140.4" height="9.2" fill="#FBF9F4" opacity="0.88" rx="2"/><text x="393.6" y="156.4" font-size="8.0" fill="#7C7B77" text-anchor="middle">2022 年 68.73（定期存单列报口径变更，不可比）</text>
 <line x1="60" y1="26" x2="82" y2="26" stroke="#A73F2D" stroke-width="2"/><text x="88" y="29.5" font-size="9.5" fill="#22262B" text-anchor="start">经营活动现金流净额</text>
 <line x1="260" y1="26" x2="282" y2="26" stroke="#1B365D" stroke-width="2"/><text x="288" y="29.5" font-size="9.5" fill="#22262B" text-anchor="start">归母净利润</text>
-</svg>
+</svg></div>
 <figcaption>图 2　经营活动现金流净额与归母净利润对照（2019—2026H1）</figcaption>
 </figure>
 <h3>3.4 三表联动</h3>
@@ -1311,7 +1344,7 @@ figure svg { display:block; width:100%; height:auto; }
 <ul><li><strong>原料端（推升成本）</strong>：天然牛黄、天然麝香为片仔癀独家配方的核心原料，供给刚性极强。2023 年 5 月行业数据显示，天然牛黄价格 800 元/g，较 2021 年 1 月上涨 86%；天然麝香 450 元/g，上涨 18%。公司 2025 年末存货中"原材料储备增加"是存货暴增的主因——<strong>这是为锁定成本而进行的战略备库</strong>。</li><li><strong>结构端（压低毛利）</strong>：低毛利业务占比上升。医药流通业毛利率仅 7.62%（2025）/8.24%（2026H1），但占收入比重从结构上看始终接近四成；化妆品业 2025 年收入 −24.64%，占比进一步缩小，高毛利业务的占比不升反降。</li></ul>
 <p>值得注意的<strong>积极信号</strong>：2026H1 医药制造业毛利率回升至 60.62%（同比 +0.67pp），肝病用药毛利率 62.77%（同比 <strong>+1.27pp</strong>），说明<strong>产品结构改善与原料成本传导之间存在时滞</strong>——公司正通过调整产品组合（如普丸装）逐步修复制造业毛利。但流通业毛利率继续下行（−0.54pp）拖累整体。</p>
 <figure>
-<svg viewBox="0 0 680 296" xmlns="http://www.w3.org/2000/svg" font-family="'Songti SC','Noto Serif CJK SC',serif">
+<div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 296" xmlns="http://www.w3.org/2000/svg" font-family="'Songti SC','Noto Serif CJK SC',serif">
 <line x1="60" y1="236.0" x2="646" y2="236.0" stroke="#E3DDD4" stroke-width="1"/>
 <text x="52" y="239.5" font-size="9" fill="#7C7B77" text-anchor="end">0%</text>
 <line x1="60" y1="204.7" x2="646" y2="204.7" stroke="#E3DDD4" stroke-width="1"/>
@@ -1361,7 +1394,7 @@ figure svg { display:block; width:100%; height:auto; }
 <rect x="473.7" y="130.5" width="124.8" height="10.3" fill="#FBF9F4" opacity="0.88" rx="2"/><text x="536.1" y="137.9" font-size="9.0" fill="#A73F2D" text-anchor="middle">2025 年 36.43%（−6.31pp）</text>
 <line x1="60" y1="26" x2="82" y2="26" stroke="#A73F2D" stroke-width="2.2"/><text x="88" y="29.5" font-size="9.5" fill="#22262B" text-anchor="start">毛利率</text>
 <line x1="180" y1="26" x2="202" y2="26" stroke="#2F6F6B" stroke-width="2.2"/><text x="208" y="29.5" font-size="9.5" fill="#22262B" text-anchor="start">归母净利率</text>
-</svg>
+</svg></div>
 <figcaption>图 3　毛利率与归母净利率走势（2019—2026H1）</figcaption>
 </figure>
 <h3>4.3 存货：从"战略囤积"到"被动去库"</h3>
@@ -1369,7 +1402,7 @@ figure svg { display:block; width:100%; height:auto; }
 <ul><li><strong>2020—2025 年（主动囤积期）</strong>：面对牛黄、麝香价格持续上涨，公司选择"一边提价、一边加大原料储备"。这一策略在原料价格上行期具有合理性——提前锁定低价原料可平滑未来成本。但代价是<strong>占用大量营运资金并推高存货减值风险</strong>（审计师已将"存货可变现净值的确定"列为关键审计事项，2025 年末存货跌价准备余额 1,902.07 万元）。</li><li><strong>2026H1（被动去库期）</strong>：存货降至 59.54 亿元（−10.85%），同期购买商品支付的现金锐减 52.47%。<strong>但库存去化的背景是收入仍未回升</strong>（2026H1 收入 −14.98%），因此更像"需求不足下的被动收缩"而非"主动优化"。</li></ul>
 <div class="callout"><div class="quote"><strong>关键判据</strong>：健康去库应表现为"存货下降＋收入企稳/回升"；当前是"存货下降＋收入继续下滑"，属<strong>收缩型去库</strong>。后续需重点跟踪：存货占总资产比重是否回到 25% 以下，以及肝病用药"库存量"（2025 年末 +265.53% 至 51.54 万盒）是否同步回落。</div></div>
 <figure>
-<svg viewBox="0 0 680 312" xmlns="http://www.w3.org/2000/svg" font-family="'Songti SC','Noto Serif CJK SC',serif">
+<div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 312" xmlns="http://www.w3.org/2000/svg" font-family="'Songti SC','Noto Serif CJK SC',serif">
 <line x1="66" y1="248.0" x2="640" y2="248.0" stroke="#E3DDD4" stroke-width="1"/>
 <text x="58" y="251.5" font-size="9" fill="#7C7B77" text-anchor="end">0</text>
 <line x1="66" y1="199.0" x2="640" y2="199.0" stroke="#E3DDD4" stroke-width="1"/>
@@ -1423,7 +1456,7 @@ figure svg { display:block; width:100%; height:auto; }
 <rect x="564.7" y="118.1" width="38.4" height="10.3" fill="#FBF9F4" opacity="0.88" rx="2"/><text x="564.7" y="125.4" font-size="9.0" fill="#2F6F6B" text-anchor="start">32.16%</text>
 <rect x="360.3" y="69.0" width="157.2" height="10.3" fill="#FBF9F4" opacity="0.88" rx="2"/><text x="438.9" y="76.4" font-size="9.0" fill="#A73F2D" text-anchor="middle">2025 年末 66.79 亿元、占总资产 38.04%</text>
 <text x="353.0" y="288.0" font-size="8.5" fill="#7C7B77" text-anchor="middle">注：2026H1 为半年末数据（末位柱为年度/半年度口径混排，仅供参考趋势）</text>
-</svg>
+</svg></div>
 <figcaption>图 4　存货金额与占总资产比重（2020 年末—2026H1 末）</figcaption>
 </figure>
 <h3>4.4 利润成色：投资收益与费用端对利润的双向影响</h3>
@@ -1468,7 +1501,7 @@ figure svg { display:block; width:100%; height:auto; }
 <ul><li><strong>线下渠道</strong>：国药堂（含国医堂、名医馆）数量由 2025 年末的 582 家增至 2026 年 6 月的 <strong>618 家</strong>（2026H1 新增 76 家，其中 38 家落户空白区域）；累计签约名医 246 名（含 6 名国医大师）。终端门店覆盖超 12 万家。</li><li><strong>线下收入</strong>：2026H1 线下收入 43.85 亿元（−16.40%），<strong>渠道扩张未能阻止收入下滑</strong>——说明问题在单店动销而非网点密度。</li><li><strong>线上渠道</strong>：2026H1 线上收入 1.69 亿元（+42.24%，公司口径营收 +58%），毛利率 40.21%（同比 +0.83pp）。这是所有渠道中唯一正增长项，但体量仅占 3.7%，<strong>不足以对冲线下 16.40% 的下滑</strong>。片仔癀锭剂在天猫、京东、抖音三个平台的 OTC 肝胆用药类目销量均居第一。</li><li><strong>境外渠道</strong>：2026H1 境外收入 1.93 亿元（−25.91%），但毛利率高达 68.13%（+1.03pp）。公司完成中国香港、泰国合计 17 个专柜二次验收，新增加拿大经销商。</li></ul>
 <div class="callout"><div class="quote"><strong>渠道结论</strong>：<strong>结构性优化（线上增长、国药堂扩张、境外高毛利）与总量收缩同时发生</strong>。判断拐点的关键是"单店/单渠道动销何时止跌"，而不是渠道数量的继续增加。</div></div>
 <figure>
-<svg viewBox="0 0 680 290" xmlns="http://www.w3.org/2000/svg" font-family="'Songti SC','Noto Serif CJK SC',serif">
+<div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 290" xmlns="http://www.w3.org/2000/svg" font-family="'Songti SC','Noto Serif CJK SC',serif">
 <line x1="66" y1="232.0" x2="646" y2="232.0" stroke="#E3DDD4" stroke-width="1"/>
 <text x="58" y="235.5" font-size="9" fill="#7C7B77" text-anchor="end">0</text>
 <line x1="66" y1="196.8" x2="646" y2="196.8" stroke="#E3DDD4" stroke-width="1"/>
@@ -1506,7 +1539,7 @@ figure svg { display:block; width:100%; height:auto; }
 <rect x="66" y="20" width="11" height="9" fill="#B8862F" rx="1"/><text x="83" y="28.5" font-size="9.5" fill="#22262B" text-anchor="start">2025 年全年</text>
 <rect x="196" y="20" width="11" height="9" fill="#A73F2D" opacity="0.62" rx="1"/><text x="213" y="28.5" font-size="9.5" fill="#22262B" text-anchor="start">2026H1（半年度）</text>
 <text x="356.0" y="272.0" font-size="8.5" fill="#7C7B77" text-anchor="middle">注：医药流通业以 37.3% 的收入占比仅贡献约 7% 的分部毛利，属"规模大、利润薄"环节</text>
-</svg>
+</svg></div>
 <figcaption>图 5　分行业收入结构（2025 年与 2026H1）</figcaption>
 </figure>
 <h2>五、关键内容总结</h2>
@@ -1698,5 +1731,24 @@ figure svg { display:block; width:100%; height:auto; }
 </tbody></table></div>
 <div class="callout"><div class="quote"><strong>使用提示</strong>：上表第 1、2 项为最前置的领先指标——肝病用药的销量与库存量在年报"产销量情况分析表"中披露，是唯一能穿透"收入总额"直接观察核心大单品动销的数据，建议优先跟踪。</div></div>
 <div class="report-footer"><span>片仔癀（600436.SH）财报对比分析</span><span>2026 年 9 月</span></div>
+
+
+<!-- rsp-mobile-adapt : 溢出表格滑动提示 -->
+<script>
+(function(){
+  function mark(){
+    var boxes = document.querySelectorAll('.rsp-table');
+    for (var i=0;i<boxes.length;i++){
+      var b = boxes[i];
+      if (b.scrollWidth > b.clientWidth + 4) b.setAttribute('data-rsp-scroll','');
+      else b.removeAttribute('data-rsp-scroll');
+    }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mark);
+  else mark();
+  window.addEventListener('resize', function(){ clearTimeout(window.__rspT); window.__rspT=setTimeout(mark,180); });
+})();
+</script>
+
 </body>
 </html>

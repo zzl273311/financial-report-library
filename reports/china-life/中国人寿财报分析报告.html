@@ -51,14 +51,22 @@
   .report-footer{display:flex;justify-content:space-between;font-size:8.5pt;color:var(--stone);margin-top:18pt;padding-top:6pt;border-top:0.3pt dotted var(--border);}
 </style>
 
+
+
 <!-- rsp-mobile-adapt : 响应式适配层（仅屏幕生效，不影响打印/PDF） -->
 <style id="rsp-mobile-adapt">
+/* rsp-mobile-adapt-v3 */
 /* ========== 1. 全局：屏幕端基础修正 ========== */
 @media screen {
   html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
   body { overflow-wrap: break-word; }
   img, svg, canvas, video, iframe { max-width: 100%; }
   svg[viewBox], svg[viewbox] { height: auto; }
+
+  /* 网格容器（两列对比等）：网格项默认 min-width:auto，会被内部宽表撑破
+     容器、把整页顶出横向滚动（报告里 .two-col 就栽在这上面）。放开收缩，
+     让里面的 .rsp-table 自己去横向滑动。 */
+  .risk-grid > *, .two-col > * { min-width: 0; }
 
   /* 表格横向滚动容器：宽表不压字、不撑破页面 */
   .rsp-table {
@@ -140,6 +148,29 @@
   .report-footer { flex-direction: column; align-items: flex-start; gap: 3pt; }
 }
 
+/* ========== 3b. 图表：窄屏保持图纸原尺寸 + 横向滑动 ========== */
+/* 报告里的图表是 SVG：viewBox 宽 680 + width:100%。缩到手机宽度（约 350px）
+   只剩 0.5×，图内字号从 11px 掉到 5px 完全不可读；而 SVG <text> 不会自动换行，
+   单纯放大字号必然溢出图框。这里改为**保持图纸原尺寸、允许左右滑动**——
+   与上面宽表同一套策略，宁可滑也不塌字号。仅屏幕生效，打印/PDF 不受影响。 */
+@media screen and (max-width: 720px) {
+  .rsp-fig {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    /* 图纸一定宽于屏幕，直接给右侧一层渐变，暗示"还能往右滑" */
+    background: linear-gradient(to left, rgba(167,63,45,.09), rgba(167,63,45,0) 26px);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 26px 100%;
+  }
+  .rsp-fig > svg { min-width: var(--rsp-fig-w, 680px); }
+  .rsp-fig::-webkit-scrollbar { height: 7px; }
+  .rsp-fig::-webkit-scrollbar-track { background: transparent; }
+  .rsp-fig::-webkit-scrollbar-thumb { background: #D8D1C4; border-radius: 4px; }
+}
+
 /* ========== 4. 小屏手机：指标卡单列、边距收到最紧 ========== */
 @media screen and (max-width: 430px) {
   body { padding: 14px 12px 38px 12px !important; }
@@ -160,6 +191,8 @@
   [class*="rsp-w"] > table { min-width: 0 !important; }
 }
 </style>
+
+
 </head>
 <body>
 
@@ -189,7 +222,7 @@
 
 <h2>收入与利润趋势</h2>
 <figure>
-<svg font-family="'Songti SC','Noto Serif CJK SC',serif" viewBox="0 0 680 340" width="100%">
+<div class="rsp-fig" style="--rsp-fig-w:680px"><svg font-family="'Songti SC','Noto Serif CJK SC',serif" viewBox="0 0 680 340" width="100%">
   <text x="20" y="22" font-size="11" fill="#22262B" font-weight="500">图 1　营业收入与归母净利润趋势（单位：亿元；2026H1 为半年口径）</text>
   <line x1="50" y1="300" x2="660" y2="300" stroke="#E3DDD4" stroke-width="1"/>
   <!-- 2022 -->
@@ -225,7 +258,7 @@
   <!-- 图例 -->
   <rect x="560" y="40" width="12" height="12" fill="#1B365D"/><text x="576" y="50" font-size="8" fill="#3E4145">营业收入</text>
   <rect x="560" y="56" width="12" height="12" fill="#A73F2D"/><text x="576" y="66" font-size="8" fill="#3E4145">归母净利润</text>
-</svg>
+</svg></div>
 <figcaption>图 1　营业收入与归母净利润趋势（重述口径；2026H1 为半年值，未年化）</figcaption>
 </figure>
 
@@ -261,7 +294,7 @@
 
 <h2>价值指标趋势：NBV 与内含价值</h2>
 <figure>
-<svg font-family="'Songti SC','Noto Serif CJK SC',serif" viewBox="0 0 680 340" width="100%">
+<div class="rsp-fig" style="--rsp-fig-w:680px"><svg font-family="'Songti SC','Noto Serif CJK SC',serif" viewBox="0 0 680 340" width="100%">
   <text x="20" y="22" font-size="11" fill="#22262B" font-weight="500">图 2　一年新业务价值（柱，左轴）与内含价值（折线，右轴）趋势（单位：亿元）</text>
   <line x1="50" y1="300" x2="660" y2="300" stroke="#E3DDD4" stroke-width="1"/>
   <!-- NBV 柱 teal -->
@@ -290,7 +323,7 @@
   <text x="528" y="316" font-size="8.5" fill="#7C7B77" text-anchor="middle">2026H1</text>
   <rect x="560" y="40" width="12" height="12" fill="#2F6F6B"/><text x="576" y="50" font-size="8" fill="#3E4145">NBV（亿元）</text>
   <rect x="560" y="56" width="12" height="12" fill="#A73F2D"/><text x="576" y="66" font-size="8" fill="#3E4145">EV（亿元）</text>
-</svg>
+</svg></div>
 <figcaption>图 2　NBV 触底回升、内含价值稳步增厚（2022 年 EV 为 2023 年报重述值）</figcaption>
 </figure>
 
@@ -341,7 +374,7 @@
 
 <h2>投资资产配置（2025 年末）</h2>
 <figure>
-<svg font-family="'Songti SC','Noto Serif CJK SC',serif" viewBox="0 0 680 300" width="100%">
+<div class="rsp-fig" style="--rsp-fig-w:680px"><svg font-family="'Songti SC','Noto Serif CJK SC',serif" viewBox="0 0 680 300" width="100%">
   <text x="20" y="22" font-size="11" fill="#22262B" font-weight="500">图 3　2025 年末投资资产配置结构（占投资资产 %）</text>
   <!-- 固定到期日 70.51 -->
   <text x="170" y="58" font-size="9" fill="#22262B" text-anchor="end">固定到期日金融资产</text>
@@ -364,7 +397,7 @@
   <rect x="180" y="204" width="0.84" height="22" fill="#7C7B77"/>
   <text x="188" y="220" font-size="9" fill="#7C7B77">0.16%</text>
   <text x="180" y="262" font-size="8.5" fill="#7C7B77">固收（债券为主）打底、权益增强：股票+基金占比由 2024 年末 12.18% 升至 2025 年末 16.89%</text>
-</svg>
+</svg></div>
 <figcaption>图 3　投资资产配置（2025 年末；信用资产外评 AAA 级占比超 99%）</figcaption>
 </figure>
 
@@ -426,6 +459,25 @@
   <span>中国人寿（601628.SH / 2628.HK）财报分析报告</span>
   <span>2026-09-15 · 数据来源：公司定期报告（2007–2026）</span>
 </div>
+
+
+
+<!-- rsp-mobile-adapt : 溢出表格滑动提示 -->
+<script>
+(function(){
+  function mark(){
+    var boxes = document.querySelectorAll('.rsp-table');
+    for (var i=0;i<boxes.length;i++){
+      var b = boxes[i];
+      if (b.scrollWidth > b.clientWidth + 4) b.setAttribute('data-rsp-scroll','');
+      else b.removeAttribute('data-rsp-scroll');
+    }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mark);
+  else mark();
+  window.addEventListener('resize', function(){ clearTimeout(window.__rspT); window.__rspT=setTimeout(mark,180); });
+})();
+</script>
 
 </body>
 </html>

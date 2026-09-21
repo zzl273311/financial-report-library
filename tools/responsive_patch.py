@@ -27,6 +27,9 @@ import re
 import sys
 
 MARK = "rsp-mobile-adapt"
+# CSS 版本标记：改动适配层 CSS 时把 vN 递增，重跑补丁即可把旧版本整块替换掉。
+# （否则 inject_css 见到旧标记就跳过，老报告永远拿不到新规则）
+STYLE_VER = MARK + "-v3"
 
 VIEWPORT = '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">'
 
@@ -35,6 +38,8 @@ VIEWPORT = '<meta name="viewport" content="width=device-width, initial-scale=1, 
 # 每列约 62px，使列内至少能容纳 4~5 个汉字再换行
 COL_MIN_PX = 62
 COL_MAX_BUCKET = 16
+# 图表 SVG：viewBox 宽 >= 此值才当作"图表"包装（小于此值多为装饰性图标）
+FIG_MIN_W = 400
 _WIDE_RULES = "\n".join(
     "  .rsp-w%d > table { min-width: %dpx; }" % (n, n * COL_MIN_PX)
     for n in range(5, COL_MAX_BUCKET + 1)
@@ -47,12 +52,18 @@ _WIDE_RULES_MQ = "\n".join(
 CSS = """
 <!-- {mark} : 响应式适配层（仅屏幕生效，不影响打印/PDF） -->
 <style id="{mark}">
+/* {ver} */
 /* ========== 1. 全局：屏幕端基础修正 ========== */
 @media screen {{
   html {{ -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }}
   body {{ overflow-wrap: break-word; }}
   img, svg, canvas, video, iframe {{ max-width: 100%; }}
   svg[viewBox], svg[viewbox] {{ height: auto; }}
+
+  /* 网格容器（两列对比等）：网格项默认 min-width:auto，会被内部宽表撑破
+     容器、把整页顶出横向滚动（报告里 .two-col 就栽在这上面）。放开收缩，
+     让里面的 .rsp-table 自己去横向滑动。 */
+  .risk-grid > *, .two-col > * {{ min-width: 0; }}
 
   /* 表格横向滚动容器：宽表不压字、不撑破页面 */
   .rsp-table {{
@@ -123,6 +134,29 @@ CSS = """
   .report-footer {{ flex-direction: column; align-items: flex-start; gap: 3pt; }}
 }}
 
+/* ========== 3b. 图表：窄屏保持图纸原尺寸 + 横向滑动 ========== */
+/* 报告里的图表是 SVG：viewBox 宽 680 + width:100%。缩到手机宽度（约 350px）
+   只剩 0.5×，图内字号从 11px 掉到 5px 完全不可读；而 SVG <text> 不会自动换行，
+   单纯放大字号必然溢出图框。这里改为**保持图纸原尺寸、允许左右滑动**——
+   与上面宽表同一套策略，宁可滑也不塌字号。仅屏幕生效，打印/PDF 不受影响。 */
+@media screen and (max-width: 720px) {{
+  .rsp-fig {{
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    /* 图纸一定宽于屏幕，直接给右侧一层渐变，暗示"还能往右滑" */
+    background: linear-gradient(to left, rgba(167,63,45,.09), rgba(167,63,45,0) 26px);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 26px 100%;
+  }}
+  .rsp-fig > svg {{ min-width: var(--rsp-fig-w, 680px); }}
+  .rsp-fig::-webkit-scrollbar {{ height: 7px; }}
+  .rsp-fig::-webkit-scrollbar-track {{ background: transparent; }}
+  .rsp-fig::-webkit-scrollbar-thumb {{ background: #D8D1C4; border-radius: 4px; }}
+}}
+
 /* ========== 4. 小屏手机：指标卡单列、边距收到最紧 ========== */
 @media screen and (max-width: 430px) {{
   body {{ padding: 14px 12px 38px 12px !important; }}
@@ -147,6 +181,7 @@ CSS = """
 
 # 模板里用 {{ }} 书写字面量花括号，这里统一还原成单个花括号
 CSS = (CSS.replace("{mark}", MARK)
+          .replace("{ver}", STYLE_VER)
           .replace("{wide_mq}", _WIDE_RULES_MQ)
           .replace("{{", "{").replace("}}", "}"))
 
@@ -170,6 +205,11 @@ JS = """
 </script>
 """.replace("{mark}", MARK).replace("{{", "{").replace("}}", "}")
 
+# 已注入的适配层 JS 整块，用于版本升级时原地替换
+JS_CHUNK_RE = re.compile(
+    r'<!--\s*' + re.escape(MARK) + r'\s*:[^>]*?-->\s*<script>.*?</script\s*>',
+    re.S | re.I)
+
 # 自检：注入内容里不应再残留双花括号
 assert "{{" not in CSS and "}}" not in CSS, "CSS 模板花括号还原失败"
 assert "{{" not in JS and "}}" not in JS, "JS 模板花括号还原失败"
@@ -188,10 +228,21 @@ def ensure_viewport(s: str) -> str:
     return VIEWPORT + "\n" + s
 
 
+# 已注入的适配层 CSS 整块（含前面的注释），用于版本升级时原地替换
+CSS_CHUNK_RE = re.compile(
+    r'<!--\s*' + re.escape(MARK) + r'\s*:[^>]*?-->\s*'
+    r'<style\s+id=["\']' + re.escape(MARK) + r'["\'][^>]*>.*?</style\s*>',
+    re.S | re.I)
+
+
 def inject_css(s: str) -> str:
-    """把适配层插到 </head> 之前（位于报告自带 <style> 之后，同权重下后者胜出）。"""
-    if MARK in s:
-        return s
+    """把适配层插到 </head> 之前（位于报告自带 <style> 之后，同权重下后者胜出）。
+
+    已注入过则整块替换：CSS 会随脚本升级（如新增 .rsp-fig 规则），
+    若见到旧标记直接跳过，老报告就永远拿不到新规则。
+    """
+    if CSS_CHUNK_RE.search(s):
+        return CSS_CHUNK_RE.sub(lambda _m: CSS, s, count=1)
     m = re.search(r'</head\s*>', s, re.I)
     if m:
         return s[:m.start()] + CSS + s[m.start():]
@@ -203,8 +254,9 @@ def inject_css(s: str) -> str:
 
 
 def inject_js(s: str) -> str:
-    if s.count(MARK) > 1:
-        return s
+    """溢出提示脚本（纯装饰，失败无副作用）；已存在则整块替换，保证与脚本同步。"""
+    if JS_CHUNK_RE.search(s):
+        return JS_CHUNK_RE.sub(lambda _m: JS, s, count=1)
     m = re.search(r'</body\s*>', s, re.I)
     if m:
         return s[:m.start()] + JS + s[m.start():]
@@ -283,21 +335,73 @@ def wrap_tables(s: str) -> tuple:
     return new, n
 
 
+def _fig_width(svg_open_tag: str):
+    """从 <svg …> 起始标签里取出 viewBox 宽度；取不到返回 None。"""
+    m = re.search(r'view[Bb]ox\s*=\s*["\']([\d.\s]+)["\']', svg_open_tag)
+    if not m:
+        return None
+    parts = m.group(1).split()
+    if len(parts) != 4:
+        return None
+    try:
+        return float(parts[2])
+    except ValueError:
+        return None
+
+
+def count_big_figs(s: str) -> int:
+    """数出需要包装的图表 SVG（viewBox 宽 >= FIG_MIN_W）。"""
+    return sum(1 for m in re.finditer(r'<svg\b[^>]*>', s, re.I)
+               if (_fig_width(m.group(0)) or 0) >= FIG_MIN_W)
+
+
+def wrap_figs(s: str) -> tuple:
+    """把图表 SVG 包进 .rsp-fig 横向滚动容器，图纸保持原尺寸。
+
+    SVG 用 viewBox + width:100% 自适应，窄屏会同比例缩到 0.5×，
+    图内字号塌到 4~5px；而 SVG <text> 不换行，放大字号必溢出图框。
+    包装后由 CSS 在窄屏给 svg 设 min-width（取 viewBox 宽），改为左右滑动。
+    装饰性小图标（viewBox 宽 < FIG_MIN_W）不处理。
+    返回 (新文本, 新包裹数)。
+    """
+    if 'class="rsp-fig' in s:        # 已包裹过，保持幂等
+        return s, 0
+    n = 0
+
+    def repl(m):
+        nonlocal n
+        svg = m.group(0)
+        head = svg[:svg.index('>') + 1]
+        w = _fig_width(head)
+        if w is None or w < FIG_MIN_W:
+            return svg
+        n += 1
+        return '<div class="rsp-fig" style="--rsp-fig-w:%gpx">%s</div>' % (w, svg)
+
+    new = re.sub(r'<svg\b[^>]*>.*?</svg\s*>', repl, s, flags=re.S | re.I)
+    return new, n
+
+
 def process(path: str, check_only: bool = False) -> dict:
     with open(path, encoding='utf-8', errors='replace') as f:
         src = f.read()
 
     has_vp = bool(re.search(r'<meta[^>]+name\s*=\s*["\']viewport["\']', src, re.I))
-    has_css = MARK in src
+    has_css = (STYLE_VER in src) and (JS_CHUNK_RE.search(src) is not None)
     n_tables = len(re.findall(r'<table\b', src, re.I))
     n_wrapped = len(re.findall(r'class="rsp-table', src))
+    n_figs = count_big_figs(src)
+    n_figwrapped = len(re.findall(r'class="rsp-fig', src))
     need_fd = needs_font_display(src)
 
-    if check_only or (has_vp and has_css and n_tables == n_wrapped and not need_fd):
+    if check_only or (has_vp and has_css and n_tables == n_wrapped
+                      and n_figs == n_figwrapped and not need_fd):
         return dict(path=path, viewport=has_vp, css=has_css, fonts=need_fd,
-                    tables=n_tables, wrapped=n_wrapped, changed=False)
+                    tables=n_tables, wrapped=n_wrapped,
+                    figs=n_figs, figwrapped=n_figwrapped, changed=False)
 
     out, wrapped = wrap_tables(src)   # 先包裹表格（此时还没注入标记，幂等判断靠 class）
+    out, n_fig = wrap_figs(out)       # 再包裹图表
     out = ensure_viewport(out)
     out, n_fd = ensure_font_display(out)
     out = inject_css(out)
@@ -307,7 +411,8 @@ def process(path: str, check_only: bool = False) -> dict:
         f.write(out)
 
     return dict(path=path, viewport=True, css=True, fonts=False,
-                faces=n_fd, tables=n_tables, wrapped=n_wrapped + wrapped, changed=True)
+                faces=n_fd, tables=n_tables, wrapped=n_wrapped + wrapped,
+                figs=n_figs, figwrapped=n_figwrapped + n_fig, changed=True)
 
 
 def collect(paths):
@@ -332,25 +437,29 @@ def main():
         print('没有找到 HTML 文件')
         return 1
 
-    total_tables = total_wrapped = total_faces = changed = 0
-    print(f"{'状态':<6}{'表格':>10}{'字体':>7}  文件")
-    print('-' * 88)
+    total_tables = total_wrapped = total_figs = total_figwrapped = total_faces = changed = 0
+    print(f"{'状态':<6}{'表格':>10}{'图表':>9}{'字体':>7}  文件")
+    print('-' * 92)
     for f in files:
         r = process(f, check_only=args.check)
         total_tables += r['tables']
         total_wrapped += r['wrapped']
+        total_figs += r['figs']
+        total_figwrapped += r['figwrapped']
         total_faces += r.get('faces', 0)
         if r['changed']:
             changed += 1
-        pending = (r['tables'] != r['wrapped']) or (not r['css']) or r.get('fonts', False)
+        pending = ((r['tables'] != r['wrapped']) or (r['figs'] != r['figwrapped'])
+                   or (not r['css']) or r.get('fonts', False))
         flag = '已更新' if r['changed'] else ('待处理' if pending else 'OK')
         vp = 'vp' if r['viewport'] else '--'
         fd = ('+%d' % r['faces']) if r.get('faces') else ('缺' if r.get('fonts') else 'ok')
-        print(f"{flag:<6}{r['wrapped']:>4}/{r['tables']:<5}{fd:>7}  {vp}  {f}")
+        fg = '%d/%d' % (r['figwrapped'], r['figs'])
+        print(f"{flag:<6}{r['wrapped']:>4}/{r['tables']:<5}{fg:>9}{fd:>7}  {vp}  {f}")
 
-    print('-' * 88)
+    print('-' * 92)
     print(f"文件 {len(files)} 份｜已修改 {changed} 份｜表格包裹 {total_wrapped}/{total_tables}"
-          f"｜font-display 补充 {total_faces} 处")
+          f"｜图表包裹 {total_figwrapped}/{total_figs}｜font-display 补充 {total_faces} 处")
     return 0
 
 

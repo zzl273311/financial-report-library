@@ -65,14 +65,22 @@
   table.tall tr { break-inside:avoid; }
 </style>
 
+
+
 <!-- rsp-mobile-adapt : 响应式适配层（仅屏幕生效，不影响打印/PDF） -->
 <style id="rsp-mobile-adapt">
+/* rsp-mobile-adapt-v3 */
 /* ========== 1. 全局：屏幕端基础修正 ========== */
 @media screen {
   html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
   body { overflow-wrap: break-word; }
   img, svg, canvas, video, iframe { max-width: 100%; }
   svg[viewBox], svg[viewbox] { height: auto; }
+
+  /* 网格容器（两列对比等）：网格项默认 min-width:auto，会被内部宽表撑破
+     容器、把整页顶出横向滚动（报告里 .two-col 就栽在这上面）。放开收缩，
+     让里面的 .rsp-table 自己去横向滑动。 */
+  .risk-grid > *, .two-col > * { min-width: 0; }
 
   /* 表格横向滚动容器：宽表不压字、不撑破页面 */
   .rsp-table {
@@ -154,6 +162,29 @@
   .report-footer { flex-direction: column; align-items: flex-start; gap: 3pt; }
 }
 
+/* ========== 3b. 图表：窄屏保持图纸原尺寸 + 横向滑动 ========== */
+/* 报告里的图表是 SVG：viewBox 宽 680 + width:100%。缩到手机宽度（约 350px）
+   只剩 0.5×，图内字号从 11px 掉到 5px 完全不可读；而 SVG <text> 不会自动换行，
+   单纯放大字号必然溢出图框。这里改为**保持图纸原尺寸、允许左右滑动**——
+   与上面宽表同一套策略，宁可滑也不塌字号。仅屏幕生效，打印/PDF 不受影响。 */
+@media screen and (max-width: 720px) {
+  .rsp-fig {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    /* 图纸一定宽于屏幕，直接给右侧一层渐变，暗示"还能往右滑" */
+    background: linear-gradient(to left, rgba(167,63,45,.09), rgba(167,63,45,0) 26px);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 26px 100%;
+  }
+  .rsp-fig > svg { min-width: var(--rsp-fig-w, 680px); }
+  .rsp-fig::-webkit-scrollbar { height: 7px; }
+  .rsp-fig::-webkit-scrollbar-track { background: transparent; }
+  .rsp-fig::-webkit-scrollbar-thumb { background: #D8D1C4; border-radius: 4px; }
+}
+
 /* ========== 4. 小屏手机：指标卡单列、边距收到最紧 ========== */
 @media screen and (max-width: 430px) {
   body { padding: 14px 12px 38px 12px !important; }
@@ -174,6 +205,8 @@
   [class*="rsp-w"] > table { min-width: 0 !important; }
 }
 </style>
+
+
 </head>
 <body>
 
@@ -213,7 +246,7 @@
 <p>2016–2025 年是汾酒复兴第一个十年的高增长周期：营业收入从 44.05 亿元增至 387.18 亿元（<strong>8.79 倍</strong>，年复合 <strong>27.32%</strong>），归母净利润从 6.05 亿元增至 122.46 亿元（<strong>20.24 倍</strong>，年复合 <strong>39.68%</strong>）——利润增速持续快于收入增速，净利率由 13.73% 提升至 31.63%（2024 年峰值 34.00%）。</p>
 <p>但 <strong>2025 年是明确的转折年</strong>：收入仍增 7.52%，归母净利润却几乎零增长（+0.02%），加权 ROE 下滑 6.20 个百分点至 33.48%；2026 年上半年收入、利润双双转负（−12.18% / −24.29%）。</p>
 <figure>
-<svg viewBox="0 0 680 300" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
+<div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 300" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
 <text x="70" y="20" font-size="10" fill="#22262B" font-weight="500">图 1　十年营业收入与归母净利润轨迹（2016–2025，单位：亿元）</text>
 <text x="70" y="34" font-size="8.2" fill="#7C7B77">收入十年 8.79 倍、利润十年 20.24 倍；2025 年利润曲线转为水平</text>
 <rect x="320" y="40" width="10" height="9" fill="#1B365D"/><text x="334" y="48" font-size="8.5" fill="#3E4145">营业收入</text>
@@ -266,11 +299,11 @@
 <text x="646.0" y="193.2" font-size="8.2" fill="#A73F2D" font-weight="500">122.46</text>
 <text x="64.0" y="236.3" font-size="8.2" fill="#A73F2D" text-anchor="end">6.05</text>
 <text x="70" y="274" font-size="7.6" fill="#7C7B77">注：2025 年营业收入 +7.52%，归母净利润 +0.02%——增长曲线在此断点。</text>
-</svg>
+</svg></div>
 <figcaption>图 1　十年收入与利润轨迹：2025 年归母净利润 122.46 亿元与 2024 年的 122.43 亿元几乎完全重合（数据来源：公司 2016–2025 年年报）</figcaption>
 </figure>
 <figure>
-<svg viewBox="0 0 680 300" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
+<div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 300" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
 <text x="70" y="20" font-size="10" fill="#22262B" font-weight="500">图 2　盈利能力三项指标轨迹（2016–2025，%）</text>
 <text x="70" y="34" font-size="8.2" fill="#7C7B77">毛利率与归母净利率同步上行至 2024 年见顶；加权 ROE 连续两年回落</text>
 <rect x="320" y="40" width="10" height="9" fill="#B8862F"/><text x="334" y="48" font-size="8.5" fill="#3E4145">毛利率</text>
@@ -337,7 +370,7 @@
 <text x="646.0" y="173.5" font-size="8.2" fill="#A73F2D" font-weight="500">33.48</text>
 <text x="64.0" y="209.9" font-size="8.2" fill="#A73F2D" text-anchor="end">13.24</text>
 <text x="70" y="274" font-size="7.6" fill="#7C7B77">注：2016–2020 年毛利率含同一控制下企业合并追溯调整及新收入准则口径差异，趋势判断不受影响。</text>
-</svg>
+</svg></div>
 <figcaption>图 2　盈利能力轨迹：加权 ROE 自 2022 年峰值 44.74% 连续三年回落至 33.48%（数据来源：公司 2016–2025 年年报）</figcaption>
 </figure>
 <h2>二、核心财务数据对比</h2>
@@ -390,7 +423,7 @@
 </table></div>
 <p class="note">十年累计经营现金流 538.77 亿元，为累计归母净利润 564.49 亿元的 <strong>0.95 倍</strong>——长期看利润的现金含量大致匹配。但投资活动净额自 2021 年起持续大幅流出（2023 年 −102.20 亿元），主要系<strong>定期存款/理财滚动配置</strong>而非资本开支（2025 年购建固定资产、无形资产等长期资产支付现金仅 11.94 亿元）；筹资活动净流出逐年扩大反映<strong>分红持续加码</strong>（2025 年分配股利、利润或偿付利息支付现金 73.93 亿元，同比 +38.21%）。</p>
 <figure>
-<svg viewBox="0 0 680 310" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
+<div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 310" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
 <text x="74" y="20" font-size="10" fill="#22262B" font-weight="500">图 4　销售量与吨酒价格的背离（2023–2025）</text>
 <text x="74" y="34" font-size="8.2" fill="#7C7B77">2025 年销量 +21.99%（柱，左轴），吨酒价格 −11.81%（线，右轴）——「以量补价」的极端形态</text>
 <rect x="300" y="40" width="10" height="9" fill="#2F6F6B"/><text x="314" y="48" font-size="8.5" fill="#3E4145">销售量（千升，左轴）</text>
@@ -429,7 +462,7 @@
 <text x="355.0" y="260" font-size="7.6" fill="#7C7B77" text-anchor="middle">2024</text>
 <text x="542.3" y="260" font-size="7.6" fill="#7C7B77" text-anchor="middle">2025</text>
 <text x="74" y="276" font-size="7.6" fill="#7C7B77">注：吨酒价格＝主营业务收入 ÷ 酒类销售量；为便于观察走势，右轴下限设为 13 万元/千升。</text>
-</svg>
+</svg></div>
 <figcaption>图 4　量价背离：销量持续放量而吨酒价格在 2025 年跌去 11.81%（数据来源：公司 2023–2025 年年报产销量表、分地区情况表倒算）</figcaption>
 </figure>
 <h3>表 4　经营质量与渠道（可比值仅 2023 年起完整披露）</h3>
@@ -457,7 +490,7 @@
 <p class="note">吨价按"区域收入 ÷ 区域销售量"计算（2025 年省内销量 89,917.37 千升、省外 179,187.08 千升；2024 年省内 69,122.59 千升、省外 151,480.11 千升）。<strong>2025 年省内吨价同比 −23.75%、省外 −4.78%。</strong></p>
 <h2>三、三张财务数据表：关键变化数据与趋势含义</h2>
 <figure>
-<svg viewBox="0 0 680 310" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
+<div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 310" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
 <text x="70" y="20" font-size="10" fill="#22262B" font-weight="500">图 3　2025 年「增收不增利」税前利润桥（单位：亿元）</text>
 <text x="70" y="34" font-size="8.2" fill="#7C7B77">毛利增量 15.40 亿元中，税金及附加独吞 9.83 亿元（63.8%）、销售费用再吞 3.75 亿元</text>
 <line x1="70" y1="232.0" x2="646" y2="232.0" stroke="#EFEBE3" stroke-width="0.7"/>
@@ -493,7 +526,7 @@
 <text x="604.9" y="214.8" font-size="8.4" fill="#B8862F" text-anchor="middle" font-weight="500">+1.21</text>
 <text x="604.9" y="246" font-size="7.5" fill="#7C7B77" text-anchor="middle">利润总额增量</text>
 <text x="70" y="264" font-size="7.6" fill="#7C7B77">注：税金及附加含消费税 58.02 亿元、城建税 5.06 亿元、教育费附加及地方教育费附加 4.97 亿元等。</text>
-</svg>
+</svg></div>
 <figcaption>图 3　2025 年利润桥：消费税增速（+15.79%）为营收增速（+7.52%）的两倍，是利润零增长的最大单一拖累（数据来源：2025 年年报合并利润表及税金及附加附注）</figcaption>
 </figure>
 <h3>3.1 利润表：从"量价齐升"到"以量补价"</h3>
@@ -563,7 +596,7 @@
 </ul>
 <p>同时经销商总数由 4,553 家减至 4,455 家（净减 98 家），其中"其他酒类"经销商净减少 172 家（增 415、减 587），反映公司在<strong>主动清理低效渠道与低价产品线</strong>。</p>
 <figure>
-<svg viewBox="0 0 680 310" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
+<div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 310" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
 <text x="74" y="20" font-size="10" fill="#22262B" font-weight="500">图 5　合同负债与收现比的「先蓄后放」（2022–2026H1）</text>
 <text x="74" y="34" font-size="8.2" fill="#7C7B77">合同负债 2024 年冲高至 86.72 亿元后连续两期回落；收现比 2025 年降至 91.58% 后于 2026H1 回升至 103.48%</text>
 <rect x="300" y="40" width="10" height="9" fill="#1B365D"/><text x="314" y="48" font-size="8.5" fill="#3E4145">期末合同负债（亿元，左轴）</text>
@@ -608,7 +641,7 @@
 <text x="467.4" y="260" font-size="7.6" fill="#7C7B77" text-anchor="middle">2025年</text>
 <text x="579.8" y="260" font-size="7.6" fill="#7C7B77" text-anchor="middle">2026H1</text>
 <text x="74" y="276" font-size="7.6" fill="#7C7B77">注：2022、2023 年报告未单列「销售商品、提供劳务收到的现金」与营业收入之比，故收现比留空。</text>
-</svg>
+</svg></div>
 <figcaption>图 5　渠道蓄水池与回款质量：合同负债连续两期下降，收现比从 91.58% 回升至 103.48%（数据来源：公司各期定期报告）</figcaption>
 </figure>
 <h3>4.5 2026 年上半年：主动收缩，质量优先</h3>
@@ -629,7 +662,7 @@
 </ul>
 <p><strong>判断</strong>：公司正在<strong>用短期的收入与利润换取渠道库存去化与现金流质量</strong>。销售费用率逆势提升（加大市场投入）、合同负债继续下降（减少渠道压货）、收现比大幅回升（要求现金回款），三者方向一致，是典型的<strong>主动调整</strong>而非被动失速。代价是 2026 年全年收入与利润大概率为负增长。</p>
 <figure>
-<svg viewBox="0 0 680 300" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
+<div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 300" width="100%" style="font-family:'Songti SC','Noto Serif CJK SC',serif;">
 <text x="70" y="20" font-size="10" fill="#22262B" font-weight="500">图 6　资本结构演变：资产负债率 vs 类现金/总负债（2016–2025）</text>
 <text x="70" y="34" font-size="8.2" fill="#7C7B77">资产负债率自 2019 年 52.79% 降至 2025 年 28.74%；类现金已为总负债的 1.81 倍</text>
 <rect x="320" y="40" width="10" height="9" fill="#B8862F"/><text x="334" y="48" font-size="8.5" fill="#3E4145">资产负债率（%）</text>
@@ -682,7 +715,7 @@
 <text x="646.0" y="241.7" font-size="8.2" fill="#2F6F6B" font-weight="500">1.81</text>
 <text x="64.0" y="237.6" font-size="8.2" fill="#2F6F6B" text-anchor="end">0.49</text>
 <text x="70" y="274" font-size="7.6" fill="#7C7B77">注：类现金＝货币资金＋其他流动资产中的短期定期存款及利息；公司报告期内无短期借款、长期借款及应付债券。</text>
-</svg>
+</svg></div>
 <figcaption>图 6　资本结构演变：从 2019 年的高杠杆扩张转为 2025 年的净现金结构（数据来源：公司 2016–2025 年年报合并资产负债表）</figcaption>
 </figure>
 <h3>4.6 资产负债表：十年从"高杠杆"走到"类现金 1.8 倍于总负债"</h3>
@@ -769,5 +802,24 @@
   <li>未披露项（如 2023 年经销商数量、2026H1 分地区收入）一律留空，未做推断或估算。</li>
 </ul>
 <p><strong>数据来源</strong>：上海证券交易所 / 东方财富公告接口披露的公司定期报告原文（2016–2025 年年度报告、2026 年半年度报告），共 10 份年报与 1 份半年报。</p>
+
+
+<!-- rsp-mobile-adapt : 溢出表格滑动提示 -->
+<script>
+(function(){
+  function mark(){
+    var boxes = document.querySelectorAll('.rsp-table');
+    for (var i=0;i<boxes.length;i++){
+      var b = boxes[i];
+      if (b.scrollWidth > b.clientWidth + 4) b.setAttribute('data-rsp-scroll','');
+      else b.removeAttribute('data-rsp-scroll');
+    }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mark);
+  else mark();
+  window.addEventListener('resize', function(){ clearTimeout(window.__rspT); window.__rspT=setTimeout(mark,180); });
+})();
+</script>
+
 </body>
 </html>
