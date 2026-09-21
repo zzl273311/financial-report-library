@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>国电电力（600795.SH）财报分析报告（2019—2025＋2026上半年）</title>
+<meta name="generator" content="financial-report-analysis">
+<style>
+  html, body { background: #F7F4EE; }
+  :root {
+    --parchment:#F7F4EE; --ivory:#FBF9F4; --near-black:#22262B; --dark-warm:#3E4145;
+    --olive:#504e49; --stone:#7C7B77; --brand:#A73F2D; --brand-deep:#8A3223;
+    --accent:#A73F2D; --accent-soft:#F1E3DD; --gold:#B8862F; --teal:#2F6F6B; --blue:#1B365D;
+    --border:#E3DDD4;
+    --serif: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", "STSong", Georgia, serif;
+  }
+  @page {
+    size: A4; margin: 15mm 15mm 16mm 15mm; background: #F7F4EE;
+    @bottom-center { content: counter(page) "  \00b7  国电电力（600795.SH）财报分析报告";
+      font-family: var(--serif); font-size: 8.5pt; color: #6b6a64; }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  @media screen { body { max-width: 220mm; margin: 0 auto; padding: 15mm; } }
+  body { color: var(--near-black); font-family: var(--serif); font-size: 9.6pt; line-height: 1.5;
+    letter-spacing: 0.2pt; widows: 3; orphans: 3; }
+  strong { font-weight: 600; color: var(--near-black); }
+  code { font-family: ui-monospace, Menlo, monospace; font-size: 8.6pt; background: #F1EDE5;
+    padding: 0 3pt; border-radius: 2pt; }
+
+  .report-header { display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: 12pt; padding-bottom: 9pt; border-bottom: 0.5pt solid var(--border); }
+  .ticker-eyebrow { font-size: 8.6pt; color: var(--brand); letter-spacing: 1.4pt;
+    font-weight: 500; margin-bottom: 4pt; }
+  .ticker-name { font-size: 23pt; font-weight: 600; line-height: 1.15; margin-bottom: 4pt; }
+  .ticker-sub { font-size: 9pt; color: var(--stone); line-height: 1.45; }
+  .price-block { text-align: right; padding-top: 6pt; min-width: 34%; }
+  .price-current { font-size: 25pt; font-weight: 600; line-height: 1; color: var(--brand);
+    font-variant-numeric: tabular-nums; }
+  .price-change { font-size: 9pt; font-weight: 500; margin-top: 3pt; color: var(--near-black);
+    font-variant-numeric: tabular-nums; }
+  .price-date { font-size: 8.4pt; color: var(--stone); margin-top: 2pt; }
+
+  .metrics { display: flex; flex-wrap: wrap; gap: 10pt; margin-bottom: 14pt; padding: 7pt 0;
+    border-top: 0.3pt dotted var(--border); border-bottom: 0.3pt dotted var(--border); }
+  .metric { flex: 1 1 130px; min-width: 0; flex-direction: column; align-items: flex-start;
+    display: flex; }
+  .metric-value { font-size: 13pt; font-weight: 600; color: var(--brand); line-height: 1.1;
+    font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .metric-label { font-size: 8pt; color: var(--olive); line-height: 1.3; margin-top: 2pt;
+    white-space: normal; }
+  .metric:nth-child(1) .metric-value { color: var(--brand); }
+  .metric:nth-child(2) .metric-value { color: var(--teal); }
+  .metric:nth-child(3) .metric-value { color: var(--gold); }
+  .metric:nth-child(4) .metric-value { color: var(--blue); }
+  .metric:nth-child(5) .metric-value { color: var(--brand); }
+
+  h1 { font-size: 17pt; font-weight: 600; color: var(--near-black); margin: 4pt 0 10pt 0;
+    break-after: avoid; }
+  h2 { font-size: 14pt; font-weight: 600; position: relative; padding-left: 12pt;
+    margin: 16pt 0 6pt 0; break-after: avoid; }
+  h2::before { content:""; position:absolute; left:0; top:2.5pt; width:4pt; height:12pt;
+    background:var(--accent); border-radius:1pt; }
+  h3 { font-size: 11.4pt; font-weight: 600; color: var(--dark-warm); margin: 11pt 0 4pt 0;
+    break-after: avoid; }
+  h4 { font-size: 10.2pt; font-weight: 600; color: var(--dark-warm); margin: 9pt 0 3pt 0; break-after: avoid; }
+  p { margin: 0 0 6.2pt 0; widows: 2; orphans: 2; }
+  ul, ol { margin: 4pt 0 8pt 0; padding-left: 17pt; }
+  ul li::marker { color: var(--accent); } ol li::marker { color: var(--accent); font-weight: 600; }
+  ul li.sub { list-style: none; color: var(--olive); font-size: 9pt; margin-left: -8pt; }
+  ul ul { margin: 2pt 0 3pt 0; padding-left: 14pt; }
+  ol li { margin-bottom: 3pt; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 8.8pt; margin: 6pt 0;
+    break-inside: avoid; }
+  table th { text-align: left; font-weight: 600; color: var(--dark-warm); padding: 5pt 6pt;
+    border-bottom: 1pt solid var(--accent); background: transparent; }
+  table td { padding: 4pt 6pt; border-bottom: 0.25pt solid var(--border); vertical-align: top; }
+  table.compact th { padding: 4pt 5pt; font-size: 8.4pt; }
+  table.compact td { padding: 3.05pt 5pt; font-size: 8.4pt; line-height: 1.42; }
+  table.financial td:not(:first-child) { text-align: right; font-variant-numeric: tabular-nums; }
+  table.financial th:not(:first-child) { text-align: right; }
+  table .total td { font-weight: 600; border-top: 0.6pt solid var(--border); border-bottom: none; }
+  table.wide th, table.wide td { font-size: 6.9pt; padding: 2.4pt 2.8pt; letter-spacing: 0; }
+  table.longtable { break-inside: auto; }
+  table.longtable thead { display: table-header-group; }
+  table.longtable tr { break-inside: avoid; }
+  table.dense th { padding: 2.6pt 4pt; font-size: 7.8pt; }
+  table.dense td { padding: 2.2pt 4pt; font-size: 7.6pt; line-height: 1.34; }
+
+  p.note { font-size: 8pt; color: var(--stone); margin: 2pt 0 7pt 0; line-height: 1.45; }
+  p.warn { background: #FBF3EC; border-left: 3pt solid var(--gold); padding: 7pt 10pt;
+    border-radius: 3pt; margin: 8pt 0; break-inside: avoid; font-size: 8.2pt;
+    line-height: 1.48; color: var(--dark-warm); }
+
+  /* ===== 图表：纯 HTML/CSS，条形为 div，文字为真 HTML ===== */
+  figure { margin: 11pt 0; break-inside: avoid; }
+  figcaption { font-size: 8.4pt; color: var(--stone); margin-top: 5pt; line-height: 1.45; }
+  .fig-note { font-size: 8.2pt; color: var(--stone); margin-top: 3pt; line-height: 1.45; }
+  .chart { background: #FBF9F4; border: 0.4pt solid var(--border); border-radius: 4pt;
+    padding: 11pt 13pt 9pt 13pt; }
+  .ch-title { font-size: 11pt; font-weight: 600; color: var(--near-black); line-height: 1.35;
+    margin-bottom: 2pt; }
+  .ch-sub { font-size: 9pt; color: var(--stone); line-height: 1.4; margin-bottom: 7pt; }
+  .ch-legend { display: flex; flex-wrap: wrap; gap: 4pt 14pt; margin-bottom: 8pt; }
+  .ch-legend .lg { display: flex; align-items: center; gap: 4pt; font-size: 10px;
+    color: var(--dark-warm); flex: none; white-space: nowrap; }
+  .ch-legend .lg i { width: 11px; height: 9px; border-radius: 1px; display: inline-block;
+    flex: none; }
+  .ch-rows { display: flex; flex-direction: column; gap: 4pt; }
+  .ch-row { display: flex; align-items: flex-start; gap: 8pt; }
+  .ch-lab { flex: none; width: 96px; font-size: 11px; color: var(--dark-warm); line-height: 1.5;
+    text-align: right; padding-top: 0; word-break: break-word; }
+  .ch-bars { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 2pt; }
+  .ch-bar { display: flex; align-items: center; gap: 5pt; }
+  .ch-fill { height: 10px; border-radius: 1px; flex: none; min-width: 1px; }
+  .ch-spacer { height: 10px; flex: none; }
+  .ch-val { font-size: 11px; color: var(--dark-warm); font-variant-numeric: tabular-nums;
+    white-space: nowrap; flex: none; }
+  .ch-val.na { color: #B9B4AB; }
+  .ch-hint { font-size: 8.4pt; color: var(--stone); }
+  .ch-stack { display: flex; width: 100%; height: 17px; border-radius: 1px; overflow: hidden; }
+  .ch-stack .seg { display: flex; flex-direction: column; justify-content: center;
+    align-items: flex-start; padding-left: 4px; overflow: hidden; min-width: 0; }
+  .ch-stack .seg b { font-size: 10px; color: #FFFFFF; font-weight: 600; line-height: 1.1;
+    white-space: nowrap; }
+  .ch-stack .seg em { font-size: 10px; color: rgba(255,255,255,.86); font-style: normal;
+    line-height: 1.1; white-space: nowrap; }
+  .ch-scale { font-size: 10px; color: var(--stone); margin-top: 7pt; }
+  .page-break { break-before: page; }
+
+  /* 打印还原：让响应式补丁注入的表格滚动容器在打印时从布局中消失，
+     使 PDF 分页与补丁前完全一致（屏幕端仍保留横向滚动能力）。 */
+  @media print { .rsp-table { display: contents; } }
+</style>
+
+<!-- rsp-mobile-adapt : 响应式适配层（仅屏幕生效，不影响打印/PDF） -->
+<style id="rsp-mobile-adapt">
+/* ========== 1. 全局：屏幕端基础修正 ========== */
+@media screen {
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body { overflow-wrap: break-word; }
+  img, svg, canvas, video, iframe { max-width: 100%; }
+  svg[viewBox], svg[viewbox] { height: auto; }
+
+  /* 表格横向滚动容器：宽表不压字、不撑破页面 */
+  .rsp-table {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    margin: 8pt 0;
+    position: relative;
+  }
+  .rsp-table > table { margin: 0; }
+  .rsp-table::-webkit-scrollbar { height: 7px; }
+  .rsp-table::-webkit-scrollbar-track { background: transparent; }
+  .rsp-table::-webkit-scrollbar-thumb { background: #D8D1C4; border-radius: 4px; }
+  /* 内容确实溢出时，右侧给一层渐变暗示"还能往右滑" */
+  .rsp-table[data-rsp-scroll] {
+    background: linear-gradient(to left, rgba(167,63,45,.10), rgba(167,63,45,0) 28px);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 28px 100%;
+  }
+}
+
+/* ========== 2. 平板 / 窄窗口：边距先收，避免内容被挤 ========== */
+@media screen and (max-width: 900px) {
+  body { padding: 22px 22px 46px 22px !important; }
+  .report-header { flex-wrap: wrap; gap: 12pt; }
+  .metrics { flex-wrap: wrap; gap: 10pt 18pt; }
+  .metric { flex: 1 1 42%; min-width: 0; }
+  .report-footer { flex-wrap: wrap; gap: 4pt 14pt; }
+
+  /* 宽表改为横向滚动：给每列保留最小可读宽度，不再把汉字挤成竖排 */
+  .rsp-w5 > table { min-width: 310px !important; }
+  .rsp-w6 > table { min-width: 372px !important; }
+  .rsp-w7 > table { min-width: 434px !important; }
+  .rsp-w8 > table { min-width: 496px !important; }
+  .rsp-w9 > table { min-width: 558px !important; }
+  .rsp-w10 > table { min-width: 620px !important; }
+  .rsp-w11 > table { min-width: 682px !important; }
+  .rsp-w12 > table { min-width: 744px !important; }
+  .rsp-w13 > table { min-width: 806px !important; }
+  .rsp-w14 > table { min-width: 868px !important; }
+  .rsp-w15 > table { min-width: 930px !important; }
+  .rsp-w16 > table { min-width: 992px !important; }
+}
+
+/* ========== 3. 手机：指标卡两列、页头转纵向 ========== */
+@media screen and (max-width: 720px) {
+  body {
+    max-width: 100% !important;
+    padding: 18px 16px 44px 16px !important;
+    font-size: 10.5pt;
+  }
+  h2 { font-size: 15pt !important; margin: 20pt 0 7pt 0 !important; }
+  h3 { font-size: 12.5pt !important; }
+  h1 { font-size: 19pt !important; }
+  p, li { line-height: 1.62; }
+  ul, ol { padding-left: 17pt; }
+
+  .report-header { flex-direction: column; align-items: stretch; gap: 8pt; }
+  .price-block { text-align: left; padding-top: 0; }
+  .price-current { font-size: 24pt !important; }
+  .ticker-name { font-size: 21pt !important; }
+  .ticker-sub { font-size: 9.5pt !important; }
+
+  .metrics { gap: 9pt 12pt; }
+  .metric { flex: 1 1 45%; }
+  .metric-value { font-size: 15pt !important; }
+  .metric-label { font-size: 8.5pt !important; white-space: normal !important; }
+
+  table, .kami-table { font-size: 9pt !important; }
+  .longtable { font-size: 8.5pt !important; }
+  .wide { font-size: 7.5pt !important; }
+  .dense { font-size: 8pt !important; }
+  table th, table td, .kami-table th, .kami-table td { padding: 5pt 6pt !important; }
+
+  blockquote, .quote, .note, .warn, .callout, .risk-item { padding: 9pt 11pt !important; }
+  .risk-grid { grid-template-columns: 1fr !important; }
+  .report-footer { flex-direction: column; align-items: flex-start; gap: 3pt; }
+}
+
+/* ========== 4. 小屏手机：指标卡单列、边距收到最紧 ========== */
+@media screen and (max-width: 430px) {
+  body { padding: 14px 12px 38px 12px !important; }
+  h2 { font-size: 14pt !important; }
+  h3 { font-size: 11.5pt !important; }
+  .ticker-name { font-size: 19pt !important; }
+  .price-current { font-size: 21pt !important; }
+  .metric { flex: 1 1 100%; }
+  .metric-value { font-size: 16pt !important; }
+  ul, ol { padding-left: 15pt; }
+  table, .kami-table { font-size: 8.5pt !important; }
+}
+
+/* ========== 5. 打印：把包裹层还原成透明，PDF 版式与补丁前完全一致 ========== */
+@media print {
+  .rsp-table { margin: 0; padding: 0; overflow: visible !important; background: none !important; }
+  .rsp-table > table { margin: 8pt 0; min-width: 0 !important; }
+  [class*="rsp-w"] > table { min-width: 0 !important; }
+}
+</style>
+</head>
+<body>
+
+<div class="report-header">
+  <div class="ticker-block">
+    <div class="ticker-eyebrow">电力 · 常规能源发电商 · 七年财务研究</div>
+    <div class="ticker-name">国电电力 <span style="font-size:13pt;color:#7C7B77;font-weight:400;">600795.SH</span></div>
+    <div class="ticker-sub">报告期：<strong>2019—2025 年度（连续七个完整年度）＋ 2026 年半年度</strong><br>
+      口径：中国企业会计准则合并报表　|　币种：人民币　|　单位：亿元（特别注明除外）</div>
+  </div>
+  <div class="price-block">
+    <div class="price-current">+45.23%</div>
+    <div class="price-change">2025 年扣非归母净利润同比</div>
+    <div class="price-date">同期归母净利润同比 &minus;27.15%（2024 年含 51.65 亿元处置收益）</div>
+  </div>
+</div>
+
+<div class="metrics">
+  <div class="metric"><div class="metric-value">1,702.44</div><div class="metric-label">2025 年营业收入（亿元）<br>同比 &minus;4.99%，连续第三年下滑</div></div>
+  <div class="metric"><div class="metric-value">71.61</div><div class="metric-label">2025 年归母净利润（亿元）<br>同比 &minus;27.15%，创七年第二高</div></div>
+  <div class="metric"><div class="metric-value">67.76</div><div class="metric-label">2025 年扣非归母净利润（亿元）<br>同比 +45.23%，为七年最高</div></div>
+  <div class="metric"><div class="metric-value">+78.54</div><div class="metric-label">2025 年自由现金流（亿元）<br>近三年首次转正</div></div>
+  <div class="metric"><div class="metric-value">60.02%</div><div class="metric-label">2025 年现金分红率<br>同比 +23.74 个百分点</div></div>
+</div>
+
+<p class="note">数据来源：公司 2019—2025 年年度报告、2025 年与 2026 年半年度报告等已披露文件（已下载至本目录）。 币种与单位：如无特别说明，金额为<strong>人民币亿元</strong>；装机容量为万千瓦；电量为亿千瓦时；上网电价为元/兆瓦时；标煤单价为元/吨。 会计准则：中国企业会计准则（CAS）。 <strong>口径提示（关键）</strong>：公司 2021 年实施同一控制下企业合并（发行股份购买资产），2019—2020 年比较数经追溯重述，2022—2023 年仍有后续重述调整。同一会计年度在不同年报中的数字并不一致（例如 2021 年归母净利润在 2021／2022／2023 年三份年报中分别为 −19.68／−18.56／−22.18 亿元）。<strong>表 1 一律采用最新年报披露的重述后口径</strong>；表 2 列示各年年报的当期合并数，两表口径差异已在表注标明。 报告日期：2026-09-21。</p>
+<h2>一、公司概况</h2>
+<p>国电电力发展股份有限公司（以下简称「国电电力」或「公司」）是国家能源投资集团有限责任公司旗下的常规能源发电上市平台，1997 年 3 月在上海证券交易所上市（600795.SH）。公司主营业务为电力、热力的生产与销售，电源结构覆盖火电（煤电、燃气）、水电、风电、太阳能光伏四大板块，并延伸至煤炭、贸易等配套业务。</p>
+<p><strong>一家以火电为主体、正快速向新能源倾斜的全国性发电商</strong>：截至 2025 年末，公司控股装机容量 12,678.86 万千瓦，其中火电 8,227.30 万千瓦（占 64.89%）、水电 1,513.06 万千瓦（11.93%）、风电 1,049.52 万千瓦（8.28%）、光伏 1,888.98 万千瓦（14.90%）。2025 年完成发电量 4,674.22 亿千瓦时、上网电量 4,443.40 亿千瓦时，供热量 2.04 亿吉焦，平均上网电价 400.90 元/兆瓦时。</p>
+<p><strong>2025 年关键体量</strong>：营业收入 <strong>1,702.44 亿元</strong>（同比 −4.99%），归属于上市公司股东的净利润 <strong>71.61 亿元</strong>（同比 −27.15%），但<strong>扣除非经常性损益后的归母净利润 67.76 亿元、同比 +45.23%</strong>；经营活动产生的现金流量净额 536.68 亿元；总资产 5,201.52 亿元，归属于上市公司股东的净资产 594.71 亿元。</p>
+<p>公司所处行业 2025 年出现标志性变化：全社会用电量 10.37 万亿千瓦时，首次突破 10 万亿千瓦时，同比增长 5.0%；同期煤电发电量同比下降 1.9%，占总发电量比重降至 51.1%，而新能源新增发电量占全社会新增用电量的 <strong>97.1%</strong>——增量电量已完全由新能源承担。</p>
+<h2>二、核心财务数据对比</h2>
+<h3>表 1　经营业绩与盈利能力（2019—2025，重述口径）</h3>
+<div class="rsp-table rsp-w8"><table class="compact longtable">
+<thead><tr><th>指标</th><th>2019 年</th><th>2020 年</th><th>2021 年</th><th>2022 年</th><th>2023 年</th><th>2024 年</th><th>2025 年</th></tr></thead>
+<tbody>
+  <tr><td>营业收入（亿元）</td><td>1,355.03</td><td>1,443.02</td><td>1,697.25</td><td>1,946.74</td><td>1,809.99</td><td>1,791.82</td><td>1,702.44</td></tr>
+  <tr><td>营业收入同比（%）</td><td>—</td><td>+6.49</td><td>+17.62</td><td>+14.70</td><td>−7.02</td><td>−1.00</td><td>−4.99</td></tr>
+  <tr><td>归母净利润（亿元）</td><td>21.58</td><td>42.33</td><td><strong>−22.18</strong></td><td>27.44</td><td>56.09</td><td>98.31</td><td>71.61</td></tr>
+  <tr><td>归母净利润同比（%）</td><td>—</td><td>+96.19</td><td>转亏</td><td>扭亏</td><td>+104.41</td><td>+75.28</td><td>−27.15</td></tr>
+  <tr><td>扣非归母净利润（亿元）</td><td>−8.73</td><td>−5.72</td><td><strong>−41.64</strong></td><td>24.62</td><td>48.70</td><td>46.66</td><td><strong>67.76</strong></td></tr>
+  <tr><td>扣非归母同比（%）</td><td>—</td><td>亏损收窄</td><td>亏损扩大</td><td>扭亏</td><td>+97.78</td><td>−4.20</td><td><strong>+45.23</strong></td></tr>
+  <tr><td>基本每股收益（元）</td><td>0.110</td><td>0.218</td><td>−0.123</td><td>0.154</td><td>0.314</td><td>0.551</td><td>0.402</td></tr>
+  <tr><td>加权平均 ROE（%）</td><td>3.257</td><td>6.299</td><td>−3.734</td><td>6.072</td><td>11.834</td><td>18.598</td><td>12.283</td></tr>
+  <tr><td>扣非加权 ROE（%）</td><td>−1.348</td><td>−0.883</td><td>−7.126</td><td>5.467</td><td>10.357</td><td>9.280</td><td><strong>11.661</strong></td></tr>
+  <tr><td>经营活动现金流净额（亿元）</td><td>377.41</td><td>422.42</td><td>216.46</td><td>377.38</td><td>425.84</td><td>556.40</td><td>536.68</td></tr>
+</tbody>
+</table></div>
+<p class="note">数据来源：2025 年年度报告（2023—2025）、2024 年年度报告（2022）、2023 年年度报告（2021）、2021 年年度报告（2019—2020）的「近三年主要会计数据和财务指标」表，一律取各年报披露的<strong>调整后（重述后）</strong>列。2021 年归母净利润在 2021 年年报原报为 −19.68 亿元，经 2022 年、2023 年两次追溯重述后为 −22.18 亿元。</p>
+<p><strong>观察</strong>：</p>
+<ul>
+  <li><strong>这是一条由煤价主导的「V 型反转」曲线</strong>：2021 年受煤价暴涨冲击，扣非归母亏损 41.64 亿元，为七年间最低点；2022 年电价市场化改革全面落地后扭亏；2023—2025 年扣非归母净利润 48.70 →<wbr> 46.66 →<wbr> <strong>67.76 亿元</strong>，连续三年站稳在 45 亿元以上。</li>
+  <li><strong>2024 年是「账面高点」，2025 年才是「经营高点」</strong>：2024 年归母净利润 98.31 亿元看似历史最佳，但其中 51.65 亿元来自非经常性损益（主要是转让国电建投内蒙古能源有限公司 50% 股权的投资收益）；剔除后扣非归母仅 46.66 亿元，反而略低于 2023 年。2025 年情形完全相反——归母净利润同比下降 27.15%，扣非归母却创下七年最高的 67.76 亿元。</li>
+  <li><strong>扣非 ROE 首次超过加权 ROE</strong>（2025 年 11.661% vs 12.283%）的差距收窄至 0.62 个百分点，2024 年这一差距曾高达 9.32 个百分点——这是「利润成色回归主业」的直接读数。</li>
+  <li>营业收入自 2022 年见顶（1,946.74 亿元）后连续三年下滑，累计 −12.5%，主要受电量结构变化与电价下行影响，而非经营规模收缩（同期装机容量增长 30.2%）。</li>
+</ul>
+<figure>
+<div class="chart">
+<div class="ch-title">图 1　归母净利润与扣非归母净利润（2019—2025，单位：亿元）</div>
+<div class="ch-sub">两条曲线的分岔点出现在 2024 年：归母净利润 98.31 亿元为七年最高，扣非仅 46.66 亿元、反而低于 2023 年</div>
+<div class="ch-legend"><span class="lg"><i style="background:#2F6F6B"></i>归母净利润</span><span class="lg"><i style="background:#A73F2D"></i>扣非归母净利润</span></div>
+<div class="ch-rows">
+<div class="ch-row"><span class="ch-lab">2019</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:15.37%;background:#2F6F6B;opacity:1"></div><span class="ch-val">21.58</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:6.22%;background:#A73F2D;opacity:0.55"></div><span class="ch-val">-8.73</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2020</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:30.14%;background:#2F6F6B;opacity:1"></div><span class="ch-val">42.33</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:4.07%;background:#A73F2D;opacity:0.55"></div><span class="ch-val">-5.72</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2021</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:15.79%;background:#2F6F6B;opacity:0.55"></div><span class="ch-val">-22.18</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:29.65%;background:#A73F2D;opacity:0.55"></div><span class="ch-val">-41.64</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2022</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:19.54%;background:#2F6F6B;opacity:1"></div><span class="ch-val">27.44</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:17.53%;background:#A73F2D;opacity:1"></div><span class="ch-val">24.62</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2023</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:39.94%;background:#2F6F6B;opacity:1"></div><span class="ch-val">56.09</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:34.68%;background:#A73F2D;opacity:1"></div><span class="ch-val">48.70</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2024</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:70.00%;background:#2F6F6B;opacity:1"></div><span class="ch-val">98.31</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:33.22%;background:#A73F2D;opacity:1"></div><span class="ch-val">46.66</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2025</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:50.99%;background:#2F6F6B;opacity:1"></div><span class="ch-val">71.61</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:48.25%;background:#A73F2D;opacity:1"></div><span class="ch-val">67.76</span></div>
+</div></div>
+</div>
+<div class="ch-scale">数值单位：亿元（条形长度按各行最大值等比缩放）</div>
+</div>
+<figcaption>图 1　2024 年归母与扣非的 51.65 亿元差额，来自转让国电建投内蒙古能源有限公司 50% 股权的处置收益；2025 年情形完全反转——归母净利润同比下降 27.15%，扣非归母却同比增长 45.23% 至 67.76 亿元，为七年最高（数据来源：国电电力 2019—2025 年年度报告）</figcaption>
+<p class="fig-note">注：浅色条＝负值（亏损年度）。2021 年为扣非亏损最深的一年（−41.64 亿元），2022 年电价市场化改革落地后扭亏为盈。</p>
+</figure>
+<h3>表 2　资产负债与资本结构（2021—2025）</h3>
+<div class="rsp-table rsp-w6"><table class="compact">
+<thead><tr><th>指标</th><th>2021 年末</th><th>2022 年末</th><th>2023 年末</th><th>2024 年末</th><th>2025 年末</th></tr></thead>
+<tbody>
+  <tr><td>总资产（亿元）</td><td>3,979.09</td><td>4,128.52</td><td>4,578.99</td><td>4,939.36</td><td>5,201.52</td></tr>
+  <tr><td>总负债（亿元）</td><td>2,867.36</td><td>3,025.80</td><td>3,384.73</td><td>3,625.72</td><td>3,820.38</td></tr>
+  <tr><td>资产负债率（%）</td><td>72.06</td><td>73.29</td><td>73.92</td><td>73.40</td><td>73.45</td></tr>
+  <tr><td>归母股东权益（亿元）</td><td>438.18</td><td>450.61</td><td>487.62</td><td>560.34</td><td>594.71</td></tr>
+  <tr><td>少数股东权益（亿元）</td><td>653.70</td><td>652.11</td><td>706.64</td><td>753.31</td><td>786.43</td></tr>
+  <tr><td>少数股东权益占所有者权益比（%）</td><td>59.87</td><td>59.14</td><td>59.17</td><td>57.35</td><td>56.95</td></tr>
+  <tr><td>归母净利润占净利润比（%）</td><td>亏损</td><td>39.9</td><td>47.9</td><td>59.1</td><td>52.2</td></tr>
+</tbody>
+</table></div>
+<p class="note">口径说明：本表采用各年年报合并资产负债表的<strong>当期数</strong>（未采用追溯重述数），故归母股东权益与总资产与表 1 的重述口径存在小幅差异（如 2021 年末归母权益：表 1 重述口径 440.36 亿元 / 本表当期数 438.18 亿元）。资产负债率为总负债÷总资产。 「归母净利润占净利润比」＝归母净利润 ÷（归母净利润＋少数股东损益），四舍五入至 0.1 个百分点。</p>
+<p><strong>观察</strong>：</p>
+<ul>
+  <li><strong>高杠杆是这门生意的底色</strong>：资产负债率长期稳定在 72%—74% 区间，五年间仅上升 1.39 个百分点。总负债五年增长 33.2%，与总资产增速（30.7%）基本同步，说明扩张由债务与留存收益共同支撑，而非单纯加杠杆。</li>
+  <li><strong>少数股东权益长期高于归母权益</strong>：2025 年末少数股东权益 786.43 亿元，是归母股东权益（594.71 亿元）的 <strong>1.32 倍</strong>。这是电力公司「控股不控利」的典型结构——公司以控股方式合并大量合资电厂，但相当比例的利润归属于合作方。五年间少数股东权益占所有者权益比重由 59.87% 缓慢降至 56.95%，属边际改善。</li>
+  <li><strong>归母净利润占比在 52%—59% 之间波动</strong>，2025 年为 52.2%，比 2024 年回落 6.9 个百分点——原因是火电板块（少数股东占比最高的板块）利润占比上升。</li>
+</ul>
+<h3>表 3　现金流量与资本开支（2023—2025）</h3>
+<div class="rsp-table"><table class="compact">
+<thead><tr><th>项目</th><th>2023 年</th><th>2024 年</th><th>2025 年</th></tr></thead>
+<tbody>
+  <tr><td>经营活动现金流净额</td><td>425.84</td><td>556.40</td><td>536.68</td></tr>
+  <tr><td>投资活动现金流净额</td><td>−468.60</td><td>−487.45</td><td>−453.11</td></tr>
+  <tr><td>筹资活动现金流净额</td><td>+49.29</td><td>−102.42</td><td>−81.71</td></tr>
+  <tr><td>资本开支（购建固定资产等支付的现金）</td><td>497.69</td><td>580.96</td><td><strong>458.14</strong></td></tr>
+  <tr class="total"><td><strong>自由现金流（经营现金流 − 资本开支）</strong></td><td><strong>−71.85</strong></td><td><strong>−24.56</strong></td><td><strong>+78.54</strong></td></tr>
+</tbody>
+</table></div>
+<p class="note">数据来源：各年年度报告合并现金流量表。「资本开支」取「购建固定资产、无形资产和其他长期资产支付的现金」。</p>
+<p><strong>观察</strong>：</p>
+<ul>
+  <li><strong>自由现金流在 2025 年首次转正</strong>（+78.54 亿元），此前两年分别为 −71.85 亿元与 −24.56 亿元。转折来自两端：资本开支从 580.96 亿元压降 21.1% 至 458.14 亿元（2025 年火电新增装机主要是 2024 年开工项目的收尾投产），同时经营现金流仅微降 3.54%。</li>
+  <li>这也是公司 2025 年把分红率从 36.28% 一次性提升至 <strong>60.02%</strong> 的财务基础——分红 42.98 亿元相当于当年自由现金流的 54.7%。</li>
+  <li>投资活动现金流出规模（453.11 亿元）与资本开支基本相当，说明公司投资现金流主体就是电源建设，金融性投资占比很小；筹资活动连续两年净流出，对应债务规模进入稳定期。</li>
+</ul>
+<h2>三、经营数据：装机、电量、电价与燃料</h2>
+<p>对发电企业而言，财务数据是结果，装机、电量、电价、燃料成本才是原因。这一节先建立「四条主线」的数据基线。</p>
+<figure>
+<div class="chart">
+<div class="ch-title">图 2　营业收入（2019—2025，单位：亿元）</div>
+<div class="ch-sub">收入在 2022 年见顶 1,946.74 亿元后连续三年下滑，累计 −12.5%；同期控股装机容量增长 30.2%</div>
+<div class="ch-legend"><span class="lg"><i style="background:#1B365D"></i>营业收入</span></div>
+<div class="ch-rows">
+<div class="ch-row"><span class="ch-lab">2019</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:48.72%;background:#1B365D;opacity:1"></div><span class="ch-val">1,355.03</span></div>
+<span class="ch-hint">—</span>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2020</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:51.89%;background:#1B365D;opacity:1"></div><span class="ch-val">1,443.02</span></div>
+<span class="ch-hint">+6.49%</span>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2021</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:61.03%;background:#1B365D;opacity:1"></div><span class="ch-val">1,697.25</span></div>
+<span class="ch-hint">+17.62%</span>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2022</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:70.00%;background:#1B365D;opacity:1"></div><span class="ch-val">1,946.74</span></div>
+<span class="ch-hint">+14.70%</span>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2023</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:65.08%;background:#1B365D;opacity:1"></div><span class="ch-val">1,809.99</span></div>
+<span class="ch-hint">−7.02%</span>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2024</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:64.43%;background:#1B365D;opacity:1"></div><span class="ch-val">1,791.82</span></div>
+<span class="ch-hint">−1.00%</span>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2025</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:61.22%;background:#1B365D;opacity:1"></div><span class="ch-val">1,702.44</span></div>
+<span class="ch-hint">−4.99%</span>
+</div></div>
+</div>
+<div class="ch-scale">数值单位：亿元（条形长度按各行最大值等比缩放）</div>
+</div>
+<figcaption>图 2　收入下滑不是规模收缩，而是价格与结构的双重作用：电量三年间基本持平（4,633.55 → 4,674.22 亿千瓦时），而综合上网电价从 438.88 元/兆瓦时降至 400.90 元/兆瓦时（−8.7%），叠加低电价的风光电量占比上升（数据来源：国电电力 2019—2025 年年度报告）</figcaption>
+<p class="fig-note">注：行末小字为该年营业收入同比增速。</p>
+</figure>
+<h3>表 4　控股装机容量结构（2019—2026H1，单位：万千瓦）</h3>
+<div class="rsp-table rsp-w9"><table class="compact">
+<thead><tr><th>板块</th><th>2019 年末</th><th>2020 年末</th><th>2021 年末</th><th>2022 年末</th><th>2023 年末</th><th>2024 年末</th><th>2025 年末</th><th style="border-left:1.6px solid #A73F2D">2026H1 末</th></tr></thead>
+<tbody>
+  <tr><td>火电（煤机＋燃机）</td><td>6,873.70</td><td>6,707.70</td><td>7,739.96</td><td>7,183.50</td><td>7,279.40</td><td>7,462.90</td><td>8,227.30</td><td style="border-left:1.6px solid #A73F2D">8,302.30</td></tr>
+  <tr><td>水电</td><td>1,437.18</td><td>1,437.18</td><td>1,497.24</td><td>1,495.66</td><td>1,495.06</td><td>1,495.06</td><td>1,513.06</td><td style="border-left:1.6px solid #A73F2D">1,685.06</td></tr>
+  <tr><td>风电</td><td>605.61</td><td>633.11</td><td>707.06</td><td>745.93</td><td>929.33</td><td>983.98</td><td>1,049.52</td><td style="border-left:1.6px solid #A73F2D">1,067.48</td></tr>
+  <tr><td>光伏</td><td>21.20</td><td>21.20</td><td>36.59</td><td>313.01</td><td>854.18</td><td>1,228.06</td><td>1,888.98</td><td style="border-left:1.6px solid #A73F2D">1,974.28</td></tr>
+  <tr class="total"><td><strong>合计</strong></td><td><strong>8,937.69</strong></td><td><strong>8,799.19</strong></td><td><strong>9,980.85</strong></td><td><strong>9,738.10</strong></td><td><strong>10,557.97</strong></td><td><strong>11,170.00</strong></td><td><strong>12,678.86</strong></td><td style="border-left:1.6px solid #A73F2D"><strong>13,029.12</strong></td></tr>
+  <tr><td>非化石能源占比（%）</td><td>23.09</td><td>23.77</td><td>22.45</td><td>26.23</td><td>31.05</td><td>33.19</td><td>35.11</td><td style="border-left:1.6px solid #A73F2D">36.28</td></tr>
+  <tr><td>权益装机（万千瓦）</td><td>—</td><td>—</td><td>4,976.67</td><td>5,309.32</td><td>5,876.98</td><td>6,267.30</td><td>7,215.60</td><td style="border-left:1.6px solid #A73F2D">7,518.93</td></tr>
+  <tr><td>权益口径非化石占比（%）</td><td>—</td><td>—</td><td>—</td><td>39.54</td><td>45.95</td><td>46.27</td><td>49.64</td><td style="border-left:1.6px solid #A73F2D">50.72</td></tr>
+</tbody>
+</table></div>
+<p class="note">口径：控股装机容量＝全资电厂＋控股电厂装机之和；非化石能源＝水电＋风电＋光伏。2022 年火电装机下降 556.46 万千瓦，系转让宁夏区域火电资产（减少 664 万千瓦）与上海庙 200 万千瓦机组投产共同作用。</p>
+<figure>
+<div class="chart">
+<div class="ch-title">图 3　入炉标煤单价与平均上网电价（2021—2026H1）</div>
+<div class="ch-sub">煤价 2022 年见顶（978.78 元/吨）后连降三年至 825.06 元/吨，2026 上半年回升 0.64%；电价则持续下行</div>
+<div class="ch-legend"><span class="lg"><i style="background:#A73F2D"></i>入炉标煤单价（元/吨）</span><span class="lg"><i style="background:#2F6F6B"></i>平均上网电价（元/兆瓦时）</span></div>
+<div class="ch-rows">
+<div class="ch-row"><span class="ch-lab">2021</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:64.40%;background:#A73F2D;opacity:1"></div><span class="ch-val">900.42</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:25.84%;background:#2F6F6B;opacity:1"></div><span class="ch-val">361.34</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2022</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:70.00%;background:#A73F2D;opacity:1"></div><span class="ch-val">978.78</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:31.39%;background:#2F6F6B;opacity:1"></div><span class="ch-val">438.88</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2023</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:66.87%;background:#A73F2D;opacity:1"></div><span class="ch-val">934.96</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:31.31%;background:#2F6F6B;opacity:1"></div><span class="ch-val">437.78</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2024</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:65.95%;background:#A73F2D;opacity:1"></div><span class="ch-val">922.17</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:30.74%;background:#2F6F6B;opacity:1"></div><span class="ch-val">429.82</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2025</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:59.01%;background:#A73F2D;opacity:1"></div><span class="ch-val">825.06</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:28.67%;background:#2F6F6B;opacity:1"></div><span class="ch-val">400.90</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2026H1</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:59.85%;background:#A73F2D;opacity:1"></div><span class="ch-val">836.84</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:28.13%;background:#2F6F6B;opacity:1"></div><span class="ch-val">393.31</span></div>
+</div></div>
+</div>
+<div class="ch-scale">数值按各自量纲（左列煤价、右列电价）（条形长度按各行最大值等比缩放）</div>
+</div>
+<figcaption>图 3　两条曲线的相对位置决定火电利润：2023—2025 年煤价降幅始终大于电价降幅（煤价累计 −15.7%、电价 −8.7%），这是扣非利润三年改善的引擎；2026 上半年剪刀差反向——煤价回升 0.64% 而电价下降 16.40 元/兆瓦时，当期归母净利润随之同比下降 18.25%（数据来源：国电电力 2021—2025 年年度报告、2026 年半年度报告）</figcaption>
+<p class="fig-note">注：两种指标量纲不同（元/吨 与 元/兆瓦时），本图仅用于展示两者的相对走势与剪刀差变化，不可直接相减；2026H1 为半年度口径。</p>
+</figure>
+<h3>表 5　发电量与设备利用小时（2019—2026H1）</h3>
+<div class="rsp-table rsp-w9"><table class="compact">
+<thead><tr><th>指标</th><th>2019 年</th><th>2020 年</th><th>2021 年</th><th>2022 年</th><th>2023 年</th><th>2024 年</th><th>2025 年</th><th style="border-left:1.6px solid #A73F2D">2026H1</th></tr></thead>
+<tbody>
+  <tr><td>发电量（亿千瓦时）</td><td>3,663.58</td><td>3,773.63</td><td>4,640.96</td><td>4,633.55</td><td>4,526.36</td><td>4,594.52</td><td>4,674.22</td><td style="border-left:1.6px solid #A73F2D">2,189.10</td></tr>
+  <tr><td>上网电量（亿千瓦时）</td><td>—</td><td>3,579.63</td><td>4,403.79</td><td>4,405.45</td><td>4,298.38</td><td>4,366.82</td><td>4,443.40</td><td style="border-left:1.6px solid #A73F2D">2,078.73</td></tr>
+  <tr><td>发电设备利用小时</td><td>3,825</td><td>3,758</td><td>4,730</td><td>4,656</td><td>4,511</td><td>4,301</td><td>3,906</td><td style="border-left:1.6px solid #A73F2D">1,715</td></tr>
+  <tr><td>其中：火电（小时）</td><td>—</td><td>—</td><td>4,730</td><td>5,197</td><td>5,210</td><td>5,178</td><td>4,850</td><td style="border-left:1.6px solid #A73F2D">2,158</td></tr>
+  <tr><td>水电（小时）</td><td>—</td><td>—</td><td>—</td><td>3,751</td><td>3,685</td><td>3,978</td><td>3,680</td><td style="border-left:1.6px solid #A73F2D">1,521</td></tr>
+  <tr><td>风电（小时）</td><td>—</td><td>—</td><td>—</td><td>2,245</td><td>2,296</td><td>2,122</td><td>2,108</td><td style="border-left:1.6px solid #A73F2D">965</td></tr>
+  <tr><td>光伏（小时）</td><td>—</td><td>—</td><td>—</td><td>1,216</td><td>1,161</td><td>1,061</td><td>1,259</td><td style="border-left:1.6px solid #A73F2D">577</td></tr>
+</tbody>
+</table></div>
+<p class="note">2026H1 的利用小时为半年度口径，与年度数不可直接比较。2025 年火电利用小时按年报「分板块」表口径（煤机 4,850 小时、燃机 1,966 小时）。</p>
+<h3>表 6　上网电价与入炉标煤单价（2021—2026H1）</h3>
+<div class="rsp-table rsp-w7"><table class="compact">
+<thead><tr><th>指标</th><th>2021 年</th><th>2022 年</th><th>2023 年</th><th>2024 年</th><th>2025 年</th><th style="border-left:1.6px solid #A73F2D">2026H1</th></tr></thead>
+<tbody>
+  <tr><td>平均上网电价（元/兆瓦时）</td><td>361.34</td><td>438.88</td><td>437.78</td><td>429.82</td><td>400.90</td><td style="border-left:1.6px solid #A73F2D">393.31</td></tr>
+  <tr><td>其中：煤机电价（元/兆瓦时）</td><td>—</td><td>461.73</td><td>461.28</td><td>457.52</td><td>424.02</td><td style="border-left:1.6px solid #A73F2D">409.32</td></tr>
+  <tr><td>入炉标煤单价（元/吨）</td><td>900.42</td><td>978.78</td><td>934.96</td><td>922.17</td><td>825.06</td><td style="border-left:1.6px solid #A73F2D">836.84</td></tr>
+  <tr><td>入炉标煤量（亿吨）</td><td>1.20</td><td>1.20</td><td>1.13</td><td>1.12</td><td>1.12</td><td style="border-left:1.6px solid #A73F2D">0.5337</td></tr>
+  <tr><td>火电度电标煤成本（元/兆瓦时）</td><td>277.3</td><td>302.5</td><td>283.3</td><td>280.3</td><td>250.3</td><td style="border-left:1.6px solid #A73F2D">256.5</td></tr>
+  <tr><td>长协煤采购占比（%）</td><td>—</td><td>—</td><td>—</td><td>—</td><td>97.73</td><td style="border-left:1.6px solid #A73F2D">99.00</td></tr>
+  <tr><td>市场化交易电量占上网电量比（%）</td><td>—</td><td>93.15</td><td>92.29</td><td>—</td><td>91.73</td><td style="border-left:1.6px solid #A73F2D">93.72</td></tr>
+</tbody>
+</table></div>
+<p class="note">「火电度电标煤成本」＝入炉标煤量 × 入炉标煤单价 ÷ 火电发电量，为按入炉量口径的估算值，未考虑存货变动，仅用于跨期方向性比较。 2026H1 的煤价、电价、煤量均为半年度口径。</p>
+<p><strong>观察</strong>：</p>
+<ul>
+  <li><strong>「煤价定火电利润」的机制在这里可以精确量化</strong>：入炉标煤单价在 2022 年见顶（978.78 元/吨）后连续三年下行至 825.06 元/吨（累计 −15.7%），火电度电标煤成本同步从 302.5 元/兆瓦时降至 250.3 元/兆瓦时（−52.2 元/兆瓦时，降幅 17.3%）。以 2025 年火电发电量 3,691.44 亿千瓦时计，仅此一项即释放燃料成本约 193 亿元。</li>
+  <li><strong>电价降幅小于煤价降幅是 2025 年利润改善的直接来源</strong>：2025 年公司综合上网电价下降 28.92 元/兆瓦时（−6.7%），而煤价下降 10.53%；煤机口径看，电价从 457.52 降至 424.02 元/兆瓦时（−33.50），而度电标煤成本下降 30.0 元/兆瓦时——两者降幅相近，但火电还享受了燃机扩容与供热等非电收入的增量。</li>
+  <li><strong>2026 年上半年这一剪刀差反向</strong>：煤价同比回升 0.64% 至 836.84 元/吨，电价同比下降 16.40 元/兆瓦时，度电标煤成本反而上升 6.2 元/兆瓦时。这是 2026 上半年归母净利润同比下降 18.25% 的核心原因。</li>
+  <li><strong>长协煤是「减速器」而非「稳定器」</strong>：2025 年长协煤占比 97.73%、2026H1 进一步升至 99%。高长协比例在煤价上行期提供了确定的成本保护，但在煤价下行期也意味着市场煤的降价红利传导更慢——这解释了为什么 2024 年煤价已下行 1.4%，度电成本却几乎没有改善。</li>
+</ul>
+<figure>
+<div class="chart">
+<div class="ch-title">图 4　控股装机容量结构：三个时点的对比（单位：万千瓦）</div>
+<div class="ch-sub">总装机从 8,937.69 万千瓦增至 13,029.12 万千瓦（+45.8%）；光伏从 21.20 万千瓦增至 1,974.28 万千瓦（+93 倍）</div>
+<div class="ch-legend"><span class="lg"><i style="background:#8B8880"></i>2019 年末</span><span class="lg"><i style="background:#B8862F"></i>2022 年末</span><span class="lg"><i style="background:#2F6F6B"></i>2026H1 末</span></div>
+<div class="ch-rows">
+<div class="ch-row"><span class="ch-lab">火电（煤机＋燃机）</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:57.95%;background:#8B8880;opacity:1"></div><span class="ch-val">6,873.70</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:60.57%;background:#B8862F;opacity:1"></div><span class="ch-val">7,183.50</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:70.00%;background:#2F6F6B;opacity:1"></div><span class="ch-val">8,302.30</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">水电</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:12.12%;background:#8B8880;opacity:1"></div><span class="ch-val">1,437.18</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:12.61%;background:#B8862F;opacity:1"></div><span class="ch-val">1,495.66</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:14.21%;background:#2F6F6B;opacity:1"></div><span class="ch-val">1,685.06</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">风电</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:5.11%;background:#8B8880;opacity:1"></div><span class="ch-val">605.61</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:6.29%;background:#B8862F;opacity:1"></div><span class="ch-val">745.93</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:9.00%;background:#2F6F6B;opacity:1"></div><span class="ch-val">1,067.48</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">光伏</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:0.18%;background:#8B8880;opacity:1"></div><span class="ch-val">21.20</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:2.64%;background:#B8862F;opacity:1"></div><span class="ch-val">313.01</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:16.65%;background:#2F6F6B;opacity:1"></div><span class="ch-val">1,974.28</span></div>
+</div></div>
+</div>
+<div class="ch-scale">数值单位：万千瓦（条形长度按各行最大值等比缩放）</div>
+</div>
+<figcaption>图 4　结构转型的方向清晰但基数悬殊：火电三年半增加 1,428.60 万千瓦（+20.8%），而光伏增加 1,953.08 万千瓦；非化石能源控股装机占比从 23.09% 升至 36.28%，权益口径（剔除少数股东对应装机）已达 50.72%（数据来源：国电电力 2019—2025 年年度报告、2026 年半年度报告）</figcaption>
+<p class="fig-note">注：三组条形长度按各板块三时点最大值等比缩放，跨板块不可直接比较长度；同一板块内三个时点可直接比较。</p>
+</figure>
+<h2>四、三张财务报表关键变化与趋势含义</h2>
+<h3>4.1　合并利润表：从哪里省出了 45% 的扣非利润</h3>
+<div class="rsp-table"><table class="compact longtable">
+<thead><tr><th>项目</th><th>2025 年</th><th>2024 年</th><th>变动</th></tr></thead>
+<tbody>
+  <tr><td>营业收入</td><td>1,702.44</td><td>1,791.82</td><td>−4.99%</td></tr>
+  <tr><td>营业成本</td><td>1,437.92</td><td>1,536.74</td><td>−6.43%</td></tr>
+  <tr><td>税金及附加</td><td>23.59</td><td>18.72</td><td>+26.02%</td></tr>
+  <tr><td>管理费用</td><td>20.27</td><td>22.18</td><td>−8.60%</td></tr>
+  <tr><td>财务费用</td><td>58.88</td><td>65.51</td><td>−10.12%</td></tr>
+  <tr><td>投资收益</td><td>23.61</td><td>73.33</td><td>−67.80%</td></tr>
+  <tr><td>信用减值损失</td><td>−1.18</td><td>−7.83</td><td>减值收窄</td></tr>
+  <tr><td>资产减值损失</td><td>−4.71</td><td>−13.94</td><td>减值收窄</td></tr>
+  <tr><td>营业利润</td><td>180.33</td><td>200.25</td><td>−9.95%</td></tr>
+  <tr><td>所得税费用</td><td>40.69</td><td>38.05</td><td>+6.94%</td></tr>
+  <tr><td>净利润</td><td>137.27</td><td>166.43</td><td>−17.52%</td></tr>
+  <tr><td>其中：少数股东损益</td><td>65.66</td><td>68.12</td><td>−3.62%</td></tr>
+  <tr class="total"><td><strong>归母净利润</strong></td><td><strong>71.61</strong></td><td><strong>98.31</strong></td><td><strong>−27.15%</strong></td></tr>
+</tbody>
+</table></div>
+<p><strong>轨迹与含义</strong>：</p>
+<ul>
+  <li><strong>收入下降 89.38 亿元，成本下降 98.82 亿元</strong>，毛利率因此从 14.24% 提升至 15.54%（+1.30 个百分点）。这是典型的「量增价减、成本降幅更大」组合——电量微增 1.74%，电价降 6.7%，而燃料成本降幅超过收入降幅。</li>
+  <li><strong>投资收益锐减 49.72 亿元是归母净利润下滑的全部原因</strong>：2024 年投资收益 73.33 亿元中含转让国电建投 50% 股权的处置收益，2025 年回落至 23.61 亿元（其中对联营合营企业的权益法投资收益 21.20 亿元，构成稳定基本盘）。</li>
+  <li><strong>财务费用连续下降</strong>（65.51 →<wbr> 58.88 亿元，−10.12%），是利率下行周期中最直接的红利。但需注意其绝对规模仍高达 58.88 亿元，相当于当年归母净利润的 82.2%——<strong>利息支出是这家公司利润表上最重的单一固定成本</strong>。</li>
+  <li>减值损失大幅收窄（信用＋资产减值合计从 21.77 亿元降至 5.89 亿元），其中 2024 年计提的大兴川电站在建工程减值为一次性事项。</li>
+  <li>实际税率从 18.61% 升至 22.87%（所得税 40.69 ÷ 利润总额 177.96），对净利润形成额外拖累——<strong>若按 2024 年税率回算，2025 年净利润将为 144.97 亿元，比实际多 7.70 亿元</strong>。这一项与煤价、电价的经营改善方向相反，属需要持续跟踪的变量。</li>
+</ul>
+<h3>4.2　合并资产负债表：重资产与它的两个数字</h3>
+<div class="rsp-table"><table class="compact longtable">
+<thead><tr><th>项目</th><th>2025 年末</th><th>2024 年末</th><th>变动</th></tr></thead>
+<tbody>
+  <tr><td>货币资金</td><td>158.21</td><td>154.37</td><td>+2.49%</td></tr>
+  <tr><td>应收账款</td><td>262.93</td><td>284.67</td><td>−7.64%</td></tr>
+  <tr><td>存货</td><td>59.29</td><td>61.48</td><td>−3.56%</td></tr>
+  <tr><td>长期股权投资</td><td>179.18</td><td>164.04</td><td>+9.23%</td></tr>
+  <tr><td>固定资产</td><td>3,316.54</td><td>2,933.75</td><td>+13.05%</td></tr>
+  <tr><td>在建工程</td><td>818.38</td><td>903.09</td><td>−9.38%</td></tr>
+  <tr class="total"><td><strong>资产总计</strong></td><td><strong>5,201.52</strong></td><td><strong>4,939.36</strong></td><td><strong>+5.31%</strong></td></tr>
+  <tr><td>短期借款</td><td>324.09</td><td>304.13</td><td>+6.56%</td></tr>
+  <tr><td>一年内到期的非流动负债</td><td>385.27</td><td>340.28</td><td>+13.22%</td></tr>
+  <tr><td>长期借款</td><td>1,926.50</td><td>2,092.12</td><td>−7.92%</td></tr>
+  <tr><td>应付债券</td><td>206.02</td><td>7.21</td><td>大幅增加</td></tr>
+  <tr class="total"><td><strong>负债合计</strong></td><td><strong>3,820.38</strong></td><td><strong>3,625.72</strong></td><td><strong>+5.37%</strong></td></tr>
+  <tr><td>归母股东权益</td><td>594.71</td><td>560.34</td><td>+6.13%</td></tr>
+  <tr><td>少数股东权益</td><td>786.43</td><td>753.31</td><td>+4.40%</td></tr>
+</tbody>
+</table></div>
+<p><strong>轨迹与含义</strong>：</p>
+<ul>
+  <li><strong>固定资产增加 382.79 亿元、在建工程减少 84.71 亿元</strong>，一增一减之间是 2025 年「投产大于开工」的资本开支节奏：全年新增控股装机 1,508.86 万千瓦（火电 764.40 万千瓦、新能源 726.46 万千瓦），大量在建项目转入固定资产并开始计提折旧。这意味着<strong>未来数年折旧压力将同步上升</strong>。</li>
+  <li><strong>债务结构显著调整</strong>：长期借款压降 165.62 亿元，而应付债券从 7.21 亿元激增至 206.02 亿元。这是一次「以债换贷」的融资替代——用债券置换银行贷款，通常可以拉长期限、降低综合融资成本，与财务费用下降 10.12% 相互印证。</li>
+  <li><strong>有息负债约 2,841.88 亿元</strong>（短期借款＋一年内到期非流动负债＋长期借款＋应付债券），占总资产的 54.6%。这一比率远高于账面资产负债率 73.45% 所暗示的「总负债」概念，因为总负债中还包含应付账款 285.75 亿元、其他应付款等无息经营性负债。<strong>衡量这家公司的真实财务压力，应看有息负债而非资产负债率</strong>。</li>
+  <li><strong>应收账款下降 7.64%</strong> 至 262.93 亿元（可再生补贴回款与电费结算改善），占营业收入比重 15.4%，仍在合理区间。</li>
+</ul>
+<h3>4.3　合并现金流量表：利润的现金含量</h3>
+<ul>
+  <li><strong>经营活动现金流净额 536.68 亿元，是归母净利润的 7.49 倍、净利润的 3.91 倍</strong>。这一比例在电力行业属正常水平（折旧摊销金额巨大，2025 年固定资产折旧约 209 亿元），但它同时说明公司利润的「现金底子」扎实。</li>
+  <li><strong>扣除资本开支 458.14 亿元后，自由现金流 +78.54 亿元</strong>，为近三年首次转正。</li>
+  <li>分配股利、利润或偿付利息支付的现金 164.35 亿元，其中<strong>支付给少数股东的股利、利润 58.08 亿元</strong>（同比 +43.4%），是支付给母公司股东分红金额的 1.35 倍——再次印证「利润先分给合作方」的结构特征。</li>
+  <li>筹资活动净流出 81.71 亿元，公司已从「借新还旧型扩张」进入「还债型收缩」，这是分红率提升的另一个前提。</li>
+</ul>
+<h3>4.4　三表联动结论</h3>
+<p>损益表看「经营真相」：<strong>2025 年的真实经营质量是七年最好的一年</strong>（扣非归母 67.76 亿元、扣非 ROE 11.661%），表观的下滑完全由 2024 年一次性处置收益的高基数造成。资产负债表看「结构与约束」：资产端重资产化仍在推进（固定资产＋在建工程合计 4,134.92 亿元，占总资产 79.5%），负债端完成了从银行贷款向债券的置换，但有息负债规模仍达 2,842 亿元。现金流量表看「造血能力」：经营现金流连续三年稳定在 420 亿元以上，资本开支迎来拐点，自由现金流转正是分红率跃升至 60% 的底气。三者共同刻画了一家<strong>在煤价下行周期中完成利润修复、同时开始向股东回报倾斜的重资产发电商</strong>。</p>
+<h2>五、分板块经营分析</h2>
+<h3>表 7　2025 年分板块经营数据</h3>
+<div class="rsp-table rsp-w9"><table class="compact longtable">
+<thead><tr><th>指标</th><th>煤机</th><th>燃机</th><th>水电</th><th>风电</th><th>光伏</th><th>其他</th><th>抵消</th><th>合计</th></tr></thead>
+<tbody>
+  <tr><td>控股装机（万千瓦）</td><td>8,024.90</td><td>202.40</td><td>1,513.06</td><td>1,049.52</td><td>1,888.98</td><td>—</td><td>—</td><td>12,678.86</td></tr>
+  <tr><td>权益装机（万千瓦）</td><td>3,513.70</td><td>119.84</td><td>1,174.23</td><td>904.72</td><td>1,503.11</td><td>—</td><td>—</td><td>7,215.60</td></tr>
+  <tr><td>发电量（亿千瓦时）</td><td>3,655.05</td><td>36.39</td><td>551.21</td><td>212.91</td><td>218.66</td><td>—</td><td>—</td><td>4,674.22</td></tr>
+  <tr><td>平均上网电价（元/兆瓦时）</td><td>424.02</td><td>797.00</td><td>236.70</td><td>453.38</td><td>331.41</td><td>—</td><td>—</td><td>400.90</td></tr>
+  <tr><td>发电利用小时</td><td>4,850</td><td>1,966</td><td>3,680</td><td>2,108</td><td>1,259</td><td>—</td><td>—</td><td>3,906</td></tr>
+  <tr><td>净利润（亿元）</td><td>98.02</td><td>0.21</td><td>21.42</td><td>12.58</td><td>9.97</td><td>−4.75</td><td>−0.18</td><td>137.27</td></tr>
+  <tr><td>归母净利润（亿元）</td><td>43.85</td><td>0.15</td><td>16.27</td><td>8.60</td><td>7.02</td><td>−4.10</td><td>−0.18</td><td>71.61</td></tr>
+  <tr><td>总资产（亿元）</td><td>2,092.99</td><td>44.44</td><td>1,494.73</td><td>671.47</td><td>853.31</td><td>1,265.27</td><td>−1,220.70</td><td>5,201.52</td></tr>
+  <tr><td>净资产（亿元）</td><td>1,107.05</td><td>14.32</td><td>377.18</td><td>274.40</td><td>303.88</td><td>385.60</td><td>−1,081.29</td><td>1,381.14</td></tr>
+  <tr><td>前期基建支出（亿元）</td><td>151.55</td><td>—</td><td>121.79</td><td>173.43</td><td>1.05</td><td>—</td><td>—</td><td>447.82</td></tr>
+</tbody>
+</table></div>
+<p class="note">「前期基建支出」按年报口径为各板块的前期基建投入，其他板块与合计列的口径存在差异（合计 447.82 亿元），按原表列示。</p>
+<p><strong>分板块的三个结构性事实（三个都重要）</strong>：</p>
+<ul>
+  <li><strong>火电是利润主体，但贡献度低于其资产占比</strong>：煤机板块以 63.3% 的控股装机贡献了 71.4% 的净利润（98.02／137.27），但归母口径下仅贡献 61.2%（43.85／71.61）——因为煤电资产的合资比例最高（煤机权益装机仅为控股装机的 43.8%）。</li>
+  <li><strong>水电用 11.9% 的装机贡献 15.6% 的净利润</strong>，且归母留存率最高（归母 16.27／净利润 21.42 = 76.0%），是「质」最好的板块。其上网电价仅 236.70 元/兆瓦时，却是四大板块中盈利效率最高的——因为水电无燃料成本。</li>
+  <li><strong>新能源已具规模但盈利贡献仍然有限</strong>：风电＋光伏合计控股装机 2,938.50 万千瓦（占 23.2%），合计归母净利润 15.62 亿元（占 21.8%）。其中光伏板块的平均上网电价仅 331.41 元/兆瓦时、利用小时 1,259 小时，度电盈利能力明显弱于风电（453.38 元/兆瓦时、2,108 小时）——<strong>这是理解「新能源装机高增长≠利润高增长」的关键</strong>。</li>
+</ul>
+<figure>
+<div class="chart">
+<div class="ch-title">图 5　煤机度电毛利拆解（2022—2026H1，单位：元/兆瓦时）</div>
+<div class="ch-sub">度电标煤成本从 302.5 降至 250.3 元/兆瓦时（−17.3%），2026 上半年回升至 256.5</div>
+<div class="ch-legend"><span class="lg"><i style="background:#1B365D"></i>煤机上网电价</span><span class="lg"><i style="background:#A73F2D"></i>度电标煤成本</span><span class="lg"><i style="background:#2F6F6B"></i>度电毛利（电价 − 标煤成本）</span></div>
+<div class="ch-rows">
+<div class="ch-row"><span class="ch-lab">2022</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:70.00%;background:#1B365D;opacity:1"></div><span class="ch-val">461.73</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:45.86%;background:#A73F2D;opacity:1"></div><span class="ch-val">302.50</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:24.14%;background:#2F6F6B;opacity:1"></div><span class="ch-val">159.20</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2023</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:69.93%;background:#1B365D;opacity:1"></div><span class="ch-val">461.28</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:42.95%;background:#A73F2D;opacity:1"></div><span class="ch-val">283.30</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:26.99%;background:#2F6F6B;opacity:1"></div><span class="ch-val">178.00</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2024</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:69.36%;background:#1B365D;opacity:1"></div><span class="ch-val">457.52</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:42.49%;background:#A73F2D;opacity:1"></div><span class="ch-val">280.30</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:26.86%;background:#2F6F6B;opacity:1"></div><span class="ch-val">177.20</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2025</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:64.28%;background:#1B365D;opacity:1"></div><span class="ch-val">424.02</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:37.95%;background:#A73F2D;opacity:1"></div><span class="ch-val">250.30</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:26.33%;background:#2F6F6B;opacity:1"></div><span class="ch-val">173.70</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2026H1</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:62.05%;background:#1B365D;opacity:1"></div><span class="ch-val">409.32</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:38.89%;background:#A73F2D;opacity:1"></div><span class="ch-val">256.50</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:23.17%;background:#2F6F6B;opacity:1"></div><span class="ch-val">152.80</span></div>
+</div></div>
+</div>
+<div class="ch-scale">数值单位：元/兆瓦时（条形长度按各行最大值等比缩放）</div>
+</div>
+<figcaption>图 5　火电盈利的三段式：2022 年电价大涨（461.73）但煤价更高，度电毛利 159.2 元/兆瓦时；2023 年煤价回落带来毛利跳升至 178.0 元/兆瓦时；2025 年电价降至 424.02 元/兆瓦时，靠煤价降幅更大维持 173.7 元/兆瓦时；2026 上半年煤价回升、电价再降，度电毛利收窄至 152.8 元/兆瓦时——为五年最低（数据来源：国电电力 2022—2025 年年度报告、2026 年半年度报告）</figcaption>
+<p class="fig-note">注：度电标煤成本＝入炉标煤量 × 入炉标煤单价 ÷ 火电发电量，为按入炉量口径的估算值，未考虑存货变动。</p>
+</figure>
+<figure>
+<div class="chart">
+<div class="ch-title">图 6　分板块归母净利润（2025 年全年 vs 2026 年上半年，单位：亿元）</div>
+<div class="ch-sub">煤机仍是最主要利润来源（2025 年 43.85 亿元），但 2026 上半年降至 16.41 亿元；水电升至 10.81 亿元</div>
+<div class="ch-legend"><span class="lg"><i style="background:#2F6F6B"></i>2025 年全年</span><span class="lg"><i style="background:#A73F2D"></i>2026 年上半年</span></div>
+<div class="ch-rows">
+<div class="ch-row"><span class="ch-lab">煤机</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:70.00%;background:#2F6F6B;opacity:1"></div><span class="ch-val">43.85</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:26.20%;background:#A73F2D;opacity:0.55"></div><span class="ch-val">16.41</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">水电</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:25.97%;background:#2F6F6B;opacity:1"></div><span class="ch-val">16.27</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:17.26%;background:#A73F2D;opacity:0.55"></div><span class="ch-val">10.81</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">风电</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:13.73%;background:#2F6F6B;opacity:1"></div><span class="ch-val">8.60</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:6.34%;background:#A73F2D;opacity:0.55"></div><span class="ch-val">3.97</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">光伏</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:11.21%;background:#2F6F6B;opacity:1"></div><span class="ch-val">7.02</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:3.56%;background:#A73F2D;opacity:0.55"></div><span class="ch-val">2.23</span></div>
+</div></div>
+</div>
+<div class="ch-scale">数值单位：亿元（条形长度按各行最大值等比缩放）</div>
+</div>
+<figcaption>图 6　利润结构的接力正在发生：2026 上半年煤机归母净利润仅为 2025 年全年的 37.4%，而水电（含大渡河枕头坝、沙坪、金川、双江口共 172 万千瓦新机组投产）达到 2025 年全年的 66.4%，占当期归母净利润的 35.9%（2025 年全年为 22.7%）（数据来源：国电电力 2025 年年度报告、2026 年半年度报告）</figcaption>
+<p class="fig-note">注：浅色条＝2026 年上半年（半年度口径），与全年数据不可直接比较；两期均未计入「其他板块」与「抵消数」（2025 年合计 −4.28 亿元、2026 上半年 −3.53 亿元）。</p>
+</figure>
+<h3>表 8　2026 年上半年分板块经营数据</h3>
+<div class="rsp-table rsp-w9"><table class="compact">
+<thead><tr><th>指标</th><th>煤机</th><th>燃机</th><th>水电</th><th>风电</th><th>光伏</th><th>其他</th><th>抵消</th><th>合计</th></tr></thead>
+<tbody>
+  <tr><td>控股装机（万千瓦）</td><td>8,099.90</td><td>202.40</td><td>1,685.06</td><td>1,067.48</td><td>1,974.28</td><td>—</td><td>—</td><td>13,029.12</td></tr>
+  <tr><td>发电量（亿千瓦时）</td><td>1,730.38</td><td>11.06</td><td>232.63</td><td>102.45</td><td>112.58</td><td>—</td><td>—</td><td>2,189.10</td></tr>
+  <tr><td>平均上网电价（元/兆瓦时）</td><td>409.32</td><td>986.20</td><td>273.38</td><td>435.71</td><td>309.89</td><td>—</td><td>—</td><td>393.31</td></tr>
+  <tr><td>发电利用小时</td><td>2,158</td><td>546</td><td>1,521</td><td>965</td><td>577</td><td>—</td><td>—</td><td>1,715</td></tr>
+  <tr><td>净利润（亿元）</td><td>38.10</td><td>0.35</td><td>14.49</td><td>5.23</td><td>2.85</td><td>−3.73</td><td>−0.05</td><td>57.24</td></tr>
+  <tr><td>归母净利润（亿元）</td><td>16.41</td><td>0.25</td><td>10.81</td><td>3.97</td><td>2.23</td><td>−3.48</td><td>−0.05</td><td>30.14</td></tr>
+</tbody>
+</table></div>
+<p class="note">2026 年上半年水电控股装机较 2025 年末增加 172 万千瓦（枕头坝 30 万千瓦、沙坪 6 万千瓦、金川 86 万千瓦、双江口 50 万千瓦投产），是当期装机结构中最显著的变化。</p>
+<p><strong>观察</strong>：</p>
+<ul>
+  <li><strong>煤机利润被两端挤压</strong>：电价从 424.02 降至 409.32 元/兆瓦时（−14.70），而度电标煤成本从 250.3 升至 256.5 元/兆瓦时（+6.2），度电毛利空间收窄约 21 元/兆瓦时。煤机归母净利润 16.41 亿元，不足 2025 年全年（43.85 亿元）的 38%。</li>
+  <li><strong>水电成为第二支柱</strong>：水电装机增加 172 万千瓦（大渡河梯级电站投产），归母净利润 10.81 亿元，占当期归母净利润的 35.9%（2025 年全年为 22.7%）。水电电价稳定（273.38 元/兆瓦时）、无燃料成本，是对冲煤价波动的最优资产。</li>
+  <li><strong>风电首次出现电量下滑</strong>：风电发电量同比下降 9.77%，利用小时同比下降 162 小时（965 小时），是四大板块中唯一负增长者，主要受风资源条件影响。</li>
+</ul>
+<h2>六、2026 年上半年经营情况</h2>
+<div class="rsp-table"><table class="compact longtable">
+<thead><tr><th>指标</th><th style="border-left:1.6px solid #A73F2D">2026H1</th><th>2025H1</th><th>同比</th></tr></thead>
+<tbody>
+  <tr><td>营业收入（亿元）</td><td style="border-left:1.6px solid #A73F2D">790.29</td><td>776.55</td><td>+1.77%</td></tr>
+  <tr><td>归母净利润（亿元）</td><td style="border-left:1.6px solid #A73F2D">30.14</td><td>36.87</td><td>−18.25%</td></tr>
+  <tr><td>归母净资产（亿元）</td><td style="border-left:1.6px solid #A73F2D">602.49</td><td>579.97</td><td>+3.90%</td></tr>
+  <tr><td>总资产（亿元）</td><td style="border-left:1.6px solid #A73F2D">5,244.48</td><td>5,104.41</td><td>+2.75%</td></tr>
+  <tr><td>基本每股收益（元）</td><td style="border-left:1.6px solid #A73F2D">0.169</td><td>0.207</td><td>−18.36%</td></tr>
+  <tr><td>加权平均 ROE（%）</td><td style="border-left:1.6px solid #A73F2D">4.934</td><td>6.357</td><td>−1.423 个百分点</td></tr>
+  <tr><td>经营活动现金流净额（亿元）</td><td style="border-left:1.6px solid #A73F2D">205.17</td><td>259.77</td><td>−21.02%</td></tr>
+  <tr><td>发电量（亿千瓦时）</td><td style="border-left:1.6px solid #A73F2D">2,189.10</td><td>2,060.26</td><td>+6.25%</td></tr>
+  <tr><td>平均上网电价（元/兆瓦时）</td><td style="border-left:1.6px solid #A73F2D">393.31</td><td>409.71</td><td>−16.40</td></tr>
+  <tr><td>入炉标煤单价（元/吨）</td><td style="border-left:1.6px solid #A73F2D">836.84</td><td>831.48</td><td>+0.64%</td></tr>
+  <tr><td>控股装机（万千瓦）</td><td style="border-left:1.6px solid #A73F2D">13,029.12</td><td>—</td><td>较 2025 年末 +350.26</td></tr>
+</tbody>
+</table></div>
+<p class="note">2026H1 与 2025H1 数据均取自 2026 年半年度报告的比较列；2025 年半年度报告披露的 2025H1 归母净利润为 36.87 亿元，与 2026 年中报比较列一致。</p>
+<p><strong>点评</strong>：</p>
+<ul>
+  <li><strong>量增价减，成本端由顺风转逆风</strong>。电量增长 6.25%（火电＋7.85%、水电＋1.72%、光伏＋8.93%）完全未能弥补电价下行 16.40 元/兆瓦时（−4.0%）与煤价小幅回升 0.64% 的双重压力。</li>
+  <li><strong>扣非归母同比下降 15.41%，降幅略小于归母的 18.25%</strong>——说明 2026 上半年没有大额非经常性收益，也没有一次性损失，利润下滑是纯粹的经营性问题。</li>
+  <li>需要提示的是，2025H1 的归母净利润 36.87 亿元本身含一次性因素（2025 年上半年扣非归母同比 +56.12%，因上年同期有大兴川电站减值），因此 <strong>2026H1 的 −18.25% 是在一个偏低的基数上取得的，同比降幅不宜线性外推至全年</strong>。</li>
+  <li>装机继续扩张（半年新增 350.26 万千瓦，其中水电 172 万千瓦、新能源 103.26 万千瓦、火电 75 万千瓦），在建风电 186.59 万千瓦、在建光伏 522.43 万千瓦——<strong>资本开支在 2025 年短暂回落后，2026 年有重新走高的迹象</strong>。</li>
+</ul>
+<h2>七、主要风险与关注</h2>
+<ol>
+  <li><strong>煤价与电价的剪刀差方向已反转</strong>。2023—2025 年「煤价降幅大于电价降幅」是利润修复的引擎；2026 上半年煤价回升 0.64%、电价下降 16.40 元/兆瓦时，剪刀差反向。<strong>若该趋势延续，火电利润的三年修复期将结束</strong>。公司 99% 的长协煤比例会延缓这一过程，但无法改变方向。</li>
+  <li><strong>电价市场化下行的长期性</strong>。新能源大规模并网压低了整体电价水平，公司综合上网电价从 2022 年高点 438.88 元/兆瓦时降至 2026H1 的 393.31 元/兆瓦时（累计 −10.4%）。市场化交易电量占比已升至 93.72%，电价的可控性下降。</li>
+  <li><strong>高有息负债与利息支出的刚性</strong>。有息负债约 2,842 亿元，2025 年财务费用 58.88 亿元，相当于归母净利润的 82.2%。虽然利率下行带来改善，但规模仍在扩张期，<strong>利率若上行将直接侵蚀利润</strong>。</li>
+  <li><strong>少数股东长期分走约一半利润</strong>。少数股东权益（786.43 亿元）超过归母权益（594.71 亿元），归母净利润占净利润比重仅 52.2%。公司装机增长带来的利润增量中，近一半不归上市公司股东。</li>
+  <li><strong>折旧压力的滞后集中释放</strong>。固定资产一年内增加 382.79 亿元、在建工程 818.38 亿元待转固。新增机组投产后的折旧与利息费用化，将在此后数年持续压低单位盈利。</li>
+  <li><strong>新能源板块的盈利质量低于装机增速</strong>。风电＋光伏控股装机已占 23.2%，但归母净利润贡献仅 21.8%；光伏利用小时 1,259 小时、电价 331.41 元/兆瓦时，度电盈利能力明显弱于火电与风电。<strong>装机增长与利润增长之间存在结构性折价</strong>。</li>
+  <li><strong>2025 年第四季度利润异常偏低需持续观察</strong>。2025 年 Q4 归母净利润 3.85 亿元，仅占全年 5.4%，为前三季度单季均值（22.59 亿元）的 17.0%；且扣非口径同样偏低（3.52 亿元），说明并非一次性损益所致。<strong>单季利润不可线性外推</strong>。</li>
+</ol>
+<h2>八、结论</h2>
+<p>国电电力是一家<strong>由煤价与电价两条曲线共同定价的重资产发电商</strong>。2019—2025 年，公司经历了一个完整的周期：2021 年煤价暴涨导致扣非亏损 41.64 亿元；2022 年电价市场化改革落地后扭亏；2023—2025 年在煤价连续下行中实现扣非利润三年改善（48.70 →<wbr> 46.66 →<wbr> 67.76 亿元）。</p>
+<p><strong>2025 年年报最重要的一件事，是表观与真实的背离</strong>：归母净利润同比下降 27.15%，但扣非归母净利润同比增长 45.23%、创七年新高。前者源于 2024 年 51.65 亿元一次性处置收益（转让国电建投 50% 股权）的高基数，后者才是经营本身——收入虽降 4.99%，但成本降幅更大（−6.43%），毛利率提升 1.30 个百分点，财务费用下降 10.12%，减值损失从 21.77 亿元收窄至 5.89 亿元。<strong>如果只看归母净利润，会得出与事实相反的结论。</strong></p>
+<p>同期，公司的资产结构完成了两件有意义的事：一是装机结构持续向新能源倾斜，非化石能源控股装机占比从 2019 年的 23.09% 升至 2026H1 的 36.28%（权益口径已达 50.72%），水电在大渡河梯级电站投产后成为第二利润支柱；二是资本开支迎来拐点（580.96 →<wbr> 458.14 亿元），<strong>自由现金流首次转正（+78.54 亿元）</strong>，公司随即把分红率从 36.28% 一次性提升至 60.02%（每 10 股派 2.41 元、合计 42.98 亿元）。</p>
+<p>但必须看到约束同样清晰：资产负债率长期在 73%—74%，有息负债约 2,842 亿元，财务费用相当于归母净利润的 82.2%；少数股东权益超过归母权益，上市公司股东只能获得约一半的合并利润；折旧压力将随新增装机投产滞后释放。</p>
+<p><strong>2026 年上半年已经释放了周期转向的信号</strong>：煤价同比回升 0.64%、电价同比下行 16.40 元/兆瓦时，归母净利润 30.14 亿元、同比下降 18.25%（扣非 −15.41%）。电量增长 6.25% 无法抵消价格端的双重挤压。</p>
+<p>综合而言：<strong>这家公司的投资价值取决于三件事的赛跑</strong>——火电度电毛利的收窄速度、水电与新能源新增装机带来的利润增量、以及资本开支下行释放的自由现金流能否持续支撑高分红。2025 年三者的方向都是正面的；2026 上半年，第一条已经转向，第二条（水电＋172 万千瓦投产、归母 10.81 亿元）与第三条（经营现金流 205.17 亿元、同比 −21%）则一正一负。<strong>未来的关键观察点是：煤价上行周期中，水电与新能源的利润增量能否接住火电的下滑。</strong></p>
+<h2>附录：数据来源与口径</h2>
+<ul>
+  <li><strong>文件来源</strong>：本目录下公司 2019—2025 年年度报告、2019—2026 年半年度报告与季度报告等已披露文件。核心数据取自各年年报「近三年主要会计数据和财务指标」表、管理层讨论与分析「分板块主要经营数据」表、合并三大报表，以及各年半年报的对应章节。</li>
+  <li><strong>抽取方式</strong>：<code>pdftotext -layout</code> 抽取文本后按行定位取值；跨期数据取各年报披露的<strong>重述后</strong>列。</li>
+  <li><strong>口径说明</strong>：</li>
+</ul>
+<ol>
+  <li>金额单位为人民币亿元，比率、每股指标另行标注；装机为万千瓦，电量为亿千瓦时，电价为元/兆瓦时，煤价为元/吨。</li>
+  <li><strong>追溯重述</strong>：2021 年公司实施同一控制下企业合并（发行股份购买资产），2019—2020 年比较数经重述；2022—2023 年另有后续调整。同一会计年度在不同年报中的数字存在差异（2021 年归母净利润：2021 年报 −19.68 亿元、2022 年报 −18.56 亿元、2023 年报 −22.18 亿元），本报告表 1 一律采用最新重述口径。</li>
+  <li>表 2 采用各年年报合并资产负债表的<strong>当期数</strong>，与表 1 的重述口径存在小幅差异（2021 年末归母净资产：重述口径 440.36 亿元 / 当期数 438.18 亿元）。差异源于同一控制下企业合并的追溯调整，两表已在各表注明。</li>
+  <li>「火电度电标煤成本」为按入炉标煤量×入炉标煤单价÷火电发电量的估算值，未考虑存货变动，仅作跨期方向性比较。</li>
+  <li>未披露项以「—」表示，未作任何推算或编造。</li>
+</ol>
+</body>
+</html>
