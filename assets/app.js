@@ -14,6 +14,9 @@
       code: c.code || "",
       sector: c.sector || "",
       short: c.short || c.name,
+      // 「专题」类条目（跨公司比较等）在树里置顶并加视觉强调，
+      // 由数据字段驱动，不写死具体 slug
+      featured: !!(c.featured || c.sector === "跨公司比较"),
       reports: (c.reports || []).map(function (r) {
         var copy = {};
         for (var k in r) { if (Object.prototype.hasOwnProperty.call(r, k)) copy[k] = r[k]; }
@@ -25,6 +28,11 @@
         return copy;
       })
     };
+  });
+
+  // 置顶排序：featured 的排到最前（保持各自原有相对顺序，稳定排序）
+  companies.sort(function (a, b) {
+    return (b.featured ? 1 : 0) - (a.featured ? 1 : 0);
   });
 
   var flat = [];
@@ -108,6 +116,7 @@
     var q = state.query.trim().toLowerCase();
     var html = "";
     var hits = 0;
+    var sepDone = false;        // 置顶区之后插入一次分隔标签
 
     companies.forEach(function (c) {
       var reports = c.reports.filter(function (r) { return matchReport(r, q); });
@@ -117,7 +126,15 @@
       var activeHere = state.current && state.current.companyId === c.id;
       var open = q ? true : (state.open[c.id] || activeHere);
 
+      // 搜索时不分置顶区，也不显示分隔标签
+      var isFeat = c.featured && !q;
+      if (!q && !isFeat && !sepDone) {
+        sepDone = true;
+        html += '<li class="tree-sep" aria-hidden="true"><span>全部公司分析</span></li>';
+      }
+
       html += '<li class="company' + (open ? " open" : "") + (activeHere ? " active" : "") +
+        (isFeat ? " featured" : "") +
         '" data-cid="' + esc(c.id) + '">';
       html += '<button class="company-head" type="button" aria-expanded="' + (open ? "true" : "false") + '">' +
         '<span class="company-flag"></span>' +

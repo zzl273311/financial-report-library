@@ -254,6 +254,39 @@ ul { list-style: none; }
 
 .company { border-bottom: 1px solid var(--border-soft); }
 
+/* ===== 置顶专题（投资组合筛选等跨公司比较） ===== */
+/* 置于树最前，用左侧色条 + 底色 + 标签做视觉区分，便于优先查看 */
+.company.featured {
+  margin: 2px 8px 4px;
+  border: 1px solid rgba(167, 63, 45, .28);
+  border-left: 3px solid var(--brand);
+  border-radius: 7px;
+  background: linear-gradient(180deg, rgba(167, 63, 45, .07), rgba(167, 63, 45, .03));
+  overflow: hidden;
+}
+.company.featured > .company-head { padding-left: 9px; }
+.company.featured .company-name { color: var(--brand); font-weight: 600; }
+.company.featured .company-flag { background: var(--brand); }
+
+/* 置顶区与普通区之间的分隔标签 */
+.tree-sep {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 14px 6px;
+  font-size: 10px;
+  letter-spacing: .6px;
+  color: var(--stone);
+  text-transform: none;
+  user-select: none;
+}
+.tree-sep::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--border-soft);
+}
+
 .company-head {
   width: 100%;
   display: flex;
