@@ -182,6 +182,10 @@
   .wf-bar { position: absolute; top: 0; height: 12pt; border-radius: 1.5pt; }
   .wf-up { background: #A73F2D; } .wf-down { background: #2F6F6B; }
   .wf-tot { background: #1B365D; }
+  /* 零基线：由 --wf-zero 定位，负值区在零线左侧 */
+  .wf-track::after { content: ""; position: absolute; top: -1pt; bottom: -1pt;
+                     left: var(--wf-zero, 0%); width: 0;
+                     border-left: 0.75pt dashed #8C857A; }
 
   .fig-note { font-size: 7.8pt; color: #7C7B77; margin-top: 4pt; line-height: 1.42; }
   figure { break-inside: avoid; margin: 10pt 0; }
@@ -569,12 +573,12 @@
 <h2>五、现金流量表：本年度最关键的一张表</h2>
 <figure class="ch"><div class="ch-title">图 5　自由现金流从 +738.70 亿元坠至 −466.09 亿元</div>
 <div class="ch-sub">单位：亿元 · FY2025 → FY2026</div>
-<div class="ch-row"><div class="ch-lab">FY2025 自由现金流</div><div class="wf-track"><span class="wf-bar wf-start" style="left:0.00%;width:100.00%"></span></div><div class="ch-val">739</div></div>
-<div class="ch-row"><div class="ch-lab">经营现金流下降</div><div class="wf-track"><span class="wf-bar wf-down" style="left:-18.18%;width:118.18%"></span></div><div class="ch-val">-873</div></div>
-<div class="ch-row"><div class="ch-lab">资本开支增加</div><div class="wf-track"><span class="wf-bar wf-down" style="left:-69.27%;width:51.09%"></span></div><div class="ch-val">-377</div></div>
-<div class="ch-row"><div class="ch-lab">无形资产购置</div><div class="wf-track"><span class="wf-bar wf-down" style="left:-70.46%;width:1.18%"></span></div><div class="ch-val">-9</div></div>
-<div class="ch-row"><div class="ch-lab">买家保护基金变动</div><div class="wf-track"><span class="wf-bar wf-up" style="left:-70.46%;width:7.36%"></span></div><div class="ch-val">54</div></div>
-<div class="ch-row"><div class="ch-lab">FY2026 自由现金流</div><div class="wf-track"><span class="wf-bar wf-end" style="left:0.00%;width:-63.10%"></span></div><div class="ch-val">-466</div></div>
+<div class="ch-row"><div class="ch-lab">FY2025 自由现金流</div><div class="wf-track" style="--wf-zero:41.33%"><span class="wf-bar wf-tot" style="left:41.33%;width:58.67%"></span></div><div class="ch-val">739</div></div>
+<div class="ch-row"><div class="ch-lab">经营现金流下降</div><div class="wf-track" style="--wf-zero:41.33%"><span class="wf-bar wf-down" style="left:30.67%;width:69.33%"></span></div><div class="ch-val">-873</div></div>
+<div class="ch-row"><div class="ch-lab">资本开支增加</div><div class="wf-track" style="--wf-zero:41.33%"><span class="wf-bar wf-down" style="left:0.69%;width:29.97%"></span></div><div class="ch-val">-377</div></div>
+<div class="ch-row"><div class="ch-lab">无形资产购置</div><div class="wf-track" style="--wf-zero:41.33%"><span class="wf-bar wf-down" style="left:0.00%;width:0.69%"></span></div><div class="ch-val">-9</div></div>
+<div class="ch-row"><div class="ch-lab">买家保护基金变动</div><div class="wf-track" style="--wf-zero:41.33%"><span class="wf-bar wf-up" style="left:0.00%;width:4.32%"></span></div><div class="ch-val">54</div></div>
+<div class="ch-row"><div class="ch-lab">FY2026 自由现金流</div><div class="wf-track" style="--wf-zero:41.33%"><span class="wf-bar wf-tot" style="left:4.32%;width:37.02%"></span></div><div class="ch-val">-466</div></div>
 <div class="ch-legend"><span class="lg"><i class="wf-up"></i>正贡献</span><span class="lg"><i class="wf-down"></i>负贡献</span><span class="lg"><i class="wf-tot"></i>合计</span></div>
 <figcaption>两条线同时恶化：经营现金流减少 873.00 亿元（−53.4%），资本开支却增加 377.43 亿元（+44.8%）。</figcaption>
 <div class="fig-note">公司口径：经营现金流下降归因于「对即时零售的投入以及云基础设施支出增加」；资本开支三年由 320.87 亿元跳升至 1,260.63 亿元（+3.9 倍）。</div>
