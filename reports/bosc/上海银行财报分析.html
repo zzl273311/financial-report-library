@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>上海银行（601229.SH）财报分析报告</title>
+<style>
+  html, body { background: #F7F4EE; }
+  :root {
+    --parchment:#F7F4EE; --ivory:#FBF9F4; --near-black:#22262B; --dark-warm:#3E4145;
+    --olive:#504e49; --stone:#7C7B77; --brand:#A73F2D; --brand-deep:#8A3223;
+    --accent:#A73F2D; --accent-soft:#F1E3DD; --gold:#B8862F; --teal:#2F6F6B; --blue:#1B365D;
+    --border:#E3DDD4;
+    --serif: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", "STSong", Georgia, serif;
+  }
+  @page {
+    size: A4; margin: 15mm 15mm 16mm 15mm; background: #F7F4EE;
+    @bottom-center { content: counter(page) "  \00b7  上海银行（601229.SH）财报分析报告";
+      font-family: var(--serif); font-size: 8.5pt; color: #6b6a64; }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  @media screen { body { max-width: 220mm; margin: 0 auto; padding: 15mm; } }
+  body { color: var(--near-black); font-family: var(--serif); font-size: 9.6pt; line-height: 1.5;
+    letter-spacing: 0.2pt; widows: 3; orphans: 3; }
+  strong { font-weight: 600; color: var(--near-black); }
+  code { font-family: ui-monospace, Menlo, monospace; font-size: 8.6pt; background: #F1EDE5;
+    padding: 0 3pt; border-radius: 2pt; }
+
+  .report-header { display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: 12pt; padding-bottom: 9pt; border-bottom: 0.5pt solid var(--border); }
+  .ticker-eyebrow { font-size: 8.6pt; color: var(--brand); letter-spacing: 1.4pt;
+    font-weight: 500; margin-bottom: 4pt; }
+  .ticker-name { font-size: 23pt; font-weight: 600; line-height: 1.15; margin-bottom: 4pt; }
+  .ticker-sub { font-size: 9pt; color: var(--stone); line-height: 1.45; }
+  .price-block { text-align: right; padding-top: 6pt; min-width: 34%; }
+  .price-current { font-size: 25pt; font-weight: 600; line-height: 1; color: var(--brand);
+    font-variant-numeric: tabular-nums; }
+  .price-change { font-size: 9pt; font-weight: 500; margin-top: 3pt; color: var(--near-black);
+    font-variant-numeric: tabular-nums; }
+  .price-date { font-size: 8.4pt; color: var(--stone); margin-top: 2pt; }
+
+  .metrics { display: flex; flex-wrap: wrap; gap: 10pt; margin-bottom: 14pt; padding: 7pt 0;
+    border-top: 0.3pt dotted var(--border); border-bottom: 0.3pt dotted var(--border); }
+  .metric { flex: 1 1 128px; min-width: 0; flex-direction: column; align-items: flex-start;
+    display: flex; }
+  .metric-value { font-size: 13pt; font-weight: 600; color: var(--brand); line-height: 1.1;
+    font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .metric-label { font-size: 8pt; color: var(--olive); line-height: 1.3; margin-top: 2pt;
+    white-space: normal; }
+  .metric:nth-child(1) .metric-value { color: var(--brand); }
+  .metric:nth-child(2) .metric-value { color: var(--teal); }
+  .metric:nth-child(3) .metric-value { color: var(--gold); }
+  .metric:nth-child(4) .metric-value { color: var(--blue); }
+  .metric:nth-child(5) .metric-value { color: var(--brand); }
+
+  h1 { font-size: 17pt; font-weight: 600; color: var(--near-black); margin: 4pt 0 10pt 0;
+    break-after: avoid; }
+  h2 { font-size: 14pt; font-weight: 600; position: relative; padding-left: 12pt;
+    margin: 16pt 0 6pt 0; break-after: avoid; }
+  h2::before { content:""; position:absolute; left:0; top:2.5pt; width:4pt; height:12pt;
+    background:var(--accent); border-radius:1pt; }
+  h3 { font-size: 11.4pt; font-weight: 600; color: var(--dark-warm); margin: 11pt 0 4pt 0;
+    break-after: avoid; }
+  h4 { font-size: 10.2pt; font-weight: 600; color: var(--dark-warm); margin: 9pt 0 3pt 0; break-after: avoid; }
+  p { margin: 0 0 6.2pt 0; widows: 2; orphans: 2; }
+  ul, ol { margin: 4pt 0 8pt 0; padding-left: 17pt; }
+  ul li::marker { color: var(--accent); } ol li::marker { color: var(--accent); font-weight: 600; }
+  ul li.sub { list-style: none; color: var(--olive); font-size: 9pt; margin-left: -8pt; }
+  ul ul { margin: 2pt 0 3pt 0; padding-left: 14pt; }
+  ol li { margin-bottom: 3pt; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 8.8pt; margin: 6pt 0;
+    break-inside: avoid; }
+  table th { text-align: left; font-weight: 600; color: var(--dark-warm); padding: 5pt 6pt;
+    border-bottom: 1pt solid var(--accent); background: transparent; }
+  table td { padding: 4pt 6pt; border-bottom: 0.25pt solid var(--border); vertical-align: top; }
+  table.compact th { padding: 4pt 5pt; font-size: 8.4pt; }
+  table.compact td { padding: 3.05pt 5pt; font-size: 8.4pt; line-height: 1.42; }
+  table.financial td:not(:first-child) { text-align: right; font-variant-numeric: tabular-nums; }
+  table.financial th:not(:first-child) { text-align: right; }
+  table .total td { font-weight: 600; border-top: 0.6pt solid var(--border); border-bottom: none; }
+  table.wide th, table.wide td { font-size: 6.9pt; padding: 2.4pt 2.8pt; letter-spacing: 0; }
+  table.longtable { break-inside: auto; }
+  table.longtable thead { display: table-header-group; }
+  table.longtable tr { break-inside: avoid; }
+  table.dense th { padding: 2.6pt 4pt; font-size: 7.8pt; }
+  table.dense td { padding: 2.2pt 4pt; font-size: 7.6pt; line-height: 1.34; }
+
+  p.note { font-size: 8pt; color: var(--stone); margin: 2pt 0 7pt 0; line-height: 1.45; }
+  p.warn { background: #FBF3EC; border-left: 3pt solid var(--gold); padding: 7pt 10pt;
+    border-radius: 3pt; margin: 8pt 0; break-inside: avoid; font-size: 8.2pt;
+    line-height: 1.48; color: var(--dark-warm); }
+
+  /* ===== 图表：纯 HTML/CSS，条形为 div，文字为真 HTML ===== */
+  figure { margin: 11pt 0; break-inside: avoid; }
+  figcaption { font-size: 8.4pt; color: var(--stone); margin-top: 5pt; line-height: 1.45; }
+  .fig-note { font-size: 8.2pt; color: var(--stone); margin-top: 3pt; line-height: 1.45; }
+  .chart { background: #FBF9F4; border: 0.4pt solid var(--border); border-radius: 4pt;
+    padding: 11pt 13pt 9pt 13pt; }
+  .ch-title { font-size: 11pt; font-weight: 600; color: var(--near-black); line-height: 1.35;
+    margin-bottom: 2pt; }
+  .ch-sub { font-size: 9pt; color: var(--stone); line-height: 1.4; margin-bottom: 7pt; }
+  .ch-legend { display: flex; flex-wrap: wrap; gap: 4pt 14pt; margin-bottom: 8pt; }
+  .ch-legend .lg { display: flex; align-items: center; gap: 4pt; font-size: 10px;
+    color: var(--dark-warm); flex: none; white-space: nowrap; }
+  .ch-legend .lg i { width: 11px; height: 9px; border-radius: 1px; display: inline-block;
+    flex: none; }
+  .ch-rows { display: flex; flex-direction: column; gap: 4pt; }
+  .ch-row { display: flex; align-items: flex-start; gap: 8pt; }
+  .ch-lab { flex: none; width: 100px; font-size: 11px; color: var(--dark-warm); line-height: 1.5;
+    text-align: right; padding-top: 0; word-break: break-word; }
+  .ch-bars { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 2pt; }
+  .ch-bar { display: flex; align-items: center; gap: 5pt; }
+  .ch-fill { height: 10px; border-radius: 1px; flex: none; min-width: 1px; }
+  .ch-spacer { height: 10px; flex: none; }
+  .ch-val { font-size: 11px; color: var(--dark-warm); font-variant-numeric: tabular-nums;
+    white-space: nowrap; flex: none; }
+  .ch-val.na { color: #B9B4AB; }
+  .ch-hint { font-size: 8.4pt; color: var(--stone); }
+  .ch-stack { display: flex; width: 100%; height: 17px; border-radius: 1px; overflow: hidden; }
+  .ch-stack .seg { display: flex; flex-direction: column; justify-content: center;
+    align-items: flex-start; padding-left: 4px; overflow: hidden; min-width: 0; }
+  .ch-stack .seg b { font-size: 10px; color: #FFFFFF; font-weight: 600; line-height: 1.1;
+    white-space: nowrap; }
+  .ch-stack .seg em { font-size: 10px; color: rgba(255,255,255,.86); font-style: normal;
+    line-height: 1.1; white-space: nowrap; }
+  .ch-scale { font-size: 10px; color: var(--stone); margin-top: 7pt; }
+  .page-break { break-before: page; }
+
+  /* 打印还原：让响应式补丁注入的表格滚动容器在打印时从布局中消失，
+     使 PDF 分页与补丁前完全一致（屏幕端仍保留横向滚动能力）。 */
+  @media print { .rsp-table { display: contents; } }
+</style>
+
+<!-- rsp-mobile-adapt : 响应式适配层（仅屏幕生效，不影响打印/PDF） -->
+<style id="rsp-mobile-adapt">
+/* rsp-mobile-adapt-v3 */
+/* ========== 1. 全局：屏幕端基础修正 ========== */
+@media screen {
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body { overflow-wrap: break-word; }
+  img, svg, canvas, video, iframe { max-width: 100%; }
+  svg[viewBox], svg[viewbox] { height: auto; }
+
+  /* 网格容器（两列对比等）：网格项默认 min-width:auto，会被内部宽表撑破
+     容器、把整页顶出横向滚动（报告里 .two-col 就栽在这上面）。放开收缩，
+     让里面的 .rsp-table 自己去横向滑动。 */
+  .risk-grid > *, .two-col > * { min-width: 0; }
+
+  /* 表格横向滚动容器：宽表不压字、不撑破页面 */
+  .rsp-table {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    margin: 8pt 0;
+    position: relative;
+  }
+  .rsp-table > table { margin: 0; }
+  .rsp-table::-webkit-scrollbar { height: 7px; }
+  .rsp-table::-webkit-scrollbar-track { background: transparent; }
+  .rsp-table::-webkit-scrollbar-thumb { background: #D8D1C4; border-radius: 4px; }
+  /* 内容确实溢出时，右侧给一层渐变暗示"还能往右滑" */
+  .rsp-table[data-rsp-scroll] {
+    background: linear-gradient(to left, rgba(167,63,45,.10), rgba(167,63,45,0) 28px);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 28px 100%;
+  }
+}
+
+/* ========== 2. 平板 / 窄窗口：边距先收，避免内容被挤 ========== */
+@media screen and (max-width: 900px) {
+  body { padding: 22px 22px 46px 22px !important; }
+  .report-header { flex-wrap: wrap; gap: 12pt; }
+  .metrics { flex-wrap: wrap; gap: 10pt 18pt; }
+  .metric { flex: 1 1 42%; min-width: 0; }
+  .report-footer { flex-wrap: wrap; gap: 4pt 14pt; }
+
+  /* 宽表改为横向滚动：给每列保留最小可读宽度，不再把汉字挤成竖排 */
+  .rsp-w5 > table { min-width: 310px !important; }
+  .rsp-w6 > table { min-width: 372px !important; }
+  .rsp-w7 > table { min-width: 434px !important; }
+  .rsp-w8 > table { min-width: 496px !important; }
+  .rsp-w9 > table { min-width: 558px !important; }
+  .rsp-w10 > table { min-width: 620px !important; }
+  .rsp-w11 > table { min-width: 682px !important; }
+  .rsp-w12 > table { min-width: 744px !important; }
+  .rsp-w13 > table { min-width: 806px !important; }
+  .rsp-w14 > table { min-width: 868px !important; }
+  .rsp-w15 > table { min-width: 930px !important; }
+  .rsp-w16 > table { min-width: 992px !important; }
+}
+
+/* ========== 3. 手机：指标卡两列、页头转纵向 ========== */
+@media screen and (max-width: 720px) {
+  body {
+    max-width: 100% !important;
+    padding: 18px 16px 44px 16px !important;
+    font-size: 10.5pt;
+  }
+  h2 { font-size: 15pt !important; margin: 20pt 0 7pt 0 !important; }
+  h3 { font-size: 12.5pt !important; }
+  h1 { font-size: 19pt !important; }
+  p, li { line-height: 1.62; }
+  ul, ol { padding-left: 17pt; }
+
+  .report-header { flex-direction: column; align-items: stretch; gap: 8pt; }
+  .price-block { text-align: left; padding-top: 0; }
+  .price-current { font-size: 24pt !important; }
+  .ticker-name { font-size: 21pt !important; }
+  .ticker-sub { font-size: 9.5pt !important; }
+
+  .metrics { gap: 9pt 12pt; }
+  .metric { flex: 1 1 45%; }
+  .metric-value { font-size: 15pt !important; }
+  .metric-label { font-size: 8.5pt !important; white-space: normal !important; }
+
+  table, .kami-table { font-size: 9pt !important; }
+  .longtable { font-size: 8.5pt !important; }
+  .wide { font-size: 7.5pt !important; }
+  .dense { font-size: 8pt !important; }
+  table th, table td, .kami-table th, .kami-table td { padding: 5pt 6pt !important; }
+
+  blockquote, .quote, .note, .warn, .callout, .risk-item { padding: 9pt 11pt !important; }
+  .risk-grid { grid-template-columns: 1fr !important; }
+  .report-footer { flex-direction: column; align-items: flex-start; gap: 3pt; }
+}
+
+/* ========== 3b. 图表：窄屏保持图纸原尺寸 + 横向滑动 ========== */
+/* 报告里的图表是 SVG：viewBox 宽 680 + width:100%。缩到手机宽度（约 350px）
+   只剩 0.5×，图内字号从 11px 掉到 5px 完全不可读；而 SVG <text> 不会自动换行，
+   单纯放大字号必然溢出图框。这里改为**保持图纸原尺寸、允许左右滑动**——
+   与上面宽表同一套策略，宁可滑也不塌字号。仅屏幕生效，打印/PDF 不受影响。 */
+@media screen and (max-width: 720px) {
+  .rsp-fig {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    /* 图纸一定宽于屏幕，直接给右侧一层渐变，暗示"还能往右滑" */
+    background: linear-gradient(to left, rgba(167,63,45,.09), rgba(167,63,45,0) 26px);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 26px 100%;
+  }
+  .rsp-fig > svg { min-width: var(--rsp-fig-w, 680px); }
+  .rsp-fig::-webkit-scrollbar { height: 7px; }
+  .rsp-fig::-webkit-scrollbar-track { background: transparent; }
+  .rsp-fig::-webkit-scrollbar-thumb { background: #D8D1C4; border-radius: 4px; }
+}
+
+/* ========== 4. 小屏手机：指标卡单列、边距收到最紧 ========== */
+@media screen and (max-width: 430px) {
+  body { padding: 14px 12px 38px 12px !important; }
+  h2 { font-size: 14pt !important; }
+  h3 { font-size: 11.5pt !important; }
+  .ticker-name { font-size: 19pt !important; }
+  .price-current { font-size: 21pt !important; }
+  .metric { flex: 1 1 100%; }
+  .metric-value { font-size: 16pt !important; }
+  ul, ol { padding-left: 15pt; }
+  table, .kami-table { font-size: 8.5pt !important; }
+}
+
+/* ========== 5. 打印：把包裹层还原成透明，PDF 版式与补丁前完全一致 ========== */
+@media print {
+  .rsp-table { margin: 0; padding: 0; overflow: visible !important; background: none !important; }
+  .rsp-table > table { margin: 8pt 0; min-width: 0 !important; }
+  [class*="rsp-w"] > table { min-width: 0 !important; }
+}
+</style>
+</head>
+<body>
+<main>
+<header class="rpt-head">
+  <div class="eyebrow">上海银行股份有限公司</div>
+  <h1>上海银行（601229.SH）2016—2025<br>财务数据对比分析报告</h1>
+  <p class="lede">以 A 股上市当年（2016）为起点，覆盖十年完整经营年度，并附 2026 年半年度最新数据。
+  核心发现：营业收入六年横盘（CAGR 1.5%），加权平均 ROE 七年单边下行（12.94% → 9.69%），
+  拨备覆盖率自 2019 年高点下降 92.21pp 并于 2026H1 跌破 200%——「以拨备换利润」的空间已接近用尽。</p>
+  <div class="metrics">
+    <div class="metric"><span class="metric-label">营业总收入</span><span class="metric-value">547.61</span><span class="m-u">亿元（2025）</span></div>
+    <div class="metric"><span class="metric-label">归母净利润</span><span class="metric-value">241.93</span><span class="m-u">亿元（2025，+2.69%）</span></div>
+    <div class="metric"><span class="metric-label">加权平均 ROE</span><span class="metric-value">9.69</span><span class="m-u">%（七年 −3.25pp）</span></div>
+    <div class="metric"><span class="metric-label">净息差</span><span class="metric-value">1.16</span><span class="m-u">%（2019 年 1.71%）</span></div>
+    <div class="metric"><span class="metric-label">不良贷款率</span><span class="metric-value">1.42</span><span class="m-u">%（2026H1，+24BP）</span></div>
+    <div class="metric alert"><span class="metric-label">拨备覆盖率</span><span class="metric-value">198.25</span><span class="m-u">%（2026H1，−46.69pp）</span></div>
+  </div>
+</header>
+<p class="warn"><strong>数据口径</strong>：人民币；中国企业会计准则（CAS）；除特别注明外均为<strong>集团（合并）口径</strong>；金额单位除特别标注外为<strong>亿元</strong>（原始报表以千元列示，本报告按 1 亿元 = 100,000 千元折算，尾差系四舍五入）。 <strong>覆盖期间</strong>：2016—2025 共 10 个完整会计年度，并附 2026 年半年度及一季度最新数据。起点设为 2016 年（A 股上市当年）以便完整覆盖上市后的全部经营年度。 <strong>编制说明</strong>：未披露项一律留「—」，不做推算填充；凡存在准则变更、统计口径调整的科目，均单列标注，不静默合并。 <strong>数据可信度提示</strong>：本报告全部年度数据均<strong>取自当年年度报告原件</strong>（已下载 2016—2025 全部十份年报 PDF），而非自后续年报的比较列回取，因此各年数值均为该年度的原始披露口径。这一点在本案例中格外重要——<strong>2021 年年报已按信用卡分期收入重分类追溯重述了 2019 年数据，若从 2021 年报回取 2019 年，净息差会显示为 1.78% 而非原始披露的 1.71%</strong>。凡本报告使用重述口径，均在表内双列或表注声明（详见 §1.3）。</p>
+<h2>一、公司概况</h2>
+<h3>1.1 基本信息</h3>
+<div class="rsp-table"><table class="compact longtable">
+<thead><tr><th>项目</th><th>内容</th></tr></thead>
+<tbody>
+  <tr><td>公司全称</td><td>上海银行股份有限公司</td></tr>
+  <tr><td>证券代码</td><td>601229.SH（上海证券交易所主板）</td></tr>
+  <tr><td>上市日期</td><td>2016 年 11 月 16 日（A 股 IPO）</td></tr>
+  <tr><td>总股本</td><td>142.09 亿股（14,209,039 千股，2026 年 6 月 30 日）</td></tr>
+  <tr><td>集团员工</td><td>14,558 人（含劳务派遣，2025 年末；母公司 14,053 人）</td></tr>
+  <tr><td>机构定位</td><td>总部位于上海的城商行；<strong>国内系统重要性银行</strong>（D-SIBs）名单成员</td></tr>
+  <tr><td>经营范围</td><td>公司金融、零售金融、金融市场、资产管理（上银基金）、金融租赁（上银金租）、村镇银行</td></tr>
+  <tr><td>股权特征</td><td><strong>无控股股东及实际控制人</strong>；第一大股东为上海联和投资有限公司</td></tr>
+  <tr><td>区域布局</td><td>长三角为基本盘（上海本地为主），辐射环渤海、珠三角（含中国香港）及中西部重点城市</td></tr>
+  <tr><td>审计机构</td><td>毕马威华振会计师事务所（特殊普通合伙），2025 年度财报出具无保留意见</td></tr>
+</tbody>
+</table></div>
+<h3>1.2 上市沿革与业务格局</h3>
+<ul>
+  <li><strong>1995 年 12 月</strong>：由上海市 99 家城市信用社改制组建为上海城市合作银行，1998 年更名为上海银行。</li>
+  <li><strong>2016 年 11 月 16 日</strong>：在上海证券交易所挂牌上市，成为上市公众公司。</li>
+  <li><strong>2023 年</strong>：入选我国系统重要性银行名单（第一组），附加资本要求相应适用——这是本报告中核心一级资本充足率需要参照「不低于 8.5%」而非「不低于 7.5%」的原因。</li>
+  <li><strong>业务格局</strong>：以「精品银行」为战略定位，形成公司与零售双轮、金融市场与资产管理协同的格局。其区别于同类城商行最显著的一点是<strong>金融投资在资产端的权重</strong>：2025 年末金融投资合计 14,075.15 亿元、占总资产 42.54%，与发放贷款和垫款（14,054.89 亿元、42.48%）几乎持平，构成「信贷 + 投资」双支柱结构（详见 §4.2）。</li>
+</ul>
+<h3>1.3 三份必须提前声明的口径变更</h3>
+<ol>
+  <li><strong>信用卡分期收入重分类（2020 年起）</strong>：根据《关于严格执行企业会计准则切实加强企业 2020 年年报工作的通知》（财会〔2021〕2 号），本集团自 2020 年年报起将信用卡分期收入从「手续费及佣金收入」重分类至「利息收入」，并重述 2020 年比较期数据，净利差、净息差相应重述。<strong>因此 2019 年与 2020 年及以后的利息净收入、手续费净收入不在同一口径上。</strong> 这一变更造成的口径落差在本报告中可以直接量化——2019 年年报披露的利息净收入占营业收入比重为 60.88%，而 2021 年年报比较列中的 2019 年同项指标为 71.72%（差 10.84pp）。<strong>所有跨 2019／2020 分界的收入结构比较仅作方向性参考</strong>；净息差的三重口径差异详见表 6 的口径声明。</li>
+  <li><strong>「净利息收益率」更名为「净息差」（2019 年起）</strong>：2016—2018 年年报使用的指标名称为「净利息收益率」，2019 年起改称「净息差」。名称变更的同时，2016—2017 年的口径还涉及「营改增」后的收入价税分离处理与金融资产分类调整，<strong>故 2016—2018 年的净息差与 2019 年及以后不构成一条连续趋势线</strong>。表 6-A 中 2017 年 1.25% 的十年低点是当年特殊口径的产物，不宜与 2021 年后的息差收窄并置解读。</li>
+  <li><strong>拨备覆盖率与拨贷比的分母口径</strong>：本报告「拨备覆盖率」= 贷款和垫款减值准备 ÷ 不良贷款余额，与各年年报「按五级分类划分的贷款分布情况」表披露值一致（已逐年核对，误差为 0）；「贷款拨备率」同理。该口径的减值准备包含核算至其他综合收益项下的票据与福费廷减值准备，与资产负债表「以摊余成本计量的贷款预期信用减值准备」科目金额不同（2025 年末前者 416.33 亿元、后者 412.94 亿元），跨表比较时不可混用。</li>
+</ol>
+<h2>二、核心财务数据对比</h2>
+<h3>表 1　经营业绩与盈利能力（2016—2025，附 2026H1）</h3>
+<figure>
+<div class="chart">
+<div class="ch-title">加权平均 ROE 与平均总资产收益率（2017—2025）</div>
+<div class="ch-sub">单位：%｜ROE 连续七年单边下行（12.94% → 9.69%），无一年回升</div>
+<div class="ch-legend"><span class="lg"><i style="background:#A73F2D"></i>加权平均 ROE</span><span class="lg"><i style="background:#B8862F"></i>平均总资产收益率</span></div>
+<div class="ch-rows">
+<div class="ch-row"><span class="ch-lab">2017</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:68.32%;background:#A73F2D;opacity:1"></div><span class="ch-val">12.63</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:4.65%;background:#B8862F;opacity:1"></div><span class="ch-val">0.86</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2018</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:68.54%;background:#A73F2D;opacity:1"></div><span class="ch-val">12.67</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:5.09%;background:#B8862F;opacity:1"></div><span class="ch-val">0.94</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2019</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:70.00%;background:#A73F2D;opacity:1"></div><span class="ch-val">12.94</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:5.14%;background:#B8862F;opacity:1"></div><span class="ch-val">0.95</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2020</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:65.40%;background:#A73F2D;opacity:1"></div><span class="ch-val">12.09</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:4.81%;background:#B8862F;opacity:1"></div><span class="ch-val">0.89</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2021</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:63.83%;background:#A73F2D;opacity:1"></div><span class="ch-val">11.80</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:4.65%;background:#B8862F;opacity:1"></div><span class="ch-val">0.86</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2022</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:59.51%;background:#A73F2D;opacity:1"></div><span class="ch-val">11.00</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:4.38%;background:#B8862F;opacity:1"></div><span class="ch-val">0.81</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2023</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:56.04%;background:#A73F2D;opacity:1"></div><span class="ch-val">10.36</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:4.11%;background:#B8862F;opacity:1"></div><span class="ch-val">0.76</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2024</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:54.15%;background:#A73F2D;opacity:1"></div><span class="ch-val">10.01</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:4.06%;background:#B8862F;opacity:1"></div><span class="ch-val">0.75</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2025</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:52.42%;background:#A73F2D;opacity:1"></div><span class="ch-val">9.69</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:4.00%;background:#B8862F;opacity:1"></div><span class="ch-val">0.74</span></div>
+</div></div>
+</div>
+<div class="ch-scale">单位：%（条形长度按各行最大值等比缩放）</div>
+</div>
+<figcaption>图 2　盈利效率指标走势（2017—2025）</figcaption>
+<p class="fig-note">两项指标的同步下行指向同一成因：净息差收窄。平均总资产收益率的降幅（−21BP）小于 ROE（−3.25pp），差额由杠杆率与资本结构变化解释。</p>
+</figure>
+<figure>
+<div class="chart">
+<div class="ch-title">营业收入与归母净利润（2016—2025）</div>
+<div class="ch-sub">单位：亿元｜归母净利润六年横盘于 208—242 亿元区间，营业收入 2021 年见顶后未再突破</div>
+<div class="ch-legend"><span class="lg"><i style="background:#1B365D"></i>营业收入</span><span class="lg"><i style="background:#A73F2D"></i>归母净利润</span></div>
+<div class="ch-rows">
+<div class="ch-row"><span class="ch-lab">2016</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:42.84%;background:#1B365D;opacity:1"></div><span class="ch-val">344.09</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:17.81%;background:#A73F2D;opacity:1"></div><span class="ch-val">143.08</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2017</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:41.24%;background:#1B365D;opacity:1"></div><span class="ch-val">331.25</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:19.08%;background:#A73F2D;opacity:1"></div><span class="ch-val">153.28</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2018</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:54.64%;background:#1B365D;opacity:1"></div><span class="ch-val">438.88</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:22.45%;background:#A73F2D;opacity:1"></div><span class="ch-val">180.34</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2019</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:62.00%;background:#1B365D;opacity:1"></div><span class="ch-val">498.00</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:25.27%;background:#A73F2D;opacity:1"></div><span class="ch-val">202.98</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2020</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:63.17%;background:#1B365D;opacity:1"></div><span class="ch-val">507.46</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:26.00%;background:#A73F2D;opacity:1"></div><span class="ch-val">208.85</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2021</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:70.00%;background:#1B365D;opacity:1"></div><span class="ch-val">562.30</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:27.44%;background:#A73F2D;opacity:1"></div><span class="ch-val">220.42</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2022</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:66.12%;background:#1B365D;opacity:1"></div><span class="ch-val">531.12</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:27.74%;background:#A73F2D;opacity:1"></div><span class="ch-val">222.80</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2023</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:62.95%;background:#1B365D;opacity:1"></div><span class="ch-val">505.64</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:28.07%;background:#A73F2D;opacity:1"></div><span class="ch-val">225.45</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2024</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:65.96%;background:#1B365D;opacity:1"></div><span class="ch-val">529.86</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:29.33%;background:#A73F2D;opacity:1"></div><span class="ch-val">235.60</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2025</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:68.17%;background:#1B365D;opacity:1"></div><span class="ch-val">547.61</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:30.12%;background:#A73F2D;opacity:1"></div><span class="ch-val">241.93</span></div>
+</div></div>
+</div>
+<div class="ch-scale">单位：亿元（条形长度按各行最大值等比缩放）</div>
+</div>
+<figcaption>图 1　营业收入与归母净利润走势（2016—2025）</figcaption>
+<p class="fig-note">2016—2019 年为增长期（营业收入 CAGR 13.1%）；2020 年起营业收入进入横盘，六年间仅增长 7.9%，而归母净利润同期增长 15.8%，增速差主要由拨备释放提供。</p>
+</figure>
+<div class="rsp-table rsp-w7"><table class="compact longtable">
+<thead><tr><th>年度</th><th>营业收入（亿元）</th><th>同比</th><th>归母净利润（亿元）</th><th>同比</th><th>基本每股收益（元）</th><th>加权平均 ROE（%）</th></tr></thead>
+<tbody>
+  <tr><td>2016</td><td>344.09</td><td>+3.77%</td><td>143.08</td><td>+10.04%</td><td>1.60</td><td>—</td></tr>
+  <tr><td>2017</td><td>331.25</td><td>−3.72%</td><td>153.28</td><td>+7.13%</td><td>1.96</td><td>12.63</td></tr>
+  <tr><td>2018</td><td>438.88</td><td>+32.49%</td><td>180.34</td><td>+17.65%</td><td>1.74</td><td>12.67</td></tr>
+  <tr><td>2019</td><td>498.00</td><td>+13.47%</td><td>202.98</td><td>+12.55%</td><td>1.36</td><td>12.94</td></tr>
+  <tr><td>2020</td><td>507.46</td><td>+1.90%</td><td>208.85</td><td>+2.90%</td><td>1.40</td><td>12.09</td></tr>
+  <tr><td>2021</td><td>562.30</td><td>+10.81%</td><td>220.42</td><td>+5.54%</td><td>1.48</td><td>11.80</td></tr>
+  <tr><td>2022</td><td>531.12</td><td>−5.54%</td><td>222.80</td><td>+1.08%</td><td>1.50</td><td>11.00</td></tr>
+  <tr><td>2023</td><td>505.64</td><td>−4.80%</td><td>225.45</td><td>+1.19%</td><td>1.53</td><td>10.36</td></tr>
+  <tr><td>2024</td><td>529.86</td><td>+4.79%</td><td>235.60</td><td>+4.50%</td><td>1.60</td><td>10.01</td></tr>
+  <tr><td><strong>2025</strong></td><td><strong>547.61</strong></td><td><strong>+3.35%</strong></td><td><strong>241.93</strong></td><td><strong>+2.69%</strong></td><td><strong>1.65</strong></td><td><strong>9.69</strong></td></tr>
+  <tr><td>2026H1</td><td>288.42</td><td>+5.48%</td><td>132.99</td><td>+0.51%</td><td>0.94</td><td>10.50（年化）</td></tr>
+</tbody>
+</table></div>
+<p>注：同比增速除 2016 年外均取自各年年报披露值。<strong>2016 年同比 +3.77% 有特殊背景</strong>：该年营业收入 344.09 亿元对 2015 年的 331.59 亿元，而 2015 年因「营改增」口径调整前含税收入基数较高，2017 年营业收入又回落至 331.25 亿元，故 2016 年增速不代表实际业务扩张。2018 年 +32.49% 的高增速主要来自金融投资相关收益的爆发式增长（当年「其他营业收入」从 79.71 亿元跃至另一量级），并非利息净收入驱动——当年利息净收入仅 +1.28%。基本每股收益 2017 年的 1.96 元高于 2018 年后的水平，是因为 2017 年股本仅 78.06 亿股（2018 年转增后 109.28 亿股），<strong>该指标跨 2017／2018 分界不可直接比较</strong>。2016 年加权平均 ROE 因当年年报未按同一口径披露（优先股 2017 年发行）而留「—」。2026H1 为半年度数据，与全年数据不可直接比较，其同比为与 2025H1 之比（2025H1 营业收入 273.44 亿元、归母净利润 132.31 亿元）。</p>
+<p><strong>观察</strong>：十年间营业收入从 344.09 亿元增至 547.61 亿元（<strong>+59.2%</strong>，CAGR 4.7%），归母净利润从 143.08 亿元增至 241.93 亿元（<strong>+69.1%</strong>，CAGR 5.4%）。但这个十年期的增长几乎全部集中在 2018—2019 两年完成：<strong>2020 年起营业收入进入「六年横盘」状态——2020 年 507.46 亿元、2021 年 562.30 亿元（峰值）、2025 年 547.61 亿元，六年净增 40.15 亿元、CAGR 仅 1.5%</strong>。利润端则依靠拨备释放维持了 2020—2025 年每年 +1.1% 至 +4.5% 的正增长，但增速中枢逐级下移。<strong>加权平均 ROE 从 2019 年的 12.94% 单调下滑至 2025 年的 9.69%（七年 −3.25pp，无一年回升）</strong>，是这组数据中最具趋势性的读数。</p>
+<h3>表 2　资产负债与存贷款规模（2016—2025 年末，附 2026H1）</h3>
+<figure>
+<div class="chart">
+<div class="ch-title">总资产与各项贷款规模（2016—2025 年末）</div>
+<div class="ch-sub">单位：亿元｜总资产十年 +88.5%，但增速自 2021 年起逐级降至 2025 年的 +2.54%</div>
+<div class="ch-legend"><span class="lg"><i style="background:#1B365D"></i>总资产</span><span class="lg"><i style="background:#2F6F6B"></i>各项贷款</span></div>
+<div class="ch-rows">
+<div class="ch-row"><span class="ch-lab">2016</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:37.14%;background:#1B365D;opacity:1"></div><span class="ch-val">17,553.71</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:11.72%;background:#2F6F6B;opacity:1"></div><span class="ch-val">5,539.99</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2017</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:38.25%;background:#1B365D;opacity:1"></div><span class="ch-val">18,077.67</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:14.05%;background:#2F6F6B;opacity:1"></div><span class="ch-val">6,640.22</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2018</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:42.90%;background:#1B365D;opacity:1"></div><span class="ch-val">20,277.72</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:18.00%;background:#2F6F6B;opacity:1"></div><span class="ch-val">8,506.96</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2019</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:47.33%;background:#1B365D;opacity:1"></div><span class="ch-val">22,370.82</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:20.57%;background:#2F6F6B;opacity:1"></div><span class="ch-val">9,725.05</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2020</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:52.09%;background:#1B365D;opacity:1"></div><span class="ch-val">24,621.44</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:23.23%;background:#2F6F6B;opacity:1"></div><span class="ch-val">10,981.24</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2021</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:56.13%;background:#1B365D;opacity:1"></div><span class="ch-val">26,531.99</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:25.89%;background:#2F6F6B;opacity:1"></div><span class="ch-val">12,237.48</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2022</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:60.90%;background:#1B365D;opacity:1"></div><span class="ch-val">28,785.25</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:27.60%;background:#2F6F6B;opacity:1"></div><span class="ch-val">13,045.93</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2023</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:65.28%;background:#1B365D;opacity:1"></div><span class="ch-val">30,855.16</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:29.13%;background:#2F6F6B;opacity:1"></div><span class="ch-val">13,770.35</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2024</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:68.26%;background:#1B365D;opacity:1"></div><span class="ch-val">32,266.56</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:29.74%;background:#2F6F6B;opacity:1"></div><span class="ch-val">14,057.56</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2025</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:70.00%;background:#1B365D;opacity:1"></div><span class="ch-val">33,087.52</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:30.48%;background:#2F6F6B;opacity:1"></div><span class="ch-val">14,408.10</span></div>
+</div></div>
+</div>
+<div class="ch-scale">单位：亿元（条形长度按各行最大值等比缩放）</div>
+</div>
+<figcaption>图 3　资产与信贷规模走势（2016—2025 年末）</figcaption>
+<p class="fig-note">「贷款／总资产」在 2021 年达到峰值 46.12% 后回落至 2025 年的 43.55%，说明 2022 年后的扩表并未继续向信贷倾斜，而是转向金融投资（见图 7）。</p>
+</figure>
+<div class="rsp-table rsp-w7"><table class="compact longtable">
+<thead><tr><th>期末</th><th>总资产（亿元）</th><th>总负债（亿元）</th><th>归母净资产（亿元）</th><th>各项存款（亿元）</th><th>各项贷款（亿元）</th><th>贷款／总资产（%）</th></tr></thead>
+<tbody>
+  <tr><td>2016</td><td>17,553.71</td><td>—</td><td>1,157.69</td><td>8,490.73</td><td>5,539.99</td><td>31.56</td></tr>
+  <tr><td>2017</td><td>18,077.67</td><td>—</td><td>1,469.85</td><td>9,235.85</td><td>6,640.22</td><td>36.73</td></tr>
+  <tr><td>2018</td><td>20,277.72</td><td>18,660.04</td><td>1,612.77</td><td>10,424.90</td><td>8,506.96</td><td>41.95</td></tr>
+  <tr><td>2019</td><td>22,370.82</td><td>20,598.55</td><td>1,767.09</td><td>11,860.71</td><td>9,725.05</td><td>43.47</td></tr>
+  <tr><td>2020</td><td>24,621.44</td><td>22,712.05</td><td>1,903.98</td><td>12,971.76</td><td>10,981.24</td><td>44.60</td></tr>
+  <tr><td>2021</td><td>26,531.99</td><td>24,474.30</td><td>2,052.04</td><td>14,504.30</td><td>12,237.48</td><td>46.12</td></tr>
+  <tr><td>2022</td><td>28,785.25</td><td>26,568.76</td><td>2,210.54</td><td>15,714.56</td><td>13,045.93</td><td>45.32</td></tr>
+  <tr><td>2023</td><td>30,855.16</td><td>28,464.67</td><td>2,385.79</td><td>16,400.78</td><td>13,770.35</td><td>44.63</td></tr>
+  <tr><td>2024</td><td>32,266.56</td><td>29,719.99</td><td>2,541.93</td><td>17,100.32</td><td>14,057.56</td><td>43.57</td></tr>
+  <tr><td><strong>2025</strong></td><td><strong>33,087.52</strong></td><td><strong>30,522.26</strong></td><td><strong>2,562.00</strong></td><td><strong>17,344.12</strong></td><td><strong>14,408.10</strong></td><td><strong>43.55</strong></td></tr>
+  <tr><td>2026H1</td><td>34,188.11</td><td>31,507.06</td><td>2,674.56</td><td>18,633.37</td><td>15,287.65</td><td>44.71</td></tr>
+</tbody>
+</table></div>
+<p>注：2016、2017 年总负债未在年报「近三年主要会计数据」表中按同一口径单列（该两年表式为「负债总额」与「存款总额」分列），故留「—」。「贷款／总资产」为计算值，替代此前版本使用的存贷比——存贷比为监管法人口径，各年年报口径不一（2026H1 为 80.43%、2025 年 81.74%、2024 年 80.17%），跨期可比性弱于「贷款／总资产」。总资产增速：2017 +2.98%、2018 +12.17%、2019 +10.32%、2020 +10.06%、2021 +7.76%、2022 +8.49%、2023 +7.19%、2024 +4.57%、2025 +2.54%。</p>
+<p><strong>观察</strong>：总资产十年从 17,553.71 亿元增至 33,087.52 亿元（<strong>+88.5%</strong>），2026H1 进一步至 34,188.11 亿元。十年中可以清晰划出两个阶段：<strong>2016—2021 年是扩表期</strong>（总资产从 1.76 万亿到 2.65 万亿，五年 +51.1%），<strong>2022—2025 年是降速期</strong>（增速从 +8.49% 逐级降至 +2.54%，2025 年为上市以来最低）。更值得注意的是资产结构的变化：<strong>「贷款／总资产」从 2016 年的 31.56% 一路上行至 2021 年的 46.12% 后开始回落，2024—2025 年降至 43.55%</strong>——这意味着上海银行在 2022 年后并未继续把资产向信贷倾斜，而是转向金融投资（详见 §4.2、表 10）。这条「先上后下」的曲线，是理解本报告全部资产质量与息差问题的结构性前提。</p>
+<h3>表 3　资产质量与风险抵补（2016—2025 年末，附 2026H1）</h3>
+<figure>
+<div class="chart">
+<div class="ch-title">逾期贷款率 vs 不良贷款率</div>
+<div class="ch-sub">单位：%｜逾期贷款率七年间有六年高于不良率，2021 年缺口最大（逾期／不良达 166.1%）</div>
+<div class="ch-legend"><span class="lg"><i style="background:#B8862F"></i>逾期贷款率</span><span class="lg"><i style="background:#A73F2D"></i>不良贷款率</span></div>
+<div class="ch-rows">
+<div class="ch-row"><span class="ch-lab">2018</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:56.88%;background:#B8862F;opacity:1"></div><span class="ch-val">1.69</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:38.37%;background:#A73F2D;opacity:1"></div><span class="ch-val">1.14</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2019</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:55.53%;background:#B8862F;opacity:1"></div><span class="ch-val">1.65</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:39.04%;background:#A73F2D;opacity:1"></div><span class="ch-val">1.16</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2020</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:53.85%;background:#B8862F;opacity:1"></div><span class="ch-val">1.60</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:41.06%;background:#A73F2D;opacity:1"></div><span class="ch-val">1.22</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2021</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:70.00%;background:#B8862F;opacity:1"></div><span class="ch-val">2.08</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:42.07%;background:#A73F2D;opacity:1"></div><span class="ch-val">1.25</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2022</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:57.21%;background:#B8862F;opacity:1"></div><span class="ch-val">1.70</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:42.07%;background:#A73F2D;opacity:1"></div><span class="ch-val">1.25</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2023</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:57.55%;background:#B8862F;opacity:1"></div><span class="ch-val">1.71</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:40.72%;background:#A73F2D;opacity:1"></div><span class="ch-val">1.21</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2024</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:58.22%;background:#B8862F;opacity:1"></div><span class="ch-val">1.73</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:39.71%;background:#A73F2D;opacity:1"></div><span class="ch-val">1.18</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2025</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:55.53%;background:#B8862F;opacity:1"></div><span class="ch-val">1.65</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:39.71%;background:#A73F2D;opacity:1"></div><span class="ch-val">1.18</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2026H1</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:50.48%;background:#B8862F;opacity:1"></div><span class="ch-val">1.50</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:47.79%;background:#A73F2D;opacity:1"></div><span class="ch-val">1.42</span></div>
+<span class="ch-hint">半年报口径</span>
+</div></div>
+</div>
+<div class="ch-scale">单位：%　2026H1 为半年度口径（淡色条）（条形长度按各行最大值等比缩放）</div>
+</div>
+<figcaption>图 5　逾期贷款率与不良贷款率的剪刀差（2018—2026H1，单位：%）</figcaption>
+<p class="fig-note">逾期率长期高于不良率，意味着「已逾期但未认定为不良」的贷款规模持续大于不良贷款本身。2026H1 两条线首次出现反转（逾期 1.50% 低于不良 1.42% 的剪刀差收窄至 105.7%），是集中确认的直接结果。</p>
+</figure>
+<figure>
+<div class="chart">
+<div class="ch-title">不良贷款率 vs 拨备覆盖率（2016—2025 年末 + 2026H1）</div>
+<div class="ch-sub">不良率十年近乎持平（1.14%—1.25%），拨备覆盖率同期下降 92.21pp 并于 2026H1 跌破 200%</div>
+<div class="ch-legend"><span class="lg"><i style="background:#A73F2D"></i>拨备覆盖率（%）</span></div>
+<div class="ch-rows">
+<div class="ch-row"><span class="ch-lab">2016</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:53.05%;background:#A73F2D;opacity:1"></div><span class="ch-val">255.50</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2017</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:56.58%;background:#A73F2D;opacity:1"></div><span class="ch-val">272.52</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2018</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:69.13%;background:#A73F2D;opacity:1"></div><span class="ch-val">332.95</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2019</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:70.00%;background:#A73F2D;opacity:1"></div><span class="ch-val">337.15</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2020</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:66.73%;background:#A73F2D;opacity:1"></div><span class="ch-val">321.38</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2021</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:62.52%;background:#A73F2D;opacity:1"></div><span class="ch-val">301.13</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2022</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:60.54%;background:#A73F2D;opacity:1"></div><span class="ch-val">291.61</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2023</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:56.61%;background:#A73F2D;opacity:1"></div><span class="ch-val">272.66</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2024</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:56.02%;background:#A73F2D;opacity:1"></div><span class="ch-val">269.81</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2025</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:50.86%;background:#A73F2D;opacity:1"></div><span class="ch-val">244.94</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2026H1</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:41.16%;background:#A73F2D;opacity:1"></div><span class="ch-val">198.25</span></div>
+<span class="ch-hint">半年报口径</span>
+</div></div>
+</div>
+<div class="ch-scale">单位：%　2026H1 为半年度口径（淡色条）（条形长度按各行最大值等比缩放）</div>
+</div>
+<figcaption>图 4　拨备覆盖率单边下行（2016—2026H1，单位：%）</figcaption>
+<p class="fig-note">拨备覆盖率从 2019 年高点 337.15% 降至 2025 年 244.94%（−92.21pp）、2026H1 进一步跌至 198.25%（半年 −46.69pp）。同期不良率始终在 1.14%—1.25% 之间——这是「以拨备换利润」最直观的证据。</p>
+</figure>
+<div class="rsp-table rsp-w9"><table class="compact longtable">
+<thead><tr><th>期末</th><th>不良贷款率（%）</th><th>不良贷款余额（亿元）</th><th>关注类占比（%）</th><th>不良+关注（%）</th><th>拨备覆盖率（%）</th><th>贷款拨备率（%）</th><th>逾期贷款率（%）</th><th>逾期／不良（%）</th></tr></thead>
+<tbody>
+  <tr><td>2016</td><td>1.17</td><td>64.81</td><td>—</td><td>—</td><td>255.50</td><td>3.00</td><td>—</td><td>—</td></tr>
+  <tr><td>2017</td><td>1.15</td><td>76.37</td><td>2.08</td><td>3.23</td><td>272.52</td><td>3.14</td><td>—</td><td>—</td></tr>
+  <tr><td>2018</td><td>1.14</td><td>96.98</td><td>1.86</td><td>3.00</td><td>332.95</td><td>3.80</td><td>1.69</td><td>148.0</td></tr>
+  <tr><td>2019</td><td>1.16</td><td>112.53</td><td>1.88</td><td>3.04</td><td>337.15</td><td>3.90</td><td>1.65</td><td>142.4</td></tr>
+  <tr><td>2020</td><td>1.22</td><td>134.01</td><td>1.91</td><td>3.13</td><td>321.38</td><td>3.92</td><td>1.60</td><td>130.9</td></tr>
+  <tr><td>2021</td><td>1.25</td><td>152.95</td><td>1.65</td><td>2.90</td><td>301.13</td><td>3.76</td><td>2.08</td><td>166.1</td></tr>
+  <tr><td>2022</td><td>1.25</td><td>162.94</td><td>1.64</td><td>2.89</td><td>291.61</td><td>3.64</td><td>1.70</td><td>135.9</td></tr>
+  <tr><td>2023</td><td>1.21</td><td>166.05</td><td>2.07</td><td>3.28</td><td>272.66</td><td>3.29</td><td>1.71</td><td>141.6</td></tr>
+  <tr><td>2024</td><td>1.18</td><td>165.80</td><td>2.06</td><td>3.24</td><td>269.81</td><td>3.18</td><td>1.73</td><td>146.3</td></tr>
+  <tr><td><strong>2025</strong></td><td><strong>1.18</strong></td><td><strong>169.97</strong></td><td><strong>2.11</strong></td><td><strong>3.29</strong></td><td><strong>244.94</strong></td><td><strong>2.89</strong></td><td><strong>1.65</strong></td><td><strong>140.2</strong></td></tr>
+  <tr><td>2026H1</td><td>1.42</td><td>217.37</td><td>1.77</td><td>3.19</td><td>198.25</td><td>2.82</td><td>1.50</td><td>105.7</td></tr>
+</tbody>
+</table></div>
+<p>注：拨备覆盖率、贷款拨备率为各年报「按五级分类划分的贷款分布情况」表披露值。不良贷款余额原始以千元披露，本表按 1 亿元 = 100,000 千元折算（2016 年 6,480,684 千元、2017 年 7,636,893 千元、2018 年 9,697,410 千元）。逾期／不良由「逾期客户贷款和垫款」合计 ÷ 不良贷款余额计算（各年年报披露的逾期客户贷款和垫款：2018 年 143.49 亿元、2019 年 160.24 亿元、2020 年 175.37 亿元）；2016、2017 年该项未按可比口径披露，留「—」。2026H1 逾期贷款余额 229.79 亿元、贷款总额 15,287.65 亿元。关注类 2016 年数据未在年报摘要表式内列示，留「—」。</p>
+<p><strong>观察</strong>：本表是整份报告信息密度最高的一张，十年数据把一条因果链完整呈现出来。</p>
+<p><strong>第一条线（不良率）看似极度平稳</strong>：十年间在 1.14%—1.25% 的窄幅区间内波动，2018 年最低 1.14%、2021—2022 年最高 1.25%，2025 年末为 1.18%。<strong>没有任何一年出现超过 10BP 的跳变。</strong></p>
+<p><strong>第二条线（拨备覆盖率）则单调下行了七年</strong>：从 2019 年的高点 337.15% 降至 2025 年的 244.94%（−92.21pp），2026H1 跌至 198.25%（半年 −46.69pp，且跌破 200% 这一行业心理关口）。<strong>拨备率从 2019 年 3.90% 降至 2026H1 的 2.82%（−108BP）。</strong></p>
+<p><strong>第三条线（逾期／不良）在十年中有六年高于 130%</strong>：2018 年 148.0%、2019 年 142.4%、2021 年高达 166.1%、2025 年 140.2%。这个比值大于 100% 意味着「已逾期但尚未认定为不良」的贷款规模超过不良贷款本身——<strong>风险暴露的速度长期慢于风险发生的速度</strong>。</p>
+<p>三条线的组合指向一个清晰结论：<strong>不良率的「十年平稳」不是资产质量真实稳定的证明，而是持续消耗拨备厚度、并延后确认不良的结果。</strong> 2026H1 不良率跳升至 1.42%（+24BP）、拨备覆盖率跌破 200%，是这条被延后的确认链在一个半年内集中兑现（详见 §4.6）。</p>
+<p>「不良 + 关注」合计占比提供旁证：2017—2026H1 的十年间始终在 2.89%—3.29% 的极窄区间（极差仅 40BP），<strong>说明风险敞口总量并没有扩张，发生的是「同一批资产在不同科目之间的迁移」</strong>——从关注类迁至不良类，从逾期迁至不良，每一次迁移都消耗拨备，但不改变敞口总量。</p>
+<h3>表 4　资本充足率与经营效率（2016—2025 年末，附 2026H1）</h3>
+<figure>
+<div class="chart">
+<div class="ch-title">核心一级资本充足率（2016—2026H1）</div>
+<div class="ch-sub">单位：%｜2021 年低点 8.95% 距系统重要性银行 8.5% 底线仅 45BP，此后被动回升至 10.68%</div>
+<div class="ch-legend"><span class="lg"><i style="background:#A73F2D"></i>核心一级资本充足率</span></div>
+<div class="ch-rows">
+<div class="ch-row"><span class="ch-lab">2016</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:70.00%;background:#A73F2D;opacity:1"></div><span class="ch-val">11.13</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2017</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:67.23%;background:#A73F2D;opacity:1"></div><span class="ch-val">10.69</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2018</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:61.82%;background:#A73F2D;opacity:1"></div><span class="ch-val">9.83</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2019</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:60.75%;background:#A73F2D;opacity:1"></div><span class="ch-val">9.66</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2020</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:58.74%;background:#A73F2D;opacity:1"></div><span class="ch-val">9.34</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2021</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:56.29%;background:#A73F2D;opacity:1"></div><span class="ch-val">8.95</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2022</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:57.48%;background:#A73F2D;opacity:1"></div><span class="ch-val">9.14</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2023</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:59.94%;background:#A73F2D;opacity:1"></div><span class="ch-val">9.53</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2024</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:65.09%;background:#A73F2D;opacity:1"></div><span class="ch-val">10.35</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2025</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:66.98%;background:#A73F2D;opacity:1"></div><span class="ch-val">10.65</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2026H1</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:67.17%;background:#A73F2D;opacity:1"></div><span class="ch-val">10.68</span></div>
+<span class="ch-hint">半年报口径</span>
+</div></div>
+</div>
+<div class="ch-scale">单位：%　2026H1 为半年报口径（淡色条）（条形长度按各行最大值等比缩放）</div>
+</div>
+<figcaption>图 10　核心一级资本充足率走势（2016—2026H1，单位：%）</figcaption>
+<p class="fig-note">深 V 形态：2016—2021 年因快速扩表而消耗资本至 8.95%，2022—2025 年因扩表放缓而被动回升。2025 年资本净额增速（+1.61%）已低于风险加权资产增速（+3.15%），改善机制失效。</p>
+</figure>
+<div class="rsp-table rsp-w6"><table class="compact longtable">
+<thead><tr><th>期末</th><th>资本充足率（%）</th><th>一级资本充足率（%）</th><th>核心一级资本充足率（%）</th><th>成本收入比（%）</th><th>平均总资产收益率（%）</th></tr></thead>
+<tbody>
+  <tr><td>2016</td><td>13.17</td><td>11.13</td><td>11.13</td><td>22.89</td><td>0.89</td></tr>
+  <tr><td>2017</td><td>14.33</td><td>12.37</td><td>10.69</td><td>24.47</td><td>0.86</td></tr>
+  <tr><td>2018</td><td>13.00</td><td>11.22</td><td>9.83</td><td>20.52</td><td>0.94</td></tr>
+  <tr><td>2019</td><td>13.84</td><td>10.92</td><td>9.66</td><td>19.98</td><td>0.95</td></tr>
+  <tr><td>2020</td><td>12.86</td><td>10.46</td><td>9.34</td><td>18.93</td><td>0.89</td></tr>
+  <tr><td>2021</td><td>12.16</td><td>9.95</td><td>8.95</td><td>21.52</td><td>0.86</td></tr>
+  <tr><td>2022</td><td>13.16</td><td>10.09</td><td>9.14</td><td>23.02</td><td>0.81</td></tr>
+  <tr><td>2023</td><td>13.38</td><td>10.42</td><td>9.53</td><td>24.61</td><td>0.76</td></tr>
+  <tr><td>2024</td><td>14.21</td><td>11.24</td><td>10.35</td><td>23.82</td><td>0.75</td></tr>
+  <tr><td><strong>2025</strong></td><td><strong>14.00</strong></td><td><strong>11.09</strong></td><td><strong>10.65</strong></td><td><strong>23.31</strong></td><td><strong>0.74</strong></td></tr>
+  <tr><td>2026H1</td><td>13.76</td><td>11.10</td><td>10.68</td><td>21.43</td><td>0.79（年化）</td></tr>
+</tbody>
+</table></div>
+<p>注：2016 年一级资本充足率与核心一级资本充足率均为 11.13%——该年尚未发行其他一级资本工具（优先股于 2017 年发行），故两者相等；2017 年起优先股计入其他一级资本，一级资本充足率（12.37%）与核心一级（10.69%）分离。核心一级资本充足率的监管底线为 7.5%，但上海银行自 2023 年入选系统重要性银行（第一组）后附加资本要求适用，<strong>实际底线提升至 8.5%</strong>。2026H1 成本收入比与平均总资产收益率为半年度／年化口径，不可与全年直接比较。</p>
+<p><strong>观察</strong>：核心一级资本充足率走出一个深 V——从 2016 年的 11.13% 降至 2021 年的低点 8.95%（<strong>距 8.5% 的监管底线仅剩 45BP</strong>，为该行历史上最紧张的时刻），随后回升至 2025 年的 10.65%、2026H1 的 10.68%。</p>
+<p>这个回升的成因需要仔细区分。<strong>2016—2021 年的下降是真实的资本消耗</strong>：总资产五年增长 51.1%、贷款增长 120.9%（5,539.99 →<wbr> 12,237.48 亿元），风险加权资产的扩张速度持续快于内生资本积累。而<strong>2022—2025 年的回升主要来自扩表放缓</strong>：2023—2025 年风险加权资产增速（+5.26%、+6.68%、+3.15%）低于资本净额增速（+13.87%、+8.45%、+1.61%），2025 年两者已接近持平（3.15% vs 1.61%，差距收窄至 1.54pp）。<strong>这意味着资本充足率的改善空间正在耗尽</strong>——一旦扩表重新提速，核心一级资本充足率将再次承压（详见 §4.8）。</p>
+<p>成本收入比呈 U 形：2018—2020 年降至 18.93%—20.52% 的历史最优区间，2021—2023 年上行至 24.61%（2023 年为十年最高），2024—2025 年小幅回落至 23.31%。2023 年的高点是收入端下滑（营收 −4.80%）与刚性支出（科技投入、网点改造）叠加的结果——<strong>成本收入比的分母效应在此非常显著</strong>。</p>
+<p>平均总资产收益率自 2019 年的 0.95% 单调下滑至 2025 年的 0.74%（<strong>六年 −21BP，无一年回升</strong>，2026H1 年化 0.79% 略有企稳）。<strong>这是 ROE 下行的直接成因，且它的驱动因素是净息差（−62BP）而非资产质量成本</strong>——这一归因区分对本报告的结论至关重要（详见 §4.3、§4.4）。</p>
+<h3>表 5　营业收入结构（2019—2025，附 2026H1；单位：亿元）</h3>
+<figure>
+<div class="chart">
+<div class="ch-title">营业收入结构演变（2021—2026H1）</div>
+<div class="ch-sub">占比（%）｜利息净收入占比 71.91%→60.89%，手续费净收入 16.09%→6.77%，其他非利息净收入 12.00%→32.34%</div>
+<div class="ch-legend"><span class="lg"><i style="background:#1B365D"></i>利息净收入</span><span class="lg"><i style="background:#B8862F"></i>手续费及佣金净收入</span><span class="lg"><i style="background:#A73F2D"></i>其他非利息净收入</span></div>
+<div class="ch-rows">
+<div class="ch-row"><span class="ch-lab">2021</span><div class="ch-bars">
+<div class="ch-stack"><span class="seg" style="width:71.91%;background:#1B365D"><b>71.91</b><em>71.9%</em></span><span class="seg" style="width:16.09%;background:#B8862F"><b>16.09</b><em>16.1%</em></span><span class="seg" style="width:12.00%;background:#A73F2D"></span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2022</span><div class="ch-bars">
+<div class="ch-stack"><span class="seg" style="width:71.55%;background:#1B365D"><b>71.55</b><em>71.5%</em></span><span class="seg" style="width:12.22%;background:#B8862F"></span><span class="seg" style="width:16.23%;background:#A73F2D"><b>16.23</b><em>16.2%</em></span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2023</span><div class="ch-bars">
+<div class="ch-stack"><span class="seg" style="width:69.54%;background:#1B365D"><b>69.54</b><em>69.5%</em></span><span class="seg" style="width:9.72%;background:#B8862F"></span><span class="seg" style="width:20.74%;background:#A73F2D"><b>20.74</b><em>20.7%</em></span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2024</span><div class="ch-bars">
+<div class="ch-stack"><span class="seg" style="width:61.31%;background:#1B365D"><b>61.31</b><em>61.3%</em></span><span class="seg" style="width:7.47%;background:#B8862F"></span><span class="seg" style="width:31.22%;background:#A73F2D"><b>31.22</b><em>31.2%</em></span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2025</span><div class="ch-bars">
+<div class="ch-stack"><span class="seg" style="width:60.89%;background:#1B365D"><b>60.89</b><em>60.9%</em></span><span class="seg" style="width:6.77%;background:#B8862F"></span><span class="seg" style="width:32.34%;background:#A73F2D"><b>32.34</b><em>32.3%</em></span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2026H1</span><div class="ch-bars">
+<div class="ch-stack"><span class="seg" style="width:61.25%;background:#1B365D"><b>61.25</b><em>61.3%</em></span><span class="seg" style="width:6.41%;background:#B8862F"></span><span class="seg" style="width:32.34%;background:#A73F2D"><b>32.34</b><em>32.3%</em></span></div>
+<span class="ch-hint">半年报口径</span>
+</div></div>
+</div>
+<div class="ch-scale">单位：占营业收入百分比（%）（条形长度按各行最大值等比缩放）</div>
+</div>
+<figcaption>图 6　营业收入结构置换（2021—2026H1，100% 堆积）</figcaption>
+<p class="fig-note">息差收入（−11.02pp）与中间业务（−9.32pp）的双重缺口由「其他非利息净收入」（+20.34pp）填补。该科目以投资收益为主，无客户关系或利率锚定，是收入结构稳定性下降的直接来源。</p>
+</figure>
+<div class="rsp-table rsp-w8"><table class="compact longtable">
+<thead><tr><th>期间</th><th>营业收入</th><th>利息净收入</th><th>占比</th><th>手续费及佣金净收入</th><th>占比</th><th>其他非利息净收入</th><th>占比</th></tr></thead>
+<tbody>
+  <tr><td>2019（原始口径）</td><td>498.00</td><td>303.21</td><td>60.88%</td><td>65.67</td><td>13.19%</td><td>129.12</td><td>25.93%</td></tr>
+  <tr><td>2019（重述口径）</td><td>498.00</td><td>317.64</td><td>63.78%</td><td>51.24</td><td>10.29%</td><td>129.12</td><td>25.93%</td></tr>
+  <tr><td>2020</td><td>507.46</td><td>363.94</td><td>71.72%</td><td>56.09</td><td>11.05%</td><td>87.43</td><td>17.23%</td></tr>
+  <tr><td>2021</td><td>562.30</td><td>404.38</td><td>71.91%</td><td>90.47</td><td>16.09%</td><td>67.45</td><td>12.00%</td></tr>
+  <tr><td>2022</td><td>531.12</td><td>380.00</td><td>71.55%</td><td>64.93</td><td>12.22%</td><td>86.19</td><td>16.23%</td></tr>
+  <tr><td>2023</td><td>505.64</td><td>351.64</td><td>69.54%</td><td>49.15</td><td>9.72%</td><td>104.85</td><td>20.74%</td></tr>
+  <tr><td>2024</td><td>529.86</td><td>324.86</td><td>61.31%</td><td>39.59</td><td>7.47%</td><td>165.41</td><td>31.22%</td></tr>
+  <tr><td><strong>2025</strong></td><td><strong>547.61</strong></td><td><strong>333.44</strong></td><td><strong>60.89%</strong></td><td><strong>37.07</strong></td><td><strong>6.77%</strong></td><td><strong>177.10</strong></td><td><strong>32.34%</strong></td></tr>
+  <tr><td>2026H1</td><td>288.42</td><td>176.65</td><td>61.25%</td><td>18.50</td><td>6.41%</td><td>93.27</td><td>32.34%</td></tr>
+</tbody>
+</table></div>
+<p>注：<strong>2019 年必须双行列示</strong>——「原始口径」取自 2019 年年报「近三年主要会计数据」表的当年列（303.21 / 65.67 / 129.12 亿元）；「重述口径」取自 2021 年年报同表的 2019 年比较列（317.64 / 51.24 / 129.12 亿元，即 2021 年报第 718—724 行）。<strong>同一年、同一 498.00 亿元营业收入下，利息净收入相差 14.43 亿元、手续费净收入相差 14.43 亿元，占比相差 2.90pp</strong>——这 14.43 亿元正是从手续费重分类至利息的信用卡分期收入规模。三项加总均等于营业收入（原始 303.21 + 65.67 + 129.12 = 498.00；重述 317.64 + 51.24 + 129.12 = 498.00）。占比为各年报／半年报披露值（重述口径 2019 年占比取自 2021 年年报第 835 行利息净收入占比 63.78%）。2025 年年报该行项目名为「其他非利息净收入占营业收入百分比」，抽取时「其他」二字被跨行截断，已按上下文还原。</p>
+<p><strong>观察</strong>：接续 §1.3 的口径声明，本表的关键价值在于<strong>把「2019→<wbr>2020 的结构跃变」拆成两个部分</strong>。表观上，利息净收入占比从 2019 年的 60.88% 跳到 2020 年的 71.72%（+10.84pp）；但若以重述口径比较，2019 年已经是 63.78%、2020 年为 71.72%——<strong>两者相差 7.94pp，其中 2.90pp 由口径变更解释，其余 5.04pp 是 2020 年真实的结构变化</strong>（该年其他非利息净收入占比从 25.93% 骤降至 17.23%，−8.70pp）。<strong>任何引用「上海银行利息收入占比从 61% 升至 72%」的说法都是口径误导</strong>，但口径变更并非全部解释——2020 年确有一次真实的非息收入收缩。</p>
+<p>真正的结构性变化发生在 2022 年之后：<strong>利息净收入占比从 2021 年的 71.91% 降至 2025 年的 60.89%（−11.02pp）</strong>，同时<strong>其他非利息净收入占比从 12.00% 升至 32.34%（+20.34pp）</strong>，而<strong>手续费及佣金净收入占比从 16.09% 降至 6.77%（−9.32pp，不足原来的二分之一）</strong>。</p>
+<p>这条三线交叉揭示的是：<strong>上海银行在 2022 年后，用「投资收益」同时填补了「息差」（−11.02pp）与「中间业务」（−9.32pp）两个缺口。</strong> 收入结构的稳定性因此显著下降——息差收入有日均余额与利率作为锚，中间业务收入有客户关系作为锚，<strong>而投资收益没有锚，它取决于当年债券市场的行情与卖出时点</strong>。这一点在表 9、表 10 与 §4.5 中有进一步展开。</p>
+<h3>表 6　净息差与资产负债定价（2016—2025，附 2026H1）</h3>
+<figure>
+<div class="chart">
+<div class="ch-title">净息差 vs 资产端收益率 vs 负债端成本率（2020—2026H1）</div>
+<div class="ch-sub">单位：%｜两端同步下行：资产端 4.20%→2.53%（−167BP），负债端 2.26%→1.42%（−84BP）</div>
+<div class="ch-legend"><span class="lg"><i style="background:#A73F2D"></i>生息资产平均收益率</span><span class="lg"><i style="background:#1B365D"></i>计息负债平均付息率</span><span class="lg"><i style="background:#2F6F6B"></i>净息差</span></div>
+<div class="ch-rows">
+<div class="ch-row"><span class="ch-lab">2020</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:70.00%;background:#A73F2D;opacity:1"></div><span class="ch-val">4.20</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:37.67%;background:#1B365D;opacity:1"></div><span class="ch-val">2.26</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:30.33%;background:#2F6F6B;opacity:1"></div><span class="ch-val">1.82</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2021</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:66.83%;background:#A73F2D;opacity:1"></div><span class="ch-val">4.01</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:37.17%;background:#1B365D;opacity:1"></div><span class="ch-val">2.23</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:29.00%;background:#2F6F6B;opacity:1"></div><span class="ch-val">1.74</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2022</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:62.33%;background:#A73F2D;opacity:1"></div><span class="ch-val">3.74</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:36.17%;background:#1B365D;opacity:1"></div><span class="ch-val">2.17</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:25.67%;background:#2F6F6B;opacity:1"></div><span class="ch-val">1.54</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2023</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:60.33%;background:#A73F2D;opacity:1"></div><span class="ch-val">3.62</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:36.83%;background:#1B365D;opacity:1"></div><span class="ch-val">2.21</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:22.33%;background:#2F6F6B;opacity:1"></div><span class="ch-val">1.34</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2024</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:54.67%;background:#A73F2D;opacity:1"></div><span class="ch-val">3.28</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:34.33%;background:#1B365D;opacity:1"></div><span class="ch-val">2.06</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:19.50%;background:#2F6F6B;opacity:1"></div><span class="ch-val">1.17</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2025</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:47.00%;background:#A73F2D;opacity:1"></div><span class="ch-val">2.82</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:27.67%;background:#1B365D;opacity:1"></div><span class="ch-val">1.66</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:19.33%;background:#2F6F6B;opacity:1"></div><span class="ch-val">1.16</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2026H1</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:42.17%;background:#A73F2D;opacity:1"></div><span class="ch-val">2.53</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:23.67%;background:#1B365D;opacity:1"></div><span class="ch-val">1.42</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:19.17%;background:#2F6F6B;opacity:1"></div><span class="ch-val">1.15</span></div>
+<span class="ch-hint">半年报口径</span>
+</div></div>
+</div>
+<div class="ch-scale">单位：%　2026H1 为半年度口径（淡色条）（条形长度按各行最大值等比缩放）</div>
+</div>
+<figcaption>图 7　资产负债两端定价与净息差（2020—2026H1，单位：%）</figcaption>
+<p class="fig-note">资产端收益率十年降幅是负债端成本降幅的 2 倍（−167BP vs −84BP）。2025 年净息差几乎止跌（−1BP），但原因是两端同步下降 40 余 BP 后的残值，而非任何一端企稳。</p>
+</figure>
+<p><strong>表 6-A　原始披露口径（各年年报当年披露值）</strong></p>
+<div class="rsp-table"><table class="compact longtable">
+<thead><tr><th>期间</th><th>净息差（%）</th><th>净利差（%）</th><th>息差 − 利差（BP）</th></tr></thead>
+<tbody>
+  <tr><td>2016</td><td>1.73</td><td>1.72</td><td>+1</td></tr>
+  <tr><td>2017</td><td>1.25</td><td>1.38</td><td>−13</td></tr>
+  <tr><td>2018</td><td>1.76</td><td>1.81</td><td>−5</td></tr>
+  <tr><td>2019</td><td>1.71</td><td>1.93</td><td>−22</td></tr>
+  <tr><td>2020</td><td>1.82</td><td>1.94</td><td>−12</td></tr>
+  <tr><td>2021</td><td>1.74</td><td>1.78</td><td>−4</td></tr>
+  <tr><td>2022</td><td>1.54</td><td>1.57</td><td>−3</td></tr>
+  <tr><td>2023</td><td>1.34</td><td>1.41</td><td>−7</td></tr>
+  <tr><td>2024</td><td>1.17</td><td>1.22</td><td>−5</td></tr>
+  <tr><td><strong>2025</strong></td><td><strong>1.16</strong></td><td><strong>1.16</strong></td><td><strong>0</strong></td></tr>
+  <tr><td>2026H1</td><td>1.15</td><td>1.11</td><td>+4</td></tr>
+</tbody>
+</table></div>
+<p><strong>表 6-B　重述口径（还原信用卡分期收入重分类影响）</strong></p>
+<div class="rsp-table"><table class="compact">
+<thead><tr><th>期间</th><th>净息差（%）</th><th>净利差（%）</th><th>说明</th></tr></thead>
+<tbody>
+  <tr><td>2019</td><td>1.88</td><td>—</td><td>2019 年年报披露「如按同口径比较，净息差同比提高 0.12 个百分点至 1.88%」</td></tr>
+  <tr><td>2019（2021 年报回取值）</td><td>1.78</td><td>1.98</td><td>2021 年年报比较列，已按重分类完整重述</td></tr>
+  <tr><td>2020</td><td>1.82</td><td>1.94</td><td>2020 年年报已按重分类口径披露，与表 6-A 一致</td></tr>
+</tbody>
+</table></div>
+<p><strong>表 6-C　生息资产与计息负债定价（2020—2025，附 2026H1；单位：%）</strong></p>
+<div class="rsp-table rsp-w5"><table class="compact">
+<thead><tr><th>期间</th><th>生息资产平均收益率</th><th>计息负债平均付息率</th><th>发放贷款和垫款平均收益率</th><th>吸收存款平均付息率</th></tr></thead>
+<tbody>
+  <tr><td>2020</td><td>4.20</td><td>2.26</td><td>5.06</td><td>2.15</td></tr>
+  <tr><td>2021</td><td>4.01</td><td>2.23</td><td>4.72</td><td>2.07</td></tr>
+  <tr><td>2022</td><td>3.74</td><td>2.17</td><td>4.44</td><td>2.12</td></tr>
+  <tr><td>2023</td><td>3.62</td><td>2.21</td><td>4.27</td><td>2.08</td></tr>
+  <tr><td>2024</td><td>3.28</td><td>2.06</td><td>3.76</td><td>1.92</td></tr>
+  <tr><td><strong>2025</strong></td><td><strong>2.82</strong></td><td><strong>1.66</strong></td><td><strong>3.19</strong></td><td><strong>1.52</strong></td></tr>
+  <tr><td>2026H1</td><td>2.53</td><td>1.42</td><td>2.94</td><td>1.23</td></tr>
+</tbody>
+</table></div>
+<p><strong>口径重要声明</strong>：表 6-A 与 6-B 的差异<strong>不是数据错误，而是两次口径变更的叠加结果，必须分开看</strong>。</p>
+<ol>
+  <li><strong>2019 年存在三个不同的净息差读数，各有其口径</strong>：① 1.71% = 2019 年年报当年披露值（信用卡分期收入仍计入手续费口径）；② 1.88% = 2019 年年报中管理层给出的「如按同口径比较」值（仅调整了当年，未完整重述）；③ 1.78% = 2021 年年报比较列中的 2019 年值（已按 2020 年起的新准则完整重述）。<strong>三者之中只有 ② 与 ③ 可与 2020 年及以后比较，但它们之间仍相差 10BP</strong>，原因是完整重述还包含了资产端日均余额口径的调整。<strong>凡引用 2019 年净息差，必须同时说明取自哪一份年报。</strong></li>
+  <li><strong>2016—2018 年的净息差不可与 2019 年及以后直接比较</strong>。除信用卡分期收入的分界外，2016 年年报使用的指标名为「净利息收益率」（2019 年起改称「净息差」），且 2016—2017 年的口径还涉及金融资产分类的会计处理变化。表 6-A 中 2017 年净息差 1.25% 是十年最低值，其成因是「营改增」后收入口径调整与当年大幅增配同业存单等主动负债，与 2021 年后的息差收窄<strong>不是同一种性质</strong>，不应连成一条趋势线。</li>
+  <li><strong>2025 年的净息差 1.16% 与净利差 1.16% 完全相等，2026H1 转为净息差高于净利差（+4BP）</strong>——这个符号反转本身就是一个需要解释的会计现象（见下）。</li>
+</ol>
+<p><strong>观察</strong>：<strong>息差命脉的转折点在 2019 年。</strong> 从 2019 年的 1.71%（原始口径）到 2026H1 的 1.15%，净息差累计收窄 56BP；若以可比的重述口径（2019 年 1.78%）计，则为 63BP。但真正的信息量在于<strong>收窄的斜率</strong>：</p>
+<div class="rsp-table rsp-w5"><table class="compact">
+<thead><tr><th>期间</th><th>净息差变动（BP）</th><th>生息资产收益率变动（BP）</th><th>计息负债成本率变动（BP）</th><th>净变动（BP）</th></tr></thead>
+<tbody>
+  <tr><td>2020 →<wbr> 2021</td><td>−8</td><td>−19</td><td>−3</td><td>−16</td></tr>
+  <tr><td>2021 →<wbr> 2022</td><td>−20</td><td>−27</td><td>−6</td><td>−21</td></tr>
+  <tr><td>2022 →<wbr> 2023</td><td>−20</td><td>−12</td><td>+4</td><td>−16</td></tr>
+  <tr><td>2023 →<wbr> 2024</td><td>−17</td><td>−34</td><td>−15</td><td>−19</td></tr>
+  <tr><td>2024 →<wbr> 2025</td><td><strong>−1</strong></td><td><strong>−46</strong></td><td><strong>−40</strong></td><td><strong>−6</strong></td></tr>
+</tbody>
+</table></div>
+<p>表内数据揭示两个关键事实：</p>
+<p><strong>第一，2024→<wbr>2025 年净息差几乎停止收窄（仅 −1BP），但这是一次「哑铃式的对称下行」而非经营改善。</strong> 生息资产平均收益率大幅下降 46BP（3.28% →<wbr> 2.82%），计息负债平均付息率同步下降 40BP（2.06% →<wbr> 1.66%），两者相抵后净息差仅微降。资产端与负债端同步、同幅度地下行，意味着<strong>息差是被「存款利率下调」救回来的，而不是被「资产定价能力」撑住的</strong>——这与 2023 年（资产端 −12BP、负债端反而 +4BP，完全靠资产端硬扛）是完全不同的驱动结构。</p>
+<p><strong>第二，「净息差 − 净利差」的符号反转揭示了净息差的会计托举。</strong> 净利差 = 生息资产收益率 − 计息负债付息率（纯价格因素）；净息差 = 净利息收入 ÷ 生息资产日均余额（含规模结构因素）。正常情况下净息差应略低于净利差（因为存在非生息资产拖累）。但上海银行 2025 年两者相等、2026H1 净息差反超净利差 4BP，管理层在 2025 年年报中的解释是「<strong>提高生息资产占比，降低以公允价值计量且其变动计入当期损益的资产配置</strong>」——即通过压缩分母（非生息资产）来抬高比值。<strong>这是会计口径上的优化，不是定价能力的改善</strong>：它无法重复使用，一旦非生息资产压缩空间用尽，净息差将重新跟随净利差下行。</p>
+<p><strong>第三，息差下行的速度已经趋缓，但绝对水平已进入「1.1% 区间」的低位。</strong> 2026H1 净息差 1.15%、同比持平，管理层表述为「趋势稳中向好」。但需要注意：2026H1 的资产端收益率（2.53%）与负债端成本率（1.42%）均较 2025 年全年再降 29BP 与 24BP，<strong>息差的「持平」依然是两端同步下行的结果，而非任何一端企稳的信号</strong>。</p>
+<h3>表 7　分季度经营数据（2025Q1—2026Q2；单位：亿元）</h3>
+<figure>
+<div class="chart">
+<div class="ch-title">分季度归母净利润（2025Q1—2026Q2）</div>
+<div class="ch-sub">单位：亿元｜2025Q3 仅 48.44 亿元，为当年四个季度中唯一低于 60 亿元者</div>
+<div class="ch-legend"><span class="lg"><i style="background:#A73F2D"></i>归母净利润</span></div>
+<div class="ch-rows">
+<div class="ch-row"><span class="ch-lab">2025Q1</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:63.24%;background:#A73F2D;opacity:1"></div><span class="ch-val">62.92</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2025Q2</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:69.74%;background:#A73F2D;opacity:1"></div><span class="ch-val">69.39</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2025Q3</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:48.68%;background:#A73F2D;opacity:1"></div><span class="ch-val">48.44</span></div>
+<span class="ch-hint">计提集中确认</span>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2025Q4</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:61.49%;background:#A73F2D;opacity:1"></div><span class="ch-val">61.18</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2026Q1</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:63.66%;background:#A73F2D;opacity:1"></div><span class="ch-val">63.34</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2026Q2</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:70.00%;background:#A73F2D;opacity:1"></div><span class="ch-val">69.65</span></div>
+<span class="ch-hint">推算值</span>
+</div></div>
+</div>
+<div class="ch-scale">单位：亿元　2026Q2 为推算值（淡色条）（条形长度按各行最大值等比缩放）</div>
+</div>
+<figcaption>图 8　分季度归母净利润（2025Q1—2026Q2，单位：亿元）</figcaption>
+<p class="fig-note">2025Q3 的营业收入（137.97 亿元）为全年最高，归母净利润却为全年最低（48.44 亿元），唯一解释是该季度集中确认信用减值损失。2026Q2 数值由半年报减一季报推算。</p>
+</figure>
+<div class="rsp-table"><table class="compact">
+<thead><tr><th>季度</th><th>营业收入</th><th>归母净利润</th><th>扣非归母净利润</th></tr></thead>
+<tbody>
+  <tr><td>2025Q1</td><td>135.97</td><td>62.92</td><td>62.64</td></tr>
+  <tr><td>2025Q2</td><td>137.47</td><td>69.39</td><td>69.80</td></tr>
+  <tr><td>2025Q3</td><td>137.97</td><td>48.44</td><td>48.68</td></tr>
+  <tr><td>2025Q4</td><td>136.21</td><td>61.18</td><td>61.09</td></tr>
+  <tr><td>2025 全年</td><td>547.61</td><td>241.93</td><td>241.97</td></tr>
+  <tr><td>2026Q1</td><td>141.75</td><td>63.34</td><td>—</td></tr>
+  <tr><td>2026Q2</td><td>146.67</td><td>69.65</td><td>—</td></tr>
+  <tr><td>2026H1</td><td>288.42</td><td>132.99</td><td>—</td></tr>
+</tbody>
+</table></div>
+<p>注：分季度数据取自 2025 年年度报告「二、分季度主要财务数据」，公司披露口径为单季数（非累计数），单位为千元，本报告折算为亿元。2026Q2 由 2026H1 减 2026Q1 推算，已在表注声明其非直接披露值；2026 年分季扣非数据半年报未按季披露，留「—」。因四舍五入，四季度之和与全年存在 0.01 亿元尾差。</p>
+<p><strong>观察</strong>：季度间的收入分布异常平滑（2025 年四个季度分别为 135.97、137.47、137.97、136.21 亿元，极差仅 2.00 亿元），说明<strong>收入端已没有季节性增长动力</strong>；但利润分布极不均匀——<strong>2025Q3 归母净利润 48.44 亿元，仅为 Q2（69.39 亿元）的 69.8%</strong>，这与其他三个季度的 61—69 亿元区间明显脱离。若将 2026 年两个季度（63.34、69.65 亿元）与之对照，2025Q3 的低点是全年唯一的异常值，指向该季度集中计提（详见 §4.4）。</p>
+<h3>表 8　手续费及佣金收入结构（2024—2025；单位：亿元）</h3>
+<div class="rsp-table"><table class="compact longtable">
+<thead><tr><th>项目</th><th>2025 年</th><th>2024 年</th><th>同比</th></tr></thead>
+<tbody>
+  <tr><td>代理业务</td><td>22.48</td><td>20.94</td><td>+7.39%</td></tr>
+  <tr><td>信用承诺业务</td><td>6.60</td><td>9.22</td><td>−28.43%</td></tr>
+  <tr><td>托管及其他受托业务</td><td>4.33</td><td>4.91</td><td>−11.88%</td></tr>
+  <tr><td>结算与清算业务</td><td>2.87</td><td>2.31</td><td>+24.55%</td></tr>
+  <tr><td>银行卡业务</td><td>2.57</td><td>3.44</td><td>−25.41%</td></tr>
+  <tr><td>顾问和咨询业务</td><td>1.64</td><td>2.65</td><td>−38.08%</td></tr>
+  <tr><td>电子银行业务</td><td>1.36</td><td>1.03</td><td>+32.43%</td></tr>
+  <tr><td>其他</td><td>0.30</td><td>0.67</td><td>−55.90%</td></tr>
+  <tr class="total"><td><strong>手续费及佣金收入</strong></td><td><strong>42.14</strong></td><td><strong>45.16</strong></td><td><strong>−6.68%</strong></td></tr>
+  <tr><td>手续费及佣金支出</td><td>5.07</td><td>5.57</td><td>−8.96%</td></tr>
+  <tr class="total"><td><strong>手续费及佣金净收入</strong></td><td><strong>37.07</strong></td><td><strong>39.59</strong></td><td><strong>−6.36%</strong></td></tr>
+</tbody>
+</table></div>
+<p>注：数据取自 2025 年年度报告「手续费及佣金收入」明细表。2025 年年报说明该项下降「主要受结构转型、减费让利、费率下调等综合因素影响」。</p>
+<p><strong>观察</strong>：手续费收入中降幅最大的是<strong>信用承诺业务（−28.43%）、顾问和咨询（−38.08%）、银行卡（−25.41%）</strong>，三者合计减少 4.50 亿元，恰好覆盖了代理业务增长（+1.55 亿元）与结算清算、电子银行增长（+0.89 亿元）的全部贡献后仍有缺口。<strong>唯一的增长极「代理业务」（22.48 亿元，占手续费收入 53.3%）本质是代销理财／基金的收入，与资本市场景气度强相关，不构成内生稳定收入</strong>。中间业务对息差缺口的第一道补偿已经失效（详见 §4.5）。</p>
+<h3>表 9　其他非利息净收入构成（2024—2025；单位：亿元）</h3>
+<div class="rsp-table"><table class="compact">
+<thead><tr><th>项目</th><th>2025 年</th><th>2024 年</th><th>同比</th></tr></thead>
+<tbody>
+  <tr><td>投资收益</td><td>208.08</td><td>131.66</td><td>+58.05%</td></tr>
+  <tr><td>公允价值变动损益</td><td>−25.61</td><td>+37.02</td><td>−169.17%</td></tr>
+  <tr><td>汇兑损益</td><td>−7.47</td><td>−7.37</td><td>−1.31%</td></tr>
+  <tr><td>其他收益</td><td>1.01</td><td>2.99</td><td>−66.34%</td></tr>
+  <tr><td>其他业务收入</td><td>0.73</td><td>0.68</td><td>+7.33%</td></tr>
+  <tr><td>资产处置损益</td><td>0.36</td><td>0.43</td><td>−15.96%</td></tr>
+  <tr class="total"><td><strong>其他非利息净收入</strong></td><td><strong>177.10</strong></td><td><strong>165.41</strong></td><td><strong>+7.07%</strong></td></tr>
+</tbody>
+</table></div>
+<p>注：数据取自 2025 年年度报告「其他非利息净收入」明细表。</p>
+<p><strong>观察</strong>：这 177.10 亿元「其他非利息净收入」的全部增量来自投资收益（+76.42 亿元），而<strong>投资收益的增长又被公允价值变动损益从 +37.02 亿元转为 −25.61 亿元（摆动 62.63 亿元）几乎全额抵消</strong>。这正是「以公允价值计量且其变动计入当期损益」（FVTPL）持仓的典型表现：资产一经计入交易性金融资产，其浮盈浮亏便直接进入当期损益，跨期波动不可控。<strong>上海银行 32.34% 的收入来自这类非息收入，其利润的「可预测性」实际低于表 1 呈现的平稳增长。</strong></p>
+<h3>表 10　金融投资结构（2024—2025 年末；单位：亿元）</h3>
+<figure>
+<div class="chart">
+<div class="ch-title">金融投资结构迁移（2024 → 2025 年末）</div>
+<div class="ch-sub">单位：亿元｜「债权投资」减少 767.15 亿元，「其他债权投资」增加 1,326.45 亿元（+82.95%）</div>
+<div class="ch-legend"><span class="lg"><i style="background:#8B8880"></i>2024 年末</span><span class="lg"><i style="background:#A73F2D"></i>2025 年末</span></div>
+<div class="ch-rows">
+<div class="ch-row"><span class="ch-lab">交易性金融资产（FVTPL）</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:23.04%;background:#8B8880;opacity:0.55"></div><span class="ch-val">2,992.39</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:21.42%;background:#A73F2D;opacity:1"></div><span class="ch-val">2,783.05</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">债权投资（摊余成本）</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:70.00%;background:#8B8880;opacity:0.55"></div><span class="ch-val">9,093.12</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:64.09%;background:#A73F2D;opacity:1"></div><span class="ch-val">8,325.97</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">其他债权投资（FVOCI）</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:12.31%;background:#8B8880;opacity:0.55"></div><span class="ch-val">1,598.97</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:22.52%;background:#A73F2D;opacity:1"></div><span class="ch-val">2,925.42</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">其他权益工具投资</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:0.34%;background:#8B8880;opacity:0.55"></div><span class="ch-val">44.13</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:0.31%;background:#A73F2D;opacity:1"></div><span class="ch-val">40.71</span></div>
+</div></div>
+</div>
+<div class="ch-scale">单位：亿元　2024 年为对照年（淡色条）（条形长度按各行最大值等比缩放）</div>
+</div>
+<figcaption>图 9　金融投资结构迁移（2024 vs 2025 年末，单位：亿元）</figcaption>
+<p class="fig-note">摊余成本科目（不影响利润表）向 FVOCI 科目（卖出即可兑现为投资收益）的大幅腾挪，为 2025 年 208.08 亿元投资收益备好了存货。这是一次服务于当期利润表的资产端会计路径选择。</p>
+</figure>
+<div class="rsp-table rsp-w5"><table class="compact">
+<thead><tr><th>项目</th><th>2025 年末</th><th>占比</th><th>2024 年末</th><th>占比</th></tr></thead>
+<tbody>
+  <tr><td>交易性金融资产（FVTPL）</td><td>2,783.05</td><td>19.77%</td><td>2,992.39</td><td>21.80%</td></tr>
+  <tr><td>债权投资（摊余成本）</td><td>8,325.97</td><td>59.15%</td><td>9,093.12</td><td>66.23%</td></tr>
+  <tr><td>其他债权投资（FVOCI）</td><td>2,925.42</td><td>20.78%</td><td>1,598.97</td><td>11.65%</td></tr>
+  <tr><td>其他权益工具投资</td><td>40.71</td><td>0.29%</td><td>44.13</td><td>0.32%</td></tr>
+  <tr class="total"><td><strong>金融投资合计</strong></td><td><strong>14,075.16</strong></td><td><strong>100.00%</strong></td><td><strong>13,728.61</strong></td><td><strong>100.00%</strong></td></tr>
+</tbody>
+</table></div>
+<p>注：数据取自 2025 年年度报告「金融投资」结构表；尾差系四舍五入。</p>
+<p><strong>观察</strong>：金融投资总额仅增长 2.52%（346.55 亿元），但<strong>内部结构发生剧烈迁移：「债权投资」（摊余成本）减少 767.15 亿元（−8.44%），而「其他债权投资」（以公允价值计量且变动计入其他综合收益）增加 1,326.45 亿元（+82.95%），占比由 11.65% 翻倍至 20.78%</strong>。这一腾挪同时产生两个效果：一是把债券浮盈从「不影响利润表」的摊余成本科目挪到「卖出即可兑现为投资收益」的 FVOCI 科目，为表 9 中 208.08 亿元投资收益提供了存货；二是压降 FVTPL 配置（−7.00%），从而减少公允价值波动对当期损益的扰动，呼应 §4.3 中净息差被托举的逻辑。<strong>这是一次服务于当期利润表优化的资产端会计路径选择。</strong></p>
+<h2>三、财务数据表的联动关系</h2>
+<p>前面十张表各自呈现一个侧面，把它们连起来才能看清这家银行的运行逻辑。以下四组联动关系是本报告的核心分析框架。</p>
+<h3>3.1 第一组联动：扩表降速 →<wbr> 息差托举 →<wbr> 资本改善（同一动作的三个结果）</h3>
+<p><strong>2022 年之后上海银行的全部经营调整，本质上是同一个动作：「停止用扩表换收入」。</strong></p>
+<div class="rsp-table rsp-w7"><table class="compact">
+<thead><tr><th>年份</th><th>总资产增速</th><th>贷款增速</th><th>生息资产收益率</th><th>净息差</th><th>风险加权资产增速</th><th>核心一级资本充足率</th></tr></thead>
+<tbody>
+  <tr><td>2021</td><td>+7.76%</td><td>+11.44%</td><td>4.01%</td><td>1.74%</td><td>—</td><td>8.95%</td></tr>
+  <tr><td>2022</td><td>+8.49%</td><td>+6.60%</td><td>3.74%</td><td>1.54%</td><td>—</td><td>9.14%</td></tr>
+  <tr><td>2023</td><td>+7.19%</td><td>+5.55%</td><td>3.62%</td><td>1.34%</td><td>+5.26%</td><td>9.53%</td></tr>
+  <tr><td>2024</td><td>+4.57%</td><td>+2.08%</td><td>3.28%</td><td>1.17%</td><td>+6.68%</td><td>10.35%</td></tr>
+  <tr><td>2025</td><td>+2.54%</td><td>+2.49%</td><td>2.82%</td><td>1.16%</td><td>+3.15%</td><td>10.65%</td></tr>
+</tbody>
+</table></div>
+<p>这组数据展示的是<strong>同一个决策的三个后果</strong>：</p>
+<ul>
+  <li><strong>后果一（收入端）</strong>：扩表停止 →<wbr> 生息资产规模不再增长 →<wbr> 净利息收入失去量的补偿 →<wbr> 息差收窄不再是「量补价」的可对冲变量。这是营业收入六年横盘（表 1）的根源。</li>
+  <li><strong>后果二（息差端）</strong>：资产扩张放缓后，管理层可以不再强行投放高收益（高风险）资产，资产端收益率的下降因此加速（2025 年 −46BP）。但这一「加速下降」同时换来了负债端成本的下行空间（−40BP），净息差反而在 2025 年几乎止跌（−1BP）。<strong>这是一个悖论式的改善：息差靠「两端一起降」而稳住，而不是靠任何一端变强。</strong></li>
+  <li><strong>后果三（资本端）</strong>：风险加权资产增速降至 3.15%，低于资本净额增速，核心一级资本充足率因此从 2021 年的 8.95%（距监管红线仅 45BP）回升至 2025 年的 10.65%。<strong>这是被动改善</strong>——因为它来自分母不增长，而非分子变厚。</li>
+</ul>
+<p><strong>判断</strong>：这组联动是「收缩求稳」的典型模式，短期内有效（资本压力缓解、息差止跌），但它有一个明确的上限：<strong>一旦扩表重新提速，三个后果会同时反向</strong>。而如果不提速，ROE 将继续下行（因为权益留存持续累积而利润增长趋近于零）。上海银行目前正处在这个两难之中。</p>
+<h3>3.2 第二组联动：拨备覆盖率下降 ← 净息差下降（利润表的会计等式）</h3>
+<p><strong>表 1 的「归母净利润六年正增长」与表 3 的「拨备覆盖率七年下降 92.21pp」，是同一枚硬币的两面。</strong></p>
+<p>用一个简化的会计等式来看：</p>
+<p>```</p>
+<p>归母净利润 ≈ 营业收入 − 业务及管理费 − 信用减值损失 − 所得税</p>
+<p>```</p>
+<p>十年间前两项的运行结果是：</p>
+<ul>
+  <li><strong>营业收入</strong>：2020—2025 年基本横盘（507.46 →<wbr> 547.61 亿元，+7.9%）</li>
+  <li><strong>业务及管理费</strong>：同步增长（2025 年 127.65 亿元，同比 +1.14%）</li>
+</ul>
+<p><strong>两者相抵后，拨备前利润（PPOP）几乎不增长。</strong> 在这种情况下，要让净利润仍保持正增长，唯一的调节项就是<strong>信用减值损失</strong>。</p>
+<p><strong>这就是问题的核心：净利润的增长不是「赚出来的」，而是「少计提出来的」。</strong> 表 3 中拨备覆盖率从 337.15% 降至 244.94%、贷款拨备率从 3.90% 降至 2.89%，正是这个「少计提」过程的累积结果。<strong>这个调节阀还剩多少空间？</strong> 按 2025 年末不良贷款 169.97 亿元计算，拨备覆盖率每下降 10pp，可释放约 17.00 亿元拨备、对应约 12.75 亿元税后净利润——相当于 2025 年净利润（241.93 亿元）的 5.3%。<strong>也就是说，通过继续压降拨备覆盖率来维持利润正增长，剩余可操作空间已相当有限，而 2026H1 的 198.25% 表明部分空间已被一次性用掉。</strong></p>
+<h3>3.3 第三组联动：逾期／不良剪刀差 ← 关注类占比 ← 拨备释放的必然结果</h3>
+<p>表 3 中三条线的时序关系可以还原出一条完整的风险确认链：</p>
+<div class="rsp-table rsp-w6"><table class="compact">
+<thead><tr><th>年份</th><th>关注类占比</th><th>逾期贷款率</th><th>逾期／不良</th><th>拨备覆盖率</th><th>解读</th></tr></thead>
+<tbody>
+  <tr><td>2021</td><td>1.65%（十年最低）</td><td>2.08%（十年最高）</td><td>166.1%（十年最高）</td><td>301.13%</td><td>关注类被大幅下迁至逾期，但未同步认定不良</td></tr>
+  <tr><td>2022</td><td>1.64%</td><td>1.70%</td><td>135.9%</td><td>291.61%</td><td>逾期转为不良（剪刀差收窄）</td></tr>
+  <tr><td>2023</td><td>2.07%（跳升）</td><td>1.71%</td><td>141.6%</td><td>272.66%</td><td>新一轮风险进入关注类</td></tr>
+  <tr><td>2024</td><td>2.06%</td><td>1.73%</td><td>146.3%</td><td>269.81%</td><td>剪刀差再度扩大</td></tr>
+  <tr><td>2025</td><td>2.11%（十年最高）</td><td>1.65%</td><td>140.2%</td><td>244.94%</td><td>关注类创新高，剪刀差维持高位</td></tr>
+  <tr><td>2026H1</td><td>1.77%（−34BP）</td><td>1.50%</td><td>105.7%</td><td>198.25%</td><td><strong>集中下迁：关注类与逾期同步大幅下降，不良骤升</strong></td></tr>
+</tbody>
+</table></div>
+<p><strong>2021 年是最值得研究的一年</strong>：关注类占比降至十年最低的 1.65%，而逾期贷款率却升至十年最高的 2.08%，逾期／不良达 166.1%。这三个读数同时出现的唯一解释是：<strong>当年有一批贷款在没有经过「关注类」这一中间环节的情况下直接变成了逾期，或者关注类贷款被快速划入逾期而未同步下调为不良。</strong> 无论哪种情形，都指向<strong>五级分类的审慎性存在疑问</strong>。</p>
+<p><strong>2026H1 则是这条链条的终点</strong>：关注类占比从 2.11% 降至 1.77%（−34BP）、逾期贷款率从 1.65% 降至 1.50%（−15BP），但不良率从 1.18% 升至 1.42%（+24BP）——<strong>前两类同时下降而不良大幅上升，是「集中确认」的教科书式特征</strong>。管理层在半年报中的说明是「个别房地产及建筑业存量客户，受行业周期波动持续影响，经营承压，致使分类下迁」，但<strong>不良贷款余额从 169.97 亿元增至 217.37 亿元、半年增加 47.40 亿元（+27.9%）</strong>，这个规模已远超「个别客户」的范畴。</p>
+<h3>3.4 第四组联动：投资收益 ← 「债权投资」科目腾挪 ← 收入结构稳定性下降</h3>
+<p>把表 5、表 9、表 10 连起来看：</p>
+<ul>
+  <li>表 10 显示「债权投资」（摊余成本）2025 年减少 767.15 亿元，「其他债权投资」（FVOCI）增加 1,326.45 亿元。</li>
+  <li>表 9 显示投资收益从 131.66 亿元增至 208.08 亿元（+58.05%），同时公允价值变动损益从 +37.02 亿元转为 −25.61 亿元。</li>
+  <li>表 5 显示其他非利息净收入占比升至 32.34%（十年最高）。</li>
+</ul>
+<p><strong>这条链的传导机制是</strong>：把债券从摊余成本科目挪到 FVOCI 科目 →<wbr> 债券市价波动开始影响其他综合收益（不影响当期利润）→<wbr> 在合适的市场时点卖出 →<wbr> 累计在其他综合收益中的浮盈一次性转入投资收益（影响当期利润）。<strong>这使得投资收益在会计上变得「可控」——管理层可以在需要的时候选择卖出时点，兑现已经积累的浮盈。</strong></p>
+<p><strong>这解释了 2025 年一个看似矛盾的现象</strong>：营业收入 +3.35%、归母净利润 +2.69%，同时投资收益 +58.05%，但公允价值变动损益却从 +37.02 亿元变成 −25.61 亿元（摆动 −62.63 亿元）。<strong>两者合计的「投资相关损益」从 168.68 亿元增至 182.47 亿元（仅 +8.2%），远低于投资收益单项 58.05% 的增速。</strong> 如果只看投资收益，会高估上海银行 2025 年的投资业务表现。</p>
+<p><strong>判断</strong>：这条链把银行的利润表与债券市场行情绑定，且绑定的方式是可主动选择的。<strong>这提高了短期利润的可管理性，但降低了长期利润的可预测性</strong>——32.34% 的收入来自一个可以择时兑现的科目，意味着未来某一年如果债券市场缺乏浮盈，这个科目将无法再提供同等贡献。</p>
+<h2>四、关键变化的原因分析</h2>
+<h3>4.1 营业收入为何六年横盘？</h3>
+<p><strong>表面原因</strong>是利息净收入增长停滞。但更深一层，是<strong>上海银行在 2021 年达到资产扩张与息差的最佳组合点后，两个变量同时反转</strong>。</p>
+<p>2021 年是十年中的峰值年：营业收入 562.30 亿元、总资产增速 +7.76%、净息差 1.74%（重述口径）。此后：</p>
+<ul>
+  <li>净息差从 1.74% 降至 1.16%（−58BP），降幅 33.3%</li>
+  <li>生息资产规模仍在增长，但增速从 +7.76% 降至 +2.54%</li>
+</ul>
+<p><strong>利息净收入 = 生息资产规模 × 净息差</strong>。当两个乘数一个降 33.3%、另一个增速降 67.3% 时，利息净收入的下降是数学必然。实际数据：利息净收入从 2021 年的 404.38 亿元降至 2025 年的 333.44 亿元（<strong>−17.5%</strong>）。</p>
+<p><strong>为什么息差降幅如此之大？</strong> 表 6-C 给出了答案——<strong>发放贷款和垫款平均收益率从 2021 年的 4.72% 降至 2025 年的 3.19%（−153BP）</strong>，这个降幅远超同期计息负债成本率的降幅（2.23% →<wbr> 1.66%，−57BP）。资产端收益率下降的速度是负债端成本下降速度的 <strong>2.7 倍</strong>。</p>
+<p><strong>这个不对称来自上海银行的客群结构</strong>：作为立足上海的城商行，其贷款投向集中于长三角的制造业、房地产与政府融资平台，且以对公为主。这些客群在 LPR 连续下调的周期中，重定价速度快、议价能力强；而负债端（存款）的成本下调受制于存款竞争与定期化趋势，调整滞后。<strong>这是一个结构性的、难以靠经营努力逆转的息差压力。</strong></p>
+<h3>4.2 为什么资产结构在 2022 年后转向金融投资？</h3>
+<p>表 2 显示「贷款／总资产」从 2021 年的 46.12% 回落至 2025 年的 43.55%。这一转向的原因可以从三个角度理解：</p>
+<p><strong>第一，信贷需求不足。</strong> 贷款增速从 2021 年的 +11.44% 降至 2024 年的 +2.08%、2025 年的 +2.49%。在长三角地区，优质信贷需求在房地产周期下行后显著萎缩。</p>
+<p><strong>第二，金融投资的收益率在特定时期更有吸引力。</strong> 2024 年债券市场经历了一轮显著牛市，持有债券的资本利得远高于发放贷款的利息收入。这解释了 2024 年其他非利息净收入为何能从 104.85 亿元跃升至 165.41 亿元。</p>
+<p><strong>第三，资本占用的考量。</strong> 金融投资（尤其是利率债）的风险权重普遍低于对公贷款，在核心一级资本充足率紧张时（2021 年 8.95%），增配金融投资是缓解资本压力的直接手段。</p>
+<p><strong>需要指出的是，这一转向在 2025 年已显现疲态</strong>：金融投资总额仅增长 2.52%，其中交易性金融资产还减少了 7.00%。<strong>这说明「以投资替代信贷」的策略在收益率空间被压缩后，也已接近其极限。</strong></p>
+<h3>4.3 净息差 2025 年「止跌」的真相</h3>
+<p>表 6-A 显示净息差从 2024 年的 1.17% 降至 2025 年的 1.16%，<strong>仅降 1BP</strong>——这是七年收窄过程中最小的一次降幅，看起来像是「筑底」。</p>
+<p>但表 6-C 的分解表明这个「止跌」的构成是：</p>
+<div class="rsp-table"><table class="compact">
+<thead><tr><th>项目</th><th>2024</th><th>2025</th><th>变动</th></tr></thead>
+<tbody>
+  <tr><td>生息资产平均收益率</td><td>3.28%</td><td>2.82%</td><td><strong>−46BP</strong></td></tr>
+  <tr><td>计息负债平均付息率</td><td>2.06%</td><td>1.66%</td><td><strong>−40BP</strong></td></tr>
+  <tr><td>净利差</td><td>1.22%</td><td>1.16%</td><td>−6BP</td></tr>
+</tbody>
+</table></div>
+<p><strong>资产端和负债端同步下行 40 余 BP，净息差只是差额的残值。</strong> 这有两个含义：</p>
+<ol>
+  <li><strong>净息差的「稳」不来自任何一端的韧性。</strong> 2026H1 的实际数据印证了这一点——资产端 2.82% →<wbr> 2.53%（−29BP），负债端 1.66% →<wbr> 1.42%（−24BP），净息差 1.16% →<wbr> 1.15%（−1BP）。<strong>但负债端的绝对值（1.42%）已经显著低于资产端（2.53%），继续下调的空间比资产端小得多。</strong></li>
+</ol>
+<ol>
+  <li><strong>「净息差 − 净利差」的符号反转（2025 年 0，2026H1 +4BP）是会计口径优化的痕迹。</strong> 管理层明确说明这是「降低以公允价值计量且其变动计入当期损益的资产配置」的结果——即减少分母中的非生息资产。<strong>这不是定价能力改善，而是资产负债结构的会计摆布</strong>，且不可重复使用。</li>
+</ol>
+<p><strong>结论</strong>：净息差 1.15%—1.16% 大概率不是本轮周期的最低点。<strong>在负债端成本降至 1.42% 后，继续下调的空间已被存款竞争与居民储蓄意愿限制，而资产端收益率仍在下行通道中。</strong></p>
+<h3>4.4 成本收入比与计提节奏：2025Q3 与 2026H1 两个异常点</h3>
+<p>表 7 的分季度数据显示，2025 年第三季度归母净利润 48.44 亿元，仅为第二季度（69.39 亿元）的 69.8%，<strong>与该年其余三个季度的 61—69 亿元区间明显脱节</strong>。</p>
+<p><strong>这是一个值得追问的异常。</strong> 由于上海银行未按季度披露信用减值损失明细，无法直接从报表验证计提节奏，但可以做两个交叉检验：一是 2025Q3 的营业收入（137.97 亿元）实际上是全年四个季度中最高的，收入端没有任何异常；二是 2025Q3 的经营活动现金流量净额为 −236.30 亿元（全年四个季度中净流出最大），与资产投放或减值核销的现金影响相关。</p>
+<p><strong>收入最高而利润最低，唯一的解释是费用或计提在该季度集中确认。</strong> 结合 2026H1 的数据——<strong>贷款和垫款减值准备计提 72.59 亿元（同比 +29.40%）、核销 80.34 亿元、信用减值损失合计 60.28 亿元（同比 +20.78%）</strong>——可以合理推断：<strong>上海银行在 2025Q3 已开始加大计提力度，2026H1 则进入全面集中确认阶段</strong>。这是一个跨年度的、有计划的风险处置过程，而非单一事件的冲击。</p>
+<p>在成本收入比方面，表 4 显示该指标从 2020 年最优的 18.93% 上行至 2023 年的 24.61%（十年最高），2024—2025 年小幅回落至 23.31%。<strong>2023 年的高点是「分母效应」而非「分子失控」</strong>——当年营业收入下滑 4.80%，而业务及管理费仍在增长（科技投入、网点改造为刚性支出）。<strong>成本收入比 2026H1 降至 21.43%（半年口径）</strong>，一定程度上是收入端恢复增长（+5.48%）带来的分母改善。</p>
+<h3>4.5 中间业务为何近乎腰斩？</h3>
+<p>表 8 显示手续费及佣金净收入从 2021 年的 90.47 亿元降至 2025 年的 37.07 亿元（<strong>−59.0%</strong>），占营业收入比重从 16.09% 降至 6.77%。这是一个非常剧烈的下滑。逐项看 2024—2025 年的变化：</p>
+<div class="rsp-table rsp-w5"><table class="compact">
+<thead><tr><th>项目</th><th>2025</th><th>2024</th><th>变动</th><th>对总降幅贡献</th></tr></thead>
+<tbody>
+  <tr><td>信用承诺业务</td><td>6.60</td><td>9.22</td><td>−2.62</td><td>−35.2%</td></tr>
+  <tr><td>顾问和咨询业务</td><td>1.64</td><td>2.65</td><td>−1.01</td><td>−13.6%</td></tr>
+  <tr><td>银行卡业务</td><td>2.57</td><td>3.44</td><td>−0.87</td><td>−11.7%</td></tr>
+  <tr><td>托管及其他受托业务</td><td>4.33</td><td>4.91</td><td>−0.58</td><td>−7.8%</td></tr>
+  <tr><td>其他</td><td>0.30</td><td>0.67</td><td>−0.37</td><td>−5.0%</td></tr>
+  <tr><td>代理业务</td><td>22.48</td><td>20.94</td><td>+1.54</td><td>—</td></tr>
+  <tr><td>结算与清算业务</td><td>2.87</td><td>2.31</td><td>+0.56</td><td>—</td></tr>
+  <tr><td>电子银行业务</td><td>1.36</td><td>1.03</td><td>+0.33</td><td>—</td></tr>
+</tbody>
+</table></div>
+<p><strong>降幅最大的是「信用承诺业务」（−28.43%）与「顾问和咨询业务」（−38.08%）</strong>，这两项在银行收入结构中通常对应「投行与并购顾问」「债务融资工具承销」等业务。它们的下滑指向<strong>对公业务活跃度的下降</strong>，与表 2 中贷款增速降至 2% 区间互为印证。</p>
+<p><strong>结构性问题在于：唯一增长的大项「代理业务」占比已达 53.3%（22.48 / 42.14）。</strong> 代理业务收入（代销理财、基金、保险）高度依赖资本市场景气度与客户风险偏好，<strong>在 2022—2024 年市场低迷时，这项收入的不确定性会直接传导至手续费收入</strong>。换言之，上海银行的中间业务不仅总量在萎缩，<strong>剩下的部分还集中到了波动性最高的品类上</strong>。</p>
+<h3>4.6 2026H1 资产质量跳升：是集中确认还是趋势恶化？</h3>
+<p>这是本报告最重要的一个判断，需要严格区分两种可能。</p>
+<p><strong>可能一：一次性集中确认。</strong> 若 2026H1 的不良跳升源于多年积累的房地产与建筑业敞口在监管要求下一次性出清，则此后不良率会回落，拨备覆盖率也会随核销后的清收逐步回补。</p>
+<p>支持这一判断的证据：</p>
+<ul>
+  <li>关注类占比下降 34BP（2.11% →<wbr> 1.77%）、逾期贷款率下降 15BP（1.65% →<wbr> 1.50%）——<strong>两个前瞻性指标同时改善</strong></li>
+  <li>逾期 90 天以上贷款余额与不良贷款比例降至 74.38%（较上年末下降 19.82pp）——<strong>不良认定标准大幅趋严</strong></li>
+  <li>管理层表述为「个别房地产及建筑业存量客户……致使分类下迁」，指向特定个案</li>
+  <li>核销力度极大（半年 80.34 亿元）——<strong>「应核尽核」是清理存量的典型做法</strong></li>
+</ul>
+<p><strong>可能二：趋势性恶化。</strong> 若房地产与建筑业的风险仍在持续暴露，则 2026H1 只是开始。</p>
+<p>支持这一判断的证据：</p>
+<ul>
+  <li>不良贷款余额半年增加 47.40 亿元（+27.9%），<strong>绝对规模远超「个别客户」的量级</strong></li>
+  <li>拨备覆盖率跌至 198.25%，<strong>若后续仍需大额计提，将向 150% 的监管要求逼近</strong></li>
+  <li>环渤海、中西部地区不良率也在上升（半年报披露），<strong>风险不是单一区域的</strong></li>
+  <li>贷款和垫款减值准备计提同比 +29.40%，<strong>计提力度的加大本身说明银行预期后续仍有压力</strong></li>
+</ul>
+<p><strong>本报告的判断：以「集中确认」为主，但不能排除「趋势恶化」的尾部风险。</strong> 关键理由是：<strong>2026Q1 的不良率仍为 1.18%（与 2025 年末持平）、拨备覆盖率 241.30%，全部恶化都发生在 2026 年第二季度单一季度内。</strong> 这种「先平稳而后骤变」的形态，更符合审慎监管推动下的集中出清特征。<strong>但支撑这一判断的前提是：房地产与建筑业的敞口在 2026H1 已基本出清。</strong> 半年报显示本公司不良类金融投资业务余额 161.09 亿元（较上年末下降 3.86%），这一部分的风险仍在缓慢消化。</p>
+<p><strong>需要持续观察的验证指标</strong>：2026 年三季报与年报中的①关注类占比是否继续下降、②拨备覆盖率是否止跌回升、③不良贷款余额是否回落。<strong>若三季报显示不良率继续上行且拨备覆盖率继续下降，则应修正为「趋势恶化」判断。</strong></p>
+<h3>4.7 2026Q1 与 2026H1 的反差说明了什么？</h3>
+<p>表 1 与表 3 的组合揭示了一个容易被忽略的时序细节：</p>
+<div class="rsp-table rsp-w5"><table class="compact">
+<thead><tr><th>期间</th><th>不良贷款率</th><th>拨备覆盖率</th><th>营业收入同比</th><th>归母净利润同比</th></tr></thead>
+<tbody>
+  <tr><td>2025 年末</td><td>1.18%</td><td>244.94%</td><td>+3.35%（全年）</td><td>+2.69%（全年）</td></tr>
+  <tr><td>2026Q1</td><td>1.18%</td><td>241.30%</td><td>+4.25%</td><td>+0.66%</td></tr>
+  <tr><td>2026H1</td><td><strong>1.42%</strong></td><td><strong>198.25%</strong></td><td>+5.48%</td><td><strong>+0.51%</strong></td></tr>
+</tbody>
+</table></div>
+<p><strong>2026 年第一季度，上海银行的资产质量指标几乎没有任何变化</strong>（不良率持平、拨备覆盖率仅降 3.64pp）。<strong>全部冲击集中在第二季度。</strong></p>
+<p>这个时序意义重大：<strong>它说明风险确认不是渐进的自然过程，而是一次有明确时点的集中决策。</strong> 由 2026H1 归母净利润 132.99 亿元与 Q1 的 63.34 亿元，可推算 2026Q2 单季净利润约 69.65 亿元——<strong>在不良余额增加 47.40 亿元的同时，单季利润几乎没有下滑</strong>。</p>
+<p>这个「利润没跌」的事实有两种解读：<strong>乐观解读</strong>是该行通过加大核销（80.34 亿元）与释放拨备，把冲击消化在了当期；<strong>审慎解读</strong>是拨备覆盖率跌至 198.25% 意味着<strong>未来可用于平滑利润的缓冲垫已经明显变薄</strong>。本报告倾向于后者的权重更高。</p>
+<h3>4.8 资本充足率改善的可持续性</h3>
+<p>表 4 显示核心一级资本充足率从 2021 年的 8.95% 回升至 2026H1 的 10.68%。这一改善的来源已在 §3.1 中说明（风险加权资产增速低于资本净额增速）。需要补充的是它的<strong>上限</strong>：</p>
+<div class="rsp-table"><table class="compact">
+<thead><tr><th>年份</th><th>风险加权资产增速</th><th>资本净额增速</th><th>差值</th></tr></thead>
+<tbody>
+  <tr><td>2023</td><td>+5.26%</td><td>+13.87%</td><td>+8.61pp</td></tr>
+  <tr><td>2024</td><td>+6.68%</td><td>+8.45%</td><td>+1.77pp</td></tr>
+  <tr><td>2025</td><td>+3.15%</td><td>+1.61%</td><td><strong>−1.54pp</strong></td></tr>
+</tbody>
+</table></div>
+<p><strong>2025 年资本净额增速（+1.61%）已经低于风险加权资产增速（+3.15%）。</strong> 这意味着资本充足率的改善机制已经失效——若这一趋势延续，核心一级资本充足率将重新下行。</p>
+<p><strong>资本净额增速为什么降到 1.61%？</strong> 因为内生资本补充（留存收益）的规模受制于三点：①净利润增速已降至 2.69%；②分红率维持在 30% 左右；③外源性补充（增发、优先股、永续债）在 2024—2025 年未见动作。<strong>在 ROE 降至 9.69% 的背景下，内生资本积累能力已经明显减弱。</strong></p>
+<p><strong>这构成一个潜在的约束</strong>：如果上海银行要重新扩表以支撑收入，就必须补充资本；而在 ROE 持续下行、PB 可能低于 1 的情况下，股权融资的成本极高。<strong>「不扩表则 ROE 下行，扩表则资本不足」——这是上海银行当前最根本的战略两难。</strong></p>
+<h2>五、关键内容总结</h2>
+<p><strong>1. 上海银行是一家收入端十年横盘、利润端靠拨备维持增长的银行。</strong> 营业收入从 2016 年的 344.09 亿元增至 2025 年的 547.61 亿元（CAGR 4.7%），但增长几乎全部在 2016—2019 年完成；<strong>2020 年起的六年 CAGR 仅 1.5%</strong>，且 2021 年 562.30 亿元的峰值至今未被超越。归母净利润十年 CAGR 5.4%，但 2022 年起增速降至 1.1%—4.5% 区间，其维持依赖于拨备覆盖率从 337.15%（2019）降至 244.94%（2025）的持续释放。</p>
+<p><strong>2. 净息差是本报告全部问题的总根源。</strong> 从 2019 年的 1.71%（原始口径）降至 2026H1 的 1.15%，累计 −56BP。更关键的是降幅的结构：<strong>发放贷款和垫款平均收益率下降 153BP（4.72% →<wbr> 3.19%），而计息负债成本率仅下降 57BP（2.23% →<wbr> 1.66%）</strong>，资产端下行速度是负债端的 2.7 倍。2025 年净息差几乎止跌（−1BP），但这是资产端（−46BP）与负债端（−40BP）同步下行的残值，不是任何一端企稳的结果。</p>
+<p><strong>3. 资产质量呈现「十年表面平稳 + 一次集中确认」的形态。</strong> 不良率在 2016—2025 年的十年间始终处于 1.14%—1.25% 的极窄区间（极差仅 11BP），但同期拨备覆盖率下降 92.21pp、贷款拨备率下降 101BP，且逾期／不良比值有六年高于 130%（2021 年高达 166.1%）。<strong>2026H1 不良率跳升至 1.42%、拨备覆盖率跌至 198.25%，是这条被长期延后的风险确认链的集中兑现。</strong> 全部恶化集中在 2026 年第二季度单季——2026Q1 时不良率仍为 1.18%、拨备覆盖率 241.30%。</p>
+<p><strong>4. 收入结构的稳定性显著下降，投资收益取代息差与中间业务成为关键变量。</strong> 利息净收入占比从 2021 年的 71.91% 降至 2025 年的 60.89%（−11.02pp），手续费及佣金净收入占比从 16.09% 降至 6.77%（绝对值萎缩 59.0%），而其他非利息净收入占比从 12.00% 升至 32.34%（十年最高）。这一置换的设计痕迹明显——表 10 显示「债权投资」减少 767.15 亿元、「其他债权投资」增加 1,326.45 亿元，为择时兑现投资收益备好了存货。</p>
+<p><strong>5. 资本充足率的改善是被动的、且已接近其上限。</strong> 核心一级资本充足率从 2021 年的低点 8.95%（距 8.5% 监管底线仅 45BP）回升至 2026H1 的 10.68%，但这一回升来自风险加权资产增速低于资本净额增速。<strong>2025 年该关系已经反转（风险加权资产 +3.15% vs 资本净额 +1.61%，差 −1.54pp）</strong>，意味着改善机制失效。</p>
+<p><strong>6. 口径问题是本案例中必须反复强调的技术要点。</strong> 由于财会〔2021〕2 号文要求的信用卡分期收入重分类，2019 年的利息净收入、手续费净收入存在原始口径与重述口径两套数字，<strong>同一年、同一 498.00 亿元营业收入下，利息净收入相差 14.43 亿元、占比相差 2.90pp</strong>（表 5 已双行列示）。净息差在 2019 年更是存在三个不同读数（<strong>1.71%／1.88%／1.78%</strong>，分属三种口径，见表 6 口径声明）。<strong>任何跨 2019／2020 分界的数据引用，若不声明口径，结论都不可靠。</strong></p>
+<h2>六、风险提示</h2>
+<p><strong>1. 资产质量后续暴露风险（最高优先级）。</strong> 拨备覆盖率已从 337.15% 降至 198.25%，<strong>距监管要求的 150% 仅剩 48.25pp，对应约 104.9 亿元的可释放拨备空间</strong>（按 2026H1 不良贷款 217.37 亿元计算）。若房地产与建筑业风险继续暴露，上海银行将在「维持拨备覆盖率合规」与「维持利润正增长」之间失去调节余地。<strong>2026 年三季报与年报的关注类占比、不良余额是判断这一风险是否扩散的关键读数。</strong></p>
+<p><strong>2. 净息差继续收窄风险。</strong> 2026H1 的计息负债成本率已降至 1.42%，继续下调的空间受制于存款竞争；而资产端收益率（2.53%）仍在下行通道。<strong>若 2026 年下半年资产端再降 25—30BP 而负债端只能再降 10—15BP，净息差将回落至 1.05% 附近</strong>，对应的利息净收入将较 2025 年减少约 25—30 亿元（按 2025 年生息资产规模估算）。</p>
+<p><strong>3. 投资收益不可持续风险。</strong> 32.34% 的营业收入来自其他非利息净收入，其中投资收益 208.08 亿元（2025 年 +58.05%）。这一收入高度依赖债券市场的资本利得实现机会。<strong>表 9 已给出警示信号：2025 年公允价值变动损益为 −25.61 亿元（2024 年为 +37.02 亿元，摆动 −62.63 亿元）</strong>，说明 FVTPL 持仓已开始产生负向贡献。<strong>若 2026 年债券市场转为震荡或下行，「以投资收益补息差」的策略将难以延续。</strong></p>
+<p><strong>4. 资本补充约束风险。</strong> 2025 年资本净额增速（+1.61%）已低于风险加权资产增速（+3.15%）。在 ROE 降至 9.69%、分红率维持 30% 的前提下，内生资本积累能力有限；而股价若持续低于每股净资产，外源性股权融资的成本与可行性均受制约。<strong>若监管对系统重要性银行附加资本要求进一步提高，核心一级资本充足率可能重新逼近 8.5% 底线。</strong></p>
+<p><strong>5. 区域集中度风险。</strong> 作为立足上海的城商行，其信贷资产高度集中于长三角地区，且房地产与建筑业敞口是 2026H1 不良跳升的直接原因。<strong>区域经济与房地产市场的单一波动会对资产质量产生放大效应</strong>，这一结构性风险不因单体银行的经营努力而消除。半年报披露环渤海、中西部地区不良率也在上升，说明集中度风险正在区域间扩散。</p>
+<p><strong>6. 口径可比性风险（技术性提示）。</strong> 本报告已尽可能双列原始口径与重述口径，但仍有部分指标（如 2016—2018 年的净息差、2016—2017 年的总负债）因年报未按统一口径披露而无法完全对齐。<strong>使用本报告数据做跨机构比较时，须确认对方数据同样取自各年原始年报，而非从最新年报比较列回取。</strong></p>
+<h2>七、结论</h2>
+<p><strong>上海银行是一家处于「收缩求稳」阶段的城商行。其财务表现的核心矛盾可以用一句话概括：息差已经降到底部区间，而资产质量的风险确认刚刚开始。</strong></p>
+<p><strong>从十年数据看，最清晰的趋势有三条：</strong></p>
+<ol>
+  <li><strong>盈利能力单边下行</strong>：加权平均 ROE 自 2019 年的 12.94% 连续下滑至 2025 年的 9.69%，<strong>七年无一年回升</strong>；平均总资产收益率从 0.95% 降至 0.74%。这一趋势尚未出现拐点。</li>
+  <li><strong>风险抵补能力单边下行</strong>：拨备覆盖率从 2019 年的 337.15% 降至 2026H1 的 198.25%，贷款拨备率从 3.90% 降至 2.82%。这条线的下降<strong>不是管理层的主动选择，而是在收入不增长时维持利润正增长的被动结果</strong>。</li>
+  <li><strong>资本充足率被动改善并已见顶</strong>：核心一级资本充足率从 2021 年的 8.95% 回升至 2026H1 的 10.68%，但 2025 年资本净额增速已低于风险加权资产增速，改善机制失效。</li>
+</ol>
+<p><strong>2026H1 是一个明确的转折点信号，而非终点。</strong> 不良率一次性跳升 24BP、拨备覆盖率跌破 200%，把此前七年「以拨备换利润」的账目摆到了台面上。值得肯定的是：<strong>这次确认是审慎的</strong>——关注类与逾期贷款率同时下降、逾期 90 天以上／不良比值降至 74.38%、核销 80.34 亿元「应核尽核」，说明上海银行选择了主动出清而非继续掩盖。<strong>但其代价是缓冲垫被大幅消耗。</strong></p>
+<p><strong>未来有三个关键观察点，按重要性排序：</strong></p>
+<ol>
+  <li><strong>2026 年三季报与年报的资产质量走向</strong>——不良余额是否回落、关注类占比是否继续下降、拨备覆盖率是否止跌。这是判断 2026H1 属于「集中确认」还是「趋势恶化」的分水岭。</li>
+  <li><strong>净息差能否在 1.10% 以上企稳</strong>——取决于存款成本下调空间与资产端收益率下行的赛跑。若净息差跌破 1.10%，营收端将失去最后的支撑。</li>
+  <li><strong>资本补充动作</strong>——若无外源性补充且扩表不重启，ROE 将继续下行；若重启扩表，则需先解决资本约束。这一两难的破解方式（引入战略投资者、调整分红政策、或接受规模收缩）将决定上海银行未来三到五年的经营形态。</li>
+</ol>
+<p><strong>总体判断</strong>：上海银行当前的基本面属于<strong>「稳健但缺乏增长动能」</strong>。其资产质量指标的审慎性在 2026H1 得到了一次公开检验，管理层选择了「一次性出清」而非继续平滑。这一选择在长期是正确的，但它把真实的压力暴露在了当期报表上——<strong>2026 年将是观察这家银行能否完成「从拨备驱动利润向经营驱动利润转型」的关键之年</strong>。</p>
+<h2>附录　数据来源与口径</h2>
+<h3>A.1 数据来源</h3>
+<p>本报告全部数据取自上海银行在上海证券交易所披露的定期报告原件，共 11 份：</p>
+<div class="rsp-table"><table class="compact longtable">
+<thead><tr><th>文件</th><th>用途</th></tr></thead>
+<tbody>
+  <tr><td>上海银行2016年年度报告.pdf</td><td>表 1—4、表 6-A</td></tr>
+  <tr><td>上海银行2017年年度报告.pdf</td><td>表 1—4、表 6-A</td></tr>
+  <tr><td>上海银行2018年年度报告.pdf</td><td>表 1—4、表 6-A</td></tr>
+  <tr><td>上海银行2019年年度报告.pdf</td><td>表 1—4、表 5（原始口径）、表 6-A</td></tr>
+  <tr><td>上海银行2020年年度报告.pdf</td><td>表 1—4、表 5—6</td></tr>
+  <tr><td>上海银行2021年年度报告.pdf</td><td>表 1—6（含 2019 年重述口径、表 5 第三列）</td></tr>
+  <tr><td>上海银行2022年年度报告.pdf</td><td>表 1—6</td></tr>
+  <tr><td>上海银行2023年年度报告.pdf</td><td>表 1—6</td></tr>
+  <tr><td>上海银行2024年年度报告.pdf</td><td>表 1—6、表 8—10</td></tr>
+  <tr><td>上海银行2025年年度报告.pdf</td><td>表 1—10（主数据源）</td></tr>
+  <tr><td>上海银行2026年半年度报告.pdf</td><td>表 1—10 的 2026H1 列</td></tr>
+  <tr><td>上海银行2026年第一季度报告.pdf</td><td>表 1、表 3 的 2026Q1 列</td></tr>
+</tbody>
+</table></div>
+<p>辅助使用的其他文件包括各年度业绩快报公告（用于交叉核对营收与净利润）、2023—2025 年度可持续发展／社会责任报告（未用于本报告数据，仅备查）、业绩说明会公告（未用于数据）。</p>
+<p><strong>取数方式</strong>：全部 PDF 以 <code>pdftotext -layout</code> 抽取为保留列结构的文本，随后按年报章节定位取数，<strong>未使用任何第三方数据库或二手汇总</strong>。</p>
+<h3>A.2 主要口径说明汇总</h3>
+<div class="rsp-table"><table class="compact">
+<thead><tr><th>指标</th><th>口径定义</th><th>备注</th></tr></thead>
+<tbody>
+  <tr><td>拨备覆盖率</td><td>贷款和垫款减值准备 ÷ 不良贷款余额</td><td>与年报「按五级分类划分的贷款分布情况」表披露值一致，逐年核对误差为 0</td></tr>
+  <tr><td>贷款拨备率</td><td>贷款和垫款减值准备 ÷ 贷款和垫款总额</td><td>同上</td></tr>
+  <tr><td>逾期／不良</td><td>逾期客户贷款和垫款 ÷ 不良贷款余额</td><td>计算值，非年报直接披露</td></tr>
+  <tr><td>净息差</td><td>净利息收入 ÷ 生息资产日均余额</td><td>2019 年存在三重口径，详见表 6 口径声明</td></tr>
+  <tr><td>净利差</td><td>生息资产平均收益率 − 计息负债平均付息率</td><td>纯价格因素，不含规模结构</td></tr>
+  <tr><td>存贷比</td><td>各项贷款 ÷ 各项存款（监管法人口径）</td><td>2023—2026H1 年报披露口径不一，本报告改用「贷款／总资产」</td></tr>
+  <tr><td>平均总资产收益率</td><td>净利润 ÷ 总资产日均余额</td><td>2026H1 为年化值</td></tr>
+  <tr><td>加权平均 ROE</td><td>归属于母公司普通股股东的净利润 ÷ 加权平均普通股股东权益</td><td>已扣除优先股股息与优先股净资产</td></tr>
+</tbody>
+</table></div>
+<h3>A.3 已核对的交叉验证项</h3>
+<ol>
+  <li><strong>2020 年数据双年报核对</strong>：2020 年营业收入 507.46 亿元、归母净利润 208.85 亿元、净息差 1.82%、不良率 1.22%、拨备覆盖率 321.38%，在 2021 年年报比较列与 2022 年年报比较列中一致，<strong>无追溯重述</strong>。</li>
+  <li><strong>2019 年双口径核对</strong>：原始口径（2019 年报）与重述口径（2021 年报比较列）的利息净收入、手续费净收入、其他非利息净收入<strong>各自加总均等于 498.00 亿元营业收入</strong>，差额全部由口径解释（见表 5 表注）。</li>
+  <li><strong>拨备覆盖率与减值准备余额核对</strong>：2025 年末贷款和垫款减值准备 416.33 亿元 ÷ 不良贷款 169.97 亿元 = 244.94%，与年报披露值一致；资产负债表「以摊余成本计量的贷款预期信用减值准备」412.94 亿元为不同口径，已在 §1.3 声明。</li>
+  <li><strong>分季度数据与全年数据核对</strong>：2025 年四个季度营业收入合计 547.61 亿元、归母净利润合计 241.93 亿元，与全年披露值一致（尾差 0.01 亿元系四舍五入）。</li>
+  <li><strong>2026Q2 单季推算</strong>：由 2026H1 归母净利润 132.99 亿元减 2026Q1 的 63.34 亿元得 69.65 亿元，已在表 7 表注声明为推算值。</li>
+</ol>
+<h3>A.4 未获取的数据与原因</h3>
+<ul>
+  <li><strong>2016—2018 年的总负债</strong>：该三年年报「近三年主要会计数据」表的表式与 2019 年起不同，未按同一口径单列「负债总额」，故表 2 留「—」。</li>
+  <li><strong>2016—2017 年的逾期贷款率与逾期／不良</strong>：该两年年报未按可比口径披露逾期客户贷款和垫款分类，故表 3 留「—」。</li>
+  <li><strong>2016 年的关注类贷款占比</strong>：当年年报摘要表式未列示该指标，故表 3 留「—」。</li>
+  <li><strong>2026Q2 的分季扣非净利润</strong>：半年报未按季披露非经常性损益明细，故表 7 留「—」。</li>
+  <li><strong>2021 年以前的分季度数据</strong>：本报告表 7 仅列示 2025—2026 年分季数据。2016—2019 年各年报虽有分季度披露，但口径与编制方式（未含非经常性损益的季度拆分）与近年差异较大，且不属于本报告的分析重点，故未纳入。</li>
+</ul>
+<p><strong>本报告未对任何缺失项进行推算填充。所有留「—」处均为年报未披露或口径不可比，而非数据遗漏。</strong></p>
+</main>
+
+<!-- rsp-mobile-adapt : 溢出表格滑动提示 -->
+<script>
+(function(){
+  function mark(){
+    var boxes = document.querySelectorAll('.rsp-table');
+    for (var i=0;i<boxes.length;i++){
+      var b = boxes[i];
+      if (b.scrollWidth > b.clientWidth + 4) b.setAttribute('data-rsp-scroll','');
+      else b.removeAttribute('data-rsp-scroll');
+    }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mark);
+  else mark();
+  window.addEventListener('resize', function(){ clearTimeout(window.__rspT); window.__rspT=setTimeout(mark,180); });
+})();
+</script>
+</body>
+</html>

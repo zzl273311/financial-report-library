@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>汇丰控股（00005.HK）财报对比分析报告</title>
+<meta name="author" content="财报分析">
+<meta name="generator" content="financial-report-analysis">
+<style>
+
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W04.ttf") format("truetype");
+    font-weight: 400; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W05.ttf") format("truetype");
+    font-weight: 500; font-style: normal; font-display: swap;
+  }
+  @page {
+    size: A4;
+    margin: 16mm 18mm 18mm 18mm;
+    background: #F7F4EE;
+    @bottom-center {
+      content: counter(page) "  ·  财报分析";
+      font-family: "TsangerJinKai02", "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", Georgia, serif;
+      font-size: 9pt; color: #6b6a64;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --parchment:#F7F4EE; --ivory:#FBF9F4; --near-black:#22262B; --dark-warm:#3E4145;
+    --olive:#504e49; --stone:#7C7B77; --brand:#A73F2D; --brand-deep:#8A3223;
+    --accent:#A73F2D; --accent-soft:#F1E3DD; --gold:#B8862F; --teal:#2F6F6B; --blue:#1B365D;
+    --border:#E3DDD4; --border-soft:#EAE5DC;
+    --tag-bg:#F1E3DD; --positive:#A73F2D; --negative:#2F6F6B;
+    --serif: "TsangerJinKai02", "Source Han Serif SC", "Source Han Serif CN", "Noto Serif CJK SC", "Noto Serif SC", "Songti SC", "STSong", "SimSun", Georgia, serif;
+    --rhythm-module:14pt; --rhythm-section:18pt;
+  }
+  html, body { background: var(--parchment); }
+  @media screen { body { max-width: 210mm; margin: 0 auto; padding: 16mm 18mm 18mm 18mm; } }
+  body { color: var(--near-black); font-family: var(--serif); font-size: 10pt; line-height: 1.5;
+    letter-spacing: 0.3pt; widows: 3; orphans: 3; }
+  strong { font-weight: 500; }
+  .hl { color: var(--brand); font-weight: 500; }
+
+  .report-header { display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: var(--rhythm-module); padding-bottom: 10pt; border-bottom: 0.5pt solid var(--border); }
+  .ticker-block { flex: 1; }
+  .ticker-eyebrow { font-size: 9pt; color: var(--brand); letter-spacing: 1.5pt; text-transform: uppercase;
+    font-weight: 500; margin-bottom: 4pt; }
+  .ticker-name { font-family: var(--serif); font-size: 24pt; font-weight: 500; color: var(--near-black);
+    line-height: 1.15; margin-bottom: 4pt; }
+  .ticker-sub { font-size: 10pt; color: var(--olive); line-height: 1.4; }
+  .price-block { text-align: right; padding-top: 4pt; }
+  .price-current { font-family: var(--serif); font-size: 28pt; font-weight: 500; color: var(--near-black);
+    line-height: 1; font-variant-numeric: tabular-nums; }
+  .price-change { font-size: 10pt; font-weight: 500; margin-top: 2pt; font-variant-numeric: tabular-nums; }
+  .price-change.up { color: var(--positive); }
+  .price-date { font-size: 9pt; color: var(--stone); margin-top: 2pt; }
+
+  .metrics { display: flex; gap: 14pt; margin-bottom: 16pt; padding: 6pt 0;
+    border-top: 0.3pt dotted var(--border); border-bottom: 0.3pt dotted var(--border); }
+  .metric { flex: 1; display: flex; align-items: baseline; gap: 4pt; }
+  .metric-value { font-family: var(--serif); font-size: 16pt; font-weight: 500; color: var(--brand);
+    line-height: 1; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .metric-label { font-size: 9pt; color: var(--olive); line-height: 1.3; white-space: nowrap; }
+
+  h2 { font-family: var(--serif); font-size: 16pt; font-weight: 500; color: var(--near-black);
+    margin: 18pt 0 6pt 0; break-after: avoid; }
+  h3 { font-size: 13pt; font-weight: 500; color: var(--dark-warm); margin: 12pt 0 4pt 0; break-after: avoid; }
+  p { margin: 0 0 8pt 0; line-height: 1.5; widows: 2; orphans: 2; }
+  ul, ol { margin: 4pt 0 8pt 0; padding-left: 18pt; line-height: 1.5; }
+  ul li::marker { color: var(--brand); } ol li::marker { color: var(--brand); font-weight: 500; }
+
+  .tag { display: inline-block; background: var(--tag-bg); color: var(--brand); font-size: 9pt;
+    font-weight: 500; padding: 1pt 6pt; border-radius: 3pt; margin-right: 3pt; }
+
+  table, .kami-table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin: 8pt 0; break-inside: avoid; }
+  table th, .kami-table th { text-align: left; font-weight: 500; color: var(--dark-warm);
+    padding: 6pt 8pt; border-bottom: 0.6pt solid var(--border); background: transparent; }
+  table td, .kami-table td { padding: 5pt 8pt; border-bottom: 0.25pt solid var(--border); vertical-align: top; }
+  table.compact th, .kami-table.compact th { padding: 3pt 6pt; font-size: 8pt; }
+  table.compact td, .kami-table.compact td { padding: 2.5pt 6pt; font-size: 8pt; line-height: 1.4; }
+  table.financial td:not(:first-child), .kami-table.financial td:not(:first-child) {
+    text-align: right; font-variant-numeric: tabular-nums; }
+  table.financial th:not(:first-child), .kami-table.financial th:not(:first-child) { text-align: right; }
+  table .total td, .kami-table .total td { font-weight: 500; border-top: 0.6pt solid var(--border);
+    border-bottom: none; color: var(--near-black); }
+  .note { font-size: 8.5pt; color: var(--stone); margin: 2pt 0 8pt 0; }
+
+  .callout { background: var(--ivory); padding: 8pt 12pt; border-radius: 3pt; margin: 10pt 0;
+    line-height: 1.5; break-inside: avoid; }
+  .callout .quote { margin: 6pt 0; color: var(--olive); }
+
+  figure { margin: 12pt 0; break-inside: avoid; }
+  figcaption { font-size: 9pt; color: var(--stone); margin-top: 4pt; text-align: center; }
+
+  .risk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10pt; margin: 8pt 0; }
+  .risk-item { padding: 6pt 10pt; background: var(--ivory); border-radius: 3pt; break-inside: avoid; }
+  .risk-label { font-size: 9pt; font-weight: 500; color: var(--brand); margin-bottom: 2pt; }
+  .risk-desc { font-size: 9pt; color: var(--olive); line-height: 1.4; }
+
+  .analyst-box { background: var(--ivory); border-radius: 4pt; padding: 10pt 14pt; margin: 12pt 0;
+    break-inside: avoid; }
+  .analyst-label { font-size: 9pt; color: var(--brand); letter-spacing: 0.5pt; text-transform: uppercase;
+    margin-bottom: 4pt; }
+
+  .page-break { break-before: page; }
+
+  /* ===== 富配色增强：砖红主色 #A73F2D + 四色数据 + 深炭标题 #22262B ===== */
+  h2 { position: relative; padding-left: 13pt; }
+  h2::before { content:""; position:absolute; left:0; top:2.5pt; width:4pt; height:13pt;
+    background:var(--accent); border-radius:1pt; }
+  table th, .kami-table th { border-bottom: 1pt solid var(--accent); }
+  .metric:nth-child(1) .metric-value { color: var(--accent); }
+  .metric:nth-child(2) .metric-value { color: var(--gold); }
+  .metric:nth-child(3) .metric-value { color: var(--teal); }
+  .metric:nth-child(4) .metric-value { color: var(--blue); }
+  .callout { border-left: 3pt solid var(--accent); }
+  .analyst-box { border-left: 3pt solid var(--accent); }
+  .risk-item { border-left: 2.5pt solid var(--accent); }
+  .tag { background: var(--accent-soft); color: var(--brand-deep); }
+  .price-current { color: var(--near-black); }
+  .ticker-sub { color: var(--stone); }
+
+  .report-header { margin-bottom: 16pt; }
+  h2 { font-size: 15pt; }
+  h3 { font-size: 12pt; }
+  table.kami-table.compact th { font-size: 8.2pt; }
+  table.kami-table.compact td { font-size: 8.2pt; }
+  table .total td { font-weight: 500; }
+  .risk-item { border-left: 2.5pt solid var(--accent); }
+  .report-footer { display:flex; justify-content:space-between; font-size:8.5pt;
+    color: var(--stone); margin-top: 20pt; padding-top: 8pt;
+    border-top: 0.5pt solid var(--border); }
+  @page { @bottom-center { content: counter(page) "  ·  财报分析"; } }
+
+</style>
+
+<style id="rsp-mobile-adapt">
+/* rsp-mobile-adapt-v3 */
+@media screen {
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body { overflow-wrap: break-word; }
+  img, svg, canvas, video, iframe { max-width: 100%; }
+  svg[viewBox], svg[viewbox] { height: auto; }
+  .risk-grid > *, .two-col > * { min-width: 0; }
+  .rsp-table {
+    max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain; margin: 8pt 0; position: relative;
+  }
+  .rsp-table > table { margin: 0; }
+  .rsp-table::-webkit-scrollbar { height: 7px; }
+  .rsp-table::-webkit-scrollbar-track { background: transparent; }
+  .rsp-table::-webkit-scrollbar-thumb { background: #D8D1C4; border-radius: 4px; }
+}
+@media screen and (max-width: 900px) {
+  body { padding: 22px 22px 46px 22px !important; }
+  .report-header { flex-wrap: wrap; gap: 12pt; }
+  .metrics { flex-wrap: wrap; gap: 10pt 18pt; }
+  .metric { flex: 1 1 42%; min-width: 0; }
+  .report-footer { flex-wrap: wrap; gap: 4pt 14pt; }
+  .rsp-w5 > table { min-width: 310px !important; }
+  .rsp-w6 > table { min-width: 372px !important; }
+  .rsp-w7 > table { min-width: 434px !important; }
+  .rsp-w8 > table { min-width: 496px !important; }
+  .rsp-w9 > table { min-width: 558px !important; }
+  .rsp-w10 > table { min-width: 620px !important; }
+}
+@media screen and (max-width: 720px) {
+  body { max-width: 100% !important; padding: 18px 16px 44px 16px !important; font-size: 10.5pt; }
+  h2 { font-size: 15pt !important; margin: 20pt 0 7pt 0 !important; }
+  h3 { font-size: 12.5pt !important; }
+  h1 { font-size: 19pt !important; }
+  .ticker-name { font-size: 19pt !important; }
+  .price-current { font-size: 22pt !important; }
+  .metric-value { font-size: 15pt !important; }
+  .ch-lab { min-width: 62px !important; font-size: 8.5pt !important; }
+  .ch-val { min-width: 46px !important; font-size: 8.5pt !important; }
+  .fig-title { font-size: 10pt !important; }
+  .fig-sub, .fig-note, figcaption { font-size: 8.5pt !important; }
+}
+@media screen and (max-width: 480px) {
+  body { padding: 14px 12px 38px 12px !important; }
+  .metrics { gap: 8pt 12pt; }
+  .metric { flex: 1 1 100%; }
+  .ch-lab { min-width: 54px !important; font-size: 8pt !important; }
+  .ch-val { min-width: 42px !important; font-size: 8pt !important; }
+}
+@media print {
+  .rsp-table { overflow: visible !important; margin: 0; padding: 0; }
+  .report-header, .metrics, .callout, figure { break-inside: avoid; }
+  table { break-inside: auto; }
+  tr { break-inside: avoid; }
+  thead { display: table-header-group; }
+  h2, h3 { break-after: avoid; }
+}
+/* ========== 图表：纯 HTML/CSS（无 SVG <text>） ========== */
+figure.fig {
+  margin: 12pt 0 14pt 0; padding: 11pt 13pt 10pt 13pt;
+  background: var(--ivory, #FBF9F4); border: 0.5pt solid var(--border, #E3DDD4);
+  border-left: 2.5pt solid var(--brand, #A73F2D); border-radius: 2pt;
+  break-inside: avoid;
+}
+figure.fig .fig-head { margin-bottom: 7pt; }
+figure.fig .fig-no {
+  display: inline-block; font-size: 8pt; color: var(--brand, #A73F2D);
+  border: 0.5pt solid var(--brand, #A73F2D); border-radius: 2pt;
+  padding: 0 4pt; margin-right: 5pt; letter-spacing: 0.5pt;
+}
+figure.fig .fig-title { display: inline; font-size: 10.5pt; font-weight: 500; color: var(--near-black, #22262B); }
+figure.fig .fig-sub { font-size: 8.5pt; color: var(--stone, #7C7B77); margin-top: 3pt; }
+figure.fig .fig-legend { display: flex; flex-wrap: wrap; gap: 4pt 14pt; margin: 0 0 7pt 0; font-size: 8.5pt; color: var(--olive, #504e49); }
+figure.fig .fig-legend .lg { display: inline-flex; align-items: center; gap: 4pt; }
+figure.fig .fig-legend i { display: inline-block; width: 9px; height: 9px; border-radius: 1px; }
+figure.fig .chart { margin: 0; }
+figure.fig .ch-row { display: flex; align-items: center; gap: 8pt; margin-bottom: 5pt; }
+figure.fig .ch-lab { flex: 0 0 auto; min-width: 78px; font-size: 9pt; color: var(--dark-warm, #3E4145); }
+figure.fig .ch-track { flex: 1 1 auto; min-width: 0; }
+figure.fig .ch-group { display: flex; flex-direction: column; gap: 2pt; }
+figure.fig .ch-bar { height: 12px; border-radius: 1px; }
+figure.fig .ch-val { flex: 0 0 auto; min-width: 62px; text-align: right; font-variant-numeric: tabular-nums; }
+figure.fig .ch-val b { font-size: 9pt; color: var(--near-black, #22262B); font-weight: 500; }
+figure.fig .ch-scale { font-size: 8pt; color: var(--stone, #7C7B77); margin-top: 5pt; }
+figure.fig figcaption { font-size: 8.5pt; color: var(--olive, #504e49); margin-top: 7pt; line-height: 1.45; }
+figure.fig .fig-note { font-size: 8pt; color: var(--stone, #7C7B77); margin-top: 4pt; line-height: 1.4; }
+</style>
+
+<!-- rsp-mobile-adapt : 响应式适配层（仅屏幕生效，不影响打印/PDF） -->
+<style id="rsp-mobile-adapt">
+/* rsp-mobile-adapt-v3 */
+/* ========== 1. 全局：屏幕端基础修正 ========== */
+@media screen {
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body { overflow-wrap: break-word; }
+  img, svg, canvas, video, iframe { max-width: 100%; }
+  svg[viewBox], svg[viewbox] { height: auto; }
+
+  /* 网格容器（两列对比等）：网格项默认 min-width:auto，会被内部宽表撑破
+     容器、把整页顶出横向滚动（报告里 .two-col 就栽在这上面）。放开收缩，
+     让里面的 .rsp-table 自己去横向滑动。 */
+  .risk-grid > *, .two-col > * { min-width: 0; }
+
+  /* 表格横向滚动容器：宽表不压字、不撑破页面 */
+  .rsp-table {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    margin: 8pt 0;
+    position: relative;
+  }
+  .rsp-table > table { margin: 0; }
+  .rsp-table::-webkit-scrollbar { height: 7px; }
+  .rsp-table::-webkit-scrollbar-track { background: transparent; }
+  .rsp-table::-webkit-scrollbar-thumb { background: #D8D1C4; border-radius: 4px; }
+  /* 内容确实溢出时，右侧给一层渐变暗示"还能往右滑" */
+  .rsp-table[data-rsp-scroll] {
+    background: linear-gradient(to left, rgba(167,63,45,.10), rgba(167,63,45,0) 28px);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 28px 100%;
+  }
+}
+
+/* ========== 2. 平板 / 窄窗口：边距先收，避免内容被挤 ========== */
+@media screen and (max-width: 900px) {
+  body { padding: 22px 22px 46px 22px !important; }
+  .report-header { flex-wrap: wrap; gap: 12pt; }
+  .metrics { flex-wrap: wrap; gap: 10pt 18pt; }
+  .metric { flex: 1 1 42%; min-width: 0; }
+  .report-footer { flex-wrap: wrap; gap: 4pt 14pt; }
+
+  /* 宽表改为横向滚动：给每列保留最小可读宽度，不再把汉字挤成竖排 */
+  .rsp-w5 > table { min-width: 310px !important; }
+  .rsp-w6 > table { min-width: 372px !important; }
+  .rsp-w7 > table { min-width: 434px !important; }
+  .rsp-w8 > table { min-width: 496px !important; }
+  .rsp-w9 > table { min-width: 558px !important; }
+  .rsp-w10 > table { min-width: 620px !important; }
+  .rsp-w11 > table { min-width: 682px !important; }
+  .rsp-w12 > table { min-width: 744px !important; }
+  .rsp-w13 > table { min-width: 806px !important; }
+  .rsp-w14 > table { min-width: 868px !important; }
+  .rsp-w15 > table { min-width: 930px !important; }
+  .rsp-w16 > table { min-width: 992px !important; }
+}
+
+/* ========== 3. 手机：指标卡两列、页头转纵向 ========== */
+@media screen and (max-width: 720px) {
+  body {
+    max-width: 100% !important;
+    padding: 18px 16px 44px 16px !important;
+    font-size: 10.5pt;
+  }
+  h2 { font-size: 15pt !important; margin: 20pt 0 7pt 0 !important; }
+  h3 { font-size: 12.5pt !important; }
+  h1 { font-size: 19pt !important; }
+  p, li { line-height: 1.62; }
+  ul, ol { padding-left: 17pt; }
+
+  .report-header { flex-direction: column; align-items: stretch; gap: 8pt; }
+  .price-block { text-align: left; padding-top: 0; }
+  .price-current { font-size: 24pt !important; }
+  .ticker-name { font-size: 21pt !important; }
+  .ticker-sub { font-size: 9.5pt !important; }
+
+  .metrics { gap: 9pt 12pt; }
+  .metric { flex: 1 1 45%; }
+  .metric-value { font-size: 15pt !important; }
+  .metric-label { font-size: 8.5pt !important; white-space: normal !important; }
+
+  table, .kami-table { font-size: 9pt !important; }
+  .longtable { font-size: 8.5pt !important; }
+  .wide { font-size: 7.5pt !important; }
+  .dense { font-size: 8pt !important; }
+  table th, table td, .kami-table th, .kami-table td { padding: 5pt 6pt !important; }
+
+  blockquote, .quote, .note, .warn, .callout, .risk-item { padding: 9pt 11pt !important; }
+  .risk-grid { grid-template-columns: 1fr !important; }
+  .report-footer { flex-direction: column; align-items: flex-start; gap: 3pt; }
+}
+
+/* ========== 3b. 图表：窄屏保持图纸原尺寸 + 横向滑动 ========== */
+/* 报告里的图表是 SVG：viewBox 宽 680 + width:100%。缩到手机宽度（约 350px）
+   只剩 0.5×，图内字号从 11px 掉到 5px 完全不可读；而 SVG <text> 不会自动换行，
+   单纯放大字号必然溢出图框。这里改为**保持图纸原尺寸、允许左右滑动**——
+   与上面宽表同一套策略，宁可滑也不塌字号。仅屏幕生效，打印/PDF 不受影响。 */
+@media screen and (max-width: 720px) {
+  .rsp-fig {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    /* 图纸一定宽于屏幕，直接给右侧一层渐变，暗示"还能往右滑" */
+    background: linear-gradient(to left, rgba(167,63,45,.09), rgba(167,63,45,0) 26px);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 26px 100%;
+  }
+  .rsp-fig > svg { min-width: var(--rsp-fig-w, 680px); }
+  .rsp-fig::-webkit-scrollbar { height: 7px; }
+  .rsp-fig::-webkit-scrollbar-track { background: transparent; }
+  .rsp-fig::-webkit-scrollbar-thumb { background: #D8D1C4; border-radius: 4px; }
+}
+
+/* ========== 4. 小屏手机：指标卡单列、边距收到最紧 ========== */
+@media screen and (max-width: 430px) {
+  body { padding: 14px 12px 38px 12px !important; }
+  h2 { font-size: 14pt !important; }
+  h3 { font-size: 11.5pt !important; }
+  .ticker-name { font-size: 19pt !important; }
+  .price-current { font-size: 21pt !important; }
+  .metric { flex: 1 1 100%; }
+  .metric-value { font-size: 16pt !important; }
+  ul, ol { padding-left: 15pt; }
+  table, .kami-table { font-size: 8.5pt !important; }
+}
+
+/* ========== 5. 打印：把包裹层还原成透明，PDF 版式与补丁前完全一致 ========== */
+@media print {
+  .rsp-table { margin: 0; padding: 0; overflow: visible !important; background: none !important; }
+  .rsp-table > table { margin: 8pt 0; min-width: 0 !important; }
+  [class*="rsp-w"] > table { min-width: 0 !important; }
+}
+</style>
+</head>
+<body>
+
+<div class="report-header">
+  <div class="ticker-block">
+    <div class="ticker-eyebrow">HSBC HOLDINGS · 财报对比分析</div>
+    <div class="ticker-name">汇丰控股 <span style="font-size:14pt; color:var(--stone);">00005.HK</span></div>
+    <div class="ticker-sub">数据区间：2021 年度 — 2026 年半年度｜数据来源：香港交易所披露的年度报告及中期业绩报告</div>
+  </div>
+  <div class="price-block">
+    <div class="price-current">3.44<span style="font-size:14pt;">万亿</span></div>
+    <div class="price-change up">2026H1 总资产（美元）</div>
+    <div class="price-date">报告生成日：2026-09-22</div>
+  </div>
+</div>
+
+<div class="metrics">
+  <div class="metric"><div class="metric-value">682.74<span style="font-size:12pt;">亿</span></div><div class="metric-label">2025 收入<br>同比 +3.67%</div></div>
+  <div class="metric"><div class="metric-value">299.07<span style="font-size:12pt;">亿</span></div><div class="metric-label">2025 除税前利润<br>同比 −7.43%</div></div>
+  <div class="metric"><div class="metric-value">18.2%</div><div class="metric-label">2026H1 平均有形股本回报率<br>同比 +3.5pct</div></div>
+  <div class="metric"><div class="metric-value">14.1%</div><div class="metric-label">2026H1 普通股权一级资本比率<br>较 2025 年末 −0.8pct</div></div>
+</div>
+
+<div class="callout">
+  <div class="quote"><strong>核心结论：</strong>汇丰 2025 年的利润下滑是"假跌"——列账除税前利润 −7.43%，但剔除 67.10 亿美元须予注意项目后，<strong>主业利润同比 +7%</strong>，平均有形股本回报率提升 1.6 个百分点至 17.2%。反之，2026H1 的 +23.48% 高增长中约一半来自 2025H1 交通银行摊薄及减值亏损 21 亿美元的基数反转，<strong>剔除后主业真实增速仅 +5.9%</strong>。两期报告都要求以替代口径而非列账口径判断主业趋势。量价关系上，2022—2024 年利润增长完全依赖净利息收益率（1.20%→1.66%）而非规模（客户贷款三年复合 −1.3%），2025 年起才首次出现量与价同步改善。当前最值得警惕的是资产质量：预期信贷损失率连续三期上行至 2026H1 的 0.47%，第三级贷款增速（+8.03%）已超贷款总额增速（+6.2%），但拨备增速（+19.01%）更快，覆盖比率从 26.8% 提升至 29.6%——汇丰在主动加厚安全垫，而非被动维持。</div>
+</div>
+
+<h2>一、公司概况与报告口径</h2><h3>1.1 基本信息</h3><p>汇丰控股有限公司（HSBC Holdings plc）1865 年创立于香港与上海，总部设于伦敦，是全球规模最大的银行及金融服务机构之一。集团以"环球网络的本地银行"为定位，业务横跨财富管理与个人银行、工商金融、环球银行及市场三大板块，覆盖欧洲、亚洲、中东、北美洲及拉丁美洲。</p><div class="rsp-table rsp-w2"><table class="kami-table compact"><thead><tr><th>项目</th><th>内容</th></tr></thead><tbody><tr><td>上市地与代码</td><td>香港联合交易所，股份代号 <strong>5</strong>（本文用 00005）；同时于伦敦、纽约、百慕大上市</td></tr><tr><td>注册地</td><td>英格兰及威尔士，注册编号 617987；注册办事处 8 Canada Square, London</td></tr><tr><td>报告币种与单位</td><td><strong>美元（USD）</strong>；本文金额除特别注明外均为<strong>百万美元</strong></td></tr><tr><td>会计准则</td><td>国际财务报告准则（IFRS），保险业务适用 IFRS 17</td></tr><tr><td>业务分部</td><td>香港、英国、企业及机构理财、国际财富管理及卓越理财（2025 年起口径，共 4 个）</td></tr><tr><td>集团行政总裁</td><td>艾橋智（Georges Elhedery），2024 年 9 月上任</td></tr><tr><td>2025 年末规模</td><td>资产总值 3.23 万亿美元；客户贷款净额 9,884 亿美元；客户账项 1.79 万亿美元</td></tr><tr><td>2026 年 6 月末规模</td><td>资产总值 3.44 万亿美元；客户贷款净额 1.02 万亿美元；客户账项 1.83 万亿美元</td></tr></tbody></table></div><h3>1.2 报告口径说明</h3><ol><li><strong>两套业绩基准并行</strong>。汇丰同时披露<strong>列账基准</strong>、<strong>固定汇率基准</strong>（剔除货币换算差额对期间可比性的扭曲），以及<strong>不计及须予注意项目</strong>（significant items，即重组、出售、减值、法律准备等一次性事项）的替代表现衡量指标。<strong>这是读懂汇丰报表的第一前提</strong>——同一会计年度两套口径的除税前利润可相差数十亿美元（2025 年：列账 299.07 亿 vs 不计及须予注意项目 366.17 亿）。</li></ol><ol><li><strong>业务分部口径在 2025 年重构</strong>。2024 年报及之前采用"三大业务 × 五大地域"矩阵；2025 年起改为<strong>香港 / 英国 / 企业及机构理财 / 国际财富管理及卓越理财</strong>四个分部。本文采用 2025 年报给出的<strong>重述后</strong>对比列（各分部均列 2023—2025 三年数）。</li></ol><ol><li><strong>重大架构变动：恒生银行私有化</strong>。汇丰于 2026 年上半年完成对恒生银行有限公司的私有化，直接导致 2026 年 6 月末 CET1 比率由 14.9% 降至 <strong>14.1%</strong>，非控股股东权益由 2026 年初的 74.41 亿美元降至 3.99 亿美元。</li></ol><ol><li><strong>数据来源版本</strong>（每年度仅采用一个版本）：<ul><li>2021—2023 年度数据取自《2024 年報及賬目》三年对比列，并以各年当年年报交叉校验；</li><li>2024 年度数据取自《2024 年報及賬目》；</li><li>2025 年度数据取自《2025 年報及賬目》（2026-03-27 披露）；</li><li>2026 年上半年数据取自《2026 年中期業績報告》（2026-08-21）与《2026 年中期業績》公告（2026-08-04）。</li></ul></li></ol><ol><li><strong>未披露即留空</strong>。所选版本年报未单独披露的细分指标填"—"，不作推算。</li></ol><ol><li><strong>列序规则</strong>：本文表格<strong>列按时间递增</strong>，分「年度块 → 半年度块」两块，块间以 <code>‖</code> 标出，<strong>跨块不可直接相减</strong>。</li></ol><hr /><h2>二、核心财务数据对比</h2><h3>表 1　经营业绩与盈利能力（2021—2026H1）</h3><div class="rsp-table rsp-w8"><table class="kami-table compact"><thead><tr><th>期间</th><th>收入<br>(百万美元)</th><th>同比<br>(%)</th><th>除税前利润<br>(百万美元)</th><th>同比<br>(%)</th><th>除税后利润<br>(百万美元)</th><th>每股基本盈利<br>(美元)</th><th>平均有形股本<br>回报率(%)</th></tr></thead><tbody><tr><td>2021</td><td>49,552</td><td>—</td><td>18,906</td><td>—</td><td>14,693</td><td>0.62</td><td>8.3</td></tr><tr><td>2022</td><td>50,620</td><td>+2.16</td><td>17,058</td><td>−9.78</td><td>16,249</td><td>0.72</td><td>10.0</td></tr><tr><td>2023</td><td>66,058</td><td>+30.50</td><td>30,348</td><td>+77.91</td><td>24,559</td><td>1.15</td><td>14.6</td></tr><tr><td>2024</td><td>65,854</td><td>−0.31</td><td>32,309</td><td>+6.46</td><td>24,999</td><td>1.25</td><td>14.6</td></tr><tr><td>2025</td><td>68,274</td><td>+3.67</td><td>29,907</td><td>−7.43</td><td>23,131</td><td>1.21</td><td>13.3</td></tr><tr class="total"><td><strong>2026H1</strong> ‖</td><td><strong>37,742</strong></td><td><strong>+10.61</strong></td><td><strong>19,522</strong></td><td><strong>+23.48</strong></td><td><strong>15,321</strong></td><td><strong>0.85</strong></td><td><strong>18.2</strong></td></tr></tbody></table></div><p>注： (1) 2026H1 同比基数为 2025H1：收入 34,122 → 37,742（+10.61%）；除税前利润 15,810 → 19,522（+23.48%）；每股基本盈利 0.65 → 0.85。 (2) 2022 年除税前利润同比以 2021 年 18,906 为基数；2023 年同比以 2022 年 17,058 为基数。 (3) 平均有形股本回报率（年率）为替代表现衡量指标，非 IFRS 指标；2026H1 为半年度年率化数。 (4) 2022 年除税后利润（16,249）反而高于 2021 年（14,693），而除税前利润下降——差异来自当年税项支出的变动，两年不可按同一税率理解。</p><h3>表 2　资产负债与存贷款规模（2021—2026H1 期末）</h3><div class="rsp-table rsp-w7"><table class="kami-table compact"><thead><tr><th>期末</th><th>资产总值<br>(百万美元)</th><th>客户贷款净额<br>(百万美元)</th><th>客户账项<br>(百万美元)</th><th>股东权益总额<br>(百万美元)</th><th>有形普通股<br>股东权益</th><th>贷款/存款<br>(%)</th></tr></thead><tbody><tr><td>2021</td><td>2,957,939</td><td>1,045,814</td><td>1,710,574</td><td>198,250</td><td>158,193</td><td>61.1</td></tr><tr><td>2022</td><td>2,949,286</td><td>923,561</td><td>1,570,303</td><td>177,833</td><td>146,927</td><td>58.8</td></tr><tr><td>2023</td><td>3,038,677</td><td>938,535</td><td>1,611,647</td><td>185,329</td><td>155,710</td><td>58.2</td></tr><tr><td>2024</td><td>3,017,048</td><td>930,658</td><td>1,654,955</td><td>184,973</td><td>154,295</td><td>56.2</td></tr><tr><td>2025</td><td>3,233,034</td><td>988,399</td><td>1,786,828</td><td>198,225</td><td>165,153</td><td>55.3</td></tr><tr class="total"><td><strong>2026H1</strong> ‖</td><td><strong>3,438,161</strong></td><td><strong>1,022,105</strong></td><td><strong>1,827,703</strong></td><td><strong>196,682</strong></td><td><strong>160,652</strong></td><td><strong>55.9</strong></td></tr></tbody></table></div><p>注： (1) 2022 年末资产总值较 2021 年末下降，原因是外币折算及衍生工具按市值计价的不利变动，非业务收缩。 (2) 2025 年末客户贷款净额较 2024 年末增加 577 亿美元（+6.2%），主要来自英国业务增长。 (3) 2026H1 客户贷款较 2025 年末增加 337 亿美元，其中含不利货币换算差额 60 亿美元；按固定汇率基准计算增加 400 亿美元，各分部均录得增长。 (4) 2026H1 非控股股东权益由 2025 年末 74.41 亿美元降至 3.99 亿美元，系恒生银行私有化所致。 (5) 贷款/存款比＝客户贷款净额 ÷ 客户账项，为本文计算值。</p><h3>表 3　资产质量与风险抵补（2021—2026H1）</h3><div class="rsp-table rsp-w7"><table class="kami-table compact"><thead><tr><th>期末</th><th>第三级（减值）<br>贷款(百万美元)</th><th>占客户贷款<br>(%)</th><th>减值贷款<br>拨备</th><th>拨备/第三级<br>贷款(%)</th><th>预期信贷损失<br>占平均贷款(%)</th><th>暂缓还款贷款<br>总额(百万美元)</th></tr></thead><tbody><tr><td>2021</td><td>未披露</td><td>—</td><td>—</td><td>—</td><td>(0.09)</td><td>未披露</td></tr><tr><td>2022</td><td>未披露</td><td>—</td><td>—</td><td>—</td><td>0.36</td><td>未披露</td></tr><tr><td>2023</td><td>未披露</td><td>—</td><td>—</td><td>—</td><td>0.33</td><td>未披露</td></tr><tr><td>2024</td><td>22,705</td><td>2.44</td><td>(6,091)</td><td>26.8</td><td>0.34</td><td>13,921</td></tr><tr><td>2025</td><td>24,529</td><td>2.48</td><td>(7,249)</td><td>29.6</td><td>0.39</td><td>14,733</td></tr><tr class="total"><td><strong>2026H1</strong> ‖</td><td>未披露</td><td>—</td><td>—</td><td>—</td><td><strong>0.47</strong></td><td>未披露</td></tr></tbody></table></div><p>注： (1) 汇丰<strong>不采用中国内地监管口径</strong>的"不良贷款率／拨备覆盖率／拨贷比"，其对应概念为<strong>第三级（信贷已减值）贷款</strong>与<strong>预期信贷损失准备</strong>。本文按汇丰自身口径列示，<strong>不与内地银行的不良率直接横向比较</strong>。 (2) 2024／2025 年第三级贷款构成：按摊余成本计量的客户贷款中第三级账面总值 22,615（2024）／24,529（2025），加购自或承办信贷已减值之金融资产 90／333。 (3) 预期信贷损失占平均贷款为<strong>年率化</strong>比率，2026H1 值为年率化数。 (4) 2021—2023 年第三级贷款分项未在所选版本年报中单列，留"未披露"。 (5) 2021 年预期信贷损失为<strong>负值 −0.09%</strong>，反映当年拨备回拨（净回拨），非常态。</p><h3>表 4　资本充足率与经营效率（2021—2026H1 期末）</h3><div class="rsp-table rsp-w7"><table class="kami-table compact"><thead><tr><th>期末</th><th>普通股权一级<br>资本比率(%)</th><th>总资本<br>比率(%)</th><th>风险加权<br>资产(百万美元)</th><th>杠杆<br>比率(%)</th><th>成本效益<br>比率(%)</th><th>净利息<br>收益率(%)</th></tr></thead><tbody><tr><td>2021</td><td>15.8</td><td>21.2</td><td>838,263</td><td>5.2</td><td>69.9</td><td>1.20</td></tr><tr><td>2022</td><td>14.2</td><td>19.3</td><td>839,720</td><td>5.8</td><td>64.4</td><td>1.48</td></tr><tr><td>2023</td><td>14.8</td><td>20.0</td><td>854,114</td><td>5.6</td><td>48.5</td><td>1.66</td></tr><tr><td>2024</td><td>14.9</td><td>20.6</td><td>838,254</td><td>5.6</td><td>50.2</td><td>1.56</td></tr><tr><td>2025</td><td>14.9</td><td>20.5</td><td>888,647</td><td>5.3</td><td>53.4</td><td>1.59</td></tr><tr class="total"><td><strong>2026H1</strong> ‖</td><td><strong>14.1</strong></td><td><strong>19.7</strong></td><td><strong>906,417</strong></td><td><strong>4.9</strong></td><td><strong>46.2</strong></td><td><strong>1.61</strong></td></tr></tbody></table></div><p>注： (1) <strong>成本效益比率＝营业支出 ÷ 收入</strong>，<strong>数值越低越好</strong>（与内地银行"成本收入比"同义）。2021 年 69.9% 为区间最差，2026H1 降至 46.2% 为区间最优。 (2) 净利息收益率为年率化指标，2026H1 为半年度年率化数。 (3) 2026H1 杠杆比率降至 4.9%，为区间最低，与恒生银行私有化及资产规模扩张有关。 (4) 2023 年总资本比率 20.0% 与 2022 年 19.3% 之间含当年监管规则与技术性调整，同比应谨慎。</p><h3>表 5　收入结构（2021—2026H1）</h3><div class="rsp-table rsp-w7"><table class="kami-table compact"><thead><tr><th>期间</th><th>收入<br>(百万美元)</th><th>净利息收益<br>(百万美元)</th><th>占比<br>(%)</th><th>费用净收益<br>(百万美元)</th><th>占比<br>(%)</th><th>交易及公允价值<br>净收益(百万美元)</th></tr></thead><tbody><tr><td>2021</td><td>49,552</td><td>26,500</td><td>53.5</td><td>13,100</td><td>26.4</td><td>—</td></tr><tr><td>2022</td><td>50,620</td><td>28,900</td><td>57.1</td><td>12,700</td><td>25.1</td><td>—</td></tr><tr><td>2023</td><td>66,058</td><td>35,800</td><td>54.2</td><td>13,700</td><td>20.7</td><td>—</td></tr><tr><td>2024</td><td>65,854</td><td>43,700</td><td>66.4</td><td>13,400</td><td>20.3</td><td>—</td></tr><tr><td>2025</td><td>68,274</td><td>44,100</td><td>64.6</td><td>13,800</td><td>20.2</td><td>—</td></tr><tr class="total"><td><strong>2026H1</strong> ‖</td><td><strong>37,742</strong></td><td><strong>18,233</strong></td><td><strong>48.3</strong></td><td><strong>7,277</strong></td><td><strong>19.3</strong></td><td><strong>10,520</strong></td></tr></tbody></table></div><p>注： (1) <strong>本表存在口径断点</strong>：2021—2023 年所选年报版本未按 2024 年起的口径单独列示"持作交易用途或按公允值管理之金融工具净收益"，故相应格子留"—"。据 2026 年中期业绩报告，2025H1 该科目为 10,547、2026H1 为 10,520，规模稳定在百亿美元级（半年度）。 (2) 净利息收益 2021—2023 年为<strong>约数</strong>——年报以十亿美元为单位披露（2023 年 35.8 十亿、2022 年 28.9 十亿、2021 年 26.5 十亿），尾数不可信；2024—2026H1 为精确值（2026H1 为 18,233）。 (3) <strong>占比列不可跨年直接比较</strong>：2024 年起收入结构因 IFRS 17 与交易收益单列而与 2021—2023 年不可直接对齐，特此显式声明。 (4) 2026H1 净利息收益占比（48.3%）显著低于 2025 年（64.6%），主因半年度口径下交易及公允价值净收益（105.20 亿美元）被计入分母，且保险业务"保险财务支出"（58.38 亿）与"保险业务资产净收益"（61.05 亿）大额对冲后净额仅 2.67 亿——<strong>这是 IFRS 17 口径下的常态，不代表利息收入萎缩</strong>。</p><h3>表 6　净利息收益率与资产负债定价（2021—2026H1）</h3><div class="rsp-table rsp-w6"><table class="kami-table compact"><thead><tr><th>期间</th><th>净利息收益率<br>(%)</th><th>净息差<br>(%)</th><th>银行净利息收益<br>(百万美元)</th><th>平均附息资产<br>(百万美元)</th><th>客户贷款占<br>客户账项(%)</th></tr></thead><tbody><tr><td>2021</td><td>1.20</td><td>—</td><td>—</td><td>2,209,513</td><td>61.1</td></tr><tr><td>2022</td><td>1.48</td><td>—</td><td>—</td><td>2,143,758</td><td>58.8</td></tr><tr><td>2023</td><td>1.66</td><td>—</td><td>42,515</td><td>2,161,746</td><td>58.2</td></tr><tr><td>2024</td><td>1.56</td><td>1.35</td><td>43,550</td><td>2,099,285</td><td>56.2</td></tr><tr><td>2025</td><td>1.59</td><td>1.36</td><td>44,084</td><td>2,190,078</td><td>55.3</td></tr><tr class="total"><td><strong>2026H1</strong> ‖</td><td><strong>1.61</strong></td><td><strong>—</strong></td><td><strong>22,896</strong></td><td><strong>2,280,838</strong></td><td><strong>55.9</strong></td></tr></tbody></table></div><p>注： (1) 2023 年起"银行净利息收益"为<strong>固定汇率基准</strong>口径（剔除交易账项相关资金成本与保险业务净利息收益），与列账基准净利息收益不可直接等同。2021—2022 年该口径未在所选版本年报中披露，留"—"。 (2) 净息差（就附息资产赚取的平均年息率 − 就附息资金支付的平均年息率）仅 2024—2025 年在《2025 年報及賬目》中披露（1.35／1.36），2021—2023 年留"—"。2026H1 该指标未在中期报告披露。 (3) 2026H1 银行净利息收益 22,896 百万美元为固定汇率半年度数，同比增加 16 亿美元。</p><h3>表 7　业务分部业绩（2025 年度，固定汇率基准）</h3><div class="rsp-table rsp-w7"><table class="kami-table compact"><thead><tr><th>分部</th><th>收入<br>(百万美元)</th><th>预期信贷损失</th><th>营业支出</th><th>除税前利润</th><th>同比<br>(%)</th><th>平均有形<br>股本回报率(%)</th></tr></thead><tbody><tr><td>香港</td><td>15,878</td><td>(1,476)</td><td>(4,826)</td><td>9,576</td><td>+5</td><td>35.5</td></tr><tr><td>英国</td><td>12,938</td><td>(696)</td><td>(5,537)</td><td>6,705</td><td>−2</td><td>22.6</td></tr><tr><td>企业及机构理财</td><td>27,637</td><td>(696)</td><td>(15,556)</td><td>11,386</td><td>+1</td><td>14.9</td></tr><tr><td>国际财富管理及卓越理财</td><td>14,520</td><td>(892)</td><td>(9,285)</td><td>4,367</td><td>+10</td><td>17.8</td></tr><tr><td><strong>四个分部合计</strong></td><td><strong>70,973</strong></td><td><strong>(3,760)</strong></td><td><strong>(35,204)</strong></td><td><strong>32,034</strong></td><td>—</td><td>—</td></tr></tbody></table></div><p>注： (1) 分部数据为<strong>固定汇率基准</strong>，且<strong>不包括企业中心</strong>（企业中心为净亏损项），故分部合计不等于集团列账数（集团 2025 年除税前利润 29,907 百万美元）。合计行为本文加总，非报告披露值。 (2) 平均有形股本回报率为<strong>该分部口径</strong>，全集团为 13.3%。 (3) 香港分部回报率 35.5% 显著领先，是集团利润的压舱石；国际财富管理及卓越理财增速最快（+10%）。</p><h3>表 8　业务分部业绩（2026H1 vs 2025H1，固定汇率基准）</h3><div class="rsp-table rsp-w8"><table class="kami-table compact"><thead><tr><th>分部</th><th>2026H1<br>收入</th><th>2025H1<br>收入</th><th>收入变动<br>(%)</th><th>2026H1<br>除税前利润</th><th>2025H1<br>除税前利润</th><th>利润变动<br>(%)</th><th>2026H1<br>ATROE(%)</th></tr></thead><tbody><tr><td>香港</td><td>8,132</td><td>7,666</td><td>+6</td><td>5,138</td><td>4,511</td><td>+14</td><td>44.3</td></tr><tr><td>英国</td><td>6,530</td><td>6,241</td><td>+5</td><td>3,332</td><td>3,229</td><td>+3</td><td>20.8</td></tr><tr><td>企业及机构理财</td><td>15,609</td><td>14,819</td><td>+5</td><td>7,250</td><td>6,805</td><td>+7</td><td>18.7</td></tr><tr><td>国际财富管理及卓越理财</td><td>7,739</td><td>7,284</td><td>+6</td><td>2,616</td><td>2,136</td><td>+22</td><td>24.8</td></tr><tr><td><strong>四个分部合计</strong></td><td><strong>38,010</strong></td><td><strong>36,010</strong></td><td><strong>+6</strong></td><td><strong>18,336</strong></td><td><strong>16,681</strong></td><td><strong>+10</strong></td><td>—</td></tr></tbody></table></div><p>注： (1) 口径同表 7：固定汇率基准，不含企业中心。合计行为本文加总。 (2) 香港分部 2026H1 平均有形股本回报率升至 <strong>44.3%</strong>（2025H1 为 34.3%），大幅领先其他分部。 (3) 国际财富管理及卓越理财除税前利润增长 22%，主要来自财富管理业务费用及其他收益增加 18%（+5.93 亿美元）。 (4) 企业及机构理财预期信贷损失由 3.13 亿升至 8.94 亿美元（+185%），是四个分部下唯一显著恶化的风险指标。</p><hr /><h2>三、三张财务数据表：关键变化数据与趋势含义</h2><figure class="fig"><div class="fig-head"><span class="fig-no">图 1</span><div class="fig-title">收入与除税前利润趋势</div><div class="fig-sub">单位：百万美元｜2026H1 为半年数</div></div><div class="fig-legend"><span class="lg"><i style="background:#1B365D"></i>收入</span><span class="lg"><i style="background:#A73F2D"></i>除税前利润</span></div><div class="chart"><div class="ch-row"><div class="ch-lab">2021</div><div class="ch-track"><div class="ch-bar" style="width:50.80%;background:#1B365D"></div><div class="ch-bar" style="width:19.38%;background:#A73F2D"></div></div><div class="ch-val"><b>49,552</b></div></div><div class="ch-row"><div class="ch-lab">2022</div><div class="ch-track"><div class="ch-bar" style="width:51.90%;background:#1B365D"></div><div class="ch-bar" style="width:17.49%;background:#A73F2D"></div></div><div class="ch-val"><b>50,620</b></div></div><div class="ch-row"><div class="ch-lab">2023</div><div class="ch-track"><div class="ch-bar" style="width:67.73%;background:#1B365D"></div><div class="ch-bar" style="width:31.12%;background:#A73F2D"></div></div><div class="ch-val"><b>66,058</b></div></div><div class="ch-row"><div class="ch-lab">2024</div><div class="ch-track"><div class="ch-bar" style="width:67.52%;background:#1B365D"></div><div class="ch-bar" style="width:33.13%;background:#A73F2D"></div></div><div class="ch-val"><b>65,854</b></div></div><div class="ch-row"><div class="ch-lab">2025</div><div class="ch-track"><div class="ch-bar" style="width:70.00%;background:#1B365D"></div><div class="ch-bar" style="width:30.66%;background:#A73F2D"></div></div><div class="ch-val"><b>68,274</b></div></div><div class="ch-row"><div class="ch-lab">2026H1</div><div class="ch-track"><div class="ch-bar" style="width:38.70%;background:#1B365D"></div><div class="ch-bar" style="width:20.02%;background:#A73F2D"></div></div><div class="ch-val"><b>37,742</b></div></div></div><figcaption>收入 2023 年跳增 30.5% 后进入平台期，2025 年再增 3.67%；除税前利润 2024 年见顶 323.09 亿美元，2025 年因一次性项目回落 7.43%，2026H1 反转增长 23.48%。</figcaption><div class="fig-note">2026H1 列于年度块之后，为半年度口径，跨块不可直接相减。两系列条形分别按各自量级渲染。</div></figure><h3>3.1 经营业绩轨迹：一条完整的利率周期曲线</h3><p>汇丰 2021—2025 年走过完整的利率周期，可清晰划分五个阶段：</p><div class="rsp-table rsp-w3"><table class="kami-table compact"><thead><tr><th>阶段</th><th>特征</th><th>关键数据</th></tr></thead><tbody><tr><td>2021 低点</td><td>全球低利率叠加疫情，净利息收益率仅 1.20%，成本效益比率 69.9%（区间最差）</td><td>除税前利润 189.06 亿美元，ATROE 8.3%</td></tr><tr><td>2022 转折</td><td>美联储启动加息，但当年一次性项目拖累</td><td>除税前利润 170.58 亿美元（−9.78%）</td></tr><tr><td>2023 爆发</td><td>高利率红利充分释放，净利息收益率冲至 1.66%（区间最高）</td><td>收入 660.58 亿（+30.50%），除税前利润 303.48 亿（+77.91%）</td></tr><tr><td>2024 见顶</td><td>收入基本持平，重组成本与出售收益交织</td><td>除税前利润 323.09 亿美元（<strong>区间最高</strong>）</td></tr><tr><td>2025 回落</td><td>须予注意项目不利净额 49 亿美元</td><td>除税前利润 299.07 亿（−7.43%），ATROE 13.3%</td></tr><tr class="total"><td><strong>2026H1 反转</strong></td><td>须予注意项目转为有利净额 22 亿美元（2025H1 为不利 33 亿）</td><td><strong>除税前利润 195.22 亿（+23.48%），ATROE 18.2%</strong></td></tr></tbody></table></div><p><strong>趋势含义</strong>：汇丰 2025 年的利润下滑<strong>几乎全部来自一次性项目，而非经营恶化</strong>。剔除须予注意项目后，2025 年除税前利润为 <strong>366.17 亿美元，同比反增 7%</strong>（2024 年 341.81 亿），ATROE 达 <strong>17.2%</strong>，较 2024 年的 15.6% <strong>提升 1.6 个百分点</strong>。</p><div class="callout"><div class="quote"><strong>这是汇丰财报最容易误读之处</strong>：只看列账基准，2025 年利润下滑 7.43% 似在走弱；看替代口径，主业实际在<strong>加速</strong>。反过来说，2026H1 的 23.48% 高增长也有相当部分来自基数反转——2025H1 计提的交通银行摊薄及减值亏损共 21 亿美元，在 2026H1 完全消失。剔除该因素后，2026H1 不计及须予注意项目的固定汇率除税前利润为 203.95 亿美元，同比增 <strong>5.9%</strong>（2025H1 为 192.67 亿）——<strong>这才是主业真实增速</strong>。</div></div><h3>3.2 资产负债结构轨迹</h3><div class="rsp-table rsp-w3"><table class="kami-table compact"><thead><tr><th>观察点</th><th>轨迹</th><th>含义</th></tr></thead><tbody><tr><td>资产总值</td><td>2.96 万亿（2021）→ 3.04 万亿（2023）→ 3.23 万亿（2025）→ <strong>3.44 万亿美元（2026H1）</strong></td><td>2024 年曾小幅回落（外币折算与衍生工具估值），2025 年起重回扩张</td></tr><tr><td>客户贷款</td><td>10,458 亿（2021）→ <strong>连续三年在 9,200—9,400 亿区间徘徊（2022—2024）</strong> → 9,884 亿（2025）→ 10,221 亿美元（2026H1）</td><td><strong>2022—2024 是贷款增长停滞期</strong>（三年复合 −1.3%），2025 年起恢复，2026H1 按固定汇率增 400 亿美元</td></tr><tr><td>客户账项</td><td>连续五年增长，17,106 亿（2021）→ 18,277 亿美元（2026H1）</td><td>存款是稳定增长项，2026H1 按固定汇率增 560 亿美元</td></tr><tr><td>贷款/存款比</td><td>61.1%（2021）→ <strong>55.3%（2025，区间最低）</strong> → 55.9%（2026H1）</td><td><strong>持续下行四年后首现回升</strong>，资金运用效率改善，但存款增速仍快于贷款</td></tr><tr><td>股东权益</td><td>1,982.50 亿（2021）→ 1,778.33 亿（2022）→ 1,982.25 亿（2025）→ 1,966.82 亿（2026H1）</td><td>2022 年被其他储备（公允价值、汇兑）大幅侵蚀，直至 2025 年才修复至 2021 年水平</td></tr></tbody></table></div><p><strong>趋势含义</strong>：汇丰的资产负债表在 2022—2024 年经历"<strong>规模不增长、靠利率提价</strong>"的阶段——这正是理解其 2023 年利润爆发的关键：利润增长几乎全部来自净利息收益率（1.20%→1.66%），而非规模扩张。2025 年起，<strong>量（贷款、存款）与价（净息差）首次同步改善</strong>，构成 2026H1 业绩超预期的结构性基础。</p><p>但需注意两点：① 2026H1 股东权益同比下降（1,982.25 → 1,966.82 亿美元），主因恒生银行私有化与股息分派，而非亏损；② 每股普通股账面净值由 2025 年末 10.36 美元降至 10.08 美元，为区间内首次下降。</p><figure class="fig"><div class="fig-head"><span class="fig-no">图 2</span><div class="fig-title">客户贷款与客户账项</div><div class="fig-sub">单位：百万美元｜期末余额</div></div><div class="fig-legend"><span class="lg"><i style="background:#2F6F6B"></i>客户账项</span><span class="lg"><i style="background:#B8862F"></i>客户贷款净额</span></div><div class="chart"><div class="ch-row"><div class="ch-lab">2021</div><div class="ch-track"><div class="ch-bar" style="width:65.51%;background:#2F6F6B"></div><div class="ch-bar" style="width:40.05%;background:#B8862F"></div></div><div class="ch-val"><b>1,710,574</b></div></div><div class="ch-row"><div class="ch-lab">2022</div><div class="ch-track"><div class="ch-bar" style="width:60.14%;background:#2F6F6B"></div><div class="ch-bar" style="width:35.37%;background:#B8862F"></div></div><div class="ch-val"><b>1,570,303</b></div></div><div class="ch-row"><div class="ch-lab">2023</div><div class="ch-track"><div class="ch-bar" style="width:61.73%;background:#2F6F6B"></div><div class="ch-bar" style="width:35.95%;background:#B8862F"></div></div><div class="ch-val"><b>1,611,647</b></div></div><div class="ch-row"><div class="ch-lab">2024</div><div class="ch-track"><div class="ch-bar" style="width:63.38%;background:#2F6F6B"></div><div class="ch-bar" style="width:35.64%;background:#B8862F"></div></div><div class="ch-val"><b>1,654,955</b></div></div><div class="ch-row"><div class="ch-lab">2025</div><div class="ch-track"><div class="ch-bar" style="width:68.43%;background:#2F6F6B"></div><div class="ch-bar" style="width:37.86%;background:#B8862F"></div></div><div class="ch-val"><b>1,786,828</b></div></div><div class="ch-row"><div class="ch-lab">2026H1</div><div class="ch-track"><div class="ch-bar" style="width:70.00%;background:#2F6F6B"></div><div class="ch-bar" style="width:39.15%;background:#B8862F"></div></div><div class="ch-val"><b>1,827,703</b></div></div></div><figcaption>存款连续五年增长；贷款在 2022—2024 年连续三年停滞在 9,200—9,400 亿美元区间，2025 年起恢复增长。</figcaption><div class="fig-note">贷款/存款比从 2021 年 61.1% 降至 2025 年 55.3%（区间最低），2026H1 首现回升至 55.9%。</div></figure><h3>3.3 资产质量轨迹</h3><div class="rsp-table rsp-w5"><table class="kami-table compact"><thead><tr><th>指标</th><th>2024</th><th>2025</th><th>2026H1</th><th>判读</th></tr></thead><tbody><tr><td>第三级（减值）贷款</td><td>22,705 百万美元</td><td>24,529 百万美元</td><td>未披露</td><td><strong>+8.03%</strong>，快于客户贷款增速（+6.2%）</td></tr><tr><td>占客户贷款比重</td><td>2.44%</td><td>2.48%</td><td>未披露</td><td>微升 4 个基点</td></tr><tr><td>第三级贷款拨备</td><td>(6,091)</td><td>(7,249)</td><td>未披露</td><td><strong>+19.01%</strong>，显著快于分母（+8.03%）</td></tr><tr><td>拨备/第三级贷款</td><td>26.8%</td><td>29.6%</td><td>未披露</td><td><strong>+2.8 个百分点，安全垫在加厚</strong></td></tr><tr><td>预期信贷损失占平均贷款</td><td>0.34%</td><td>0.39%</td><td><strong>0.47%</strong></td><td><strong>连续两期上行，2026H1 加速</strong></td></tr><tr><td>暂缓还款贷款总额</td><td>13,921</td><td>14,733</td><td>未披露</td><td>+5.83%，其中批发贷款占 84.6%</td></tr></tbody></table></div><p><strong>趋势含义</strong>：汇丰资产质量的<strong>方向性信号是负面的</strong>，但<strong>拨备覆盖的方向是正面的</strong>——这是本报告最重要的一组对照。</p><p><strong>负面一侧</strong>：2026H1 预期信贷损失率跳升至 0.47%（年率化），为区间最高。报告自述三项驱动：</p><ol><li>企业及机构理财就<strong>英国一家财务保荐人涉及的 4 亿美元欺诈相关第二市场证券化风险承担</strong>作出第三级拨备；</li><li>对<strong>香港商业房地产行业</strong>的相关准备 2 亿美元；</li><li>为反映<strong>中东冲突持续不确定性</strong>而提拨的准备。</li></ol><p>其中<strong>香港商业房地产是持续性风险源</strong>——2025H1 已计提 5 亿美元，2026H1 再计提 2 亿美元，与香港写字楼及零售物业估值的持续调整一致。2025 年末暂缓还款贷款中，企业及商业贷款高达 122.83 亿美元。</p><p><strong>正面一侧</strong>：拨备增速（+19.01%）显著快于第三级贷款增速（+8.03%），覆盖比率由 26.8% 提升至 29.6%，<strong>汇丰在主动加厚安全垫</strong>。这与部分内地银行"拨备覆盖率持续下降、靠同步计提维持"的形态<strong>方向相反</strong>，是更审慎的做法。</p><hr /><h2>四、数据变化趋势与原因分析</h2><figure class="fig"><div class="fig-head"><span class="fig-no">图 3</span><div class="fig-title">第三级（减值）贷款与拨备</div><div class="fig-sub">单位：百万美元｜汇丰口径，不与内地银行不良率比较</div></div><div class="fig-legend"><span class="lg"><i style="background:#B8862F"></i>第三级贷款账面总值</span><span class="lg"><i style="background:#2F6F6B"></i>减值贷款拨备</span></div><div class="chart"><div class="ch-row"><div class="ch-lab">2024</div><div class="ch-track"><div class="ch-bar" style="width:64.54%;background:#B8862F"></div><div class="ch-bar" style="width:17.38%;background:#2F6F6B"></div></div><div class="ch-val"><b>22,615</b></div></div><div class="ch-row"><div class="ch-lab">2025</div><div class="ch-track"><div class="ch-bar" style="width:70.00%;background:#B8862F"></div><div class="ch-bar" style="width:20.69%;background:#2F6F6B"></div></div><div class="ch-val"><b>24,529</b></div></div></div><figcaption>第三级贷款增长 8.03%，拨备增长 19.01%——拨备增速显著快于分母，覆盖比率由 26.8% 提升至 29.6%，安全垫在加厚。</figcaption><div class="fig-note">2021—2023 年第三级贷款分项未在所选版本年报中单独披露，故本图仅覆盖两年。</div></figure><h3>4.1 净利息收益率：从 1.20% 到 1.61% 的五年半周期</h3><p>净利息收益率是汇丰最重要的单一盈利驱动变量。五年半轨迹：<strong>1.20%（2021）→ 1.48%（2022）→ 1.66%（2023）→ 1.56%（2024）→ 1.59%（2025）→ 1.61%（2026H1）</strong>。</p><p><strong>两端拆解</strong>：</p><ul><li><strong>资产端</strong>：2022—2023 年美联储快速加息，汇丰持有的庞大高流动性资产（2025 年末平均优质流动资产 7,021 亿美元）与证券组合收益率快速重估，是净息差扩张的主因。</li><li><strong>负债端</strong>：2024 年净息差回落 10 个基点至 1.56%，反映<strong>存款成本上行快于资产收益上行</strong>，这是所有银行在加息周期后段的共同特征。</li><li><strong>结构性对冲的贡献</strong>：2025 年净利息收益率回升 3 个基点至 1.59%，报告明确归因于"<strong>将结构性对冲按较高收益率再投资</strong>"的裨益及存款结余增长。2026H1 再升 4 个基点至 1.61%，同一逻辑延续，另有货币换算差额有利影响 4 亿美元。</li></ul><p><strong>关键判读</strong>：汇丰的净息差在 2023 年见顶后<strong>没有如市场预期般快速回落，而是进入 1.56%—1.61% 的高位平台</strong>。这依赖两个条件——① 结构性对冲收益的持续再投资；② 存款结余持续增长。<strong>两者都是有限度的</strong>：对冲收益会随再投资收益率下降而衰减，存款增长受制于贷款需求。因此 <strong>1.61% 更可能是周期性高位而非新常态</strong>，集团自身也未提供净利息收益率的长期指引。</p><figure class="fig"><div class="fig-head"><span class="fig-no">图 4</span><div class="fig-title">净利息收益率轨迹</div><div class="fig-sub">单位：%｜2026H1 为半年度年率化数</div></div><div class="fig-legend"><span class="lg"><i style="background:#B8862F"></i>净利息收益率</span></div><div class="chart"><div class="ch-row"><div class="ch-lab">2021</div><div class="ch-track"><div class="ch-bar" style="width:50.60%;background:#B8862F"></div></div><div class="ch-val"><b>1.20</b></div></div><div class="ch-row"><div class="ch-lab">2022</div><div class="ch-track"><div class="ch-bar" style="width:62.41%;background:#B8862F"></div></div><div class="ch-val"><b>1.48</b></div></div><div class="ch-row"><div class="ch-lab">2023</div><div class="ch-track"><div class="ch-bar" style="width:70.00%;background:#B8862F"></div></div><div class="ch-val"><b>1.66</b></div></div><div class="ch-row"><div class="ch-lab">2024</div><div class="ch-track"><div class="ch-bar" style="width:65.78%;background:#B8862F"></div></div><div class="ch-val"><b>1.56</b></div></div><div class="ch-row"><div class="ch-lab">2025</div><div class="ch-track"><div class="ch-bar" style="width:67.05%;background:#B8862F"></div></div><div class="ch-val"><b>1.59</b></div></div><div class="ch-row"><div class="ch-lab">2026H1</div><div class="ch-track"><div class="ch-bar" style="width:67.89%;background:#B8862F"></div></div><div class="ch-val"><b>1.61</b></div></div><div class="ch-scale">条形按 0—2.00% 刻度显示。</div></div><figcaption>2021 年 1.20% 为区间最低，2023 年冲至 1.66% 见顶，回落至 1.56% 后回升至 1.61%——净息差在高位形成平台，而非快速回落。</figcaption><div class="fig-note">2023 年见顶后仅在 2024 年回落 10 个基点，2025 年与 2026H1 连续回升，反映结构性对冲按较高收益率再投资的裨益。</div></figure><h3>4.2 成本效益比率：从 69.9% 到 46.2% 的经营杠杆</h3><p>成本效益比率从 2021 年 69.9% 改善至 2026H1 的 <strong>46.2%</strong>，<strong>累计改善 23.7 个百分点</strong>，是汇丰五年半间最显著的效率进步。驱动因素有三层：</p><ol><li><strong>收入端</strong>：收入从 495.52 亿增至 682.74 亿美元（2025 年），分母扩张本身即改善比率。</li><li><strong>重组的成本节约</strong>：2024 年起集团宣布简化组织架构。2025 年列账营业支出 364.28 亿美元，剔除须予注意项目 29.64 亿美元（含出售成本 5.02 亿、重组架构成本 10.30 亿、法律准备 14.32 亿）后，目标基准营业支出为 <strong>334.64 亿美元</strong>。2026H1 重组架构成本降至 3.18 亿美元（2025H1 为 6.16 亿，同比减半）。</li><li><strong>2026H1 的特殊因素</strong>：营业支出同比仅增 2%（含货币换算不利影响 4 亿美元），第二季更同比减少 2%，反映重组效益释放与分期计算应计酬劳（对应 2025 年第二季）的基数效应。</li></ol><p><strong>判读</strong>：改善是<strong>真实且有结构性的</strong>——重组节约、科技投入效率、业务聚焦三者叠加。但 <strong>2026H1 的 46.2% 含有基数效应与一次性项目对冲，不宜线性外推</strong>。集团目标基准营业支出 2026H1 为 169.79 亿美元（同比 +2%），增速虽低于收入增速，但<strong>绝对额仍在增长</strong>——说明改善主要靠收入做大，而非成本绝对压缩。</p><figure class="fig"><div class="fig-head"><span class="fig-no">图 5</span><div class="fig-title">成本效益比率</div><div class="fig-sub">单位：%｜数值越低越好</div></div><div class="fig-legend"><span class="lg"><i style="background:#A73F2D"></i>成本效益比率</span></div><div class="chart"><div class="ch-row"><div class="ch-lab">2021</div><div class="ch-track"><div class="ch-bar" style="width:70.00%;background:#A73F2D"></div></div><div class="ch-val"><b>69.90</b></div></div><div class="ch-row"><div class="ch-lab">2022</div><div class="ch-track"><div class="ch-bar" style="width:64.49%;background:#A73F2D"></div></div><div class="ch-val"><b>64.40</b></div></div><div class="ch-row"><div class="ch-lab">2023</div><div class="ch-track"><div class="ch-bar" style="width:48.57%;background:#A73F2D"></div></div><div class="ch-val"><b>48.50</b></div></div><div class="ch-row"><div class="ch-lab">2024</div><div class="ch-track"><div class="ch-bar" style="width:50.27%;background:#A73F2D"></div></div><div class="ch-val"><b>50.20</b></div></div><div class="ch-row"><div class="ch-lab">2025</div><div class="ch-track"><div class="ch-bar" style="width:53.48%;background:#A73F2D"></div></div><div class="ch-val"><b>53.40</b></div></div><div class="ch-row"><div class="ch-lab">2026H1</div><div class="ch-track"><div class="ch-bar" style="width:46.27%;background:#A73F2D"></div></div><div class="ch-val"><b>46.20</b></div></div><div class="ch-scale">条形按 0—100% 刻度显示。</div></div><figcaption>从 2021 年 69.9% 改善至 2026H1 的 46.2%，累计改善 23.7 个百分点，是五年半间最显著的效率进步。</figcaption><div class="fig-note">2025 年回升系列账营业支出含一次性法律准备与重组成本；2026H1 的 46.2% 含基数效应，不宜线性外推。</div></figure><h3>4.3 一次性项目：汇丰报表的"噪音层"</h3><p>须予注意项目是理解汇丰报表的关键，五年间金额巨大且方向反复：</p><div class="rsp-table rsp-w3"><table class="kami-table compact"><thead><tr><th>期间</th><th>主要须予注意项目</th><th>对除税前利润影响</th></tr></thead><tbody><tr><td>2021</td><td>出售法国零售银行业务相关亏损</td><td>列账 189.06 亿 vs 经调整 219.16 亿（<strong>+30.10 亿</strong>）</td></tr><tr><td>2022</td><td>出售加拿大银行业务收益；阿根廷业务减值；法国零售银行重分类</td><td>列账 170.58 亿 vs 经调整 240.10 亿（<strong>+69.52 亿</strong>）</td></tr><tr><td>2023</td><td>出售法国零售银行业务完成、俄罗斯业务出售</td><td>列账 303.48 亿 vs 固定汇率经调整 328.41 亿（<strong>+24.93 亿</strong>）</td></tr><tr><td>2024</td><td>出售加拿大银行业务收益入账；重组成本；交通银行相关</td><td>列账 323.09 亿 vs 固定汇率不计及 341.81 亿（<strong>+18.72 亿</strong>）</td></tr><tr><td>2025</td><td><strong>不利净额 49 亿美元</strong>：Herald Fund SPC（Madoff 案）法律准备 11 亿、英国汇丰历史交易准备 3 亿、重组架构成本 10.30 亿、出售相关 6.31 亿</td><td>列账 299.07 亿 vs 固定汇率不计及 <strong>366.17 亿</strong>（<strong>+67.10 亿</strong>）</td></tr><tr><td>2026H1</td><td><strong>有利净额 22 亿美元</strong>（2025H1 为不利 33 亿）：马耳他业务出售亏损 3 亿、重组成本 3 亿、英国寿险出售汇兑储备拨回 2 亿；2025H1 含交行摊薄及减值 21 亿</td><td>列账 195.22 亿 vs 固定汇率不计及 <strong>203.95 亿</strong></td></tr></tbody></table></div><p><strong>判读</strong>：</p><ol><li><strong>2025 年 49 亿美元不利项目中，有 14 亿美元是法律准备</strong>（Madoff 案 11 亿 + 英国汇丰历史交易 3 亿），属<strong>过去行为的一次性代价</strong>，与当期经营无关，但实实在在减少了当期资本生成与可分配储备。</li><li><strong>2026H1 的 23.48% 高增长中约一半来自基数反转</strong>——2025H1 计提的交通银行摊薄及减值亏损 21 亿美元在 2026H1 完全消失。剔除后主业真实增速为 <strong>+5.9%</strong>。</li><li><strong>交通银行敞口值得单独关注</strong>：2025H1 因持股被摊薄确认 11 亿美元亏损，并对投资账面值计提 10 亿美元减值。这是汇丰在中国内地最大单一股权投资的减值信号，需在后续期次持续跟踪是否再度计提。</li></ol><figure class="fig"><div class="fig-head"><span class="fig-no">图 6</span><div class="fig-title">预期信贷损失占平均贷款比重</div><div class="fig-sub">单位：%｜年率化</div></div><div class="fig-legend"><span class="lg"><i style="background:#A73F2D"></i>预期信贷损失率</span></div><div class="chart"><div class="ch-row"><div class="ch-lab">2022</div><div class="ch-track"><div class="ch-bar" style="width:42.00%;background:#A73F2D"></div></div><div class="ch-val"><b>0.36</b></div></div><div class="ch-row"><div class="ch-lab">2023</div><div class="ch-track"><div class="ch-bar" style="width:38.50%;background:#A73F2D"></div></div><div class="ch-val"><b>0.33</b></div></div><div class="ch-row"><div class="ch-lab">2024</div><div class="ch-track"><div class="ch-bar" style="width:39.67%;background:#A73F2D"></div></div><div class="ch-val"><b>0.34</b></div></div><div class="ch-row"><div class="ch-lab">2025</div><div class="ch-track"><div class="ch-bar" style="width:45.50%;background:#A73F2D"></div></div><div class="ch-val"><b>0.39</b></div></div><div class="ch-row"><div class="ch-lab">2026H1</div><div class="ch-track"><div class="ch-bar" style="width:54.83%;background:#A73F2D"></div></div><div class="ch-val"><b>0.47</b></div></div></div><figcaption>连续三期上行，2026H1 跳升至 0.47%（区间最高），资产质量方向性信号偏负。</figcaption><div class="fig-note">2026H1 三项驱动：英国财务保荐人欺诈相关风险承担 4 亿美元、香港商业房地产准备 2 亿美元、中东冲突不确定性准备。2021 年为负值 −0.09%（拨备净回拨），未纳入本图。</div></figure><h3>4.4 分部业绩：香港是压舱石，财富管理是增长极</h3><p>按 2025 全年固定汇率基准，四个分部（不含企业中心）的除税前利润结构：</p><div class="rsp-table rsp-w5"><table class="kami-table compact"><thead><tr><th>分部</th><th>2025 除税前利润<br>(百万美元)</th><th>占分部合计<br>(%)</th><th>平均有形股本<br>回报率(%)</th><th>2025 相对 2024<br>(%)</th></tr></thead><tbody><tr><td>香港</td><td>9,576</td><td>29.9</td><td><strong>35.5</strong></td><td>+5</td></tr><tr><td>英国</td><td>6,705</td><td>20.9</td><td>22.6</td><td>−2</td></tr><tr><td>企业及机构理财</td><td><strong>11,386</strong></td><td><strong>35.5</strong></td><td>14.9</td><td>+1</td></tr><tr><td>国际财富管理及卓越理财</td><td>4,367</td><td>13.6</td><td>17.8</td><td><strong>+10</strong></td></tr></tbody></table></div><p><strong>关键判读</strong>：</p><ol><li><strong>香港是最优质的资产</strong>。仅贡献 29.9% 的分部利润，却创造 <strong>35.5%</strong> 的有形股本回报率——<strong>接近集团平均（13.3%）的 2.7 倍</strong>。2026H1 更进一步升至 <strong>44.3%</strong>。香港业务由香港汇丰及恒生银行的零售银行、财富管理及工商金融业务组成，在香港市场居领导地位。<strong>若香港业务独立估值，其溢价应显著高于集团整体。</strong></li></ol><ol><li><strong>财富管理是最快的增长引擎</strong>。2025 年财富管理业务费用及其他收益按固定汇率增长 <strong>40%</strong>（收入 22.06 亿美元），2026H1 再增 <strong>18%</strong>（13.33 亿美元）。国际财富管理及卓越理财分部 2026H1 除税前利润增长 <strong>22%</strong>，平均有形股本回报率从 16.8% 跃升至 <strong>24.8%</strong>。</li></ol><ol><li><strong>英国是相对拖累项</strong>。2025 年除税前利润同比 −2%，平均有形股本回报率从 2024 年 25.0% 降至 22.6%（2023 年曾达 33.3%）。英国市场竞争激烈、息差压力大，且 2025 年额外计提了历史交易相关的 3 亿美元准备。</li></ol><ol><li><strong>企业及机构理财规模最大但回报率最低</strong>。2025 年贡献 35.5% 的分部利润，但平均有形股本回报率仅 <strong>14.9%</strong>，是四个分部中唯一低于 20% 的。同时<strong>其预期信贷损失在 2026H1 大幅恶化</strong>——从 3.13 亿升至 8.94 亿美元（<strong>+185%</strong>），为四个分部下唯一显著恶化的风险指标，主要由英国财务保荐人欺诈风险承担的 4 亿美元拨备驱动。</li></ol><ol><li><strong>企业中心持续亏损</strong>。四个分部 2025 年除税前利润合计 320.34 亿美元，而集团列账仅 299.07 亿美元，差额 21.27 亿美元即来自企业中心（含集团层面的重组成本、法律准备等一次性项目）。企业中心的亏损是理解"分部合计 ≠ 集团数"的关键。</li></ol><figure class="fig"><div class="fig-head"><span class="fig-no">图 7</span><div class="fig-title">分部除税前利润贡献（2025 年度）</div><div class="fig-sub">固定汇率基准、不含企业中心｜单位：百万美元</div></div><div class="fig-legend"><span class="lg"><i style="background:#2F6F6B"></i>除税前利润</span></div><div class="chart"><div class="ch-row"><div class="ch-lab">香港</div><div class="ch-track"><div class="ch-bar" style="width:58.87%;background:#2F6F6B"></div></div><div class="ch-val"><b>9,576</b></div></div><div class="ch-row"><div class="ch-lab">英国</div><div class="ch-track"><div class="ch-bar" style="width:41.22%;background:#2F6F6B"></div></div><div class="ch-val"><b>6,705</b></div></div><div class="ch-row"><div class="ch-lab">企业及机构理财</div><div class="ch-track"><div class="ch-bar" style="width:70.00%;background:#2F6F6B"></div></div><div class="ch-val"><b>11,386</b></div></div><div class="ch-row"><div class="ch-lab">国际财富管理及卓越理财</div><div class="ch-track"><div class="ch-bar" style="width:26.85%;background:#2F6F6B"></div></div><div class="ch-val"><b>4,367</b></div></div></div><figcaption>企业及机构理财规模最大（35.5%），香港回报率最高（35.5%）；四个分部合计 320.34 亿美元，与集团列账 299.07 亿美元的差额来自企业中心亏损。</figcaption><div class="fig-note">分部数据不含企业中心，故分部合计不等于集团列账数。</div></figure><h3>4.5 资本充足率：恒生私有化的代价与资本生成的韧性</h3><p>CET1 比率五年半轨迹：<strong>15.8%（2021）→ 14.2%（2022）→ 14.8%（2023）→ 14.9%（2024）→ 14.9%（2025）→ 14.1%（2026H1）</strong>。</p><ul><li><strong>2021→2022 年下降 1.6 个百分点</strong>：主因当年实施 20 亿美元股份回购、美元走强导致风险加权资产上升，以及监管规则调整。</li><li><strong>2022→2025 年稳步回升至 14.9%</strong>：三年连续维持 14.9%，反映强劲的资本生成（扣除分派后）与风险加权资产的有效管理。2025 年可供分派储备达 462 亿美元，较 2024 年末增加 179 亿美元。</li><li><strong>2026H1 骤降至 14.1%（−0.8 个百分点）</strong>：报告明确三项原因——<strong>恒生银行私有化的影响、股息派发、风险加权资产增加</strong>，部分被监管规定利润抵消。这是<strong>主动的战略性资本运用</strong>，而非资本质量恶化。</li></ul><p><strong>判读</strong>：1.4% 的缓冲（14.1% vs 2025 年中期目标区间 14%—14.5%）意味着<strong>资本运用空间已明显收窄</strong>。同时杠杆比率降至 4.9%（区间最低），表明资产规模扩张快于资本积累。汇丰在 2026H1 宣布恢复股份回购（最多 10 亿美元）——该回购曾在宣布恒生私有化后暂停三个季度。<strong>在 CET1 已降至目标区间下沿时恢复回购，反映管理层对资本生成的信心，但也压缩了应对风险事件的缓冲。</strong></p><figure class="fig"><div class="fig-head"><span class="fig-no">图 8</span><div class="fig-title">分部平均有形股本回报率</div><div class="fig-sub">单位：%｜年率化｜对比 2025 年度与 2026H1</div></div><div class="fig-legend"><span class="lg"><i style="background:#1B365D"></i>2025 年度</span><span class="lg"><i style="background:#A73F2D"></i>2026H1</span></div><div class="chart"><div class="ch-row"><div class="ch-lab">香港</div><div class="ch-track"><div class="ch-group"><div class="ch-bar g" style="width:52.89%;background:#1B365D"></div><div class="ch-bar g" style="width:66.00%;background:#A73F2D"></div></div></div><div class="ch-val"><b>35.5</b></div></div><div class="ch-row"><div class="ch-lab">英国</div><div class="ch-track"><div class="ch-group"><div class="ch-bar g" style="width:33.67%;background:#1B365D"></div><div class="ch-bar g" style="width:30.99%;background:#A73F2D"></div></div></div><div class="ch-val"><b>22.6</b></div></div><div class="ch-row"><div class="ch-lab">企业及机构理财</div><div class="ch-track"><div class="ch-group"><div class="ch-bar g" style="width:22.20%;background:#1B365D"></div><div class="ch-bar g" style="width:27.86%;background:#A73F2D"></div></div></div><div class="ch-val"><b>14.9</b></div></div><div class="ch-row"><div class="ch-lab">国际财富管理及卓越理财</div><div class="ch-track"><div class="ch-group"><div class="ch-bar g" style="width:26.52%;background:#1B365D"></div><div class="ch-bar g" style="width:36.95%;background:#A73F2D"></div></div></div><div class="ch-val"><b>17.8</b></div></div><div class="ch-scale">条形按 0—50% 刻度显示。</div></div><figcaption>香港分部从 35.5% 进一步跃升至 44.3%，接近集团平均（13.3%）的 3.3 倍；国际财富管理及卓越理财从 17.8% 升至 24.8%。</figcaption><div class="fig-note">企业及机构理财回报率最低（2025 年 14.9%），是四个分部中唯一低于 20% 的。数值标签为 2025 年度值。</div></figure><h3>4.6 股息与股东回报</h3><div class="rsp-table rsp-w4"><table class="kami-table compact"><thead><tr><th>期间</th><th>每股普通股股息<br>(美元)</th><th>股息派付比率<br>(%)</th><th>平均有形股本回报率<br>不计及须予注意项目(%)</th></tr></thead><tbody><tr><td>2021</td><td>0.25</td><td>40.3</td><td>—</td></tr><tr><td>2022</td><td>0.32</td><td>44</td><td>11.8</td></tr><tr><td>2023</td><td>0.61</td><td>50</td><td>16.0</td></tr><tr><td>2024</td><td><strong>0.87</strong>（含特别股息 0.21）</td><td>50</td><td>15.6</td></tr><tr><td>2025</td><td>0.75</td><td>50</td><td><strong>17.2</strong></td></tr><tr class="total"><td><strong>2026H1</strong> ‖</td><td>0.20（第二次股息 0.10）</td><td>—</td><td><strong>19.1</strong></td></tr></tbody></table></div><p>注：2024 年每股股息 0.87 美元中含出售加拿大银行业务产生的<strong>特别股息 0.21 美元</strong>，剔除非经常性部分后为 0.66 美元。</p><p><strong>判读</strong>：</p><ol><li><strong>派付比率已稳定在 50%</strong>（2023—2025 连续三年），集团明确 2026、2027、2028 年<strong>目标基准维持 50%</strong>。</li><li><strong>2024 年股息含特别股息，不可作为常态基数</strong>。0.87 美元中有 0.21 美元来自加拿大业务出售的资本返还。</li><li><strong>2025 年股息下降 13.79%</strong>（0.87 → 0.75），反映利润下滑与一次性项目消耗资本；但剔除特别股息后，常规股息实为上升（0.66 → 0.75，+13.64%）。</li><li><strong>2026H1 已宣派第二次股息 0.10 美元</strong>，累计每股 0.20 美元（与 2025H1 持平），同时启动最多 10 亿美元回购。</li></ol><hr /><h2>五、关键内容总结</h2><figure class="fig"><div class="fig-head"><span class="fig-no">图 9</span><div class="fig-title">贷款/存款比与股东权益总额</div><div class="fig-sub">左列单位：%｜右列单位：百万美元</div></div><div class="fig-legend"><span class="lg"><i style="background:#1B365D"></i>贷款/存款比(%)</span><span class="lg"><i style="background:#B8862F"></i>股东权益(百万美元)</span></div><div class="chart"><div class="ch-row"><div class="ch-lab">2021</div><div class="ch-track"><div class="ch-bar" style="width:0.02%;background:#1B365D"></div><div class="ch-bar" style="width:70.00%;background:#B8862F"></div></div><div class="ch-val"><b>61</b></div></div><div class="ch-row"><div class="ch-lab">2022</div><div class="ch-track"><div class="ch-bar" style="width:0.02%;background:#1B365D"></div><div class="ch-bar" style="width:62.79%;background:#B8862F"></div></div><div class="ch-val"><b>59</b></div></div><div class="ch-row"><div class="ch-lab">2023</div><div class="ch-track"><div class="ch-bar" style="width:0.02%;background:#1B365D"></div><div class="ch-bar" style="width:65.44%;background:#B8862F"></div></div><div class="ch-val"><b>58</b></div></div><div class="ch-row"><div class="ch-lab">2024</div><div class="ch-track"><div class="ch-bar" style="width:0.02%;background:#1B365D"></div><div class="ch-bar" style="width:65.31%;background:#B8862F"></div></div><div class="ch-val"><b>56</b></div></div><div class="ch-row"><div class="ch-lab">2025</div><div class="ch-track"><div class="ch-bar" style="width:0.02%;background:#1B365D"></div><div class="ch-bar" style="width:69.99%;background:#B8862F"></div></div><div class="ch-val"><b>55</b></div></div><div class="ch-row"><div class="ch-lab">2026H1</div><div class="ch-track"><div class="ch-bar" style="width:0.02%;background:#1B365D"></div><div class="ch-bar" style="width:69.45%;background:#B8862F"></div></div><div class="ch-val"><b>56</b></div></div></div><figcaption>贷款/存款比持续下行四年后于 2026H1 首现回升；股东权益在 2022 年被其他储备侵蚀后，直至 2025 年才修复至 2021 年水平。</figcaption><div class="fig-note">2026H1 股东权益同比微降，主因恒生银行私有化与股息分派，而非亏损。</div></figure><h3>5.1 核心业务与竞争优势</h3><div class="rsp-table rsp-w2"><table class="kami-table compact"><thead><tr><th>优势</th><th>具体体现</th></tr></thead><tbody><tr><td><strong>环球网络的本地银行</strong></td><td>覆盖欧洲、亚洲、中东、北美、拉美，是唯一能在全球主要贸易走廊提供一体化跨境服务的银行之一。2026H1 企业及机构理财收入 156.09 亿美元，批发交易银行业务费用收益增 5%</td></tr><tr><td><strong>香港市场的绝对领导地位</strong></td><td>香港业务平均有形股本回报率 35.5%（2025）→ <strong>44.3%（2026H1）</strong>，远超集团平均</td></tr><tr><td><strong>财富管理的规模与增速</strong></td><td>2025 年财富管理业务费用及其他收益按固定汇率增长 <strong>40%</strong>，2026H1 再增 <strong>18%</strong>；国际财富管理及卓越理财分部 2026H1 利润增 22%</td></tr><tr><td><strong>存款基础的稳定性</strong></td><td>客户账项连续五年增长，2026H1 达 1.83 万亿美元，按固定汇率较 2025 年末增 560 亿美元</td></tr><tr><td><strong>成本效率的持续改善</strong></td><td>成本效益比率从 2021 年 69.9% 降至 2026H1 的 <strong>46.2%</strong>，累计改善 23.7 个百分点</td></tr><tr><td><strong>资本回报承诺</strong></td><td>ATROE 不计及须予注意项目 2026H1 达 <strong>19.1%</strong>，超过集团 2026—2028 年"17% 甚至更高"的目标</td></tr></tbody></table></div><figure class="fig"><div class="fig-head"><span class="fig-no">图 10</span><div class="fig-title">2025 年须予注意项目对除税前利润的影响</div><div class="fig-sub">单位：百万美元｜列账 299.07 亿 vs 不计及须予注意项目 366.17 亿</div></div><div class="fig-legend"><span class="lg"><i style="background:#A73F2D"></i>拖累金额</span></div><div class="chart"><div class="ch-row"><div class="ch-lab">Madoff 案法律准备</div><div class="ch-track"><div class="ch-bar" style="width:30.22%;background:#A73F2D"></div></div><div class="ch-val"><b>1,432</b></div></div><div class="ch-row"><div class="ch-lab">重组架构成本</div><div class="ch-track"><div class="ch-bar" style="width:21.74%;background:#A73F2D"></div></div><div class="ch-val"><b>1,030</b></div></div><div class="ch-row"><div class="ch-lab">出售相关成本</div><div class="ch-track"><div class="ch-bar" style="width:13.32%;background:#A73F2D"></div></div><div class="ch-val"><b>631</b></div></div><div class="ch-row"><div class="ch-lab">英国汇丰历史交易准备</div><div class="ch-track"><div class="ch-bar" style="width:6.33%;background:#A73F2D"></div></div><div class="ch-val"><b>300</b></div></div><div class="ch-row"><div class="ch-lab">其他项目</div><div class="ch-track"><div class="ch-bar" style="width:70.00%;background:#A73F2D"></div></div><div class="ch-val"><b>3,317</b></div></div></div><figcaption>与须予注意项目相关的拖累合计 67.10 亿美元，使列账除税前利润从替代口径的 366.17 亿美元降至 299.07 亿美元。</figcaption><div class="fig-note">本图为与须予注意项目相关的拖累项拆解，非严格意义的逐年累加桥（税务影响后净额为不利 49 亿美元），故以条形对比呈现各项相对量级。</div></figure><h3>5.2 战略进展里程碑</h3><ol><li><strong>恒生银行私有化完成（2026H1）</strong>。这是报告期内最重要的战略动作，融合两家香港标志性银行，代价是 CET1 下降 0.8 个百分点、非控股股东权益从 74.41 亿降至 3.99 亿美元。管理层表述为"融合两家标志性银行的优势，让广大客户及股东受惠"。</li></ol><ol><li><strong>组织架构简化持续推进</strong>。2024 年宣布、2025 年起落地：业务分部从"三大业务 × 五大地域"整合为<strong>四个分部</strong>；重组架构成本 2025 年 10.30 亿美元、2026H1 降至 3.18 亿美元（同比减半），显示重组接近收尾。</li></ol><ol><li><strong>非核心业务退出基本完成</strong>。法国零售银行业务、加拿大银行业务、阿根廷业务、英国寿险业务（HSBC Life UK）、马耳他业务（进行中）、印尼零售银行业务（进行中）陆续出售或退出。2026H1 相关出售亏损 3 亿美元、英国寿险出售产生汇兑储备拨回亏损 2 亿美元。</li></ol><ol><li><strong>金融科技创新落地</strong>：<ul><li>英国政府选定汇丰为其<strong>首批数字政府债券</strong>提供技术支持；</li><li>代币化存款服务从亚洲拓展至美国及阿联酋，覆盖国际网络中的<strong>六个市场</strong>；</li><li>2026H1 获<strong>香港稳定币发行人牌照</strong>，成为新监管框架下首批获准发行稳定币的银行之一，计划下半年发行首批稳定币。</li></ul></li></ol><h3>5.3 主要风险</h3><div class="rsp-table rsp-w2"><table class="kami-table compact"><thead><tr><th>风险</th><th>依据</th></tr></thead><tbody><tr><td><strong>资产质量下行</strong></td><td>预期信贷损失率从 2024 年 0.34% → 2025 年 0.39% → 2026H1 <strong>0.47%</strong>（年率化），连续三期上行；第三级贷款 2025 年增 8.03%，快于贷款总额增速</td></tr><tr><td><strong>香港商业房地产敞口</strong></td><td>2025H1 计提 5 亿美元、2026H1 再计提 2 亿美元相关准备；2025 年末暂缓还款贷款中企业及商业贷款达 122.83 亿美元</td></tr><tr><td><strong>欺诈与历史遗留法律风险</strong></td><td>2025 年计提 Madoff 案（Herald Fund SPC）法律准备 11 亿美元、英国汇丰历史交易准备 3 亿美元；2026H1 就英国财务保荐人涉及的 4 亿美元欺诈相关证券市场风险承担作出第三级拨备</td></tr><tr><td><strong>中东地缘政治</strong></td><td>2026H1 明确为"反映中东冲突持续带来不确定性"而提拨准备</td></tr><tr><td><strong>净息差见顶风险</strong></td><td>1.61% 依赖结构性对冲再投资收益与存款增长，两者均有限度；集团未提供净利息收益率长期指引</td></tr><tr><td><strong>资本运用空间收窄</strong></td><td>CET1 降至 14.1%，已接近 14%—14.5% 中期目标区间下沿；杠杆比率降至 4.9%（区间最低）</td></tr><tr><td><strong>交通银行股权敞口</strong></td><td>2025H1 确认摊薄亏损 11 亿美元 + 减值 10 亿美元；后续是否再度减值需持续跟踪</td></tr><tr><td><strong>英国市场盈利压力</strong></td><td>英国分部 2025 年除税前利润 −2%，ATROE 从 25.0% 降至 22.6%</td></tr><tr><td><strong>汇率波动</strong></td><td>2026H1 收入中含货币换算有利影响 7 亿美元、净利息收益含有利影响 4 亿美元；资产负债表侧则为不利影响（贷款 −60 亿、存款 −150 亿美元）</td></tr></tbody></table></div><hr /><h2>六、结论</h2><h3>6.1 三个核心判断</h3><p><strong>判断一：2025 年的利润下滑是"假跌"，2026H1 的高增长是"半真半假"。</strong></p><p>2025 年列账除税前利润 −7.43%，但剔除 67.10 亿美元须予注意项目后，<strong>主业利润同比 +7%</strong>，ATROE 提升 1.6 个百分点至 17.2%。相反，2026H1 的 +23.48% 高增长中，约一半来自 2025H1 交通银行摊薄及减值亏损 21 亿美元的基数反转——<strong>剔除后主业真实增速为 +5.9%</strong>。两期报告都要求读者<strong>以替代口径而非列账口径判断主业趋势</strong>。</p><p><strong>判断二：汇丰的商业模式在"量价齐升"中进入新阶段，但净息差已见顶。</strong></p><p>2022—2024 年，汇丰的利润增长<strong>完全依赖价格</strong>（净利息收益率 1.20%→1.66%）而非规模（客户贷款三年复合 −1.3%）。2025 年起首次出现<strong>量与价同步改善</strong>——贷款恢复增长（2025 年 +6.2%）、存款连续增长、净息差维持 1.59%—1.61% 高位。但 1.61% 依赖结构性对冲再投资收益与存款增长两个有限条件，<strong>更可能是周期性高位而非新常态</strong>。</p><p><strong>判断三：资产质量是当前最值得警惕的方向，但汇丰的应对比同业审慎。</strong></p><p>预期信贷损失率连续三期上行至 0.47%，第三级贷款增速（+8.03%）超过贷款总额增速（+6.2%）。<strong>但拨备增速（+19.01%）显著快于第三级贷款增速，覆盖比率从 26.8% 提升至 29.6%</strong>——汇丰在主动加厚安全垫，而非被动维持。香港商业房地产（2025H1 计提 5 亿、2026H1 再计提 2 亿美元）与中东地缘政治是两大持续性风险源。</p><h3>6.2 一句话总结</h3><p><strong>汇丰是一家"利润被一次性项目反复扰动、但主业稳定改善、成本效率持续提升、香港业务回报率超群"的全球化银行。当前的关键观察点不是利润增速，而是资产质量（尤其香港商业房地产）与净息差能否维持在 1.6% 附近。</strong></p><h3>6.3 后续跟踪清单</h3><div class="rsp-table rsp-w3"><table class="kami-table compact"><thead><tr><th>跟踪项</th><th>观察指标</th><th>判据</th></tr></thead><tbody><tr><td>资产质量是否继续恶化</td><td>预期信贷损失率（年率化）</td><td>若 2026 全年 &gt; 0.50%，需重估拨备充足性</td></tr><tr><td>香港商业房地产风险释放程度</td><td>相关计提金额、企业及商业暂缓还款贷款余额</td><td>计提是否延续至 2026H2</td></tr><tr><td>净息差是否见顶</td><td>净利息收益率</td><td>若跌破 1.55% 且银行业净利息收益转负增长</td></tr><tr><td>CET1 与资本运用空间</td><td>CET1 比率、杠杆比率</td><td>若跌破 14.0% 中期目标区间下沿，回购/派息政策或调整</td></tr><tr><td>交通银行股权是否再度减值</td><td>应占联营及合资公司利润、权益减值</td><td>2026 年报是否再现减值</td></tr><tr><td>恒生私有化的整合效益</td><td>香港分部 ATROE、成本效益比率</td><td>是否维持 40% 以上 ATROE</td></tr><tr><td>英国分部经营改善</td><td>英国分部除税前利润同比、ATROE</td><td>是否能扭转 −2% 的负增长</td></tr></tbody></table></div><hr /><h2>附录：数据来源与口径</h2><h3>A.1 本报告使用的文件</h3><div class="rsp-table rsp-w4"><table class="kami-table compact"><thead><tr><th>文件名</th><th>披露日</th><th>覆盖期间</th><th>用途</th></tr></thead><tbody><tr><td>2021年报及账目(附雇员股份计划).pdf</td><td>2022-03-24</td><td>2021 年度（含 2019—2020 对比列）</td><td>历史基线数据</td></tr><tr><td>2022年报及账目(附雇员股份计划).pdf</td><td>2023-03-23</td><td>2022 年度（含 2020—2021 对比列）</td><td>交叉校验</td></tr><tr><td>2023年报及账目(附雇员股份计划).pdf</td><td>2024-03-22</td><td>2023 年度</td><td>交叉校验</td></tr><tr><td>2024年报及账目(附雇员股份计划).pdf</td><td>2025-03-21</td><td>2024 年度（含 2022—2023 对比列）</td><td><strong>2021—2024 年度主要取数源</strong></td></tr><tr><td>2025年报及账目(附雇员股份计划).pdf</td><td>2026-03-27</td><td>2025 年度（含 2023—2024 对比列）</td><td><strong>2025 年度取数源、分部数据</strong></td></tr><tr><td>2026年中期业绩报告(附雇员股份计划).pdf</td><td>2026-08-21</td><td>2026H1 vs 2025H1</td><td><strong>2026H1 取数源、分部数据</strong></td></tr><tr><td>2026年中期业绩.pdf</td><td>2026-08-04</td><td>2026H1 公告</td><td>摘要与前瞻</td></tr><tr><td>2026年第一季盈利公布.pdf</td><td>2026-05-05</td><td>2026Q1</td><td>备查（未使用明细数据）</td></tr></tbody></table></div><p>数据来源：香港交易及结算所有限公司披露易，经东方财富公告接口获取。</p><h3>A.2 币种与单位</h3><p>报告币种为<strong>美元（USD）</strong>。本文所有金额除特别注明外均为<strong>百万美元</strong>。汇率相关表述（如"按固定汇率基准"）沿用报告原文口径。</p><h3>A.3 会计准则</h3><p>国际财务报告准则（IFRS）。保险业务自 2023 年起适用 IFRS 17，导致收入结构披露口径发生变化（见表 5 注 3）。</p><h3>A.4 口径与处理方法声明</h3><ol><li><strong>两套基准并行</strong>：列账基准与固定汇率基准、列账基准与不计及须予注意项目基准，均按报告原文分别标注。跨基准数字不做加减。</li><li><strong>分部数据不含企业中心</strong>：表 7、表 8 的分部合计为本文加总，<strong>不等于集团列账数</strong>。</li><li><strong>表 5 的占比列存在口径断点</strong>：2024 年起口径与 2021—2023 年不可直接对齐，已在该表注中显式声明。</li><li><strong>表 5 净利息收益 2021—2023 年为约数</strong>（年报以十亿美元为单位披露），尾数不可信。</li><li><strong>不与内地银行横向比较资产质量</strong>：汇丰采用第三级贷款与预期信贷损失口径，与内地监管的不良率/拨备覆盖率口径不同。</li><li><strong>未披露即留空</strong>：表 3 的 2021—2023 年第三级贷款分项、表 6 的部分净息差数据，均因所选版本年报未单独披露而填"未披露"或"—"，<strong>未作任何推算</strong>。</li><li><strong>本文的加总项已标注</strong>：表 7、表 8 的"四个分部合计"行、表 2 的"贷款/存款"列、表 1 的同比百分比，均为本文计算值。</li></ol><h3>A.5 文本抽取说明</h3><p>年报 PDF 经 <code>pdftotext -layout</code> 抽取后，正文中约 13.9 万个汉字被映射至 Unicode 康熙部首区段（U+2E80—U+2FDF，PDF 字体 ToUnicode CMap 缺陷），例如 行→U+2F8F、日→U+2F47、長→U+2ED1。此类字符 NFKC 规范化不生效，会导致关键词检索静默零命中。已按 Unicode 官方对应关系编写映射表规范化（脚本见 <code>tools/kangxi_fix.py</code>），原始抽取结果保留在 <code>text/</code> 目录，规范化结果在 <code>text_norm/</code>。</p><hr /><p>*本报告基于公开披露信息的整理与分析，不构成投资建议。*</p>
+
+
+<!-- rsp-mobile-adapt : 溢出表格滑动提示 -->
+<script>
+(function(){
+  function mark(){
+    var boxes = document.querySelectorAll('.rsp-table');
+    for (var i=0;i<boxes.length;i++){
+      var b = boxes[i];
+      if (b.scrollWidth > b.clientWidth + 4) b.setAttribute('data-rsp-scroll','');
+      else b.removeAttribute('data-rsp-scroll');
+    }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mark);
+  else mark();
+  window.addEventListener('resize', function(){ clearTimeout(window.__rspT); window.__rspT=setTimeout(mark,180); });
+})();
+</script>
+</body>
+</html>
