@@ -1072,6 +1072,33 @@ window.REPORT_LIBRARY = {
       ]
     },
     {
+      id: "alibaba",
+      name: "阿里巴巴",
+      code: "09988.HK / BABA.N",
+      sector: "电商与云计算",
+      short: "阿里",
+      reports: [
+        {
+          id: "alibaba-fy2020-fy2027q1",
+          title: "阿里巴巴（09988.HK）FY2020—FY2026 财务数据对比分析报告",
+          period: "FY2020 — FY2027Q1",
+          periodNote: "US GAAP · 财年截至 3 月 31 日 · 七年 ＋ 最新季度",
+          publishedAt: "2026-09-22",
+          html: "reports/alibaba/阿里巴巴财报分析.html",
+          pdf: "docs/alibaba/阿里巴巴财报分析.pdf",
+          pages: 12,
+          tags: ["自由现金流转负 −466 亿元", "经营利润 −64.4%", "云 +45%", "回购收缩至 0"],
+          metrics: [
+            { value: "−64.4%", label: "经营利润同比归母净利润仅 −20.4%，差额来自投资按市值计价收益", note: "" },
+            { value: "−466", label: "自由现金流", note: "（亿元）上年为 +738.70 亿元，七年首次转负" },
+            { value: "+1,010", label: "销售和市场费用增加", note: "（亿元）单科目增幅超过经营利润减少额" },
+            { value: "+45.0%", label: "AI 云与算力服务收入增速FY2027Q1，EBITA 利润率提升至", note: "" },
+          ],
+          summary: "FY2026 是「利润表与现金流量表同时转向」的一年。 收入 10,236.70 亿元仅增长 2.7%，但经营利润从 1,409.05 亿元骤降至 501.50 亿元（−64.4%），经营利润率由 14% 压缩至 5%。"
+        }
+      ]
+    },
+    {
       id: "tencent",
       name: "腾讯控股",
       code: "00700.HK",
