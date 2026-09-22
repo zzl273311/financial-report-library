@@ -148,7 +148,15 @@
               height: 11pt; overflow: hidden; }
   .ch-val { flex: 0 0 74pt; font-size: 8.5pt; color: #22262B; text-align: right;
             white-space: nowrap; }
-  .ch-bar { display: block; height: 11pt; border-radius: 1.5pt; background: #2F6F6B; }
+  .ch-bar { display: block; height: 11pt; border-radius: 1.5pt; background: #2F6F6B;
+            position: absolute; top: 0; }
+  /* 零基线：发散轴（--ch-zero 由数据决定；全正/全负时贴边故不显示） */
+  .ch-track { position: relative; }
+  .ch-track::after { content: ""; position: absolute; top: -1pt; bottom: -1pt;
+                     left: var(--ch-zero, 0%); width: 0;
+                     border-left: 0.75pt dashed #8C857A; }
+  .ch-track[style*="--ch-zero:0.00"]::after,
+  .ch-track[style*="--ch-zero:100.00"]::after { display: none; }
   .b-hi { background: #A73F2D; }
   .b-blue { background: #1B365D; }
   .b-teal { background: #2F6F6B; }
@@ -374,44 +382,44 @@
 <figure class="ch"><div class="ch-title">图 1　收入七年翻倍，但经营利润率在 FY2026 断崖</div>
 <div class="ch-sub">收入（亿元，条形）· 经营利润率（标注于条右侧）</div>
 <div class="ch-row"><div class="ch-lab">FY2020</div>
-<div class="ch-track">
-<span class="ch-bar b-teal" style="width:49.79%"></span>
+<div class="ch-track" style="--ch-zero:0%">
+<span class="ch-bar b-teal" style="left:0.00%;width:100.00%"></span>
 </div>
 <div class="ch-val">5,097.11</div>
 </div>
 <div class="ch-row"><div class="ch-lab">FY2021</div>
-<div class="ch-track">
-<span class="ch-bar b-teal" style="width:70.07%"></span>
+<div class="ch-track" style="--ch-zero:0%">
+<span class="ch-bar b-teal" style="left:0.00%;width:100.00%"></span>
 </div>
 <div class="ch-val">7,172.89</div>
 </div>
 <div class="ch-row"><div class="ch-lab">FY2022</div>
-<div class="ch-track">
-<span class="ch-bar b-teal" style="width:83.33%"></span>
+<div class="ch-track" style="--ch-zero:0%">
+<span class="ch-bar b-teal" style="left:0.00%;width:100.00%"></span>
 </div>
 <div class="ch-val">8,530.62</div>
 </div>
 <div class="ch-row"><div class="ch-lab">FY2023</div>
-<div class="ch-track">
-<span class="ch-bar b-teal" style="width:84.86%"></span>
+<div class="ch-track" style="--ch-zero:0%">
+<span class="ch-bar b-teal" style="left:0.00%;width:100.00%"></span>
 </div>
 <div class="ch-val">8,686.87</div>
 </div>
 <div class="ch-row"><div class="ch-lab">FY2024</div>
-<div class="ch-track">
-<span class="ch-bar b-teal" style="width:91.94%"></span>
+<div class="ch-track" style="--ch-zero:0%">
+<span class="ch-bar b-teal" style="left:0.00%;width:100.00%"></span>
 </div>
 <div class="ch-val">9,411.68</div>
 </div>
 <div class="ch-row"><div class="ch-lab">FY2025</div>
-<div class="ch-track">
-<span class="ch-bar b-teal" style="width:97.33%"></span>
+<div class="ch-track" style="--ch-zero:0%">
+<span class="ch-bar b-teal" style="left:0.00%;width:100.00%"></span>
 </div>
 <div class="ch-val">9,963.47</div>
 </div>
 <div class="ch-row"><div class="ch-lab">FY2026</div>
-<div class="ch-track">
-<span class="ch-bar b-teal" style="width:100.00%"></span>
+<div class="ch-track" style="--ch-zero:0%">
+<span class="ch-bar b-teal" style="left:0.00%;width:100.00%"></span>
 </div>
 <div class="ch-val">10,236.70</div>
 </div>
@@ -430,42 +438,46 @@
 <div class="rsp-table rsp-w5"><table class="financial compact longtable"><thead><tr><th>项目</th><th>FY2024</th><th>FY2025</th><th>FY2026</th><th>FY2026 同比</th></tr></thead><tbody><tr><td>净利润</td><td>71,332</td><td>125,976</td><td>102,127</td><td>−19.0%</td></tr><tr><td>加：利息收入和投资净收益（反向）</td><td>9,964</td><td>(20,759)</td><td>(87,512)</td><td>—</td></tr><tr><td>加：利息费用</td><td>7,947</td><td>9,596</td><td>9,793</td><td>+2.1%</td></tr><tr><td>加：其他净收支（反向）</td><td>(6,157)</td><td>(3,387)</td><td>(1,518)</td><td>—</td></tr><tr><td>加：所得税费用</td><td>22,529</td><td>35,445</td><td>30,045</td><td>−15.2%</td></tr><tr><td>加：权益法核算的投资损益（反向）</td><td>7,735</td><td>(5,966)</td><td>(2,785)</td><td>—</td></tr><tr class="total"><td><strong>＝ 经营利润</strong></td><td><strong>113,350</strong></td><td><strong>140,905</strong></td><td><strong>50,150</strong></td><td><strong>−64.4%</strong></td></tr><tr><td>加：非现金股权激励费用</td><td>18,546</td><td>13,970</td><td>11,180</td><td>−20.0%</td></tr><tr><td>加：无形资产摊销及减值</td><td>21,592</td><td>6,336</td><td>5,079</td><td>−19.8%</td></tr><tr><td>加：商誉减值及其他</td><td>11,540</td><td>11,854</td><td>10,007</td><td>−15.6%</td></tr><tr class="total"><td><strong>＝ 经调整 EBITA</strong></td><td><strong>165,028</strong></td><td><strong>173,065</strong></td><td><strong>76,416</strong></td><td><strong>−55.8%</strong></td></tr></tbody></table></div>
 <p><strong>读法</strong>：经营利润降幅（−64.4%）大于经调整 EBITA 降幅（−55.8%），差额来自商誉减值等非现金项目仍在发生。<strong>用经调整 EBITA 也能看到腰斩级别的下滑，说明这不是会计口径问题。</strong></p>
 <figure class="ch"><div class="ch-title">图 2　FY2026 费用变动：销售和市场费用单项增加 1,010 亿元</div>
-<div class="ch-sub">同比变动额（亿元）· 负值＝费用增加、侵蚀利润</div>
+<div class="ch-sub">同比变动额（亿元）· 中线为零，向左＝侵蚀利润，向右＝增厚利润</div>
 <div class="ch-row"><div class="ch-lab">销售和市场费用</div>
-<div class="ch-track">
-<span class="ch-bar b-hi" style="width:-905.28%"></span>
+<div class="ch-track" style="--ch-zero:0%">
+<span class="ch-bar b-hi" style="left:0.00%;width:100.00%"></span>
 </div>
 <div class="ch-val">-1,010.02</div>
 </div>
-<div class="ch-row"><div class="ch-lab">产品开发费用</div>
-<div class="ch-track">
-<span class="ch-bar b-hi" style="width:-84.09%"></span>
-</div>
-<div class="ch-val">-93.82</div>
-</div>
 <div class="ch-row"><div class="ch-lab">营业成本</div>
-<div class="ch-track">
-<span class="ch-bar b-hi" style="width:-160.00%"></span>
+<div class="ch-track" style="--ch-zero:0%">
+<span class="ch-bar b-hi" style="left:0.00%;width:100.00%"></span>
 </div>
 <div class="ch-val">-178.51</div>
 </div>
+<div class="ch-row"><div class="ch-lab">产品开发费用</div>
+<div class="ch-track" style="--ch-zero:0%">
+<span class="ch-bar b-hi" style="left:0.00%;width:100.00%"></span>
+</div>
+<div class="ch-val">-93.82</div>
+</div>
 <div class="ch-row"><div class="ch-lab">商誉减值</div>
-<div class="ch-track">
-<span class="ch-bar b-hi" style="width:-29.97%"></span>
+<div class="ch-track" style="--ch-zero:0%">
+<span class="ch-bar b-hi" style="left:0.00%;width:100.00%"></span>
 </div>
 <div class="ch-val">-33.44</div>
 </div>
+<div class="ch-row"><div class="ch-lab">无形资产摊销及减值</div>
+<div class="ch-track" style="--ch-zero:0%">
+<span class="ch-bar b-hi" style="left:0.00%;width:100.00%"></span>
+</div>
+<div class="ch-val">12.57</div>
+</div>
 <div class="ch-row"><div class="ch-lab">一般及行政费用</div>
-<div class="ch-track">
-<span class="ch-bar b-hi" style="width:100.00%"></span>
+<div class="ch-track" style="--ch-zero:0%">
+<span class="ch-bar b-hi" style="left:0.00%;width:100.00%"></span>
 </div>
 <div class="ch-val">111.57</div>
 </div>
-<div class="ch-row"><div class="ch-lab">无形资产摊销及减值</div>
-<div class="ch-track">
-<span class="ch-bar b-hi" style="width:11.27%"></span>
-</div>
-<div class="ch-val">12.57</div>
+<div class="ch-legend">
+<span class="lg"><i class="b-hi"></i>侵蚀利润（费用增加）</span>
+<span class="lg"><i class="b-teal"></i>增厚利润（费用减少）</span>
 </div>
 <figcaption>销售和市场费用增加 1,010.02 亿元，超过经营利润的减少额（907.55 亿元）——利润下滑可由此单一科目解释。</figcaption>
 <div class="fig-note">费用率：销售和市场费用占收入比由 14% 升至 24%（+10pp）；一般及行政费用由 4% 降至 3%（上年含一次性股东集体诉讼计提准备金）。</div>
@@ -483,26 +495,26 @@
 <figure class="ch"><div class="ch-title">图 3　同一家公司的「跌幅」从 −20.4% 到 −64.4% 不等</div>
 <div class="ch-sub">FY2026 同比变动率（%）· 四套口径对照</div>
 <div class="ch-row"><div class="ch-lab">经营利润（准则）</div>
-<div class="ch-track">
-<span class="ch-bar b-blue" style="width:100.00%"></span>
+<div class="ch-track" style="--ch-zero:0%">
+<span class="ch-bar b-blue" style="left:0.00%;width:100.00%"></span>
 </div>
 <div class="ch-val">64.40</div>
 </div>
 <div class="ch-row"><div class="ch-lab">非GAAP净利润</div>
-<div class="ch-track">
-<span class="ch-bar b-blue" style="width:95.65%"></span>
+<div class="ch-track" style="--ch-zero:0%">
+<span class="ch-bar b-blue" style="left:0.00%;width:100.00%"></span>
 </div>
 <div class="ch-val">61.60</div>
 </div>
 <div class="ch-row"><div class="ch-lab">经调整EBITA</div>
-<div class="ch-track">
-<span class="ch-bar b-blue" style="width:86.65%"></span>
+<div class="ch-track" style="--ch-zero:0%">
+<span class="ch-bar b-blue" style="left:0.00%;width:100.00%"></span>
 </div>
 <div class="ch-val">55.80</div>
 </div>
 <div class="ch-row"><div class="ch-lab">归母净利润（准则）</div>
-<div class="ch-track">
-<span class="ch-bar b-blue" style="width:31.68%"></span>
+<div class="ch-track" style="--ch-zero:0%">
+<span class="ch-bar b-blue" style="left:0.00%;width:100.00%"></span>
 </div>
 <div class="ch-val">20.40</div>
 </div>
@@ -523,30 +535,30 @@
 <figure class="ch"><div class="ch-title">图 4　分部经调整 EBITA：电商失血 857 亿元，云仅补回 37 亿元</div>
 <div class="ch-sub">单位：亿元 · FY2025 → FY2026</div>
 <div class="ch-row"><div class="ch-lab">中国电商集团</div>
-<div class="ch-track">
-<span class="ch-bar b-grey" style="width:100.00%"></span>
-<span class="ch-bar b-teal" style="width:55.64%"></span>
+<div class="ch-track" style="--ch-zero:0%">
+<span class="ch-bar b-grey" style="left:0.00%;width:49.40%"></span>
+<span class="ch-bar b-teal" style="left:50.60%;width:49.40%"></span>
 </div>
 <div class="ch-val">1,932.23</div>
 </div>
 <div class="ch-row"><div class="ch-lab">云智能集团</div>
-<div class="ch-track">
-<span class="ch-bar b-grey" style="width:5.46%"></span>
-<span class="ch-bar b-teal" style="width:7.38%"></span>
+<div class="ch-track" style="--ch-zero:0%">
+<span class="ch-bar b-grey" style="left:0.00%;width:49.40%"></span>
+<span class="ch-bar b-teal" style="left:50.60%;width:49.40%"></span>
 </div>
 <div class="ch-val">105.56</div>
 </div>
 <div class="ch-row"><div class="ch-lab">国际数字商业</div>
-<div class="ch-track">
-<span class="ch-bar b-grey" style="width:-7.83%"></span>
-<span class="ch-bar b-teal" style="width:-1.06%"></span>
+<div class="ch-track" style="--ch-zero:0%">
+<span class="ch-bar b-grey" style="left:0.00%;width:49.40%"></span>
+<span class="ch-bar b-teal" style="left:50.60%;width:49.40%"></span>
 </div>
 <div class="ch-val">-151.37</div>
 </div>
 <div class="ch-row"><div class="ch-lab">所有其他</div>
-<div class="ch-track">
-<span class="ch-bar b-grey" style="width:-4.92%"></span>
-<span class="ch-bar b-teal" style="width:-18.50%"></span>
+<div class="ch-track" style="--ch-zero:0%">
+<span class="ch-bar b-grey" style="left:0.00%;width:49.40%"></span>
+<span class="ch-bar b-teal" style="left:50.60%;width:49.40%"></span>
 </div>
 <div class="ch-val">-94.99</div>
 </div>
@@ -592,23 +604,23 @@
 <figure class="ch"><div class="ch-title">图 6　资本开支三年跳升 3.9 倍，与自由现金流构成剪刀差</div>
 <div class="ch-sub">单位：亿元 · 每一对为资本开支 / 自由现金流</div>
 <div class="ch-row"><div class="ch-lab">FY2024</div>
-<div class="ch-track">
-<span class="ch-bar b-gold" style="width:20.54%"></span>
-<span class="ch-bar b-teal" style="width:100.00%"></span>
+<div class="ch-track" style="--ch-zero:0%">
+<span class="ch-bar b-gold" style="left:0.00%;width:49.40%"></span>
+<span class="ch-bar b-teal" style="left:50.60%;width:49.40%"></span>
 </div>
 <div class="ch-val">320.87</div>
 </div>
 <div class="ch-row"><div class="ch-lab">FY2025</div>
-<div class="ch-track">
-<span class="ch-bar b-gold" style="width:55.04%"></span>
-<span class="ch-bar b-teal" style="width:47.29%"></span>
+<div class="ch-track" style="--ch-zero:0%">
+<span class="ch-bar b-gold" style="left:0.00%;width:49.40%"></span>
+<span class="ch-bar b-teal" style="left:50.60%;width:49.40%"></span>
 </div>
 <div class="ch-val">859.72</div>
 </div>
 <div class="ch-row"><div class="ch-lab">FY2026</div>
-<div class="ch-track">
-<span class="ch-bar b-gold" style="width:80.70%"></span>
-<span class="ch-bar b-teal" style="width:-29.84%"></span>
+<div class="ch-track" style="--ch-zero:0%">
+<span class="ch-bar b-gold" style="left:0.00%;width:49.40%"></span>
+<span class="ch-bar b-teal" style="left:50.60%;width:49.40%"></span>
 </div>
 <div class="ch-val">1,260.63</div>
 </div>
@@ -639,38 +651,38 @@
 <figure class="ch"><div class="ch-title">图 8　资产负债率两年上升 4.06pp，流动比率降至七年最低</div>
 <div class="ch-sub">资产负债率（%）· 流动比率标注于条右侧</div>
 <div class="ch-row"><div class="ch-lab">FY2021</div>
-<div class="ch-track">
-<span class="ch-bar b-hi" style="width:87.49%"></span>
+<div class="ch-track" style="--ch-zero:0%">
+<span class="ch-bar b-hi" style="left:0.00%;width:100.00%"></span>
 </div>
 <div class="ch-val">35.89</div>
 </div>
 <div class="ch-row"><div class="ch-lab">FY2022</div>
-<div class="ch-track">
-<span class="ch-bar b-hi" style="width:88.20%"></span>
+<div class="ch-track" style="--ch-zero:0%">
+<span class="ch-bar b-hi" style="left:0.00%;width:100.00%"></span>
 </div>
 <div class="ch-val">36.18</div>
 </div>
 <div class="ch-row"><div class="ch-lab">FY2023</div>
-<div class="ch-track">
-<span class="ch-bar b-hi" style="width:87.62%"></span>
+<div class="ch-track" style="--ch-zero:0%">
+<span class="ch-bar b-hi" style="left:0.00%;width:100.00%"></span>
 </div>
 <div class="ch-val">35.94</div>
 </div>
 <div class="ch-row"><div class="ch-lab">FY2024</div>
-<div class="ch-track">
-<span class="ch-bar b-hi" style="width:90.10%"></span>
+<div class="ch-track" style="--ch-zero:0%">
+<span class="ch-bar b-hi" style="left:0.00%;width:100.00%"></span>
 </div>
 <div class="ch-val">36.96</div>
 </div>
 <div class="ch-row"><div class="ch-lab">FY2025</div>
-<div class="ch-track">
-<span class="ch-bar b-hi" style="width:96.49%"></span>
+<div class="ch-track" style="--ch-zero:0%">
+<span class="ch-bar b-hi" style="left:0.00%;width:100.00%"></span>
 </div>
 <div class="ch-val">39.58</div>
 </div>
 <div class="ch-row"><div class="ch-lab">FY2026</div>
-<div class="ch-track">
-<span class="ch-bar b-hi" style="width:100.00%"></span>
+<div class="ch-track" style="--ch-zero:0%">
+<span class="ch-bar b-hi" style="left:0.00%;width:100.00%"></span>
 </div>
 <div class="ch-val">41.02</div>
 </div>
@@ -690,30 +702,30 @@
 <figure class="ch"><div class="ch-title">图 7　云加速至 +45%，中国电商收入首次转负</div>
 <div class="ch-sub">分部收入同比增速（%）· FY2026 全财年 vs FY2027Q1</div>
 <div class="ch-row"><div class="ch-lab">AI 云与算力服务</div>
-<div class="ch-track">
-<span class="ch-bar b-grey" style="width:73.12%"></span>
-<span class="ch-bar b-teal" style="width:96.77%"></span>
+<div class="ch-track" style="--ch-zero:0%">
+<span class="ch-bar b-grey" style="left:0.00%;width:49.40%"></span>
+<span class="ch-bar b-teal" style="left:50.60%;width:49.40%"></span>
 </div>
 <div class="ch-val">34.00</div>
 </div>
 <div class="ch-row"><div class="ch-lab">中国即时零售</div>
-<div class="ch-track">
-<span class="ch-bar b-grey" style="width:100.00%"></span>
-<span class="ch-bar b-teal" style="width:96.99%"></span>
+<div class="ch-track" style="--ch-zero:0%">
+<span class="ch-bar b-grey" style="left:0.00%;width:49.40%"></span>
+<span class="ch-bar b-teal" style="left:50.60%;width:49.40%"></span>
 </div>
 <div class="ch-val">46.50</div>
 </div>
 <div class="ch-row"><div class="ch-lab">阿里巴巴电商集团</div>
-<div class="ch-track">
-<span class="ch-bar b-grey" style="width:19.35%"></span>
-<span class="ch-bar b-teal" style="width:7.53%"></span>
+<div class="ch-track" style="--ch-zero:0%">
+<span class="ch-bar b-grey" style="left:0.00%;width:49.40%"></span>
+<span class="ch-bar b-teal" style="left:50.60%;width:49.40%"></span>
 </div>
 <div class="ch-val">9.00</div>
 </div>
 <div class="ch-row"><div class="ch-lab">中国电商（核心）</div>
-<div class="ch-track">
-<span class="ch-bar b-grey" style="width:11.18%"></span>
-<span class="ch-bar b-teal" style="width:-17.85%"></span>
+<div class="ch-track" style="--ch-zero:0%">
+<span class="ch-bar b-grey" style="left:0.00%;width:49.40%"></span>
+<span class="ch-bar b-teal" style="left:50.60%;width:49.40%"></span>
 </div>
 <div class="ch-val">5.20</div>
 </div>
