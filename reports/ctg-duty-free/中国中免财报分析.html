@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>中国中免（601888.SH / 01880.HK）2016—2025 年财报分析报告</title>
+<meta name="author" content="财报分析">
+<meta name="generator" content="financial-report-analysis">
+<style>
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W04.ttf") format("truetype");
+    font-weight: 400; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W05.ttf") format("truetype");
+    font-weight: 500; font-style: normal; font-display: swap;
+  }
+  @page {
+    size: A4;
+    margin: 16mm 18mm 18mm 18mm;
+    background: #F7F4EE;
+    @bottom-center {
+      content: counter(page) "  ·  财报分析";
+      font-family: "TsangerJinKai02", "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", Georgia, serif;
+      font-size: 9pt; color: #6b6a64;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --parchment:#F7F4EE; --ivory:#FBF9F4; --near-black:#22262B; --dark-warm:#3E4145;
+    --olive:#504e49; --stone:#7C7B77; --brand:#A73F2D; --brand-deep:#8A3223;
+    --accent:#A73F2D; --accent-soft:#F1E3DD; --gold:#B8862F; --teal:#2F6F6B; --blue:#1B365D;
+    --border:#E3DDD4; --border-soft:#EAE5DC;
+    --tag-bg:#F1E3DD; --positive:#A73F2D; --negative:#2F6F6B;
+    --serif: "TsangerJinKai02", "Source Han Serif SC", "Source Han Serif CN", "Noto Serif CJK SC", "Noto Serif SC", "Songti SC", "STSong", "SimSun", Georgia, serif;
+    --rhythm-module:14pt; --rhythm-section:18pt;
+  }
+  html, body { background: var(--parchment); }
+  @media screen { body { max-width: 210mm; margin: 0 auto; padding: 16mm 18mm 18mm 18mm; } }
+  body { color: var(--near-black); font-family: var(--serif); font-size: 10pt; line-height: 1.5;
+    letter-spacing: 0.3pt; widows: 3; orphans: 3; }
+  strong { font-weight: 500; }
+  .hl { color: var(--brand); font-weight: 500; }
+
+  .report-header { display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: var(--rhythm-module); padding-bottom: 10pt; border-bottom: 0.5pt solid var(--border); }
+  .ticker-block { flex: 1; }
+  .ticker-eyebrow { font-size: 9pt; color: var(--brand); letter-spacing: 1.5pt; text-transform: uppercase;
+    font-weight: 500; margin-bottom: 4pt; }
+  .ticker-name { font-family: var(--serif); font-size: 24pt; font-weight: 500; color: var(--near-black);
+    line-height: 1.15; margin-bottom: 4pt; }
+  .ticker-sub { font-size: 10pt; color: var(--olive); line-height: 1.4; }
+  .price-block { text-align: right; padding-top: 4pt; }
+  .price-current { font-family: var(--serif); font-size: 28pt; font-weight: 500; color: var(--near-black);
+    line-height: 1; font-variant-numeric: tabular-nums; }
+  .price-change { font-size: 10pt; font-weight: 500; margin-top: 2pt; font-variant-numeric: tabular-nums; }
+  .price-change.up { color: var(--positive); }
+  .price-date { font-size: 9pt; color: var(--stone); margin-top: 2pt; }
+
+  .metrics { display: flex; gap: 14pt; margin-bottom: 16pt; padding: 6pt 0;
+    border-top: 0.3pt dotted var(--border); border-bottom: 0.3pt dotted var(--border); }
+  .metric { flex: 1; min-width: 0; display: flex; align-items: baseline; gap: 4pt; flex-wrap: wrap; }
+  .metric-value { font-family: var(--serif); font-size: 16pt; font-weight: 500; color: var(--brand);
+    line-height: 1; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  /* white-space 必须为 normal：设为 nowrap 时 flex 项不收缩，4 张指标卡的标签会互相压字并冲出页面右缘 */
+  .metric-label { font-size: 9pt; color: var(--olive); line-height: 1.3; white-space: normal; }
+
+  h2 { font-family: var(--serif); font-size: 16pt; font-weight: 500; color: var(--near-black);
+    margin: 18pt 0 6pt 0; break-after: avoid; }
+  h3 { font-size: 13pt; font-weight: 500; color: var(--dark-warm); margin: 12pt 0 4pt 0; break-after: avoid; }
+  p { margin: 0 0 8pt 0; line-height: 1.5; widows: 2; orphans: 2; }
+  ul, ol { margin: 4pt 0 8pt 0; padding-left: 18pt; line-height: 1.5; }
+  ul li::marker { color: var(--brand); } ol li::marker { color: var(--brand); font-weight: 500; }
+
+  .tag { display: inline-block; background: var(--tag-bg); color: var(--brand); font-size: 9pt;
+    font-weight: 500; padding: 1pt 6pt; border-radius: 3pt; margin-right: 3pt; }
+
+  table, .kami-table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin: 8pt 0; break-inside: avoid; }
+  table th, .kami-table th { text-align: left; font-weight: 500; color: var(--dark-warm);
+    padding: 6pt 8pt; border-bottom: 0.6pt solid var(--border); background: transparent; }
+  table td, .kami-table td { padding: 5pt 8pt; border-bottom: 0.25pt solid var(--border); vertical-align: top; }
+  table.compact th, .kami-table.compact th { padding: 3pt 6pt; font-size: 8pt; }
+  table.compact td, .kami-table.compact td { padding: 2.5pt 6pt; font-size: 8pt; line-height: 1.4; }
+  table.financial td:not(:first-child), .kami-table.financial td:not(:first-child) {
+    text-align: right; font-variant-numeric: tabular-nums; }
+  table.financial th:not(:first-child), .kami-table.financial th:not(:first-child) { text-align: right; }
+  table .total td, .kami-table .total td { font-weight: 500; border-top: 0.6pt solid var(--border);
+    border-bottom: none; color: var(--near-black); }
+  .note { font-size: 8.5pt; color: var(--stone); margin: 2pt 0 8pt 0; }
+
+  .callout { background: var(--ivory); padding: 8pt 12pt; border-radius: 3pt; margin: 10pt 0;
+    line-height: 1.5; break-inside: avoid; }
+  .callout .quote { margin: 6pt 0; color: var(--olive); }
+
+  figure { margin: 12pt 0; break-inside: avoid; }
+  figcaption { font-size: 9pt; color: var(--stone); margin-top: 4pt; text-align: center; }
+
+  .risk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10pt; margin: 8pt 0; }
+  .risk-item { padding: 6pt 10pt; background: var(--ivory); border-radius: 3pt; break-inside: avoid; }
+  .risk-label { font-size: 9pt; font-weight: 500; color: var(--brand); margin-bottom: 2pt; }
+  .risk-desc { font-size: 9pt; color: var(--olive); line-height: 1.4; }
+
+  .analyst-box { background: var(--ivory); border-radius: 4pt; padding: 10pt 14pt; margin: 12pt 0;
+    break-inside: avoid; }
+  .analyst-label { font-size: 9pt; color: var(--brand); letter-spacing: 0.5pt; text-transform: uppercase;
+    margin-bottom: 4pt; }
+
+  .page-break { break-before: page; }
+
+  /* ===== 富配色增强：砖红主色 #A73F2D + 四色数据 + 深炭标题 #22262B ===== */
+  h2 { position: relative; padding-left: 13pt; }
+  h2::before { content:""; position:absolute; left:0; top:2.5pt; width:4pt; height:13pt;
+    background:var(--accent); border-radius:1pt; }
+  table th, .kami-table th { border-bottom: 1pt solid var(--accent); }
+  .metric:nth-child(1) .metric-value { color: var(--accent); }
+  .metric:nth-child(2) .metric-value { color: var(--gold); }
+  .metric:nth-child(3) .metric-value { color: var(--teal); }
+  .metric:nth-child(4) .metric-value { color: var(--blue); }
+  .callout { border-left: 3pt solid var(--accent); }
+  .analyst-box { border-left: 3pt solid var(--accent); }
+  .risk-item { border-left: 2.5pt solid var(--accent); }
+  .tag { background: var(--accent-soft); color: var(--brand-deep); }
+  .price-current { color: var(--near-black); }
+  .ticker-sub { color: var(--stone); }
+
+  .callout.warn { border-left: 3pt solid var(--accent); background: #F1E3DD; }
+  .callout.warn strong { color: var(--brand-deep); }
+  .callout { font-size: 9pt; }
+  .metrics { display: flex; gap: 10pt; }
+  .metric { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column;
+    align-items: flex-start; gap: 2pt; }
+  .metric-value { font-size: 13pt; white-space: nowrap; line-height: 1.05; }
+  .metric-label { white-space: normal; font-size: 8.5pt; line-height: 1.3; }
+  .metric-label .m-note { display: block; font-size: 8pt; color: #7C7B77; }
+
+  /* ---- HTML/CSS 图表（替代 SVG，规避字号塌缩与不换行） ---- */
+  .ch { border: 0.6pt solid var(--line, #E3DDD4); border-radius: 3pt;
+        padding: 8pt 10pt 9pt; background: #FBF9F4; }
+  .ch-title { font-size: 9.5pt; font-weight: 600; color: #22262B; margin-bottom: 1pt; }
+  .ch-sub { font-size: 8.5pt; color: #7C7B77; margin-bottom: 7pt; }
+  .ch-glab { font-size: 8pt; color: #A73F2D; font-weight: 600;
+             margin: 5pt 0 2.5pt; letter-spacing: .02em; }
+  .ch-row { display: flex; align-items: center; gap: 6pt; margin-bottom: 2.8pt; }
+  .ch-lab { flex: 0 0 92pt; font-size: 8.5pt; color: #22262B; }
+  .ch-track { flex: 1 1 auto; min-width: 0; background: #EFEAE1; border-radius: 1.5pt;
+              height: 11pt; overflow: hidden; }
+  .ch-val { flex: 0 0 62pt; font-size: 8.5pt; color: #22262B; text-align: right; }
+  .ch-bar { display: block; height: 11pt; border-radius: 1.5pt; background: #2F6F6B; }
+  .b-hi { background: #A73F2D; }
+  .b-blue { background: #1B365D; }
+  .b-teal { background: #2F6F6B; }
+  .b-gold { background: #B8862F; }
+  .b-grey { background: #CFC7BA; }
+  .ch-legend { display: flex; flex-wrap: wrap; gap: 4pt 14pt; margin-top: 6pt;
+               padding-top: 5pt; border-top: 0.5pt dashed #E3DDD4; }
+  .lg { font-size: 8pt; color: #7C7B77; display: inline-flex; align-items: center; gap: 3pt; }
+  .lg i { width: 9pt; height: 8pt; border-radius: 1.2pt; display: inline-block; }
+  .lg i.s-teal { background: #2F6F6B; } .lg i.s-gold { background: #B8862F; }
+  .lg i.s-grey { background: #CFC7BA; } .lg i.s-blue { background: #1B365D; }
+  .lg i.b-hi { background: #A73F2D; } .lg i.b-teal { background: #2F6F6B; }
+  .lg i.b-gold { background: #B8862F; } .lg i.b-grey { background: #CFC7BA; }
+  .lg i.b-blue { background: #1B365D; }
+  .lg i.wf-up { background: #A73F2D; } .lg i.wf-down { background: #2F6F6B; }
+  .lg i.wf-tot { background: #1B365D; }
+  .lg i.s-lite { background: #7FA6A3; } .lg i.s-lite2 { background: #C9A96A; }
+
+  /* 堆积条 */
+  .st-track { flex: 1 1 auto; min-width: 0; display: flex; height: 14pt;
+              border-radius: 1.5pt; overflow: hidden; }
+  .seg { display: inline-flex; align-items: center; justify-content: center;
+         height: 14pt; font-size: 7.5pt; color: #fff; overflow: hidden; }
+  .seg.s-teal { background: #2F6F6B; } .seg.s-gold { background: #B8862F; }
+  .seg.s-grey { background: #CFC7BA; color: #4A4A46; } .seg.s-blue { background: #1B365D; }
+  .seg.s-lite { background: #7FA6A3; } .seg.s-lite2 { background: #C9A96A; }
+  .seg-txt { white-space: nowrap; }
+
+  /* 瀑布条 */
+  .wf-track { flex: 1 1 auto; min-width: 0; position: relative; height: 12pt;
+              background: #EFEAE1; border-radius: 1.5pt; }
+  .wf-bar { position: absolute; top: 0; height: 12pt; border-radius: 1.5pt; }
+  .wf-up { background: #A73F2D; } .wf-down { background: #2F6F6B; }
+  .wf-tot { background: #1B365D; }
+
+  .fig-note { font-size: 7.8pt; color: #7C7B77; margin-top: 4pt; line-height: 1.42; }
+  figure { break-inside: avoid; margin: 10pt 0; }
+  figcaption { font-size: 8.2pt; color: #4A4A46; margin-top: 4pt; line-height: 1.42; }
+
+  table.wide { font-size: 7.6pt; table-layout: fixed; }
+  table.wide th, table.wide td { padding: 2.6pt 2.4pt; word-break: break-word; }
+  /* 宽表首列（科目名）留足宽度，其余年列等分 */
+  table.wide th:first-child, table.wide td:first-child {
+    width: auto; min-width: 58pt; white-space: normal; text-align: left; }
+  table.wide th:not(:first-child), table.wide td:not(:first-child) { width: 7.1%; }
+  table.longtable { break-inside: auto; }
+  table.longtable thead { display: table-header-group; }
+  table.longtable tr { break-inside: avoid; }
+  h2, h3, h4 { break-after: avoid; }
+  table { font-size: 9pt; }
+  table.compact th, table.compact td { font-size: 8.4pt; }
+  table.financial td { text-align: right; }
+  table.financial td:first-child { text-align: left; }
+  table.financial th:first-child { text-align: left; }
+
+  /* 宽表窄屏横向滚动容器（桌面端不生效；打印时还原） */
+  .tbl-scroll { overflow-x: auto; }
+  .tbl-scroll table { min-width: 640pt; }
+  @media screen and (min-width: 820px) {
+    .tbl-scroll { overflow-x: visible; }
+    .tbl-scroll table { min-width: 0; }
+  }
+  @media print {
+    .tbl-scroll { overflow: visible !important; margin: 0; padding: 0; }
+    .tbl-scroll table { min-width: 0 !important; }
+  }
+</style>
+
+<!-- rsp-mobile-adapt : 响应式适配层（仅屏幕生效，不影响打印/PDF） -->
+<style id="rsp-mobile-adapt">
+/* rsp-mobile-adapt-v3 */
+/* ========== 1. 全局：屏幕端基础修正 ========== */
+@media screen {
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body { overflow-wrap: break-word; }
+  img, svg, canvas, video, iframe { max-width: 100%; }
+  svg[viewBox], svg[viewbox] { height: auto; }
+
+  /* 网格容器（两列对比等）：网格项默认 min-width:auto，会被内部宽表撑破
+     容器、把整页顶出横向滚动（报告里 .two-col 就栽在这上面）。放开收缩，
+     让里面的 .rsp-table 自己去横向滑动。 */
+  .risk-grid > *, .two-col > * { min-width: 0; }
+
+  /* 表格横向滚动容器：宽表不压字、不撑破页面 */
+  .rsp-table {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    margin: 8pt 0;
+    position: relative;
+  }
+  .rsp-table > table { margin: 0; }
+  .rsp-table::-webkit-scrollbar { height: 7px; }
+  .rsp-table::-webkit-scrollbar-track { background: transparent; }
+  .rsp-table::-webkit-scrollbar-thumb { background: #D8D1C4; border-radius: 4px; }
+  /* 内容确实溢出时，右侧给一层渐变暗示"还能往右滑" */
+  .rsp-table[data-rsp-scroll] {
+    background: linear-gradient(to left, rgba(167,63,45,.10), rgba(167,63,45,0) 28px);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 28px 100%;
+  }
+}
+
+/* ========== 2. 平板 / 窄窗口：边距先收，避免内容被挤 ========== */
+@media screen and (max-width: 900px) {
+  body { padding: 22px 22px 46px 22px !important; }
+  .report-header { flex-wrap: wrap; gap: 12pt; }
+  .metrics { flex-wrap: wrap; gap: 10pt 18pt; }
+  .metric { flex: 1 1 42%; min-width: 0; }
+  .report-footer { flex-wrap: wrap; gap: 4pt 14pt; }
+
+  /* 宽表改为横向滚动：给每列保留最小可读宽度，不再把汉字挤成竖排 */
+  .rsp-w5 > table { min-width: 310px !important; }
+  .rsp-w6 > table { min-width: 372px !important; }
+  .rsp-w7 > table { min-width: 434px !important; }
+  .rsp-w8 > table { min-width: 496px !important; }
+  .rsp-w9 > table { min-width: 558px !important; }
+  .rsp-w10 > table { min-width: 620px !important; }
+  .rsp-w11 > table { min-width: 682px !important; }
+  .rsp-w12 > table { min-width: 744px !important; }
+  .rsp-w13 > table { min-width: 806px !important; }
+  .rsp-w14 > table { min-width: 868px !important; }
+  .rsp-w15 > table { min-width: 930px !important; }
+  .rsp-w16 > table { min-width: 992px !important; }
+}
+
+/* ========== 3. 手机：指标卡两列、页头转纵向 ========== */
+@media screen and (max-width: 720px) {
+  body {
+    max-width: 100% !important;
+    padding: 18px 16px 44px 16px !important;
+    font-size: 10.5pt;
+  }
+  h2 { font-size: 15pt !important; margin: 20pt 0 7pt 0 !important; }
+  h3 { font-size: 12.5pt !important; }
+  h1 { font-size: 19pt !important; }
+  p, li { line-height: 1.62; }
+  ul, ol { padding-left: 17pt; }
+
+  .report-header { flex-direction: column; align-items: stretch; gap: 8pt; }
+  .price-block { text-align: left; padding-top: 0; }
+  .price-current { font-size: 24pt !important; }
+  .ticker-name { font-size: 21pt !important; }
+  .ticker-sub { font-size: 9.5pt !important; }
+
+  .metrics { gap: 9pt 12pt; }
+  .metric { flex: 1 1 45%; }
+  .metric-value { font-size: 15pt !important; }
+  .metric-label { font-size: 8.5pt !important; white-space: normal !important; }
+
+  table, .kami-table { font-size: 9pt !important; }
+  .longtable { font-size: 8.5pt !important; }
+  .wide { font-size: 7.5pt !important; }
+  .dense { font-size: 8pt !important; }
+  table th, table td, .kami-table th, .kami-table td { padding: 5pt 6pt !important; }
+
+  blockquote, .quote, .note, .warn, .callout, .risk-item { padding: 9pt 11pt !important; }
+  .risk-grid { grid-template-columns: 1fr !important; }
+  .report-footer { flex-direction: column; align-items: flex-start; gap: 3pt; }
+}
+
+/* ========== 3b. 图表：窄屏保持图纸原尺寸 + 横向滑动 ========== */
+/* 报告里的图表是 SVG：viewBox 宽 680 + width:100%。缩到手机宽度（约 350px）
+   只剩 0.5×，图内字号从 11px 掉到 5px 完全不可读；而 SVG <text> 不会自动换行，
+   单纯放大字号必然溢出图框。这里改为**保持图纸原尺寸、允许左右滑动**——
+   与上面宽表同一套策略，宁可滑也不塌字号。仅屏幕生效，打印/PDF 不受影响。 */
+@media screen and (max-width: 720px) {
+  .rsp-fig {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    /* 图纸一定宽于屏幕，直接给右侧一层渐变，暗示"还能往右滑" */
+    background: linear-gradient(to left, rgba(167,63,45,.09), rgba(167,63,45,0) 26px);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 26px 100%;
+  }
+  .rsp-fig > svg { min-width: var(--rsp-fig-w, 680px); }
+  .rsp-fig::-webkit-scrollbar { height: 7px; }
+  .rsp-fig::-webkit-scrollbar-track { background: transparent; }
+  .rsp-fig::-webkit-scrollbar-thumb { background: #D8D1C4; border-radius: 4px; }
+}
+
+/* ========== 4. 小屏手机：指标卡单列、边距收到最紧 ========== */
+@media screen and (max-width: 430px) {
+  body { padding: 14px 12px 38px 12px !important; }
+  h2 { font-size: 14pt !important; }
+  h3 { font-size: 11.5pt !important; }
+  .ticker-name { font-size: 19pt !important; }
+  .price-current { font-size: 21pt !important; }
+  .metric { flex: 1 1 100%; }
+  .metric-value { font-size: 16pt !important; }
+  ul, ol { padding-left: 15pt; }
+  table, .kami-table { font-size: 8.5pt !important; }
+}
+
+/* ========== 5. 打印：把包裹层还原成透明，PDF 版式与补丁前完全一致 ========== */
+@media print {
+  .rsp-table { margin: 0; padding: 0; overflow: visible !important; background: none !important; }
+  .rsp-table > table { margin: 8pt 0; min-width: 0 !important; }
+  [class*="rsp-w"] > table { min-width: 0 !important; }
+}
+</style>
+</head>
+<body>
+<div class="report-header">
+  <div class="ticker-block">
+    <div class="ticker-eyebrow">免税与旅游零售 · 十年财务数据对比分析</div>
+    <div class="ticker-name">中国旅游集团中免股份有限公司<span style="font-size:14pt;color:var(--stone);">601888.SH · 01880.HK</span></div>
+    <div class="ticker-sub">2016—2025 年年度报告 · 2026 年半年度报告 · 单位：人民币亿元 · 中国企业会计准则</div>
+  </div>
+  <div class="price-block">
+    <div class="price-current">536.94</div>
+    <div class="price-change down">2025 年营业收入（亿元，−4.92%）</div>
+    <div class="price-date">数据截至 2026 年 6 月 30 日</div>
+  </div>
+</div>
+
+<div class="metrics">
+  <div class="metric"><div class="metric-value">35.86</div><div class="metric-label">2025 归母净利润（亿元，峰值 96.54 亿）<br>较 2021 年峰值 −62.85%</div></div>
+  <div class="metric"><div class="metric-value">6.68%</div><div class="metric-label">2025 净利率（峰值 14.27%）<br>同比 −0.88pp</div></div>
+  <div class="metric"><div class="metric-value">6.46%</div><div class="metric-label">2025 期末 ROE（峰值 32.59%）<br>累计 −26.13pp</div></div>
+  <div class="metric"><div class="metric-value">54.04%</div><div class="metric-label">2025 年 Q1 归母占全年比<br>Q2—Q4 三季合计仅 16.48 亿元</div></div>
+</div>
+
+<p><strong>分析对象</strong>：中国旅游集团中免股份有限公司（601888.SH / 01880.HK）</p>
+<p><strong>数据区间</strong>：2016—2025 年度 + 2026 年半年度</p>
+<p><strong>会计准则</strong>：中国企业会计准则（A 股年报口径）；金额单位如无特别说明均为<strong>亿元人民币</strong></p>
+<p><strong>审计机构</strong>：安永华明会计师事务所（特殊普通合伙）</p>
+<h2>一、核心结论</h2>
+<p><strong>一句话结论：中国中免在 2020—2021 年经历了一次由疫情与政策共同制造的"完美周期"，2021 年是利润的绝对峰值；此后四年公司并未走出下行，而是从高基数回落至一个更接近常态、但盈利能力大幅下移的新水平——2025 年归母净利润仅为 2021 年峰值的 37.15%，且下滑在 2025 年仍未止住。</strong></p>
+<div class="rsp-table"><table class="financial compact"><thead><tr><th>判据</th><th>事实</th><th>结论</th></tr></thead><tbody><tr><td>十年营收 vs 利润</td><td>营收 +139.81%（223.90 → 536.94 亿元），归母 +98.34%（18.08 → 35.86 亿元）</td><td><strong>利润增速慢于收入，十年净利率反而 −1.40pp</strong></td></tr><tr><td>峰值回撤幅度</td><td>归母 2021 年 96.54 亿元 → 2025 年 35.86 亿元（<strong>−62.85%</strong>）</td><td>利润回撤幅度是营收（−20.66%）的 <strong>3.0 倍</strong></td></tr><tr><td>资本回报</td><td>ROE 32.59%（2021）→ <strong>6.46%</strong>（2025），累计 −26.13pp</td><td>已跌至与 2016 年（14.35%）<strong>相比腰斩以下</strong>，接近一般零售业水平</td></tr><tr><td>利润成色</td><td>扣非与归母差额十年均 ≤8.00 亿元，2025 年仅 0.42 亿元</td><td><strong>利润不含"注水"，下滑是真实经营下滑</strong></td></tr><tr><td>2025 分季度</td><td>Q1 归母 19.38 亿元 = 全年 <strong>54.04%</strong>，Q2—Q4 三季合计仅 16.48 亿元</td><td><strong>利润高度前置在免税旺季，后三季度近乎无利润</strong></td></tr><tr><td>2026H1 反弹</td><td>营收 −1.76% 而归母 <strong>+19.49%</strong></td><td><strong>靠毛利率提升（+1.13pp）与费用压缩，而非收入恢复</strong></td></tr></tbody></table></div>
+<p><strong>本报告最需纠正的两个直觉误判：</strong></p>
+<ol><li><strong>"营收还在 500 亿以上，公司没有明显萎缩"是错的。</strong> 营收从 2021 年 676.76 亿元降至 2025 年 536.94 亿元，仅 −20.66%；但归母净利润从 96.54 亿元降至 35.86 亿元，−62.85%。<strong>用营业收入增速判断本公司的经营质量会严重失真</strong>——期间费用（尤其是机场租金）与商品成本高度刚性，收入下滑会以约 3 倍杠杆传导到利润。</li></ol>
+<ol><li><strong>"2026H1 归母 +19.49%，公司已开始复苏"也是不完整的。</strong> 同期营业收入仍为 −1.76%，归母利润增长完全来自① 毛利率 32.77% → 33.90%（+1.13pp）与 ② 费用压缩。<strong>收入端尚未恢复</strong>，把利润反弹等同于需求复苏会高估拐点的稳固性。</li></ol>
+<h2>二、公司概况与业务结构</h2>
+<h3>2.1 主体沿革</h3>
+<div class="rsp-table"><table class="financial compact"><thead><tr><th>时点</th><th>事件</th></tr></thead><tbody><tr><td>2009 年</td><td>以"中国国旅"名义在上海证券交易所上市（601888.SH）</td></tr><tr><td>2020 年 6 月</td><td>由"中国国旅"更名为"中国中免"，明确聚焦免税主业</td></tr><tr><td>2021 年</td><td>收购海南省免税品有限公司（同一控制下企业合并，触发 2019 年比较列追溯重述）</td></tr><tr><td>2022 年 8 月</td><td>H 股在香港联合交易所主板上市（01880.HK），实现 A+H 双重上市</td></tr><tr><td>2026 年 1 月</td><td>与 DFS 达成协议，全资子公司收购 DFS 大中华区零售业务；与 LVMH 签订战略合作备忘录</td></tr></tbody></table></div>
+<h3>2.2 业务模式</h3>
+<p>公司主营<strong>以免税为主的旅游零售业务</strong>，经营品类覆盖烟酒、香化、腕表珠宝、服饰箱包、电子产品、食品等，并从事以免税业务为核心的商业综合体投资开发。</p>
+<ul><li><strong>线下</strong>：聚焦机场、口岸、市内等租赁或自建物业，依托特许经营资质与全球供应链，服务出入境及海南离岛旅客。</li><li><strong>线上</strong>：通过自营电商平台及第三方平台销售完税商品，已推动海南与前海两大线上平台整合。</li><li><strong>会员与数据</strong>：打通会员体系与数据链路，2025 年深化<strong>近 5,300 万会员</strong>分层分级运营，连续两年发布会员白皮书。</li></ul>
+<h3>2.3 渠道与供应链规模（2025 年）</h3>
+<div class="rsp-table"><table class="financial compact"><thead><tr><th>维度</th><th>规模</th></tr></thead><tbody><tr><td>品牌合作</td><td>与全球超 <strong>1,600 个</strong>知名品牌建立长期合作</td></tr><tr><td>物流中心</td><td>北京、上海、大连、青岛、深圳、三亚、海口、香港 <strong>8 大</strong>海关监管物流中心</td></tr><tr><td>门店数量</td><td>约 <strong>200 家</strong>免税店，覆盖超 <strong>100 个</strong>城市</td></tr><tr><td>门店类型</td><td><strong>9 大</strong>类型（机场、机上、边境、外轮供应、客运站、火车站、外交人员、邮轮、市内）</td></tr><tr><td>海南离岛</td><td>海南省 <strong>6 家</strong>离岛免税店（含全球第一大与第二大免税商业综合体：海口国际免税城、三亚国际免税城）</td></tr><tr><td>市内免税店</td><td><strong>13 家</strong>取得经营权的市内免税店均已开业或运营</td></tr><tr><td>2025 年新中标</td><td><strong>16 个</strong>免税店经营权项目（含浦东机场 T2/S2、虹桥机场、首都机场 T3、白云机场 T3 等）</td></tr><tr><td>品牌价值</td><td>"中免集团"品牌价值 <strong>1,426.81 亿元</strong>（世界品牌实验室 2025 年"中国 500 最具价值品牌"，旅游服务行业蝉联第一）</td></tr></tbody></table></div>
+<h2>三、十年经营业绩全景</h2>
+<figure><div class="ch"><div class="ch-title">图 1　十年营业收入与归母净利润</div><div class="ch-sub">单位：亿元　2016—2025 年（A 股年报口径）</div><div class="ch-glab">2016</div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">营业收入</span><span class="ch-track"><span class="ch-bar b-blue" style="width:30.4%"></span></span><span class="ch-val">224</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">归母净利润</span><span class="ch-track"><span class="ch-bar b-hi" style="width:2.5%"></span></span><span class="ch-val">18</span></div><div class="ch-glab">2017</div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">营业收入</span><span class="ch-track"><span class="ch-bar b-blue" style="width:38.4%"></span></span><span class="ch-val">283</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">归母净利润</span><span class="ch-track"><span class="ch-bar b-hi" style="width:3.4%"></span></span><span class="ch-val">25</span></div><div class="ch-glab">2018</div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">营业收入</span><span class="ch-track"><span class="ch-bar b-blue" style="width:63.9%"></span></span><span class="ch-val">470</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">归母净利润</span><span class="ch-track"><span class="ch-bar b-hi" style="width:4.2%"></span></span><span class="ch-val">31</span></div><div class="ch-glab">2019</div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">营业收入</span><span class="ch-track"><span class="ch-bar b-blue" style="width:65.2%"></span></span><span class="ch-val">480</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">归母净利润</span><span class="ch-track"><span class="ch-bar b-hi" style="width:6.3%"></span></span><span class="ch-val">46</span></div><div class="ch-glab">2020</div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">营业收入</span><span class="ch-track"><span class="ch-bar b-blue" style="width:71.5%"></span></span><span class="ch-val">526</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">归母净利润</span><span class="ch-track"><span class="ch-bar b-hi" style="width:8.3%"></span></span><span class="ch-val">61</span></div><div class="ch-glab">2021</div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">营业收入</span><span class="ch-track"><span class="ch-bar b-blue" style="width:92.0%"></span></span><span class="ch-val">677</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">归母净利润</span><span class="ch-track"><span class="ch-bar b-hi" style="width:13.1%"></span></span><span class="ch-val">97</span></div><div class="ch-glab">2022</div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">营业收入</span><span class="ch-track"><span class="ch-bar b-blue" style="width:74.0%"></span></span><span class="ch-val">544</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">归母净利润</span><span class="ch-track"><span class="ch-bar b-hi" style="width:6.8%"></span></span><span class="ch-val">50</span></div><div class="ch-glab">2023</div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">营业收入</span><span class="ch-track"><span class="ch-bar b-blue" style="width:91.8%"></span></span><span class="ch-val">675</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">归母净利润</span><span class="ch-track"><span class="ch-bar b-hi" style="width:9.1%"></span></span><span class="ch-val">67</span></div><div class="ch-glab">2024</div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">营业收入</span><span class="ch-track"><span class="ch-bar b-blue" style="width:76.8%"></span></span><span class="ch-val">565</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">归母净利润</span><span class="ch-track"><span class="ch-bar b-hi" style="width:5.8%"></span></span><span class="ch-val">43</span></div><div class="ch-glab">2025</div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">营业收入</span><span class="ch-track"><span class="ch-bar b-blue" style="width:73.0%"></span></span><span class="ch-val">537</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">归母净利润</span><span class="ch-track"><span class="ch-bar b-hi" style="width:4.9%"></span></span><span class="ch-val">36</span></div><div class="ch-legend"><span class="lg"><i class="b-blue"></i>营业收入</span><span class="lg"><i class="b-hi"></i>归母净利润</span></div></div><figcaption>十年营业收入由 223.90 亿元增至 536.94 亿元（+139.81%），归母净利润由 18.08 亿元增至 35.86 亿元（+98.34%）。2021 年归母净利润 96.54 亿元为十年绝对峰值，2025 年仅为该峰值的 37.15%。</figcaption><div class="fig-note">两条序列的量级差异极大（营收取值约为归母的 6—14 倍），本图为同尺度并列，便于观察两者增速差异，不用于比较绝对值。</div></figure>
+<h3>3.1 核心损益十年序列</h3>
+<div class="tbl-scroll"><div class="rsp-table rsp-w10"><table class="financial compact longtable"><thead><tr><th>年度</th><th>营业收入</th><th>同比</th><th>归母净利润</th><th>同比</th><th>扣非净利润</th><th>归母−扣非</th><th>经营现金流</th><th>净利率</th><th>期末 ROE</th></tr></thead><tbody><tr><td>2016</td><td>223.90</td><td>—</td><td>18.08</td><td>—</td><td>17.96</td><td>0.12</td><td>19.37</td><td>8.08%</td><td>14.35%</td></tr><tr><td>2017</td><td>282.82</td><td>+26.32%</td><td>25.31</td><td>+39.96%</td><td>24.60</td><td>0.71</td><td>30.17</td><td>8.95%</td><td>18.04%</td></tr><tr><td>2018</td><td>470.07</td><td>+66.21%</td><td>30.95</td><td>+22.29%</td><td>31.44</td><td>−0.49</td><td>27.22</td><td>6.58%</td><td>19.06%</td></tr><tr><td>2019</td><td>479.66</td><td>+2.04%</td><td>46.29</td><td>+49.58%</td><td>38.29</td><td>8.00</td><td>29.26</td><td>9.65%</td><td>23.27%</td></tr><tr><td>2020</td><td>525.97</td><td>+8.20%</td><td>61.40</td><td>+32.57%</td><td>59.67</td><td>1.73</td><td>82.02</td><td>11.67%</td><td>27.52%</td></tr><tr class="total"><td><strong>2021</strong></td><td><strong>676.76</strong></td><td><strong>+28.67%</strong></td><td><strong>96.54</strong></td><td><strong>+57.23%</strong></td><td><strong>95.34</strong></td><td><strong>1.20</strong></td><td>83.29</td><td><strong>14.27%</strong></td><td><strong>32.59%</strong></td></tr><tr><td>2022</td><td>544.33</td><td>−19.57%</td><td>50.30</td><td>−47.90%</td><td>49.02</td><td>1.28</td><td>34.15</td><td>9.24%</td><td>10.36%</td></tr><tr><td>2023</td><td>675.40</td><td>+24.08%</td><td>67.14</td><td>+33.48%</td><td>66.52</td><td>0.62</td><td>151.26</td><td>9.94%</td><td>12.47%</td></tr><tr><td>2024</td><td>564.74</td><td>−16.38%</td><td>42.67</td><td>−36.44%</td><td>41.44</td><td>1.23</td><td>79.39</td><td>7.56%</td><td>7.74%</td></tr><tr><td>2025</td><td>536.94</td><td>−4.92%</td><td>35.86</td><td>−15.96%</td><td>35.44</td><td>0.42</td><td>35.44</td><td><strong>6.68%</strong></td><td><strong>6.46%</strong></td></tr></tbody></table></div></div>
+<div class="callout note"><strong>口径声明</strong>：2019 年数据因 2021 年收购海南省免税品有限公司（同一控制下企业合并）被追溯重述。2020 年年报将 2019 年营业收入列为"调整后 486.12 亿元 / 调整前 479.66 亿元"两个口径。<strong>本表 2019 年采用「调整前」即当年年报原披露数（479.66 亿元）</strong>，以保证与 2016—2018 年的原始披露序列一致；若采用"调整后"口径，2019 年营收为 486.12 亿元、总资产 318.24 亿元。<strong>跨 2019/2020 分界的绝对额比较须声明取自哪份年报。</strong></div>
+<figure><div class="ch"><div class="ch-title">图 2　盈利能力：净利率与期末 ROE</div><div class="ch-sub">单位：%　2016—2025 年</div><div class="ch-row"><span class="ch-lab">2016</span><span class="ch-track"><span class="ch-bar b-teal" style="width:24.8%"></span></span><span class="ch-val">8.08%</span></div><div class="ch-row"><span class="ch-lab">2017</span><span class="ch-track"><span class="ch-bar b-teal" style="width:27.5%"></span></span><span class="ch-val">8.95%</span></div><div class="ch-row"><span class="ch-lab">2018</span><span class="ch-track"><span class="ch-bar b-teal" style="width:20.2%"></span></span><span class="ch-val">6.58%</span></div><div class="ch-row"><span class="ch-lab">2019</span><span class="ch-track"><span class="ch-bar b-teal" style="width:29.6%"></span></span><span class="ch-val">9.65%</span></div><div class="ch-row"><span class="ch-lab">2020</span><span class="ch-track"><span class="ch-bar b-teal" style="width:35.8%"></span></span><span class="ch-val">12%</span></div><div class="ch-row"><span class="ch-lab">2021</span><span class="ch-track"><span class="ch-bar b-teal" style="width:43.8%"></span></span><span class="ch-val">14%</span></div><div class="ch-row"><span class="ch-lab">2022</span><span class="ch-track"><span class="ch-bar b-teal" style="width:28.4%"></span></span><span class="ch-val">9.24%</span></div><div class="ch-row"><span class="ch-lab">2023</span><span class="ch-track"><span class="ch-bar b-teal" style="width:30.5%"></span></span><span class="ch-val">9.94%</span></div><div class="ch-row"><span class="ch-lab">2024</span><span class="ch-track"><span class="ch-bar b-teal" style="width:23.2%"></span></span><span class="ch-val">7.56%</span></div><div class="ch-row"><span class="ch-lab">2025</span><span class="ch-track"><span class="ch-bar b-teal" style="width:20.5%"></span></span><span class="ch-val">6.68%</span></div><div class="ch-row"><span class="ch-lab">16年 ROE</span><span class="ch-track"><span class="ch-bar b-gold" style="width:44.0%"></span></span><span class="ch-val">14%</span></div><div class="ch-row"><span class="ch-lab">17年 ROE</span><span class="ch-track"><span class="ch-bar b-gold" style="width:55.3%"></span></span><span class="ch-val">18%</span></div><div class="ch-row"><span class="ch-lab">18年 ROE</span><span class="ch-track"><span class="ch-bar b-gold" style="width:58.5%"></span></span><span class="ch-val">19%</span></div><div class="ch-row"><span class="ch-lab">19年 ROE</span><span class="ch-track"><span class="ch-bar b-gold" style="width:71.4%"></span></span><span class="ch-val">23%</span></div><div class="ch-row"><span class="ch-lab">20年 ROE</span><span class="ch-track"><span class="ch-bar b-gold" style="width:84.4%"></span></span><span class="ch-val">28%</span></div><div class="ch-row"><span class="ch-lab">21年 ROE</span><span class="ch-track"><span class="ch-bar b-gold" style="width:100.0%"></span></span><span class="ch-val">33%</span></div><div class="ch-row"><span class="ch-lab">22年 ROE</span><span class="ch-track"><span class="ch-bar b-gold" style="width:31.8%"></span></span><span class="ch-val">10%</span></div><div class="ch-row"><span class="ch-lab">23年 ROE</span><span class="ch-track"><span class="ch-bar b-gold" style="width:38.3%"></span></span><span class="ch-val">12%</span></div><div class="ch-row"><span class="ch-lab">24年 ROE</span><span class="ch-track"><span class="ch-bar b-gold" style="width:23.8%"></span></span><span class="ch-val">7.74%</span></div><div class="ch-row"><span class="ch-lab">25年 ROE</span><span class="ch-track"><span class="ch-bar b-gold" style="width:19.8%"></span></span><span class="ch-val">6.46%</span></div></div><figcaption>净利率由 2016 年 8.08% 升至 2021 年峰值 14.27%，随后连续下行至 2025 年 6.68%（较峰值 −7.59pp）；期末 ROE 同步由 32.59% 降至 6.46%（−26.13pp）。两条曲线的形态一致，说明盈利能力的下滑是**全面的**，而非单个财务科目的问题。</figcaption><div class="fig-note">ROE 为期末口径（归母净利润 ÷ 期末归母净资产），与年报披露的加权平均 ROE 略有差异。上行段标注年份、下行段的 ROE 仅标两位数年份以区分两条序列。</div></figure>
+<h3>3.2 三个阶段：一次脉冲，而非一轮成长</h3>
+<p>十年序列清晰分为三段：</p>
+<p><strong>第一阶段（2016—2019）：政策红利启动期。</strong> 营收由 223.90 亿元增至 479.66 亿元（+114.24%），归母由 18.08 亿元增至 46.29 亿元。2018 年营收跳增 66.21%，主因是当年完成对日上免税行（上海）的收购并表，属<strong>外延并购</strong>而非同店内生增长。</p>
+<p><strong>第二阶段（2020—2021）：疫情制造的"完美周期"。</strong> 出境游中断使消费强制回流至海南，叠加 2020 年 7 月 1 日海南离岛免税新政（额度由 3 万元提至 10 万元、品类大幅扩容），公司在<strong>供给端（牌照）与需求端（回流）同时受益</strong>。营收两年增长 28.67%、归母增长 57.23% 至 96.54 亿元的绝对峰值，净利率达 14.27%、ROE 达 32.59%，均为十年最优。</p>
+<p><strong>第三阶段（2022—2025）：高基数回落期。</strong> 2022 年受封控冲击，营收 −19.57%、归母 −47.90%；2023 年出现一波恢复性反弹（营收 +24.08%、归母 +33.48%）；但 <strong>2024 年与 2025 年连续两年双降</strong>（营收 −16.38%/−4.92%，归母 −36.44%/−15.96%），证明 2023 年的反弹只是基数修复，<strong>并非趋势反转</strong>。</p>
+<div class="callout note"><strong>判据</strong>：<strong>2023 年是"修复"，2024—2025 年才是真实需求的度量。</strong> 把三年疫情期的复合增速外推，会系统性高估本公司的长期成长性。</div>
+<h3>3.3 税率视角：实际税负十年稳定</h3>
+<div class="rsp-table"><table class="financial compact"><thead><tr><th>年度</th><th>利润总额</th><th>归母净利润</th><th>实际税率测算</th></tr></thead><tbody><tr><td>2023</td><td>86.46</td><td>67.14</td><td>22.3%</td></tr><tr><td>2024</td><td>61.48</td><td>42.67</td><td>30.6%</td></tr><tr><td>2025</td><td>53.07</td><td>35.86</td><td>32.4%</td></tr></tbody></table></div>
+<div class="callout note"><strong>注</strong>：实际税率 = 1 − 归母净利润 ÷ 利润总额，为<strong>含少数股东损益的粗略测算口径</strong>，仅用于观察趋势。2025 年公司未出现"所得税率下行美化利润"的情形，<strong>相反税负相对利润总额是上行的</strong>——这与部分银行/白酒公司的常见手法不同，<strong>本公司不适用"税率回算"的利润还原技术</strong>。</div>
+<p><strong>2025 年税率上行的主因需从年报「所得税费用」附注核查</strong>：其中包含<strong>商誉减值准备 3.38 亿元</strong>（不可税前扣除）的影响。</p>
+<h2>四、收入结构拆解：两条腿与两个错配</h2>
+<figure><div class="ch"><div class="ch-title">图 3　主营业务收入结构：免税商品销售 vs 有税商品销售</div><div class="ch-sub">单位：亿元　2021—2025 年（年报「主营业务分产品」口径）</div><div class="ch-row"><span class="ch-lab">2021</span><span class="st-track"><span class="seg s-teal" style="width:64.14%"><span class="seg-txt">64.1%</span></span><span class="seg s-grey" style="width:35.86%"><span class="seg-txt">35.9%</span></span></span></div><div class="ch-row"><span class="ch-lab">2022</span><span class="st-track"><span class="seg s-teal" style="width:48.20%"><span class="seg-txt">48.2%</span></span><span class="seg s-grey" style="width:51.80%"><span class="seg-txt">51.8%</span></span></span></div><div class="ch-row"><span class="ch-lab">2023</span><span class="st-track"><span class="seg s-teal" style="width:66.44%"><span class="seg-txt">66.4%</span></span><span class="seg s-grey" style="width:33.56%"><span class="seg-txt">33.6%</span></span></span></div><div class="ch-row"><span class="ch-lab">2024</span><span class="st-track"><span class="seg s-teal" style="width:69.34%"><span class="seg-txt">69.3%</span></span><span class="seg s-grey" style="width:30.66%"><span class="seg-txt">30.7%</span></span></span></div><div class="ch-row"><span class="ch-lab">2025</span><span class="st-track"><span class="seg s-teal" style="width:74.52%"><span class="seg-txt">74.5%</span></span><span class="seg s-grey" style="width:25.48%"><span class="seg-txt">25.5%</span></span></span></div><div class="ch-legend"><span class="lg"><i class="s-teal"></i>免税商品销售</span><span class="lg"><i class="s-grey"></i>有税商品销售</span></div></div><figcaption>有税商品销售由 2022 年峰值 279.74 亿元（占 51.8%）收缩至 2025 年 133.88 亿元（占 25.5%），三年 −52.14%；免税商品销售占比由 48.2% 回升至 74.5%。**结构向高毛利业务集中，但免税收入本身在 2023 年后停滞**。</figcaption><div class="fig-note">2019—2020 年年报按「分行业」披露（商品销售业/旅游服务业），无免税/有税拆分，故本图自 2021 年起。段内百分比为该业务占当年主营业务收入之比。</div></figure>
+<h3>4.1 分产品：免税 vs 有税</h3>
+<div class="tbl-scroll"><div class="rsp-table rsp-w8"><table class="financial compact"><thead><tr><th>年度</th><th>免税商品销售</th><th>占比</th><th>毛利率</th><th>有税商品销售</th><th>占比</th><th>毛利率</th><th>毛利率差</th></tr></thead><tbody><tr><td>2021</td><td>429.36</td><td>64.1%</td><td>37.82%</td><td>240.06</td><td>35.9%</td><td>24.59%</td><td>+13.23pp</td></tr><tr><td>2022</td><td>260.32</td><td>48.2%</td><td>39.41%</td><td>279.74</td><td>51.8%</td><td>17.42%</td><td>+21.99pp</td></tr><tr><td>2023</td><td>442.31</td><td>66.4%</td><td>39.49%</td><td>223.44</td><td>33.6%</td><td>15.25%</td><td>+24.24pp</td></tr><tr><td>2024</td><td>386.66</td><td>69.3%</td><td>39.50%</td><td>170.95</td><td>30.7%</td><td>13.45%</td><td>+26.05pp</td></tr><tr><td>2025</td><td>391.65</td><td>74.5%</td><td><strong>36.97%</strong></td><td>133.88</td><td>25.5%</td><td>17.13%</td><td>+19.84pp</td></tr></tbody></table></div></div>
+<p><strong>关键发现一：收入结构在主动"回撤至免税"，但 2025 年免税毛利率首次明显下滑。</strong></p>
+<ul><li>有税商品销售从 2022 年峰值 279.74 亿元（占 51.8%）持续收缩至 2025 年 133.88 亿元（占 25.5%），<strong>三年累计 −52.14%</strong>。这一收缩把收入结构拉回免税主导（74.5%），<strong>属于结构优化</strong>——有税业务毛利率仅 13.45%–17.13%，本就显著低于免税。</li><li>但<strong>2025 年免税商品毛利率由 39.50% 降至 36.97%（−2.53pp）</strong>，这是十年间免税毛利率的<strong>首次实质性下滑</strong>。原因需落到「成本端」：免税商品销售成本同比 <strong>+5.53%</strong> 而收入仅 +1.29%。</li></ul>
+<div class="callout note"><strong>判据</strong>：<strong>有税收缩是好事（低毛利业务退出），但免税毛利率下滑是坏事的信号</strong>——它指向折扣促销力度加大或高毛利品类（如精品、腕表）占比下降。<strong>两者的净效应在 2025 年是"毛利率提升 0.72pp"，但提升的来源是"低毛利业务占比下降"，而非核心免税业务变强。</strong>这是本报告需要特别提示的结构性误读风险。</div>
+<figure><div class="ch"><div class="ch-title">图 4　免税与有税商品销售毛利率</div><div class="ch-sub">单位：%　2021—2025 年</div><div class="ch-glab">2021</div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">免税商品销售</span><span class="ch-track"><span class="ch-bar b-teal" style="width:88.1%"></span></span><span class="ch-val">38%</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">有税商品销售</span><span class="ch-track"><span class="ch-bar b-grey" style="width:57.3%"></span></span><span class="ch-val">25%</span></div><div class="ch-glab">2022</div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">免税商品销售</span><span class="ch-track"><span class="ch-bar b-teal" style="width:91.8%"></span></span><span class="ch-val">39%</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">有税商品销售</span><span class="ch-track"><span class="ch-bar b-grey" style="width:40.6%"></span></span><span class="ch-val">17%</span></div><div class="ch-glab">2023</div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">免税商品销售</span><span class="ch-track"><span class="ch-bar b-teal" style="width:92.0%"></span></span><span class="ch-val">39%</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">有税商品销售</span><span class="ch-track"><span class="ch-bar b-grey" style="width:35.5%"></span></span><span class="ch-val">15%</span></div><div class="ch-glab">2024</div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">免税商品销售</span><span class="ch-track"><span class="ch-bar b-teal" style="width:92.0%"></span></span><span class="ch-val">40%</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">有税商品销售</span><span class="ch-track"><span class="ch-bar b-grey" style="width:31.3%"></span></span><span class="ch-val">13%</span></div><div class="ch-glab">2025</div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">免税商品销售</span><span class="ch-track"><span class="ch-bar b-teal" style="width:86.1%"></span></span><span class="ch-val">37%</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">有税商品销售</span><span class="ch-track"><span class="ch-bar b-grey" style="width:39.9%"></span></span><span class="ch-val">17%</span></div><div class="ch-legend"><span class="lg"><i class="b-teal"></i>免税商品销售</span><span class="lg"><i class="b-grey"></i>有税商品销售</span></div></div><figcaption>免税毛利率长期高于有税 13—26pp。但 **2025 年免税毛利率由 39.50% 降至 36.97%（−2.53pp），为十年首次实质性下滑**，同期免税商品销售成本 +5.53% 而收入仅 +1.29%。有税毛利率因低毛利业务退出反而回升至 17.13%（+3.68pp）。</figcaption><div class="fig-note">毛利率取自年报「主营业务分产品」表披露值（直接引用，非倒算）。</div></figure>
+<h3>4.2 分地区：海南与上海出现"剪刀差"</h3>
+<div class="tbl-scroll"><div class="rsp-table rsp-w7"><table class="financial compact"><thead><tr><th>年度</th><th>海南地区</th><th>占营收</th><th>毛利率</th><th>上海地区</th><th>占营收</th><th>毛利率</th></tr></thead><tbody><tr><td>2021</td><td>470.96</td><td>69.6%</td><td>23.57%</td><td>124.91</td><td>18.5%</td><td>31.10%</td></tr><tr><td>2022</td><td>347.05</td><td>63.8%</td><td>25.43%</td><td>141.45</td><td>26.0%</td><td>—</td></tr><tr><td>2023</td><td>396.50</td><td>58.7%</td><td>25.76%</td><td>178.21</td><td>26.4%</td><td>23.80%</td></tr><tr><td>2024</td><td>288.92</td><td>51.2%</td><td>23.73%</td><td>160.35</td><td>28.4%</td><td>25.80%</td></tr><tr><td>2025</td><td>285.37</td><td>53.1%</td><td><strong>22.91%</strong></td><td>120.10</td><td>22.4%</td><td>26.58%</td></tr></tbody></table></div></div>
+<p><strong>关键发现二：2021—2024 年海南毛利率持续低于上海，2025 年差距进一步扩大至 3.67pp。</strong></p>
+<p>这是免税行业的结构性特征：<strong>海南离岛免税毛利率更低（22.91%），机场口岸免税毛利率更高（26.58%）</strong>，与直觉相反。原因在于两条渠道的成本构成不同：</p>
+<ul><li><strong>海南离岛</strong>：自建或长期租赁大型商业综合体（海口国际免税城、三亚国际免税城），<strong>折旧与租金摊销已进入营业成本</strong>，同时面对更多竞争者（牌照扩容后的多家运营商），价格竞争更激烈。</li><li><strong>上海机场</strong>：采用"保底+提成"租金模式，虽然扣点率高，但<strong>销售品类结构更偏精品与香化</strong>（高毛利），且客群为出入境高消费旅客。</li></ul>
+<p><strong>2025 年海南收入 285.37 亿元，同比下降 1.23%，占营收 53.1%</strong>——仍是一半以上的收入来源，但较 2021 年的 69.6% 已明显回落。<strong>海南与上海合计占营收比从 2021 年 88.0% 降至 2025 年 75.5%</strong>，其余 24.5% 来自其他地区。</p>
+<figure><div class="ch"><div class="ch-title">图 6　海南与上海毛利率对比（反直觉）</div><div class="ch-sub">单位：%　2021—2025 年</div><div class="ch-glab">2021</div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">海南地区</span><span class="ch-track"><span class="ch-bar b-hi" style="width:69.7%"></span></span><span class="ch-val">24%</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">上海地区</span><span class="ch-track"><span class="ch-bar b-blue" style="width:92.0%"></span></span><span class="ch-val">31%</span></div><div class="ch-glab">2022</div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">海南地区</span><span class="ch-track"><span class="ch-bar b-hi" style="width:75.2%"></span></span><span class="ch-val">25%</span></div><div class="ch-glab">2023</div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">海南地区</span><span class="ch-track"><span class="ch-bar b-hi" style="width:76.2%"></span></span><span class="ch-val">26%</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">上海地区</span><span class="ch-track"><span class="ch-bar b-blue" style="width:70.4%"></span></span><span class="ch-val">24%</span></div><div class="ch-glab">2024</div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">海南地区</span><span class="ch-track"><span class="ch-bar b-hi" style="width:70.2%"></span></span><span class="ch-val">24%</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">上海地区</span><span class="ch-track"><span class="ch-bar b-blue" style="width:76.3%"></span></span><span class="ch-val">26%</span></div><div class="ch-glab">2025</div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">海南地区</span><span class="ch-track"><span class="ch-bar b-hi" style="width:67.8%"></span></span><span class="ch-val">23%</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">上海地区</span><span class="ch-track"><span class="ch-bar b-blue" style="width:78.6%"></span></span><span class="ch-val">27%</span></div><div class="ch-legend"><span class="lg"><i class="b-hi"></i>海南地区</span><span class="lg"><i class="b-blue"></i>上海地区</span></div></div><figcaption>**海南离岛免税毛利率长期低于上海机场口岸免税**，2025 年差距扩大至 3.67pp（22.91% vs 26.58%）。这与「离岛免税毛利更高」的直觉相反——海南为自建/长租大型商业综合体，折旧与租金摊销计入营业成本，且牌照扩容后竞争更激烈；上海口岸品类更偏精品香化，客群消费力更高。</figcaption><div class="fig-note">上海 2022 年毛利率因年报原文断行未完整抽出，该年留空（图中不绘制）。</div></figure>
+<h3>4.3 2026 上半年结构（最新数据）</h3>
+<div class="rsp-table rsp-w5"><table class="financial compact"><thead><tr><th>维度</th><th>项目</th><th>收入</th><th>占比</th><th>毛利率</th></tr></thead><tbody><tr><td>分产品</td><td>免税商品销售</td><td>217.28</td><td>78.6%</td><td>36.89%</td></tr><tr><td></td><td>有税商品销售</td><td>51.22</td><td>18.5%</td><td>15.05%</td></tr><tr><td></td><td>其他收入</td><td>5.46</td><td>2.0%</td><td>65.02%</td></tr><tr><td>分地区</td><td>海南地区</td><td>185.54</td><td>67.1%</td><td>22.77%</td></tr><tr><td></td><td>上海地区</td><td>20.53</td><td>7.4%</td><td>22.02%</td></tr><tr><td></td><td>其他地区</td><td>67.89</td><td>24.5%</td><td>65.77%</td></tr></tbody></table></div>
+<div class="callout note"><strong>口径声明</strong>：上表取自 2026 年半年报「营业收入、营业成本的分解信息」，合计 273.96 亿元（<strong>未含租赁相关收入和成本</strong>），与合并营业收入 276.55 亿元相差 2.59 亿元。<strong>与 2021—2025 年年报的「主营业务分产品/分地区」表不同源，绝对额不可直接跨表比较。</strong></div>
+<p><strong>需注意的两点异常</strong>：</p>
+<ol><li><strong>上海地区收入从 2024H1 的量级大幅降至 20.53 亿元、占比仅 7.4%</strong>，与 2025 年全年 22.4% 的占比相比出现断崖式变化。这可能与<strong>口岸免税销售结构变化</strong>有关，但半年报未作明细说明，<strong>不宜直接解读为上海枢纽地位下降</strong>。</li><li><strong>其他地区毛利率高达 65.77%</strong>（收入 67.89 亿元、成本 23.24 亿元），显著高于海南（22.77%）与上海（22.02%）。该口径包含市内免税店等业态，<strong>是 2025 年"13 家市内免税店全部开业运营"的直接成果体现</strong>，也是未来毛利率结构改善的潜在来源。</li></ol>
+<h2>五、盈利能力与经营质量</h2>
+<h3>5.1 毛利率、费用率与净利率的三层拆解</h3>
+<div class="rsp-table"><table class="financial compact"><thead><tr><th>指标</th><th>2024</th><th>2025</th><th>变动</th></tr></thead><tbody><tr><td>毛利率（整体）</td><td>32.03%</td><td>32.75%</td><td><strong>+0.72pp</strong></td></tr><tr><td>销售费用率</td><td>16.05%</td><td>16.17%</td><td>+0.12pp</td></tr><tr><td>管理费用率</td><td>3.52%</td><td>4.10%</td><td><strong>+0.58pp</strong></td></tr><tr><td>研发费用率</td><td>0.04%</td><td>0.17%</td><td>+0.13pp</td></tr><tr><td>财务费用率</td><td>−1.63%</td><td>−1.45%</td><td>+0.18pp</td></tr><tr class="total"><td><strong>净利率（归母）</strong></td><td>7.56%</td><td><strong>6.68%</strong></td><td><strong>−0.88pp</strong></td></tr></tbody></table></div>
+<p><strong>关键发现三：毛利率上升而净利率下降，差额全部被"管理费用率 +0.58pp"与"财务费用净收益收窄 +0.18pp"消耗。</strong></p>
+<ul><li><strong>管理费用绝对额 19.89 → 22.04 亿元（+10.80%）</strong>，是 2025 年唯一显著增长的期间费用项，<strong>与收入 −4.92% 方向相反</strong>。</li><li><strong>研发费用 0.20 → 0.90 亿元（+352.74%）</strong>，公司说明为"加快数字化建设，各项软件系统研发投入增加"——属<strong>主动投入</strong>，方向合理但当期拖累利润。</li><li><strong>财务费用为净收益 −7.77 亿元</strong>（上年 −9.23 亿元），即公司<strong>利息收入大于利息支出</strong>。这是净现金状态的体现，但<strong>净收益收窄 1.46 亿元</strong>，反映利率下行对存款收益的侵蚀。</li></ul>
+<div class="callout note"><strong>判据</strong>：本公司财务费用为负（净收益），<strong>分析时不可按常规的"财务费用率越低越好"处理</strong>——其绝对值收窄本身即为利润的负面因素。</div>
+<figure><div class="ch"><div class="ch-title">图 8　经营活动现金流与现金含量倍数</div><div class="ch-sub">单位：亿元（现金流）　倍数（OCF/归母）　2016—2025 年</div><div class="ch-row"><span class="ch-lab">2016</span><span class="ch-track"><span class="ch-bar b-blue" style="width:12.8%"></span></span><span class="ch-val">19</span></div><div class="ch-row"><span class="ch-lab">2017</span><span class="ch-track"><span class="ch-bar b-blue" style="width:19.9%"></span></span><span class="ch-val">30</span></div><div class="ch-row"><span class="ch-lab">2018</span><span class="ch-track"><span class="ch-bar b-blue" style="width:18.0%"></span></span><span class="ch-val">27</span></div><div class="ch-row"><span class="ch-lab">2019</span><span class="ch-track"><span class="ch-bar b-blue" style="width:19.3%"></span></span><span class="ch-val">29</span></div><div class="ch-row"><span class="ch-lab">2020</span><span class="ch-track"><span class="ch-bar b-blue" style="width:54.2%"></span></span><span class="ch-val">82</span></div><div class="ch-row"><span class="ch-lab">2021</span><span class="ch-track"><span class="ch-bar b-blue" style="width:55.1%"></span></span><span class="ch-val">83</span></div><div class="ch-row"><span class="ch-lab">2022</span><span class="ch-track"><span class="ch-bar b-blue" style="width:22.6%"></span></span><span class="ch-val">34</span></div><div class="ch-row"><span class="ch-lab">2023</span><span class="ch-track"><span class="ch-bar b-blue" style="width:100.0%"></span></span><span class="ch-val">151</span></div><div class="ch-row"><span class="ch-lab">2024</span><span class="ch-track"><span class="ch-bar b-blue" style="width:52.5%"></span></span><span class="ch-val">79</span></div><div class="ch-row"><span class="ch-lab">2025</span><span class="ch-track"><span class="ch-bar b-blue" style="width:23.4%"></span></span><span class="ch-val">35</span></div><div class="ch-row"><span class="ch-lab">16 倍</span><span class="ch-track"><span class="ch-bar b-gold" style="width:0.7%"></span></span><span class="ch-val">1.07</span></div><div class="ch-row"><span class="ch-lab">17 倍</span><span class="ch-track"><span class="ch-bar b-gold" style="width:0.8%"></span></span><span class="ch-val">1.19</span></div><div class="ch-row"><span class="ch-lab">18 倍</span><span class="ch-track"><span class="ch-bar b-gold" style="width:0.6%"></span></span><span class="ch-val">0.88</span></div><div class="ch-row"><span class="ch-lab">19 倍</span><span class="ch-track"><span class="ch-bar b-gold" style="width:0.4%"></span></span><span class="ch-val">0.63</span></div><div class="ch-row"><span class="ch-lab">20 倍</span><span class="ch-track"><span class="ch-bar b-gold" style="width:0.9%"></span></span><span class="ch-val">1.34</span></div><div class="ch-row"><span class="ch-lab">21 倍</span><span class="ch-track"><span class="ch-bar b-gold" style="width:0.6%"></span></span><span class="ch-val">0.86</span></div><div class="ch-row"><span class="ch-lab">22 倍</span><span class="ch-track"><span class="ch-bar b-gold" style="width:0.4%"></span></span><span class="ch-val">0.68</span></div><div class="ch-row"><span class="ch-lab">23 倍</span><span class="ch-track"><span class="ch-bar b-gold" style="width:1.5%"></span></span><span class="ch-val">2.25</span></div><div class="ch-row"><span class="ch-lab">24 倍</span><span class="ch-track"><span class="ch-bar b-gold" style="width:1.2%"></span></span><span class="ch-val">1.86</span></div><div class="ch-row"><span class="ch-lab">25 倍</span><span class="ch-track"><span class="ch-bar b-gold" style="width:0.7%"></span></span><span class="ch-val">0.99</span></div></div><figcaption>经营现金流十年区间 19.37—151.26 亿元，波动极大。**2023 年 151.26 亿元（2.25 倍归母）是基数修复期的营运资本回补，不可外推**；2025 年回落至 60.59 亿元（0.99 倍）。注意 2025 年财务费用为净收益 −7.77 亿元已计入净利润，**剔除利息净收益后经营性现金含量更低**。</figcaption><div class="fig-note">上行段为经营现金流绝对值（亿元），下行段为 OCF ÷ 归母净利润倍数。</div></figure>
+<h3>5.2 现金流质量</h3>
+<div class="tbl-scroll"><div class="rsp-table rsp-w6"><table class="financial compact longtable"><thead><tr><th>年度</th><th>经营现金流</th><th>归母净利润</th><th>OCF/归母</th><th>投资现金流</th><th>筹资现金流</th></tr></thead><tbody><tr><td>2016</td><td>19.37</td><td>18.08</td><td>1.07</td><td>—</td><td>—</td></tr><tr><td>2017</td><td>30.17</td><td>25.31</td><td>1.19</td><td>—</td><td>—</td></tr><tr><td>2018</td><td>27.22</td><td>30.95</td><td>0.88</td><td>—</td><td>—</td></tr><tr><td>2019</td><td>29.26</td><td>46.29</td><td><strong>0.63</strong></td><td>—</td><td>—</td></tr><tr><td>2020</td><td>82.02</td><td>61.40</td><td>1.34</td><td>—</td><td>—</td></tr><tr><td>2021</td><td>83.29</td><td>96.54</td><td>0.86</td><td>—</td><td>—</td></tr><tr><td>2022</td><td>34.15</td><td>50.30</td><td>0.68</td><td>—</td><td>—</td></tr><tr><td>2023</td><td>151.26</td><td>67.14</td><td><strong>2.25</strong></td><td>—</td><td>—</td></tr><tr><td>2024</td><td>79.39</td><td>42.67</td><td>1.86</td><td>−4.54</td><td>−43.67</td></tr><tr><td>2025</td><td>60.59</td><td>35.86</td><td><strong>0.99</strong></td><td>−34.80</td><td>−31.82</td></tr></tbody></table></div></div>
+<p><strong>关键发现四：经营现金流倍数十年波动极大（0.63—2.25 倍），2025 年回落至 0.99 倍。</strong></p>
+<ul><li><strong>2023 年 2.25 倍是异常高点</strong>：当年收入 +24.08%，而存货与应收占用减少，属<strong>基数修复期的营运资本回补</strong>，不可外推。</li><li><strong>2025 年 0.99 倍</strong>意味着经营现金流与归母净利润基本持平。表面看"现金含量尚可"，但<strong>需注意：财务费用为净收益 −7.77 亿元已计入净利润，若剔除利息净收益，经营性现金含量将进一步下降</strong>。</li></ul>
+<p><strong>2025 年投资现金流净流出 34.80 亿元</strong>（上年 −4.54 亿元），公司说明为"报告期内定期存款增加所致"——<strong>属资金管理行为，非资本开支扩张</strong>，不应解读为投资强度上升。</p>
+<p><strong>2026H1 投资现金流净流出进一步扩大至 84.32 亿元</strong>（上年同期 −18.87 亿元），同样归因于"定期存款增加"。<strong>连续两期大额定存，反映公司在缺乏高回报投资项目时的资金被动沉积</strong>，同时也使总资产在 2026H1 大幅增长 13.28% 至 849.40 亿元。</p>
+<figure><div class="ch"><div class="ch-title">图 5　海南地区与上海地区：营业收入</div><div class="ch-sub">单位：亿元　2021—2025 年（年报「主营业务分地区」口径）</div><div class="ch-glab">2021</div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">海南地区</span><span class="ch-track"><span class="ch-bar b-hi" style="width:92.0%"></span></span><span class="ch-val">471亿</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">上海地区</span><span class="ch-track"><span class="ch-bar b-blue" style="width:24.4%"></span></span><span class="ch-val">125亿</span></div><div class="ch-glab">2022</div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">海南地区</span><span class="ch-track"><span class="ch-bar b-hi" style="width:67.8%"></span></span><span class="ch-val">347亿</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">上海地区</span><span class="ch-track"><span class="ch-bar b-blue" style="width:27.6%"></span></span><span class="ch-val">141亿</span></div><div class="ch-glab">2023</div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">海南地区</span><span class="ch-track"><span class="ch-bar b-hi" style="width:77.5%"></span></span><span class="ch-val">396亿</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">上海地区</span><span class="ch-track"><span class="ch-bar b-blue" style="width:34.8%"></span></span><span class="ch-val">178亿</span></div><div class="ch-glab">2024</div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">海南地区</span><span class="ch-track"><span class="ch-bar b-hi" style="width:56.4%"></span></span><span class="ch-val">289亿</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">上海地区</span><span class="ch-track"><span class="ch-bar b-blue" style="width:31.3%"></span></span><span class="ch-val">160亿</span></div><div class="ch-glab">2025</div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">海南地区</span><span class="ch-track"><span class="ch-bar b-hi" style="width:55.7%"></span></span><span class="ch-val">285亿</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">上海地区</span><span class="ch-track"><span class="ch-bar b-blue" style="width:23.5%"></span></span><span class="ch-val">120亿</span></div><div class="ch-legend"><span class="lg"><i class="b-hi"></i>海南地区</span><span class="lg"><i class="b-blue"></i>上海地区</span></div></div><figcaption>海南地区收入由 2021 年 470.96 亿元降至 2025 年 285.37 亿元（**−39.41%**），占营收比重由 69.6% 降至 53.1%；上海地区由 124.91 亿元降至 120.10 亿元（−3.85%）。**两大主力渠道合计占营收比由 88.0% 降至 75.5%**。</figcaption><div class="fig-note">2022 年上海地区毛利率原文断行未完整抽出，故本图仅比较收入；毛利率对比见图 6。</div></figure>
+<h3>5.3 股东回报能力</h3>
+<div class="rsp-table rsp-w5"><table class="financial compact"><thead><tr><th>年度</th><th>归母净资产</th><th>总资产</th><th>期末 ROE</th><th>资产负债结构</th></tr></thead><tbody><tr><td>2023</td><td>538.34</td><td>788.69</td><td>12.47%</td><td>负债率 31.75%</td></tr><tr><td>2024</td><td>550.97</td><td>762.60</td><td>7.74%</td><td>负债率 27.75%</td></tr><tr><td>2025</td><td>554.69</td><td>749.83</td><td><strong>6.46%</strong></td><td>负债率 26.02%</td></tr><tr><td>2026H1</td><td>574.53</td><td>849.40</td><td>10.81%（单期年化，季节性虚高）</td><td>负债率 32.36%</td></tr></tbody></table></div>
+<p><strong>关键发现五：公司资产负债表极为稳健，但正是这种稳健暴露了资本效率问题。</strong></p>
+<ul><li><strong>资产负债率仅 26.02%（2025 年末）</strong>，处于十年低位。其中<strong>负债端有大量经营性负债</strong>（应付账款、合同负债），真实有息负债极低。</li><li><strong>归母净资产 554.69 亿元而 2025 年归母净利润仅 35.86 亿元</strong> —— 近 555 亿元的净资产只能产生 35.86 亿元利润，<strong>ROE 6.46%</strong>。</li><li><strong>2026H1 总资产从 749.83 亿元增至 849.40 亿元（+13.28%），主要来自定期存款增加</strong>，而净资产仅 +3.58%。<strong>资产扩张未带来利润扩张</strong>，分母被稀释是 ROE 承压的直接原因。</li></ul>
+<div class="callout note"><strong>口径提示</strong>：2026H1 归母净利润 31.06 亿元，<strong>按单期年化（×2）计算 ROE 为 10.81%</strong>，高于 2025 年全年 6.46%。但这<strong>是季节性造成的假象</strong>——本公司利润高度集中于 Q1（2025 年 Q1 占全年 54.04%），上半年利润天然高于下半年的半年平均值，<strong>不可按年化口径推断全年 ROE 已改善</strong>。</div>
+<div class="callout note"><strong>判据</strong>：<strong>对净现金充裕、资产负债率低的消费类公司，"资产膨胀"不是好消息——它意味着资本沉积。</strong> 本公司的核心问题不是偿债能力（极强），而是<strong>资本回报效率</strong>。若无有效的资本配置（分红、回购或高回报再投资），ROE 将继续被稀释。</div>
+<h2>六、季节性、季度结构与"利润前置"现象</h2>
+<figure><div class="ch"><div class="ch-title">图 7　2025 年分季度营业收入与归母净利润</div><div class="ch-sub">单位：亿元　Q1—Q4</div><div class="ch-glab">第一季度</div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">营业收入</span><span class="ch-track"><span class="ch-bar b-blue" style="width:92.0%"></span></span><span class="ch-val">167亿</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">归母净利润</span><span class="ch-track"><span class="ch-bar b-hi" style="width:10.6%"></span></span><span class="ch-val">19亿</span></div><div class="ch-glab">第二季度</div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">营业收入</span><span class="ch-track"><span class="ch-bar b-blue" style="width:62.7%"></span></span><span class="ch-val">114亿</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">归母净利润</span><span class="ch-track"><span class="ch-bar b-hi" style="width:3.6%"></span></span><span class="ch-val">6.62亿</span></div><div class="ch-glab">第三季度</div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">营业收入</span><span class="ch-track"><span class="ch-bar b-blue" style="width:64.3%"></span></span><span class="ch-val">117亿</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">归母净利润</span><span class="ch-track"><span class="ch-bar b-hi" style="width:2.5%"></span></span><span class="ch-val">4.52亿</span></div><div class="ch-glab">第四季度</div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">营业收入</span><span class="ch-track"><span class="ch-bar b-blue" style="width:76.0%"></span></span><span class="ch-val">138亿</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">归母净利润</span><span class="ch-track"><span class="ch-bar b-hi" style="width:2.9%"></span></span><span class="ch-val">5.34亿</span></div><div class="ch-legend"><span class="lg"><i class="b-blue"></i>营业收入</span><span class="lg"><i class="b-hi"></i>归母净利润</span></div></div><figcaption>**Q1 单季归母净利润 19.38 亿元 = 全年的 54.04%**，Q2—Q4 三季合计仅 16.48 亿元。Q2 归母 6.62 亿元而经营现金流 −21.90 亿元（旺季备货占用资金）。**对本公司做季度分析时不可用单季利润年化推断全年**（按 Q1 年化将得 77.5 亿元，为实际的 2.16 倍）。</figcaption></figure>
+<h3>6.1 2025 年分季度</h3>
+<div class="rsp-table rsp-w5"><table class="financial compact"><thead><tr><th>季度</th><th>营业收入</th><th>归母净利润</th><th>占全年</th><th>经营现金流</th></tr></thead><tbody><tr><td>Q1（1—3 月）</td><td>167.46</td><td><strong>19.38</strong></td><td><strong>54.04%</strong></td><td>47.97</td></tr><tr><td>Q2（4—6 月）</td><td>114.05</td><td>6.62</td><td>18.46%</td><td>−21.90</td></tr><tr><td>Q3（7—9 月）</td><td>117.11</td><td>4.52</td><td>12.60%</td><td>7.81</td></tr><tr><td>Q4（10—12 月）</td><td>138.31</td><td>5.34</td><td>14.89%</td><td>26.71</td></tr><tr class="total"><td><strong>全年</strong></td><td><strong>536.94</strong></td><td><strong>35.86</strong></td><td>100%</td><td>60.59</td></tr></tbody></table></div>
+<p><strong>关键发现六：2025 年 Q1 单季贡献全年归母净利润的 54.04%，Q2—Q4 三季合计仅 16.48 亿元。</strong></p>
+<p>这来自免税行业的两种季节性叠加：</p>
+<ol><li><strong>Q1 是海南离岛免税旺季</strong>（春节、寒假旅游高峰，客单价与客流同时高企），且 Q1 收入 167.46 亿元为四个季度最高。</li><li><strong>Q2 归母仅 6.62 亿元而经营现金流为 −21.90 亿元</strong>——Q2 是淡季，同时<strong>旺季备货形成的存货在 Q2 占用资金</strong>，导致经营现金流转负。</li></ol>
+<div class="callout note"><strong>判据</strong>：<strong>对本公司做季度分析时，不可用单季利润年化推断全年。</strong> 2025 年 Q1 利润占全年过半，若按 Q1 年化将得到 77.5 亿元的全年利润，是实际的 2.16 倍。<strong>同理，上半年利润亦不可简单 ×2</strong>（见 §5.3 口径提示）。</div>
+<p><strong>2025 年 Q4 归母 5.34 亿元，环比 Q3（4.52 亿元）+18.1%</strong>——Q4 有微弱改善，但绝对水平仍仅为 Q1 的 27.6%。</p>
+<figure><div class="ch"><div class="ch-title">图 9　2026 上半年 vs 上年同期：收入与利润</div><div class="ch-sub">单位：亿元　2025H1 vs 2026H1</div><div class="ch-glab">营业收入</div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">2025H1</span><span class="ch-track"><span class="ch-bar b-grey" style="width:92.0%"></span></span><span class="ch-val">282亿</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">2026H1</span><span class="ch-track"><span class="ch-bar b-teal" style="width:90.4%"></span></span><span class="ch-val">277亿</span></div><div class="ch-glab">归母净利润</div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">2025H1</span><span class="ch-track"><span class="ch-bar b-grey" style="width:8.5%"></span></span><span class="ch-val">26亿</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">2026H1</span><span class="ch-track"><span class="ch-bar b-teal" style="width:10.2%"></span></span><span class="ch-val">31亿</span></div><div class="ch-glab">扣非净利润</div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">2025H1</span><span class="ch-track"><span class="ch-bar b-grey" style="width:8.5%"></span></span><span class="ch-val">26亿</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">2026H1</span><span class="ch-track"><span class="ch-bar b-teal" style="width:10.1%"></span></span><span class="ch-val">31亿</span></div><div class="ch-glab">经营现金流</div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">2025H1</span><span class="ch-track"><span class="ch-bar b-grey" style="width:8.5%"></span></span><span class="ch-val">26亿</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">2026H1</span><span class="ch-track"><span class="ch-bar b-teal" style="width:8.1%"></span></span><span class="ch-val">25亿</span></div><div class="ch-legend"><span class="lg"><i class="b-grey"></i>2025H1</span><span class="lg"><i class="b-teal"></i>2026H1</span></div></div><figcaption>2026H1 **营业收入 −1.76% 而归母净利润 +19.49%**。增长来自：① 毛利率 32.77% → 33.90%（+1.13pp，主因低毛利有税业务占比下降）；② 销售费用率 −0.14pp；③ 但财务费用净收益由 −5.01 亿元收窄至 −2.70 亿元（**−2.31 亿元，是拖累项**）。**没有任何一个驱动来自收入端。**</figcaption><div class="fig-note">经营现金流为唯一同比下滑项（−4.89%），与净利润方向相反。</div></figure>
+<h3>6.2 2026 上半年表现</h3>
+<div class="rsp-table"><table class="financial compact"><thead><tr><th>项目</th><th>2025H1</th><th>2026H1</th><th>同比</th></tr></thead><tbody><tr><td>营业收入</td><td>281.51</td><td>276.55</td><td><strong>−1.76%</strong></td></tr><tr><td>利润总额</td><td>36.63</td><td>37.16</td><td>+1.45%</td></tr><tr><td>归母净利润</td><td>26.00</td><td><strong>31.06</strong></td><td><strong>+19.49%</strong></td></tr><tr><td>扣非净利润</td><td>25.95</td><td>30.78</td><td>+18.61%</td></tr><tr><td>经营现金流</td><td>26.07</td><td>24.80</td><td>−4.89%</td></tr><tr><td>归母净资产</td><td>554.69</td><td>574.53</td><td>+3.58%</td></tr><tr><td>总资产</td><td>749.83</td><td>849.40</td><td>+13.28%</td></tr></tbody></table></div>
+<p><strong>归母净利润 +19.49% 而营业收入 −1.76%，差额从何而来？</strong> 由三项构成（全部为区间测算）：</p>
+<div class="rsp-table rsp-w5"><table class="financial compact"><thead><tr><th>驱动项</th><th>2025H1</th><th>2026H1</th><th>变动</th><th>对利润的影响方向</th></tr></thead><tbody><tr><td>毛利率</td><td>32.77%</td><td><strong>33.90%</strong></td><td><strong>+1.13pp</strong></td><td>正向（约 +3.1 亿元毛利）</td></tr><tr><td>销售费用率</td><td>15.14%</td><td><strong>15.00%</strong></td><td>−0.14pp</td><td>正向（约 +0.4 亿元）</td></tr><tr><td>管理费用</td><td>8.56</td><td>8.93</td><td><strong>+4.33%</strong></td><td>负向（约 −0.4 亿元）</td></tr><tr><td>财务费用（净收益）</td><td>−5.01</td><td><strong>−2.70</strong></td><td><strong>净收益收窄 2.31</strong></td><td>负向（约 −2.3 亿元）</td></tr></tbody></table></div>
+<p><strong>关键发现七：2026H1 利润增长的三个来源中，两个是"费用与收益率"，一个是"毛利率"——没有一个是收入。</strong></p>
+<ul><li><strong>毛利率提升 1.13pp 是核心贡献</strong>，与 §4.1 中"有税低毛利业务占比下降"同源。</li><li><strong>财务费用净收益从 −5.01 亿元收窄至 −2.70 亿元（−2.31 亿元）</strong>，公司在半年报中明确说明是"租赁负债利息开支及银行手续费增加、利息收入及汇兑收益减少所致"。</li><li><strong>Q2 与 Q4 的管理费用增长（+4.33%）是唯一的持续拖累项。</strong></li></ul>
+<div class="callout note"><strong>判据</strong>：<strong>本公司的利润改善目前是"成本费用驱动型"而非"需求驱动型"。</strong> 这类改善有边界：毛利率提升依赖低毛利业务继续退出（有税业务已从 51.8% 降至 18.5%，剩余空间有限），财务费用净收益则随利率环境单向收窄。<strong>判断拐点是否成立，必须等收入端转正。</strong></div>
+<h2>七、关键审计事项与资产质量</h2>
+<figure><div class="ch"><div class="ch-title">图 12　关键审计事项所涉资产：账面原值与计提比例</div><div class="ch-sub">单位：亿元　2025 年 12 月 31 日</div><div class="ch-row"><span class="ch-lab">存货 账面原值</span><span class="ch-track"><span class="ch-bar b-blue" style="width:100.0%"></span></span><span class="ch-val">158亿</span></div><div class="ch-row"><span class="ch-lab">存货 跌价准备</span><span class="ch-track"><span class="ch-bar b-hi" style="width:3.1%"></span></span><span class="ch-val">4.82亿</span></div><div class="ch-row"><span class="ch-lab">商誉 账面原值</span><span class="ch-track"><span class="ch-bar b-gold" style="width:5.2%"></span></span><span class="ch-val">8.23亿</span></div><div class="ch-row"><span class="ch-lab">商誉 减值准备</span><span class="ch-track"><span class="ch-bar b-hi" style="width:2.1%"></span></span><span class="ch-val">3.38亿</span></div></div><figcaption>安永华明将**存货跌价准备**与**商誉减值测试**列为两项关键审计事项。存货原值 157.83 亿元、跌价准备 4.82 亿元（**3.05%**）；商誉原值 8.23 亿元、减值准备 3.38 亿元（**41.07%**）。**商誉减值比例高达四成，是本表最值得警惕的项目**；存货计提比例在免税毛利率下滑背景下需关注其充分性。</figcaption><div class="fig-note">数据取自 2025 年年报审计报告「关键审计事项」段落原文披露金额。</div></figure>
+<h3>7.1 审计机构关注的两项 KAM</h3>
+<p>安永华明在 2025 年报中指定<strong>两项关键审计事项</strong>：</p>
+<div class="rsp-table"><table class="financial compact"><thead><tr><th>KAM</th><th>账面金额（亿元）</th><th>减值/准备（亿元）</th><th>计提比例</th></tr></thead><tbody><tr class="total"><td><strong>存货跌价准备</strong></td><td>存货账面原值 <strong>157.83</strong></td><td><strong>4.82</strong></td><td><strong>3.05%</strong></td></tr><tr class="total"><td><strong>商誉减值测试</strong></td><td>商誉账面原值 <strong>8.23</strong></td><td><strong>3.38</strong></td><td><strong>41.07%</strong></td></tr></tbody></table></div>
+<p><strong>关键发现八：商誉减值计提比例高达 41.07%，是资产负债表上最值得警惕的项目。</strong></p>
+<ul><li><strong>商誉账面原值 8.23 亿元，已计提减值 3.38 亿元</strong>。公司在 2025 年计提的商誉减值，据「资产减值准备」公告，与<strong>使用权资产减少 29.45%</strong> 同属资产端的主要变动。</li><li><strong>存货跌价准备计提比例 3.05%</strong>（4.82 ÷ 157.83），对应存货主要包括烟酒、香化、精品等商品。<strong>该比例需结合库龄与奢侈品价格环境判断其充分性</strong>——免税品的可变现净值依赖"预计售价减去估计的销售费用和相关税费"，<strong>在折扣促销力度加大（见 §4.1 免税毛利率下滑）的年份，该估计存在下行风险</strong>。</li></ul>
+<div class="callout note"><strong>判据</strong>：审计师把存货跌价准备列为 KAM，本身说明<strong>管理层对可变现净值的估计具有"重大的判断和估计"成分</strong>。当免税毛利率下滑与存货高企同时出现时，<strong>存货跌价准备是最可能出现的"未来利润冲击点"</strong>。</div>
+<h3>7.2 资产端主要变动（2025 年）</h3>
+<div class="tbl-scroll"><div class="rsp-table rsp-w6"><table class="financial compact"><thead><tr><th>项目</th><th>2025 年末</th><th>占总资产</th><th>2024 年末</th><th>占比</th><th>变动</th></tr></thead><tbody><tr><td>使用权资产</td><td>14.29</td><td>1.91%</td><td>20.25</td><td>2.66%</td><td><strong>−29.45%</strong></td></tr><tr><td>在建工程</td><td>17.59</td><td>—</td><td>9.72</td><td>—</td><td>+80.97%</td></tr><tr><td>长期借款</td><td>28.49</td><td>—</td><td>25.67</td><td>—</td><td>+10.97%</td></tr></tbody></table></div></div>
+<p><strong>使用权资产大幅下降 29.45%</strong>，公司说明为"租赁变更所致"——反映<strong>门店网络调整或租约重谈</strong>，属主动收缩或优化。</p>
+<p><strong>在建工程 +80.97%</strong>（9.72 → 17.59 亿元），表明<strong>资本开支仍在推进</strong>（海口国际免税城相关配套等）。这与§5.2中"投资现金流净流出主要为定期存款"并不矛盾：<strong>定期存款计入投资活动，而资本开支规模相对小</strong>。</p>
+<h2>八、2026 年战略变量</h2>
+<h3>8.1 DFS 大中华区收购</h3>
+<p><strong>2026 年 1 月，公司公告与 DFS 达成协议，全资子公司将收购 DFS 大中华区零售业务，同时与 LVMH 签订战略合作备忘录。</strong></p>
+<p>公司在 2025 年报中定性为"落实发展战略，把握行业整合浪潮的重要战略举措"，并列出预期效果：</p>
+<ul><li>快速建立在<strong>港澳市场的优势</strong></li><li>实现<strong>国际化能力跃升</strong></li><li>实现<strong>产业升级、商品结构优化、服务水平提升</strong></li><li>具有"较强的产业协同效应"</li></ul>
+<div class="callout note"><strong>分析提示</strong>：这是本公司自 2022 年 H 股上市以来<strong>最大的一次外延动作</strong>，且发生在归母净利润从峰值下滑 62.85% 之后。<strong>并购能否改善利润质量，关键看两点：① 收购对价与标的盈利能力（当前公告未披露具体财务数据）；② DFS 港澳门店与公司现有港澳业务的整合效果。</strong>在获得标的财务数据之前，<strong>不应把该并购计入盈利预测</strong>。</div>
+<figure><div class="ch"><div class="ch-title">图 10　2026 上半年收入结构（分产品与分地区）</div><div class="ch-sub">单位：亿元　口径：半年报「营业收入、营业成本的分解信息」</div><div class="ch-row"><span class="ch-lab">免税商品销售</span><span class="ch-track"><span class="ch-bar b-teal" style="width:100.0%"></span></span><span class="ch-val">217亿</span></div><div class="ch-row"><span class="ch-lab">有税商品销售</span><span class="ch-track"><span class="ch-bar b-grey" style="width:23.6%"></span></span><span class="ch-val">51亿</span></div><div class="ch-row"><span class="ch-lab">其他收入</span><span class="ch-track"><span class="ch-bar b-gold" style="width:2.5%"></span></span><span class="ch-val">5.46亿</span></div><div class="ch-row"><span class="ch-lab">海南地区</span><span class="ch-track"><span class="ch-bar b-hi" style="width:85.4%"></span></span><span class="ch-val">186亿</span></div><div class="ch-row"><span class="ch-lab">上海地区</span><span class="ch-track"><span class="ch-bar b-blue" style="width:9.4%"></span></span><span class="ch-val">21亿</span></div><div class="ch-row"><span class="ch-lab">其他地区</span><span class="ch-track"><span class="ch-bar b-gold" style="width:31.2%"></span></span><span class="ch-val">68亿</span></div></div><figcaption>分产品：免税 217.28 亿元（78.6%）+ 有税 51.22 亿元（18.5%）。分地区：海南 185.54 亿元（67.1%）、上海 20.53 亿元（7.4%）、**其他地区 67.89 亿元（24.5%）**。其他地区毛利率 65.77%（收入 67.89 / 成本 23.24），显著高于海南 22.77% 与上海 22.02%，**对应 2025 年 13 家市内免税店全部开业运营的成果**。</figcaption><div class="fig-note">该表合计 273.96 亿元，未含租赁相关收入成本，与合并营业收入 276.55 亿元相差 2.59 亿元，且与年报口径不同源，绝对额不可跨表比较。</div></figure>
+<h3>8.2 市内免税店：13 家全部开业</h3>
+<p><strong>2025 年，13 家取得经营权的市内免税店均已实现开业或运营</strong>，公司打造"免税+有税""线下+线上""进口+国产"三位一体运营模式，并推进"离境退税商店"资质申请与"即买即退"落地。</p>
+<p>该渠道在 2026H1 财报中的对应体现是<strong>"其他地区"毛利率 65.77%</strong>（收入 67.89 亿元、成本 23.24 亿元）<strong>——显著高于海南（22.77%）与上海（22.02%）</strong>。</p>
+<div class="callout note"><strong>分析提示</strong>：市内免税店可能是<strong>未来毛利率结构改善的最重要来源</strong>。但其当前收入规模（2026H1 其他地区 67.89 亿元，含市内店以外业态）<strong>尚不足以对冲海南渠道的毛利率下行</strong>。</div>
+<h3>8.3 海南全岛封关运作</h3>
+<p>公司在 2025 年报中明确"紧抓海南全岛封关运作历史机遇"，从场景创新、服务升级、供应链保障三方面着力，并<strong>"推动海南区域销售额企稳回升，离岛免税市场份额实现增长"</strong>。</p>
+<div class="rsp-table"><table class="financial compact"><thead><tr><th>判据</th><th>数据</th><th>解读</th></tr></thead><tbody><tr><td>海南收入</td><td>2023 年 396.50 → 2025 年 285.37 亿元（<strong>−28.03%</strong>）</td><td>收入端尚未"企稳回升"</td></tr><tr><td>海南毛利率</td><td>2023 年 25.76% → 2025 年 <strong>22.91%</strong></td><td>毛利率持续下行</td></tr><tr><td>海南占营收</td><td>69.6%（2021）→ <strong>53.1%</strong>（2025）</td><td>依赖度下降，但仍是第一大来源</td></tr></tbody></table></div>
+<div class="callout note"><strong>判据</strong>：公司表述"市场份额实现增长"是<strong>相对份额</strong>（在牌照扩容后的竞争格局中），<strong>与绝对收入下滑并不矛盾</strong>。<strong>"份额增长"不等于"收入增长"，两者必须分开读。</strong></div>
+<h3>8.4 海外拓展</h3>
+<ul><li>2025 年新设 <strong>3 家</strong>境外门店，<strong>首次进入越南市场</strong>，斩获越南河内、富国机场 <strong>10 年供货协议</strong>。</li><li>签署多个头部国潮品牌海外代理权，在港澳、东南亚、日本等区域实现业务突破。</li></ul>
+<div class="callout note"><strong>分析提示</strong>：海外业务当前规模极小，<strong>尚不构成利润变量</strong>，主要意义在于渠道布局与"国潮出海"品牌建设。</div>
+<h2>九、综合判断与风险清单</h2>
+<h3>9.1 三句话说清当前状态</h3>
+<ol><li><strong>业务本身没有崩塌</strong>：2025 年营收 536.94 亿元，是 2016 年的 2.4 倍；十年营收 CAGR 10.21%；资产负债率 26.02%，账面极度稳健；扣非与归母差额十年从未超过 8 亿元，<strong>利润不含水分</strong>。</li><li><strong>盈利中枢发生了系统性下移</strong>：归母净利润从 2021 年 96.54 亿元的峰值降至 2025 年 35.86 亿元（−62.85%），ROE 从 32.59% 降至 6.46%，<strong>净利率从 14.27% 降至 6.68%</strong>。这不是周期性波动，而是<strong>疫情红利退潮后的新常态</strong>。</li><li><strong>2026H1 的利润反弹不能作为拐点确认</strong>：收入仍为 −1.76%，利润增长由毛利率（低毛利业务退出）与财务费用净收益支撑，<strong>且财务费用净收益是随利率环境单向收窄的项，不是可持续的增长源</strong>。</li></ol>
+<figure><div class="ch"><div class="ch-title">图 11　2026H1 归母净利润同比变动拆解（区间测算）</div><div class="ch-sub">单位：亿元　2025H1 26.00 → 2026H1 31.06</div><div class="ch-row"><span class="ch-lab">2025H1 归母</span><span class="wf-track"><span class="wf-bar wf-tot" style="left:0.00%;width:84.84%"></span></span><span class="ch-val">26</span></div><div class="ch-row"><span class="ch-lab">毛利率提升</span><span class="wf-track"><span class="wf-bar wf-up" style="left:16.27%;width:68.56%"></span></span><span class="ch-val">3</span></div><div class="ch-row"><span class="ch-lab">销售费用率下降</span><span class="wf-track"><span class="wf-bar wf-up" style="left:8.12%;width:8.15%"></span></span><span class="ch-val">0</span></div><div class="ch-row"><span class="ch-lab">管理费用增加</span><span class="wf-track"><span class="wf-bar wf-down" style="left:5.81%;width:2.31%"></span></span><span class="ch-val">-0</span></div><div class="ch-row"><span class="ch-lab">财务费用净收益收窄</span><span class="wf-track"><span class="wf-bar wf-down" style="left:0.00%;width:5.81%"></span></span><span class="ch-val">-2</span></div><div class="ch-row"><span class="ch-lab">其他（税项等）</span><span class="wf-track"><span class="wf-bar wf-up" style="left:0.00%;width:19.57%"></span></span><span class="ch-val">4</span></div><div class="ch-row"><span class="ch-lab">2026H1 归母</span><span class="wf-track"><span class="wf-bar wf-tot" style="left:0.00%;width:100.00%"></span></span><span class="ch-val">31</span></div></div><figcaption>毛利率、销售费用率与「其他（税项等）」共同贡献正向变动，管理费用与财务费用净收益收窄为负向。**「其他」项 4.22 亿元中含 2025H1 利润总额基数 36.63 → 2026H1 37.16 亿元的差额及税率变动影响，属残差项，不构成独立结论。**</figcaption></figure>
+<h3>9.2 风险清单（按重要性排序）</h3>
+<div class="rsp-table"><table class="financial compact longtable"><thead><tr><th>#</th><th>风险</th><th>量化依据</th><th>性质</th></tr></thead><tbody><tr><td>1</td><td><strong>收入端持续下行，利润缺乏需求支撑</strong></td><td>2024、2025 连续两年营收双降（−16.38%、−4.92%）；2026H1 仍 −1.76%</td><td>核心风险</td></tr><tr><td>2</td><td><strong>免税商品毛利率首次实质下滑</strong></td><td>39.50%（2024）→ <strong>36.97%</strong>（2025），−2.53pp；成本 +5.53% 而收入 +1.29%</td><td>核心风险</td></tr><tr><td>3</td><td><strong>存货跌价准备计提充分性存疑</strong></td><td>存货原值 157.83 亿元、准备 4.82 亿元（3.05%）；审计师列为 KAM</td><td>潜在冲击</td></tr><tr><td>4</td><td><strong>商誉减值压力</strong></td><td>商誉原值 8.23 亿元，已减值 3.38 亿元（<strong>41.07%</strong>）</td><td>已部分实现</td></tr><tr><td>5</td><td><strong>利润高度前置，Q2—Q4 近乎无利润</strong></td><td>2025 年 Q1 占全年归母 <strong>54.04%</strong>；Q2 经营现金流 −21.90 亿元</td><td>季节性风险</td></tr><tr><td>6</td><td><strong>海南渠道毛利率持续下行</strong></td><td>25.76%（2023）→ 22.91%（2025）；收入三年 −28.03%</td><td>结构风险</td></tr><tr><td>7</td><td><strong>资本沉积、ROE 稀释</strong></td><td>总资产 +13.28%（2026H1）而净资产 +3.58%；ROE 6.46%</td><td>效率风险</td></tr><tr><td>8</td><td><strong>DFS 并购整合效果未验证</strong></td><td>2026 年 1 月公告，标的财务数据尚未披露</td><td>待观察（非当期风险）</td></tr><tr><td>9</td><td><strong>财务费用净收益单向收窄</strong></td><td>−9.23（2024）→ −7.77（2025）→ 2026H1 净收益减半</td><td>结构性拖累</td></tr></tbody></table></div>
+<h3>9.3 后续跟踪的四个观察点</h3>
+<ol><li><strong>海南离岛免税月度销售额与客单价</strong>——收入端是否真正企稳，这是拐点确认的第一判据。</li><li><strong>免税商品销售毛利率</strong>——若继续低于 37%，说明折扣促销已成常态，利润中枢还要下移。</li><li><strong>存货跌价准备计提比例</strong>——若在毛利率下滑背景下仍维持 3% 左右，需警惕未来集中计提。</li><li><strong>DFS 大中华区收购的对价与标的盈利</strong>——决定这是"能力跃升"还是"又一笔摊薄 ROE 的资产"。</li></ol>
+<h2>附录 A　数据来源与口径</h2>
+<h3>A.1 数据来源</h3>
+<p>本报告全部分析基于公司公开披露的定期报告原件，共 <strong>102 份 PDF</strong>（2016—2026H1），落盘于</p>
+<p><code>/Users/zhouzhuolin/Documents/财报分析/中国中免/</code>，其中核心来源为：</p>
+<div class="rsp-table"><table class="financial compact"><thead><tr><th>类别</th><th>份数</th><th>覆盖区间</th></tr></thead><tbody><tr><td>A 股年度报告（601888.SH）</td><td>10</td><td>2016—2025</td></tr><tr><td>A 股半年度报告</td><td>10</td><td>2016—2026</td></tr><tr><td>H 股年度报告（01880.HK）</td><td>5</td><td>2021—2025</td></tr><tr><td>H 股中期报告</td><td>4</td><td>2023—2026</td></tr><tr><td>年度/中期业绩公告</td><td>8</td><td>2022—2026</td></tr><tr><td>季度报告与业绩快报</td><td>其余</td><td>2016—2026</td></tr></tbody></table></div>
+<p>全部 PDF 均通过<strong>「<code>%PDF-</code> 文件头 + 尾部 <code>%%EOF</code> + 非整数 MiB 大小」三重完整性校验，零截断</strong>。</p>
+<h3>A.2 关键口径声明</h3>
+<ol><li><strong>货币与单位</strong>：全部为人民币；正文金额单位统一为<strong>亿元</strong>，原文为元的数据已折算，保留两位小数。</li><li><strong>会计准则</strong>：以<strong>中国企业会计准则（A 股年报口径）</strong>为准。公司「境内外会计准则差异」表显示，A 股与国际财务报告准则的唯一差异源于<strong>新租赁准则首次执行日不同</strong>，2025 年影响归母净利润 +0.58 亿元（占 3,586,177,592.36 元的 1.6%）。<strong>故本报告数据可同时用于 A/H 股分析。</strong></li><li><strong>2019 年重述</strong>：2021 年收购海南省免税品有限公司属<strong>同一控制下企业合并</strong>，2020 年年报对 2019 年比较列做了追溯调整（营收 479.66 亿元「调整前」/ 486.12 亿元「调整后」）。<strong>本报告表 3-1 采用「调整前」原披露数</strong>，以保持与 2016—2018 年原始序列一致。</li><li><strong>分产品/分地区口径变更</strong>：</li></ol>
+<ul><li><strong>2019—2020 年</strong>年报按「分行业」披露（商品销售业 / 旅游服务业），<strong>无免税/有税、海南/上海拆分</strong>；</li><li><strong>2021—2025 年</strong>年报按「分产品」与「分地区」披露，含免税/有税、海南/上海明细；</li><li><strong>2026 年半年报</strong>改用「营业收入、营业成本的分解信息」（合计 273.96 亿元，未含租赁相关收入成本），与年报口径<strong>不同源</strong>。 <strong>因此三套口径的绝对额不可跨表直接比较</strong>，本报告已在相应位置逐处标注。</li></ul>
+<ol><li><strong>实际税率为测算值</strong>：§3.3 的实际税率 = 1 − 归母净利润 ÷ 利润总额，<strong>含少数股东损益影响</strong>，仅用于观察趋势，非精确的有效税率。</li><li><strong>派生指标一律由脚本计算</strong>：净利率、ROE、OCF/归母、毛利率、费用率、同比增减等均由 <code>tools/data_ctg.py</code> 的 <code>derived()</code> 函数计算，<strong>无手工相加</strong>。</li></ol>
+<h3>A.3 数据抽取中的两个技术问题（备查）</h3>
+<ol><li><strong>年报「主要会计数据」表的行序不恒定</strong>：2020 年及以前的表<strong>无「利润总额」行</strong>，部分年份（2020）另含「调整后/调整前」双列。抽取脚本采用「行序 + 算术断言」双保险，断言包括：营收 &gt; 100 亿元、归母 &lt; 营收、归母权益 &lt; 总资产、扣非与归母偏离 &lt; 60%。</li><li><strong>跨年咬合校验发现 4 处不一致</strong>：2019→2020 的营业收入、经营现金流、归母净资产、总资产共 4 项在下一年年报的「上年」列中数值不同。经核查<strong>全部源于 §A.2 第 3 条的追溯重述</strong>，非抽取错误。<strong>十年序列的其余 56 项（6 指标 × 9 个跨年）全部逐项咬合。</strong></li></ol>
+<h3>A.4 工具链</h3>
+<div class="rsp-table"><table class="financial compact"><thead><tr><th>脚本</th><th>用途</th></tr></thead><tbody><tr><td><code>tools/fetch_ctg_curl.py</code></td><td>定期报告下载（清单缓存 + 静态直链 + curl 并行 + 三重校验）</td></tr><tr><td><code>tools/extract_data.py</code></td><td>从年报原文抽取「主要会计数据」与分部数据，含算术断言</td></tr><tr><td><code>tools/data_ctg.py</code></td><td>核心数据集与派生指标计算</td></tr><tr><td><code>tools/build_html.py</code></td><td>生成自包含 HTML（纯 HTML/CSS 图表，无 SVG text）</td></tr><tr><td><code>tools/render_pdf.py</code></td><td>WeasyPrint 渲染 PDF</td></tr></tbody></table></div>
+<h2>附录 B　指标定义</h2>
+<ul><li><strong>净利率</strong> ＝ 归属于上市公司股东的净利润 ÷ 营业收入</li><li><strong>期末 ROE</strong> ＝ 归属于上市公司股东的净利润 ÷ 期末归属于上市公司股东的净资产（<strong>期末口径</strong>，非加权平均；年报披露的加权平均 ROE 略低于本表）</li><li><strong>OCF/归母</strong> ＝ 经营活动产生的现金流量净额 ÷ 归属于上市公司股东的净利润（现金含量倍数）</li><li><strong>归母−扣非</strong> ＝ 归属于上市公司股东的净利润 − 扣除非经常性损益后的净利润（非经常性损益净影响）</li><li><strong>资产负债率</strong> ＝ 1 − 归属于上市公司股东的净资产 ÷ 总资产（<strong>简化口径</strong>，未含少数股东权益；公司年报披露的负债率略低）</li><li><strong>毛利率</strong> ＝ 1 − 营业成本 ÷ 营业收入（<strong>整体口径</strong>，含主营业务与其他业务；分部毛利率直接取自年报披露值）</li><li><strong>免税/有税毛利率差</strong> ＝ 免税商品销售毛利率 − 有税商品销售毛利率</li></ul>
+
+<!-- rsp-mobile-adapt : 溢出表格滑动提示 -->
+<script>
+(function(){
+  function mark(){
+    var boxes = document.querySelectorAll('.rsp-table');
+    for (var i=0;i<boxes.length;i++){
+      var b = boxes[i];
+      if (b.scrollWidth > b.clientWidth + 4) b.setAttribute('data-rsp-scroll','');
+      else b.removeAttribute('data-rsp-scroll');
+    }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mark);
+  else mark();
+  window.addEventListener('resize', function(){ clearTimeout(window.__rspT); window.__rspT=setTimeout(mark,180); });
+})();
+</script>
+</body>
+</html>
