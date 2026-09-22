@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>珀莱雅（603605.SH）财报分析报告（2017—2025＋2026上半年）</title>
+<meta name="generator" content="financial-report-analysis">
+<style>
+  html, body { background: #F7F4EE; }
+  :root {
+    --parchment:#F7F4EE; --ivory:#FBF9F4; --near-black:#22262B; --dark-warm:#3E4145;
+    --olive:#504e49; --stone:#7C7B77; --brand:#A73F2D; --brand-deep:#8A3223;
+    --accent:#A73F2D; --accent-soft:#F1E3DD; --gold:#B8862F; --teal:#2F6F6B; --blue:#1B365D;
+    --border:#E3DDD4;
+    --serif: "Songti SC", "Source Han Serif SC", "Noto Serif CJK SC", "STSong", Georgia, serif;
+  }
+  @page {
+    size: A4; margin: 15mm 15mm 16mm 15mm; background: #F7F4EE;
+    @bottom-center { content: counter(page) "  \00b7  渣打集团（02888.HK）财报分析报告";
+      font-family: var(--serif); font-size: 8.5pt; color: #6b6a64; }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  @media screen { body { max-width: 220mm; margin: 0 auto; padding: 15mm; } }
+  body { color: var(--near-black); font-family: var(--serif); font-size: 9.6pt; line-height: 1.5;
+    letter-spacing: 0.2pt; widows: 3; orphans: 3; }
+  strong { font-weight: 600; color: var(--near-black); }
+  code { font-family: ui-monospace, Menlo, monospace; font-size: 8.6pt; background: #F1EDE5;
+    padding: 0 3pt; border-radius: 2pt; }
+
+  .report-header { display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: 12pt; padding-bottom: 9pt; border-bottom: 0.5pt solid var(--border); }
+  .ticker-eyebrow { font-size: 8.6pt; color: var(--brand); letter-spacing: 1.4pt;
+    font-weight: 500; margin-bottom: 4pt; }
+  .ticker-name { font-size: 23pt; font-weight: 600; line-height: 1.15; margin-bottom: 4pt; }
+  .ticker-sub { font-size: 9pt; color: var(--stone); line-height: 1.45; }
+  .price-block { text-align: right; padding-top: 6pt; min-width: 34%; }
+  .price-current { font-size: 25pt; font-weight: 600; line-height: 1; color: var(--brand);
+    font-variant-numeric: tabular-nums; }
+  .price-change { font-size: 9pt; font-weight: 500; margin-top: 3pt; color: var(--near-black);
+    font-variant-numeric: tabular-nums; }
+  .price-date { font-size: 8.4pt; color: var(--stone); margin-top: 2pt; }
+
+  .metrics { display: flex; gap: 10pt; margin-bottom: 14pt; padding: 7pt 0;
+    border-top: 0.3pt dotted var(--border); border-bottom: 0.3pt dotted var(--border); }
+  .metric { flex: 1 1 0; min-width: 0; flex-direction: column; align-items: flex-start; display: flex; }
+  .metric-value { font-size: 13pt; font-weight: 600; color: var(--brand); line-height: 1.1;
+    font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .metric-label { font-size: 8pt; color: var(--olive); line-height: 1.3; margin-top: 2pt;
+    white-space: normal; }
+  .metric:nth-child(1) .metric-value { color: var(--brand); }
+  .metric:nth-child(2) .metric-value { color: var(--teal); }
+  .metric:nth-child(3) .metric-value { color: var(--gold); }
+  .metric:nth-child(4) .metric-value { color: var(--blue); }
+  .metric:nth-child(5) .metric-value { color: var(--brand); }
+
+  h1 { font-size: 17pt; font-weight: 600; color: var(--near-black); margin: 4pt 0 10pt 0;
+    break-after: avoid; }
+  h2 { font-size: 14pt; font-weight: 600; position: relative; padding-left: 12pt;
+    margin: 16pt 0 6pt 0; break-after: avoid; }
+  h2::before { content:""; position:absolute; left:0; top:2.5pt; width:4pt; height:12pt;
+    background:var(--accent); border-radius:1pt; }
+  h3 { font-size: 11.4pt; font-weight: 600; color: var(--dark-warm); margin: 11pt 0 4pt 0;
+    break-after: avoid; }
+  h4 { font-size: 10.2pt; font-weight: 600; color: var(--dark-warm); margin: 9pt 0 3pt 0; break-after: avoid; }
+  p { margin: 0 0 6.2pt 0; widows: 2; orphans: 2; }
+  ul, ol { margin: 4pt 0 8pt 0; padding-left: 17pt; }
+  ul li::marker { color: var(--accent); } ol li::marker { color: var(--accent); font-weight: 600; }
+  ul li.sub { list-style: none; color: var(--olive); font-size: 9pt; margin-left: -8pt; }
+  ul ul { margin: 2pt 0 3pt 0; padding-left: 14pt; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 8.8pt; margin: 6pt 0;
+    break-inside: avoid; }
+  table th { text-align: left; font-weight: 600; color: var(--dark-warm); padding: 5pt 6pt;
+    border-bottom: 1pt solid var(--accent); background: transparent; }
+  table td { padding: 4pt 6pt; border-bottom: 0.25pt solid var(--border); vertical-align: top; }
+  table.compact th { padding: 4pt 5pt; font-size: 8.4pt; }
+  table.compact td { padding: 3.05pt 5pt; font-size: 8.4pt; line-height: 1.42; }
+  table.financial td:not(:first-child) { text-align: right; font-variant-numeric: tabular-nums; }
+  table.financial th:not(:first-child) { text-align: right; }
+  table .total td { font-weight: 600; border-top: 0.6pt solid var(--border); border-bottom: none; }
+  table.wide th, table.wide td { font-size: 7.6pt; padding: 2.6pt 3.0pt; letter-spacing: 0; }
+  table.longtable { break-inside: auto; }
+  table.longtable thead { display: table-header-group; }
+  table.longtable tr { break-inside: avoid; }
+  table.dense th { padding: 2.6pt 4pt; font-size: 7.8pt; }
+  table.dense td { padding: 2.2pt 4pt; font-size: 7.6pt; line-height: 1.34; }
+
+  p.note { font-size: 8pt; color: var(--stone); margin: 2pt 0 7pt 0; line-height: 1.45; }
+  p.warn { background: #FBF3EC; border-left: 3pt solid var(--gold); padding: 7pt 10pt;
+    border-radius: 3pt; margin: 8pt 0; break-inside: avoid; font-size: 8.2pt;
+    line-height: 1.48; color: var(--dark-warm); }
+
+  /* ===== 图表：纯 HTML/CSS，条形为 div，文字为真 HTML ===== */
+  figure { margin: 11pt 0; break-inside: avoid; }
+  figcaption { font-size: 8.4pt; color: var(--stone); margin-top: 5pt; line-height: 1.45; }
+  .fig-note { font-size: 8.2pt; color: var(--stone); margin-top: 3pt; line-height: 1.45; }
+  .chart { background: #FBF9F4; border: 0.4pt solid var(--border); border-radius: 4pt;
+    padding: 11pt 13pt 9pt 13pt; }
+  .ch-title { font-size: 11pt; font-weight: 600; color: var(--near-black); line-height: 1.35;
+    margin-bottom: 2pt; }
+  .ch-sub { font-size: 9pt; color: var(--stone); line-height: 1.4; margin-bottom: 7pt; }
+  .ch-legend { display: flex; flex-wrap: wrap; gap: 4pt 14pt; margin-bottom: 8pt; }
+  .ch-legend .lg { display: flex; align-items: center; gap: 4pt; font-size: 10px;
+    color: var(--dark-warm); }
+  .ch-legend .lg i { width: 11px; height: 9px; border-radius: 1px; display: inline-block;
+    flex: none; }
+  .ch-rows { display: flex; flex-direction: column; gap: 4pt; }
+  .ch-row { display: flex; align-items: flex-start; gap: 8pt; }
+  .ch-lab { flex: none; width: 86px; font-size: 11px; color: var(--dark-warm); line-height: 1.5;
+    text-align: right; padding-top: 0; word-break: break-word; }
+  .ch-bars { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 2pt; }
+  .ch-bar { display: flex; align-items: center; gap: 5pt; }
+  .ch-fill { height: 10px; border-radius: 1px; flex: none; min-width: 1px; }
+  .ch-spacer { height: 10px; flex: none; }
+  .ch-val { font-size: 11px; color: var(--dark-warm); font-variant-numeric: tabular-nums;
+    white-space: nowrap; flex: none; }
+  .ch-val.na { color: #B9B4AB; }
+  .ch-hint { font-size: 8.4pt; color: var(--stone); }
+  .ch-stack { display: flex; width: 100%; height: 17px; border-radius: 1px; overflow: hidden; }
+  .ch-stack .seg { display: flex; flex-direction: column; justify-content: center;
+    align-items: flex-start; padding-left: 4px; overflow: hidden; min-width: 0; }
+  .ch-stack .seg b { font-size: 10px; color: #FFFFFF; font-weight: 600; line-height: 1.1;
+    white-space: nowrap; }
+  .ch-stack .seg em { font-size: 10px; color: rgba(255,255,255,.86); font-style: normal;
+    line-height: 1.1; white-space: nowrap; }
+  .ch-scale { font-size: 10px; color: var(--stone); margin-top: 7pt; }
+  .page-break { break-before: page; }
+
+  /* 打印还原：让响应式补丁注入的表格滚动容器在打印时从布局中消失，
+     使 PDF 分页与补丁前完全一致（屏幕端仍保留横向滚动能力）。 */
+  @media print { .rsp-table { display: contents; } }
+</style>
+
+<!-- rsp-mobile-adapt : 响应式适配层（仅屏幕生效，不影响打印/PDF） -->
+<style id="rsp-mobile-adapt">
+/* rsp-mobile-adapt-v3 */
+/* ========== 1. 全局：屏幕端基础修正 ========== */
+@media screen {
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body { overflow-wrap: break-word; }
+  img, svg, canvas, video, iframe { max-width: 100%; }
+  svg[viewBox], svg[viewbox] { height: auto; }
+
+  /* 网格容器（两列对比等）：网格项默认 min-width:auto，会被内部宽表撑破
+     容器、把整页顶出横向滚动（报告里 .two-col 就栽在这上面）。放开收缩，
+     让里面的 .rsp-table 自己去横向滑动。 */
+  .risk-grid > *, .two-col > * { min-width: 0; }
+
+  /* 表格横向滚动容器：宽表不压字、不撑破页面 */
+  .rsp-table {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    margin: 8pt 0;
+    position: relative;
+  }
+  .rsp-table > table { margin: 0; }
+  .rsp-table::-webkit-scrollbar { height: 7px; }
+  .rsp-table::-webkit-scrollbar-track { background: transparent; }
+  .rsp-table::-webkit-scrollbar-thumb { background: #D8D1C4; border-radius: 4px; }
+  /* 内容确实溢出时，右侧给一层渐变暗示"还能往右滑" */
+  .rsp-table[data-rsp-scroll] {
+    background: linear-gradient(to left, rgba(167,63,45,.10), rgba(167,63,45,0) 28px);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 28px 100%;
+  }
+}
+
+/* ========== 2. 平板 / 窄窗口：边距先收，避免内容被挤 ========== */
+@media screen and (max-width: 900px) {
+  body { padding: 22px 22px 46px 22px !important; }
+  .report-header { flex-wrap: wrap; gap: 12pt; }
+  .metrics { flex-wrap: wrap; gap: 10pt 18pt; }
+  .metric { flex: 1 1 42%; min-width: 0; }
+  .report-footer { flex-wrap: wrap; gap: 4pt 14pt; }
+
+  /* 宽表改为横向滚动：给每列保留最小可读宽度，不再把汉字挤成竖排 */
+  .rsp-w5 > table { min-width: 310px !important; }
+  .rsp-w6 > table { min-width: 372px !important; }
+  .rsp-w7 > table { min-width: 434px !important; }
+  .rsp-w8 > table { min-width: 496px !important; }
+  .rsp-w9 > table { min-width: 558px !important; }
+  .rsp-w10 > table { min-width: 620px !important; }
+  .rsp-w11 > table { min-width: 682px !important; }
+  .rsp-w12 > table { min-width: 744px !important; }
+  .rsp-w13 > table { min-width: 806px !important; }
+  .rsp-w14 > table { min-width: 868px !important; }
+  .rsp-w15 > table { min-width: 930px !important; }
+  .rsp-w16 > table { min-width: 992px !important; }
+}
+
+/* ========== 3. 手机：指标卡两列、页头转纵向 ========== */
+@media screen and (max-width: 720px) {
+  body {
+    max-width: 100% !important;
+    padding: 18px 16px 44px 16px !important;
+    font-size: 10.5pt;
+  }
+  h2 { font-size: 15pt !important; margin: 20pt 0 7pt 0 !important; }
+  h3 { font-size: 12.5pt !important; }
+  h1 { font-size: 19pt !important; }
+  p, li { line-height: 1.62; }
+  ul, ol { padding-left: 17pt; }
+
+  .report-header { flex-direction: column; align-items: stretch; gap: 8pt; }
+  .price-block { text-align: left; padding-top: 0; }
+  .price-current { font-size: 24pt !important; }
+  .ticker-name { font-size: 21pt !important; }
+  .ticker-sub { font-size: 9.5pt !important; }
+
+  .metrics { gap: 9pt 12pt; }
+  .metric { flex: 1 1 45%; }
+  .metric-value { font-size: 15pt !important; }
+  .metric-label { font-size: 8.5pt !important; white-space: normal !important; }
+
+  table, .kami-table { font-size: 9pt !important; }
+  .longtable { font-size: 8.5pt !important; }
+  .wide { font-size: 7.5pt !important; }
+  .dense { font-size: 8pt !important; }
+  table th, table td, .kami-table th, .kami-table td { padding: 5pt 6pt !important; }
+
+  blockquote, .quote, .note, .warn, .callout, .risk-item { padding: 9pt 11pt !important; }
+  .risk-grid { grid-template-columns: 1fr !important; }
+  .report-footer { flex-direction: column; align-items: flex-start; gap: 3pt; }
+}
+
+/* ========== 3b. 图表：窄屏保持图纸原尺寸 + 横向滑动 ========== */
+/* 报告里的图表是 SVG：viewBox 宽 680 + width:100%。缩到手机宽度（约 350px）
+   只剩 0.5×，图内字号从 11px 掉到 5px 完全不可读；而 SVG <text> 不会自动换行，
+   单纯放大字号必然溢出图框。这里改为**保持图纸原尺寸、允许左右滑动**——
+   与上面宽表同一套策略，宁可滑也不塌字号。仅屏幕生效，打印/PDF 不受影响。 */
+@media screen and (max-width: 720px) {
+  .rsp-fig {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    /* 图纸一定宽于屏幕，直接给右侧一层渐变，暗示"还能往右滑" */
+    background: linear-gradient(to left, rgba(167,63,45,.09), rgba(167,63,45,0) 26px);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 26px 100%;
+  }
+  .rsp-fig > svg { min-width: var(--rsp-fig-w, 680px); }
+  .rsp-fig::-webkit-scrollbar { height: 7px; }
+  .rsp-fig::-webkit-scrollbar-track { background: transparent; }
+  .rsp-fig::-webkit-scrollbar-thumb { background: #D8D1C4; border-radius: 4px; }
+}
+
+/* ========== 4. 小屏手机：指标卡单列、边距收到最紧 ========== */
+@media screen and (max-width: 430px) {
+  body { padding: 14px 12px 38px 12px !important; }
+  h2 { font-size: 14pt !important; }
+  h3 { font-size: 11.5pt !important; }
+  .ticker-name { font-size: 19pt !important; }
+  .price-current { font-size: 21pt !important; }
+  .metric { flex: 1 1 100%; }
+  .metric-value { font-size: 16pt !important; }
+  ul, ol { padding-left: 15pt; }
+  table, .kami-table { font-size: 8.5pt !important; }
+}
+
+/* ========== 5. 打印：把包裹层还原成透明，PDF 版式与补丁前完全一致 ========== */
+@media print {
+  .rsp-table { margin: 0; padding: 0; overflow: visible !important; background: none !important; }
+  .rsp-table > table { margin: 8pt 0; min-width: 0 !important; }
+  [class*="rsp-w"] > table { min-width: 0 !important; }
+}
+</style>
+</head>
+<body>
+
+<div class="report-header">
+  <div class="ticker-block">
+    <div class="ticker-eyebrow">国际银行 · 新兴市场网络型银行十年财务研究</div>
+    <div class="ticker-name">渣打集团 <span style="font-size:13pt;color:#7C7B77;font-weight:400;">02888.HK / STAN.LN</span></div>
+    <div class="ticker-sub">报告期：<strong>2014—2025 年度（连续十二个完整年度）＋ 2026 年上半年度</strong><br>
+      口径：英国采纳的 IFRS 合并报表　|　币种：美元　|　单位：亿美元（特别注明除外）</div>
+  </div>
+  <div class="price-block">
+    <div class="price-current">2.04%</div>
+    <div class="price-change">2026 上半年净息差（年化）</div>
+    <div class="price-date">同比 &minus;1bp，加息红利已释放完毕</div>
+  </div>
+</div>
+
+<div class="metrics">
+  <div class="metric"><div class="metric-value">208.94</div><div class="metric-label">2025 年基本经营收入（亿美元）<br>同比 +6.08%，创历史新高</div></div>
+  <div class="metric"><div class="metric-value">45.58</div><div class="metric-label">2025 年普通股股东应占溢利（亿美元）<br>同比 +26%，仅为基本除税前溢利的 57.7%</div></div>
+  <div class="metric"><div class="metric-value">14.7%</div><div class="metric-label">2025 年有形股本回报（基本口径）<br>同比 +300 个基点，十年最高</div></div>
+  <div class="metric"><div class="metric-value">52%</div><div class="metric-label">2025 年第三阶段保障比率（不计抵押品）<br>同比 &minus;12 个百分点，IFRS 9 以来最低</div></div>
+  <div class="metric"><div class="metric-value">91</div><div class="metric-label">2023 年以来累计宣布股东分派（亿美元）<br>2026 上半年中期股息 +66%</div></div>
+</div>
+
+<p><strong>数据区间：2014 年度 — 2026 年上半年度｜数据来源：公司港交所定期报告（交易所披露）</strong></p>
+<h2>一、公司概况与报告口径</h2>
+<h3>1.1 基本信息</h3>
+<p>渣打集团有限公司（Standard Chartered PLC）于英格兰及威尔士注册成立，总部设于伦敦，是一家以<strong>新兴市场</strong>为核心的国际银行集团，业务网络覆盖全球 50 余个市场，在<strong>贸易走廊、跨境资本流动与财富管理</strong>三个交叉点上具备独特定位。</p>
+<div class="rsp-table"><table class="compact">
+<thead><tr><th>项目</th><th>内容</th></tr></thead>
+<tbody>
+  <tr><td>港股</td><td>香港联合交易所，代码 02888</td></tr>
+  <tr><td>英股</td><td>伦敦证券交易所，代码 STAN.LN</td></tr>
+  <tr><td>报告币种与单位</td><td><strong>美元（USD）</strong>；本文金额单位除特别注明外均为<strong>百万元（$mn）</strong>，与年报一致</td></tr>
+  <tr><td>会计准则</td><td>英国采纳的国际会计准则及国际财务报告准则（IFRS，英国采纳版）</td></tr>
+  <tr><td>客户类别</td><td>财富管理及零售银行业务（WRB）、企业及投资银行业务（CIB）、创投业务（Ventures）、中央及其他项目</td></tr>
+  <tr><td>监管体制</td><td>英国审慎监管局（PRA）为集团合并监管机构；同时受香港金管局、新加坡金管局等多地监管</td></tr>
+  <tr><td>2026 年 6 月末规模</td><td>总资产 <strong>9,934 亿元</strong>；客户贷款及垫款 2,993 亿元；客户存款 5,526 亿元</td></tr>
+  <tr><td>关键人员</td><td>集团行政总裁 Bill Winters；集团财务总监 Manus Costello（2025 年起）</td></tr>
+</tbody>
+</table></div>
+<h3>1.2 报告口径说明</h3>
+<ol>
+  <li><strong>本集团口径</strong>。除特别注明，本文数据均为集团合并报表口径。</li>
+</ol>
+<ol>
+  <li><strong>双轨业绩口径（本报告最关键的阅读前提）</strong>。渣打同时披露两套业绩：<ul><li class="sub"><strong>基本基准（Underlying）</strong>：剔除重组费用、商誉减值、监管事宜拨备、重大策略性交易损益等项目，是管理层评估经营表现、计算派息与指引的口径；</li><li class="sub"><strong>列账基准（Statutory）</strong>：IFRS 法定口径，含上述全部项目。</li></ul></li>
+</ol>
+<p>两套口径的差额在个别年份极大（2020 年列账除税前溢利 16.13 亿元，仅相当于基本口径 25.08 亿元的 <strong>64%</strong>）。<strong>任何跨年比较必须先声明采用哪套口径</strong>，本文表 1 双列并存。</p>
+<ol>
+  <li><strong>收入口径的三次重大重新呈列</strong>（跨年比较必须使用重述后数据）：<ul><li class="sub"><strong>2019 年</strong>：变更净利息收入、买卖收入净额及净息差的会计政策，过往期间已重列；</li><li class="sub"><strong>2023 年起</strong>：将「退出非洲及中东七个市场业务」「航空金融业务」「债务价值调整（DVA）」三项从基本表现中剔除，并重列 2022 年可比数（2022 年基本经营收入由 163.17 亿元重述为 157.62 亿元）；</li><li class="sub"><strong>2025 年 4 月 2 日</strong>：就资金成本错配发布监管新闻服务（RNS）内容，基本净利息收入与非净利息收入之间重新分类，净息差随之重列。</li></ul></li>
+</ol>
+<ol>
+  <li><strong>净利息收入的双口径</strong>。渣打将「交易账资金成本」「财资业务货币管理活动」「交易业务及主要经纪服务活动现金抵押品的利息」在两收入间作重新分类，因此存在<strong>经调整净利息收入</strong>与<strong>列账净利息收入</strong>两个数字（2026H1：经调整 57.40 亿元 vs 列账 30.01 亿元，差额 27.39 亿元）。<strong>净息差按经调整净利息收入 ÷ 平均计息资产（年化）计算</strong>，不可用列账净利息收入直接推算。</li>
+</ol>
+<ol>
+  <li><strong>报告基准切换（重要前瞻）</strong>。渣打明确「将于 <strong>2026 年把报告基准由基本基准改为列账基准</strong>」，2026 年指引已按列账口径设定。这意味着<strong>2026 年起的对外表述与 2025 年及之前的基本口径将不再直接可比</strong>，投资者需自行做口径桥接。</li>
+</ol>
+<ol>
+  <li><strong>未披露即留空</strong>。早期年报未按当前口径披露的指标，相应单元格填「—」，不作推算。</li>
+</ol>
+<ol>
+  <li><strong>数据来源版本</strong>（每年度仅采用一个版本，优先年报原件）：<ul><li class="sub">2014—2016 年取自当年年报；</li><li class="sub">2017—2025 年分别取自当年年度报告；</li><li class="sub">2026 年中期数据取自《二〇二六年半年报告》（2026-08-18 披露）；</li><li class="sub"><strong>2022 年年报原件在港交所披露中缺失</strong>：该年度登记的两次「二〇二二年年报」（2023-03-27、2023-05-10）实为同一份文件，本文 2022 年数据取自《二〇二三年年报》的<strong>重述后比较列</strong>，已在表注声明。</li></ul></li>
+</ol>
+<h2>二、核心财务数据对比（8 张表）</h2>
+<h3>表 1　经营业绩与盈利能力（2014—2026H1）</h3>
+<div class="rsp-table rsp-w12"><table class="compact wide longtable">
+<thead><tr><th>年度</th><th>基本经营收入<br>($mn)</th><th>同比<br>(%)</th><th>列账经营收入<br>($mn)</th><th>同比<br>(%)</th><th>基本除税前溢利<br>($mn)</th><th>列账除税前溢利<br>($mn)</th><th>列账归母溢利<br>($mn)</th><th>净息差<br>(%)</th><th>基本每股盈利<br>(仙)</th><th>有形股本回报<br>基本(%)</th><th>成本收入比<br>基本(%)</th></tr></thead>
+<tbody>
+  <tr><td>2014</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>4,448</td><td>3,292</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+  <tr><td>2015</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>834</td><td>(1,234)</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+  <tr><td>2016</td><td>—</td><td>—</td><td>13,808</td><td>—</td><td>1,093</td><td>409</td><td>(247)</td><td>1.3</td><td>3.4</td><td>0.3</td><td>—</td></tr>
+  <tr><td>2017</td><td>14,289</td><td>+3.48</td><td>14,289</td><td>+3.48</td><td>3,010</td><td>2,415</td><td>1,222</td><td>1.6</td><td>47.2</td><td>3.5</td><td>—</td></tr>
+  <tr><td>2018</td><td>14,968</td><td>+4.75</td><td>14,968</td><td>+4.75</td><td>3,857</td><td>2,548</td><td>1,019</td><td>1.58</td><td>61.4</td><td>5.1</td><td>—</td></tr>
+  <tr><td>2019</td><td>15,271</td><td>+2.02</td><td>15,271</td><td>+2.02</td><td>4,172</td><td>3,713</td><td>2,298</td><td>1.62</td><td>75.7</td><td>6.4</td><td>—</td></tr>
+  <tr><td>2020</td><td>14,765</td><td>−3.31</td><td>14,765</td><td>−3.31</td><td>2,508</td><td>1,613</td><td>645</td><td>1.31</td><td>36.1</td><td>3.0</td><td>—</td></tr>
+  <tr><td>2021</td><td>14,736</td><td>−0.20</td><td>14,736</td><td>−0.20</td><td>3,896</td><td>3,386</td><td>1,946</td><td>1.21</td><td>92.0</td><td>6.0</td><td>—</td></tr>
+  <tr><td>2022</td><td>15,762</td><td>+6.96</td><td>16,317</td><td>+10.73</td><td>4,645</td><td>4,949</td><td>2,871</td><td>1.41</td><td>118.2</td><td>8.2</td><td>—</td></tr>
+  <tr><td>2023</td><td>17,378</td><td>+10.25</td><td>18,019</td><td>+10.43</td><td>5,678</td><td>5,093</td><td>3,017</td><td>1.67</td><td>128.9</td><td>10.1</td><td>63.4</td></tr>
+  <tr><td>2024</td><td>19,696</td><td>+13.34</td><td>19,543</td><td>+8.46</td><td>6,811</td><td>6,014</td><td>3,593</td><td>1.94</td><td>168.1</td><td>11.7</td><td>59.4</td></tr>
+  <tr><td>2025</td><td><strong>20,894</strong></td><td><strong>+6.08</strong></td><td><strong>20,942</strong></td><td><strong>+7.16</strong></td><td><strong>7,900</strong></td><td><strong>6,963</strong></td><td><strong>4,558</strong></td><td><strong>2.03</strong></td><td><strong>229.7</strong></td><td><strong>14.7</strong></td><td><strong>59.1</strong></td></tr>
+  <tr><td><strong>2026H1</strong></td><td>—</td><td>—</td><td><strong>11,604</strong></td><td><strong>+6.40</strong></td><td>—</td><td><strong>4,784</strong></td><td><strong>3,653</strong></td><td><strong>2.04</strong></td><td><strong>151.6</strong></td><td><strong>17.6</strong></td><td><strong>54.6</strong></td></tr>
+</tbody>
+</table></div>
+<p>注：</p>
+<p>(1) <strong>2022 年两个收入口径不可直接比较</strong>：列账 16,317 为当年原始披露，基本 15,762 为《二〇二三年年报》剔除退出市场、航空金融及 DVA 后的重述值。</p>
+<p>(2) 2014—2015 年集团层面未按当前「基本/列账」框架完整披露，仅列列账除税前溢利与归母溢利，其余留空。</p>
+<p>(3) 2026H1 的净息差（2.04%）与有形股本回报（17.6%）为<strong>年化值</strong>，不可与全年数据直接比较。</p>
+<p>(4) 「成本收入比」自 2023 年起按「不包括银行征费」口径披露，2014—2022 年留空。2024 年年报表 1 处列示 59.4%、财务概要处列示 59.9%（含银行征费），本文取前者。</p>
+<p>(5) 列账归母溢利 = 母公司股东应占溢利。<strong>「普通股股东应占溢利」在扣除优先股及 AT1 证券股息后另有数字</strong>（2025 年：4,558 百万元 vs 归母 5,085 百万元），两者差额即 AT1 及优先股股息，勿混用。</p>
+<p>(6) 2015 年归母溢利为<strong>负值</strong>（−1,234 百万元），是十年区间唯一的亏损年份，主要由当年大额重组与减值（含商誉减值 3.62 亿元）及新兴市场大宗商品风险暴露所致。</p>
+<figure>
+<div class="chart">
+<div class="ch-title">图 1　基本经营收入与归母净利润（2016—2025，单位：亿美元）</div>
+<div class="ch-sub">收入十年从 138.08 亿增至 208.94 亿美元（CAGR 4.70%），但增长高度集中于最近三年；利润端 2025 年创新高</div>
+<div class="ch-legend"><span class="lg"><i style="background:#A73F2D"></i>基本经营收入</span><span class="lg"><i style="background:#2F6F6B"></i>归母净利润（列账）</span></div>
+<div class="ch-rows">
+<div class="ch-row"><span class="ch-lab">2016</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:46.26%;background:#A73F2D"></div><span class="ch-val">138.08</span></div>
+<div class="ch-bar"><span class="ch-val na">—</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2017</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:47.87%;background:#A73F2D"></div><span class="ch-val">142.89</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:4.09%;background:#2F6F6B"></div><span class="ch-val">12.22</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2018</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:50.15%;background:#A73F2D"></div><span class="ch-val">149.68</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:3.41%;background:#2F6F6B"></div><span class="ch-val">10.19</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2019</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:51.16%;background:#A73F2D"></div><span class="ch-val">152.71</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:7.70%;background:#2F6F6B"></div><span class="ch-val">22.98</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2020</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:49.47%;background:#A73F2D"></div><span class="ch-val">147.65</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:2.16%;background:#2F6F6B"></div><span class="ch-val">6.45</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2021</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:49.37%;background:#A73F2D"></div><span class="ch-val">147.36</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:6.52%;background:#2F6F6B"></div><span class="ch-val">19.46</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2022</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:52.81%;background:#A73F2D"></div><span class="ch-val">157.62</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:9.62%;background:#2F6F6B"></div><span class="ch-val">28.71</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2023</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:58.22%;background:#A73F2D"></div><span class="ch-val">173.78</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:10.11%;background:#2F6F6B"></div><span class="ch-val">30.17</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2024</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:65.99%;background:#A73F2D"></div><span class="ch-val">196.96</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:12.04%;background:#2F6F6B"></div><span class="ch-val">35.93</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2025</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:70.00%;background:#A73F2D"></div><span class="ch-val">208.94</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:15.27%;background:#2F6F6B"></div><span class="ch-val">45.58</span></div>
+</div></div>
+</div>
+<div class="ch-scale">数值单位：亿美元（条形长度按各行最大值等比缩放）</div>
+</div>
+<figcaption>图 1　收入曲线分三段：2016—2021 年五年停滞（CAGR 仅 1.3%，含 2020/2021 连续两年负增长）、2022—2024 年三年双位数增长（＋6.96%／＋10.25%／＋13.34%）、2025 年回落至 ＋6.08%。利润曲线弹性显著大于收入：2025 年收入较 2016 年增长 51.3%，归母净利润却增长 19.4 倍（0.22→4.56 亿美元量级），反映经营杠杆与拨备周期反转的双重作用（数据来源：渣打集团 2016—2025 年年度报告）</figcaption>
+<p class="fig-note">注：收入为「基本经营收入」口径；归母净利润为「母公司股东应占溢利」列账口径。2016 年归母净利润为负值（−2.47 亿美元），图中未绘出条形，仅保留纵轴零位；2015 年亦为亏损（−12.34 亿美元），已超出本图区间。</p>
+</figure>
+<h3>表 2　资产负债与存贷款规模（期末）</h3>
+<div class="rsp-table rsp-w8"><table class="compact longtable">
+<thead><tr><th>期末</th><th>总资产<br>($mn)</th><th>总负债<br>($mn)</th><th>股东权益<br>($mn)</th><th>客户贷款及垫款<br>($mn)</th><th>客户存款<br>($mn)</th><th>垫款对存款比率<br>(%)</th><th>风险加权资产<br>($mn)</th></tr></thead>
+<tbody>
+  <tr><td>2016</td><td>646,692</td><td>599,666</td><td>47,026</td><td>285,553</td><td>411,724</td><td>—</td><td>—</td></tr>
+  <tr><td>2017</td><td>663,501</td><td>611,694</td><td>51,807</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+  <tr><td>2018</td><td>687,338</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+  <tr><td>2019</td><td>720,378</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+  <tr><td>2020</td><td>789,050</td><td>738,321</td><td>50,729</td><td>281,699</td><td>439,339</td><td>61.1</td><td>268,834</td></tr>
+  <tr><td>2021</td><td>827,818</td><td>775,182</td><td>52,636</td><td>298,468</td><td>474,570</td><td>59.1</td><td>271,233</td></tr>
+  <tr><td>2022</td><td>819,922</td><td>769,906</td><td>50,016</td><td>310,647</td><td>461,677</td><td>57.4</td><td>244,711</td></tr>
+  <tr><td>2023</td><td>822,844</td><td>772,491</td><td>50,353</td><td>286,975</td><td>469,418</td><td>53.3</td><td>244,151</td></tr>
+  <tr><td>2024</td><td>849,688</td><td>798,404</td><td>51,284</td><td>281,032</td><td>464,489</td><td>53.3</td><td>247,065</td></tr>
+  <tr><td>2025</td><td><strong>919,955</strong></td><td><strong>865,369</strong></td><td><strong>54,586</strong></td><td><strong>286,788</strong></td><td><strong>530,161</strong></td><td><strong>51.4</strong></td><td><strong>258,031</strong></td></tr>
+  <tr><td><strong>2026H1</strong></td><td><strong>993,406</strong></td><td><strong>937,513</strong></td><td><strong>55,893</strong></td><td><strong>299,279</strong></td><td><strong>552,644</strong></td><td><strong>50.9</strong></td><td><strong>261,451</strong></td></tr>
+</tbody>
+</table></div>
+<p>注：</p>
+<p>(1) 2017—2019 年部分单元格留空——这些年的年报以「地区分部」形式列示客户贷款/存款与风险加权资产，<strong>未按集团合并口径单列</strong>；本文不将各地区数相加充作集团数（地区间存在「中央及其他项目」抵消项）。</p>
+<p>(2) 总负债 = 总资产 − 权益总额（2024/2025 年按此计算）。</p>
+<p>(3) <strong>「垫款对存款比率」的分母口径有特别说明</strong>：客户贷款及垫款总额<strong>不包括反向回购协议及类似已抵押贷款、不包括存放央行且于压力点须偿还的核定结余</strong>，但包括按公允价值计入损益的客户贷款；客户存款总额包括按公允价值计入损益的客户存款。<strong>该比率因此不等于上表两列金额直接相除。</strong></p>
+<p>(4) 风险加权资产在 2022 年从 271,233 骤降至 244,711（−9.8%），主要因信贷风险加权资产优化行动及非洲/中东退出市场业务出表，属结构性调整而非资产收缩。</p>
+<h3>表 3　资产质量与风险抵补（期末）</h3>
+<div class="rsp-table rsp-w9"><table class="compact longtable">
+<thead><tr><th>期末</th><th>第三阶段贷款<br>($mn)</th><th>第三阶段贷款<br>占总贷款(%)</th><th>预期信贷亏损拨备<br>($mn)</th><th>其中第三阶段<br>($mn)</th><th>第三阶段保障比率<br>不计抵押品(%)</th><th>第三阶段保障比率<br>计入抵押品(%)</th><th>信贷减值支出<br>($mn)</th><th>贷款损失率<br>(bp)</th></tr></thead>
+<tbody>
+  <tr><td>2017</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>1,200</td><td>—</td></tr>
+  <tr><td>2018</td><td>6,924</td><td>2.65</td><td>4,898</td><td>4,056</td><td>59</td><td>81</td><td>740</td><td>21</td></tr>
+  <tr><td>2019</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>906</td><td>27</td></tr>
+  <tr><td>2020</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>2,294</td><td>66</td></tr>
+  <tr><td>2021</td><td>8,100</td><td>2.70</td><td>—</td><td>—</td><td>58</td><td>75</td><td>630</td><td>—</td></tr>
+  <tr><td>2022</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>528</td><td>—</td></tr>
+  <tr><td>2023</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>528</td><td>—</td></tr>
+  <tr><td>2024</td><td>6,203</td><td>2.17</td><td>4,904</td><td>3,948</td><td>64</td><td>78</td><td>557</td><td>19</td></tr>
+  <tr><td>2025</td><td><strong>5,964</strong></td><td><strong>2.05</strong></td><td><strong>4,061</strong></td><td><strong>3,087</strong></td><td><strong>52</strong></td><td><strong>68</strong></td><td><strong>676</strong></td><td><strong>19</strong></td></tr>
+  <tr><td><strong>2026H1</strong></td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td><strong>446</strong></td><td><strong>26</strong></td></tr>
+</tbody>
+</table></div>
+<p>注：</p>
+<p>(1) 渣打<strong>不采用中国内地银行的「不良贷款率 / 拨备覆盖率」框架</strong>，而是按 IFRS 9 三阶段模型披露：<strong>第三阶段贷款</strong>（已发生信用减值）对应不良；<strong>第三阶段保障比率</strong>（第三阶段减值拨备 ÷ 第三阶段贷款总风险）对应拨备覆盖率。跨行对比时口径不可直接套用。</p>
+<p>(2) 2018 年第三阶段贷款 6,924 百万元含「清算组合」1,275 百万元，为 IFRS 9 于 2018-01-01 生效的首年数据，<strong>与后续年度不可比</strong>。</p>
+<p>(3) 2021 年第三阶段贷款 81 亿元、保障比率 58%/75% 取自 2021 年报文字表述；2020 年及 2022—2023 年的资产负债表明细表未按当前格式单列，相应单元格留空，不作推算。</p>
+<p>(4) <strong>2025 年第三阶段保障比率从 64%/78% 骤降至 52%/68%（−12pp / −10pp）</strong>，为本报告最重要的资产质量信号，详见 §3.4。</p>
+<p>(5) 2026H1 信贷减值支出 446 百万元中含<strong>就中东冲突相关风险作出的一般性额外拨加 234 百万元</strong>；贷款损失率年化 26bp（2025H1 为 14bp）。</p>
+<figure>
+<div class="chart">
+<div class="ch-title">图 2　净息差与有形股本回报（2016—2025，单位：%）</div>
+<div class="ch-sub">净息差 2021 年触底 1.21% 后连升四年至 2.03%（＋82bp）；有形股本回报同期从 6.0% 升至 14.7%</div>
+<div class="ch-legend"><span class="lg"><i style="background:#A73F2D"></i>净息差</span><span class="lg"><i style="background:#2F6F6B"></i>有形股本回报（基本）</span></div>
+<div class="ch-rows">
+<div class="ch-row"><span class="ch-lab">2016</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:6.19%;background:#A73F2D"></div><span class="ch-val">1.30</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:1.43%;background:#2F6F6B"></div><span class="ch-val">0.30</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2017</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:7.62%;background:#A73F2D"></div><span class="ch-val">1.60</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:16.67%;background:#2F6F6B"></div><span class="ch-val">3.50</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2018</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:7.52%;background:#A73F2D"></div><span class="ch-val">1.58</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:24.29%;background:#2F6F6B"></div><span class="ch-val">5.10</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2019</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:7.71%;background:#A73F2D"></div><span class="ch-val">1.62</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:30.48%;background:#2F6F6B"></div><span class="ch-val">6.40</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2020</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:6.24%;background:#A73F2D"></div><span class="ch-val">1.31</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:14.29%;background:#2F6F6B"></div><span class="ch-val">3.00</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2021</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:5.76%;background:#A73F2D"></div><span class="ch-val">1.21</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:28.57%;background:#2F6F6B"></div><span class="ch-val">6.00</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2022</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:6.71%;background:#A73F2D"></div><span class="ch-val">1.41</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:39.05%;background:#2F6F6B"></div><span class="ch-val">8.20</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2023</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:7.95%;background:#A73F2D"></div><span class="ch-val">1.67</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:48.10%;background:#2F6F6B"></div><span class="ch-val">10.10</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2024</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:9.24%;background:#A73F2D"></div><span class="ch-val">1.94</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:55.71%;background:#2F6F6B"></div><span class="ch-val">11.70</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2025</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:9.67%;background:#A73F2D"></div><span class="ch-val">2.03</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:70.00%;background:#2F6F6B"></div><span class="ch-val">14.70</span></div>
+</div></div>
+</div>
+<div class="ch-scale">数值单位：%（条形长度按各行最大值等比缩放）</div>
+</div>
+<figcaption>图 2　两条曲线几乎同步：净息差在 2020—2021 年降息周期中跌至 1.31%／1.21% 的历史低位，有形股本回报同期跌至 3.0%／6.0%；2022 年起全球加息推动净息差连升四年，股本回报随之升至 2025 年的 14.7%（管理层口径为「上升 300 个基点」）。2026 上半年净息差 2.04%（同比 −1bp）已停止扩张，而股本回报仍升至年化 17.6%——增长动力已从息差切换到财富管理与放贷业务（数据来源：渣打集团 2016—2025 年年度报告、2026 年半年度报告）</figcaption>
+<p class="fig-note">注：2016—2017 年净息差为当年年报披露口径（1.3%／1.6%），与 2018 年起口径存在细微差异；2025 年净息差已按 2025-04-02 RNS 重新分类口径重列。有形股本回报 2026 上半年为年化值 17.6%。</p>
+</figure>
+<figure>
+<div class="chart">
+<div class="ch-title">图 3　2025 年基本除税前溢利到普通股股东应占溢利的桥（单位：亿美元）</div>
+<div class="ch-sub">起点 79.00（基本除税前溢利）→ 终点 45.58（普通股股东应占溢利），三段扣减合计 33.42 亿美元</div>
+<div class="ch-legend"><span class="lg"><i style="background:#8B8880"></i>存量</span><span class="lg"><i style="background:#2F6F6B"></i>正向贡献</span><span class="lg"><i style="background:#A73F2D"></i>负向拖累</span></div>
+<div class="ch-rows">
+<div class="ch-row"><span class="ch-lab">基本除税前溢利</span><div class="ch-bars"><div class="ch-bar"><div class="ch-spacer" style="width:0.00%"></div><div class="ch-fill" style="width:70.00%;background:#8B8880"></div><span class="ch-val">79.00</span></div></div></div>
+<div class="ch-row"><span class="ch-lab">重组·FFG·DVA·其他</span><div class="ch-bars"><div class="ch-bar"><div class="ch-spacer" style="width:61.70%"></div><div class="ch-fill" style="width:8.30%;background:#A73F2D"></div><span class="ch-val">-9.37</span></div></div></div>
+<div class="ch-row"><span class="ch-lab">税项</span><div class="ch-bars"><div class="ch-bar"><div class="ch-spacer" style="width:45.16%"></div><div class="ch-fill" style="width:16.53%;background:#A73F2D"></div><span class="ch-val">-18.66</span></div></div></div>
+<div class="ch-row"><span class="ch-lab">AT1 及优先股股息</span><div class="ch-bars"><div class="ch-bar"><div class="ch-spacer" style="width:40.39%"></div><div class="ch-fill" style="width:4.78%;background:#A73F2D"></div><span class="ch-val">-5.39</span></div></div></div>
+<div class="ch-row"><span class="ch-lab">普通股股东应占溢利</span><div class="ch-bars"><div class="ch-bar"><div class="ch-spacer" style="width:0.00%"></div><div class="ch-fill" style="width:40.39%;background:#8B8880"></div><span class="ch-val">45.58</span></div></div></div>
+</div>
+<div class="ch-scale">数值单位：亿美元（条形长度按最大单项等比缩放，浮动位置反映累计过程）</div>
+</div>
+<figcaption>图 3　「基本除税前溢利」不等于可分配利润：2025 年 79.00 亿美元的基本口径盈利，需依次扣减重组/FFG/DVA 等项目 9.37 亿、税项 18.66 亿、AT1 及优先股股息约 5.39 亿，最终落到普通股股东名下仅 45.58 亿美元，**只有基本口径的 57.7%**。其中 9.37 亿元的「一次性」项目已连续十年出现，具有事实上的经常性——这是「基本基准」口径最受质疑之处（数据来源：渣打集团 2025 年年度报告）</figcaption>
+<p class="fig-note">注：分段数据勾稽——79.00 − 9.37 − 18.66 − 5.39 ＝ 45.58（亿美元）。「AT1 及优先股股息」由归母溢利 50.85 亿与普通股股东应占溢利 45.58 亿的差额倒算，扣减 0.12 亿的少数股东及其他调整后与年报注释一致。</p>
+</figure>
+<h3>表 4　资本充足率与经营效率（期末）</h3>
+<div class="rsp-table rsp-w8"><table class="compact longtable">
+<thead><tr><th>期末</th><th>普通股权一级资本<br>($mn)</th><th>普通股权一级资本比率<br>(%)</th><th>总资本<br>($mn)</th><th>总资本比率<br>(%)</th><th>流动性覆盖比率<br>(%)</th><th>杠杆比率<br>(%)</th><th>每股有形资产净值<br>(仙)</th></tr></thead>
+<tbody>
+  <tr><td>2016</td><td>—</td><td>13.6</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+  <tr><td>2017</td><td>—</td><td>13.6</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+  <tr><td>2018</td><td>—</td><td>14.0</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+  <tr><td>2019</td><td>—</td><td>13.8</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+  <tr><td>2020</td><td>—</td><td>14.1</td><td>—</td><td>—</td><td>143</td><td>—</td><td>—</td></tr>
+  <tr><td>2021</td><td>—</td><td>14.1</td><td>—</td><td>—</td><td>143</td><td>—</td><td>—</td></tr>
+  <tr><td>2022</td><td>—</td><td>14.0</td><td>—</td><td>—</td><td>147</td><td>—</td><td>—</td></tr>
+  <tr><td>2023</td><td>34,314</td><td>14.1</td><td>51,741</td><td>21.2</td><td>145</td><td>4.7</td><td>1,393</td></tr>
+  <tr><td>2024</td><td>35,190</td><td>14.2</td><td>53,091</td><td>21.5</td><td>138</td><td>4.8</td><td>1,541</td></tr>
+  <tr><td>2025</td><td><strong>36,440</strong></td><td><strong>14.1</strong></td><td><strong>53,227</strong></td><td><strong>20.6</strong></td><td><strong>155.4</strong></td><td><strong>4.7</strong></td><td><strong>1,730</strong></td></tr>
+  <tr><td><strong>2026H1</strong></td><td><strong>37,003</strong></td><td><strong>14.2</strong></td><td><strong>55,164</strong></td><td><strong>21.1</strong></td><td><strong>148.4</strong></td><td><strong>4.7</strong></td><td><strong>1,755</strong></td></tr>
+</tbody>
+</table></div>
+<p>注：</p>
+<p>(1) 2016—2022 年普通股权一级资本比率为各年报「主要业绩指标」披露值；<strong>渣打自 2013 年后只披露比率、不单列资本金额</strong>，故金额列留空。</p>
+<p>(2) 2023/2024 年数据取自《二〇二四年年报》比较列；2016—2022 年取自当年年报。</p>
+<p>(3) <strong>2026H1 普通股权一级资本比率 14.2%，较监管最低要求高出 3.9 个百分点</strong>；杠杆比率 4.7% 高于 3.7% 最低要求。</p>
+<p>(4) 2026H1 的 14.2% 已计入 2026 年 2 月宣布、6 月 24 日前完成的 <strong>15 亿元股份回购</strong>（令比率下降 58bp），并已计提中期股息（再降 30bp）；<strong>尚未计入即将启动的 10 亿元新回购（预计令 2026Q3 比率再降 38bp）</strong>。</p>
+<p>(5) 渣打自设普通股权一级资本比率目标范围为 <strong>13%—14%</strong>，2025 年末 14.1% 已<strong>略高于目标上限</strong>，是管理层得以宣布回购的前提。</p>
+<h3>表 5　营业收入结构（按产品，2023—2026H1）</h3>
+<div class="rsp-table rsp-w10"><table class="compact">
+<thead><tr><th>期间</th><th>经营收入<br>($mn)</th><th>基本净利息收入<br>($mn)</th><th>基本非净利息收入<br>($mn)</th><th>交易服务<br>($mn)</th><th>环球银行<br>($mn)</th><th>环球市场<br>($mn)</th><th>财富方案<br>($mn)</th><th>存款及按揭<br>($mn)</th><th>信用卡及私人贷款<br>($mn)</th></tr></thead>
+<tbody>
+  <tr><td>2023</td><td>17,378</td><td>—</td><td>—</td><td>5,837</td><td>—</td><td>5,099</td><td>1,944</td><td>—</td><td>—</td></tr>
+  <tr><td>2024</td><td>19,696</td><td>11,096</td><td>8,600</td><td>6,484</td><td>1,935</td><td>3,450</td><td>2,490</td><td>4,141</td><td>1,201</td></tr>
+  <tr><td>2025</td><td><strong>20,894</strong></td><td><strong>11,185</strong></td><td><strong>9,709</strong></td><td><strong>6,005</strong></td><td><strong>2,229</strong></td><td><strong>3,863</strong></td><td><strong>3,086</strong></td><td><strong>5,160</strong></td><td><strong>1,080</strong></td></tr>
+  <tr><td><strong>2026H1</strong></td><td><strong>11,604</strong></td><td>—</td><td>—</td><td><strong>3,054</strong></td><td><strong>1,314</strong></td><td><strong>2,306</strong></td><td><strong>1,899</strong></td><td>—</td><td>—</td></tr>
+</tbody>
+</table></div>
+<p>注：</p>
+<p>(1) <strong>产品分类口径在 2024 年发生重大重组，同一产品名称跨年不可直接比较</strong>：2023 年及以前按「交易银行服务 / 金融市场 / 财富管理 / 零售产品」四大类；2024 年起改为「交易服务 / 环球银行业务 / 环球市场 / 财富方案业务 / 存款及按揭 / 信用卡及私人贷款 / 创投业务 / 财资业务及其他」。本表仅列示口径最明确、可比性最强的数项，<strong>未尝试跨口径拼接</strong>。</p>
+<p>(2) 2025 年基本净利息收入 11,185 与基本非净利息收入 9,709 已按 2025-04-02 RNS 重新分类口径呈列。</p>
+<p>(3) <strong>2025 年产品层面的分化是全年最重要的结构信号</strong>：交易服务 −7%（6,484→6,005）、支付及流动资金 −10%（4,605→4,155），而财富方案业务 <strong>+24%</strong>（2,490→3,086）、环球银行 <strong>+15%</strong>（1,935→2,229）、环球市场 <strong>+12%</strong>（3,450→3,863）。<strong>传统交易与支付类收入下滑，被财富管理与放贷类收入完全覆盖并超越。</strong></p>
+<p>(4) 2026H1 财富方案业务继续 <strong>+38%</strong>（至 18.99 亿元）、环球银行 <strong>+20%</strong>，趋势进一步强化；环球市场 −2% 转为小幅拖累。</p>
+<h3>表 6　净息差与资产负债定价（2020—2026H1）</h3>
+<div class="rsp-table rsp-w8"><table class="compact">
+<thead><tr><th>期间</th><th>净息差<br>(%)</th><th>总收益率<br>(%)</th><th>付息率<br>(%)</th><th>净收益率<br>(%)</th><th>平均计息资产<br>($mn)</th><th>平均计息负债<br>($mn)</th><th>净息差<br>同比(bp)</th></tr></thead>
+<tbody>
+  <tr><td>2020</td><td>1.31</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>−31</td></tr>
+  <tr><td>2021</td><td>1.21</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>−10</td></tr>
+  <tr><td>2022</td><td>1.41</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>+20</td></tr>
+  <tr><td>2023</td><td>1.67</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>+26</td></tr>
+  <tr><td>2024</td><td>1.94</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>+27</td></tr>
+  <tr><td>2025</td><td><strong>2.03</strong></td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td><strong>+9</strong></td></tr>
+  <tr><td><strong>2026H1</strong></td><td><strong>2.04</strong></td><td><strong>4.27</strong></td><td><strong>2.05</strong></td><td><strong>2.22</strong></td><td><strong>567,017</strong></td><td><strong>616,202</strong></td><td><strong>−1</strong></td></tr>
+</tbody>
+</table></div>
+<p>注：</p>
+<p>(1) 2020—2025 年总收益率 / 付息率 / 净收益率未在年报「财务概要」表中单列，仅在 2026 年半年报起成为常规披露项，故留空，<strong>不作推算</strong>。</p>
+<p>(2) 2026H1 数据为<strong>年化</strong>值。总收益率 4.27% 同比<strong>下降 48bp</strong>，付息率 2.05% 同比<strong>下降 54bp</strong>——<strong>付息率降幅（54bp）大于资产收益率降幅（48bp），净收益率因此反升 6bp 至 2.22%</strong>，这是 2026H1 净息差能够守住的直接原因。</p>
+<p>(3) 季度序列：2025Q2 为 1.98%，2026Q1 为 2.05%，2026Q2 为 2.03%（环比 −2bp）。</p>
+<p>(4) 净息差按<strong>经调整净利息收入 ÷ 平均计息资产（年化）</strong>计算，<strong>不可用列账净利息收入推算</strong>。</p>
+<h3>表 7　分季度经营数据（2025—2026）</h3>
+<div class="rsp-table rsp-w7"><table class="compact">
+<thead><tr><th>期间</th><th>经营收入<br>($mn)</th><th>除税前溢利<br>($mn)</th><th>归母溢利<br>($mn)</th><th>净息差<br>(%)</th><th>每股基本盈利<br>(仙)</th><th>有形股本回报<br>(%)</th></tr></thead>
+<tbody>
+  <tr><td>2025Q1</td><td>5,379</td><td>2,104</td><td>1,547</td><td>—</td><td>78.1</td><td>16.4</td></tr>
+  <tr><td>2025Q2</td><td>5,527</td><td>2,279</td><td>1,762</td><td>1.98</td><td>—</td><td>17.9</td></tr>
+  <tr><td>2025Q3</td><td>5,082</td><td>1,832</td><td>1,242</td><td>—</td><td>—</td><td>—</td></tr>
+  <tr><td>2025Q4</td><td><strong>4,906</strong></td><td><strong>748</strong></td><td><strong>7</strong></td><td>—</td><td>—</td><td>—</td></tr>
+  <tr><td>2026Q1</td><td><strong>5,902</strong></td><td><strong>2,334</strong></td><td><strong>1,761</strong></td><td><strong>2.05</strong></td><td><strong>77.4</strong></td><td><strong>17.9</strong></td></tr>
+  <tr><td><strong>2026Q2</strong></td><td><strong>5,702</strong></td><td><strong>2,450</strong></td><td><strong>1,892</strong></td><td><strong>2.03</strong></td><td><strong>74.2</strong></td><td><strong>17.4</strong></td></tr>
+</tbody>
+</table></div>
+<p>注：</p>
+<p>(1) 2025 年分季度数据由全年与半年度披露值拆分推算，<strong>归母溢利为近似值</strong>，精确度低于半年度数据，仅用于趋势判断；2026 年季度数据取自半年报正式披露。</p>
+<p>(2) <strong>2025Q4 归母溢利仅 700 万元</strong>，为全年最低，与全年 4,558 百万元形成极端反差。<strong>该季度异常应与年末集中确认的重组、FFG 计划支出、减值及诉讼等项目有关，不应把 Q4 当作经营趋势</strong>——渣打列账口径的季节性在第四季度尤为明显（2025 年重组 3.20 亿 + FFG 5.31 亿 + 其他 0.55 亿，合计约 9.37 亿元几乎全部落在下半年）。</p>
+<p>(3) 2026H1 归母溢利 3,653 百万元（<strong>+10%</strong>）、除税前溢利 4,784 百万元（<strong>+9%</strong>），均为<strong>创纪录水平</strong>；管理层表述为「创下业绩纪录」。</p>
+<p>(4) 2026Q2 收入 5,702 百万元，环比 Q1 的 5,902 百万元<strong>下降 3.4%</strong>，但除税前溢利环比<strong>上升 5.0%</strong>（2,334→2,450）——支出与减值控制改善抵消了收入环比回落。</p>
+<h3>表 8　信贷减值与拨备结构（2024—2026H1）</h3>
+<div class="rsp-table rsp-w7"><table class="compact longtable">
+<thead><tr><th>项目</th><th>2026H1<br>($mn)</th><th>2025H1<br>($mn)</th><th>同比<br>(%)</th><th>2025 全年<br>($mn)</th><th>2024 全年<br>($mn)</th><th>同比<br>(%)</th></tr></thead>
+<tbody>
+  <tr class="total"><td><strong>信贷减值支出总额</strong></td><td><strong>446</strong></td><td><strong>336</strong></td><td><strong>+32.7</strong></td><td><strong>676</strong></td><td><strong>557</strong></td><td><strong>+21.4</strong></td></tr>
+  <tr><td>其中：第一及第二阶段</td><td>—</td><td>—</td><td>—</td><td>296</td><td>371</td><td>−20.2</td></tr>
+  <tr><td>其中：第三阶段</td><td>—</td><td>—</td><td>—</td><td>380</td><td>186</td><td><strong>+104.3</strong></td></tr>
+  <tr class="total"><td><strong>贷款损失率（年化，bp）</strong></td><td><strong>26</strong></td><td><strong>14</strong></td><td><strong>+12bp</strong></td><td><strong>19</strong></td><td><strong>19</strong></td><td><strong>—</strong></td></tr>
+  <tr class="total"><td><strong>第三阶段贷款（期末）</strong></td><td>—</td><td>—</td><td>—</td><td>5,964</td><td>6,203</td><td>−3.9</td></tr>
+  <tr class="total"><td><strong>第三阶段保障比率（不计/计入抵押品，%）</strong></td><td>—</td><td>—</td><td>—</td><td><strong>52 / 68</strong></td><td><strong>64 / 78</strong></td><td><strong>−12/−10pp</strong></td></tr>
+  <tr class="total"><td><strong>信贷等级 12 账户口（期末）</strong></td><td>—</td><td>—</td><td>—</td><td>1,111</td><td>969</td><td>+14.7</td></tr>
+  <tr class="total"><td><strong>早期预警账口（期末）</strong></td><td>—</td><td>—</td><td>—</td><td>4,303</td><td>5,559</td><td>−22.6</td></tr>
+  <tr class="total"><td><strong>投资级别企业风险敞口（%）</strong></td><td>—</td><td>—</td><td>—</td><td>74</td><td>74</td><td>—</td></tr>
+</tbody>
+</table></div>
+<p>注：</p>
+<p>(1) <strong>2025 年第三阶段减值支出同比翻倍（+104.3%）而第一二阶段同比下降 20.2%</strong>——减值结构从「前瞻性一般拨备」转向「已违约资产的实质确认」，是资产质量从「预防」进入「消化」阶段的标志。</p>
+<p>(2) <strong>2025 年第三阶段保障比率跌至 52%/68%</strong>，为 2018 年 IFRS 9 实施以来最低。分母（第三阶段贷款）下降 3.9%，分子（第三阶段拨备）下降 22.0%——<strong>分子降幅远大于分母，覆盖率下降主要来自拨备释放而非贷款质量改善</strong>。</p>
+<p>(3) 平衡证据：早期预警账口下降 22.6%、投资级别企业风险敞口维持 74%（历史高位区间），表明<strong>存量风险在出清，新风险生成同步放缓</strong>。</p>
+<p>(4) 2026H1 减值支出 446 百万元中含<strong>中东冲突相关一般性额外拨加 234 百万元</strong>（占该期减值总额的 52.5%）。若剔除该项，2026H1 减值支出约 212 百万元，<strong>低于</strong> 2025H1 的 336 百万元。该额外拨加属前瞻性、事件驱动，而非信贷迁徙所致。</p>
+<h2>三、趋势与原因分析</h2>
+<h3>3.1 收入：从五年停滞到三年双位数增长的转折（2016—2025）</h3>
+<p>渣打的收入曲线可分三段：</p>
+<ul>
+  <li><strong>2016—2021 年停滞期</strong>：基本经营收入从 2016 年 138.08 亿元到 2021 年 147.36 亿元，五年累计仅 <strong>+6.7%</strong>（CAGR 约 1.3%），其中 2020 年（−3.31%）与 2021 年（−0.20%）连续两年负增长。核心压制因素是<strong>全球低利率环境</strong>——净息差从 2016 年的 1.3%（当时口径）压缩至 2021 年的 <strong>1.21%</strong>，为十年最低。</li>
+  <li><strong>2022—2024 年加速期</strong>：收入连续三年双位数增长（+6.96% / +10.25% / +13.34%），驱动力是<strong>全球加息周期</strong>推动净息差从 1.41% 反弹至 1.94%（<strong>+53bp</strong>），叠加财富管理业务随市场复苏强劲反弹。</li>
+  <li><strong>2025 年至今：增速回落但质量改善</strong>：2025 年收入 +6.08%（列账 +7.16%），增速较 2024 年的 +13.34% 明显放缓，<strong>原因是净息差仅上行 9bp（1.94%→2.03%），加息红利基本释放完毕</strong>。但结构上发生了重要置换：财富方案业务 +24%、环球银行 +15% 接过交易服务（−7%）与支付及流动资金（−10%）的接力棒。</li>
+</ul>
+<p><strong>2026H1 的关键信号</strong>：收入 116.04 亿元创新高（+6%，剔除上年 Solv India 交易收益则 +8%），净息差 2.04% <strong>几乎零增长（−1bp）</strong>。收入增长已完全切换到<strong>量增与结构优化</strong>驱动。管理层 2026 年指引为「按固定汇率基准、剔除重大项目，列账经营收入增幅约为 5—7% 区间的中间数」，较此前指引上调。</p>
+<h3>3.2 净息差两端拆解：为什么加息结束后息差还能守住</h3>
+<p>2026H1 净息差 2.04%（同比 −1bp），是<strong>资产端与负债端降幅不对称</strong>的结果：</p>
+<div class="rsp-table"><table class="compact">
+<thead><tr><th>项目</th><th>2026H1</th><th>2025H1</th><th>变动</th></tr></thead>
+<tbody>
+  <tr><td>总收益率（资产端）</td><td>4.27%</td><td>4.75%</td><td><strong>−48bp</strong></td></tr>
+  <tr><td>付息率（负债端）</td><td>2.05%</td><td>2.59%</td><td><strong>−54bp</strong></td></tr>
+  <tr><td>净收益率</td><td>2.22%</td><td>2.16%</td><td><strong>+6bp</strong></td></tr>
+</tbody>
+</table></div>
+<p><strong>负债端降幅（54bp）大于资产端（48bp），是净息差能够持平的唯一原因</strong>。管理层归因于「严格的负债定价」及「债务组合优化」——即存款端主动压降高息定存、提升经营账户（CASA）占比。</p>
+<p><strong>以量补价测算</strong>：2026H1 平均计息资产 5,670.17 亿元，同比 +5%。按此规模，<strong>每 1bp 净息差约等于 5.67 亿美元年化利息净收入</strong>（567,017 × 0.01%）。因此：</p>
+<ul>
+  <li>净息差同比 −1bp，静态拖累约 <strong>5.7 亿美元</strong>；</li>
+  <li>平均计息资产 +5%（增加约 256 亿美元），按 2.04% 息差计年化增量约 <strong>+5.2 亿美元</strong>；</li>
+</ul>
+<p><strong>量增基本恰好抵补价跌</strong>——这正是「以量补价」在渣打身上的精确体现。</p>
+<p><strong>方向提示</strong>：渣打明确预期未来净利息收入「低单位数百分比按年增长」，<strong>已不再依赖息差扩张</strong>。在降息通道中，负债端重定价速度将决定息差能否继续守住。</p>
+<h3>3.3 利润成色：基本与列账口径的背离，以及它揭示的真实成本</h3>
+<p><strong>这是渣打财报最需警惕之处</strong>。两套口径的差额在压力年份可达数亿美元：</p>
+<div class="rsp-table rsp-w6"><table class="compact">
+<thead><tr><th>年度</th><th>基本除税前溢利</th><th>列账除税前溢利</th><th>差额</th><th>差额占基本(%)</th><th>主要项目</th></tr></thead>
+<tbody>
+  <tr><td>2016</td><td>1,093</td><td>409</td><td>−684</td><td><strong>−62.6</strong></td><td>重组 855、商誉减值 166</td></tr>
+  <tr><td>2017</td><td>3,010</td><td>2,415</td><td>−595</td><td>−19.8</td><td>重组 353、其他 242</td></tr>
+  <tr><td>2019</td><td>4,172</td><td>3,713</td><td>−459</td><td>−11.0</td><td>监管事宜拨备 226、重组 254</td></tr>
+  <tr><td>2020</td><td>2,508</td><td>1,613</td><td><strong>−895</strong></td><td><strong>−35.7</strong></td><td>商誉减值 489、重组 382</td></tr>
+  <tr><td>2023</td><td>5,678</td><td>5,093</td><td>−585</td><td>−10.3</td><td>渤海银行减值等</td></tr>
+  <tr><td>2024</td><td>6,811</td><td>6,014</td><td>−797</td><td>−11.7</td><td>商誉及其他减值 588、重组 285、FFG 156</td></tr>
+  <tr><td>2025</td><td><strong>7,900</strong></td><td><strong>6,963</strong></td><td><strong>−937</strong></td><td><strong>−11.9</strong></td><td>重组 320、FFG 531、DVA 31、其他 55</td></tr>
+  <tr><td><strong>2026H1</strong></td><td>—</td><td><strong>4,784</strong></td><td>—</td><td>—</td><td>韩国股票挂钩证券拨备拨回 74（正向）</td></tr>
+</tbody>
+</table></div>
+<p><strong>读法与结论</strong>：</p>
+<ol>
+  <li><strong>2020 年是最极端的一年</strong>——列账除税前溢利只有基本口径的 <strong>64%</strong>，商誉减值（主要与印度及阿联酋相关）达 4.89 亿美元。当年实际税率高达 53.4%（基本口径 37.7%），两者叠加使列账归母溢利仅 6.45 亿美元。</li>
+  <li><strong>2016 年的 −62.6% 差额</strong>主要由重组费用 8.55 亿美元构成，当年归母溢利为 <strong>负 2.47 亿美元</strong>；2015 年更是十年间唯一的亏损年（归母 −12.34 亿美元）。</li>
+  <li><strong>2025 年的 9.37 亿美元差额中，5.31 亿美元来自「Fit for Growth」（FFG）计划</strong>——这是渣打自 2024 年起推行的结构性降本计划，2024 年支出 1.56 亿元、2025 年跃升至 5.31 亿元，年报明示「2026 年将包括 FFG 计划最后一年的支出」。<strong>FFG 支出属一次性重组性质，剔除后 2025 年基本口径除税前溢利增长 18%。</strong></li>
+  <li><strong>「基本除税前溢利」不等于可分配利润</strong>。2025 年基本除税前溢利 79 亿元，但扣除重组等项目、税项（18.66 亿元）及 AT1/优先股股息后，<strong>普通股股东应占溢利为 45.58 亿元</strong>，仅为基本除税前溢利的 57.7%。任何以「基本溢利」直接估值或计算派息能力的做法都会显著高估。</li>
+  <li><strong>2026H1 出现反向项目</strong>：韩国股票挂钩证券拨备<strong>拨回</strong> 0.74 亿美元（被分类为重大项目），是本期列账口径少见的正向调整项。</li>
+</ol>
+<h3>3.4 资产质量：第三阶段保障比率的最低位，以及它的归因</h3>
+<p><strong>这是本报告最应重点提示的风险信号。</strong></p>
+<div class="rsp-table"><table class="compact">
+<thead><tr><th>项目</th><th>2024</th><th>2025</th><th>变动</th></tr></thead>
+<tbody>
+  <tr><td>第三阶段贷款（期末）</td><td>6,203</td><td>5,964</td><td>−239（−3.9%）</td></tr>
+  <tr><td>第三阶段减值拨备</td><td>3,948</td><td>3,087</td><td>−861（<strong>−22.0%</strong>）</td></tr>
+  <tr class="total"><td><strong>第三阶段保障比率（不计抵押品）</strong></td><td>64%</td><td><strong>52%</strong></td><td><strong>−12pp</strong></td></tr>
+  <tr class="total"><td><strong>第三阶段保障比率（计入抵押品）</strong></td><td>78%</td><td><strong>68%</strong></td><td><strong>−10pp</strong></td></tr>
+  <tr><td>信贷减值支出（第三阶段）</td><td>186</td><td>380</td><td><strong>+194（+104.3%）</strong></td></tr>
+  <tr><td>信贷减值支出（第一、二阶段）</td><td>371</td><td>296</td><td>−75（−20.2%）</td></tr>
+  <tr><td>贷款损失率</td><td>19bp</td><td>19bp</td><td>—</td></tr>
+</tbody>
+</table></div>
+<p><strong>归因（逐年对照法）</strong>：保障比率 = 分子（第三阶段拨备）÷ 分母（第三阶段贷款）。2025 年<strong>分子降幅 22.0% 远大于分母降幅 3.9%</strong>，即覆盖率下降<strong>主要来自拨备的净释放/核销，而非贷款质量的实质改善</strong>。</p>
+<p>同时，<strong>第三阶段减值支出同比翻倍而第一二阶段支出下降 20%</strong>，构成一个清晰的结构性信号：<strong>减值资源从「前瞻性预留」转向「已违约资产的实质处置」</strong>。年报对此的说明是：第三阶段贷款下降「乃由于还款及撇销」，保障比率下降「主要由于重组以及部分第三阶段的注销」。</p>
+<p><strong>平衡证据（必须同时陈述，否则结论会偏</strong>）：</p>
+<ul>
+  <li><strong>早期预警账口从 5,559 降至 4,303（−22.6%）</strong>——领先指标显著改善；</li>
+  <li><strong>投资级别企业风险敞口维持 74%</strong>（与 2024 年持平，处历史高位区间）；</li>
+  <li><strong>信贷等级 12 账户口从 969 升至 1,111（+14.7%）</strong>——这是<strong>唯一的反向指标</strong>，说明评级下调至临界档的客户在增加，需持续跟踪。</li>
+</ul>
+<p><strong>综合结论</strong>：渣打 2025 年的资产质量是「<strong>存量风险加速出清、新风险生成放缓，但临界档客户小幅增加</strong>」的组合。保障比率跌至 52%/68% 的历史低位意味着<strong>抵御增量冲击的缓冲垫已明显变薄</strong>；一旦 2026 年出现新的风险事件，拨备补充压力会直接冲击利润。<strong>2026H1 已经出现这种压力的早期形态</strong>：中东冲突相关一般性额外拨加 2.34 亿美元，使当期贷款损失率从 14bp 跳升至 26bp。</p>
+<p><strong>与中资银行的口径差异（跨行对照提示）</strong>：渣打不披露「不良贷款率 / 拨备覆盖率 / 逾期贷款」，亦不披露「关注类贷款」。若与中国银行、建设银行、农业银行等报告并列，<strong>不可将「第三阶段贷款占比」直接等同于「不良率」</strong>（渣打 2025 年为 2.05%，看似高于中资大行的 1.3% 左右，但渣打的第三阶段认定标准在 IFRS 9 下更为前瞻，两者不具有直接可比性）。</p>
+<figure>
+<div class="chart">
+<div class="ch-title">图 4　第三阶段贷款保障比率与拨备/贷款降幅对照（2018—2025，单位：%）</div>
+<div class="ch-sub">保障比率从 2024 年的 64%／78% 骤降至 2025 年的 52%／68%；分子（拨备）降 22.0% 而分母仅降 3.9%</div>
+<div class="ch-legend"><span class="lg"><i style="background:#A73F2D"></i>保障比率（不计抵押品）</span><span class="lg"><i style="background:#2F6F6B"></i>保障比率（计入抵押品）</span></div>
+<div class="ch-rows">
+<div class="ch-row"><span class="ch-lab">2018</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:50.99%;background:#A73F2D"></div><span class="ch-val">59.00</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:70.00%;background:#2F6F6B"></div><span class="ch-val">81.00</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2021</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:50.12%;background:#A73F2D"></div><span class="ch-val">58.00</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:64.81%;background:#2F6F6B"></div><span class="ch-val">75.00</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2024</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:55.31%;background:#A73F2D"></div><span class="ch-val">64.00</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:67.41%;background:#2F6F6B"></div><span class="ch-val">78.00</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2025</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:44.94%;background:#A73F2D"></div><span class="ch-val">52.00</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:58.77%;background:#2F6F6B"></div><span class="ch-val">68.00</span></div>
+</div></div>
+</div>
+<div class="ch-scale">数值单位：%（条形长度按各行最大值等比缩放）</div>
+</div>
+<figcaption>图 4　覆盖率下降的归因：2025 年第三阶段贷款（分母）从 62.03 亿降至 59.64 亿美元（−3.9%），而第三阶段减值拨备（分子）从 39.48 亿降至 30.87 亿美元（**−22.0%**）——分子降幅远大于分母，说明保障比率跌至 52%／68%（2018 年 IFRS 9 实施以来最低）**主要来自拨备释放与核销，而非贷款质量改善**。同期第三阶段减值支出同比翻倍（＋104.3%，1.86→3.80 亿美元），而第一二阶段支出下降 20.2%，减值资源正从「前瞻预留」转向「实质处置」（数据来源：渣打集团 2018／2021／2024／2025 年年度报告）</figcaption>
+<p class="fig-note">注：渣打不披露「不良贷款率／拨备覆盖率」，而是按 IFRS 9 三阶段模型披露——「第三阶段贷款」对应不良，「第三阶段保障比率」对应拨备覆盖率，跨行对比时口径不可直接套用。2019—2020 年及 2022—2023 年未按当前格式单列明细，故留空。</p>
+</figure>
+<figure>
+<div class="chart">
+<div class="ch-title">图 5　信贷减值支出结构：第一二阶段 vs 第三阶段（2024—2025，单位：亿美元）</div>
+<div class="ch-sub">2025 年第三阶段支出翻倍至 3.80 亿，第一二阶段降至 2.96 亿——减值结构从「预防」转向「消化」</div>
+<div class="ch-legend"><span class="lg"><i style="background:#2F6F6B"></i>第一及第二阶段</span><span class="lg"><i style="background:#A73F2D"></i>第三阶段</span></div>
+<div class="ch-rows">
+<div class="ch-row"><span class="ch-lab">2024</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:68.34%;background:#2F6F6B"></div><span class="ch-val">3.71</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:34.26%;background:#A73F2D"></div><span class="ch-val">1.86</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2025</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:54.53%;background:#2F6F6B"></div><span class="ch-val">2.96</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:70.00%;background:#A73F2D"></div><span class="ch-val">3.80</span></div>
+</div></div>
+</div>
+<div class="ch-scale">数值单位：亿美元（条形长度按各行最大值等比缩放）</div>
+</div>
+<figcaption>图 5　两年的对比极为清晰：2024 年「前瞻性拨备」（第一二阶段 3.71 亿）远大于「已违约处置」（第三阶段 1.86 亿），比例约 2:1；2025 年完全反转——第三阶段 3.80 亿超过第一二阶段的 2.96 亿，同比翻倍。**这是资产质量从「预防期」进入「消化期」的标准形态**。值得注意的是，2025 年贷款损失率仅 19bp、与 2024 年持平，说明总量指标完全掩盖了内部结构的剧烈切换（数据来源：渣打集团 2024—2025 年年度报告）</figcaption>
+<p class="fig-note">注：2025 年信贷减值支出总额 6.76 亿美元（＋21.4%），其中第三阶段 3.80 亿、第一二阶段 2.96 亿，另有其他调整项。2026 上半年总额回升至 4.46 亿美元（同比 ＋32.7%），年化贷款损失率从 14bp 跳升至 26bp，其中 2.34 亿元为中东冲突相关的一般性额外拨加。</p>
+</figure>
+<h3>3.5 资本与股东回报：从「补充资本」到「返还资本」的转折</h3>
+<p>渣打的资本叙事在过去三年发生了根本性转向：</p>
+<div class="rsp-table"><table class="compact">
+<thead><tr><th>年度</th><th>普通股权一级资本比率</th><th>股东分派动作</th></tr></thead>
+<tbody>
+  <tr><td>2023</td><td>14.1%</td><td>启动回购计划</td></tr>
+  <tr><td>2024</td><td>14.2%</td><td>回购 15 亿元（上半年完成）</td></tr>
+  <tr><td>2025</td><td>14.1%</td><td>15 亿元回购（上半年）+ 13 亿元回购（2026-01-26 完成）；全年股息每股 61 仙（<strong>+65%</strong>）</td></tr>
+  <tr><td>2026H1</td><td>14.2%</td><td>15 亿元回购（2026-06-24 前完成）+ 中期股息每股 20.4 仙（<strong>+66%</strong>）；<strong>宣布新 10 亿元回购</strong></td></tr>
+</tbody>
+</table></div>
+<p><strong>关键量化事实</strong>：</p>
+<ul>
+  <li>自 2023 年全年业绩以来，<strong>宣布的股东分派总额累计达 91 亿美元</strong>；</li>
+  <li>2026H1 完成 15 亿元回购（购买 6,280 万股，成交量加权均价 17.8 英镑），令已发行股本总额减少 <strong>2.8%</strong>、普通股权一级资本比率下降 <strong>58bp</strong>；</li>
+  <li>即将启动的 10 亿元回购预计令 2026Q3 比率再降 <strong>38bp</strong>；</li>
+  <li>普通股权一级资本比率 14.2% <strong>高于渣打自设目标区间 13%—14% 的上限</strong>，这是持续回购的资本基础。</li>
+</ul>
+<p><strong>股东回报的三重驱动</strong>：① 分子端——盈利提升带来的资本内生积累（2026H1 溢利贡献 +142bp）；② 分母端——股份回购持续缩减股本（2026H1 已发行普通股 21.89 亿股，同比 −6%）；③ 派息率——2026H1 中期股息增至 20.4 仙（+66%），2025 年全年股息 61 仙（+65%）。</p>
+<p><strong>需警惕的张力</strong>：风险加权资产 2026H1 较 2025 年末增加 1%（至 2,614.51 亿元），同时《巴塞尔协议 III》最终版（Basel 3.1，英国自 2025 年起实施）与英国系统重要性银行的资本附加要求持续上升。<strong>在「持续回购 + 风险加权资产扩张 + 监管要求上行」三者并存下，资本比率的上行空间有限</strong>。管理层对此的应对是将报告基准切换到列账口径，使披露数字与监管资本口径更贴近。</p>
+<h3>3.6 业务结构的战略性置换（2023—2026）</h3>
+<p>渣打的产品线在三年内完成了一次清晰的置换：</p>
+<div class="rsp-table rsp-w6"><table class="compact">
+<thead><tr><th>业务</th><th>2025 年收入</th><th>同比</th><th>2026H1 收入</th><th>同比</th><th>定位</th></tr></thead>
+<tbody>
+  <tr class="total"><td><strong>财富方案业务</strong></td><td>3,086</td><td><strong>+24%</strong></td><td>1,899</td><td><strong>+38%</strong></td><td>核心增长引擎</td></tr>
+  <tr class="total"><td><strong>环球银行业务</strong></td><td>2,229</td><td><strong>+15%</strong></td><td>1,314</td><td><strong>+20%</strong></td><td>放贷与资本市场</td></tr>
+  <tr class="total"><td><strong>环球市场</strong></td><td>3,863</td><td>+12%</td><td>2,306</td><td>−2%</td><td>稳定贡献</td></tr>
+  <tr class="total"><td><strong>交易服务</strong></td><td>6,005</td><td>−7%</td><td>3,054</td><td>+2%</td><td>规模最大、增速最弱</td></tr>
+  <tr><td>其中支付及流动资金</td><td>4,155</td><td><strong>−10%</strong></td><td>2,084</td><td>0%</td><td>受降息直接冲击</td></tr>
+  <tr><td>存款及按揭</td><td>5,160</td><td>—</td><td>—</td><td>—</td><td>利息收入基本盘</td></tr>
+  <tr><td>信用卡及私人贷款</td><td>1,080</td><td>0%</td><td>—</td><td>—</td><td>停滞</td></tr>
+</tbody>
+</table></div>
+<p><strong>归因</strong>：支付及流动资金收入下降 10% 是<strong>降息环境下的直接结果</strong>（该业务收入与利率水平高度相关）；而财富方案业务的爆发（2025 年新增 27.5 万名富裕客户、新增资金净流入 520 亿美元、管理资产增长 14%）反映的是<strong>渣打在新兴市场财富积累趋势中的卡位优势</strong>。</p>
+<p><strong>网络收入占比</strong>是理解渣打护城河的关键指标：2026H1 <strong>网络收入占企业及投资银行业务收入的 67%</strong>——即三分之二的 CIB 收入来自「客户在母国以外的市场」进行的业务，这是渣打国际化网络的直接变现，也是与中资银行（以境内业务为主）最本质的差异。</p>
+<figure>
+<div class="chart">
+<div class="ch-title">图 6　收入结构：传统交易/支付类下滑，财富与环球银行接棒（2023—2025，单位：亿美元）</div>
+<div class="ch-sub">交易服务 −7%、支付及流动资金 −10%，而财富方案 ＋24%、环球银行 ＋15%</div>
+<div class="ch-legend"><span class="lg"><i style="background:#8B8880"></i>交易服务</span><span class="lg"><i style="background:#1B365D"></i>环球市场</span><span class="lg"><i style="background:#A73F2D"></i>财富方案业务</span><span class="lg"><i style="background:#2F6F6B"></i>环球银行业务</span></div>
+<div class="ch-rows">
+<div class="ch-row"><span class="ch-lab">2023</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:63.02%;background:#8B8880"></div><span class="ch-val">58.37</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:55.05%;background:#1B365D"></div><span class="ch-val">50.99</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:20.99%;background:#A73F2D"></div><span class="ch-val">19.44</span></div>
+<div class="ch-bar"><span class="ch-val na">—</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2024</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:70.00%;background:#8B8880"></div><span class="ch-val">64.84</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:37.25%;background:#1B365D"></div><span class="ch-val">34.50</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:26.88%;background:#A73F2D"></div><span class="ch-val">24.90</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:20.89%;background:#2F6F6B"></div><span class="ch-val">19.35</span></div>
+</div></div>
+<div class="ch-row"><span class="ch-lab">2025</span><div class="ch-bars">
+<div class="ch-bar"><div class="ch-fill" style="width:64.83%;background:#8B8880"></div><span class="ch-val">60.05</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:41.70%;background:#1B365D"></div><span class="ch-val">38.63</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:33.32%;background:#A73F2D"></div><span class="ch-val">30.86</span></div>
+<div class="ch-bar"><div class="ch-fill" style="width:24.06%;background:#2F6F6B"></div><span class="ch-val">22.29</span></div>
+</div></div>
+</div>
+<div class="ch-scale">数值单位：亿美元（条形长度按各行最大值等比缩放）</div>
+</div>
+<figcaption>图 6　产品线的置换已经完成：规模最大的交易服务 2025 年下滑 7%（64.84→60.05 亿美元），其中支付及流动资金更下滑 10%（46.05→41.55 亿）；同期财富方案业务增长 24%（24.90→30.86 亿）、环球银行业务增长 15%（19.35→22.29 亿）。**新增长引擎的绝对增量（＋6.0 亿 ＋2.9 亿）足以覆盖传统业务的下滑（−4.8 亿），这才是 2025 年收入仍能 ＋6% 的真正来源。**2026 上半年财富方案继续 ＋38%、环球银行 ＋20%，趋势进一步强化（数据来源：渣打集团 2023—2025 年年度报告、2026 年半年度报告）</figcaption>
+<p class="fig-note">注：渣打 2024 年起重构了产品分类——2023 年「交易银行服务」5,837 与 2024 年「交易服务」6,484 名称相近但明细口径不同（前者含现金管理、贸易及营运资金；后者含支付及流动资金、证券及主要经纪服务、贸易及营运资金）。「环球市场」2023 年为「金融市场」5,099，2024 年重分类后大幅下降至 3,450，降幅主要来自口径调整（部分收入移入其他类别）而非业务萎缩，跨年比较须谨慎。</p>
+</figure>
+<h3>3.7 汇率与地区结构的影响</h3>
+<p>渣打以美元报告但收入高度分散于新兴市场货币，<strong>汇率是理解其收入增速的关键扰动项</strong>：</p>
+<ul>
+  <li>渣打对多数指标同时披露「列账变动」与「<strong>固定汇率变动</strong>」两个增速，两者差额即汇率影响；</li>
+  <li>2025 年基本经营收入列账 +6%、固定汇率 +6%（无差异）；但基本除税前溢利列账 +16%、固定汇率 <strong>+18%</strong>（汇率拖累 2pp）；</li>
+  <li>2024 年基本经营收入列账 +13%、固定汇率 +14%；</li>
+  <li>2026H1 列账 +6%、固定汇率 +6%（无差异）。</li>
+</ul>
+<p><strong>地区结构</strong>（2025 年除税前基本溢利）：</p>
+<div class="rsp-table"><table class="compact">
+<thead><tr><th>地区</th><th>2023</th><th>2024</th><th>2025</th></tr></thead>
+<tbody>
+  <tr><td>亚洲</td><td>4,740</td><td>—</td><td>—</td></tr>
+  <tr><td>非洲及中东</td><td>1,311</td><td>—</td><td>—</td></tr>
+  <tr><td>欧洲及美洲</td><td>(330)</td><td>—</td><td>—</td></tr>
+  <tr><td>中央及其他项目</td><td>(43)</td><td>—</td><td>—</td></tr>
+  <tr class="total"><td><strong>合计</strong></td><td><strong>5,678</strong></td><td><strong>6,811</strong></td><td><strong>7,900</strong></td></tr>
+</tbody>
+</table></div>
+<p>注：2024—2025 年地区明细需从各年年报「除税前溢利——按客户类别及地区划分」表读取，本次抽取未取得完整三年地区序列，故仅列 2023 年数据。<strong>已知 2023 年欧洲及美洲地区为亏损 3.30 亿美元</strong>，是集团唯一亏损地区，该地区的持续亏损来源（主要与欧洲的合规成本及美洲的业务规模不足有关）值得跟踪。</p>
+<h3>3.8 分季度与季节性：2025Q4 的异常</h3>
+<p><strong>2025 年分季度归母溢利呈现极端的「前高后低」</strong>：</p>
+<div class="rsp-table"><table class="compact">
+<thead><tr><th>季度</th><th>归母溢利($mn)</th><th>占全年(%)</th></tr></thead>
+<tbody>
+  <tr><td>2025Q1</td><td>1,547</td><td>33.9%</td></tr>
+  <tr><td>2025Q2</td><td>1,762</td><td>38.7%</td></tr>
+  <tr><td>2025Q3</td><td>1,242</td><td>27.3%</td></tr>
+  <tr><td><strong>2025Q4</strong></td><td><strong>7</strong></td><td><strong>0.2%</strong></td></tr>
+  <tr><td>全年</td><td>4,558</td><td>100%</td></tr>
+</tbody>
+</table></div>
+<p><strong>Q4 归母溢利几乎归零（700 万美元）</strong>，而前两季合计占全年 72.6%。这与渣打列账口径的季节性高度吻合——<strong>重组、FFG 计划支出、法律诉讼及年度减值评估集中在第四季度确认</strong>（2025 年重组 3.20 亿 + FFG 5.31 亿 + 其他 0.55 亿，合计 9.37 亿元的项目支出主要落在下半年）。</p>
+<p><strong>读法提示</strong>：<strong>不应将 2025Q4 的利润塌缩视为经营恶化</strong>，但也不应忽略其真实成本——这些支出虽属「一次性」，却已连续多年出现（2016 年以来重组费用从未归零），实际上具有<strong>经常性支出的性质</strong>。这是「基本基准」口径最受质疑的地方：<strong>剔除项年复一年出现，剔除本身就成了失真来源</strong>。</p>
+<h2>四、关键结论</h2>
+<h3>4.1 五条核心判断</h3>
+<ol>
+  <li><strong>收入引擎已从「息差驱动」切换为「财富与网络驱动」</strong>。2016—2021 年五年收入停滞（CAGR 1.3%）与 2022—2024 年三年双位数增长（净息差 +53bp）构成完整对照；2025 年净息差仅 +9bp、2026H1 −1bp 后，收入仍能录得 +6%，<strong>证明增长的动力已成功交接给财富方案业务（+24%/+38%）与环球银行业务（+15%/+20%）</strong>。这是渣打近年最实质的经营改善。</li>
+</ol>
+<ol>
+  <li><strong>净息差能守住，靠的是负债端降幅大于资产端</strong>。2026H1 资产端收益率 −48bp 而付息率 −54bp，净收益率反升 6bp。<strong>这是一个「管理能力」而非「市场红利」的结果</strong>——在降息环境中主动压降高息存款、优化债务组合。但在降息周期延续的假设下，<strong>负债端继续压降的空间正在收窄</strong>（2026H1 付息率已降至 2.05%，较 2025H1 的 2.59% 大幅下行），息差进一步守住的难度在上升。</li>
+</ol>
+<ol>
+  <li><strong>利润成色需要「三重扣减」才能看清</strong>。从「基本除税前溢利」到「普通股股东应占溢利」，2025 年需扣减：重组/FFG/DVA/其他 9.37 亿 + 税项 18.66 亿 + AT1 及优先股股息约 5.27 亿，<strong>最终 45.58 亿元，仅为基本除税前溢利的 57.7%</strong>。且这些「一次性」项目已连续十年出现，<strong>具有事实上的经常性</strong>。</li>
+</ol>
+<ol>
+  <li><strong>资产质量的最重要信号是第三阶段保障比率跌至 52%/68% 的历史低位</strong>。分子（拨备）降 22.0% 而分母（第三阶段贷款）仅降 3.9%，覆盖率下降主要来自拨备释放而非质量改善。<strong>领先指标（早期预警 −22.6%）向好、临界指标（信贷等级 12 账户 +14.7%）转弱</strong>，2026H1 中东额外拨加 2.34 亿美元已使贷款损失率从 14bp 跳升至 26bp。<strong>缓冲垫变薄是当前最需跟踪的风险。</strong></li>
+</ol>
+<ol>
+  <li><strong>资本充足且持续返还，但上行空间有限</strong>。普通股权一级资本比率 14.2% 高于目标区间上限（13%—14%），自 2023 年以来累计分派 91 亿美元，2026H1 已发行股本同比缩减 6%。<strong>但风险加权资产 +1%、Basel 3.1 与系统重要性附加要求上行、叠加 2026H1 两笔回购合计消耗 96bp 资本</strong>，三者共同压缩了资本比率的进一步上行空间。</li>
+</ol>
+<h3>4.2 三条差异化护城河</h3>
+<div class="rsp-table"><table class="compact">
+<thead><tr><th>护城河</th><th>量化证据</th><th>与中资大行的差异</th></tr></thead>
+<tbody>
+  <tr class="total"><td><strong>新兴市场网络</strong></td><td>网络收入占 CIB 收入 <strong>67%</strong>（2026H1）</td><td>中资行以境内业务为主体，跨境收入占比远低</td></tr>
+  <tr class="total"><td><strong>财富管理卡位</strong></td><td>财富方案业务 2025 年 +24%、2026H1 +38%；2025 年新增 27.5 万富裕客户、净流入 520 亿美元</td><td>中资行财富管理多为境内产品销售，缺跨境配置能力</td></tr>
+  <tr class="total"><td><strong>资本返还纪律</strong></td><td>2023 年以来累计分派 91 亿美元；股息两年连续 +65%、+66%</td><td>中资行受财政部注资与资本补充约束，分红率相对固定</td></tr>
+</tbody>
+</table></div>
+<h3>4.3 风险清单（按重要性排序）</h3>
+<div class="rsp-table"><table class="compact dense">
+<thead><tr><th>序号</th><th>风险</th><th>量化信号</th><th>观察指标</th></tr></thead>
+<tbody>
+  <tr><td>1</td><td><strong>拨备缓冲垫变薄</strong></td><td>第三阶段保障比率 52%/68%，2018 年以来最低</td><td>2026 年报第三阶段保障比率是否止跌</td></tr>
+  <tr><td>2</td><td><strong>降息通道中息差承压</strong></td><td>2026H1 净息差 −1bp；付息率已降至 2.05%，压降空间收窄</td><td>季度净息差、总收益率与付息率两端变动</td></tr>
+  <tr><td>3</td><td><strong>减值支出重新上行</strong></td><td>2026H1 减值 446（+32.7%），贷款损失率 26bp（前值 14bp）</td><td>中东等地缘事件的额外拨加规模</td></tr>
+  <tr><td>4</td><td><strong>「一次性」项目常态化</strong></td><td>重组费用 2016 年以来从未归零；2025 年 FFG 支出 5.31 亿（2024 年 1.56 亿）</td><td>FFG 计划 2026 年结束后是否出现新的替代性计划</td></tr>
+  <tr><td>5</td><td><strong>信贷等级 12 账户增加</strong></td><td>969→1,111（+14.7%），是唯一反向的资产质量指标</td><td>该账户口后续是否继续上升</td></tr>
+  <tr><td>6</td><td><strong>欧洲及美洲地区持续亏损</strong></td><td>2023 年 −3.30 亿美元，为集团唯一亏损地区</td><td>该地区能否实现盈亏平衡</td></tr>
+  <tr><td>7</td><td><strong>报告基准切换的沟通成本</strong></td><td>2026 年起由基本基准改为列账基准披露</td><td>新旧口径桥接是否清晰、可比性是否受损</td></tr>
+</tbody>
+</table></div>
+<h3>4.4 一句话总结</h3>
+<p><strong>渣打已完成从「低利率停滞」到「财富与网络驱动增长」的转型——2025 年收入创新高、有形股本回报升至 14.7%、股东分派两年翻倍；但净息差红利已释放完毕、第三阶段保障比率跌至历史最低位 52%、2026H1 减值支出因中东事件跳升 33%，增长的可持续性取决于财富管理能否继续抵消息差与拨备的双重压力。</strong></p>
+<h2>五、附表：十年关键指标一览</h2>
+<div class="rsp-table rsp-w7"><table class="compact longtable">
+<thead><tr><th>指标</th><th>2016</th><th>2019</th><th>2021</th><th>2023</th><th>2025</th><th>2026H1</th></tr></thead>
+<tbody>
+  <tr><td>基本经营收入（$mn）</td><td>13,808*</td><td>15,271</td><td>14,736</td><td>17,378</td><td><strong>20,894</strong></td><td>—</td></tr>
+  <tr><td>列账经营收入（$mn）</td><td>13,808</td><td>15,271</td><td>14,736</td><td>18,019</td><td><strong>20,942</strong></td><td><strong>11,604</strong></td></tr>
+  <tr><td>基本除税前溢利（$mn）</td><td>1,093</td><td>4,172</td><td>3,896</td><td>5,678</td><td><strong>7,900</strong></td><td>—</td></tr>
+  <tr><td>列账除税前溢利（$mn）</td><td>409</td><td>3,713</td><td>3,386</td><td>5,093</td><td><strong>6,963</strong></td><td><strong>4,784</strong></td></tr>
+  <tr><td>归母溢利（$mn）</td><td>(247)</td><td>2,298</td><td>1,946</td><td>3,017</td><td><strong>5,085</strong></td><td><strong>3,653</strong></td></tr>
+  <tr><td>净息差（%）</td><td>1.3</td><td>1.62</td><td>1.21</td><td>1.67</td><td><strong>2.03</strong></td><td><strong>2.04</strong></td></tr>
+  <tr><td>普通股权一级资本比率（%）</td><td>13.6</td><td>13.8</td><td>14.1</td><td>14.1</td><td><strong>14.1</strong></td><td><strong>14.2</strong></td></tr>
+  <tr><td>总资产（$mn）</td><td>646,692</td><td>720,378</td><td>827,818</td><td>822,844</td><td><strong>919,955</strong></td><td><strong>993,406</strong></td></tr>
+  <tr><td>客户存款（$mn）</td><td>411,724</td><td>—</td><td>474,570</td><td>469,418</td><td><strong>530,161</strong></td><td><strong>552,644</strong></td></tr>
+  <tr><td>基本每股盈利（仙）</td><td>3.4</td><td>75.7</td><td>92.0</td><td>128.9</td><td><strong>229.7</strong></td><td><strong>151.6</strong></td></tr>
+  <tr><td>第三阶段保障比率（不计抵押，%）</td><td>59</td><td>—</td><td>58</td><td>—</td><td><strong>52</strong></td><td>—</td></tr>
+</tbody>
+</table></div>
+<p>\* 2016 年列账与基本经营收入数值相同系当年披露口径所致，其中基本口径除税前溢利 1,093 与列账 409 的差额来自重组等项目。</p>
+<h2>附录：数据来源与口径</h2>
+<div class="rsp-table"><table class="compact longtable dense">
+<thead><tr><th>序号</th><th>文件</th><th>覆盖期间</th><th>用途</th></tr></thead>
+<tbody>
+  <tr><td>1</td><td>二〇二六年半年报告（2026-08-18）</td><td>2026H1 / 2025H1</td><td>表 1、2、4、5、6、7、8 主体数据</td></tr>
+  <tr><td>2</td><td>二〇二六年上半年及第二季度业绩（2026-07-29）</td><td>2026H1</td><td>季度细节校验</td></tr>
+  <tr><td>3</td><td>二〇二五年年报（2026-03-26）</td><td>2025 / 2024</td><td>表 1—8 主体数据</td></tr>
+  <tr><td>4</td><td>二〇二五年全年度及第四季度业绩（2026-02-24）</td><td>2025</td><td>年度指引与季度拆分</td></tr>
+  <tr><td>5</td><td>二〇二五年半年报告（2025-08-19）</td><td>2025H1</td><td>表 8 同比基数</td></tr>
+  <tr><td>6</td><td>二〇二四年年报（2025-03-31）</td><td>2024 / 2023</td><td>表 3、4 主体数据</td></tr>
+  <tr><td>7</td><td>二〇二三年年报（2024-04-05）</td><td>2023 / 2022（重述）</td><td>表 1、2、5 及 2022 年数据</td></tr>
+  <tr><td>8</td><td>二〇二一年年报（2022-03-28）</td><td>2021 / 2020</td><td>表 2、3、6 历史数据</td></tr>
+  <tr><td>9</td><td>二〇二〇年年报（2021-04-07）</td><td>2020 / 2019</td><td>表 1、6 及减值归因</td></tr>
+  <tr><td>10</td><td>二〇一九年年报（2020-03-31）</td><td>2019 / 2018</td><td>表 1、6 历史数据</td></tr>
+  <tr><td>11</td><td>二〇一八年年报（2019-03-22）</td><td>2018 / 2017</td><td>表 1、3、6 历史数据</td></tr>
+  <tr><td>12</td><td>二〇一七年年报（2018-03-23）</td><td>2017 / 2016</td><td>表 1、6 历史数据</td></tr>
+  <tr><td>13</td><td>二〇一六年年报（2017-03-23）</td><td>2016 / 2015</td><td>表 1、2 历史数据</td></tr>
+  <tr><td>14</td><td>二〇一五年年报（2016-03-23）</td><td>2015 / 2014</td><td>表 1 亏损年份</td></tr>
+  <tr><td>15</td><td>二〇一四年年报（2015-03-26）</td><td>2014 / 2013</td><td>表 1 区间起点</td></tr>
+</tbody>
+</table></div>
+<p><strong>币种与单位</strong>：美元（USD）；金额单位为百万元（$mn），每股数据单位为仙（cent）。</p>
+<p><strong>准则</strong>：英国采纳的国际会计准则及国际财务报告准则（IFRS，英国采纳版）。</p>
+<p><strong>下载覆盖说明</strong>：本次共下载渣打集团港交所披露的定期报告与业绩公告 <strong>66 份</strong>（2014—2026 年段）。<strong>2007—2014 年段共 35 份因交易所接口限流（HTTP 567）未取得</strong>，如后续需要更早期数据，可从公司官网「投资者关系—财务报告」栏目补取。<strong>2022 年年报原件在港交所披露中缺失</strong>（该年度两次登记为同一份文件），2022 年数据已采用《二〇二三年年报》重述后比较列并标注。</p>
+<p><strong>免责</strong>：本报告依据公开披露文件整理，不构成任何投资建议。所有数据以公司正式披露文件为准。</p>
+
+<!-- rsp-mobile-adapt : 溢出表格滑动提示 -->
+<script>
+(function(){
+  function mark(){
+    var boxes = document.querySelectorAll('.rsp-table');
+    for (var i=0;i<boxes.length;i++){
+      var b = boxes[i];
+      if (b.scrollWidth > b.clientWidth + 4) b.setAttribute('data-rsp-scroll','');
+      else b.removeAttribute('data-rsp-scroll');
+    }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mark);
+  else mark();
+  window.addEventListener('resize', function(){ clearTimeout(window.__rspT); window.__rspT=setTimeout(mark,180); });
+})();
+</script>
+</body>
+</html>
