@@ -1378,6 +1378,33 @@ window.REPORT_LIBRARY = {
       ]
     },
     {
+      id: "link-reit",
+      name: "领展房产基金",
+      code: "0823.HK",
+      sector: "房地产投资信托",
+      short: "领展",
+      reports: [
+        {
+          id: "link-reit-fy2018-fy2026",
+          title: "领展房产基金（0823.HK）2018—2026 年财务数据对比分析报告",
+          period: "FY2018 — FY2026",
+          periodNote: "REIT · 港元 · 附中期业绩",
+          publishedAt: "2026-09-22",
+          html: "reports/link-reit/领展房产基金财报分析.html",
+          pdf: "docs/link-reit/领展房产基金财报分析.pdf",
+          pages: 18,
+          tags: ["可分派总额 −6.4%", "DPU 回到 FY2018 水平", "香港续租租金 −8.2%", "非核心资产出售 + 回购"],
+          metrics: [
+            { value: "65.77亿", label: "FY2026 可分派总额", note: "（港元）同比 −6.4%" },
+            { value: "−8.2%", label: "香港零售续租租金调整率九年最深", note: "（商铺分项 −9.1%）" },
+            { value: "97.8%", label: "香港零售租用率三年持平，但都会级降至 96.7%", note: "" },
+            { value: "23.9%", label: "净负债比率", note: "同比 +2.4pp，距上限仍有 24.4pp" },
+          ],
+          summary: "领展是亚洲市值最大的房地产投资信托基金，亦是香港首只上市的 REIT。物业组合横跨香港、中国内地、澳洲、新加坡及英国，以社区型零售商场与停车场为绝对主体，同时持有办公大楼与物流资产。"
+        }
+      ]
+    },
+    {
       id: "portfolio-screen",
       name: "投资组合筛选",
       code: "44 家 → 10 家",

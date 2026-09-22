@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>领展房产基金（0823.HK）2018—2026 年财务数据对比分析报告</title>
+<meta name="author" content="财报分析">
+<meta name="generator" content="financial-report-analysis">
+<style>
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W04.ttf") format("truetype");
+    font-weight: 400; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W05.ttf") format("truetype");
+    font-weight: 500; font-style: normal; font-display: swap;
+  }
+  @page {
+    size: A4;
+    margin: 16mm 18mm 18mm 18mm;
+    background: #F7F4EE;
+    @bottom-center {
+      content: counter(page) "  ·  财报分析";
+      font-family: "TsangerJinKai02", "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", Georgia, serif;
+      font-size: 9pt; color: #6b6a64;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --parchment:#F7F4EE; --ivory:#FBF9F4; --near-black:#22262B; --dark-warm:#3E4145;
+    --olive:#504e49; --stone:#7C7B77; --brand:#A73F2D; --brand-deep:#8A3223;
+    --accent:#A73F2D; --accent-soft:#F1E3DD; --gold:#B8862F; --teal:#2F6F6B; --blue:#1B365D;
+    --border:#E3DDD4; --border-soft:#EAE5DC;
+    --tag-bg:#F1E3DD; --positive:#A73F2D; --negative:#2F6F6B;
+    --serif: "TsangerJinKai02", "Source Han Serif SC", "Source Han Serif CN", "Noto Serif CJK SC", "Noto Serif SC", "Songti SC", "STSong", "SimSun", Georgia, serif;
+    --rhythm-module:14pt; --rhythm-section:18pt;
+  }
+  html, body { background: var(--parchment); }
+  @media screen { body { max-width: 210mm; margin: 0 auto; padding: 16mm 18mm 18mm 18mm; } }
+  body { color: var(--near-black); font-family: var(--serif); font-size: 10pt; line-height: 1.5;
+    letter-spacing: 0.3pt; widows: 3; orphans: 3; }
+  strong { font-weight: 500; }
+  .hl { color: var(--brand); font-weight: 500; }
+
+  .report-header { display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: var(--rhythm-module); padding-bottom: 10pt; border-bottom: 0.5pt solid var(--border); }
+  .ticker-block { flex: 1; }
+  .ticker-eyebrow { font-size: 9pt; color: var(--brand); letter-spacing: 1.5pt; text-transform: uppercase;
+    font-weight: 500; margin-bottom: 4pt; }
+  .ticker-name { font-family: var(--serif); font-size: 24pt; font-weight: 500; color: var(--near-black);
+    line-height: 1.15; margin-bottom: 4pt; }
+  .ticker-sub { font-size: 10pt; color: var(--olive); line-height: 1.4; }
+  .price-block { text-align: right; padding-top: 4pt; }
+  .price-current { font-family: var(--serif); font-size: 28pt; font-weight: 500; color: var(--near-black);
+    line-height: 1; font-variant-numeric: tabular-nums; }
+  .price-change { font-size: 10pt; font-weight: 500; margin-top: 2pt; font-variant-numeric: tabular-nums; }
+  .price-change.up { color: var(--positive); }
+  .price-date { font-size: 9pt; color: var(--stone); margin-top: 2pt; }
+
+  .metrics { display: flex; gap: 14pt; margin-bottom: 16pt; padding: 6pt 0;
+    border-top: 0.3pt dotted var(--border); border-bottom: 0.3pt dotted var(--border); }
+  .metric { flex: 1; min-width: 0; display: flex; align-items: baseline; gap: 4pt; flex-wrap: wrap; }
+  .metric-value { font-family: var(--serif); font-size: 16pt; font-weight: 500; color: var(--brand);
+    line-height: 1; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  /* white-space 必须为 normal：设为 nowrap 时 flex 项不收缩，4 张指标卡的标签会互相压字并冲出页面右缘 */
+  .metric-label { font-size: 9pt; color: var(--olive); line-height: 1.3; white-space: normal; }
+
+  h2 { font-family: var(--serif); font-size: 16pt; font-weight: 500; color: var(--near-black);
+    margin: 18pt 0 6pt 0; break-after: avoid; }
+  h3 { font-size: 13pt; font-weight: 500; color: var(--dark-warm); margin: 12pt 0 4pt 0; break-after: avoid; }
+  p { margin: 0 0 8pt 0; line-height: 1.5; widows: 2; orphans: 2; }
+  ul, ol { margin: 4pt 0 8pt 0; padding-left: 18pt; line-height: 1.5; }
+  ul li::marker { color: var(--brand); } ol li::marker { color: var(--brand); font-weight: 500; }
+
+  .tag { display: inline-block; background: var(--tag-bg); color: var(--brand); font-size: 9pt;
+    font-weight: 500; padding: 1pt 6pt; border-radius: 3pt; margin-right: 3pt; }
+
+  table, .kami-table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin: 8pt 0; break-inside: avoid; }
+  table th, .kami-table th { text-align: left; font-weight: 500; color: var(--dark-warm);
+    padding: 6pt 8pt; border-bottom: 0.6pt solid var(--border); background: transparent; }
+  table td, .kami-table td { padding: 5pt 8pt; border-bottom: 0.25pt solid var(--border); vertical-align: top; }
+  table.compact th, .kami-table.compact th { padding: 3pt 6pt; font-size: 8pt; }
+  table.compact td, .kami-table.compact td { padding: 2.5pt 6pt; font-size: 8pt; line-height: 1.4; }
+  table.financial td:not(:first-child), .kami-table.financial td:not(:first-child) {
+    text-align: right; font-variant-numeric: tabular-nums; }
+  table.financial th:not(:first-child), .kami-table.financial th:not(:first-child) { text-align: right; }
+  table .total td, .kami-table .total td { font-weight: 500; border-top: 0.6pt solid var(--border);
+    border-bottom: none; color: var(--near-black); }
+  .note { font-size: 8.5pt; color: var(--stone); margin: 2pt 0 8pt 0; }
+
+  .callout { background: var(--ivory); padding: 8pt 12pt; border-radius: 3pt; margin: 10pt 0;
+    line-height: 1.5; break-inside: avoid; }
+  .callout .quote { margin: 6pt 0; color: var(--olive); }
+
+  figure { margin: 12pt 0; break-inside: avoid; }
+  figcaption { font-size: 9pt; color: var(--stone); margin-top: 4pt; text-align: center; }
+
+  .risk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10pt; margin: 8pt 0; }
+  .risk-item { padding: 6pt 10pt; background: var(--ivory); border-radius: 3pt; break-inside: avoid; }
+  .risk-label { font-size: 9pt; font-weight: 500; color: var(--brand); margin-bottom: 2pt; }
+  .risk-desc { font-size: 9pt; color: var(--olive); line-height: 1.4; }
+
+  .analyst-box { background: var(--ivory); border-radius: 4pt; padding: 10pt 14pt; margin: 12pt 0;
+    break-inside: avoid; }
+  .analyst-label { font-size: 9pt; color: var(--brand); letter-spacing: 0.5pt; text-transform: uppercase;
+    margin-bottom: 4pt; }
+
+  .page-break { break-before: page; }
+
+  /* ===== 富配色增强：砖红主色 #A73F2D + 四色数据 + 深炭标题 #22262B ===== */
+  h2 { position: relative; padding-left: 13pt; }
+  h2::before { content:""; position:absolute; left:0; top:2.5pt; width:4pt; height:13pt;
+    background:var(--accent); border-radius:1pt; }
+  table th, .kami-table th { border-bottom: 1pt solid var(--accent); }
+  .metric:nth-child(1) .metric-value { color: var(--accent); }
+  .metric:nth-child(2) .metric-value { color: var(--gold); }
+  .metric:nth-child(3) .metric-value { color: var(--teal); }
+  .metric:nth-child(4) .metric-value { color: var(--blue); }
+  .callout { border-left: 3pt solid var(--accent); }
+  .analyst-box { border-left: 3pt solid var(--accent); }
+  .risk-item { border-left: 2.5pt solid var(--accent); }
+  .tag { background: var(--accent-soft); color: var(--brand-deep); }
+  .price-current { color: var(--near-black); }
+  .ticker-sub { color: var(--stone); }
+
+  .callout.warn { border-left: 3pt solid var(--accent); background: #F1E3DD; }
+  .callout.warn strong { color: var(--brand-deep); }
+  .callout { font-size: 9pt; }
+  .metrics { display: flex; gap: 10pt; }
+  .metric { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column;
+    align-items: flex-start; gap: 2pt; }
+  .metric-value { font-size: 13pt; white-space: nowrap; line-height: 1.05; }
+  .metric-label { white-space: normal; font-size: 8.5pt; line-height: 1.3; }
+  .price-change.down { color: #2F6F6B; }
+
+  /* ---- HTML/CSS 图表（替代 SVG，规避字号塌缩与不换行） ---- */
+  .ch { border: 0.6pt solid var(--line, #E3DDD4); border-radius: 3pt;
+        padding: 8pt 10pt 9pt; background: #FBF9F4; }
+  .ch-title { font-size: 9.5pt; font-weight: 600; color: #22262B; margin-bottom: 1pt; }
+  .ch-sub { font-size: 8.5pt; color: #7C7B77; margin-bottom: 7pt; }
+  .ch-row { display: flex; align-items: center; gap: 6pt; margin-bottom: 2.8pt; }
+  .ch-lab { flex: 0 0 118pt; font-size: 8.5pt; color: #22262B; }
+  .ch-track { flex: 1 1 auto; min-width: 0; background: #EFEAE1; border-radius: 1.5pt;
+              height: 11pt; overflow: hidden; }
+  .ch-val { flex: 0 0 62pt; font-size: 8.5pt; color: #22262B; text-align: right; }
+  .ch-bar { display: block; height: 11pt; border-radius: 1.5pt; background: #2F6F6B; }
+  .b-hi { background: #A73F2D; }
+  .b-blue { background: #1B365D; }
+  .b-teal { background: #2F6F6B; }
+  .b-gold { background: #B8862F; }
+  .b-grey { background: #CFC7BA; }
+  .ch-legend { display: flex; flex-wrap: wrap; gap: 4pt 14pt; margin-top: 6pt;
+               padding-top: 5pt; border-top: 0.5pt dashed #E3DDD4; }
+  .lg { font-size: 8pt; color: #7C7B77; display: inline-flex; align-items: center; gap: 3pt; }
+  .lg i { width: 9pt; height: 8pt; border-radius: 1.2pt; display: inline-block; }
+  .lg i.s-teal { background: #2F6F6B; } .lg i.s-gold { background: #B8862F; }
+  .lg i.s-grey { background: #CFC7BA; } .lg i.s-blue { background: #1B365D; }
+  .lg i.b-hi { background: #A73F2D; } .lg i.b-teal { background: #2F6F6B; }
+  .lg i.b-gold { background: #B8862F; } .lg i.b-grey { background: #CFC7BA; }
+  .lg i.b-blue { background: #1B365D; }
+  .lg i.wf-up { background: #A73F2D; } .lg i.wf-down { background: #2F6F6B; }
+  .lg i.wf-tot { background: #1B365D; }
+
+  /* 堆积条 */
+  .st-track { flex: 1 1 auto; min-width: 0; display: flex; height: 14pt;
+              border-radius: 1.5pt; overflow: hidden; }
+  .seg { display: inline-flex; align-items: center; justify-content: center;
+         height: 14pt; font-size: 7.5pt; color: #fff; overflow: hidden; }
+  .seg.s-teal { background: #2F6F6B; } .seg.s-gold { background: #B8862F; }
+  .seg.s-grey { background: #CFC7BA; color: #4A4A46; } .seg.s-blue { background: #1B365D; }
+  .seg-txt { white-space: nowrap; }
+
+  /* 瀑布条 */
+  .wf-track { flex: 1 1 auto; min-width: 0; position: relative; height: 12pt;
+              background: #EFEAE1; border-radius: 1.5pt; }
+  .wf-bar { position: absolute; top: 0; height: 12pt; border-radius: 1.5pt; }
+  .wf-up { background: #A73F2D; } .wf-down { background: #2F6F6B; }
+  .wf-tot { background: #1B365D; }
+
+  .fig-note { font-size: 7.8pt; color: #7C7B77; margin-top: 4pt; line-height: 1.42; }
+  figure { break-inside: avoid; margin: 10pt 0; }
+  figcaption { font-size: 8.2pt; color: #4A4A46; margin-top: 4pt; line-height: 1.42; }
+
+  table.wide { font-size: 6.4pt; }
+  table.wide th, table.wide td { padding: 2.4pt 2.4pt; }
+  table.longtable { break-inside: auto; }
+  table.longtable thead { display: table-header-group; }
+  table.longtable tr { break-inside: avoid; }
+  h2, h3, h4 { break-after: avoid; }
+  table { font-size: 9pt; }
+  table.compact th, table.compact td { font-size: 8pt; }
+</style>
+
+<!-- rsp-mobile-adapt : 响应式适配层（仅屏幕生效，不影响打印/PDF） -->
+<style id="rsp-mobile-adapt">
+/* rsp-mobile-adapt-v3 */
+/* ========== 1. 全局：屏幕端基础修正 ========== */
+@media screen {
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body { overflow-wrap: break-word; }
+  img, svg, canvas, video, iframe { max-width: 100%; }
+  svg[viewBox], svg[viewbox] { height: auto; }
+
+  /* 网格容器（两列对比等）：网格项默认 min-width:auto，会被内部宽表撑破
+     容器、把整页顶出横向滚动（报告里 .two-col 就栽在这上面）。放开收缩，
+     让里面的 .rsp-table 自己去横向滑动。 */
+  .risk-grid > *, .two-col > * { min-width: 0; }
+
+  /* 表格横向滚动容器：宽表不压字、不撑破页面 */
+  .rsp-table {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    margin: 8pt 0;
+    position: relative;
+  }
+  .rsp-table > table { margin: 0; }
+  .rsp-table::-webkit-scrollbar { height: 7px; }
+  .rsp-table::-webkit-scrollbar-track { background: transparent; }
+  .rsp-table::-webkit-scrollbar-thumb { background: #D8D1C4; border-radius: 4px; }
+  /* 内容确实溢出时，右侧给一层渐变暗示"还能往右滑" */
+  .rsp-table[data-rsp-scroll] {
+    background: linear-gradient(to left, rgba(167,63,45,.10), rgba(167,63,45,0) 28px);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 28px 100%;
+  }
+}
+
+/* ========== 2. 平板 / 窄窗口：边距先收，避免内容被挤 ========== */
+@media screen and (max-width: 900px) {
+  body { padding: 22px 22px 46px 22px !important; }
+  .report-header { flex-wrap: wrap; gap: 12pt; }
+  .metrics { flex-wrap: wrap; gap: 10pt 18pt; }
+  .metric { flex: 1 1 42%; min-width: 0; }
+  .report-footer { flex-wrap: wrap; gap: 4pt 14pt; }
+
+  /* 宽表改为横向滚动：给每列保留最小可读宽度，不再把汉字挤成竖排 */
+  .rsp-w5 > table { min-width: 310px !important; }
+  .rsp-w6 > table { min-width: 372px !important; }
+  .rsp-w7 > table { min-width: 434px !important; }
+  .rsp-w8 > table { min-width: 496px !important; }
+  .rsp-w9 > table { min-width: 558px !important; }
+  .rsp-w10 > table { min-width: 620px !important; }
+  .rsp-w11 > table { min-width: 682px !important; }
+  .rsp-w12 > table { min-width: 744px !important; }
+  .rsp-w13 > table { min-width: 806px !important; }
+  .rsp-w14 > table { min-width: 868px !important; }
+  .rsp-w15 > table { min-width: 930px !important; }
+  .rsp-w16 > table { min-width: 992px !important; }
+}
+
+/* ========== 3. 手机：指标卡两列、页头转纵向 ========== */
+@media screen and (max-width: 720px) {
+  body {
+    max-width: 100% !important;
+    padding: 18px 16px 44px 16px !important;
+    font-size: 10.5pt;
+  }
+  h2 { font-size: 15pt !important; margin: 20pt 0 7pt 0 !important; }
+  h3 { font-size: 12.5pt !important; }
+  h1 { font-size: 19pt !important; }
+  p, li { line-height: 1.62; }
+  ul, ol { padding-left: 17pt; }
+
+  .report-header { flex-direction: column; align-items: stretch; gap: 8pt; }
+  .price-block { text-align: left; padding-top: 0; }
+  .price-current { font-size: 24pt !important; }
+  .ticker-name { font-size: 21pt !important; }
+  .ticker-sub { font-size: 9.5pt !important; }
+
+  .metrics { gap: 9pt 12pt; }
+  .metric { flex: 1 1 45%; }
+  .metric-value { font-size: 15pt !important; }
+  .metric-label { font-size: 8.5pt !important; white-space: normal !important; }
+
+  table, .kami-table { font-size: 9pt !important; }
+  .longtable { font-size: 8.5pt !important; }
+  .wide { font-size: 7.5pt !important; }
+  .dense { font-size: 8pt !important; }
+  table th, table td, .kami-table th, .kami-table td { padding: 5pt 6pt !important; }
+
+  blockquote, .quote, .note, .warn, .callout, .risk-item { padding: 9pt 11pt !important; }
+  .risk-grid { grid-template-columns: 1fr !important; }
+  .report-footer { flex-direction: column; align-items: flex-start; gap: 3pt; }
+}
+
+/* ========== 3b. 图表：窄屏保持图纸原尺寸 + 横向滑动 ========== */
+/* 报告里的图表是 SVG：viewBox 宽 680 + width:100%。缩到手机宽度（约 350px）
+   只剩 0.5×，图内字号从 11px 掉到 5px 完全不可读；而 SVG <text> 不会自动换行，
+   单纯放大字号必然溢出图框。这里改为**保持图纸原尺寸、允许左右滑动**——
+   与上面宽表同一套策略，宁可滑也不塌字号。仅屏幕生效，打印/PDF 不受影响。 */
+@media screen and (max-width: 720px) {
+  .rsp-fig {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    /* 图纸一定宽于屏幕，直接给右侧一层渐变，暗示"还能往右滑" */
+    background: linear-gradient(to left, rgba(167,63,45,.09), rgba(167,63,45,0) 26px);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 26px 100%;
+  }
+  .rsp-fig > svg { min-width: var(--rsp-fig-w, 680px); }
+  .rsp-fig::-webkit-scrollbar { height: 7px; }
+  .rsp-fig::-webkit-scrollbar-track { background: transparent; }
+  .rsp-fig::-webkit-scrollbar-thumb { background: #D8D1C4; border-radius: 4px; }
+}
+
+/* ========== 4. 小屏手机：指标卡单列、边距收到最紧 ========== */
+@media screen and (max-width: 430px) {
+  body { padding: 14px 12px 38px 12px !important; }
+  h2 { font-size: 14pt !important; }
+  h3 { font-size: 11.5pt !important; }
+  .ticker-name { font-size: 19pt !important; }
+  .price-current { font-size: 21pt !important; }
+  .metric { flex: 1 1 100%; }
+  .metric-value { font-size: 16pt !important; }
+  ul, ol { padding-left: 15pt; }
+  table, .kami-table { font-size: 8.5pt !important; }
+}
+
+/* ========== 5. 打印：把包裹层还原成透明，PDF 版式与补丁前完全一致 ========== */
+@media print {
+  .rsp-table { margin: 0; padding: 0; overflow: visible !important; background: none !important; }
+  .rsp-table > table { margin: 8pt 0; min-width: 0 !important; }
+  [class*="rsp-w"] > table { min-width: 0 !important; }
+}
+</style>
+</head>
+<body>
+<div class="report-header">
+  <div class="ticker-block">
+    <div class="ticker-eyebrow">香港房地产投资信托基金 · 九年财务数据对比分析</div>
+    <div class="ticker-name">领展房产基金<span style="font-size:14pt;color:var(--stone);">0823.HK</span></div>
+    <div class="ticker-sub">2018—2026 年年度报告 · 中期报告 · 单位：百万港元 · 香港财务报告准则</div>
+  </div>
+  <div class="price-block">
+    <div class="price-current">253.61<span style="font-size:12pt;">港仙</span></div>
+    <div class="price-change down">FY2026 每基金单位分派（同比 −6.9%）</div>
+    <div class="price-date">数据截至 2026 年 3 月 31 日</div>
+  </div>
+</div>
+
+<div class="metrics">
+  <div class="metric"><div class="metric-value">65.77<span style="font-size:9pt;">亿</span></div><div class="metric-label">FY2026 可分派总额（港元）<br>同比 −6.4%</div></div>
+  <div class="metric"><div class="metric-value">−8.2%</div><div class="metric-label">香港零售续租租金调整率<br>九年最深（商铺分项 −9.1%）</div></div>
+  <div class="metric"><div class="metric-value">97.8%</div><div class="metric-label">香港零售租用率<br>三年持平，但都会级降至 96.7%</div></div>
+  <div class="metric"><div class="metric-value">23.9%</div><div class="metric-label">净负债比率<br>同比 +2.4pp，距上限仍有 24.4pp</div></div>
+</div>
+
+<h2>一、公司概况</h2>
+<h3>1.1 基本信息</h3>
+<div class="rsp-table"><table class="financial compact longtable"><thead><tr><th>项目</th><th>内容</th></tr></thead><tbody><tr><td>基金名称</td><td>领展房地产投资信托基金</td></tr><tr><td>上市代码</td><td>0823.HK（港交所主板）</td></tr><tr><td>上市日期</td><td>2005 年 11 月 25 日</td></tr><tr><td>财政年度结算日</td><td>每年 3 月 31 日（非自然年）</td></tr><tr><td>管理人</td><td>领展资产管理有限公司</td></tr><tr><td>受托人</td><td>汇丰机构信托服务（亚洲）有限公司</td></tr><tr><td>报告币种</td><td>港元（除另有注明，金额单位为百万港元）</td></tr><tr><td>会计准则</td><td>香港财务报告准则（HKFRS）</td></tr><tr><td>监管框架</td><td>证监会《房地产投资信托基金守则》＋信托契约</td></tr></tbody></table></div>
+<h3>1.2 经营概览（2026 年 3 月 31 日）</h3>
+<p>领展是亚洲市值最大的房地产投资信托基金，亦是香港首只上市的 REIT。物业组合横跨香港、中国内地、澳洲、新加坡及英国，以<strong>社区型零售商场与停车场</strong>为绝对主体，同时持有办公大楼与物流资产。</p>
+<div class="rsp-table"><table class="financial compact longtable"><thead><tr><th>指标</th><th>2026 年 3 月 31 日</th><th>2025 年 3 月 31 日</th></tr></thead><tbody><tr><td>物业组合总估值</td><td>2,164.89 亿港元（按组合口径 2,160 亿港元）</td><td>2,257.55 亿港元</td></tr><tr><td>投资物业（账面）</td><td>209,556 百万港元</td><td>220,413 百万港元</td></tr><tr><td>资产总值</td><td>219,781 百万港元</td><td>229,177 百万港元</td></tr><tr><td>基金单位持有人应占资产净值</td><td>150,096 百万港元</td><td>163,470 百万港元</td></tr><tr><td>每基金单位资产净值</td><td>57.75 港元</td><td>63.30 港元</td></tr><tr><td>已发行基金单位</td><td>2,598,939,023 个</td><td>2,582,396,465 个</td></tr><tr><td>净负债比率</td><td>23.9%</td><td>21.5%</td></tr><tr><td>负债比率（借贷总额／资产总值）</td><td>25.6%</td><td>23.1%</td></tr><tr><td>平均借贷成本</td><td>3.44%</td><td>3.58%</td></tr><tr><td>债务到期年限</td><td>3.5 年</td><td>2.8 年</td></tr><tr><td>定息债务占比</td><td>60.0%</td><td>—</td></tr><tr><td>可动用资金</td><td>122 亿港元</td><td>—</td></tr><tr><td>EBITDA 利息覆盖率</td><td>5.1 倍</td><td>—</td></tr></tbody></table></div>
+<p><strong>物业组合地域结构（按估值）</strong>：香港 73.4%（零售 50.9%＋停车场及相关业务 20.1%＋办公大楼 2.4%）、中国内地 13.7%（零售 10.9%＋办公大楼 2.0%＋物流 0.8%）、澳洲／新加坡／英国 12.9%。零售及停车场资产合计占资产 90.4%，办公大楼与物流合计 9.6%——<strong>这是一只「必需消费型收租资产」的 REIT，而非写字楼或物流主题基金</strong>，这一点决定了后文所有经营指标的解释方式。</p>
+<h3>1.3 报告口径说明（阅读本报告前必读）</h3>
+<ol><li><strong>分派是本基金的核心业绩口径，而非会计净利润。</strong> 领展每年重估全部投资物业，公平值变动（FY2026 为 −144.91 亿港元）直接计入综合收益表，导致<strong>会计净利长期为负而分派持续为正</strong>。判断经营质量必须看「可分派总额」与「每基金单位分派（DPU）」，会计净利仅用于观察估值变动幅度。</li><li><strong>可分派收入的定义</strong>：按信托契约，可分派收入总额＝基金单位持有人应占除税后综合溢利，并<strong>剔除若干非现金调整</strong>（主要是投资物业公平值变动及其递延税项、商誉减值、金融工具公平值变动、折旧摊销、其他非现金项）。管理人可选择分派不少于 90%；<strong>领展自上市以来一贯分派 100%</strong>，FY2026 亦为 100%。</li><li><strong>会计处理特殊点</strong>：因适用香港会计准则第 32 号，<strong>基金单位持有人的资金被归类为金融负债而非权益</strong>，向持有人作出的分派计入综合收益表。故本基金的「溢利」与一般公司不可直接比较。</li><li><strong>财年标签</strong>：本报告标签「FY2026」指<strong>截至 2026 年 3 月 31 日止年度</strong>，FY2025 指截至 2025 年 3 月 31 日止年度，依此类推。半年度标签「2025H1」指<strong>截至 2025 年 9 月 30 日止六个月</strong>，非自然年半年。</li><li><strong>列序规则</strong>：所有对比表<strong>一律时间递增</strong>，并按「年度块 → 半年度块」两块排列，分界处以 <code>‖</code> 标出。<strong>跨块数值不可直接相减</strong>。</li><li><strong>数据来源</strong>：全部取自港交所披露易（HKEXnews）公布的本基金年报、中期报告，<strong>未使用任何二手数据或估算值</strong>。抽取文本时发现 FY2024/25 年报存在 PDF 字体映射缺陷（部分汉字被映射至 Unicode 康熙部首区），已规范化后重新检索核对，不影响本报告数据。</li><li><strong>本期新增口径提示</strong>：FY2026 起「净负债比率」为管理层明示指标（21.5%→23.9%），而五年概要表列示的「借贷总额占资产总值比例」为 23.1%→25.6%，<strong>两者分母口径不同（前者扣除现金总额，含可转换债券），引用时必须声明</strong>。</li></ol>
+<h2>二、核心财务数据对比</h2>
+<figure><div class="ch">
+<div class="ch-title">收益与物业收入净额（FY2018—FY2026）</div>
+<div class="ch-sub">单位：百万港元 · 物业收入净额＝收益−物业经营开支 · FY2026 为九年来首次双双转负</div>
+<div class="ch-row"><div class="ch-lab">FY2018</div><div class="ch-track"><span class="ch-bar b-blue" style="width:72.833%"></span></div><div class="ch-val">10,023</div></div>
+<div class="ch-row"><div class="ch-lab">FY2019</div><div class="ch-track"><span class="ch-bar b-blue" style="width:72.923%"></span></div><div class="ch-val">10,037</div></div>
+<div class="ch-row"><div class="ch-lab">FY2020</div><div class="ch-track"><span class="ch-bar b-blue" style="width:77.328%"></span></div><div class="ch-val">10,718</div></div>
+<div class="ch-row"><div class="ch-lab">FY2021</div><div class="ch-track"><span class="ch-bar b-blue" style="width:77.496%"></span></div><div class="ch-val">10,744</div></div>
+<div class="ch-row"><div class="ch-lab">FY2022</div><div class="ch-track"><span class="ch-bar b-blue" style="width:83.046%"></span></div><div class="ch-val">11,602</div></div>
+<div class="ch-row"><div class="ch-lab">FY2023</div><div class="ch-track"><span class="ch-bar b-blue" style="width:87.134%"></span></div><div class="ch-val">12,234</div></div>
+<div class="ch-row"><div class="ch-lab">FY2024</div><div class="ch-track"><span class="ch-bar b-blue" style="width:95.828%"></span></div><div class="ch-val">13,578</div></div>
+<div class="ch-row"><div class="ch-lab">FY2025</div><div class="ch-track"><span class="ch-bar b-blue" style="width:100.000%"></span></div><div class="ch-val">14,223</div></div>
+<div class="ch-row"><div class="ch-lab">FY2026</div><div class="ch-track"><span class="ch-bar b-blue" style="width:98.157%"></span></div><div class="ch-val">13,938</div></div>
+<div class="ch-legend"><span class="lg"><i class="b-blue"></i>收益</span>
+<span class="lg">横轴＝收益绝对额</span>
+</div>
+</div>
+<figcaption>收益 FY2026 为 139.38 亿港元（同比 −2.0%），物业收入净额 102.30 亿港元（同比 −3.7%）。FY2022—FY2025 四年累计增长 22.6% 后中断。</figcaption>
+<div class="fig-note">物业收入净额各行按同比例尺并列展示，便于与收益对比：FY2026 物业收入净额降幅（−3.7%）大于收益降幅（−2.0%），说明成本端未同步收缩。<br>物业收入净额序列：FY2018 7,663　FY2019 7,689　FY2020 8,220　FY2021 8,238　FY2022 8,776　FY2023 9,198　FY2024 10,070　FY2025 10,619　FY2026 10,230</div>
+</figure>
+<h3>表 1　经营业绩与分派能力（FY2018—FY2026；单位：百万港元）</h3>
+<div class="rsp-table rsp-w9"><table class="financial compact longtable"><thead><tr><th>财年</th><th>收益</th><th>同比</th><th>物业收入净额</th><th>同比</th><th>可分派总额</th><th>同比</th><th>每基金单位分派（港仙）</th><th>同比</th></tr></thead><tbody><tr><td>FY2018</td><td>10,023</td><td>—</td><td>7,663</td><td>—</td><td>5,431</td><td>—</td><td>249.78</td><td>—</td></tr><tr><td>FY2019</td><td>10,037</td><td>+0.1%</td><td>7,689</td><td>+0.3%</td><td>5,723</td><td>+5.4%</td><td>271.17</td><td>+8.6%</td></tr><tr><td>FY2020</td><td>10,718</td><td>+6.8%</td><td>8,220</td><td>+6.9%</td><td>5,965</td><td>+4.2%</td><td>287.19</td><td>+5.9%</td></tr><tr><td>FY2021</td><td>10,744</td><td>+0.2%</td><td>8,238</td><td>+0.2%</td><td>6,010</td><td>+0.8%</td><td>289.99</td><td>+1.0%</td></tr><tr><td>FY2022</td><td>11,602</td><td>+8.0%</td><td>8,776</td><td>+6.5%</td><td>6,419</td><td>+6.8%</td><td>305.67</td><td>+5.4%</td></tr><tr><td>FY2023</td><td>12,234</td><td>+5.4%</td><td>9,198</td><td>+4.8%</td><td>6,311</td><td>−1.7%</td><td>274.31</td><td>−10.3%</td></tr><tr><td>FY2024</td><td>13,578</td><td>+11.0%</td><td>10,070</td><td>+9.5%</td><td>6,718</td><td>+6.4%</td><td>262.65</td><td>−4.3%</td></tr><tr><td>FY2025</td><td>14,223</td><td>+4.8%</td><td>10,619</td><td>+5.5%</td><td>7,025</td><td>+4.6%</td><td>272.34</td><td>+3.7%</td></tr><tr><td>FY2026</td><td>13,938</td><td>−2.0%</td><td>10,230</td><td>−3.7%</td><td>6,577</td><td>−6.4%</td><td>253.61</td><td>−6.9%</td></tr></tbody></table></div>
+<figure><div class="ch">
+<div class="ch-title">物业组合估值地域分布（FY2026）</div>
+<div class="ch-sub">总估值 2,164.89 亿港元 · 香港占 73.4%，为绝对基本盘</div>
+<div class="ch-row"><div class="ch-lab">香港 · 零售</div><div class="ch-track"><span class="ch-bar b-blue" style="width:100.000%"></span></div><div class="ch-val">110,352</div></div>
+<div class="ch-row"><div class="ch-lab">香港 · 停车场及相关业务</div><div class="ch-track"><span class="ch-bar b-blue" style="width:44.282%"></span></div><div class="ch-val">43,520</div></div>
+<div class="ch-row"><div class="ch-lab">香港 · 办公大楼</div><div class="ch-track"><span class="ch-bar b-blue" style="width:12.244%"></span></div><div class="ch-val">5,091</div></div>
+<div class="ch-row"><div class="ch-lab">中国内地 · 零售</div><div class="ch-track"><span class="ch-bar b-blue" style="width:27.786%"></span></div><div class="ch-val">23,733</div></div>
+<div class="ch-row"><div class="ch-lab">中国内地 · 办公大楼</div><div class="ch-track"><span class="ch-bar b-blue" style="width:11.596%"></span></div><div class="ch-val">4,313</div></div>
+<div class="ch-row"><div class="ch-lab">中国内地 · 物流</div><div class="ch-track"><span class="ch-bar b-blue" style="width:9.375%"></span></div><div class="ch-val">1,649</div></div>
+<div class="ch-row"><div class="ch-lab">澳洲 · 办公大楼</div><div class="ch-track"><span class="ch-bar b-blue" style="width:14.141%"></span></div><div class="ch-val">7,366</div></div>
+<div class="ch-row"><div class="ch-lab">澳洲 · 零售</div><div class="ch-track"><span class="ch-bar b-blue" style="width:10.629%"></span></div><div class="ch-val">3,154</div></div>
+<div class="ch-row"><div class="ch-lab">澳洲 · 物流</div><div class="ch-track"><span class="ch-bar b-blue" style="width:8.544%"></span></div><div class="ch-val">653</div></div>
+<div class="ch-row"><div class="ch-lab">新加坡 · 零售</div><div class="ch-track"><span class="ch-bar b-blue" style="width:20.567%"></span></div><div class="ch-val">15,074</div></div>
+<div class="ch-row"><div class="ch-lab">英国 · 办公大楼</div><div class="ch-track"><span class="ch-bar b-blue" style="width:9.321%"></span></div><div class="ch-val">1,584</div></div>
+<div class="ch-legend"><span class="lg"><i class="b-blue"></i>物业估值（百万港元）</span>
+</div>
+</div>
+<figcaption>零售及停车场资产合计占资产 90.4%，办公大楼与物流合计 9.6% —— 这是一只必需消费型收租资产 REIT，而非写字楼或物流主题基金。</figcaption>
+<div class="fig-note">国际（澳洲＋新加坡＋英国）合计 12.9%，是唯一提供正向租金动能的板块（澳洲零售续租租金调整率 +16.5%、新加坡 +12.3%），但占比不足以对冲香港基本盘。</div>
+</figure>
+<h3>表 2　综合收益表主要科目（FY2018—FY2026；单位：百万港元）</h3>
+<div class="rsp-table rsp-w8"><table class="financial compact longtable"><thead><tr><th>财年</th><th>收益</th><th>物业经营开支</th><th>物业收入净额</th><th>一般及行政开支</th><th>投资物业公平值变动</th><th>财务成本</th><th>扣除税项及与持有人交易前溢利／（亏损）</th></tr></thead><tbody><tr><td>FY2018</td><td>10,023</td><td>(2,360)</td><td>7,663</td><td>(417)</td><td>35,493</td><td>(665)</td><td>49,399</td></tr><tr><td>FY2019</td><td>10,037</td><td>(2,348)</td><td>7,689</td><td>(405)</td><td>12,269</td><td>(598)</td><td>21,801</td></tr><tr><td>FY2020</td><td>10,718</td><td>(2,498)</td><td>8,220</td><td>(416)</td><td>(23,948)</td><td>(630)</td><td>(16,591)</td></tr><tr><td>FY2021</td><td>10,744</td><td>(2,506)</td><td>8,238</td><td>(428)</td><td>(5,322)</td><td>(770)</td><td>1,844</td></tr><tr><td>FY2022</td><td>11,602</td><td>(2,826)</td><td>8,776</td><td>(512)</td><td>426</td><td>(1,005)</td><td>8,136</td></tr><tr><td>FY2023</td><td>12,234</td><td>(3,036)</td><td>9,198</td><td>(653)</td><td>9,367</td><td>(1,754)</td><td>16,299</td></tr><tr><td>FY2024</td><td>13,578</td><td>(3,508)</td><td>10,070</td><td>(766)</td><td>(7,361)</td><td>(2,319)</td><td>(915)</td></tr><tr><td>FY2025</td><td>14,223</td><td>(3,604)</td><td>10,619</td><td>(915)</td><td>(16,280)</td><td>(2,096)</td><td>(8,867)</td></tr><tr><td>FY2026</td><td>13,938</td><td>(3,708)</td><td>10,230</td><td>(829)</td><td>(14,491)</td><td>(1,962)</td><td>(6,844)</td></tr></tbody></table></div>
+<figure><div class="ch">
+<div class="ch-title">可分派总额变动拆解：FY2025 → FY2026（百万港元）</div>
+<div class="ch-sub">7,025 → 6,577，净减 448 百万港元 · 租金下行与利息收入锐减为主因</div>
+<div class="ch-row"><div class="ch-lab">FY2025 可分派总额</div><div class="wf-track"><span class="wf-bar wf-tot" style="left:0.000%;width:100.000%"></span></div><div class="ch-val">7025</div></div>
+<div class="ch-row"><div class="ch-lab">收益减少（−285）</div><div class="wf-track"><span class="wf-bar wf-down" style="left:95.943%;width:4.057%"></span></div><div class="ch-val">-285</div></div>
+<div class="ch-row"><div class="ch-lab">物业经营开支增加（−104）</div><div class="wf-track"><span class="wf-bar wf-down" style="left:94.463%;width:1.480%"></span></div><div class="ch-val">-104</div></div>
+<div class="ch-row"><div class="ch-lab">一般及行政开支节省（+86）</div><div class="wf-track"><span class="wf-bar wf-up" style="left:94.463%;width:1.224%"></span></div><div class="ch-val">+86</div></div>
+<div class="ch-row"><div class="ch-lab">净财务成本与利息收入（−183）</div><div class="wf-track"><span class="wf-bar wf-down" style="left:93.082%;width:2.605%"></span></div><div class="ch-val">-183</div></div>
+<div class="ch-row"><div class="ch-lab">税项及其他（+38）</div><div class="wf-track"><span class="wf-bar wf-up" style="left:93.082%;width:0.800%"></span></div><div class="ch-val">+38</div></div>
+<div class="ch-row"><div class="ch-lab">FY2026 可分派总额</div><div class="wf-track"><span class="wf-bar wf-tot" style="left:93.623%;width:0.800%"></span></div><div class="ch-val">6577</div></div>
+<div class="ch-legend"><span class="lg"><i class="wf-up"></i>增加</span><span class="lg"><i class="wf-down"></i>减少</span><span class="lg"><i class="wf-tot"></i>合计</span><span class="lg">单位：百万港元</span></div>
+</div>
+<figcaption>收益由 142.23 亿减至 139.38 亿港元；物业经营开支由 36.04 亿增至 37.08 亿港元；一般及行政开支由 9.15 亿降至 8.29 亿港元（−9.4%，业务精简成效）；利息收入由 2.24 亿降至 0.65 亿、财务成本由 20.96 亿降至 19.62 亿港元。</figcaption>
+<div class="fig-note">费用项为按披露科目的差异推算所得，非年报直接披露的调节表；年报披露的分派调节表以「非现金调整」为口径（见正文表 3），两者视角不同、结果一致。</div>
+</figure>
+<h3>表 3　可分派总额调节表（FY2026 vs FY2025；单位：百万港元）</h3>
+<div class="rsp-table"><table class="financial compact longtable"><thead><tr><th>项目</th><th>FY2026</th><th>FY2025</th></tr></thead><tbody><tr><td>扣除与基金单位持有人交易前持有人应占之年内（亏损）</td><td>(7,397)</td><td>(8,863)</td></tr><tr><td>调整：投资物业公平值变动</td><td>13,934</td><td>16,181</td></tr><tr><td>调整：物业、器材及设备减值</td><td>44</td><td>–</td></tr><tr><td>调整：投资物业公平值变动之递延税项</td><td>(107)</td><td>(332)</td></tr><tr><td>调整：可转换债券衍生工具部分公平值变动</td><td>(23)</td><td>(29)</td></tr><tr><td>调整：金融工具公平值变动</td><td>(44)</td><td>67</td></tr><tr><td>调整：房地产及其相关资产折旧及摊销</td><td>31</td><td>31</td></tr><tr><td>调整：其他非现金亏损／（收益）</td><td>139</td><td>(30)</td></tr><tr class="total"><td><strong>可分派总额</strong></td><td><strong>6,577</strong></td><td><strong>7,025</strong></td></tr><tr><td>中期分派（已派付）</td><td>3,283</td><td>3,476</td></tr><tr><td>末期分派（将派付）</td><td>3,294</td><td>3,549</td></tr><tr class="total"><td><strong>年内分派总额</strong></td><td><strong>6,577</strong></td><td><strong>7,025</strong></td></tr><tr><td>每基金单位中期分派（港仙）</td><td>126.88</td><td>134.89</td></tr><tr><td>每基金单位末期分派（港仙）</td><td>126.73</td><td>137.45</td></tr><tr class="total"><td><strong>年内每基金单位分派（港仙）</strong></td><td><strong>253.61</strong></td><td><strong>272.34</strong></td></tr></tbody></table></div>
+<figure><div class="ch">
+<div class="ch-title">投资物业估值（百万港元）FY2018—FY2026</div>
+<div class="ch-sub">FY2023 见顶 2,374.69 亿后连续两年下降 · FY2026 为 2,095.56 亿港元（−4.9%）</div>
+<div class="ch-row"><div class="ch-lab">FY2018</div><div class="ch-track"><span class="ch-bar b-blue" style="width:86.681%"></span></div><div class="ch-val">203,091</div></div>
+<div class="ch-row"><div class="ch-lab">FY2019</div><div class="ch-track"><span class="ch-bar b-blue" style="width:92.649%"></span></div><div class="ch-val">218,496</div></div>
+<div class="ch-row"><div class="ch-lab">FY2020</div><div class="ch-track"><span class="ch-bar b-blue" style="width:82.859%"></span></div><div class="ch-val">193,224</div></div>
+<div class="ch-row"><div class="ch-lab">FY2021</div><div class="ch-track"><span class="ch-bar b-blue" style="width:85.125%"></span></div><div class="ch-val">199,074</div></div>
+<div class="ch-row"><div class="ch-lab">FY2022</div><div class="ch-track"><span class="ch-bar b-blue" style="width:90.428%"></span></div><div class="ch-val">212,761</div></div>
+<div class="ch-row"><div class="ch-lab">FY2023</div><div class="ch-track"><span class="ch-bar b-blue" style="width:100.000%"></span></div><div class="ch-val">237,469</div></div>
+<div class="ch-row"><div class="ch-lab">FY2024</div><div class="ch-track"><span class="ch-bar b-blue" style="width:99.423%"></span></div><div class="ch-val">235,979</div></div>
+<div class="ch-row"><div class="ch-lab">FY2025</div><div class="ch-track"><span class="ch-bar b-blue" style="width:93.392%"></span></div><div class="ch-val">220,413</div></div>
+<div class="ch-row"><div class="ch-lab">FY2026</div><div class="ch-track"><span class="ch-bar b-blue" style="width:89.186%"></span></div><div class="ch-val">209,556</div></div>
+<div class="ch-legend"><span class="lg"><i class="b-blue"></i>投资物业（账面）</span>
+</div>
+</div>
+<figcaption>物业组合总估值（含自用、少数权益及持作出售）FY2026 为 2,164.89 亿港元（−4.1%）。</figcaption>
+<div class="fig-note">下降主要来自香港零售（−6.3%）与中国内地（按人民币计 −10.8%）；澳洲 +20.5%、新加坡 +10.4% 为正向对冲，但占比不足以抵消。FY2025→FY2026 主要估值师由戴德梁行变更为世邦魏理仕，跨年比较需保留审慎。</div>
+</figure>
+<h3>表 4　综合财务状况表（FY2018—FY2026 年末；单位：百万港元）</h3>
+<div class="rsp-table rsp-w8"><table class="financial compact longtable"><thead><tr><th>年末</th><th>投资物业</th><th>资产总值</th><th>负债总额</th><th>基金单位持有人应占资产净值</th><th>每基金单位资产净值（港元）</th><th>借贷总额／资产总值</th><th>负债总额／资产总值</th></tr></thead><tbody><tr><td>FY2018</td><td>203,091</td><td>216,404</td><td>37,336</td><td>178,594</td><td>83.06</td><td>11.9%</td><td>17.3%</td></tr><tr><td>FY2019</td><td>218,496</td><td>226,937</td><td>37,611</td><td>188,739</td><td>89.48</td><td>10.7%</td><td>16.6%</td></tr><tr><td>FY2020</td><td>193,224</td><td>207,619</td><td>47,502</td><td>159,711</td><td>77.61</td><td>16.7%</td><td>22.9%</td></tr><tr><td>FY2021</td><td>199,074</td><td>209,885</td><td>51,192</td><td>158,720</td><td>76.24</td><td>18.4%</td><td>24.4%</td></tr><tr><td>FY2022</td><td>212,761</td><td>225,716</td><td>62,726</td><td>162,688</td><td>77.10</td><td>22.0%</td><td>27.8%</td></tr><tr><td>FY2023</td><td>237,469</td><td>267,919</td><td>78,859</td><td>188,940</td><td>89.48</td><td>24.2%</td><td>29.4%</td></tr><tr><td>FY2024</td><td>235,979</td><td>252,314</td><td>73,872</td><td>178,823</td><td>69.07</td><td>23.5%</td><td>29.3%</td></tr><tr><td>FY2025</td><td>220,413</td><td>229,177</td><td>65,779</td><td>163,470</td><td>63.30</td><td>23.1%</td><td>28.7%</td></tr><tr><td>FY2026</td><td>209,556</td><td>219,781</td><td>70,071</td><td>150,096</td><td>57.75</td><td>25.6%</td><td>31.9%</td></tr></tbody></table></div>
+<figure><div class="ch">
+<div class="ch-title">香港零售续租租金调整率（%）FY2018—FY2026</div>
+<div class="ch-sub">负值＝新签租金低于到期租金 · FY2026 为 −8.2%，九年最深，商铺分项更达 −9.1%</div>
+<div class="ch-row"><div class="ch-lab">FY2018</div><div class="ch-track"><span class="ch-bar b-hi" style="width:100.000%"></span></div><div class="ch-val">31.2</div></div>
+<div class="ch-row"><div class="ch-lab">FY2019</div><div class="ch-track"><span class="ch-bar b-hi" style="width:75.231%"></span></div><div class="ch-val">22.8</div></div>
+<div class="ch-row"><div class="ch-lab">FY2020</div><div class="ch-track"><span class="ch-bar b-hi" style="width:47.808%"></span></div><div class="ch-val">13.5</div></div>
+<div class="ch-row"><div class="ch-lab">FY2021</div><div class="ch-track"><span class="ch-bar b-hi" style="width:13.308%"></span></div><div class="ch-val">1.8</div></div>
+<div class="ch-row"><div class="ch-lab">FY2022</div><div class="ch-track"><span class="ch-bar b-hi" style="width:22.154%"></span></div><div class="ch-val">4.8</div></div>
+<div class="ch-row"><div class="ch-lab">FY2023</div><div class="ch-track"><span class="ch-bar b-hi" style="width:19.795%"></span></div><div class="ch-val">4</div></div>
+<div class="ch-row"><div class="ch-lab">FY2024</div><div class="ch-track"><span class="ch-bar b-hi" style="width:20.090%"></span></div><div class="ch-val">4.1</div></div>
+<div class="ch-row"><div class="ch-lab">FY2025</div><div class="ch-track"><span class="ch-bar b-hi" style="width:14.487%"></span></div><div class="ch-val">2.2</div></div>
+<div class="ch-row"><div class="ch-lab">FY2026</div><div class="ch-track"><span class="ch-bar b-hi" style="width:32.179%"></span></div><div class="ch-val">8.2</div></div>
+<div class="ch-legend"><span class="lg"><i class="b-hi"></i>香港零售续租租金调整率（绝对值）</span>
+</div>
+</div>
+<figcaption>FY2026 −8.2%（FY2025 −2.2%，恶化 6.0 个百分点）。管理层归因：仍在消化三年前疫情解封后市场气氛乐观期间所订立、租金高于现行市况的租约。</figcaption>
+<div class="fig-note">中国内地零售续租租金调整率：FY2018 +39.8%　FY2019 +32.2%　FY2020 +31.6%　FY2021 +11.1%　FY2022 +8.8%　FY2023 +1.2%　FY2024 -4.7%　FY2025 -13.4%　FY2026 -14.3%　→ 内地连续三年为负、FY2026 达 −14.3%；香港恶化斜率（−2.2%→−8.2%）快于内地（−13.4%→−14.3%），本轮压力重心已从中国内地转回香港本地。</div>
+</figure>
+<h3>表 5　物业组合估值与营运指标（FY2018—FY2026）</h3>
+<div class="rsp-table rsp-w7"><table class="financial compact longtable"><thead><tr><th>财年</th><th>投资物业估值（百万港元）</th><th>香港零售租用率</th><th>香港零售续租租金调整率</th><th>中国内地零售租用率</th><th>中国内地零售续租租金调整率</th><th>净负债比率</th></tr></thead><tbody><tr><td>FY2018</td><td>203,091</td><td>97.0%</td><td>+31.2%</td><td>99.5%</td><td>+39.8%</td><td>—</td></tr><tr><td>FY2019</td><td>218,496</td><td>97.1%</td><td>+22.8%</td><td>98.5%</td><td>+32.2%</td><td>—</td></tr><tr><td>FY2020</td><td>193,224</td><td>96.5%</td><td>+13.5%</td><td>97.8%</td><td>+31.6%</td><td>—</td></tr><tr><td>FY2021</td><td>199,074</td><td>96.8%</td><td>−1.8%</td><td>96.3%</td><td>+11.1%</td><td>—</td></tr><tr><td>FY2022</td><td>212,761</td><td>97.7%</td><td>+4.8%</td><td>88.5%</td><td>+8.8%</td><td>—</td></tr><tr><td>FY2023</td><td>237,469</td><td>97.5%</td><td>−4.0%</td><td>93.5%</td><td>+1.2%</td><td>22.2%</td></tr><tr><td>FY2024</td><td>235,979</td><td>97.8%</td><td>+4.1%</td><td>95.6%</td><td>−4.7%</td><td>19.1%</td></tr><tr><td>FY2025</td><td>220,413</td><td>97.8%</td><td>−2.2%</td><td>96.0%</td><td>−13.4%</td><td>21.5%</td></tr><tr><td>FY2026</td><td>209,556</td><td>97.8%</td><td>−8.2%</td><td>96.6%</td><td>−14.3%</td><td>23.9%</td></tr></tbody></table></div>
+<div class="callout note">表注：FY2018—FY2022 各年「续租租金调整率」直接取自当年年报五年概要披露值；香港零售与停车场在 FY2023 前合并披露，本表按年报口径逐年对齐，未作跨期口径拉平。</div>
+<figure><div class="ch">
+<div class="ch-title">中期可分派总额与每基金单位分派（截至 9 月 30 日止六个月）</div>
+<div class="ch-sub">2021H1—2025H1 · 2025H1 可分派 32.83 亿港元（同比 −5.6%）、DPU 126.88 港仙（−5.9%）</div>
+<div class="ch-row"><div class="ch-lab">2021H1</div><div class="ch-track"><span class="ch-bar b-teal" style="width:96.295%"></span></div><div class="ch-val">3,336</div></div>
+<div class="ch-row"><div class="ch-lab">2022H1</div><div class="ch-track"><span class="ch-bar b-teal" style="width:94.733%"></span></div><div class="ch-val">3,277</div></div>
+<div class="ch-row"><div class="ch-lab">2023H1</div><div class="ch-track"><span class="ch-bar b-teal" style="width:96.215%"></span></div><div class="ch-val">3,333</div></div>
+<div class="ch-row"><div class="ch-lab">2024H1</div><div class="ch-track"><span class="ch-bar b-teal" style="width:100.000%"></span></div><div class="ch-val">3,476</div></div>
+<div class="ch-row"><div class="ch-lab">2025H1</div><div class="ch-track"><span class="ch-bar b-teal" style="width:94.892%"></span></div><div class="ch-val">3,283</div></div>
+<div class="ch-legend"><span class="lg"><i class="b-teal"></i>中期可分派总额（百万港元）</span>
+</div>
+</div>
+<figcaption>2025H1 收益 70.23 亿港元（同比 −1.8%）、物业收入净额 51.78 亿港元（−3.4%）；每基金单位资产净值 61.19 港元（较 2025-03-31 的 63.30 港元 −3.3%），净负债比率 22.5%。</figcaption>
+<div class="fig-note">半年度块与年度块<strong>跨块不可直接相减</strong>。中期 DPU 序列（港仙）：2021H1 159.59　2022H1 155.51　2023H1 130.08　2024H1 134.89　2025H1 126.88</div>
+</figure>
+<h3>表 6　半年度块：中期业绩（2021H1—2025H1；单位：百万港元）</h3>
+<div class="rsp-table rsp-w6"><table class="financial compact"><thead><tr><th>期间（截至 9 月 30 日止六个月）</th><th>2021H1</th><th>2022H1</th><th>2023H1</th><th>2024H1</th><th>2025H1</th></tr></thead><tbody><tr><td>收益</td><td>5,778</td><td>6,042</td><td>6,725</td><td>7,153</td><td>7,023</td></tr><tr><td>物业收入净额</td><td>4,391</td><td>4,587</td><td>5,063</td><td>5,359</td><td>5,178</td></tr><tr><td>可分派总额</td><td>3,336</td><td>3,277</td><td>3,333</td><td>3,476</td><td>3,283</td></tr><tr><td>每基金单位分派（港仙）</td><td>159.59</td><td>155.51</td><td>130.08</td><td>134.89</td><td>126.88</td></tr><tr><td>扣除与持有人交易前期内（亏损）／溢利</td><td>6,342</td><td>14,017</td><td>(3,650)</td><td>(3,999)</td><td>(1,737)</td></tr></tbody></table></div>
+<div class="callout note">表注：半年度块与年度块<strong>跨块不可直接相减</strong>；年度块内的「同比」指该年度对上一年度，半年度块的同比读作 <code>2025H1 ÷ 2024H1 − 1</code>。<br>2025H1 分派同比 −5.9%，收益同比 −1.8%，物业收入净额同比 −3.4%；2025 年 9 月 30 日每基金单位资产净值 61.19 港元（2025 年 3 月 31 日：63.30 港元，−3.3%），净负债比率 22.5%。</div>
+<figure><div class="ch">
+<div class="ch-title">可分派总额（FY2018—FY2026）</div>
+<div class="ch-sub">单位：百万港元 · FY2026 下降 6.4% 至 65.77 亿港元，降幅大于收益（−2.0%）</div>
+<div class="ch-row"><div class="ch-lab">FY2018</div><div class="ch-track"><span class="ch-bar b-teal" style="width:79.125%"></span></div><div class="ch-val">5,431</div></div>
+<div class="ch-row"><div class="ch-lab">FY2019</div><div class="ch-track"><span class="ch-bar b-teal" style="width:82.949%"></span></div><div class="ch-val">5,723</div></div>
+<div class="ch-row"><div class="ch-lab">FY2020</div><div class="ch-track"><span class="ch-bar b-teal" style="width:86.118%"></span></div><div class="ch-val">5,965</div></div>
+<div class="ch-row"><div class="ch-lab">FY2021</div><div class="ch-track"><span class="ch-bar b-teal" style="width:86.707%"></span></div><div class="ch-val">6,010</div></div>
+<div class="ch-row"><div class="ch-lab">FY2022</div><div class="ch-track"><span class="ch-bar b-teal" style="width:92.064%"></span></div><div class="ch-val">6,419</div></div>
+<div class="ch-row"><div class="ch-lab">FY2023</div><div class="ch-track"><span class="ch-bar b-teal" style="width:90.649%"></span></div><div class="ch-val">6,311</div></div>
+<div class="ch-row"><div class="ch-lab">FY2024</div><div class="ch-track"><span class="ch-bar b-teal" style="width:95.980%"></span></div><div class="ch-val">6,718</div></div>
+<div class="ch-row"><div class="ch-lab">FY2025</div><div class="ch-track"><span class="ch-bar b-teal" style="width:100.000%"></span></div><div class="ch-val">7,025</div></div>
+<div class="ch-row"><div class="ch-lab">FY2026</div><div class="ch-track"><span class="ch-bar b-teal" style="width:94.133%"></span></div><div class="ch-val">6,577</div></div>
+<div class="ch-legend"><span class="lg"><i class="b-teal"></i>可分派总额</span>
+</div>
+</div>
+<figcaption>可分派总额＝基金单位持有人应占除税后溢利 ± 非现金调整；FY2026 与 FY2025 均按 100% 分派（信托契约下限为 90%）。</figcaption>
+<div class="fig-note">降幅放大（可分派 −6.4% vs 收益 −2.0%）的三项来源：① 物业经营开支逆势 +2.3%；② 物业收入净额比率 76.3%→75.0%；③ 利息收入 2.24 亿→0.65 亿港元（−71.0%），后者单独贡献可分派总额降幅的 35.5%。</div>
+</figure>
+<h3>表 7　收益分类结构（FY2026 vs FY2025；单位：百万港元）</h3>
+<div class="rsp-table"><table class="financial compact longtable"><thead><tr><th>收益类别</th><th>FY2026</th><th>FY2025</th><th>同比</th></tr></thead><tbody><tr><td>香港零售：商铺租金（含分成租金 86）</td><td>4,825</td><td>5,054</td><td>−4.5%</td></tr><tr><td>香港零售：街市／熟食档位</td><td>1,002</td><td>1,066</td><td>−6.0%</td></tr><tr><td>香港零售：教育／福利及配套设施</td><td>143</td><td>149</td><td>−4.0%</td></tr><tr><td>香港零售：商场营销</td><td>173</td><td>174</td><td>−0.6%</td></tr><tr><td>香港零售：开支收回及其他杂项收益</td><td>1,174</td><td>1,170</td><td>+0.3%</td></tr><tr class="total"><td><strong>香港零售收益总额</strong></td><td><strong>7,317</strong></td><td><strong>7,613</strong></td><td><strong>−3.9%</strong></td></tr><tr><td>停车场及相关业务：月租</td><td>1,626</td><td>1,643</td><td>−1.0%</td></tr><tr><td>停车场及相关业务：时租</td><td>672</td><td>657</td><td>+2.3%</td></tr><tr><td>停车场及相关业务：相关业务</td><td>207</td><td>207</td><td>0</td></tr><tr class="total"><td><strong>停车场及相关业务收益总额</strong></td><td><strong>2,519</strong></td><td><strong>2,523</strong></td><td><strong>−0.2%</strong></td></tr><tr><td>中国内地（以港元计）</td><td>—</td><td>—</td><td>收益 −3.0%、物业收入净额 −3.7%</td></tr><tr><td>国际（澳洲、新加坡、英国）</td><td>1,867</td><td>—</td><td>收益 +4.8%、物业收入净额 +2.7%</td></tr></tbody></table></div>
+<h3>表 8　物业组合估值明细（FY2026 vs FY2025；单位：百万港元）</h3>
+<div class="rsp-table rsp-w6"><table class="financial compact longtable"><thead><tr><th>市场／资产类别</th><th>FY2026</th><th>FY2025</th><th>同比</th><th>FY2026 资本化率</th><th>FY2025 资本化率</th></tr></thead><tbody><tr><td>香港零售物业</td><td>110,352</td><td>117,724</td><td>−6.3%</td><td>3.65%–4.90%</td><td>3.65%–4.90%</td></tr><tr><td>香港停车场及相关业务</td><td>43,520</td><td>46,018</td><td>−5.4%</td><td>3.10%–5.00%</td><td>3.00%–5.00%</td></tr><tr><td>香港办公大楼</td><td>5,091</td><td>5,720</td><td>−11.0%</td><td>3.75%</td><td>3.75%</td></tr><tr class="total"><td><strong>香港小计</strong></td><td><strong>158,963</strong></td><td><strong>169,462</strong></td><td><strong>−6.2%</strong></td><td></td><td></td></tr><tr><td>中国内地零售物业</td><td>23,733</td><td>24,418</td><td>−2.8%</td><td>5.00%–5.50%</td><td>5.00%–5.50%</td></tr><tr><td>中国内地办公大楼</td><td>4,313</td><td>4,759</td><td>−9.4%</td><td>5.35%</td><td>5.20%</td></tr><tr><td>中国内地物流物业</td><td>1,649</td><td>2,265</td><td>−27.2%</td><td>5.65%–5.85%</td><td>5.55%–5.75%</td></tr><tr class="total"><td><strong>中国内地小计</strong></td><td><strong>29,695</strong></td><td><strong>31,442</strong></td><td><strong>−5.6%</strong></td><td></td><td></td></tr><tr><td>澳洲零售物业</td><td>3,154</td><td>2,631</td><td>+19.9%</td><td>5.25%–5.50%</td><td>5.25%–5.50%</td></tr><tr><td>澳洲办公大楼</td><td>7,366</td><td>6,644</td><td>+10.9%</td><td>5.38%–6.75%</td><td>5.38%–6.75%</td></tr><tr><td>澳洲物流物业</td><td>653</td><td>不适用</td><td>新增</td><td>5.38%</td><td>不适用</td></tr><tr class="total"><td><strong>澳洲小计</strong></td><td><strong>11,173</strong></td><td><strong>9,275</strong></td><td><strong>+20.5%</strong></td><td></td><td></td></tr><tr><td>新加坡零售物业</td><td>15,074</td><td>13,654</td><td>+10.4%</td><td>4.10%–4.50%</td><td>3.80%–4.50%</td></tr><tr><td>英国办公大楼</td><td>1,584</td><td>1,922</td><td>−17.6%</td><td>10.00%</td><td>9.00%</td></tr><tr class="total"><td><strong>物业组合总估值</strong></td><td><strong>216,489</strong></td><td><strong>225,755</strong></td><td><strong>−4.1%</strong></td><td></td><td></td></tr><tr class="total"><td><strong>投资物业总估值（账面）</strong></td><td><strong>209,556</strong></td><td><strong>220,413</strong></td><td><strong>−4.9%</strong></td><td></td><td></td></tr></tbody></table></div>
+<div class="callout note">表注：账面投资物业估值低于组合总估值，因撇除了（i）领展于海滨汇及 The Cabot 自用的各两层办公室（分类为物业、器材及设备）、（ii）悉尼及墨尔本优质办公大楼组合 49.9% 的估值、以及（iii）FY2026 新撇除的 Swing By @ Thomson Plaza 100% 估值（分类为持作出售资产）。</div>
+<h3>表 9　债务与融资结构（FY2026 vs FY2025）</h3>
+<div class="rsp-table"><table class="financial compact longtable"><thead><tr><th>项目</th><th>FY2026</th><th>FY2025</th></tr></thead><tbody><tr><td>债务总额（面值）</td><td>567 亿港元</td><td>535 亿港元</td></tr><tr><td>贷款（账面）</td><td>53,029 百万港元</td><td>49,659 百万港元</td></tr><tr><td>可转换债券（账面）</td><td>3,262 百万港元</td><td>3,249 百万港元</td></tr><tr><td>平均借贷成本</td><td>3.44%</td><td>3.58%</td></tr><tr><td>债务到期年限</td><td>3.5 年</td><td>2.8 年</td></tr><tr><td>定息债务占比</td><td>60.0%</td><td>—</td></tr><tr><td>年内完成融资</td><td>253 亿港元</td><td>—</td></tr><tr><td>可动用资金</td><td>122 亿港元</td><td>—</td></tr><tr><td>其中：未提取已承诺融资额度</td><td>84 亿港元</td><td>—</td></tr><tr><td>其中：现金及银行结余</td><td>38 亿港元</td><td>—</td></tr><tr><td>REIT 守则负债比率上限</td><td>50%</td><td>50%</td></tr><tr><td>适用上限缓冲（25.6% vs 50%）</td><td>24.4 个百分点</td><td>—</td></tr><tr><td>基金单位回购（年内）</td><td>无</td><td>—</td></tr></tbody></table></div>
+<figure><div class="ch">
+<div class="ch-title">香港零售分档平均每月租金（港元／平方呎）</div>
+<div class="ch-sub">FY2026 vs FY2025 · 三个档次租金全线下跌，低档次跌幅最大</div>
+<div class="ch-row"><div class="ch-lab">都会 FY2025</div><div class="ch-track"><span class="ch-bar b-teal" style="width:100.000%"></span></div><div class="ch-val">76.5</div></div>
+<div class="ch-row"><div class="ch-lab">都会 FY2026</div><div class="ch-track"><span class="ch-bar b-teal" style="width:96.031%"></span></div><div class="ch-val">73.2</div></div>
+<div class="ch-row"><div class="ch-lab">汇坊 FY2025</div><div class="ch-track"><span class="ch-bar b-teal" style="width:92.544%"></span></div><div class="ch-val">70.3</div></div>
+<div class="ch-row"><div class="ch-lab">汇坊 FY2026</div><div class="ch-track"><span class="ch-bar b-teal" style="width:88.936%"></span></div><div class="ch-val">67.3</div></div>
+<div class="ch-row"><div class="ch-lab">邻里 FY2025</div><div class="ch-track"><span class="ch-bar b-teal" style="width:64.042%"></span></div><div class="ch-val">46.6</div></div>
+<div class="ch-row"><div class="ch-lab">邻里 FY2026</div><div class="ch-track"><span class="ch-bar b-teal" style="width:60.193%"></span></div><div class="ch-val">43.4</div></div>
+<div class="ch-row"><div class="ch-lab">全组合 FY2025</div><div class="ch-track"><span class="ch-bar b-teal" style="width:84.125%"></span></div><div class="ch-val">63.3</div></div>
+<div class="ch-row"><div class="ch-lab">全组合 FY2026</div><div class="ch-track"><span class="ch-bar b-teal" style="width:80.277%"></span></div><div class="ch-val">60.1</div></div>
+<div class="ch-legend"><span class="lg"><i class="b-teal"></i>平均每月租金（港元／平方呎）</span>
+</div>
+</div>
+<figcaption>会都 −4.3%、汇坊 −4.3%、邻里 −6.9%、全组合 −5.1%。会都级租用率同时从 98.8% 降至 96.7%（−2.1 个百分点）。</figcaption>
+<div class="fig-note">香港零售总租用率 FY2026 为 97.8%，与 FY2024、FY2025 完全持平 —— 但总量持平是「商铺 98.1%（−0.1pp）＋教育／福利配套 96.7%（+0.9pp）」相互抵消的结果，而租金最高的都会级已出现租用率与租金双降，属高质量资产端松动信号。</div>
+</figure>
+<h3>表 10　香港零售分档营运表现（FY2026 vs FY2025）</h3>
+<div class="rsp-table rsp-w8"><table class="financial compact"><thead><tr><th>物业档次</th><th>物业数目</th><th>物业估值（百万港元）</th><th>零售租金（百万港元）</th><th>平均每月租金（港元／平方呎）FY2026</th><th>平均每月租金 FY2025</th><th>租用率 FY2026</th><th>租用率 FY2025</th></tr></thead><tbody><tr><td>都会</td><td>6</td><td>21,786</td><td>1,180</td><td>73.2</td><td>76.5</td><td>96.7%</td><td>98.8%</td></tr><tr><td>汇坊</td><td>35</td><td>61,364</td><td>3,479</td><td>67.3</td><td>70.3</td><td>98.4%</td><td>98.4%</td></tr><tr><td>邻里</td><td>57</td><td>26,342</td><td>1,484</td><td>43.4</td><td>46.6</td><td>97.5%</td><td>96.4%</td></tr><tr class="total"><td><strong>总计</strong></td><td><strong>98</strong></td><td><strong>109,492</strong></td><td><strong>6,143</strong></td><td><strong>60.1</strong></td><td><strong>63.3</strong></td><td><strong>97.8%</strong></td><td><strong>97.8%</strong></td></tr></tbody></table></div>
+<h2>三、财务数据表：关键变化与趋势含义</h2>
+<h3>3.1 综合收益表：三条主线</h3>
+<p><strong>第一条主线：收益与物业收入净额在 FY2026 首次同步转负。</strong> 这是本基金自 FY2018 有连续可比数据以来，<strong>第一个收益与物业收入净额双双下滑的完整年度</strong>（−2.0% ／ −3.7%），且物业收入净额的降幅大于收益，说明成本端并未同步收缩。FY2022—FY2025 的四年增长（收益从 116.02 亿升至 142.23 亿港元，累计 +22.6%）<strong>在 FY2026 中断</strong>。</p>
+<p><strong>第二条主线：会计亏损是「估值现象」，不是「经营现象」。</strong> FY2024、FY2025、FY2026 连续三年扣除税项及与持有人交易前为负（−9.15 亿、−88.67 亿、−68.44 亿港元），全部由投资物业公平值变动造成（−73.61 亿、−162.80 亿、−144.91 亿港元）。<strong>若剔除公平值变动，三年均为正数</strong>。因此任何以「净亏损扩大／收窄」为标题的解读都属于误读——本基金应读可分派总额。</p>
+<p><strong>第三条主线：财务成本在 FY2023 跳升后连续三年回落。</strong> 财务成本从 FY2022 的 10.05 亿港元升至 FY2023 的 17.54 亿港元（＋74.5%），随后 FY2024 23.19 亿、FY2025 20.96 亿、FY2026 19.62 亿港元，<strong>已连续两年下降</strong>。这与平均借贷成本从 3.58% 降至 3.44% 一致，是本年度少数明确改善的科目。</p>
+<figure><div class="ch">
+<div class="ch-title">负债比率与借贷比率（%）FY2018—FY2026</div>
+<div class="ch-sub">借贷总额／资产总值（图示）· FY2026 升至 25.6%，距 REIT 守则 50% 上限缓冲 24.4 个百分点</div>
+<div class="ch-row"><div class="ch-lab">FY2018</div><div class="ch-track"><span class="ch-bar b-hi" style="width:50.766%"></span></div><div class="ch-val">11.9</div></div>
+<div class="ch-row"><div class="ch-lab">FY2019</div><div class="ch-track"><span class="ch-bar b-hi" style="width:46.453%"></span></div><div class="ch-val">10.7</div></div>
+<div class="ch-row"><div class="ch-lab">FY2020</div><div class="ch-track"><span class="ch-bar b-hi" style="width:68.016%"></span></div><div class="ch-val">16.7</div></div>
+<div class="ch-row"><div class="ch-lab">FY2021</div><div class="ch-track"><span class="ch-bar b-hi" style="width:74.125%"></span></div><div class="ch-val">18.4</div></div>
+<div class="ch-row"><div class="ch-lab">FY2022</div><div class="ch-track"><span class="ch-bar b-hi" style="width:87.062%"></span></div><div class="ch-val">22</div></div>
+<div class="ch-row"><div class="ch-lab">FY2023</div><div class="ch-track"><span class="ch-bar b-hi" style="width:94.969%"></span></div><div class="ch-val">24.2</div></div>
+<div class="ch-row"><div class="ch-lab">FY2024</div><div class="ch-track"><span class="ch-bar b-hi" style="width:92.453%"></span></div><div class="ch-val">23.5</div></div>
+<div class="ch-row"><div class="ch-lab">FY2025</div><div class="ch-track"><span class="ch-bar b-hi" style="width:91.016%"></span></div><div class="ch-val">23.1</div></div>
+<div class="ch-row"><div class="ch-lab">FY2026</div><div class="ch-track"><span class="ch-bar b-hi" style="width:100.000%"></span></div><div class="ch-val">25.6</div></div>
+<div class="ch-legend"><span class="lg"><i class="b-hi"></i>借贷总额／资产总值</span>
+</div>
+</div>
+<figcaption>负债总额／资产总值同步由 28.7% 升至 31.9%（+3.2 个百分点）；净负债比率 21.5%→23.9%（+2.4 个百分点）。</figcaption>
+<div class="fig-note">杠杆抬升约三分之二来自<strong>分母（资产估值）下降</strong>而非主动加杠杆。债务面值 535 亿→567 亿港元，部分为外币汇兑影响。若估值连续两年再降约 5%，将额外消耗约 5 个百分点缓冲。</div>
+</figure>
+<h3>3.2 资产负债表：规模收缩与杠杆回升的背离</h3>
+<p>FY2026 资产负债表的关键特征是<strong>分子与分母同时变化、但方向不利</strong>：</p>
+<ul><li>资产总值从 2,291.77 亿降至 2,197.81 亿港元（−4.1%）；</li><li>负债总额（不含持有人应占资产净值）从 657.79 亿升至 700.71 亿港元（<strong>+6.5%</strong>），主要因贷款从 496.59 亿增至 530.29 亿港元（+6.8%）；</li><li>结果是负债比率从 28.7% 跳升至 31.9%（<strong>+3.2 个百分点</strong>），借贷总额／资产总值从 23.1% 升至 25.6%（+2.5 个百分点）。</li></ul>
+<p><strong>这是「资产端因估值下调而缩水、负债端因融资而扩张」的双向挤压</strong>，杠杆比率的抬升并非主动加杠杆，而主要由分母（估值）下降贡献。管理层对此的表述是「主要由于物业组合估值下降」——这一归因是准确的，但<strong>不能因此认为风险中性</strong>：融资仍在净增加（债务面值 535 亿→567 亿港元，部分为汇兑影响），而估值下行的趋势尚未逆转。</p>
+<h3>3.3 分派能力：可分派总额的下降幅度大于收入</h3>
+<p>FY2026 可分派总额 65.77 亿港元（−6.4%），<strong>降幅大于收益的 −2.0% 与物业收入净额的 −3.7%</strong>。这一放大效应来自：</p>
+<ol><li>物业经营开支逆势上升 2.3%（物业管理人费用、保安及清洁 +5.2%，维修及保养 +11.3%，屋邨公用地方开支 +9.0%，均部分因 2025 年 5 月起最低工资上调）；</li><li>物业收入净额比率从 76.3% 降至 75.0%（<strong>−1.3 个百分点</strong>）；</li><li>利息收入从 2.24 亿骤降至 0.65 亿港元（<strong>−71.0%</strong>），因存款利息收入减少及债券投资到期。</li></ol>
+<p>其中<strong>利息收入的下降是本年可分派总额跌幅放大的一个被低估因素</strong>：2.24 亿→0.65 亿港元的 1.59 亿港元缺口，相当于可分派总额降幅（4.48 亿港元）的 <strong>35.5%</strong>。这不是租金问题，而是资金运用收益问题。</p>
+<h2>四、数据变化趋势与原因分析</h2>
+<figure><div class="ch">
+<div class="ch-title">每基金单位分派（DPU，港仙）FY2018—FY2026</div>
+<div class="ch-sub">四年连低于 FY2022 峰值 · FY2026 为 253.61 港仙，仅高于 FY2018 起点 1.5%</div>
+<div class="ch-row"><div class="ch-lab">FY2018</div><div class="ch-track"><span class="ch-bar b-gold" style="width:83.178%"></span></div><div class="ch-val">249.78</div></div>
+<div class="ch-row"><div class="ch-lab">FY2019</div><div class="ch-track"><span class="ch-bar b-gold" style="width:89.616%"></span></div><div class="ch-val">271.17</div></div>
+<div class="ch-row"><div class="ch-lab">FY2020</div><div class="ch-track"><span class="ch-bar b-gold" style="width:94.438%"></span></div><div class="ch-val">287.19</div></div>
+<div class="ch-row"><div class="ch-lab">FY2021</div><div class="ch-track"><span class="ch-bar b-gold" style="width:95.281%"></span></div><div class="ch-val">289.99</div></div>
+<div class="ch-row"><div class="ch-lab">FY2022</div><div class="ch-track"><span class="ch-bar b-gold" style="width:100.000%"></span></div><div class="ch-val">305.67</div></div>
+<div class="ch-row"><div class="ch-lab">FY2023</div><div class="ch-track"><span class="ch-bar b-gold" style="width:90.561%"></span></div><div class="ch-val">274.31</div></div>
+<div class="ch-row"><div class="ch-lab">FY2024</div><div class="ch-track"><span class="ch-bar b-gold" style="width:87.052%"></span></div><div class="ch-val">262.65</div></div>
+<div class="ch-row"><div class="ch-lab">FY2025</div><div class="ch-track"><span class="ch-bar b-gold" style="width:89.968%"></span></div><div class="ch-val">272.34</div></div>
+<div class="ch-row"><div class="ch-lab">FY2026</div><div class="ch-track"><span class="ch-bar b-gold" style="width:84.331%"></span></div><div class="ch-val">253.61</div></div>
+<div class="ch-legend"><span class="lg"><i class="b-gold"></i>每基金单位分派（港仙）</span>
+</div>
+</div>
+<figcaption>FY2022 峰值 305.67 港仙 → FY2026 253.61 港仙（<strong>−17.0%</strong>）。同期收益从 116.02 亿港元增至 139.38 亿港元（+20.1%）。</figcaption>
+<div class="fig-note">关键背离：FY2026 收益比 FY2018 高 39.1%，而 DPU 仅高 1.5% —— 规模扩张未转化为分派增长，差额依次被 FY2023 供股摊薄、FY2023—FY2025 融资成本上升、FY2026 租金下行侵蚀。</div>
+</figure>
+<h3>4.1 分派：DPU 已连续四年低于 FY2022 峰值，FY2026 回到 FY2018 水平之下</h3>
+<p>这是本报告<strong>最重要的发现</strong>。每基金单位分派（DPU）的完整轨迹：</p>
+<div class="rsp-table"><table class="financial compact"><thead><tr><th>阶段</th><th>DPU 走势</th><th>关键驱动</th></tr></thead><tbody><tr><td>FY2018—FY2022</td><td>249.78 → <strong>305.67 港仙</strong>（五年 +22.4%，唯一持续增长期）</td><td>香港零售续租租金调整率连续为正（+31.2%→+22.8%→+13.5%→−1.8%→+4.8%）；中国内地零售续租租金调整率大幅正增长</td></tr><tr><td>FY2023</td><td>274.31 港仙（<strong>−10.3%</strong>，单年最大跌幅）</td><td>五年供股（每 5 个单位供 1 个，认购价 44.20 港元）摊薄 + 财务成本跳升 74.5%</td></tr><tr><td>FY2024</td><td>262.65 港仙（−4.3%）</td><td>融资成本高位（23.19 亿港元）</td></tr><tr><td>FY2025</td><td>272.34 港仙（+3.7%，唯一反弹年）</td><td>收益 +4.8%、物业收入净额 +5.5%</td></tr><tr><td>FY2026</td><td><strong>253.61 港仙（−6.9%）</strong></td><td>香港续租租金调整率 −8.2%、中国内地 −14.3%、利息收入 −71.0%</td></tr></tbody></table></div>
+<p><strong>判据</strong>：FY2026 的 253.61 港仙<strong>不仅低于 FY2022 峰值 305.67 港仙（−17.0%），而且低于 FY2018 的 249.78 港仙之上仅 1.5%</strong>——即<strong>九年分派增长几乎全部回吐</strong>。同时考虑：FY2026 收益（139.38 亿）比 FY2018（100.23 亿）仍高出 39.1%，说明<strong>规模扩张了四成，但持有人到手的分派回到了起点</strong>。这是本报告必须明确写出的一句反直觉结论。</p>
+<p><strong>下降的量化归因</strong>（管理层口径 + 本报告推算）：</p>
+<ol><li><strong>香港零售续租租金调整率 −8.2%</strong>（FY2025 为 −2.2%，恶化 6.0 个百分点）——管理层明示原因是「仍在处理部分于三年前疫情解封后、当时市场气氛较为乐观期间所订立租金水平较现行市况为高的租约」。商铺分项续租租金调整率更差（<strong>−9.1%</strong>，FY2025 为 −1.1%）。</li><li><strong>中国内地零售续租租金调整率 −14.3%</strong>（FY2025 为 −13.4%，继续恶化）。</li><li><strong>利息收入 −71.0%</strong>（如上，贡献了可分派总额降幅的约三分之一）。</li><li><strong>成本刚性</strong>：物业收入净额比率 −1.3 个百分点。</li></ol>
+<p><strong>展望指引（管理层原文）</strong>：香港零售物业组合的续租租金调整率「预期将于 2026/2027 年度继续录得负增长，大致维持与 2025/2026 年度相若的水平，反映高于现时租金水平的租赁周期即将步入尾声」；同时预期通过<strong>每年节省超过 2 亿港元的员工及行政开支</strong>、审慎管理融资成本、推动新收入来源、出售非核心资产及加快回购「有能力于来年维持盈利稳定」。</p>
+<div class="callout note"><strong>对指引的独立评估</strong>：2 亿港元的年度节省，相对于 FY2026 可分派总额降幅 4.48 亿港元，<strong>覆盖率约 45%</strong>；而 FY2026 一般及行政开支总额仅 8.29 亿港元——即「再省 2 亿」意味着现有行政开支需再压缩约 24%，其可持续性需要通过 FY2027 的实际数据验证，不宜在现阶段直接外推为分派回升。</div>
+<h3>4.2 续租租金调整率：香港与内地「双重恶化」，且斜率在加速</h3>
+<div class="rsp-table rsp-w5"><table class="financial compact longtable"><thead><tr><th>财年</th><th>香港零售续租租金调整率</th><th>变动</th><th>中国内地零售续租租金调整率</th><th>变动</th></tr></thead><tbody><tr><td>FY2018</td><td>+31.2%</td><td>—</td><td>+39.8%</td><td>—</td></tr><tr><td>FY2019</td><td>+22.8%</td><td>−8.4pp</td><td>+32.2%</td><td>−7.6pp</td></tr><tr><td>FY2020</td><td>+13.5%</td><td>−9.3pp</td><td>+31.6%</td><td>−0.6pp</td></tr><tr><td>FY2021</td><td>−1.8%</td><td>−15.3pp</td><td>+11.1%</td><td>−20.5pp</td></tr><tr><td>FY2022</td><td>+4.8%</td><td>+6.6pp</td><td>+8.8%</td><td>−2.3pp</td></tr><tr><td>FY2023</td><td>−4.0%</td><td>−8.8pp</td><td>+1.2%</td><td>−7.6pp</td></tr><tr><td>FY2024</td><td>+4.1%</td><td>+8.1pp</td><td>−4.7%</td><td>−5.9pp</td></tr><tr><td>FY2025</td><td>−2.2%</td><td>−6.3pp</td><td>−13.4%</td><td>−8.7pp</td></tr><tr class="total"><td><strong>FY2026</strong></td><td><strong>−8.2%</strong></td><td><strong>−6.0pp</strong></td><td><strong>−14.3%</strong></td><td><strong>−0.9pp</strong></td></tr></tbody></table></div>
+<p><strong>判据升级</strong>：两个市场的负值<strong>均已达九年最深</strong>，且<strong>中国内地已连续三年为负、香港连续两年为负</strong>。香港的恶化斜率（−2.2%→−8.2%）明显快于中国内地（−13.4%→−14.3%），说明<strong>本轮压力重心已从中国内地转移回香港本地</strong>——这与市场普遍认知（内地承压为主）相反，是本次分析的一个独立判断。</p>
+<figure><div class="ch">
+<div class="ch-title">香港 vs 中国内地零售续租租金调整率对照趋势（%）· FY2026 对比</div>
+<div class="ch-sub">两地均为九年最深 · 香港恶化斜率快于内地</div>
+<div class="ch-row"><div class="ch-lab">香港 FY2018</div><div class="ch-track"><span class="ch-bar b-gold" style="width:80.121%"></span></div><div class="ch-val">31.2</div></div>
+<div class="ch-row"><div class="ch-lab">香港 FY2022</div><div class="ch-track"><span class="ch-bar b-gold" style="width:19.095%"></span></div><div class="ch-val">4.8</div></div>
+<div class="ch-row"><div class="ch-lab">香港 FY2026</div><div class="ch-track"><span class="ch-bar b-gold" style="width:26.955%"></span></div><div class="ch-val">8.2</div></div>
+<div class="ch-row"><div class="ch-lab">内地 FY2018</div><div class="ch-track"><span class="ch-bar b-gold" style="width:100.000%"></span></div><div class="ch-val">39.8</div></div>
+<div class="ch-row"><div class="ch-lab">内地 FY2022</div><div class="ch-track"><span class="ch-bar b-gold" style="width:28.342%"></span></div><div class="ch-val">8.8</div></div>
+<div class="ch-row"><div class="ch-lab">内地 FY2026</div><div class="ch-track"><span class="ch-bar b-gold" style="width:41.055%"></span></div><div class="ch-val">14.3</div></div>
+<div class="ch-legend"><span class="lg"><i class="b-gold"></i>绝对值（%，负值取绝对值展示）</span>
+</div>
+</div>
+<figcaption>香港：+31.2% → +4.8% → −8.2%（六年累计恶化 39.4 个百分点）；内地：+39.8% → +8.8% → −14.3%（六年累计恶化 54.1 个百分点）。</figcaption>
+<div class="fig-note">注：FY2026 两项均为负值，本图以绝对值展示便于比较幅度，正负方向须以正文表述为准（FY2026：香港 −8.2%、内地 −14.3%）。</div>
+</figure>
+<h3>4.3 租用率：看似稳定，实则掩盖了结构迁移</h3>
+<p>香港零售租用率 FY2026 为 97.8%，<strong>与 FY2025、FY2024 完全持平</strong>，容易被读作「经营稳定」。但分项数据显示内部已发生迁移：</p>
+<div class="rsp-table"><table class="financial compact"><thead><tr><th>香港零售分项</th><th>FY2026 租用率</th><th>FY2025 租用率</th><th>变动</th></tr></thead><tbody><tr><td>商铺</td><td>98.1%</td><td>98.2%</td><td>−0.1pp</td></tr><tr><td>街市／熟食档位</td><td>95.6%</td><td>95.6%</td><td>0</td></tr><tr><td>教育／福利及配套设施</td><td>96.7%</td><td>95.8%</td><td><strong>+0.9pp</strong></td></tr><tr><td>总计</td><td>97.8%</td><td>97.8%</td><td>0</td></tr></tbody></table></div>
+<p><strong>总量持平是「商铺微降 + 教育福利配置上升」相互抵消的结果。</strong> 而按物业档次看，恶化更为直接：<strong>都会级物业租用率从 98.8% 降至 96.7%（−2.1 个百分点）</strong>，而邻里级从 96.4% 升至 97.5%（+1.1 个百分点）、汇坊持平 98.4%。</p>
+<p><strong>判据</strong>：都会级（估值 217.86 亿港元、月租 73.2 港元／平方呎，是全组合租金最高的档次）租用率下滑 2.1 个百分点，是<strong>高质量资产端出现松动</strong>的信号，而非低质量资产的问题。同时都会级平均每月租金从 76.5 降至 73.2 港元（−4.3%）、汇坊从 70.3 降至 67.3 港元（−4.3%）、邻里从 46.6 降至 43.4 港元（−6.9%）——<strong>三个档次租金全线下跌，且低档次跌幅最大</strong>。</p>
+<h3>4.4 中国内地与国际市场：从「同步承压」转为「明显分化」</h3>
+<p>这是 FY2026 与 FY2025 之间最重要的结构性变化。</p>
+<div class="rsp-table rsp-w5"><table class="financial compact"><thead><tr><th>市场</th><th>FY2026 收益同比</th><th>FY2026 物业收入净额同比</th><th>FY2026 续租租金调整率</th><th>FY2026 租用率</th></tr></thead><tbody><tr><td>香港（整体）</td><td>−3.0%</td><td>−4.6%</td><td>零售 −8.2%</td><td>零售 97.8%</td></tr><tr><td>中国内地（以港元计）</td><td>−3.0%</td><td>−3.7%</td><td>零售 −14.3%</td><td>零售 96.6%、办公 95.7%、物流 97.9%</td></tr><tr><td>中国内地（以人民币计）</td><td>−5.1%</td><td>−5.8%</td><td>—</td><td>—</td></tr><tr><td>国际（澳洲、新加坡、英国）</td><td><strong>+4.8%</strong></td><td><strong>+2.7%</strong></td><td>澳洲零售 <strong>+16.5%</strong>、新加坡零售 <strong>+12.3%</strong></td><td>澳洲零售 99.5%、新加坡零售 98.2%、国际办公 87.7%</td></tr></tbody></table></div>
+<p><strong>核心分化</strong>：</p>
+<ul><li><strong>中国内地按人民币计跌幅（−5.1%／−5.8%）明显大于折港元口径（−3.0%／−3.7%）</strong>，说明港元换算部分掩盖了内地实际恶化程度。估值端同样：内地物业估值按人民币计下跌 <strong>10.8%</strong>，而折港元口径仅 −5.6%。</li><li><strong>澳洲与新加坡实现双位数正续租租金调整率</strong>（16.5% 与 12.3%），澳洲零售租用率 99.5%、新加坡 98.2%，接近满租。估值端：澳洲 +20.5%（按澳元计撇除汇兑及新增物流资产后仍 +3.2%）、新加坡 +10.4%（按当地货币计撇除汇率后 +5.5%）。</li><li><strong>英国是唯一全面恶化市场</strong>：估值 19.22 亿→15.84 亿港元（−17.6%），按英镑计撇除汇兑后跌幅 <strong>19.7%</strong>，资本化率从 9.00% 升至 <strong>10.00%</strong>（+100BP），是全部市场中资本化率上升最快的。</li></ul>
+<p><strong>投资含义</strong>：国际资产（占组合估值 12.9%）已成为<strong>唯一提供正向租金动能的板块</strong>，但其占比不足以对冲香港 73.4% 的基本盘恶化。同时澳洲物流新购入（2025 年 10 月 24 日完成，代价 1.215 亿澳元）并通过第三方资本业务持有，暗示管理层正试图提升国际板块的权重与收益。</p>
+<figure><div class="ch">
+<div class="ch-title">每基金单位资产净值（港元）FY2018—FY2026</div>
+<div class="ch-sub">FY2023 峰值 89.48 → FY2026 57.75 港元（累计 −35.5%）</div>
+<div class="ch-row"><div class="ch-lab">FY2018</div><div class="ch-track"><span class="ch-bar b-gold" style="width:93.399%"></span></div><div class="ch-val">83.06</div></div>
+<div class="ch-row"><div class="ch-lab">FY2019</div><div class="ch-track"><span class="ch-bar b-gold" style="width:100.000%"></span></div><div class="ch-val">89.48</div></div>
+<div class="ch-row"><div class="ch-lab">FY2020</div><div class="ch-track"><span class="ch-bar b-gold" style="width:87.796%"></span></div><div class="ch-val">77.61</div></div>
+<div class="ch-row"><div class="ch-lab">FY2021</div><div class="ch-track"><span class="ch-bar b-gold" style="width:86.387%"></span></div><div class="ch-val">76.24</div></div>
+<div class="ch-row"><div class="ch-lab">FY2022</div><div class="ch-track"><span class="ch-bar b-gold" style="width:87.271%"></span></div><div class="ch-val">77.1</div></div>
+<div class="ch-row"><div class="ch-lab">FY2023</div><div class="ch-track"><span class="ch-bar b-gold" style="width:100.000%"></span></div><div class="ch-val">89.48</div></div>
+<div class="ch-row"><div class="ch-lab">FY2024</div><div class="ch-track"><span class="ch-bar b-gold" style="width:79.015%"></span></div><div class="ch-val">69.07</div></div>
+<div class="ch-row"><div class="ch-lab">FY2025</div><div class="ch-track"><span class="ch-bar b-gold" style="width:73.083%"></span></div><div class="ch-val">63.3</div></div>
+<div class="ch-row"><div class="ch-lab">FY2026</div><div class="ch-track"><span class="ch-bar b-gold" style="width:67.376%"></span></div><div class="ch-val">57.75</div></div>
+<div class="ch-legend"><span class="lg"><i class="b-gold"></i>每基金单位资产净值（港元）</span>
+</div>
+</div>
+<figcaption>FY2026 为 57.75 港元（FY2025：63.30 港元，−8.8%）；基金单位持有人应占资产净值 150,096 百万港元（−8.2%）。</figcaption>
+<div class="fig-note">NAV 下行速度快于投资物业估值降幅（−8.8% vs −4.9%），因可分配利润与 6.83 亿港元的年内派付同步消耗净资产。</div>
+</figure>
+<h3>4.5 资本化率：估值下行的不仅是租金，还有估值倍数</h3>
+<p>FY2026 资本化率变动揭示了估值的双重压力来源：</p>
+<div class="rsp-table"><table class="financial compact"><thead><tr><th>市场／类别</th><th>FY2025 资本化率</th><th>FY2026 资本化率</th><th>变动</th></tr></thead><tbody><tr><td>香港零售</td><td>3.65%–4.90%</td><td>3.65%–4.90%</td><td>持平</td></tr><tr><td>香港停车场及相关业务</td><td>3.00%–5.00%</td><td>3.10%–5.00%</td><td>下限 +10BP</td></tr><tr><td>中国内地零售</td><td>5.00%–5.50%</td><td>5.00%–5.50%</td><td>持平</td></tr><tr><td>中国内地办公大楼</td><td>5.20%</td><td>5.35%</td><td><strong>+15BP</strong></td></tr><tr><td>中国内地物流</td><td>5.55%–5.75%</td><td>5.65%–5.85%</td><td><strong>+10BP</strong></td></tr><tr><td>英国办公大楼</td><td>9.00%</td><td><strong>10.00%</strong></td><td><strong>+100BP</strong></td></tr><tr><td>新加坡零售</td><td>3.80%–4.50%</td><td>4.10%–4.50%</td><td><strong>上限 +30BP</strong></td></tr></tbody></table></div>
+<p><strong>判据</strong>：香港零售资本化率持平，说明<strong>香港零售的估值下调（−6.3%）几乎全部来自市场租金下调的分子端，而非估值倍数（分母端）的收缩</strong>——这是相对良性的（租金是可修复变量，倍数收缩往往是趋势性的）。但<strong>中国内地物流与办公、英国办公、新加坡零售的资本化率均在上升</strong>，意味着这些资产的估值下调中<strong>含有一部分永久性的「倍数折让」</strong>，即便未来租金回升，估值也未必同步恢复。这一区分在评估 NAV 修复弹性时至关重要。</p>
+<p><strong>估值师变更提示</strong>：FY2026 起主要估值师由戴德梁行（2022-11-17 起，2025-11-16 退任）变更为世邦魏理仕（2025-11-17 起）。FY2025 与 FY2026 的估值由不同机构出具，<strong>跨年比较时需注意这一点</strong>，尽管两者均采用收益资本化法并以市场可比较交易交叉参照。</p>
+<h3>4.6 融资：成本改善与杠杆回升并存</h3>
+<p>正面：平均借贷成本从 3.58% 降至 <strong>3.44%</strong>（−14BP）；债务到期年限从 2.8 年延长至 <strong>3.5 年</strong>；年内完成 253 亿港元融资（含 6 亿美元 10 年期优先无抵押票据，票面 4.875%），债务到期日摊分于未来 12 年；定息债务占比 60.0%；可动用资金 122 亿港元（含未提取承诺额度 84 亿）。</p>
+<p>风险：债务总额（面值）从 535 亿升至 <strong>567 亿港元</strong>；借贷总额／资产总值从 23.1% 升至 <strong>25.6%</strong>；净负债比率从 21.5% 升至 <strong>23.9%</strong>。</p>
+<p><strong>距离 REIT 守则 50% 上限仍有 24.4 个百分点缓冲</strong>，短期无合规风险。但需注意两点：① 债务面值增长部分归因于外币汇兑，并非全部为新增借款；② <strong>净负债比率的上升有三分之二来自分母（资产估值）下降</strong>，这在估值继续下行时会自动放大。</p>
+<p><strong>利率环境（管理层披露的背景）</strong>：美联储于 2025 年 9 月至 12 月三次降息，但 2026 年初起市场预期后续降息延后；澳洲储备银行于 2026 年 2 月、3 月及 5 月三度上调现金利率 25 个基点；2026 年 3 月布伦特原油价格飙升逾 60%，带动通胀预期并重塑利率展望。<strong>在利率不确定性上升的环境下，60% 的定息占比与 3.5 年的债务年限构成实质性的缓冲</strong>，这是本年度少见的正面结构性改善。</p>
+<h3>4.7 分派再投资计划与回购：股东回报工具的双轨</h3>
+<ul><li><strong>分派再投资计划（DRIP）</strong>：FY2026 年度内，按截至 2025 年 3 月 31 日止年度末期分派之 DRIP，以发行价<strong>每基金单位 42.489 港元</strong>发行 <strong>4,953,213 个</strong>基金单位，为净资产贡献 612 百万港元。已发行基金单位从 25.82 亿增至 <strong>25.99 亿个</strong>。</li><li><strong>回购：FY2026 年内未进行任何回购</strong>。管理层明确表示，作为处置非核心物业策略的一部分，<strong>计划重启基金单位回购计划</strong>，并拟将出售 Swing By @ Thomson Plaza 的所得款项用于回购。</li><li><strong>回购的合理性论据（管理层口径）</strong>：基金单位价格处于具吸引力的估值水平。<strong>客观依据</strong>：FY2026 年 3 月 31 日每基金单位资产净值 57.75 港元，而 FY2025 年内基金单位收市价区间对应的折让幅度（FY2026 中期报告披露 2025 年 9 月 30 日收市价 40.00 港元 vs NAV 61.19 港元，<strong>折让 34.6%</strong>）明显深于历史水平。<strong>回购在深折让下确实创造价值</strong>——这是本报告认同管理层该策略的依据。</li></ul>
+<div class="callout note"><strong>但需注意的反向效应</strong>：回购将消耗本已因估值下降而收窄的净资产，同时当前净负债比率已升至 23.9%。<strong>「出售资产 → 回购」的循环实质上是以牺牲资产基础换取每单位指标</strong>，在租金下行周期中会削弱未来的修复弹性。该策略的价值高度依赖于「出售价格高于内在价值、回购价格低于内在价值」这一双重前提是否同时成立。</div>
+<h2>五、关键内容总结</h2>
+<h3>5.1 本年度最重要的三个数字</h3>
+<ol><li><strong>DPU 253.61 港仙（−6.9%）</strong>，低于 FY2022 峰值 17.0%，仅高于 FY2018 的 249.78 港仙 1.5%。<strong>九年分派增长基本回吐。</strong></li><li><strong>香港零售续租租金调整率 −8.2%</strong>（FY2025 −2.2%），商铺分项 <strong>−9.1%</strong>。<strong>恶化速度是本年最剧烈的指标。</strong></li><li><strong>净负债比率 23.9%（+2.4 个百分点）</strong>，负债比率 25.6%（+2.5 个百分点）。<strong>杠杆抬升主要由资产估值下降驱动。</strong></li></ol>
+<h3>5.2 需要与「表面数字」区分对待的四组</h3>
+<div class="rsp-table"><table class="financial compact"><thead><tr><th>表面读数</th><th>实际含义</th><th>正确读法</th></tr></thead><tbody><tr><td>会计净亏损 −77.91 亿港元</td><td>全部来自投资物业公平值变动 −144.91 亿；剔除后为正</td><td>读可分派总额 65.77 亿港元</td></tr><tr><td>香港零售租用率 97.8%，三年持平</td><td>总量持平靠教育／福利配置上升抵消；<strong>都会级从 98.8% 降至 96.7%</strong></td><td>读分档次与分项租用率</td></tr><tr><td>中国内地收益仅 −3.0%</td><td>折港元口径；<strong>按人民币计为 −5.1%，估值按人民币计 −10.8%</strong></td><td>读当地货币口径</td></tr><tr><td>平均借贷成本降至 3.44%</td><td>成本改善真实，但债务总额升至 567 亿港元</td><td>成本与规模必须并读</td></tr></tbody></table></div>
+<h3>5.3 管理层战略重心的转向（本年度最重要的定性变化）</h3>
+<p>FY2026 是领展的<strong>「战略重置年」</strong>。新领导团队（执行董事兼首席投资总裁宋俊彦、执行董事兼首席财务总裁黄国祥）确立了四项明确转变：</p>
+<ol><li><strong>聚焦核心业务</strong>：将资本重新集中于「亚太区商场及停车场」，明确预期「资产负債表资本中不少于 80% 投资于核心领域」——即由过去多年的多元化扩张（办公大楼、物流、海外）<strong>主动收缩回社区零售主业</strong>。</li><li><strong>出售非核心资产</strong>：明确整体物业组合中约 <strong>5% 至 10% 属非核心资产</strong>，正审慎考虑适时出售。首例已落地——2026 年 4 月宣布以 <strong>2.5 亿新加坡元</strong>出售新加坡零售物业 Swing By @ Thomson Plaza，<strong>作价高于最新账面估值</strong>，并将所得款项拟用于回购。<strong>该交易溢价成交是管理层「资产退场纪律」的直接证据</strong>，值得正面评价。</li><li><strong>重启基金单位回购</strong>：FY2026 年内零回购，未来计划重启发。</li><li><strong>成本精简</strong>：预期员工及一般行政开支调整后<strong>每年可节省超过 2 亿港元</strong>，全年效益预计于 FY2027 显现。</li></ol>
+<p><strong>评价</strong>：战略方向与当前的财务困境高度匹配——在租金下行、会计亏损、杠杆上升的组合下，<strong>收缩资本开支、变现非核心资产、回购被低估的单位</strong>是理论上最优的选择。但需清醒认识：<strong>这些措施是「防守性资本运作」，不产生新的租金增长动能</strong>。真正的分派修复仍取决于香港零售续租租金调整率能否转正，而管理层已明示 FY2027 大概率仍为负。</p>
+<h3>5.4 需要主动剔除的低价值／噪音信息</h3>
+<ul><li><strong>会计净利润的逐年波动</strong>：完全由投资物业重估驱动，对本基金的经营判断与分派能力无指示性。</li><li><strong>物业组合总估值与账面投资物业估值的差额</strong>（2,164.89 亿 vs 2,095.56 亿港元）：属于合并口径差异（自用物业、少数权益、持作出售资产），<strong>非经营问题</strong>，但引用估值时必须声明采用哪个口径。</li><li><strong>「收益」历史高增长</strong>：FY2022—FY2025 的收益增长较多来自办公大楼与物流资产收购（如 FY2024 收益 +11.0%），<strong>属并表与外延增长，不代表同店经营改善</strong>。FY2026 转负恰恰说明外延增长无法对冲香港基本盘恶化。</li></ul>
+<h2>六、风险提示</h2>
+<ol><li><strong>续租租金调整率持续为负且管理层已预告 FY2027 继续。</strong> 香港零售 −8.2% 的恶化斜率（FY2025 −2.2%）表明「高租金存量租约」的消化过程尚未结束。管理层明确指引 FY2027 大致维持 FY2026 水平——<strong>即分派下行压力尚未见底</strong>。</li><li><strong>中国内地业务的双重恶化。</strong> 零售续租租金调整率 −14.3%（连续三年为负）、办公大楼租用率 95.7%（市场持续新增供应与空置率攀升）、物流估值按人民币计大幅下调且资本化率上升。<strong>内地资产占组合估值 13.7%，是仅次于香港的第二大敞口，但缺乏改善迹象。</strong></li><li><strong>英格兰办公大楼与港岛东办公大楼的集中度风险。</strong> 英国资产估值 −19.7%（按英镑计）、资本化率升 100BP 至 10.00%；香港海滨汇的主要商户摩根大通已确认于 <strong>2028 年底租约届满后不再续租</strong>，涉及海滨汇（99.6% 租用率的主要支撑）。<strong>这两项是 FY2028 后可能出现的现金流缺口，须提前关注。</strong></li><li><strong>杠杆与估值下行形成负向循环。</strong> 净负债比率 23.9% 的抬升三分之二来自资产估值下降。若估值继续下行，即便不新增借款，该比率也会自动上升。距 50% 上限虽仍有 24.4 个百分点缓冲，<strong>但需注意「永续」假设不成立——估值连续两年下降（FY2025 −4.9%、FY2026 −4.9%）若延续，两年内将消耗约 5 个百分点缓冲</strong>。</li><li><strong>可分派总额的三重压力叠加。</strong> 租金下行（−8.2%／−14.3%）＋成本刚性（物业收入净额比率 −1.3pp，最低工资上调推动人力成本）＋利息收入锐减（−71.0%）。<strong>三者同时恶化时，成本精简 2 亿港元的对冲力度可能不足。</strong></li><li><strong>回购与出售资产的策略性风险。</strong> 「出售资产 → 回购单位」会削弱资产基础；回购价格若未显著低于内在价值，则损害而非创造价值。该策略需要投资者持续监督执行价格。</li><li><strong>利率与汇率不确定性。</strong> 澳洲已连续加息、布伦特原油飙升逾 60% 推升通胀预期，<strong>「降息通道」假设可能落空</strong>；海外资产（占 12.9%）的港元折算收益与估值受汇率波动影响（FY2026 内地估值跌幅按人民币计 10.8% vs 折港元计 5.6%，差异达 5.2 个百分点）。</li><li><strong>估值师变更带来的可比性风险。</strong> FY2025 与 FY2026 估值由不同机构（戴德梁行 → 世邦魏理仕）出具，跨年估值比较的连续性需保留一定审慎。</li></ol>
+<h2>七、结论</h2>
+<p><strong>领展 FY2026 的财务表现，本质上是「估值周期」与「租金周期」同时进入下行阶段的叠加结果，而非单一年度的经营失误。</strong></p>
+<p>三条必须同时成立的判断：</p>
+<p><strong>第一，会计亏损是估值现象，可分派能力是经营现实，且后者确在恶化。</strong> 剔除投资物业公平值变动后，本基金三年均为正；但可分派总额 −6.4%、DPU −6.9% 是真实的现金流恶化。<strong>投资者若只看「净亏损收窄」（−88.67 亿 → −68.44 亿港元）会得出完全错误的改善结论</strong>——亏损收窄仅因估值跌幅略小于上年（−162.80 亿 → −144.91 亿港元），与经营无关。</p>
+<p><strong>第二，DPU 回到起点是本报告最应被记住的事实。</strong> 253.61 港仙意味着 FY2026 的收益比 FY2018 高出 39.1%，而持有人到手的分派仅高出 1.5%。<strong>规模扩张没有转化为分派增长</strong>，其差额被供股摊薄（FY2023）、融资成本上升（FY2023—FY2025）与租金下行（FY2026）三项依次侵蚀。管理层「聚焦核心业务并减少资本消耗」的新战略，正是对这一事实的回应。</p>
+<p><strong>第三，资产质量高于表面读数，但恶化斜率不容忽视。</strong> 租用率维持 97.8%、EBITDA 利息覆盖率 5.1 倍、定息债务 60%、可动用资金 122 亿港元、距 REIT 负债上限 24.4 个百分点——<strong>资产负债表仍有相当韧性</strong>。但续租租金调整率香港 −8.2%／内地 −14.3%、都会级租用率 −2.1 个百分点、英国资本化率升 100BP，<strong>这些是前瞻性指标，比当期租用率更能预测未来两年的分派走向</strong>。</p>
+<p><strong>中性偏审慎的展望</strong>：FY2027 分派大概率继续承压（管理层已预告负续租租金调整率延续）。正向变量是成本节省 2 亿港元、国际板块双位数正续租租金调整率、回购重启及非核心资产变现；负向变量是香港商铺续租租金调整率 −9.1% 的存量消化、中国内地持续疲弱、英国与港岛东办公大楼的未来租约风险。<strong>在 FY2027 中报（截至 2026 年 9 月 30 日止六个月）披露前，缺乏足够的证据支持分派已见底的判断。</strong></p>
+<h2>附录　数据来源与口径</h2>
+<h3>A.1 采用文件清单</h3>
+<p>本报告全部数据取自港交所披露易（HKEXnews）公布的本基金正式文件，共计 <strong>77 份</strong>（年报 23 份、中期报告 18 份、业绩公告 36 份），完整覆盖 FY2009—FY2026。核心取数文件如下：</p>
+<div class="rsp-table"><table class="financial compact"><thead><tr><th>文件</th><th>覆盖期</th><th>主要用途</th></tr></thead><tbody><tr><td>年报 2025/2026（2026-06-11 公布）</td><td>FY2026</td><td>表 1—表 10、五年表现概要、可分派报表、综合收益表、综合财务状况表</td></tr><tr><td>中期报告 2025/2026（2025-12-08 公布）</td><td>2025H1</td><td>表 6、半年财务状况表、半年可分派报表</td></tr><tr><td>年报 2024/2025（2025-06-16 公布）</td><td>FY2025</td><td>FY2025 对比列校验</td></tr><tr><td>年报 2023/2024、2022/2023、2021/2022、2020/2021、2019/2020、2018/2019、2017/2018</td><td>FY2018—FY2024</td><td>五年表现概要，构建九年可比序列</td></tr><tr><td>年报 2016/2017 及更早（2008—2017）</td><td>FY2008—FY2017</td><td>历史覆盖与早期营运指标</td></tr></tbody></table></div>
+<h3>A.2 关键口径说明</h3>
+<ol><li><strong>会计年度</strong>：每年 4 月 1 日至次年 3 月 31 日。FY2026＝截至 2026 年 3 月 31 日止年度。</li><li><strong>金额单位</strong>：百万港元，另有注明者除外。百分比保留所披露精度。</li><li><strong>可分派总额 vs 可分派收入总额</strong>：前者＝后者＋管理人认为可供分派的额外金额。FY2026 与 FY2025 两者相等（分派 100%）。</li><li><strong>物业组合总估值 2,164.89 亿港元 vs 账面投资物业 2,095.56 亿港元</strong>：差异源于自用物业分类、少数权益物业及持作出售资产的处理，详见正文表 8 表注。</li><li><strong>「负续租租金调整率」的含义</strong>：根据同一单位新旧租约计算的每平方呎平均租金的百分比变动。<strong>负值表示新签租金低于到期租金</strong>，滞后反映于未来期间的租金收入。</li><li><strong>净负债比率 vs 负债比率</strong>：净负债比率＝（借贷总额含可转换债券 − 现金总额）／资产总值；负债比率＝借贷总额（含可转换债券）／资产总值。<strong>两者不可混用</strong>（FY2026 分别为 23.9% 与 25.6%）。</li><li><strong>海外市场当地货币口径</strong>：中国内地按人民币、澳洲按澳元、新加坡按新加坡元、英国按英镑。本报告在分析中已标明所用口径，<strong>折港元口径会掩盖或夸大当地实际变动</strong>。</li></ol>
+<h3>A.3 校验结果</h3>
+<div class="rsp-table"><table class="financial compact"><thead><tr><th>校验项</th><th>方法</th><th>结果</th></tr></thead><tbody><tr><td>PDF 完整性（77 份）</td><td><code>%PDF-</code> 文件头 ＋ <code>%%EOF</code> 尾部 ＋ <code>pdfinfo</code> 解析三元校验</td><td>77 份全部通过，0 份截断</td></tr><tr><td>文本抽取</td><td><code>pdftotext -layout</code> 逐份抽取</td><td>77 份成功</td></tr><tr><td>字体映射缺陷</td><td>扫描 Unicode 康熙部首区（U+2E80–U+2FDF）与 CJK 部首补充区</td><td>8 份文件共 601 字符受影响，已建立 39 个码位的映射表规范化后重新检索，<strong>检索结果零污染</strong></td></tr><tr><td>跨期数据一致性</td><td>FY2025 数据在 FY2026 年报与 FY2025 年报中年报中双向核对</td><td>一致</td></tr><tr><td>分派表内部一致性</td><td>中期分派＋末期分派＝年内分派总额；可分派总额＝年内分派总额</td><td>FY2026、FY2025 均通过</td></tr><tr><td>五年概要串联</td><td>FY2026 年报的五年概要（FY2022—FY2026）与 FY2022 年报的五年概要（FY2018—FY2022）在重叠年份核对</td><td>一致</td></tr></tbody></table></div>
+<h3>A.4 本报告加工指标清单</h3>
+<p>以下为基于原始披露数据计算得出的<strong>派生指标</strong>，非年报直接披露值（其余数据均为披露原值）：</p>
+<ol><li>各年「同比」变动率（收益、物业收入净额、可分派总额、DPU、投资物业估值等）。</li><li>表 1—表 10 中的「变动百分点」（pp）与「变动 BP」。</li><li>续租租金调整率逐年变动幅度（pp）。</li><li>利息收入缺口占可分派总额降幅的比重（35.5%）。</li><li>成本节省 2 亿港元对可分派总额降幅的覆盖率（约 45%）及占一般行政开支比重（约 24%）。</li><li>DPU 相对 FY2022 峰值与 FY2018 起点的回撤／增幅（−17.0%／+1.5%）。</li><li>收益增长与 DPU 增长的九年间错位（收益 +39.1% vs DPU +1.5%）。</li><li>FY2026 年 9 月 30 日收市价 40.00 港元对 NAV 61.19 港元的折让率（34.6%）。</li><li>净负债比率距 REIT 守则 50% 上限的缓冲（24.4 个百分点）。</li><li>净负债比率上升中资产估值下降的贡献占比（约三分之二，按估值降幅与借贷增幅对比推算）。</li></ol>
+<div class="callout note"><strong>口径声明</strong>：以上派生指标的计算方法与假设已在正文相应位置说明。<strong>报告中的数据准确度优先于完整度</strong>——凡年报未披露或口径不可比的数值，本报告留空（以「—」表示），未作任何估算填充。FY2018—FY2022 的净负债比率因当年年报口径与近年不同（未单独披露净负债比率），故未列示。</div>
+
+<!-- rsp-mobile-adapt : 溢出表格滑动提示 -->
+<script>
+(function(){
+  function mark(){
+    var boxes = document.querySelectorAll('.rsp-table');
+    for (var i=0;i<boxes.length;i++){
+      var b = boxes[i];
+      if (b.scrollWidth > b.clientWidth + 4) b.setAttribute('data-rsp-scroll','');
+      else b.removeAttribute('data-rsp-scroll');
+    }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mark);
+  else mark();
+  window.addEventListener('resize', function(){ clearTimeout(window.__rspT); window.__rspT=setTimeout(mark,180); });
+})();
+</script>
+</body>
+</html>

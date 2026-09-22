@@ -255,6 +255,11 @@ SOURCES = [
          company='携程集团', code='9961.HK / TCOM.O', sector='在线旅游', short='携程',
          period='2020 — 2026H1', note='US GAAP ＋ IFRS 调节表',
          tags=['OTA 龙头', '国际业务', '20-F', '季度业绩公告']),
+    # —— 房地产投资信托 / 收租资产 ——
+    dict(src='领展房产基金/领展房产基金财报分析.html', slug='link-reit',
+         company='领展房产基金', code='0823.HK', sector='房地产投资信托', short='领展',
+         period='FY2018 — FY2026', note='REIT · 港元 · 附中期业绩',
+         tags=['可分派总额 −6.4%', 'DPU 回到 FY2018 水平', '香港续租租金 −8.2%', '非核心资产出售 + 回购']),
     # —— 专题（非单公司）——
     dict(src='投资组合筛选/投资组合筛选_10家公司排序.html', slug='portfolio-screen',
          company='投资组合筛选', code='44 家 → 10 家', sector='跨公司比较', short='组合',
