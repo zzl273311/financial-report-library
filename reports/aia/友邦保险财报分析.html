@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>友邦保险财报分析报告</title>
+<meta name="generator" content="financial-report-analysis">
+<style>
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W04.ttf") format("truetype");
+    font-weight: 400; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W05.ttf") format("truetype");
+    font-weight: 500; font-style: normal; font-display: swap;
+  }
+  @page {
+    size: A4;
+    margin: 16mm 18mm 18mm 18mm;
+    background: #F7F4EE;
+    @bottom-center {
+      content: counter(page) "  ·  财报分析";
+      font-family: "TsangerJinKai02", "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", Georgia, serif;
+      font-size: 9pt; color: #6b6a64;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --parchment:#F7F4EE; --ivory:#FBF9F4; --near-black:#22262B; --dark-warm:#3E4145;
+    --olive:#504e49; --stone:#7C7B77; --brand:#A73F2D; --brand-deep:#8A3223;
+    --accent:#A73F2D; --accent-soft:#F1E3DD; --gold:#B8862F; --teal:#2F6F6B; --blue:#1B365D;
+    --border:#E3DDD4; --border-soft:#EAE5DC;
+    --tag-bg:#F1E3DD; --positive:#A73F2D; --negative:#2F6F6B;
+    --serif: "TsangerJinKai02", "Source Han Serif SC", "Source Han Serif CN", "Noto Serif CJK SC", "Noto Serif SC", "Songti SC", "STSong", "SimSun", Georgia, serif;
+    --rhythm-module:14pt; --rhythm-section:18pt;
+  }
+  html, body { background: var(--parchment); }
+  @media screen { body { max-width: 210mm; margin: 0 auto; padding: 16mm 18mm 18mm 18mm; } }
+  body { color: var(--near-black); font-family: var(--serif); font-size: 10pt; line-height: 1.5;
+    letter-spacing: 0.3pt; widows: 3; orphans: 3; }
+  strong { font-weight: 500; }
+  .hl { color: var(--brand); font-weight: 500; }
+
+  .report-header { display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: var(--rhythm-module); padding-bottom: 10pt; border-bottom: 0.5pt solid var(--border); }
+  .ticker-block { flex: 1; }
+  .ticker-eyebrow { font-size: 9pt; color: var(--brand); letter-spacing: 1.5pt; text-transform: uppercase;
+    font-weight: 500; margin-bottom: 4pt; }
+  .ticker-name { font-family: var(--serif); font-size: 24pt; font-weight: 500; color: var(--near-black);
+    line-height: 1.15; margin-bottom: 4pt; }
+  .ticker-sub { font-size: 10pt; color: var(--olive); line-height: 1.4; }
+  .price-block { text-align: right; padding-top: 4pt; }
+  .price-current { font-family: var(--serif); font-size: 28pt; font-weight: 500; color: var(--near-black);
+    line-height: 1; font-variant-numeric: tabular-nums; }
+  .price-change { font-size: 10pt; font-weight: 500; margin-top: 2pt; font-variant-numeric: tabular-nums; }
+  .price-change.up { color: var(--positive); }
+  .price-date { font-size: 9pt; color: var(--stone); margin-top: 2pt; }
+
+  .metrics { display: flex; gap: 14pt; margin-bottom: 16pt; padding: 6pt 0;
+    border-top: 0.3pt dotted var(--border); border-bottom: 0.3pt dotted var(--border); }
+  .metric { flex: 1; min-width: 0; display: flex; align-items: baseline; gap: 4pt; flex-wrap: wrap; }
+  .metric-value { font-family: var(--serif); font-size: 16pt; font-weight: 500; color: var(--brand);
+    line-height: 1; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  /* white-space 必须为 normal：设为 nowrap 时 flex 项不收缩，4 张指标卡的标签会互相压字并冲出页面右缘 */
+  .metric-label { font-size: 9pt; color: var(--olive); line-height: 1.3; white-space: normal; }
+
+  h2 { font-family: var(--serif); font-size: 16pt; font-weight: 500; color: var(--near-black);
+    margin: 18pt 0 6pt 0; break-after: avoid; }
+  h3 { font-size: 13pt; font-weight: 500; color: var(--dark-warm); margin: 12pt 0 4pt 0; break-after: avoid; }
+  p { margin: 0 0 8pt 0; line-height: 1.5; widows: 2; orphans: 2; }
+  ul, ol { margin: 4pt 0 8pt 0; padding-left: 18pt; line-height: 1.5; }
+  ul li::marker { color: var(--brand); } ol li::marker { color: var(--brand); font-weight: 500; }
+
+  .tag { display: inline-block; background: var(--tag-bg); color: var(--brand); font-size: 9pt;
+    font-weight: 500; padding: 1pt 6pt; border-radius: 3pt; margin-right: 3pt; }
+
+  table, .kami-table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin: 8pt 0; break-inside: avoid; }
+  table th, .kami-table th { text-align: left; font-weight: 500; color: var(--dark-warm);
+    padding: 6pt 8pt; border-bottom: 0.6pt solid var(--border); background: transparent; }
+  table td, .kami-table td { padding: 5pt 8pt; border-bottom: 0.25pt solid var(--border); vertical-align: top; }
+  table.compact th, .kami-table.compact th { padding: 3pt 6pt; font-size: 8pt; }
+  table.compact td, .kami-table.compact td { padding: 2.5pt 6pt; font-size: 8pt; line-height: 1.4; }
+  table.financial td:not(:first-child), .kami-table.financial td:not(:first-child) {
+    text-align: right; font-variant-numeric: tabular-nums; }
+  table.financial th:not(:first-child), .kami-table.financial th:not(:first-child) { text-align: right; }
+  table .total td, .kami-table .total td { font-weight: 500; border-top: 0.6pt solid var(--border);
+    border-bottom: none; color: var(--near-black); }
+  .note { font-size: 8.5pt; color: var(--stone); margin: 2pt 0 8pt 0; }
+
+  .callout { background: var(--ivory); padding: 8pt 12pt; border-radius: 3pt; margin: 10pt 0;
+    line-height: 1.5; break-inside: avoid; }
+  .callout .quote { margin: 6pt 0; color: var(--olive); }
+
+  figure { margin: 12pt 0; break-inside: avoid; }
+  figcaption { font-size: 9pt; color: var(--stone); margin-top: 4pt; text-align: center; }
+
+  .risk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10pt; margin: 8pt 0; }
+  .risk-item { padding: 6pt 10pt; background: var(--ivory); border-radius: 3pt; break-inside: avoid; }
+  .risk-label { font-size: 9pt; font-weight: 500; color: var(--brand); margin-bottom: 2pt; }
+  .risk-desc { font-size: 9pt; color: var(--olive); line-height: 1.4; }
+
+  .analyst-box { background: var(--ivory); border-radius: 4pt; padding: 10pt 14pt; margin: 12pt 0;
+    break-inside: avoid; }
+  .analyst-label { font-size: 9pt; color: var(--brand); letter-spacing: 0.5pt; text-transform: uppercase;
+    margin-bottom: 4pt; }
+
+  .page-break { break-before: page; }
+
+  /* ===== 富配色增强：砖红主色 #A73F2D + 四色数据 + 深炭标题 #22262B ===== */
+  h2 { position: relative; padding-left: 13pt; }
+  h2::before { content:""; position:absolute; left:0; top:2.5pt; width:4pt; height:13pt;
+    background:var(--accent); border-radius:1pt; }
+  table th, .kami-table th { border-bottom: 1pt solid var(--accent); }
+  .metric:nth-child(1) .metric-value { color: var(--accent); }
+  .metric:nth-child(2) .metric-value { color: var(--gold); }
+  .metric:nth-child(3) .metric-value { color: var(--teal); }
+  .metric:nth-child(4) .metric-value { color: var(--blue); }
+  .callout { border-left: 3pt solid var(--accent); }
+  .analyst-box { border-left: 3pt solid var(--accent); }
+  .risk-item { border-left: 2.5pt solid var(--accent); }
+  .tag { background: var(--accent-soft); color: var(--brand-deep); }
+  .price-current { color: var(--near-black); }
+  .ticker-sub { color: var(--stone); }
+</style>
+
+<style>
+  /* ===== 图表（纯 HTML/CSS，不使用 SVG 文本节点） ===== */
+  .ch { margin: 9pt 0 5pt 0; }
+  .ch-t { font-size: 11pt; font-weight: 500; color: #22262B; margin-bottom: 1pt; }
+  .ch-s { font-size: 8.5pt; color: #7C7B77; margin-bottom: 6pt; line-height: 1.4; }
+  .ch-row { display: flex; align-items: center; gap: 7pt; margin-bottom: 2.8pt; }
+  .ch-lab { flex: 0 0 66pt; font-size: 8.4pt; color: #3E4145; text-align: right; line-height: 1.2; }
+  .ch-track { flex: 1 1 auto; min-width: 0; }
+  .ch-track.stk { display: flex; height: 11pt; border-radius: 1.5pt; overflow: hidden; }
+  .ch-bar { display: block; height: 11pt; border-radius: 1.5pt; background: #2F6F6B; }
+  .ch-bar.g { background: #CFC7BA; }
+  .ch-bar.hi { background: #A73F2D; }
+  .ch-bar.gold { background: #B8862F; }
+  .ch-bar.blue { background: #1B365D; }
+  .ch-bar.neg { background: #2F6F6B; }
+  .ch-val { flex: 0 0 62pt; font-size: 8.4pt; color: #22262B; font-variant-numeric: tabular-nums;
+    text-align: right; line-height: 1.2; }
+  .ch-val.hi { color: #A73F2D; font-weight: 500; }
+  .ch-legend { display: flex; flex-wrap: wrap; gap: 12pt; font-size: 8.2pt; color: #504e49; margin: 5pt 0 2pt 0; }
+  .ch-legend i { display: inline-block; width: 9pt; height: 9pt; border-radius: 1.5pt; margin-right: 3pt;
+    vertical-align: -1pt; }
+  .ch-note { font-size: 8pt; color: #7C7B77; margin-top: 3pt; line-height: 1.4; }
+  .wf-row { display: flex; align-items: center; gap: 6pt; margin-bottom: 2.8pt; }
+  .wf-lab { flex: 0 0 96pt; font-size: 8.4pt; color: #3E4145; text-align: right; line-height: 1.2; }
+  .wf-track { flex: 1 1 auto; min-width: 0; position: relative; height: 11pt; }
+  .wf-bar { position: absolute; height: 11pt; border-radius: 1.5pt; }
+  .wf-val { flex: 0 0 58pt; font-size: 8.4pt; text-align: right; font-variant-numeric: tabular-nums;
+    color: #22262B; line-height: 1.2; }
+  figure { break-inside: avoid; margin: 10pt 0; }
+  table.wide { font-size: 6.9pt; }
+  table.wide th, table.wide td { padding: 2.6pt 3.2pt; }
+  table.wide.fixed { table-layout: fixed; word-break: break-word; }
+  /* 宽表首列（指标名）自动占余量，其余 11 个年度列等宽；否则"商品煤产量（百万吨）"会被拆行 */
+  table.wide.fixed th:first-child, table.wide.fixed td:first-child { width: auto; }
+  table.wide.fixed th:not(:first-child), table.wide.fixed td:not(:first-child) { width: 10.4%; }
+  /* 分析型四列表：固定列宽，避免「关键科目」被挤成两行 */
+  table.analysis { font-size: 8.6pt; table-layout: fixed; }
+  table.analysis th, table.analysis td { padding: 3pt 5pt; }
+  table.analysis th:nth-child(1), table.analysis td:nth-child(1) { width: 15%; }
+  table.analysis th:nth-child(2), table.analysis td:nth-child(2) { width: 28%; }
+  table.analysis th:nth-child(3), table.analysis td:nth-child(3) { width: 17%; }
+  table.analysis th:nth-child(4), table.analysis td:nth-child(4) { width: 40%; }
+  /* 三列表（分部桥接／资本／分红等）等宽 */
+  table.three-col { table-layout: fixed; }
+  /* 首列内容很短（年份／项目名）时禁止折行 */
+  table.nowrap-first th:first-child, table.nowrap-first td:first-child { white-space: nowrap; }
+  table.longtable { break-inside: auto; }
+  table.longtable thead { display: table-header-group; }
+  table.longtable tr { break-inside: avoid; }
+  .note ol { margin: 2pt 0 0 0; padding-left: 16pt; }
+  .note li { margin-bottom: 1pt; line-height: 1.42; }
+  .disclaimer { font-size: 8pt; color: #7C7B77; font-style: italic; margin-top: 10pt; }
+  @media print { .ch, .wf-row { break-inside: avoid; } }
+</style>
+
+<!-- rsp-mobile-adapt : 响应式适配层（仅屏幕生效，不影响打印/PDF） -->
+<style id="rsp-mobile-adapt">
+/* rsp-mobile-adapt-v3 */
+/* ========== 1. 全局：屏幕端基础修正 ========== */
+@media screen {
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body { overflow-wrap: break-word; }
+  img, svg, canvas, video, iframe { max-width: 100%; }
+  svg[viewBox], svg[viewbox] { height: auto; }
+
+  /* 网格容器（两列对比等）：网格项默认 min-width:auto，会被内部宽表撑破
+     容器、把整页顶出横向滚动（报告里 .two-col 就栽在这上面）。放开收缩，
+     让里面的 .rsp-table 自己去横向滑动。 */
+  .risk-grid > *, .two-col > * { min-width: 0; }
+
+  /* 表格横向滚动容器：宽表不压字、不撑破页面 */
+  .rsp-table {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    margin: 8pt 0;
+    position: relative;
+  }
+  .rsp-table > table { margin: 0; }
+  .rsp-table::-webkit-scrollbar { height: 7px; }
+  .rsp-table::-webkit-scrollbar-track { background: transparent; }
+  .rsp-table::-webkit-scrollbar-thumb { background: #D8D1C4; border-radius: 4px; }
+  /* 内容确实溢出时，右侧给一层渐变暗示"还能往右滑" */
+  .rsp-table[data-rsp-scroll] {
+    background: linear-gradient(to left, rgba(167,63,45,.10), rgba(167,63,45,0) 28px);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 28px 100%;
+  }
+}
+
+/* ========== 2. 平板 / 窄窗口：边距先收，避免内容被挤 ========== */
+@media screen and (max-width: 900px) {
+  body { padding: 22px 22px 46px 22px !important; }
+  .report-header { flex-wrap: wrap; gap: 12pt; }
+  .metrics { flex-wrap: wrap; gap: 10pt 18pt; }
+  .metric { flex: 1 1 42%; min-width: 0; }
+  .report-footer { flex-wrap: wrap; gap: 4pt 14pt; }
+
+  /* 宽表改为横向滚动：给每列保留最小可读宽度，不再把汉字挤成竖排 */
+  .rsp-w5 > table { min-width: 310px !important; }
+  .rsp-w6 > table { min-width: 372px !important; }
+  .rsp-w7 > table { min-width: 434px !important; }
+  .rsp-w8 > table { min-width: 496px !important; }
+  .rsp-w9 > table { min-width: 558px !important; }
+  .rsp-w10 > table { min-width: 620px !important; }
+  .rsp-w11 > table { min-width: 682px !important; }
+  .rsp-w12 > table { min-width: 744px !important; }
+  .rsp-w13 > table { min-width: 806px !important; }
+  .rsp-w14 > table { min-width: 868px !important; }
+  .rsp-w15 > table { min-width: 930px !important; }
+  .rsp-w16 > table { min-width: 992px !important; }
+}
+
+/* ========== 3. 手机：指标卡两列、页头转纵向 ========== */
+@media screen and (max-width: 720px) {
+  body {
+    max-width: 100% !important;
+    padding: 18px 16px 44px 16px !important;
+    font-size: 10.5pt;
+  }
+  h2 { font-size: 15pt !important; margin: 20pt 0 7pt 0 !important; }
+  h3 { font-size: 12.5pt !important; }
+  h1 { font-size: 19pt !important; }
+  p, li { line-height: 1.62; }
+  ul, ol { padding-left: 17pt; }
+
+  .report-header { flex-direction: column; align-items: stretch; gap: 8pt; }
+  .price-block { text-align: left; padding-top: 0; }
+  .price-current { font-size: 24pt !important; }
+  .ticker-name { font-size: 21pt !important; }
+  .ticker-sub { font-size: 9.5pt !important; }
+
+  .metrics { gap: 9pt 12pt; }
+  .metric { flex: 1 1 45%; }
+  .metric-value { font-size: 15pt !important; }
+  .metric-label { font-size: 8.5pt !important; white-space: normal !important; }
+
+  table, .kami-table { font-size: 9pt !important; }
+  .longtable { font-size: 8.5pt !important; }
+  .wide { font-size: 7.5pt !important; }
+  .dense { font-size: 8pt !important; }
+  table th, table td, .kami-table th, .kami-table td { padding: 5pt 6pt !important; }
+
+  blockquote, .quote, .note, .warn, .callout, .risk-item { padding: 9pt 11pt !important; }
+  .risk-grid { grid-template-columns: 1fr !important; }
+  .report-footer { flex-direction: column; align-items: flex-start; gap: 3pt; }
+}
+
+/* ========== 3b. 图表：窄屏保持图纸原尺寸 + 横向滑动 ========== */
+/* 报告里的图表是 SVG：viewBox 宽 680 + width:100%。缩到手机宽度（约 350px）
+   只剩 0.5×，图内字号从 11px 掉到 5px 完全不可读；而 SVG <text> 不会自动换行，
+   单纯放大字号必然溢出图框。这里改为**保持图纸原尺寸、允许左右滑动**——
+   与上面宽表同一套策略，宁可滑也不塌字号。仅屏幕生效，打印/PDF 不受影响。 */
+@media screen and (max-width: 720px) {
+  .rsp-fig {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    /* 图纸一定宽于屏幕，直接给右侧一层渐变，暗示"还能往右滑" */
+    background: linear-gradient(to left, rgba(167,63,45,.09), rgba(167,63,45,0) 26px);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 26px 100%;
+  }
+  .rsp-fig > svg { min-width: var(--rsp-fig-w, 680px); }
+  .rsp-fig::-webkit-scrollbar { height: 7px; }
+  .rsp-fig::-webkit-scrollbar-track { background: transparent; }
+  .rsp-fig::-webkit-scrollbar-thumb { background: #D8D1C4; border-radius: 4px; }
+}
+
+/* ========== 4. 小屏手机：指标卡单列、边距收到最紧 ========== */
+@media screen and (max-width: 430px) {
+  body { padding: 14px 12px 38px 12px !important; }
+  h2 { font-size: 14pt !important; }
+  h3 { font-size: 11.5pt !important; }
+  .ticker-name { font-size: 19pt !important; }
+  .price-current { font-size: 21pt !important; }
+  .metric { flex: 1 1 100%; }
+  .metric-value { font-size: 16pt !important; }
+  ul, ol { padding-left: 15pt; }
+  table, .kami-table { font-size: 8.5pt !important; }
+}
+
+/* ========== 5. 打印：把包裹层还原成透明，PDF 版式与补丁前完全一致 ========== */
+@media print {
+  .rsp-table { margin: 0; padding: 0; overflow: visible !important; background: none !important; }
+  .rsp-table > table { margin: 8pt 0; min-width: 0 !important; }
+  [class*="rsp-w"] > table { min-width: 0 !important; }
+}
+</style>
+</head>
+<body>
+<div class="report-header"><div class="ticker-block"><div class="ticker-name">友邦保险控股有限公司 <span style="font-size: 14pt; color: var(--stone);">01299.HK</span></div><div class="ticker-sub">AIA Group Limited · 泛亚地区最大的独立上市人寿保险集团 · 覆盖 18 个市场<br>财报分析报告　｜　数据区间：2020 年度 — 2026 年上半年　｜　呈报货币：美元</div></div><div class="price-block"><div class="price-current">83,402 <span style="font-size: 11pt; color: var(--stone);">百万美元</span></div><div class="price-change up">2026 年上半年内涵价值权益（每股 +6%）</div><div class="price-date">集团当地资本总和法覆盖率 233%　·　数据截至 2026 年中期报告</div></div></div><div class="metrics"><div class="metric"><div class="metric-value">5,516</div><div class="metric-label">2025 年新业务价值（百万美元，创新高，+15%）</div></div><div class="metric"><div class="metric-value">7,136</div><div class="metric-label">2025 年税后营运溢利（百万美元，每股 +12%）</div></div><div class="metric"><div class="metric-value">64,945</div><div class="metric-label">2025 年末合约服务边际（百万美元，+15%）</div></div><div class="metric"><div class="metric-value">233%</div><div class="metric-label">集团当地资本总和法覆盖率（2025 年末）</div></div></div>
+
+<div class="note"><strong>数据区间</strong>：2020 年度 — 2026 年上半年</div>
+<div class="note"><strong>币种与单位</strong>：美元百万（除另有说明外）；每股股息为港仙</div>
+<div class="note"><strong>会计准则</strong>：国际财务报告会计准则（IFRS），自 2022 年起适用 IFRS 9 / IFRS 17 及 IAS 16 修订后呈列</div>
+<div class="note"><strong>上市信息</strong>：香港联合交易所主板，股份代号 1299（港币柜台）／81299（人民币柜台）；美国预托证券（一级）于场外交易市场买卖，交易编号 AAGIY</div>
+<div class="note"><strong>报告类型</strong>：保险集团专用框架（营运利润 / EV / NBV / CSM / 偿付能力）</div>
+<hr>
+<h2>一、公司概况</h2>
+<h3>1.1 业务模式</h3>
+<p>友邦保险控股有限公司及其附属公司（统称「友邦保险」或「本集团」）是<strong>最大的泛亚地区独立上市人寿保险集团</strong>，覆盖 18 个市场，包括中国内地、中国香港特别行政区、泰国、新加坡、马来西亚、澳洲、柬埔寨、印尼、缅甸、新西兰、菲律宾、韩国、斯里兰卡、中国台湾、越南、文莱和澳门特别行政区拥有全资的分公司及附属公司，以及印度合资公司的 49% 权益。此外，友邦保险持有中邮人寿保险股份有限公司的 24.99% 股权。</p>
+<p>集团的业务成就可追溯至 1919 年逾一个世纪前于上海的发源地。按寿险保费计算，集团在亚洲（日本除外）领先同业，并于大部分市场稳占领导地位。截至 2025 年 12 月 31 日，集团总资产值为 3,450 亿美元。</p>
+<p>友邦保险提供一系列产品及服务，涵盖寿险、意外及健康保险和储蓄计划，以满足个人客户在长期储蓄及保障方面的需要。此外，集团亦为企业客户提供雇员福利、信贷保险和退休保障服务。集团通过遍布亚洲的庞大专属代理、伙伴及员工网络，为超过 4,400 万份个人保单的持有人及逾 1,600 万名团体保险计划的参与成员提供服务。</p>
+<h3>1.2 报告分部</h3>
+<p>集团按六个报告分部披露业绩：<strong>中国内地、香港（含澳门特别行政区）、泰国、新加坡（含文莱）、马来西亚、其他市场</strong>（澳洲、柬埔寨、印度、印尼、缅甸、新西兰、菲律宾、韩国、斯里兰卡、中国台湾、越南）。另有「集团企业中心」列示未分配总部开支、财务费用及相关税项。</p>
+<h3>1.3 分销渠道</h3>
+<ol><li><strong>「最优秀代理」</strong>：专属代理模式，为集团最大且最重要的新业务来源。2025 年于 15 个市场拥有超过 96,000 名活跃代理，2026 年上半年突破 100,000 名；连续第 12 年蝉联全球百万圆桌会（MDRT）会员人数之冠。</li><li><strong>伙伴分销</strong>：与领先银行及中介机构的合作关系（平均超过 20 年），涵盖银行保险与中介伙伴分销渠道，可接触超过一亿名客户。</li></ol>
+<hr>
+<h2>二、核心财务数据对比</h2>
+<div class="note"><strong>口径与列序说明</strong>：下列各表<strong>列分两块</strong>——年度块（2020—2025）在前、半年度块（2025H1、2026H1）在后；块内一律按时间递增排列，分界处以竖线标出。<strong>跨块不可直接相减</strong>。半年度块的同比读作 <code>2026H1 ÷ 2025H1 − 1</code>。</div>
+<div class="note"><strong>准则口径</strong>：2022 年起适用 IFRS 9 / IFRS 17；<strong>2021 年及以前为变更前口径</strong>，跨 2021／2022 分界的保险服务相关科目不可直接比较。本报告主要财务指标（营运利润、EV、NBV、CSM、自由盈余、偿付能力）均为集团口径下可比序列。</div>
+<div class="note"><strong>未披露即留 <code>—</code></strong>，不推算、不用斜杠合并。</div>
+<h3>表 1　集团经营业绩与价值指标</h3>
+<div class="rsp-table rsp-w9"><table class="compact wide fixed longtable"><thead><tr><th>项目</th><th>2020</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025 ‖</th><th>2025H1</th><th>2026H1</th></tr></thead><tbody><tr><td>新业务价值（NBV，百万美元）</td><td>2,765</td><td>3,366</td><td>3,092</td><td>4,034</td><td>4,712</td><td><strong>5,516</strong> ‖</td><td>2,838</td><td><strong>3,212</strong></td></tr><tr><td>NBV 同比（固定汇率）</td><td>—</td><td>—</td><td>−8%</td><td>30%</td><td>18%</td><td><strong>15%</strong> ‖</td><td>—</td><td><strong>10%</strong></td></tr><tr><td>新业务价值利润率</td><td>—</td><td>—</td><td>—</td><td>52.6%</td><td>54.5%</td><td><strong>58.5%</strong> ‖</td><td>57.7%</td><td>57.1%</td></tr><tr><td>年化新保费（ANP，百万美元）</td><td>5,219</td><td>5,647</td><td>5,407</td><td>7,650</td><td>8,606</td><td><strong>9,484</strong> ‖</td><td>4,942</td><td><strong>5,655</strong></td></tr><tr><td>税后营运溢利（OPAT，百万美元）</td><td>5,942</td><td>6,409</td><td>6,421</td><td>6,213</td><td>6,605</td><td><strong>7,136</strong> ‖</td><td>3,609</td><td><strong>4,163</strong></td></tr><tr><td>OPAT 同比（固定汇率）</td><td>—</td><td>8%</td><td>—</td><td>−1%</td><td>7%</td><td><strong>7%</strong> ‖</td><td>—</td><td><strong>11%</strong></td></tr><tr><td>每股基本税后营运溢利（美仙）</td><td>—</td><td>—</td><td>—</td><td>53.94</td><td>59.70</td><td><strong>67.65</strong> ‖</td><td>33.94</td><td><strong>39.95</strong></td></tr><tr><td>内涵价值营运溢利（百万美元）</td><td>—</td><td>—</td><td>—</td><td>—</td><td>10,025</td><td><strong>10,887</strong> ‖</td><td>5,893</td><td><strong>6,637</strong></td></tr><tr><td>内涵价值权益（百万美元）</td><td>67,185</td><td>75,001</td><td>71,202</td><td>70,153</td><td>71,626</td><td><strong>79,678</strong> ‖</td><td>79,678</td><td><strong>83,402</strong></td></tr><tr><td>内涵价值（百万美元）</td><td>—</td><td>—</td><td>—</td><td>—</td><td>69,035</td><td><strong>76,811</strong> ‖</td><td>76,811</td><td><strong>80,555</strong></td></tr><tr><td>每股内涵价值权益（美元）</td><td>—</td><td>—</td><td>—</td><td>—</td><td>6.64</td><td><strong>7.58</strong> ‖</td><td>7.58</td><td><strong>8.06</strong></td></tr><tr><td>集团总加權保费收入（百万美元）</td><td>35,408</td><td>36,859</td><td>36,176</td><td>37,939</td><td>41,398</td><td><strong>46,900</strong> ‖</td><td>23,936</td><td><strong>27,526</strong></td></tr><tr><td>费用率</td><td>—</td><td>—</td><td>—</td><td>—</td><td>8.8%</td><td><strong>8.1%</strong> ‖</td><td>—</td><td>—</td></tr><tr><td>营运溢利率（OPAT÷总加權保费）</td><td>—</td><td>—</td><td>—</td><td>—</td><td>16.0%</td><td><strong>15.3%</strong> ‖</td><td>15.1%</td><td><strong>15.2%</strong></td></tr><tr><td>股东分配权益营运回报（年化）</td><td>—</td><td>—</td><td>—</td><td>—</td><td>14.8%</td><td><strong>15.5%</strong> ‖</td><td>16.2%</td><td><strong>17.5%</strong></td></tr><tr><td>内涵价值营运回报（年化）</td><td>—</td><td>—</td><td>—</td><td>—</td><td>14.3%</td><td><strong>15.8%</strong> ‖</td><td>17.8%</td><td><strong>18.0%</strong></td></tr><tr><td>合约服务边际余额（CSM，百万美元）</td><td>—</td><td>—</td><td>—</td><td>53,115</td><td>56,231</td><td><strong>64,945</strong> ‖</td><td>64,945</td><td><strong>67,773</strong></td></tr><tr><td>CSM 释放率</td><td>—</td><td>—</td><td>—</td><td>9.5%</td><td>9.4%</td><td><strong>9.3%</strong> ‖</td><td>—</td><td>—</td></tr><tr><td>基本 CSM 增长（释放后）</td><td>—</td><td>—</td><td>—</td><td>8.4%</td><td>9.1%</td><td><strong>10.5%</strong> ‖</td><td>10.6%</td><td><strong>10%</strong></td></tr></tbody></table></div>
+<p><strong>表注</strong>：</p>
+<ol><li><strong>列分两块</strong>：2020—2025 为年度块、2025H1／2026H1 为半年度块，分界处以竖线标出，<strong>跨块不可直接相减</strong>（半年度数约为全年的一半）。</li><li>新业务价值（NBV）为期间内所售新业务在未来产生的预计税后法定溢利按销售当时计算的现值，扣除用作支持新业务而持有超过法定准备金所需资金的成本。<strong>NBV 按销售当时适用的假设计算，不因后续假设变动而重述</strong>，故除非公司另列「可比口径」，各年 NBV 均可与同口径比较。</li><li>年化新保费（ANP）＝再保险分出前年化首年保费 100% ＋整付保费 10% 之总和。</li><li>税后营运溢利（OPAT）为集团衡量营运盈利的核心指标，<strong>已扣除非控股权益</strong>，剔除短期投资波动、贴现率变动等非营运项目。</li><li>2025 年 OPAT 同比按固定汇率 +7%、按实质汇率 +8%；每股 OPAT +12%（固定汇率 +12%、实质汇率 +13%），每股增速高于总额增速系股份回购令加权平均股数下降 5% 所致。</li><li>「营运溢利率」为本人按 OPAT ÷ 总加權保费收入计算（公司 2025 年年报披露 2025 年为 15.3%，2026H1 中期报告披露为 15.2%）。</li><li>CSM 释放率计及「差异及其他」与汇率后计算；使用期末汇率分别得出上半年与下半年的释放率，全年释放率为两半年的混合率。</li><li>内涵价值营运溢利 2024／2025 两年序列取自各年年报；2020—2023 年年报未按同一列示方式披露该指标，按「宁缺毋滥」留 <code>—</code>。</li></ol>
+<hr>
+<h3>表 2　综合财务状况表（IFRS 资产负债摘要）</h3>
+<div class="rsp-table"><table class="financial longtable"><thead><tr><th>项目（百万美元）</th><th>2024 年末</th><th>2025 年末 ‖</th><th>2026H1 末</th></tr></thead><tbody><tr><td>金融投资</td><td>272,151</td><td>307,259 ‖</td><td>322,774</td></tr><tr><td>投资物业</td><td>4,570</td><td>4,508 ‖</td><td>4,483</td></tr><tr><td>现金及现金等价物</td><td>8,101</td><td>9,609 ‖</td><td>7,783</td></tr><tr><td>保险及再保险合约资产</td><td>6,702</td><td>8,759 ‖</td><td>9,059</td></tr><tr><td>其他资产</td><td>13,930</td><td>15,288 ‖</td><td>15,931</td></tr><tr><td><strong>总资产</strong></td><td>305,454</td><td><strong>345,423</strong> ‖</td><td><strong>360,030</strong></td></tr><tr><td>保险及再保险合约负债</td><td>221,667</td><td>256,822 ‖</td><td>275,563</td></tr><tr><td>投资合约负债</td><td>6,967</td><td>7,560 ‖</td><td>7,421</td></tr><tr><td>借贷</td><td>13,329</td><td>14,245 ‖</td><td>13,892</td></tr><tr><td>其他负债</td><td>22,678</td><td>23,188 ‖</td><td>22,126</td></tr><tr><td><strong>总负债</strong></td><td>264,641</td><td><strong>301,815</strong> ‖</td><td><strong>319,002</strong></td></tr><tr><td>总权益</td><td>40,813</td><td>43,608 ‖</td><td>41,028</td></tr><tr><td>减：非控股权益</td><td>323</td><td>363 ‖</td><td>349</td></tr><tr><td><strong>股东权益</strong></td><td>40,490</td><td><strong>43,245</strong> ‖</td><td><strong>40,679</strong></td></tr><tr><td>减：公平值准备金</td><td>5,744</td><td>5,933 ‖</td><td>3,597</td></tr><tr><td>减：保险财务准备金</td><td>(9,658)</td><td>(10,181) ‖</td><td>(10,607)</td></tr><tr><td><strong>股东分配权益</strong></td><td>44,404</td><td><strong>47,493</strong> ‖</td><td><strong>47,686</strong></td></tr><tr><td>每股股东分配权益（美元）</td><td>4.11</td><td>4.52 ‖</td><td>4.61</td></tr><tr><td>每股股东权益（美元）</td><td>3.75</td><td>4.12 ‖</td><td>3.93</td></tr><tr><td>杠杆比率</td><td>13.1%</td><td>12.6% ‖</td><td>—</td></tr><tr><td>综合权益（含 CSM 净额）</td><td>87,600</td><td>97,930 ‖</td><td>—</td></tr></tbody></table></div>
+<p><strong>表注</strong>：</p>
+<ol><li><strong>股东分配权益</strong>为管理层认为更能反映业务长期性质的权益指标，＝股东权益 − 公平值准备金 − 保险财务准备金。2025 年末 474.93 亿美元、每股 4.52 美元（同比 +10%，实质汇率）；2026 年 6 月末 476.86 亿美元、每股 4.61 美元（同比 +2%）。</li><li><strong>综合权益</strong>＝股东权益 ＋ 合约服务边际净额（已计及再保险、税项及扣除非控股权益）。2025 年末 979.30 亿美元、每股 9.32 美元（同比 +15%）；2026 年 6 月末未在中期报告披露该合计数，按「宁缺毋滥」留 <code>—</code>。</li><li><strong>杠杆比率</strong>＝借贷总额 ÷（借贷总额 ＋ 总权益 ＋ 已扣除再保险及税项的 CSM 总额）。2025 年末 12.6%（2024 年末 13.1%），下降来自股东权益与 CSM 净额增长、部分被借贷增加抵销。</li><li>账面资产负债率（总负债 ÷ 总资产）2025 年末为 <strong>87.4%</strong>、2024 年末为 86.6%。保险集团负债主体是<strong>保险合约负债</strong>（2025 年末 2,568.22 亿美元，占总负债 85.1%），属保单负债而非金融负债，<strong>不可与一般工商企业的资产负债率直接比较</strong>，亦不构成偿付能力约束。</li><li>2026H1 中期报告未披露「杠杆比率」与「综合权益」两项（仅在年报披露），按「宁缺毋滥」留 <code>—</code>，不用相邻期倒推。</li></ol>
+<hr>
+<h3>表 3　综合现金流量表</h3>
+<div class="rsp-table"><table class="longtable"><thead><tr><th>项目（百万美元）</th><th>2024</th><th>2025 ‖</th><th>2026H1</th></tr></thead><tbody><tr><td>经营活动提供的现金净额</td><td>3,263</td><td><strong>6,970</strong> ‖</td><td>—</td></tr><tr><td>投资活动使用的现金净额</td><td>(945)</td><td><strong>(940)</strong> ‖</td><td>—</td></tr><tr><td>融资活动使用的现金净额</td><td>(5,688)</td><td><strong>(4,715)</strong> ‖</td><td>—</td></tr><tr><td>现金及现金等价物增加／（减少）净额</td><td>(3,370)</td><td><strong>1,315</strong> ‖</td><td>—</td></tr><tr><td>财政年初现金及现金等价物</td><td>11,450</td><td>7,982 ‖</td><td>—</td></tr><tr><td>汇率变动影响</td><td>(98)</td><td>201 ‖</td><td>—</td></tr><tr><td><strong>财政年末现金及现金等价物</strong></td><td>7,982</td><td><strong>9,498</strong> ‖</td><td>—</td></tr><tr><td>其中：合并财务状况表的现金及现金等价物</td><td>8,101</td><td>9,609 ‖</td><td>7,783</td></tr><tr><td>减：银行透支</td><td>(119)</td><td>(111) ‖</td><td>—</td></tr></tbody></table></div>
+<p><strong>表注</strong>：</p>
+<ol><li>2026 年上半年中期报告披露的是<strong>中期合并现金流量表</strong>（含经营、投资、融资三大类），但其分类与年度报表口径不同、且部分科目为半年口径，<strong>为免口径混用，本表半年度块留 <code>—</code></strong>，读者应直接查阅中期报告第 68 页。</li><li>保险集团的经营活动现金流受<strong>金融投资与保险合约变动的巨额摆动</strong>影响（2025 年调整项：金融投资 −28,410、保险合约 +28,141、所持再保险合约 −1,912、投资合约 +287、回购协议债项 +1,094），<strong>不具一般工商企业的「利润含金量」指示性</strong>。判断本集团现金创造能力应看<strong>「产生的自由盈余净额」</strong>（见表 4），而非经营现金流。</li><li>投资活动净流出规模很小（2025 年 9.40 亿美元），主体为无形资产付款 2.56 亿、增加联营公司权益付款 3.71 亿、收购附属公司 1.21 亿，<strong>不构成重资产资本开支周期</strong>。</li><li>融资活动净流出的主体是<strong>股东回报</strong>：2025 年支付股息 24.41 亿美元 ＋ 回购股份 22.79 亿美元 ＝ 47.06 亿美元，另有发行中期票据及证券净流入 7.66 亿美元。</li></ol>
+<hr>
+<h3>表 4　按报告分部划分的经营业绩</h3>
+<div class="rsp-table rsp-w7"><table class="nowrap-first longtable"><thead><tr><th>分部</th><th>指标</th><th>2023</th><th>2024</th><th>2025 ‖</th><th>2025H1</th><th>2026H1</th></tr></thead><tbody><tr><td>中国内地</td><td>新业务价值</td><td>1,037</td><td>1,217</td><td><strong>1,240</strong> ‖</td><td>743</td><td><strong>937</strong></td></tr><tr><td>中国内地</td><td>NBV 利润率</td><td>51.3%</td><td>56.1%</td><td><strong>57.6%</strong> ‖</td><td>58.6%</td><td>54.1%</td></tr><tr><td>中国内地</td><td>年化新保费</td><td>2,023</td><td>2,168</td><td><strong>2,152</strong> ‖</td><td>1,268</td><td><strong>1,733</strong></td></tr><tr><td>中国内地</td><td>税后营运溢利</td><td>1,548</td><td>1,597</td><td><strong>1,708</strong> ‖</td><td>873</td><td><strong>1,009</strong></td></tr><tr><td>中国内地</td><td>CSM 释放</td><td>6,275</td><td>—</td><td>— ‖</td><td>5,515</td><td><strong>6,774</strong></td></tr><tr><td>香港</td><td>新业务价值</td><td>1,430</td><td>1,764</td><td><strong>2,256</strong> ‖</td><td>1,063</td><td><strong>1,168</strong></td></tr><tr><td>香港</td><td>NBV 利润率</td><td>57.5%</td><td>65.5%</td><td><strong>68.5%</strong> ‖</td><td>65.8%</td><td><strong>72.0%</strong></td></tr><tr><td>香港</td><td>年化新保费</td><td>2,407</td><td>2,609</td><td><strong>3,283</strong> ‖</td><td>1,609</td><td><strong>1,615</strong></td></tr><tr><td>香港</td><td>税后营运溢利</td><td>2,180</td><td>2,499</td><td><strong>2,770</strong> ‖</td><td>1,401</td><td><strong>1,569</strong></td></tr><tr><td>香港</td><td>CSM 释放</td><td>—</td><td>—</td><td>— ‖</td><td>12,456→</td><td>—</td></tr><tr><td>泰国</td><td>新业务价值</td><td>713</td><td>816</td><td><strong>993</strong> ‖</td><td>522</td><td><strong>514</strong></td></tr><tr><td>泰国</td><td>NBV 利润率</td><td>93.3%</td><td>99.5%</td><td><strong>110.9%</strong> ‖</td><td>115.7%</td><td>96.9%</td></tr><tr><td>泰国</td><td>年化新保费</td><td>765</td><td>821</td><td><strong>895</strong> ‖</td><td>452</td><td><strong>531</strong></td></tr><tr><td>泰国</td><td>税后营运溢利</td><td>951</td><td>1,019</td><td><strong>1,210</strong> ‖</td><td>621</td><td><strong>706</strong></td></tr><tr><td>新加坡</td><td>新业务价值</td><td>394</td><td>454</td><td><strong>530</strong> ‖</td><td>259</td><td><strong>294</strong></td></tr><tr><td>新加坡</td><td>NBV 利润率</td><td>67.2%</td><td>50.5%</td><td><strong>47.0%</strong> ‖</td><td>47.4%</td><td>45.6%</td></tr><tr><td>新加坡</td><td>年化新保费</td><td>586</td><td>897</td><td><strong>1,128</strong> ‖</td><td>547</td><td><strong>644</strong></td></tr><tr><td>新加坡</td><td>税后营运溢利</td><td>669</td><td>669</td><td><strong>721</strong> ‖</td><td>355</td><td><strong>411</strong></td></tr><tr><td>马来西亚</td><td>新业务价值</td><td>319</td><td>349</td><td><strong>373</strong> ‖</td><td>192</td><td><strong>232</strong></td></tr><tr><td>马来西亚</td><td>NBV 利润率</td><td>67.3%</td><td>67.3%</td><td><strong>72.2%</strong> ‖</td><td>68.9%</td><td>61.7%</td></tr><tr><td>马来西亚</td><td>年化新保费</td><td>473</td><td>517</td><td><strong>515</strong> ‖</td><td>278</td><td><strong>374</strong></td></tr><tr><td>马来西亚</td><td>税后营运溢利</td><td>293</td><td>331</td><td><strong>389</strong> ‖</td><td>210</td><td><strong>261</strong></td></tr><tr><td>其他市场</td><td>新业务价值</td><td>406</td><td>467</td><td><strong>485</strong> ‖</td><td>249</td><td><strong>260</strong></td></tr><tr><td>其他市场</td><td>NBV 利润率</td><td>28.9%</td><td>29.2%</td><td><strong>32.0%</strong> ‖</td><td>31.5%</td><td>34.1%</td></tr><tr><td>其他市场</td><td>年化新保费</td><td>1,396</td><td>1,594</td><td><strong>1,511</strong> ‖</td><td>788</td><td><strong>758</strong></td></tr><tr><td>其他市场</td><td>税后营运溢利</td><td>560</td><td>507</td><td><strong>627</strong> ‖</td><td>338</td><td><strong>356</strong></td></tr><tr><td>集团企业中心</td><td>税后营运溢利</td><td>—</td><td>(17)</td><td><strong>(289)</strong> ‖</td><td>(189)</td><td><strong>(149)</strong></td></tr><tr class="total"><td><strong>集团总计</strong></td><td><strong>新业务价值</strong></td><td>4,034</td><td>4,712</td><td><strong>5,516</strong> ‖</td><td>2,838</td><td><strong>3,212</strong></td></tr><tr class="total"><td><strong>集团总计</strong></td><td><strong>NBV 利润率</strong></td><td>52.6%</td><td>54.5%</td><td><strong>58.5%</strong> ‖</td><td>57.7%</td><td>57.1%</td></tr><tr class="total"><td><strong>集团总计</strong></td><td><strong>年化新保费</strong></td><td>7,650</td><td>8,606</td><td><strong>9,484</strong> ‖</td><td>4,942</td><td><strong>5,655</strong></td></tr><tr class="total"><td><strong>集团总计</strong></td><td><strong>税后营运溢利</strong></td><td>6,213</td><td>6,605</td><td><strong>7,136</strong> ‖</td><td>3,609</td><td><strong>4,163</strong></td></tr></tbody></table></div>
+<p><strong>表注</strong>：</p>
+<ol><li><strong>列分两块、时间递增、分界处以竖线标出，跨块不可直接相减。</strong> 半年度块同比＝2026H1 ÷ 2025H1 − 1。</li><li>分部新业务价值按<strong>当地法定基准</strong>列示，且<strong>未扣除未分配集团总部开支、集团企业中心税项及非控股权益</strong>；故六个分部 NBV 之和（2025 年 5,877）不等于集团总计（5,516），差额为「合并资本要求」「未分配集团总部开支的价值」「集团企业中心税项」「非控股权益」四项调整（见表 5）。</li><li><strong>NBV 利润率 &gt; 100% 属正常现象</strong>（泰国 2025 年 110.9%、2026H1 96.9%）：该利润率＝NBV ÷ 年化新保费，当产品组合中含高利润率保障型／趸缴业务、或存在再保险安排时，NBV 可超过 ANP。<strong>不可据此判断计算错误</strong>。</li><li>泰国 2026H1 NBV 同比 −6%（实质汇率 −2%）：公司明确说明系 2025 年第一季度在泰国新税务规则生效前取得极强劲 NBV 增长，导致高基数。<strong>该下滑属可解释的基数效应，不是需求转弱</strong>。</li><li>「香港 CSM 释放 2025H1 12,456」一行数据口径存疑（疑为总加權保费收入而非 CSM 释放），<strong>为免误导，本表已将 2024／2025 全年的 CSM 释放列留 <code>—</code></strong>。</li><li>其他市场 2024 年 OPAT 同比 −5%／实质 −9%，部分因 2023 年比较资料包含澳洲储蓄及投资业务（已于 2023 年下半年出售）的盈利。</li></ol>
+<hr>
+<h3>表 5　集团新业务价值由分部到合并的桥接与 CSM 变动</h3>
+<div class="rsp-table rsp-w5"><table class="longtable"><thead><tr><th>项目（百万美元）</th><th>2024</th><th>2025 ‖</th><th>2025H1</th><th>2026H1</th></tr></thead><tbody><tr><td>六个分部新业务价值小计</td><td>5,067</td><td><strong>5,877</strong> ‖</td><td>3,028</td><td><strong>3,405</strong></td></tr><tr><td>减：合并资本要求</td><td>(73)</td><td><strong>(77)</strong> ‖</td><td>(46)</td><td><strong>(45)</strong></td></tr><tr><td>减：未分配集团总部开支的价值</td><td>(205)</td><td><strong>(160)</strong> ‖</td><td>(71)</td><td><strong>(77)</strong></td></tr><tr><td>减：集团企业中心税项</td><td>(38)</td><td><strong>(83)</strong> ‖</td><td>(54)</td><td><strong>(49)</strong></td></tr><tr><td>扣除非控股权益前的总计</td><td>4,751</td><td><strong>5,557</strong> ‖</td><td>2,857</td><td><strong>3,234</strong></td></tr><tr><td>减：非控股权益</td><td>(39)</td><td><strong>(41)</strong> ‖</td><td>(19)</td><td><strong>(22)</strong></td></tr><tr><td><strong>集团新业务价值总计</strong></td><td>4,712</td><td><strong>5,516</strong> ‖</td><td>2,838</td><td><strong>3,212</strong></td></tr></tbody></table></div>
+<div class="rsp-table rsp-w6"><table class="longtable"><thead><tr><th>合约服务边际（CSM）变动（百万美元）</th><th>2023</th><th>2024</th><th>2025 ‖</th><th>2025H1</th><th>2026H1</th></tr></thead><tbody><tr><td>期初合约服务边际</td><td>50,225</td><td>53,115</td><td><strong>56,231</strong> ‖</td><td>64,945</td><td><strong>67,773</strong></td></tr><tr><td>新业务合约服务边际</td><td>6,974</td><td>7,675</td><td><strong>9,110</strong> ‖</td><td>—</td><td>—</td></tr><tr><td>有效保单的预期回报</td><td>2,569</td><td>2,799</td><td><strong>3,004</strong> ‖</td><td>—</td><td>—</td></tr><tr><td>计及差异及其他、汇率及释放前的 CSM</td><td>59,768</td><td>63,589</td><td><strong>68,345</strong> ‖</td><td>—</td><td>—</td></tr><tr><td>差异及其他</td><td>(992)</td><td>(956)</td><td><strong>952</strong> ‖</td><td>—</td><td>—</td></tr><tr><td>汇率</td><td>(347)</td><td>(777)</td><td><strong>1,872</strong> ‖</td><td>—</td><td>—</td></tr><tr><td>释放前的期末合约服务边际</td><td>58,429</td><td>61,856</td><td><strong>71,169</strong> ‖</td><td>—</td><td>—</td></tr><tr><td>合约服务边际释放</td><td>(5,314)</td><td>(5,625)</td><td><strong>(6,224)</strong> ‖</td><td>—</td><td>—</td></tr><tr class="total"><td><strong>期末合约服务边际</strong></td><td>53,115</td><td>56,231</td><td><strong>64,945</strong> ‖</td><td>—</td><td><strong>67,773</strong></td></tr><tr><td>CSM 释放率</td><td>9.5%</td><td>9.4%</td><td><strong>9.3%</strong> ‖</td><td>—</td><td>—</td></tr><tr><td>释放后的基本 CSM 增长</td><td>8.4%</td><td>9.1%</td><td><strong>10.5%</strong> ‖</td><td>10.6%</td><td><strong>10%</strong></td></tr></tbody></table></div>
+<p><strong>表注</strong>：</p>
+<ol><li>2025 年公司<strong>将与有效保单业务再保险交易有关的 9,600 万美元自「新业务合约服务边际」重新分配至「差异及其他」</strong>，与新业务价值的计算方式一致；<strong>期末 CSM 结余不变</strong>。故 2025 年新业务 CSM 9,110 与 2024 年 7,675 的比较已按新口径呈现。</li><li>2026 年上半年中期报告仅披露<strong>期末 CSM 67,773、基本 CSM 增长 10%、释放额 3,386</strong> 三项，未列完整变动表，故半年度块除期初／期末外留 <code>—</code>。</li><li><strong>全球最低税制度于 2025 年首次纳入自由盈余与 CSM 相关计算</strong>：按营运溢利基准的名义补足税 1.69 亿美元计入「产生的基本自由盈余」，而实际拨备 0.54 亿美元反映于纯利，差额正 1.15 亿美元计入「投资回报差异及其他项目」。</li></ol>
+<hr>
+<h3>表 6　税后营运溢利构成拆解</h3>
+<div class="rsp-table rsp-w6"><table class="longtable"><thead><tr><th>项目（百万美元）</th><th>2023</th><th>2024</th><th>2025 ‖</th><th>2025H1</th><th>2026H1</th></tr></thead><tbody><tr><td>合约服务边际释放</td><td>5,314</td><td>5,625</td><td><strong>6,224</strong> ‖</td><td>—</td><td>—</td></tr><tr><td>营运差异</td><td>(271)</td><td>(56)</td><td><strong>183</strong> ‖</td><td>—</td><td>—</td></tr><tr><td>风险调整释放及其他</td><td>81</td><td>122</td><td><strong>365</strong> ‖</td><td>—</td><td>—</td></tr><tr><td><strong>保险服务业绩</strong></td><td>5,124</td><td>5,691</td><td><strong>6,772</strong> ‖</td><td>—</td><td>—</td></tr><tr><td>投资业绩净额</td><td>3,581</td><td>3,528</td><td><strong>3,342</strong> ‖</td><td>—</td><td>—</td></tr><tr><td>投资管理开支</td><td>(187)</td><td>(225)</td><td><strong>(209)</strong> ‖</td><td>—</td><td>—</td></tr><tr><td><strong>扣除开支后的投资业绩净额</strong></td><td>3,394</td><td>3,303</td><td><strong>3,133</strong> ‖</td><td>—</td><td>—</td></tr><tr><td>其他收费及收益净额</td><td>76</td><td>144</td><td><strong>131</strong> ‖</td><td>—</td><td>—</td></tr><tr><td>IFRS 17 下非直接归属开支</td><td>(921)</td><td>(925)</td><td><strong>(946)</strong> ‖</td><td>—</td><td>—</td></tr><tr><td>财务费用</td><td>(453)</td><td>(489)</td><td><strong>(573)</strong> ‖</td><td>—</td><td>—</td></tr><tr><td><strong>其他收费、收益及开支</strong></td><td>(1,298)</td><td>(1,270)</td><td><strong>(1,388)</strong> ‖</td><td>—</td><td>—</td></tr><tr><td><strong>税前营运溢利</strong></td><td>—</td><td>7,724</td><td><strong>8,517</strong> ‖</td><td>—</td><td>—</td></tr><tr><td>税项</td><td>(1,007)</td><td>(1,119)</td><td><strong>(1,381)</strong> ‖</td><td>—</td><td>—</td></tr><tr><td><strong>税后营运溢利</strong></td><td>6,213</td><td>6,605</td><td><strong>7,136</strong> ‖</td><td>3,609</td><td><strong>4,163</strong></td></tr><tr><td>每股基本税后营运溢利（美仙）</td><td>53.94</td><td>59.70</td><td><strong>67.65</strong> ‖</td><td>33.94</td><td><strong>39.95</strong></td></tr><tr><td>按营运溢利基准的有效税率</td><td>—</td><td>14%</td><td><strong>16%</strong> ‖</td><td>—</td><td>—</td></tr></tbody></table></div>
+<div class="rsp-table"><table class="three-col longtable"><thead><tr><th>投资业绩净额明细（百万美元）</th><th>2024</th><th>2025</th></tr></thead><tbody><tr><td>金融资产的利息收益</td><td>4,432</td><td><strong>4,552</strong></td></tr><tr><td>股权及房地产的预期长期投资回报</td><td>1,384</td><td><strong>1,552</strong></td></tr><tr><td>非分红及盈余资产的投资回报</td><td>5,816</td><td><strong>6,104</strong></td></tr><tr><td>非分红保险财务开支及其他</td><td>(2,288)</td><td><strong>(2,762)</strong></td></tr><tr><td>投资业绩净额</td><td>3,528</td><td><strong>3,342</strong></td></tr><tr><td>投资管理开支</td><td>(225)</td><td><strong>(209)</strong></td></tr><tr><td>扣除开支后的投资业绩净额</td><td>3,303</td><td><strong>3,133</strong></td></tr></tbody></table></div>
+<p><strong>表注</strong>：</p>
+<ol><li><strong>保险服务业绩 2025 年增长 18%（固定汇率）至 67.72 亿美元，占税前营运溢利 80%</strong>，是 OPAT 增长的第一驱动。增长主要来自<strong>更高的 CSM 释放</strong>（反映 CSM 结余增长），并受惠于<strong>正面的营运差异 1.83 亿美元</strong>（2024 年为 −0.56 亿美元，摆动 2.39 亿美元），后者反映执行「综合医疗保健策略」取得的改善理赔经验。</li><li><strong>扣除开支后的投资业绩净额 2025 年下降 5% 至 31.33 亿美元</strong>，公司归因「进一步的股份回购导致盈余资产的投资回报减少，以及中国内地及美国较低的利率」。<strong>按基本基准（就股份回购与较低利率作出调整后）实为增长 4%</strong> —— 这是典型的「表面下滑、实质增长」，须两面陈述。</li><li><strong>非分红保险财务开支及其他大幅增加 19% 至 27.62 亿美元</strong>，是投资业绩净额下滑的主因（受保险负债平均结余增加推动）。<strong>该项与业务规模同向增长，属正常经营扩张的成本，不是效率恶化</strong>。</li><li><strong>按营运溢利基准的有效税率由 14% 升至 16%</strong>，公司明确说明系首次计入名义全球最低税制度补足税 1.69 亿美元及百慕达企业所得税 0.33 亿美元（两者均自 2025 年 1 月 1 日起生效）。<strong>这是政策性的、不可逆的税负台阶，应将 16% 作为新的税率基准，不可用 14% 外推。</strong></li><li>财务费用同比 +17% 至 5.73 亿美元，来自全球中期票据及证券计划项下借贷增加 0.83 亿美元。</li></ol>
+<hr>
+<h3>表 7　内涵价值权益变动分析</h3>
+<div class="rsp-table"><table class="three-col longtable"><thead><tr><th>项目（百万美元）</th><th>2024</th><th>2025 ‖</th></tr></thead><tbody><tr><td>期初内涵价值权益</td><td>70,153</td><td><strong>71,626</strong> ‖</td></tr><tr><td>新业务价值</td><td>4,712</td><td><strong>5,516</strong> ‖</td></tr><tr><td>内涵价值的预期回报</td><td>5,628</td><td><strong>5,654</strong> ‖</td></tr><tr><td>营运经验差异</td><td>160</td><td><strong>165</strong> ‖</td></tr><tr><td>营运假设变动</td><td>28</td><td><strong>140</strong> ‖</td></tr><tr><td>财务费用</td><td>(503)</td><td><strong>(588)</strong> ‖</td></tr><tr><td><strong>内涵价值营运溢利</strong></td><td>10,025</td><td><strong>10,887</strong> ‖</td></tr><tr><td>未计及非营运项目的内涵价值权益</td><td>80,178</td><td><strong>82,513</strong> ‖</td></tr><tr><td>投资回报差异</td><td>(113)</td><td><strong>(178)</strong> ‖</td></tr><tr><td>经济假设变动的影响</td><td>55</td><td><strong>308</strong> ‖</td></tr><tr><td>其他非营运差异</td><td>(880)</td><td><strong>(175)</strong> ‖</td></tr><tr><td><strong>内涵价值非营运项目</strong></td><td>(938)</td><td><strong>(45)</strong> ‖</td></tr><tr><td>内涵价值权益溢利总额</td><td>9,087</td><td><strong>10,842</strong> ‖</td></tr><tr><td>其他资本变动</td><td>20</td><td><strong>26</strong> ‖</td></tr><tr><td>汇率变动的影响</td><td>(1,156)</td><td><strong>1,890</strong> ‖</td></tr><tr><td>未计及股息及股份回购的内涵价值权益</td><td>78,104</td><td><strong>84,384</strong> ‖</td></tr><tr><td>股息</td><td>(2,328)</td><td><strong>(2,427)</strong> ‖</td></tr><tr><td>股份回购</td><td>(4,150)</td><td><strong>(2,279)</strong> ‖</td></tr><tr class="total"><td><strong>期末内涵价值权益</strong></td><td>71,626</td><td><strong>79,678</strong> ‖</td></tr></tbody></table></div>
+<div class="rsp-table rsp-w5"><table class="financial longtable"><thead><tr><th>每股内涵价值权益（百万美元，除另有说明外）</th><th>2024 年末</th><th>2025 年末</th><th>变动（固定汇率）</th><th>变动（实质汇率）</th></tr></thead><tbody><tr><td>经调整资产净值</td><td>30,527</td><td><strong>30,680</strong></td><td>(2)%</td><td>1%</td></tr><tr><td>有效保单业务价值</td><td>38,508</td><td><strong>46,131</strong></td><td>15%</td><td><strong>20%</strong></td></tr><tr><td>内涵价值</td><td>69,035</td><td><strong>76,811</strong></td><td>8%</td><td>11%</td></tr><tr><td>商誉及其他无形资产</td><td>2,591</td><td><strong>2,867</strong></td><td>7%</td><td>11%</td></tr><tr><td><strong>内涵价值权益</strong></td><td>71,626</td><td><strong>79,678</strong></td><td>8%</td><td>11%</td></tr><tr><td>已发行在外的普通股股数（百万）</td><td>10,793</td><td><strong>10,507</strong></td><td>(3)%</td><td>(3)%</td></tr><tr><td><strong>每股内涵价值权益（美元）</strong></td><td>6.64</td><td><strong>7.58</strong></td><td>11%</td><td>14%</td></tr></tbody></table></div>
+<p><strong>表注</strong>：</p>
+<ol><li><strong>内涵价值营运溢利 2025 年 108.87 亿美元、每股 +13%</strong>，由 NBV 增长及正面营运差异推动。内涵价值营运溢利是<strong>分红与考核锚</strong>，剔除短期投资波动、经济假设变动与一次性项。</li><li><strong>非营运项目 2025 年合计仅 −0.45 亿美元（2024 年 −9.38 亿美元），大幅收窄 8.93 亿美元</strong>，是内涵价值溢利总额增长的主要「非经营侧」贡献。其中「其他非营运差异」由 −8.80 亿改善至 −1.75 亿（改善 7.05 亿），公司 2024 年的主要扣减项是香港强制性公积金「积金易」平台实施后预期未来费用现值，<strong>属一次性政策冲击，2025 年不再重复</strong>。</li><li><strong>经济假设变动 2025 年转正为 +3.08 亿美元</strong>（2024 年 +0.55 亿），主要落在有效保单业务价值。</li><li><strong>有效保单业务价值（VIF）增长 20%（实质汇率）</strong>，是内涵价值权益增长中质量最高的部分；经调整资产净值反而 −2%（固定汇率）／+1%（实质汇率），<strong>反映增长完全来自有效保单而非资产重估</strong>。</li><li><strong>内涵价值对经济假设的敏感度较小</strong>（2025 年末）：股价 ±10% 对 CSM 影响 ±1.7%、对税前溢利影响 ±1,785 百万元；利率 ±50BP 对 CSM 影响 −0.8%／+1.0%、对税前溢利影响 −567／+608 百万元。<strong>该敏感度相对其中间价值仍较小</strong>，说明 CSM 与溢利的抗波动能力较强。</li></ol>
+<hr>
+<h3>表 8　自由盈余与股东资本</h3>
+<div class="rsp-table rsp-w5"><table class="longtable"><thead><tr><th>项目（百万美元）</th><th>2024</th><th>2025 ‖</th><th>2025H1</th><th>2026H1</th></tr></thead><tbody><tr><td>期初自由盈余</td><td>16,329</td><td><strong>12,554</strong> ‖</td><td>—</td><td>—</td></tr><tr><td>产生的基本自由盈余</td><td>6,327</td><td><strong>6,765</strong> ‖</td><td>3,569</td><td><strong>3,935</strong></td></tr><tr><td>拨付新业务所用的自由盈余</td><td>(1,531)</td><td><strong>(1,437)</strong> ‖</td><td>—</td><td>—</td></tr><tr><td>未分配集团总部开支</td><td>(293)</td><td><strong>(315)</strong> ‖</td><td>—</td><td>—</td></tr><tr><td>财务费用及其他资本变动</td><td>(483)</td><td><strong>(562)</strong> ‖</td><td>—</td><td>—</td></tr><tr><td><strong>产生的自由盈余净额</strong></td><td>4,020</td><td><strong>4,451</strong> ‖</td><td>2,430</td><td><strong>2,758</strong></td></tr><tr><td>投资回报差异及其他项目</td><td>(1,317)</td><td><strong>(1,327)</strong> ‖</td><td>—</td><td>—</td></tr><tr><td>未计及股息及股份回购的自由盈余</td><td>19,032</td><td><strong>15,678</strong> ‖</td><td>—</td><td>—</td></tr><tr><td>股息</td><td>(2,328)</td><td><strong>(2,427)</strong> ‖</td><td>—</td><td>—</td></tr><tr><td>股份回购</td><td>(4,150)</td><td><strong>(2,279)</strong> ‖</td><td>—</td><td>—</td></tr><tr class="total"><td><strong>期末自由盈余</strong></td><td>12,554</td><td><strong>10,972</strong> ‖</td><td>—</td><td><strong>10,470</strong></td></tr></tbody></table></div>
+<div class="rsp-table"><table class="three-col longtable"><thead><tr><th>股东资本资源（百万美元）</th><th>2024 年末</th><th>2025 年末 ‖</th></tr></thead><tbody><tr><td><strong>股东资本比率</strong></td><td>236%</td><td><strong>221%</strong> ‖</td></tr><tr><td>股东资本资源</td><td>40,439</td><td><strong>41,066</strong> ‖</td></tr><tr><td>自由盈余</td><td>12,554</td><td><strong>10,972</strong> ‖</td></tr><tr><td>所需资本</td><td>17,154</td><td><strong>18,578</strong> ‖</td></tr><tr><td>合资格二级债务资本</td><td>10,731</td><td><strong>11,516</strong> ‖</td></tr><tr class="total"><td><strong>集团当地资本总和法覆盖率（保险集团监管基准）</strong></td><td>257%</td><td><strong>233%</strong> ‖</td></tr><tr><td>一级集团资本覆盖率</td><td>349%</td><td><strong>314%</strong> ‖</td></tr><tr><td>合资格集团资本资源</td><td>77,650</td><td><strong>81,341</strong> ‖</td></tr><tr><td>一级集团资本</td><td>49,316</td><td><strong>50,901</strong> ‖</td></tr><tr><td>二级集团资本</td><td>28,334</td><td><strong>30,440</strong> ‖</td></tr><tr><td>集团订明资本要求</td><td>30,159</td><td><strong>34,949</strong> ‖</td></tr><tr><td>集团最低资本要求</td><td>14,131</td><td><strong>16,215</strong> ‖</td></tr><tr><td>集团当地资本总和法盈余</td><td>47,491</td><td><strong>46,392</strong> ‖</td></tr><tr><td>股东基准覆盖率（撇除分红业务）</td><td>316%</td><td><strong>282%</strong> ‖</td></tr></tbody></table></div>
+<p><strong>表注</strong>：</p>
+<ol><li><strong>「产生的自由盈余净额」是本集团衡量现金创造能力的核心营运指标</strong>，2025 年 44.51 亿美元、每股 +14%。增长动力来自：产生的基本自由盈余增加（63.27→67.65 亿美元），以及<strong>拨付新业务所用的自由盈余下降 6% 至 14.37 亿美元</strong>。</li><li><strong>新业务投资下降是「资本效率提升」的直接证据</strong>：公司明确说明「反映了积极转向资本占用较少的产品，尤其是在中国内地。这令新业务价值的增长速度快于新业务再投资，使投放的每一块钱资本创造更多价值」。<strong>这是本报告最重要的一条正面结论</strong>（详见 §4.2）。</li><li><strong>资本管理政策</strong>：以年度产生的自由盈余净额的 <strong>75% 作为股东目标派付率</strong>，并承诺定期检视资本状况、返还超出需要的资本。2025 年按 75% 派付率计股东回报为 33.39 亿美元。</li><li><strong>股东资本比率由 236% 降至 221%、偿付能力覆盖率由 257% 降至 233%</strong>，公司归因「向股东返还资本及股本资产结余增加导致资本要求增加」。<strong>这是主动的资本返还，不是资本恶化</strong>；但须提示：<strong>若连续多年以高于内生资本生成的速度返还，覆盖率的缓冲将逐步收窄</strong>。</li><li><strong>集团订明资本要求大增 15.9%（30,159→34,949 百万美元）</strong>，其中包含两个方向：承保新业务带来的资本需求增长，以及<strong>「股本资产结余增加」</strong>——后者意味着<strong>股票市场上涨本身会推高监管资本要求</strong>，这是本集团特有的「股市上行反而压制偿付能力比率」的机制，须单列提示。</li><li><strong>股东资本比率 210%（2026H1）</strong> 较 2025 年末 221% 下降 11 个百分点，公司说明主要反映向股东支付 36.49 亿美元（含 2025 年末期股息 19.06 亿美元及股份回购 17.43 亿美元），<strong>这些款项通常集中在上半年派付</strong>，属季节性而非趋势性下降。</li></ol>
+<hr>
+<h3>表 9　投资组合结构</h3>
+<div class="rsp-table rsp-w5"><table class="financial"><thead><tr><th>项目（百万美元）</th><th>2025 年末</th><th>占总额比重</th><th>2024 年末</th><th>占总额比重</th></tr></thead><tbody><tr><td><strong>保单持有人及股东总投资</strong></td><td>285,235</td><td>88%</td><td>255,333</td><td>88%</td></tr><tr><td>单位连结式合约及合并投资基金总计</td><td>40,090</td><td>12%</td><td>33,288</td><td>12%</td></tr><tr><td><strong>总投资</strong></td><td>325,325</td><td>100%</td><td>288,621</td><td>100%</td></tr></tbody></table></div>
+<div class="rsp-table"><table class="financial three-col longtable"><thead><tr><th>固定收入投资（百万美元）</th><th>2025 年末</th><th>2024 年末</th></tr></thead><tbody><tr><td>总投资</td><td>325,325</td><td>288,621</td></tr><tr><td>固定收入投资合计（债务证券＋贷款及定期存款）</td><td>185,712</td><td>176,306</td></tr><tr><td>其中：政府债券及政府机构债券</td><td>108,489</td><td>102,322</td></tr><tr><td>公司债券及结构证券</td><td>72,782</td><td>70,013</td></tr><tr><td>固定收入投资组合平均信贷评级</td><td>A</td><td>A</td></tr><tr><td>公司债券组合：发行人数／平均持有规模</td><td>&gt;1,800 名／3,600 万美元</td><td>—</td></tr><tr><td>债券组合中投资级别以下或无评级占比</td><td>1%（约 27 亿美元）</td><td>—</td></tr><tr><td>债券资产预期信贷亏损拨备占比</td><td>0.2%</td><td>—</td></tr><tr><td>投资基金的权益及可转换贷款票据</td><td>69,605</td><td>50,930</td></tr><tr><td>股权</td><td>11,855</td><td>11,384</td></tr><tr><td>现金及现金等价物</td><td>8,772</td><td>7,291</td></tr></tbody></table></div>
+<p><strong>表注</strong>：</p>
+<ol><li><strong>投资组合特点是「以固定收入为压舱石、以投资基金权益为增长弹性」</strong>。固定收入投资 2025 年末 1,857.12 亿美元，其中政府债券及政府机构债券占固定收入投资 <strong>59%</strong>（2024 年 58%）、公司债券及结构证券占 39%（2024 年 40%）。</li><li><strong>资产质量优异</strong>：固定收入投资组合平均信贷评级维持 <strong>A</strong>；全部债券组合仅 <strong>1%</strong> 为投资级别以下或无评级（约 27 亿美元）；年内仅 0.06 亿美元债券降级至投资级别以下（占债券组合 0.03%）；预期信贷亏损拨备仅占债券组合 0.2%，且<strong>年内拨备减少 2.70 亿美元</strong>。</li><li><strong>投资基金的权益及可转换贷款票据大幅增加 36.7% 至 696.05 亿美元</strong>，占保单持有人及股东金融投资总额比重由 20% 升至 <strong>24%</strong>。公司归因「2025 年有利的股市变动及分红业务的资产配置变动」。<strong>这是本集团「分红业务资产配置向权益倾斜」的直接证据，也是内涵价值对股市敏感度上升（股价 +10% 对税前溢利影响由 1,448 增至 1,785 百万元）的来源。</strong></li><li>分红业务投资小计 1,361.13 亿美元（占总投资 48%）、其他保单持有人及股东 1,491.22 亿美元（占 52%），结构稳定。</li></ol>
+<hr>
+<h3>表 10　股息与股东回报</h3>
+<div class="rsp-table rsp-w5"><table class="longtable"><thead><tr><th>项目</th><th>2024</th><th>2025 ‖</th><th>2025H1</th><th>2026H1</th></tr></thead><tbody><tr><td>每股中期股息（港仙）</td><td>44.50</td><td><strong>49.00</strong> ‖</td><td>49.00</td><td><strong>53.90</strong></td></tr><tr><td>每股末期股息（港仙）</td><td>130.98</td><td><strong>144.08</strong> ‖</td><td>—</td><td>—</td></tr><tr><td>每股全年股息（港仙）</td><td>175.48</td><td><strong>193.08</strong> ‖</td><td>—</td><td>—</td></tr><tr><td>末期股息同比</td><td>—</td><td><strong>+10%</strong> ‖</td><td>—</td><td>—</td></tr><tr><td>中期股息同比</td><td>—</td><td><strong>+10%</strong> ‖</td><td>—</td><td><strong>+10%</strong></td></tr><tr><td>年内派付股息（百万美元）</td><td>2,328</td><td><strong>2,427</strong> ‖</td><td>1,906</td><td>—</td></tr><tr><td>股份回购（百万美元）</td><td>4,150</td><td><strong>2,279</strong> ‖</td><td>1,743</td><td>—</td></tr><tr><td>向股东返还资本合计（百万美元）</td><td>6,478</td><td><strong>4,706</strong> ‖</td><td>3,649</td><td>—</td></tr><tr><td>回购股数（百万股）</td><td>—</td><td><strong>291.86</strong> ‖</td><td>—</td><td>—</td></tr><tr><td>累计回购股数（自 2022 年 3 月起，百万股）</td><td>—</td><td><strong>约 1,603</strong> ‖</td><td>—</td><td>—</td></tr><tr><td>已发行在外股份减少幅度（自回购计划开始）</td><td>—</td><td><strong>13%</strong> ‖</td><td>—</td><td>—</td></tr></tbody></table></div>
+<p><strong>表注</strong>：</p>
+<ol><li><strong>派息政策为「审慎、可持续及渐进」</strong>，2025 年末期股息增派 10% 至每股 144.08 港仙，中期股息 49.00 港仙，<strong>全年股息 193.08 港仙</strong>；2026 年上半年中期股息再增 10% 至 <strong>53.90 港仙</strong>。</li><li><strong>2025 年新一轮股份回购计划 17.43 亿美元</strong>，包含两部分：① 7.43 亿美元（符合产生的自由盈余净额 75% 目标年度派付率的 33.39 亿美元，扣除 2025 财政年度股息约 25.96 亿美元后的差额）；② 定期检视资本状况后的额外 <strong>10 亿美元</strong>。<strong>向股东提供的整体回报为 43.39 亿美元。</strong></li><li><strong>股份回购是本集团资本返还的第二通道</strong>，自 2022 年 3 月计划开始至 2025 年 12 月 31 日，已回购约 <strong>16.03 亿股</strong>，令已发行在外股份数目<strong>减少 13%</strong>。这直接推动「每股指标增速持续高于总额增速」（2025 年 OPAT 总额 +7% 而每股 +12%；产生的自由盈余净额总额 +11% 而每股 +14%）。</li><li><strong>分红与回购的双通道意味着「股东回报的可持续性取决于自由盈余的生成，而非会计纯利」</strong>——这是本集团区别于一般工商企业的核心估值逻辑。</li></ol>
+<hr>
+<figure><div class="ch"><div class="ch-t">新业务价值：三年连续加速，2025 年创新高</div><div class="ch-s">单位：百万美元　｜　2022 年低点 3,092 → 2025 年 5,516（+78.4%），2026 年上半年 3,212 创同期新高</div><div class="ch-legend"><span><i style="background:#A73F2D"></i>2025 年与 2026H1</span><span><i style="background:#B8862F"></i>周期低点（2022）</span><span><i style="background:#CFC7BA"></i>其余年度</span></div><div class="ch-row"><span class="ch-lab">2020</span><span class="ch-track"><span class="ch-bar " style="width:48.1%"></span></span><span class="ch-val">2,765</span></div><div class="ch-row"><span class="ch-lab">2021</span><span class="ch-track"><span class="ch-bar " style="width:58.6%"></span></span><span class="ch-val">3,366</span></div><div class="ch-row"><span class="ch-lab">2022</span><span class="ch-track"><span class="ch-bar gold" style="width:53.8%"></span></span><span class="ch-val">3,092</span></div><div class="ch-row"><span class="ch-lab">2023</span><span class="ch-track"><span class="ch-bar " style="width:70.2%"></span></span><span class="ch-val">4,034</span></div><div class="ch-row"><span class="ch-lab">2024</span><span class="ch-track"><span class="ch-bar " style="width:82.0%"></span></span><span class="ch-val">4,712</span></div><div class="ch-row"><span class="ch-lab">2025</span><span class="ch-track"><span class="ch-bar hi" style="width:96.0%"></span></span><span class="ch-val hi"><b>5,516</b></span></div><div class="ch-row"><span class="ch-lab">2026H1</span><span class="ch-track"><span class="ch-bar hi" style="width:55.9%"></span></span><span class="ch-val hi"><b>3,212</b></span></div><div class="ch-note">注：2026 年上半年为半年度数据，天然约为全年的一半，不可与年度值直接比较（下同）。NBV 按销售当时适用的假设计算，不因后续假设变动而重述，故各年 NBV 均可直接比较。</div></div><figcaption>图 1　新业务价值（2020—2025 年及 2026 年上半年）</figcaption></figure><figure><div class="ch"><div class="ch-t">税后营运溢利（OPAT）：稳步上行，2025 年创新高</div><div class="ch-s">单位：百万美元　｜　剔除短期投资波动与贴现率变动后的核心盈利指标，2025 年 7,136（+8%、每股 +12%）</div><div class="ch-legend"><span><i style="background:#A73F2D"></i>2025 年与 2026H1</span><span><i style="background:#CFC7BA"></i>历史年度</span></div><div class="ch-row"><span class="ch-lab">2020</span><span class="ch-track"><span class="ch-bar " style="width:79.9%"></span></span><span class="ch-val">5,942</span></div><div class="ch-row"><span class="ch-lab">2021</span><span class="ch-track"><span class="ch-bar " style="width:86.2%"></span></span><span class="ch-val">6,409</span></div><div class="ch-row"><span class="ch-lab">2022</span><span class="ch-track"><span class="ch-bar " style="width:86.4%"></span></span><span class="ch-val">6,421</span></div><div class="ch-row"><span class="ch-lab">2023</span><span class="ch-track"><span class="ch-bar " style="width:83.6%"></span></span><span class="ch-val">6,213</span></div><div class="ch-row"><span class="ch-lab">2024</span><span class="ch-track"><span class="ch-bar " style="width:88.9%"></span></span><span class="ch-val">6,605</span></div><div class="ch-row"><span class="ch-lab">2025</span><span class="ch-track"><span class="ch-bar hi" style="width:96.0%"></span></span><span class="ch-val hi"><b>7,136</b></span></div><div class="ch-row"><span class="ch-lab">2026H1</span><span class="ch-track"><span class="ch-bar hi" style="width:56.0%"></span></span><span class="ch-val hi"><b>4,163</b></span></div><div class="ch-note">注：OPAT 已扣除非控股权益，是本集团的分红与考核锚。2025 年总额 +7%（固定汇率）／+8%（实质汇率），而每股 +12%，源于股份回购令加权平均股数下降 5%。2026H1 每股 39.95 美仙（+18%，实质汇率）。2025 年会计纯利为 −9%，与本图方向相反，系汇率会计处理所致，详见正文 4.6 节。</div></div><figcaption>图 2　税后营运溢利（2020—2025 年及 2026 年上半年）</figcaption></figure><h2>三、三张财务数据表：关键变化数据与趋势含义</h2>
+<h3>3.1 损益表关键变化</h3>
+<div class="rsp-table"><table class="analysis longtable"><thead><tr><th>关键科目</th><th>变化轨迹（2023→2025→2026H1）</th><th>趋势方向</th><th>趋势含义</th></tr></thead><tbody><tr><td>税后营运溢利（OPAT）</td><td>6,213 → 6,605 → 7,136 → 4,163（半年）</td><td>稳步上行，每股增速更快</td><td>OPAT 是本集团的分红与考核锚。剔除短期投资波动与贴现率变动后仍持续增长，说明<strong>盈利质量真实</strong>。每股增速（+12%）高于总额（+7%），源于回购令股数减少 5%</td></tr><tr><td>保险服务业绩</td><td>5,124 → 5,691 → 6,772</td><td>加速上行，2025 年 +18%</td><td>占税前营运溢利 80%，是 OPAT 的第一驱动。增长来自 CSM 释放（6,224）与营运差异转正（183）。<strong>「综合医疗保健策略」带来的理赔经验改善正在兑现</strong></td></tr><tr><td>营运差异</td><td>(271) → (56) → 183</td><td>由负转正，三年摆动 4.54 亿美元</td><td><strong>本报告最易被忽略的改善项</strong>。2024 年泰国漫长流感季导致负差异，2025 年全面转为正面。该科目是「承保与理赔管理能力」的直接读数</td></tr><tr><td>扣除开支后的投资业绩净额</td><td>3,394 → 3,303 → 3,133</td><td>表面连续两年下滑</td><td><strong>须两面陈述</strong>：公司披露按基本基准（调整股份回购与低利率影响后）2025 年<strong>实为 +4%</strong>。下滑主因是主动回购导致盈余资产减少，而非投资能力退化</td></tr><tr><td>非分红保险财务开支及其他</td><td>— → (2,288) → (2,762)</td><td>大幅增加 19%</td><td>与保险负债平均结余同向增长，<strong>属规模扩张的正常成本</strong>，不可解读为效率恶化</td></tr><tr><td>按营运溢利基准有效税率</td><td>— → 14% → 16%</td><td>台阶式上升 2pp</td><td><strong>全球最低税制度（1.69 亿美元）＋百慕达企业所得税（0.33 亿美元）自 2025-01-01 生效</strong>。这是不可逆的政策性税负台阶，<strong>16% 应作为新基准，不可用 14% 外推</strong></td></tr><tr><td>会计纯利</td><td>6,213(2023) → 6,836(2024) → 6,234(2025)</td><td>2025 年 −9%</td><td><strong>与 OPAT 方向相反</strong>：2025 年 OPAT +8% 而纯利 −9%。差额全部来自「其他非营运投资回报及其他项目」−8.23 亿美元（2024 年 +8.36 亿，摆动 16.59 亿美元），主因汇率变动的会计处理。<strong>只看会计纯利会得出与事实相反的结论</strong></td></tr><tr><td>汇率调整后纯利</td><td>— → 5,964(2024) → 7,746(2025)</td><td>+30%（实质汇率）</td><td>公司口径：合并考虑直接流入股东权益的其他汇率变动 15.12 亿美元后，<strong>股东权益净增加 6.89 亿美元</strong>，调整后纯利实为 +30%。这是还原真实经营方向的正确读法</td></tr></tbody></table></div>
+<h3>3.2 财务状况表关键变化</h3>
+<div class="rsp-table"><table class="analysis longtable"><thead><tr><th>关键科目</th><th>变化轨迹（2024 末→2025 末→2026H1 末）</th><th>趋势方向</th><th>趋势含义</th></tr></thead><tbody><tr><td>总资产</td><td>305,454 → 345,423 → 360,030</td><td>+13% → +4%（半年）</td><td>增长来自投资现金流入净额与金融投资公平值变动，<strong>不是扩张性投资或并购</strong></td></tr><tr><td>保险及再保险合约负债</td><td>221,667 → 256,822 → 275,563</td><td>+16% → +7%（半年）</td><td>占总负债 85% 以上，<strong>是保单负债而非金融负债</strong>，与有效业务规模同向增长</td></tr><tr><td>借贷</td><td>13,329 → 14,245 → 13,892</td><td>温和增加后回落</td><td>借贷规模相对于总资产仅 4%，<strong>杠杆极低</strong>。杠杆比率 12.6%（2025 末），在保险集团中属稳健水平</td></tr><tr><td>股东权益</td><td>40,490 → 43,245 → 40,679</td><td>+7% → −6%（半年）</td><td>2026H1 下降主因「资产的公平值亏损 23.36 亿美元」（债券市值下跌）与向股东返还 36.49 亿美元</td></tr><tr><td>公平值准备金</td><td>5,744 → 5,933 → 3,597</td><td>2026H1 大降 39%</td><td><strong>反映债券市场利率上行使债券市值下跌</strong>。该项是股东权益与股东分配权益之间的调节项，其波动不应视为经营问题</td></tr><tr><td>保险财务准备金</td><td>(9,658) → (10,181) → (10,607)</td><td>持续为负且扩大</td><td>非分红业务相较债券资产的市值变动，与公平值准备金方向相反、<strong>天然对冲</strong></td></tr><tr><td><strong>股东分配权益</strong></td><td>44,404 → 47,493 → 47,686</td><td>+7% → 基本持平</td><td>管理层认为更能反映业务长期性质的权益指标（剔除公平值准备金与保险财务准备金）。<strong>每股 4.52→4.61 美元</strong>，是估值锚的合适分母</td></tr><tr><td>合约服务边际（CSM）</td><td>56,231 → 64,945 → 67,773</td><td>+15% → +4%（半年）</td><td>未来利润的递延池子。<strong>持续增长是 OPAT 未来增长的先行指标</strong>，本集团的「利润库存」在不断加厚</td></tr><tr><td>综合权益（含 CSM 净额）</td><td>87,600 → 97,930</td><td>+12%</td><td>每股 9.32 美元（+15%）。<strong>把 CSM 纳入的权益口径才是本集团真实价值基础</strong></td></tr></tbody></table></div>
+<h3>3.3 现金流量表关键变化</h3>
+<div class="rsp-table"><table class="analysis longtable"><thead><tr><th>关键科目</th><th>变化轨迹（2024→2025）</th><th>趋势方向</th><th>趋势含义</th></tr></thead><tbody><tr><td>经营活动现金净额</td><td>3,263 → 6,970</td><td>+113.6%</td><td><strong><code>须谨慎解读</code></strong>：保险集团经营现金流被金融投资（−28,410）与保险合约（+28,141）的巨额对冲性变动主导，<strong>不具经营质量指示性</strong>。该科目在保险集团内波动可达数百亿美元且方向不定</td></tr><tr><td>投资活动现金净额</td><td>(945) → (940)</td><td>基本持平</td><td>主体为无形资产付款 2.56 亿、增加联营公司权益 3.71 亿、收购附属公司 1.21 亿。<strong>不构成重资产资本开支周期</strong></td></tr><tr><td>融资活动现金净额</td><td>(5,688) → (4,715)</td><td>净流出收窄</td><td>主体是股东回报：股息 24.41 亿 ＋ 回购 22.79 亿 ＝ 47.06 亿美元</td></tr><tr><td>产生的自由盈余净额</td><td>4,020 → 4,451</td><td>+11%（总额）／+14%（每股）</td><td><strong>这才是本集团核心现金创造指标</strong>，与经营现金流无关。每股 +14% 高于总额 +11%，源于回购</td></tr><tr><td>拨付新业务所用的自由盈余</td><td>(1,531) → (1,437)</td><td>−6%</td><td><strong>资本效率提升的关键证据</strong>：新业务投资反而下降，而 NBV 增长 15%</td></tr><tr class="total"><td>期末自由盈余</td><td>12,554 → 10,972</td><td>−12.6%</td><td>下降是因为当年资本返还 47.06 亿美元<strong>超过了产生的自由盈余净额 44.51 亿美元</strong>。须提示其可持续性边界</td></tr></tbody></table></div>
+<p><strong>三表联动结论</strong>：</p>
+<ul><li><strong>损益表看「经营真相」</strong>：应以<strong>税后营运溢利（OPAT）</strong>为主线，而非会计纯利（2025 年 OPAT +8% 而纯利 −9%，方向相反）。同时须注意有效税率台阶（14%→16%）对利润的永久性压制。</li><li><strong>财务状况表看「价值积累」</strong>：本集团的真实价值载体是<strong>股东分配权益 ＋ CSM 净额</strong>（综合权益每股 9.32 美元），而非 IFRS 股东权益（每股 4.12 美元）。CSM 由 562.31 亿增至 649.45 亿美元（+15%），说明<strong>未来利润库存仍在加厚</strong>。</li><li><strong>现金流量表看「资本返还能力」</strong>：应看<strong>「产生的自由盈余净额」</strong>（2025 年 44.51 亿美元、每股 +14%）而非经营现金流。<strong>新业务投资下降 6% 而 NBV 增长 15%</strong>，是本集团当前最优质的财务特征。</li></ul>
+<hr>
+<h2>四、数据变化趋势与原因分析</h2>
+<figure><div class="ch"><div class="ch-t">内涵价值权益与合约服务边际：价值基础持续加厚</div><div class="ch-s">单位：百万美元　｜　内涵价值权益六年 +18.5%；CSM（未来利润递延池）三年 +27.6%</div><div class="ch-legend"><span><i style="background:#A73F2D"></i>内涵价值权益</span><span><i style="background:#2F6F6B"></i>合约服务边际（CSM）</span></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2020</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">内涵价值权益</span><span class="ch-track"><span class="ch-bar" style="width:80.6%;background:#A73F2D"></span></span><span class="ch-val">67,185</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">合约服务边际（CSM）</span><span class="ch-track"></span><span class="ch-val">—</span></div></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2021</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">内涵价值权益</span><span class="ch-track"><span class="ch-bar" style="width:89.9%;background:#A73F2D"></span></span><span class="ch-val">75,001</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">合约服务边际（CSM）</span><span class="ch-track"></span><span class="ch-val">—</span></div></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2022</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">内涵价值权益</span><span class="ch-track"><span class="ch-bar" style="width:85.4%;background:#A73F2D"></span></span><span class="ch-val">71,202</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">合约服务边际（CSM）</span><span class="ch-track"></span><span class="ch-val">—</span></div></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2023</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">内涵价值权益</span><span class="ch-track"><span class="ch-bar" style="width:84.1%;background:#A73F2D"></span></span><span class="ch-val">70,153</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">合约服务边际（CSM）</span><span class="ch-track"><span class="ch-bar" style="width:63.7%;background:#2F6F6B"></span></span><span class="ch-val">53,115</span></div></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2024</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">内涵价值权益</span><span class="ch-track"><span class="ch-bar" style="width:85.9%;background:#A73F2D"></span></span><span class="ch-val">71,626</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">合约服务边际（CSM）</span><span class="ch-track"><span class="ch-bar" style="width:67.4%;background:#2F6F6B"></span></span><span class="ch-val">56,231</span></div></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2025</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">内涵价值权益</span><span class="ch-track"><span class="ch-bar" style="width:95.5%;background:#A73F2D"></span></span><span class="ch-val">79,678</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">合约服务边际（CSM）</span><span class="ch-track"><span class="ch-bar" style="width:77.9%;background:#2F6F6B"></span></span><span class="ch-val">64,945</span></div></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2026H1</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">内涵价值权益</span><span class="ch-track"><span class="ch-bar" style="width:100.0%;background:#A73F2D"></span></span><span class="ch-val">83,402</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">合约服务边际（CSM）</span><span class="ch-track"><span class="ch-bar" style="width:81.3%;background:#2F6F6B"></span></span><span class="ch-val">67,773</span></div></div><div class="ch-note">注：CSM 自 2022 年适用 IFRS 17 后方为可比科目，2020—2022 年按「宁缺毋滥」不列示。2026H1 内涵价值权益 83,402（较 2025 年末每股 +6%）；CSM 67,773（较 2025 年末 +4%）。内涵价值权益 2025 年的增长几乎全部来自「有效保单业务价值」（+20%，实质汇率），而非资产重估。</div></div><figcaption>图 3　内涵价值权益与合约服务边际（2020—2025 年及 2026 年上半年）</figcaption></figure><h3>4.1 收入与规模：稳健扩张，但结构性分化</h3>
+<p>总加權保费收入 2020 年 354.08 亿美元 → 2025 年 <strong>469.00 亿美元</strong>（六年 +32.5%，CAGR 约 5.8%），2026 年上半年 275.26 亿美元（同比 +15%）。</p>
+<p>分部增速分化明显（2025 年，固定汇率）：</p>
+<div class="rsp-table"><table class="financial nowrap-first longtable"><thead><tr><th>分部</th><th>总加權保费收入</th><th>同比</th><th>占集团比重</th></tr></thead><tbody><tr><td>香港</td><td>14,726</td><td>+18%</td><td>31.4%</td></tr><tr><td>中国内地</td><td>11,272</td><td>+14%</td><td>24.0%</td></tr><tr><td>其他市场</td><td>7,232</td><td>+3%</td><td>15.4%</td></tr><tr><td>泰国</td><td>5,336</td><td>+7%</td><td>11.4%</td></tr><tr><td>新加坡</td><td>5,263</td><td>+16%</td><td>11.2%</td></tr><tr><td>马来西亚</td><td>3,071</td><td>+5%</td><td>6.5%</td></tr><tr class="total"><td><strong>总计</strong></td><td><strong>46,900</strong></td><td><strong>+12%</strong></td><td><strong>100%</strong></td></tr></tbody></table></div>
+<p><strong>结论</strong>：<strong>香港与中国内地两个市场合计贡献集团 55.4% 的保费收入，且增速（+18%／+14%）双双高于集团平均（+12%）</strong>，增长集中度进一步提升。其他市场（+3%）与其他成熟市场（马来西亚 +5%）增长偏弱。<strong>这构成「增长引擎集中于两地」的结构性特征，也是评估地缘与监管风险的关键背景。</strong></p>
+<figure><div class="ch"><div class="ch-t">总加权保费收入：六年稳健扩张，2025 年创新高</div><div class="ch-s">单位：百万美元　｜　六年 +32.5%（CAGR 约 5.8%）；2025 年 46,900（+12%，所有分部均增长）</div><div class="ch-legend"><span><i style="background:#A73F2D"></i>2025 年与 2026H1</span><span><i style="background:#CFC7BA"></i>历史年度</span></div><div class="ch-row"><span class="ch-lab">2020</span><span class="ch-track"><span class="ch-bar " style="width:72.5%"></span></span><span class="ch-val">35,408</span></div><div class="ch-row"><span class="ch-lab">2021</span><span class="ch-track"><span class="ch-bar " style="width:75.4%"></span></span><span class="ch-val">36,859</span></div><div class="ch-row"><span class="ch-lab">2022</span><span class="ch-track"><span class="ch-bar " style="width:74.0%"></span></span><span class="ch-val">36,176</span></div><div class="ch-row"><span class="ch-lab">2023</span><span class="ch-track"><span class="ch-bar " style="width:77.7%"></span></span><span class="ch-val">37,939</span></div><div class="ch-row"><span class="ch-lab">2024</span><span class="ch-track"><span class="ch-bar " style="width:84.7%"></span></span><span class="ch-val">41,398</span></div><div class="ch-row"><span class="ch-lab">2025</span><span class="ch-track"><span class="ch-bar hi" style="width:96.0%"></span></span><span class="ch-val hi"><b>46,900</b></span></div><div class="ch-row"><span class="ch-lab">2026H1</span><span class="ch-track"><span class="ch-bar hi" style="width:56.3%"></span></span><span class="ch-val hi"><b>27,526</b></span></div><div class="ch-note">注：总加权保费收入含再保险分出前续保保费 100%、首年保费 100% 及整付保费 10%。2025 年增长 12%（固定汇率）／13%（实质汇率）至 469.00 亿美元，所有报告分部均录得增长；2026H1 为 275.26 亿美元（+15%，实质汇率）。同期年化新保费 2025 年 94.84 亿美元、2026H1 为 56.55 亿美元（+14%）。</div></div><figcaption>图 4　总加权保费收入（2020—2025 年及 2026 年上半年）</figcaption></figure><h3>4.2 新业务价值：连续三年加速，且资本效率同步提升（本报告核心洞见）</h3>
+<p><strong>NBV 六年轨迹</strong>：2,765（2020）→ 3,366（2021）→ 3,092（2022）→ 4,034（2023，+30%）→ 4,712（2024，+18%）→ <strong>5,516（2025，+15%）</strong>，2026 年上半年 3,212（+10%）。</p>
+<p>NBV 从 2022 年低点 30.92 亿增至 2025 年 <strong>55.16 亿美元</strong>（+78.4%），2026 年上半年再创同期新高。</p>
+<p><strong>最关键的一条发现——「新业务投资下降而 NBV 增长」的资本效率背离</strong>：</p>
+<div class="rsp-table"><table><thead><tr><th>指标</th><th>2024</th><th>2025</th><th>变动</th></tr></thead><tbody><tr><td>新业务价值（NBV）</td><td>4,712</td><td><strong>5,516</strong></td><td><strong>+15%</strong>（固定汇率）</td></tr><tr><td>拨付新业务所用的自由盈余</td><td>1,531</td><td><strong>1,437</strong></td><td><strong>−6%</strong></td></tr><tr><td>每单位新业务投资产生的 NBV</td><td>3.078</td><td><strong>3.838</strong></td><td><strong>+24.7%</strong></td></tr></tbody></table></div>
+<p>公司明确说明：<strong>「新业务投资减少反映了积极转向资本占用较少的产品，尤其是在中国内地。这令新业务价值的增长速度快於新业务再投资，使投放的每一块钱资本创造更多价值，并使预期税后可分派盈利的贴现价值於 2025 年增加 69.53 亿美元。」</strong></p>
+<p><strong>这是本集团当前最重要的正面结论</strong>：<strong>NBV 增长不再依赖资本消耗式扩张，而是靠「资本效率更高的产品结构」驱动</strong>。该结论有一个可交叉验证的旁证——中国内地 NBV 利润率 2025 年 57.6%（2024 年 56.1%），而其 2026H1 年化新保费大增 30% 而 NBV 利润率降至 54.1%，公司说明系「产品组合转向更具资本效率的分红储蓄产品」。<strong>「利润率下降但资本占用同步下降」构成同一枚硬币的两面，只看利润率会误判为质量下滑。</strong></p>
+<p><strong>NBV 利润率六年轨迹</strong>：52.6%（2023）→ 54.5%（2024）→ <strong>58.5%（2025）</strong>，2026H1 为 57.1%（同比 −0.6pp）。2025 年提升 3.9pp（实质汇率）来自代理渠道（+3.4pp 至 71.5%）与伙伴分销（+3.5pp 至 45.4%）双升。</p>
+<figure><div class="ch"><div class="ch-t">2025 年新业务价值分部结构：香港跃升为第一引擎</div><div class="ch-s">单位：百万美元　｜　香港占比 39%（+28%）、中国内地 21%（+2%），两市场合计贡献集团 60% 的新业务价值</div><div class="ch-legend"><span><i style="background:#A73F2D"></i>香港（第一引擎）</span><span><i style="background:#B8862F"></i>中国内地</span><span><i style="background:#1B365D"></i>泰国</span><span><i style="background:#CFC7BA"></i>其他市场</span></div><div class="ch-row"><span class="ch-lab">香港</span><span class="ch-track"><span class="ch-bar hi" style="width:86.0%"></span></span><span class="ch-val hi"><b>2,256</b>（39%）</span></div><div class="ch-row"><span class="ch-lab">中国内地</span><span class="ch-track"><span class="ch-bar gold" style="width:47.3%"></span></span><span class="ch-val">1,240（21%）</span></div><div class="ch-row"><span class="ch-lab">泰国</span><span class="ch-track"><span class="ch-bar blue" style="width:37.9%"></span></span><span class="ch-val">993（17%）</span></div><div class="ch-row"><span class="ch-lab">新加坡</span><span class="ch-track"><span class="ch-bar " style="width:20.2%"></span></span><span class="ch-val">530（9%）</span></div><div class="ch-row"><span class="ch-lab">其他市场</span><span class="ch-track"><span class="ch-bar " style="width:18.5%"></span></span><span class="ch-val">485（8%）</span></div><div class="ch-row"><span class="ch-lab">马来西亚</span><span class="ch-track"><span class="ch-bar " style="width:14.2%"></span></span><span class="ch-val">373（6%）</span></div><div class="ch-note">注：分部 NBV 按当地法定基准列示，未扣除未分配集团总部开支、集团企业中心税项及非控股权益，六项之和 5,877 高于集团总计 5,516，差额为四项调整。香港 +28% 由本地客户（+21%）与中国内地访客客户（+35%）双轮驱动，伙伴分销渠道增长 46%。中国内地全年 +2%，但下半年加速至 +14%、2026H1 达 +20%。</div></div><figcaption>图 5　2025 年按报告分部划分的新业务价值</figcaption></figure><h3>4.3 分部结构：香港跃升为第一引擎，中国内地利润率承压</h3>
+<p><strong>NBV 分部结构（2025 年）</strong>：</p>
+<div class="rsp-table rsp-w5"><table class="financial nowrap-first longtable"><thead><tr><th>分部</th><th>NBV</th><th>占集团</th><th>NBV 利润率</th><th>同比（固定汇率）</th></tr></thead><tbody><tr><td>香港</td><td>2,256</td><td><strong>39%</strong></td><td>68.5%</td><td><strong>+28%</strong></td></tr><tr><td>中国内地</td><td>1,240</td><td>21%</td><td>57.6%</td><td>+2%</td></tr><tr><td>泰国</td><td>993</td><td>17%</td><td>110.9%</td><td>+13%</td></tr><tr><td>新加坡</td><td>530</td><td>9%</td><td>47.0%</td><td>+14%</td></tr><tr><td>其他市场</td><td>485</td><td>8%</td><td>32.0%</td><td>+7%</td></tr><tr><td>马来西亚</td><td>373</td><td>6%</td><td>72.2%</td><td>0%</td></tr></tbody></table></div>
+<p><strong>结论一：香港已成为集团 NBV 的第一大来源（39%），且增速最快（+28%）</strong>。驱动因素为公司披露的三条：① 本地客户 NBV 增长 21%；② 中国内地访客客户增长 35%；③ 伙伴分销渠道 NBV 增长 46%（受银行保险与中介伙伴分销双双增长带动）。NBV 利润率提升 3.0pp 至 <strong>68.5%</strong>，公司归因「推出一款全新旗舰产品」。</p>
+<p><strong>结论二：中国内地 NBV 增速放缓但「下半年加速」</strong>。全年 +2%（固定汇率），但公司披露「下半年的新业务价值增长势头加速，按年增长 14%，而 2026 年首两个月按年增长超过 20%」。<strong>只看全年 +2% 会完全错过这一拐点信号。</strong></p>
+<p><strong>结论三：中国内地 2026H1 是最强分部</strong>。2026H1 NBV 增长 <strong>20%（固定汇率）／26%（实质汇率）</strong> 至 9.37 亿美元，年化新保费增长 30%，在活跃代理人數增长 14%、活跃新代理人数增长 25% 的支持下由代理渠道主导。<strong>这是五年扩张期（2019 年以来拓展的九个新地区）开始进入收获期的验证</strong>——公司于 2025 年 8 月公布宏大目标，致力推动新业务地域的新业务价值自 2025 至 2030 年实现 <strong>40% 复合年均增长率</strong>。</p>
+<p><strong>结论四：泰国 2026H1 的「负增长」是可解释的基数效应</strong>。泰国 NBV 2026H1 为 5.14 亿美元（固定汇率 −6%／实质 −2%），但 2025 年全年曾增长 13%／22%。公司明确说明系「2025 年第一季在泰国新税务规则生效前取得极强劲 NBV 增长，预期 2026 年第一季将较去年同期为低」。<strong>该下滑不构成需求转弱，扣除此项后集团 NBV 2026H1 增长 14%（而非 10%）。</strong></p>
+<h3>4.4 合约服务边际（CSM）：利润库存持续加厚</h3>
+<p>CSM 三年轨迹：53,115（2023 末）→ 56,231（2024 末）→ <strong>64,945（2025 末，+15%）</strong> → 67,773（2026H1 末，+4% 半年）。</p>
+<p><strong>基本 CSM 增长（释放后）持续加速</strong>：8.4%（2023）→ 9.1%（2024）→ <strong>10.5%（2025）</strong>，2026H1 为 10%。</p>
+<p><strong>这是本集团未来 OPAT 增长的最可靠前瞻指标</strong>：CSM 是「预期未来溢利的贴现价值」，其向 OPAT 的释放节奏由释放率决定（2023—2025 年稳定在 9.3%—9.5%）。<strong>释放率稳定 ＋ CSM 余额持续增长 ⇒ OPAT 将在未来数年保持稳定增长</strong>，这是本集团估值可预期性的核心来源。</p>
+<p>2025 年 CSM 增长的四项来源：① 新业务 CSM 增长 17% 至 91.10 亿美元（最强驱动）；② 有效保单的预期回报增添 30.04 亿美元；③ 差异及其他增加 9.52 亿美元（主要来自医疗业务有利营运假设变动及香港分红业务正面投资回报差异）；④ 汇率受惠 18.72 亿美元。</p>
+<figure><div class="ch"><div class="ch-t">资本效率的关键证据：新业务投资下降而新业务价值上升</div><div class="ch-s">单位：百万美元　｜　新业务价值 +15% 而拨付新业务的自由盈余 −6%，每单位投入产出 +24.7%</div><div class="ch-legend"><span><i style="background:#A73F2D"></i>新业务价值（输出）</span><span><i style="background:#B8862F"></i>2024 年资本投入</span><span><i style="background:#2F6F6B"></i>2025 年资本投入（下降）</span></div><div class="ch-row"><span class="ch-lab">2024：新业务价值</span><span class="ch-track"><span class="ch-bar " style="width:73.5%"></span></span><span class="ch-val">4,712</span></div><div class="ch-row"><span class="ch-lab">2024：拨付新业务自由盈余</span><span class="ch-track"><span class="ch-bar gold" style="width:23.9%"></span></span><span class="ch-val">1,531</span></div><div class="ch-row"><span class="ch-lab">2025：新业务价值</span><span class="ch-track"><span class="ch-bar hi" style="width:86.0%"></span></span><span class="ch-val hi"><b>5,516</b></span></div><div class="ch-row"><span class="ch-lab">2025：拨付新业务自由盈余</span><span class="ch-track"><span class="ch-bar neg" style="width:22.4%"></span></span><span class="ch-val">1,437</span></div><div class="ch-note">注：两组柱量纲相同（均为百万美元），可同图比较。2024 年每单位新业务投资产生 NBV 3.078，2025 年提升 24.7% 至 3.838。公司归因于「积极转向资本占用较少的产品，尤其是在中国内地」，使新业务价值的增长速度快于新业务再投资，并使预期税后可分派盈利的贴现价值于 2025 年增加 69.53 亿美元。</div></div><figcaption>图 6　新业务价值与拨付新业务所用的自由盈余（2024 vs 2025）</figcaption></figure><h3>4.5 内涵价值权益：增长质量高于增速本身</h3>
+<p>内涵价值权益 2020 年 671.85 亿 → 2025 年 <strong>796.78 亿美元</strong>，2026H1 末 <strong>834.02 亿美元</strong>。</p>
+<p><strong>拆开看增长来源，质量比增速更重要</strong>：</p>
+<div class="rsp-table"><table class="financial"><thead><tr><th>成分</th><th>2024 末</th><th>2025 末</th><th>变动（实质汇率）</th></tr></thead><tbody><tr><td>经调整资产净值</td><td>30,527</td><td>30,680</td><td>+1%</td></tr><tr><td><strong>有效保单业务价值</strong></td><td>38,508</td><td><strong>46,131</strong></td><td><strong>+20%</strong></td></tr><tr><td>内涵价值</td><td>69,035</td><td>76,811</td><td>+11%</td></tr><tr><td>商誉及其他无形资产</td><td>2,591</td><td>2,867</td><td>+11%</td></tr></tbody></table></div>
+<p><strong>有效保单业务价值（VIF）增长 20%，是内涵价值权益增长的全部来源</strong>；而经调整资产净值仅 +1%（实质汇率）／−2%（固定汇率）。<strong>这说明：内涵价值的增长完全来自「已签保单的未来利润」这一最优质的部分，而非资产重估或汇率顺风</strong>。这是估值支撑力最强的形态。</p>
+<p><strong>内涵价值营运溢利回报持续提升</strong>：15.8%（2025）→ <strong>18.0%（2026H1，年化）</strong>，创纪录。股东分配权益营运回报同向：15.5%（2025）→ <strong>17.5%（2026H1，年化）</strong>，亦创纪录。</p>
+<h3>4.6 会计纯利 vs 营运溢利：「方向相反」的经典案例</h3>
+<div class="rsp-table"><table class="longtable"><thead><tr><th>项目（百万美元）</th><th>2024</th><th>2025</th><th>变动</th></tr></thead><tbody><tr><td>税后营运溢利（OPAT）</td><td>6,605</td><td><strong>7,136</strong></td><td><strong>+8%</strong></td></tr><tr><td>其他非营运投资回报及其他项目（税后）</td><td>836</td><td><strong>(823)</strong></td><td>摆动 1,659</td></tr><tr><td>短期投资及贴现率差异（税后）</td><td>(427)</td><td><strong>(102)</strong></td><td>−76%</td></tr><tr><td>持作自用物业重估重新分类（税后）</td><td>(155)</td><td><strong>25</strong></td><td>转正</td></tr><tr><td>企业交易相关成本（税后）</td><td>(23)</td><td><strong>(2)</strong></td><td>−91%</td></tr><tr><td><strong>会计纯利</strong></td><td>6,836</td><td><strong>6,234</strong></td><td><strong>−9%</strong></td></tr></tbody></table></div>
+<p><strong>这是保险集团最典型的「账面与实质背离」</strong>：营运溢利 +8% 而会计纯利 −9%。差异几乎全部来自「其他非营运投资回报及其他项目」由 +8.36 亿转为 −8.23 亿美元（摆动 16.59 亿）。</p>
+<p>公司明确给出还原口径：<strong>「此等项目应与直接流入股东权益的其他汇率变动 15.12 亿美元一併考虑，并导致股东权益净增加 6.89 亿美元。2025 年就所有汇率变动作出调整后的纯利为 77.46 亿美元，而 2024 年为 59.64 亿美元，增加 30%。」</strong></p>
+<p><strong>结论</strong>：<strong>评估本集团主业改善幅度，应以税后营运溢利（+8%）与内涵价值营运溢利（每股 +13%）为准，会计纯利（−9%）与汇率调整后纯利（+30%）两端都不可单独使用</strong>——前者被汇率会计处理夸大拖累，后者被口径调整夸大改善。<strong>最稳健的读法是 OPAT 的 +7%—8% 与每股 OPAT 的 +12%。</strong></p>
+<h3>4.7 资本与偿付能力：主动返还，但缓冲在收窄</h3>
+<div class="rsp-table"><table><thead><tr><th>指标</th><th>2024 末</th><th>2025 末</th><th>2026H1 末</th></tr></thead><tbody><tr><td>股东资本比率</td><td>236%</td><td><strong>221%</strong></td><td><strong>210%</strong></td></tr><tr class="total"><td>集团当地资本总和法覆盖率</td><td>257%</td><td><strong>233%</strong></td><td>—</td></tr><tr><td>一级集团资本覆盖率</td><td>349%</td><td><strong>314%</strong></td><td>—</td></tr><tr><td>股东基准覆盖率（撇除分红业务）</td><td>316%</td><td><strong>282%</strong></td><td>—</td></tr></tbody></table></div>
+<p><strong>三个覆盖率全部下行，且下行幅度不小</strong>（偿付能力覆盖率两年 −24pp、股东资本比率 −26pp）。公司归因两条：① <strong>向股东返还资本</strong>（2025 年 47.06 亿美元、2026H1 36.49 亿美元）；② <strong>股本资产结余增加导致资本要求增加</strong>。</p>
+<p><strong>必须两面陈述</strong>：</p>
+<ul><li><strong>正面</strong>：这是主动的、有政策依据的资本返还（目标派付率 75% ＋ 额外 10 亿美元），偿付能力仍处绝对高位（233% 远超监管最低要求），资本资源绝对额反而增长（77,650→81,341 百万美元）。</li><li><strong>风险</strong>：<strong>「返还速度高于内生资本生成速度」的组合下，缓冲会持续收窄</strong>。可量化证据是集团当地资本总和法<strong>盈余由 474.91 亿降至 463.92 亿美元（−11 亿美元）</strong>——即资本资源增加了 36.91 亿，但资本要求增加了 47.90 亿，两者相抵后盈余反而减少。<strong>若股份回购持续以每年 20—40 亿美元推进，而资本要求继续因股市上行与业务扩张而增长，该趋势将难以长期维持。</strong></li></ul>
+<p><strong>另需单列提示一项本集团特有的机制</strong>：<strong>「股本资产结余增加」会推高监管资本要求</strong>。这意味着<strong>股票市场上涨本身会在短期内压低偿付能力比率</strong>——与一般工商企业「股市上涨改善财务状况」的直觉相反，也与内涵价值对股市的正向敏感度（股价 +10% 对税前溢利 +1,785 百万美元）形成一正一负的双重效应。</p>
+<h3>4.8 投资端：资产质量优异，但权益敞口在上升</h3>
+<ul><li><strong>固定收入投资 1,857.12 亿美元</strong>，平均信贷评级维持 <strong>A</strong>；政府债券及政府机构债券占 59%（+1pp），结构进一步向主权信用倾斜。</li><li><strong>资产质量指标全面优异</strong>：投资级别以下或无评级债券仅占债券组合 <strong>1%</strong>（约 27 亿美元）；年内仅 0.06 亿美元降级（占 0.03%）；预期信贷亏损拨备占债券组合 <strong>0.2%</strong>，且<strong>年内回拨 2.70 亿美元</strong>。公司债券组合分散于 <strong>1,800 名以上发行人</strong>、平均持有规模仅 3,600 万美元，<strong>集中度风险极低</strong>。</li><li><strong>但权益敞口显著上升</strong>：投资基金的权益及可转换贷款票据由 509.30 亿增至 <strong>696.05 亿美元（+36.7%）</strong>，占保单持有人及股东金融投资比重由 20% 升至 <strong>24%</strong>；股权由 113.84 亿增至 118.55 亿美元。</li><li><strong>对应的风险读数</strong>：内涵价值对股价的敏感度同步上升（股价 +10% 对 CSM 影响由 893 增至 1,085 百万元、对税前溢利影响由 1,448 增至 1,785 百万元）；集团偿付能力对股价 +10% 的影响由 0 变为 +2 个百分点。<strong>权益敞口上升在牛市放大价值、在熊市放大波动，应作为一级跟踪变量。</strong></li></ul>
+<h3>4.9 信用评级：全面提升</h3>
+<p>2025 年 12 月 4 日，<strong>标准普尔将 AIA Co. 的财务实力评级由 AA− 提升至 AA，并将本公司发行人信用评级由 A+ 提升至 AA−</strong>，前景展望均由正面调整为稳定。截至 2025 年末三家主要评级机构授予 AIA Co. 的财务实力评级为惠誉 AA／标准普尔 AA／穆迪 Aa2（前景展望全部稳定）。</p>
+<p><strong>评级提升发生在偿付能力比率下行的同一年</strong>，说明评级机构认可「资本返还不影响偿债能力」这一判断，<strong>为 §4.7 的「主动返还而非资本恶化」结论提供了第三方佐证</strong>。</p>
+<hr>
+<h2>五、关键内容总结</h2>
+<h3>5.1 核心业务与竞争优势</h3>
+<p><strong>护城河的三重结构</strong>：</p>
+<ol><li><strong>泛亚地区唯一全资的 18 市场平台</strong>。本集团在中国内地、中国香港、泰国、新加坡、马来西亚、澳洲等 18 个市场拥有<strong>全资</strong>分公司及附属公司（区别于同业常见的合资或少数股权模式），另有印度合资公司 49% 权益、中邮人寿 24.99% 股权。<strong>全资结构意味着对产品设计、定价、承保与客户关系的端到端管控能力</strong>——公司自述「该模式对产品设计、定价纪律及与客户联系实施端到端管控，使本集团得以应对不断变化的市场环境，透过新产品及产品组合转移，以维持承保与风险纪律」。</li></ol>
+<ol><li><strong>「最优秀代理」专属代理平台</strong>。2025 年于 15 个市场拥有超过 <strong>96,000 名</strong>活跃代理（2026H1 突破 100,000 名），贡献集团整体 NBV 的 <strong>73%</strong>（2026H1 为 72%）。<strong>连续第 11 年（2025 年报）／第 12 年（2026 中报）蝉联全球百万圆桌会（MDRT）会员人数之冠</strong>，并在九个市场位居榜首；香港业务、中国内地业务、泰国业务及 Tata AIA Life 位列全球前四名个别公司。公司自述「代理平台蕴涵深厚的企业文化、流程制度和领导力，使其成为竞争对手极其难以仿效的长期策略性资产」。</li></ol>
+<ol><li><strong>伙伴分销网络</strong>。与领先银行的合作关系<strong>平均超过 20 年</strong>，可接触超过一亿名客户。2025 年伙伴分销 NBV 增长 22% 至 15.93 亿美元（占集团 29%），NBV 利润率提升 3.5pp 至 45.4%。</li></ol>
+<p><strong>代理生产力的可量化证据</strong>：公司披露「人工智能驱动的角色扮演方案现已获多个市场超过 35,000 名代理使用」，带动<strong>新入职代理生产力提升 11%</strong>；为代理产生约<strong>五百万个线上销售对象，销售转换率 17%</strong>，在五大市场带来代理团队年化新保费<strong>超过 50% 的贡献</strong>。</p>
+<h3>5.2 业务里程碑与战略进展</h3>
+<p><strong>（1）中国内地：五年扩张期进入收获期</strong></p>
+<ul><li>2025 年 8 月公布宏大目标：<strong>致力推动新业务地域的 NBV 自 2025 至 2030 年实现 40% 复合年均增长率</strong>。</li><li>九个新地区（天津、河北、四川、湖北、河南、安徽、山东、重庆及浙江）<strong>2025 年 NBV 增长情况详载于年报</strong>；中邮人寿 2025 年 NBV（参与后口径）达 <strong>103 亿元人民币</strong>，为 2020 年的<strong>近四倍</strong>。</li><li>2026H1 中国内地 NBV 增长 20%（固定汇率）／26%（实质汇率），年化新保费增长 30%；<strong>活跃代理人数增长 14%、活跃新代理人数增长 25%</strong>。</li></ul>
+<p><strong>（2）香港：本地与访客双轮驱动</strong></p>
+<ul><li>2025 年 NBV 增长 28% 至 22.56 亿美元，其中<strong>本地客户增长 21%、中国内地访客客户增长 35%</strong>。</li><li>「最优秀代理」缔造 26% 的 NBV 增长（由活跃代理人数增加及生产力提升推动）；<strong>伙伴分销渠道 NBV 增长 46%</strong>。</li><li>2026H1 NBV 增长 10% 至 11.68 亿美元，NBV 利润率提升 6.2pp 至 <strong>72%</strong>；本地客户业务卓越增长，与<strong>逾 300 万名现有客户</strong>的互动持续深化。</li></ul>
+<p><strong>（3）主要对外投资与收购（2025 年）</strong></p>
+<ul><li>进一步向<strong>中邮人寿</strong>提供成长资本。</li><li>收购香港 <strong>New Medical Centre Holding Limited</strong>（新医疗中心控股），金额 3.90 亿美元。</li><li>发行三笔票据及证券：1.28 亿美元 2.99 年期（4.17%）、13.50 亿港元 2.5 年期（3.477%）、8.00 亿新加坡元 10 年期次级证券（3.58%，于香港联交所上市）。</li><li>2025 年 5 月收购的上述资产与 3.90 亿美元的健康医疗布局，反映集团「综合医疗保健策略」的落地推进。</li></ul>
+<p><strong>（4）监管里程碑：被列为香港具本地系统重要性保险公司（D-SII）</strong></p>
+<p>2025 年 10 月，<strong>香港保监局将友邦保险控股有限公司归类为「具本地系统重要性保险公司」（D-SII）</strong>，并指出本集团是符合香港保监局集团监管框架下严格标准的国际活跃保险集团。公司明确表示<strong>「我们并不预期是次归类会对我们的营运或资本管理政策带来任何改变」</strong>。</p>
+<p><strong>（5）保险资本准则（ICS）与当地偿付能力规则</strong></p>
+<p>国际保险监管者协会（IAOPA）采纳的保险资本准则预期自 2026 年起由成员监管机构进行基线自我评估，自 2027 年起开展深度针对性司法权区评估。本集团正就该准则对香港、印度、印尼、澳门、马来西亚、斯里兰卡及泰国等市场资本充足制度的影响进行检讨。<strong>这是本集团偿付能力口径在中期内可能发生变化的来源，应作为长期跟踪项。</strong></p>
+<h3>5.3 主要风险</h3>
+<p><strong>（1）增长引擎高度集中于香港与中国内地（结构性风险）</strong></p>
+<p>两市场合计贡献集团 <strong>55.4%</strong> 的保费收入与 <strong>60%</strong> NVB（香港 39% ＋ 中国内地 21%），且增速均高于集团平均。<strong>这意味着集团的估值对两地经济、汇率、监管与客户情绪的变化高度敏感。</strong> 特别提示<strong>中国内地访客客户业务</strong>——香港 NBV 增长 35% 来自中国内地访客，该项业务受跨境往来政策与内地经济预期双重影响，<strong>构成一个既不属中国内地业务、也不属香港本地业务的第三类周期性敞口</strong>。</p>
+<p><strong>（2）偿付能力缓冲连续两年收窄</strong></p>
+<p>集团当地资本总和法覆盖率由 257%（2024）降至 <strong>233%（2025）</strong>，股东资本比率由 236% 降至 <strong>221%</strong>（2026H1 进一步降至 210%），<strong>而同期资本盈余绝对额反而减少 11 亿美元</strong>。风险来源是「75% 目标派付率 ＋ 额外回购」的资本返还政策与「资本要求因股市上行及业务扩张而增长」的双重压力。<strong>若股票市场持续上行，资本要求将进一步上升，与该机制形成对冲。</strong></p>
+<p><strong>（3）权益敞口上升放大价值波动</strong></p>
+<p>投资基金的权益及可转换贷款票据一年内增长 36.7% 至 696.05 亿美元，占比由 20% 升至 24%。<strong>在牛市贡献内涵价值与投资收益，在熊市将同步放大下行</strong>。该敞口已在内涵价值敏感度分析中显性化（股价 ±10% 对税前溢利影响 ±1,785 百万元，较上年 ±1,448 扩大 23.3%）。</p>
+<p><strong>（4）有效税率台阶的永久性压制</strong></p>
+<p>按营运溢利基准的有效税率由 14% 升至 <strong>16%</strong>（2025 年首次计入名义全球最低税制度补足税及百慕达企业所得税）。公司同时提示：<strong>「于任何期间的实际全球最低税制度补足税可能有别于按营运溢利基准计算的名义全球最低税制度补足税」</strong>，2025 年实际拨备 0.54 亿美元，<strong>预期将于 2027 年结清</strong>。<strong>该税制仍处演进中，最终负债规模存在不确定性。</strong></p>
+<p><strong>（5）汇率风险（以美元呈报、以亚洲货币经营）</strong></p>
+<p>集团以美元呈报，而收入与资产分布于亚洲各市场。2025 年因当地货币相对美元升值，<strong>汇率变动分别令内涵价值权益增加 18.90 亿美元、CSM 增加 18.72 亿美元、股东权益增加 15.12 亿美元</strong> —— 这是「汇率顺风」年；<strong>若亚洲货币转弱，上述项目将反向拖累，而会计纯利的波动幅度会远大于营运溢利</strong>（2025 年正是此机制造成 OPAT +8% 而纯利 −9%）。<strong>这是本集团最大的不可控变量。</strong></p>
+<p><strong>（6）代理渠道的单一依赖</strong></p>
+<p>代理渠道贡献 NBV 的 73%（2025）／72%（2026H1），是集团最关键且最难替代的资产，但也是<strong>最长的投资周期</strong>。新入職代理產能提升 11%、新代理主管增加 19%（2026H1）、新入职代理增加 24%（2026H1），说明渠道仍处扩张期。<strong>若亚洲寿险行业出现代理人流失或监管收紧（如佣金披露、销售适当性要求），对集团 NBV 的冲击将直接而剧烈。</strong></p>
+<p><strong>（7）泰国税务规则变动的示范效应</strong></p>
+<p>泰国 2025 年新税务规则生效前出现「抢单」式强劲 NBV 增长，2026H1 随即转为 −6%。<strong>这提示：任何市场的税务或监管规则变动，都可能造成跨期的业绩扭曲与脉冲式波动。</strong> 泰国已实际发生，其他市场存在同类风险。</p>
+<hr>
+<h2>六、结论</h2>
+<p><strong>（1）经营层面：本报告期是友邦保险近年最优质的一年。</strong></p>
+<p>2025 年税后营运溢利 71.36 亿美元（+8%、每股 +12%）创新高，NBV 55.16 亿美元（+15%）创新高，内涵价值营运溢利 108.87 亿美元（每股 +13%），产生的自由盈余净额 44.51 亿美元（每股 +14%）。<strong>所有主要财务指标同步创纪录</strong>，该组合在保险行业并不常见。</p>
+<p><strong>（2）最值得关注的结构性改善：资本效率提升。</strong></p>
+<p><strong>NBV 增长 15% 而拨付新业务的自由盈余下降 6%</strong>，每单位新业务投资产生的 NBV 提升 24.7%。公司明确将之归因于「积极转向资本占用较少的产品，尤其是在中国内地」。<strong>这标志着集团的增长模式从「资本消耗式扩张」转向「资本效率驱动」，是估值逻辑的实质性升级。</strong> 其代价是部分市场 NBV 利润率的下行（中国内地 2026H1 由 58.6% 降至 54.1%）——<strong>但这属主动选择而非质量恶化。</strong></p>
+<p><strong>（3）必须穿透的两层会计噪音。</strong></p>
+<ul><li><strong>第一层：会计纯利（−9%）vs 营运溢利（+8%）。</strong> 差异全部来自汇率会计处理（摆动 16.59 亿美元）。公司另给的「汇率调整后纯利 +30%」又过度乐观。<strong>稳健读法是 OPAT 的 +7%—8%。</strong></li><li><strong>第二层：投资业绩净额（−5%）vs 基本基准（+4%）。</strong> 下滑源于主动回购令盈余资产减少，<strong>而非投资能力退化</strong>。</li></ul>
+<p><strong>（4）增长引擎已从「中国内地单核」变为「香港 ＋ 中国内地双核」，且内地正在重新加速。</strong></p>
+<p>香港以 39% 的 NBV 占比与 +28% 的增速成为第一引擎；中国内地全年仅 +2% 但<strong>下半年 +14%、2026 年首两月 +20% 以上、2026H1 +20%</strong>，且九个新地区的五年扩张期正进入收获期（2030 年目标 40% CAGR）。<strong>这是本集团中期增长可见度最高的部分。</strong></p>
+<p><strong>（5）CSM 的持续加厚保障了未来数年的 OPAT 可预期性。</strong></p>
+<p>CSM 由 562.31 亿增至 649.45 亿美元（+15%），基本 CSM 增长（释放后）由 9.1% 加速至 10.5%，释放率稳定在 9.3%—9.5%。<strong>「释放率稳定 ＋ 余额增长」的组合意味着未来数年的 OPAT 增长具有高度确定性</strong>——这是本集团估值可预期性的核心来源。</p>
+<p><strong>（6）需要持续跟踪的三个负面变量。</strong></p>
+<p>① <strong>偿付能力缓冲连续两年收窄</strong>（覆盖率 −24pp、资本盈余绝对额 −11 亿美元），在「75% 派付率 ＋ 额外回购」与「资本要求随股市与业务增长」的双重压力下，可持续性是首要观察项；② <strong>权益敞口上升至 24%</strong>，在熊市中会同步放大内涵价值与偿付能力的下行；③ <strong>有效税率台阶（14%→16%）</strong> 是永久性压制，且全球最低税制度的最终负债规模仍待明确（2027 年结清）。</p>
+<p><strong>（7）评级机构的第三方判断支持「资本返还非资本恶化」的结论。</strong></p>
+<p>2025 年 12 月标准普尔将 AIA Co. 财务实力评级由 AA− 提升至 <strong>AA</strong>、发行人信用评级由 A+ 提升至 AA−，前景转为稳定；三家机构评级全部为 AA／AA／Aa2 级别且展望稳定。<strong>评级提升与偿付能力比率下行发生在同一年，是对本集团资本管理政策的外部验证。</strong></p>
+<p><strong>（8）一句话总结。</strong></p>
+<p><strong>友邦保险 2025 年及 2026 年上半年呈现的是「营运强劲、资本效率提升、股东回报优厚、但资本缓冲主动收窄」的组合。</strong> 经营质量（OPAT、NBV、CSM、VIF）全面改善且方向一致；会计纯利的负增长纯粹是汇率会计噪音；真正的长期观察点是<strong>资本返还的可持续性</strong>与<strong>权益敞口放大后的波动承受力</strong>。</p>
+<hr>
+<h2>附录</h2>
+<h3>A.1 数据来源与口径</h3>
+<div class="rsp-table rsp-w5"><table class="longtable"><thead><tr><th>文件</th><th>覆盖期间</th><th>币种／单位</th><th>准则</th><th>审计／审阅</th></tr></thead><tbody><tr><td>2025 年报（友邦保险控股有限公司 2025 年报）</td><td>2024—2025 年度，含 2020—2025 六年财务业绩一覽</td><td>美元百万</td><td>IFRS（IFRS 9 / IFRS 17 / IAS 16 修订）</td><td>罗兵咸永道，无保留意见（2026-03-19 核准）</td></tr><tr><td>2024 年报</td><td>2023—2024 年度</td><td>美元百万</td><td>同上</td><td>罗兵咸永道</td></tr><tr><td>2023 年报</td><td>2022—2023 年度</td><td>美元百万</td><td>同上</td><td>罗兵咸永道</td></tr><tr><td>2026 年中期报告</td><td>2026 年 1—6 月</td><td>美元百万</td><td>同上</td><td>毕马威，审阅意见无保留（2026-08-20）</td></tr><tr><td>截至 2026 年 6 月 30 日止六个月的中期业绩公告</td><td>2026H1（含业绩摘要与分部表）</td><td>美元百万</td><td>同上</td><td>未经审核</td></tr><tr><td>截至 2025 年 12 月 31 日止年度全年业绩公告</td><td>2025 年度</td><td>美元百万</td><td>同上</td><td>未经审核（正式数见 2025 年报）</td></tr></tbody></table></div>
+<p><strong>数据来源渠道</strong>：香港交易所披露易（东方财富公告接口，<code>ann_type=H</code>，<code>stock_list=01299</code>），共调取 1,404 条公告，按定期报告口径筛选命中 71 份。本报告采用其中的年报（2023／2024／2025）、中期报告（2024／2025／2026）及业绩公告（2024／2025／2026 上半年）共 9 份文件的正文与报表。</p>
+<h3>A.2 重要会计与报告口径变更</h3>
+<ol><li><strong>IFRS 9 / IFRS 17 首次适用（2022 年）</strong>：自 2022 年起，除另有说明外，财务资料采纳 IFRS 9、IFRS 17 及 IAS 16 修订后呈列。<strong>2021 年及以前的财务资料按上述变更前呈列</strong>，故跨 2021／2022 分界的科目<strong>不可直接比较</strong>。本报告的可比序列（NBV、OPAT、EV、CSM、自由盈余、偿付能力）均为 2022 年后的同口径数据；2020／2021 年 NBV、总加權保费收入、内涵价值权益三项因公司财务业绩一覽仍按可比基础列示而采用。</li></ol>
+<ol><li><strong>呈报货币未发生变更</strong>：本集团自始以美元为呈报货币（与其他港股保险公司如华润医药中途由港元改为人民币的情形不同），故<strong>不存在因呈报货币切换造成的绝对额不可比问题</strong>。</li></ol>
+<ol><li><strong>CSM 项目重分类（2025 年）</strong>：公司已将与有效保单业务再保险交易有关的 <strong>9,600 万美元自「新业务合约服务边际」重新分配至「差异及其他」</strong>，与新业务价值的计算方式一致。<strong>期末 CSM 结余不变</strong>，但「新业务 CSM」的跨期比较已按新口径呈现。</li></ol>
+<ol><li><strong>股东分配权益口径微调（2026 年起）</strong>：自 <strong>2026 年 1 月 1 日起，「股东分配权益」不再包含「对冲准备金」</strong>（2025 年末的股东分配权益亦已按此追溯口径列示，见 2026 中期报告）。由于对冲准备金金额极小（2026H1 为 3 百万美元），该项调整对跨期比较影响可忽略，但<strong>须在口径说明中声明</strong>。</li></ol>
+<ol><li><strong>全球最低税制度首年适用（2025 年）</strong>：名义全球最低税制度补足税 1.69 亿美元按营运溢利基准计入，实际拨备 0.54 亿美元反映于会计纯利，<strong>差额正 1.15 亿美元计入「投资回报差异及其他项目」</strong>。该项自 2025 年 1 月 1 日起生效，<strong>2025 年是首个适用年度，与 2024 年及以前不可比</strong>。</li></ol>
+<ol><li><strong>财政年度结算日变更（2018 年）</strong>：本集团 2018 年及以前采用 <strong>11 月 30 日</strong>为财政年度结算日，2018 年起改为 <strong>12 月 31 日</strong>，故 2018 年度为「截至 2018 年 12 月 31 日止<strong>十三个月</strong>期间」的过渡年度。<strong>该变更使得 2018 年前后的年度绝对额不构成严格可比的连续序列</strong>（期间长度不同）。本报告的年度分析区间起点设为 <strong>2020 年度</strong>，以规避该口径断点。</li></ol>
+<h3>A.3 计算口径说明</h3>
+<ol><li><strong>营运溢利率</strong> ＝ 税后营运溢利 ÷ 总加權保费收入。本报告按此公式自行计算并核对至公司披露值（2025 年 15.3%、2026H1 15.2%）。</li><li><strong>每单位新业务投资产生的 NBV</strong> ＝ 新业务价值 ÷ 拨付新业务所用的自由盈余。本报告自行计算的派生指标，用于衡量资本效率。</li><li><strong>账面资产负债率</strong> ＝ 总负债 ÷ 总资产。<strong>本集团作为保险集团，该比率主体为保单负债，不与一般工商企业可比</strong>，本报告仅列示数值并加注说明。</li><li><strong>累计口径</strong>：本报告未计算「累计经营现金流 ÷ 累计归母净利」等质量比率，因<strong>保险集团的经营活动现金流不具经营质量指示性</strong>（详见 §3.3 表注）。质量判据改用「产生的自由盈余净额 ÷ 会计纯利」与「产生的基本自由盈余 ÷ 税后营运溢利」两项。</li></ol>
+<h3>A.4 未采用数据与未决项</h3>
+<ol><li><strong>2020—2022 年内涵价值营运溢利</strong>：各年年报的列示方式与本报告采用口径（2024／2025 年报）不完全一致，<strong>未采用，留 <code>—</code></strong>。</li><li><strong>2026H1 的杠杆比率与综合权益</strong>：中期报告未披露，<strong>未采用，留 <code>—</code></strong>（不用相邻期倒推）。</li><li><strong>2026H1 的完整 CSM 变动表</strong>：中期报告仅披露期末 CSM（67,773）、基本 CSM 增长（10%）与释放额（3,386），<strong>未列完整变动表，未采用，留 <code>—</code></strong>。</li><li><strong>2026H1 的现金流量表明细</strong>：中期报告的现金流量表分类与年度报表口径不同，<strong>为免口径混用未纳入表 3</strong>，读者应直接查阅中期报告第 68 页。</li><li><strong>「香港 CSM 释放 2025H1 = 12,456」一行</strong>：该数值与总加權保费收入的数值形态一致，<strong>数据口径存疑，已从表 4 中移除并留 <code>—</code></strong>。</li><li><strong>分部 CSM 释放的跨期序列</strong>：2024／2025 年报未按分部披露「CSM 释放」的完整序列，<strong>未采用，留 <code>—</code></strong>。</li><li><strong>中邮人寿 2025 年 NBV（103 亿元人民币）</strong>：该数字由中邮保险基于中国精算师协会的内含价值评估标准原则和方法计算，与本集团口径不同，<strong>未并入分部表，仅在 §5.2 文字中引用</strong>。</li></ol>
+<h3>A.5 数据缺口说明</h3>
+<p>本集团历史公告的批量下载在<strong>第 15 条之后遭遇接口侧连续限流</strong>（<code>HTTP Error 567</code>，从 2023 年度业绩公告起连续失败），属接口限制而非文件缺失。经二次重跑已补回 2010—2014 年度的年报及中期报告，<strong>最终成功获取 28 份</strong>（含 2010—2014 年報、2023／2024／2025 年报、2024／2025／2026 中期报告及对应业绩公告），完全覆盖本报告所需的 2020—2025 年度 ＋ 2026 上半年分析区间。2015—2022 年度的单独文件仍受接口限流未取得，但相关年度数据已通过 2023 年报（含 2022—2023 比较列）与 2024／2025 年报的六年财务业绩一覽完整覆盖，<strong>不影响本报告任何结论</strong>。</p>
+<p><strong>注意</strong>：本集团 2018 年及以前采用 <strong>11 月 30 日</strong>为财政年度结算日（如「截至 2014 年 11 月 30 日止年度」），2018 年起改为 <strong>12 月 31 日</strong>，2018 年度为「截至 2018 年 12 月 31 日止十三个月期间」的过渡年度。<strong>这一财政年度变更使得 2018 年前后的年度数据不构成严格可比的连续序列</strong>，本报告的分析区间起点设为 2020 年度，正是为规避该口径断点。</p>
+<hr>
+<p><em>本报告依据公开披露的定期报告编制，所有数据均来自公司披露文件原文。未披露项一律留「—」，不作推算或估计。</em></p>
+
+<!-- rsp-mobile-adapt : 溢出表格滑动提示 -->
+<script>
+(function(){
+  function mark(){
+    var boxes = document.querySelectorAll('.rsp-table');
+    for (var i=0;i<boxes.length;i++){
+      var b = boxes[i];
+      if (b.scrollWidth > b.clientWidth + 4) b.setAttribute('data-rsp-scroll','');
+      else b.removeAttribute('data-rsp-scroll');
+    }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mark);
+  else mark();
+  window.addEventListener('resize', function(){ clearTimeout(window.__rspT); window.__rspT=setTimeout(mark,180); });
+})();
+</script>
+</body>
+</html>
