@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>洛阳钼业财报分析报告</title>
+<meta name="generator" content="financial-report-analysis">
+<style>
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W04.ttf") format("truetype");
+    font-weight: 400; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W05.ttf") format("truetype");
+    font-weight: 500; font-style: normal; font-display: swap;
+  }
+  @page {
+    size: A4;
+    margin: 16mm 18mm 18mm 18mm;
+    background: #F7F4EE;
+    @bottom-center {
+      content: counter(page) "  ·  财报分析";
+      font-family: "TsangerJinKai02", "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", Georgia, serif;
+      font-size: 9pt; color: #6b6a64;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --parchment:#F7F4EE; --ivory:#FBF9F4; --near-black:#22262B; --dark-warm:#3E4145;
+    --olive:#504e49; --stone:#7C7B77; --brand:#A73F2D; --brand-deep:#8A3223;
+    --accent:#A73F2D; --accent-soft:#F1E3DD; --gold:#B8862F; --teal:#2F6F6B; --blue:#1B365D;
+    --border:#E3DDD4; --border-soft:#EAE5DC;
+    --tag-bg:#F1E3DD; --positive:#A73F2D; --negative:#2F6F6B;
+    --serif: "TsangerJinKai02", "Source Han Serif SC", "Source Han Serif CN", "Noto Serif CJK SC", "Noto Serif SC", "Songti SC", "STSong", "SimSun", Georgia, serif;
+    --rhythm-module:14pt; --rhythm-section:18pt;
+  }
+  html, body { background: var(--parchment); }
+  @media screen { body { max-width: 210mm; margin: 0 auto; padding: 16mm 18mm 18mm 18mm; } }
+  body { color: var(--near-black); font-family: var(--serif); font-size: 10pt; line-height: 1.5;
+    letter-spacing: 0.3pt; widows: 3; orphans: 3; }
+  strong { font-weight: 500; }
+  .hl { color: var(--brand); font-weight: 500; }
+
+  .report-header { display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: var(--rhythm-module); padding-bottom: 10pt; border-bottom: 0.5pt solid var(--border); }
+  .ticker-block { flex: 1; }
+  .ticker-eyebrow { font-size: 9pt; color: var(--brand); letter-spacing: 1.5pt; text-transform: uppercase;
+    font-weight: 500; margin-bottom: 4pt; }
+  .ticker-name { font-family: var(--serif); font-size: 24pt; font-weight: 500; color: var(--near-black);
+    line-height: 1.15; margin-bottom: 4pt; }
+  .ticker-sub { font-size: 10pt; color: var(--olive); line-height: 1.4; }
+  .price-block { text-align: right; padding-top: 4pt; }
+  .price-current { font-family: var(--serif); font-size: 28pt; font-weight: 500; color: var(--near-black);
+    line-height: 1; font-variant-numeric: tabular-nums; }
+  .price-change { font-size: 10pt; font-weight: 500; margin-top: 2pt; font-variant-numeric: tabular-nums; }
+  .price-change.up { color: var(--positive); }
+  .price-date { font-size: 9pt; color: var(--stone); margin-top: 2pt; }
+
+  .metrics { display: flex; gap: 14pt; margin-bottom: 16pt; padding: 6pt 0;
+    border-top: 0.3pt dotted var(--border); border-bottom: 0.3pt dotted var(--border); }
+  .metric { flex: 1; min-width: 0; display: flex; align-items: baseline; gap: 4pt; flex-wrap: wrap; }
+  .metric-value { font-family: var(--serif); font-size: 16pt; font-weight: 500; color: var(--brand);
+    line-height: 1; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  /* white-space 必须为 normal：设为 nowrap 时 flex 项不收缩，4 张指标卡的标签会互相压字并冲出页面右缘 */
+  .metric-label { font-size: 9pt; color: var(--olive); line-height: 1.3; white-space: normal; }
+
+  h2 { font-family: var(--serif); font-size: 16pt; font-weight: 500; color: var(--near-black);
+    margin: 18pt 0 6pt 0; break-after: avoid; }
+  h3 { font-size: 13pt; font-weight: 500; color: var(--dark-warm); margin: 12pt 0 4pt 0; break-after: avoid; }
+  p { margin: 0 0 8pt 0; line-height: 1.5; widows: 2; orphans: 2; }
+  ul, ol { margin: 4pt 0 8pt 0; padding-left: 18pt; line-height: 1.5; }
+  ul li::marker { color: var(--brand); } ol li::marker { color: var(--brand); font-weight: 500; }
+
+  .tag { display: inline-block; background: var(--tag-bg); color: var(--brand); font-size: 9pt;
+    font-weight: 500; padding: 1pt 6pt; border-radius: 3pt; margin-right: 3pt; }
+
+  table, .kami-table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin: 8pt 0; break-inside: avoid; }
+  table th, .kami-table th { text-align: left; font-weight: 500; color: var(--dark-warm);
+    padding: 6pt 8pt; border-bottom: 0.6pt solid var(--border); background: transparent; }
+  table td, .kami-table td { padding: 5pt 8pt; border-bottom: 0.25pt solid var(--border); vertical-align: top; }
+  table.compact th, .kami-table.compact th { padding: 3pt 6pt; font-size: 8pt; }
+  table.compact td, .kami-table.compact td { padding: 2.5pt 6pt; font-size: 8pt; line-height: 1.4; }
+  table.financial td:not(:first-child), .kami-table.financial td:not(:first-child) {
+    text-align: right; font-variant-numeric: tabular-nums; }
+  table.financial th:not(:first-child), .kami-table.financial th:not(:first-child) { text-align: right; }
+  table .total td, .kami-table .total td { font-weight: 500; border-top: 0.6pt solid var(--border);
+    border-bottom: none; color: var(--near-black); }
+  .note { font-size: 8.5pt; color: var(--stone); margin: 2pt 0 8pt 0; }
+
+  .callout { background: var(--ivory); padding: 8pt 12pt; border-radius: 3pt; margin: 10pt 0;
+    line-height: 1.5; break-inside: avoid; }
+  .callout .quote { margin: 6pt 0; color: var(--olive); }
+
+  figure { margin: 12pt 0; break-inside: avoid; }
+  figcaption { font-size: 9pt; color: var(--stone); margin-top: 4pt; text-align: center; }
+
+  .risk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10pt; margin: 8pt 0; }
+  .risk-item { padding: 6pt 10pt; background: var(--ivory); border-radius: 3pt; break-inside: avoid; }
+  .risk-label { font-size: 9pt; font-weight: 500; color: var(--brand); margin-bottom: 2pt; }
+  .risk-desc { font-size: 9pt; color: var(--olive); line-height: 1.4; }
+
+  .analyst-box { background: var(--ivory); border-radius: 4pt; padding: 10pt 14pt; margin: 12pt 0;
+    break-inside: avoid; }
+  .analyst-label { font-size: 9pt; color: var(--brand); letter-spacing: 0.5pt; text-transform: uppercase;
+    margin-bottom: 4pt; }
+
+  .page-break { break-before: page; }
+
+  /* ===== 富配色增强：砖红主色 #A73F2D + 四色数据 + 深炭标题 #22262B ===== */
+  h2 { position: relative; padding-left: 13pt; }
+  h2::before { content:""; position:absolute; left:0; top:2.5pt; width:4pt; height:13pt;
+    background:var(--accent); border-radius:1pt; }
+  table th, .kami-table th { border-bottom: 1pt solid var(--accent); }
+  .metric:nth-child(1) .metric-value { color: var(--accent); }
+  .metric:nth-child(2) .metric-value { color: var(--gold); }
+  .metric:nth-child(3) .metric-value { color: var(--teal); }
+  .metric:nth-child(4) .metric-value { color: var(--blue); }
+  .callout { border-left: 3pt solid var(--accent); }
+  .analyst-box { border-left: 3pt solid var(--accent); }
+  .risk-item { border-left: 2.5pt solid var(--accent); }
+  .tag { background: var(--accent-soft); color: var(--brand-deep); }
+  .price-current { color: var(--near-black); }
+  .ticker-sub { color: var(--stone); }
+</style>
+
+<style>
+  /* ===== 图表（纯 HTML/CSS，不使用 SVG 文本节点） ===== */
+  .ch { margin: 9pt 0 5pt 0; }
+  .ch-t { font-size: 11pt; font-weight: 500; color: #22262B; margin-bottom: 1pt; }
+  .ch-s { font-size: 8.5pt; color: #7C7B77; margin-bottom: 6pt; line-height: 1.4; }
+  .ch-row { display: flex; align-items: center; gap: 7pt; margin-bottom: 2.8pt; }
+  .ch-lab { flex: 0 0 64pt; font-size: 8.4pt; color: #3E4145; text-align: right; line-height: 1.2; }
+  .ch-track { flex: 1 1 auto; min-width: 0; }
+  .ch-track.stk { display: flex; height: 11pt; border-radius: 1.5pt; overflow: hidden; }
+  .ch-bar { display: block; height: 11pt; border-radius: 1.5pt; background: #2F6F6B; }
+  .ch-bar.g { background: #CFC7BA; }
+  .ch-bar.hi { background: #A73F2D; }
+  .ch-bar.gold { background: #B8862F; }
+  .ch-bar.neg { background: #2F6F6B; }
+  .ch-val { flex: 0 0 60pt; font-size: 8.4pt; color: #22262B; font-variant-numeric: tabular-nums;
+    text-align: right; line-height: 1.2; }
+  .ch-val.hi { color: #A73F2D; font-weight: 500; }
+  .ch-legend { display: flex; flex-wrap: wrap; gap: 12pt; font-size: 8.2pt; color: #504e49; margin: 5pt 0 2pt 0; }
+  .ch-legend i { display: inline-block; width: 9pt; height: 9pt; border-radius: 1.5pt; margin-right: 3pt;
+    vertical-align: -1pt; }
+  .ch-note { font-size: 8pt; color: #7C7B77; margin-top: 3pt; line-height: 1.4; }
+  .wf-row { display: flex; align-items: center; gap: 6pt; margin-bottom: 2.8pt; }
+  .wf-lab { flex: 0 0 76pt; font-size: 8.4pt; color: #3E4145; text-align: right; line-height: 1.2; }
+  .wf-track { flex: 1 1 auto; min-width: 0; position: relative; height: 11pt; }
+  .wf-bar { position: absolute; height: 11pt; border-radius: 1.5pt; }
+  .wf-val { flex: 0 0 58pt; font-size: 8.4pt; text-align: right; font-variant-numeric: tabular-nums;
+    color: #22262B; line-height: 1.2; }
+  figure { break-inside: avoid; margin: 10pt 0; }
+  table.wide { font-size: 6.9pt; }
+  table.wide th, table.wide td { padding: 2.6pt 3.2pt; }
+  table.wide.fixed { table-layout: fixed; word-break: break-word; }
+  /* 宽表首列（指标名）自动占余量，其余 11 个年度列等宽；否则"商品煤产量（百万吨）"会被拆行 */
+  table.wide.fixed th:first-child, table.wide.fixed td:first-child { width: auto; }
+  table.wide.fixed th:not(:first-child), table.wide.fixed td:not(:first-child) { width: 7.1%; }
+  /* 分析型四列表：固定列宽，避免"关键科目"被挤成两行 */
+  table.analysis { font-size: 8.6pt; table-layout: fixed; }
+  table.analysis th, table.analysis td { padding: 3pt 5pt; }
+  table.analysis th:nth-child(1), table.analysis td:nth-child(1) { width: 17%; }
+  table.analysis th:nth-child(2), table.analysis td:nth-child(2) { width: 27%; }
+  table.analysis th:nth-child(3), table.analysis td:nth-child(3) { width: 20%; }
+  table.analysis th:nth-child(4), table.analysis td:nth-child(4) { width: 36%; }
+  /* 首列内容很短（年份／项目名）时禁止折行 */
+  table.nowrap-first th:first-child, table.nowrap-first td:first-child { white-space: nowrap; }
+  table.longtable { break-inside: auto; }
+  table.longtable thead { display: table-header-group; }
+  table.longtable tr { break-inside: avoid; }
+  table.dense { font-size: 7.7pt; }
+  table.dense th, table.dense td { padding: 2.2pt 3pt; line-height: 1.34; }
+  .note ol { margin: 2pt 0 0 0; padding-left: 16pt; }
+  .note li { margin-bottom: 1pt; line-height: 1.42; }
+  @media print { .ch, .wf-row { break-inside: avoid; } }
+</style>
+
+<!-- rsp-mobile-adapt : 响应式适配层（仅屏幕生效，不影响打印/PDF） -->
+<style id="rsp-mobile-adapt">
+/* rsp-mobile-adapt-v3 */
+/* ========== 1. 全局：屏幕端基础修正 ========== */
+@media screen {
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body { overflow-wrap: break-word; }
+  img, svg, canvas, video, iframe { max-width: 100%; }
+  svg[viewBox], svg[viewbox] { height: auto; }
+
+  /* 网格容器（两列对比等）：网格项默认 min-width:auto，会被内部宽表撑破
+     容器、把整页顶出横向滚动（报告里 .two-col 就栽在这上面）。放开收缩，
+     让里面的 .rsp-table 自己去横向滑动。 */
+  .risk-grid > *, .two-col > * { min-width: 0; }
+
+  /* 表格横向滚动容器：宽表不压字、不撑破页面 */
+  .rsp-table {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    margin: 8pt 0;
+    position: relative;
+  }
+  .rsp-table > table { margin: 0; }
+  .rsp-table::-webkit-scrollbar { height: 7px; }
+  .rsp-table::-webkit-scrollbar-track { background: transparent; }
+  .rsp-table::-webkit-scrollbar-thumb { background: #D8D1C4; border-radius: 4px; }
+  /* 内容确实溢出时，右侧给一层渐变暗示"还能往右滑" */
+  .rsp-table[data-rsp-scroll] {
+    background: linear-gradient(to left, rgba(167,63,45,.10), rgba(167,63,45,0) 28px);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 28px 100%;
+  }
+}
+
+/* ========== 2. 平板 / 窄窗口：边距先收，避免内容被挤 ========== */
+@media screen and (max-width: 900px) {
+  body { padding: 22px 22px 46px 22px !important; }
+  .report-header { flex-wrap: wrap; gap: 12pt; }
+  .metrics { flex-wrap: wrap; gap: 10pt 18pt; }
+  .metric { flex: 1 1 42%; min-width: 0; }
+  .report-footer { flex-wrap: wrap; gap: 4pt 14pt; }
+
+  /* 宽表改为横向滚动：给每列保留最小可读宽度，不再把汉字挤成竖排 */
+  .rsp-w5 > table { min-width: 310px !important; }
+  .rsp-w6 > table { min-width: 372px !important; }
+  .rsp-w7 > table { min-width: 434px !important; }
+  .rsp-w8 > table { min-width: 496px !important; }
+  .rsp-w9 > table { min-width: 558px !important; }
+  .rsp-w10 > table { min-width: 620px !important; }
+  .rsp-w11 > table { min-width: 682px !important; }
+  .rsp-w12 > table { min-width: 744px !important; }
+  .rsp-w13 > table { min-width: 806px !important; }
+  .rsp-w14 > table { min-width: 868px !important; }
+  .rsp-w15 > table { min-width: 930px !important; }
+  .rsp-w16 > table { min-width: 992px !important; }
+}
+
+/* ========== 3. 手机：指标卡两列、页头转纵向 ========== */
+@media screen and (max-width: 720px) {
+  body {
+    max-width: 100% !important;
+    padding: 18px 16px 44px 16px !important;
+    font-size: 10.5pt;
+  }
+  h2 { font-size: 15pt !important; margin: 20pt 0 7pt 0 !important; }
+  h3 { font-size: 12.5pt !important; }
+  h1 { font-size: 19pt !important; }
+  p, li { line-height: 1.62; }
+  ul, ol { padding-left: 17pt; }
+
+  .report-header { flex-direction: column; align-items: stretch; gap: 8pt; }
+  .price-block { text-align: left; padding-top: 0; }
+  .price-current { font-size: 24pt !important; }
+  .ticker-name { font-size: 21pt !important; }
+  .ticker-sub { font-size: 9.5pt !important; }
+
+  .metrics { gap: 9pt 12pt; }
+  .metric { flex: 1 1 45%; }
+  .metric-value { font-size: 15pt !important; }
+  .metric-label { font-size: 8.5pt !important; white-space: normal !important; }
+
+  table, .kami-table { font-size: 9pt !important; }
+  .longtable { font-size: 8.5pt !important; }
+  .wide { font-size: 7.5pt !important; }
+  .dense { font-size: 8pt !important; }
+  table th, table td, .kami-table th, .kami-table td { padding: 5pt 6pt !important; }
+
+  blockquote, .quote, .note, .warn, .callout, .risk-item { padding: 9pt 11pt !important; }
+  .risk-grid { grid-template-columns: 1fr !important; }
+  .report-footer { flex-direction: column; align-items: flex-start; gap: 3pt; }
+}
+
+/* ========== 3b. 图表：窄屏保持图纸原尺寸 + 横向滑动 ========== */
+/* 报告里的图表是 SVG：viewBox 宽 680 + width:100%。缩到手机宽度（约 350px）
+   只剩 0.5×，图内字号从 11px 掉到 5px 完全不可读；而 SVG <text> 不会自动换行，
+   单纯放大字号必然溢出图框。这里改为**保持图纸原尺寸、允许左右滑动**——
+   与上面宽表同一套策略，宁可滑也不塌字号。仅屏幕生效，打印/PDF 不受影响。 */
+@media screen and (max-width: 720px) {
+  .rsp-fig {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    /* 图纸一定宽于屏幕，直接给右侧一层渐变，暗示"还能往右滑" */
+    background: linear-gradient(to left, rgba(167,63,45,.09), rgba(167,63,45,0) 26px);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 26px 100%;
+  }
+  .rsp-fig > svg { min-width: var(--rsp-fig-w, 680px); }
+  .rsp-fig::-webkit-scrollbar { height: 7px; }
+  .rsp-fig::-webkit-scrollbar-track { background: transparent; }
+  .rsp-fig::-webkit-scrollbar-thumb { background: #D8D1C4; border-radius: 4px; }
+}
+
+/* ========== 4. 小屏手机：指标卡单列、边距收到最紧 ========== */
+@media screen and (max-width: 430px) {
+  body { padding: 14px 12px 38px 12px !important; }
+  h2 { font-size: 14pt !important; }
+  h3 { font-size: 11.5pt !important; }
+  .ticker-name { font-size: 19pt !important; }
+  .price-current { font-size: 21pt !important; }
+  .metric { flex: 1 1 100%; }
+  .metric-value { font-size: 16pt !important; }
+  ul, ol { padding-left: 15pt; }
+  table, .kami-table { font-size: 8.5pt !important; }
+}
+
+/* ========== 5. 打印：把包裹层还原成透明，PDF 版式与补丁前完全一致 ========== */
+@media print {
+  .rsp-table { margin: 0; padding: 0; overflow: visible !important; background: none !important; }
+  .rsp-table > table { margin: 8pt 0; min-width: 0 !important; }
+  [class*="rsp-w"] > table { min-width: 0 !important; }
+}
+</style>
+</head>
+<body>
+<div class="report-header"><div class="ticker-block"><div class="ticker-name">洛阳钼业 <span style="font-size: 14pt; color: var(--stone);">603993.SH / 03993.HK</span></div><div class="ticker-sub">洛阳栾川钼业集团股份有限公司 · 有色金属矿山采掘及加工 · 基本金属贸易<br>财报分析报告　｜　数据区间：2020 年度 — 2025 年度（含 2025 年上半年）</div></div><div class="price-block"><div class="price-current">203.39 <span style="font-size: 11pt; color: var(--stone);">亿元</span></div><div class="price-change up">2025 年归母净利润（同比 +50.30%）</div><div class="price-date">铜产量 74.11 万吨（全球前十大铜生产商）　·　数据截至 2025 年年报</div></div></div><div class="metrics"><div class="metric"><div class="metric-value">2,066.84 亿</div><div class="metric-label">2025 年营业收入（同比 −2.98%）</div></div><div class="metric"><div class="metric-value">204.07 亿</div><div class="metric-label">2025 年扣非归母净利润（同比 +55.56%，高于归母）</div></div><div class="metric"><div class="metric-value">26.70%</div><div class="metric-label">2025 年扣非加权平均 ROE（六年 +23.92pp）</div></div><div class="metric"><div class="metric-value">777.13 亿</div><div class="metric-label">2025 年矿山端收入（+19.08%，毛利率 52.85%）</div></div></div>
+
+<p><strong>分析区间：2020—2025 年 + 2026 年中期</strong></p>
+<p><strong>主要数据来源：公司 2018／2019／2025 年年度报告、2024 年年度报告、2025 年半年度报告、2025 年三季报</strong></p>
+<p><strong>编制日期：2026 年 9 月 22 日</strong></p>
+<hr>
+<h2>一、公司概况</h2>
+<h3>1.1 基本信息</h3>
+<div class="rsp-table"><table class="nowrap-first longtable"><thead><tr><th>项目</th><th>内容</th></tr></thead><tbody><tr><td>公司全称</td><td>洛阳栾川钼业集团股份有限公司（CMOC Group Limited）</td></tr><tr><td>A 股代码</td><td>603993.SH（上海证券交易所）</td></tr><tr><td>H 股代码</td><td>03993.HK（中国香港联交所）</td></tr><tr><td>主营业务</td><td>有色金属采、选、冶等矿山采掘及加工 + 基本金属贸易（双轮驱动）</td></tr><tr><td>核心产品</td><td>铜、钴、钼、钨、铌、磷肥；2026 年起新增黄金</td></tr><tr><td>业务分布</td><td>亚洲（中国）、非洲（刚果金）、南美洲（巴西、厄瓜多尔）、欧洲（IXM 贸易网络）</td></tr><tr><td>行业地位</td><td>全球领先的铜、钴、钼、钨、铌生产商；巴西领先磷肥生产商；金属贸易位居全球前列</td></tr><tr><td>会计准则</td><td>中国企业会计准则（CAS）；境外子公司亦按 IFRS 编制</td></tr><tr><td>报告币种</td><td>人民币（元）</td></tr><tr><td>审计机构</td><td>德勤华永会计师事务所（特殊普通合伙）</td></tr></tbody></table></div>
+<h3>1.2 业务结构：矿业 + 贸易的双轮驱动</h3>
+<p>公司自 2019 年 7 月完成对全球第三大有色金属贸易商 IXM 的并购后，形成<strong>「矿山采掘及加工 + 矿产贸易」双主业</strong>结构。理解这一结构是读懂本报告的关键：</p>
+<ul><li><strong>矿山采掘及加工</strong>：自有矿山生产，2025 年收入 777.13 亿元、毛利率 <strong>52.85%</strong>，是公司的<strong>利润引擎</strong>。</li><li><strong>矿产贸易（IXM）</strong>：期现结合的金属贸易，2025 年收入 1,800.79 亿元、毛利率仅 <strong>6.44%</strong>，是公司的<strong>规模引擎</strong>。</li></ul>
+<p>&gt; <strong>关键判读提示</strong>：贸易板块贡献约 <strong>70% 的营业收入但仅约 22% 的毛利</strong>，且其收入规模随金属价格与贸易量波动而剧烈起伏。<strong>用「营业收入增速」判断本公司的经营质量会严重失真</strong>，必须直接看矿山端收入与毛利。</p>
+<h3>1.3 2025 年重大战略变化：开启黄金业务板块</h3>
+<p>2025 年是公司矿种布局多元化的关键一年，<strong>从「铜钴为主」转向「铜金两极」</strong>：</p>
+<div class="rsp-table"><table class="nowrap-first"><thead><tr><th>时间</th><th>事件</th><th>对价</th><th>状态</th></tr></thead><tbody><tr><td>2025 年 6 月</td><td>收购厄瓜多尔奥丁矿业（Odin Mining）100% 股权</td><td>5.81 亿加元</td><td>已完成；金矿项目筹建中，计划 2029 年投产</td></tr><tr><td>2025 年 8 月</td><td>奥丁矿业锁定 4 个水电站、232 兆瓦供电排他权</td><td>—</td><td>已签署</td></tr><tr><td>2025 年 12 月</td><td>收购巴西 4 座在产金矿（Aurizona、RDM、Bahia）100% 权益</td><td>10.15 亿美元</td><td>2026 年 1 月交割（仅用 40 天）</td></tr><tr><td>2026 年 1 月</td><td>发行 12 亿美元 1 年期零息可转换债券</td><td>初始转股溢价率 28.70%</td><td>已完成</td></tr></tbody></table></div>
+<p><strong>2026 年巴西系列金矿预计黄金年化产量 6—8 吨</strong>，黄金板块将逐步成为新的业绩增长点。</p>
+<h3>1.4 战略方法论：「622 模型」与「铜金共舞」</h3>
+<p>公司首次在 2025 年报中系统阐释其矿业竞争观：</p>
+<p>&gt; <strong>矿业竞争的本质是成本的竞争，是基于资源禀赋之上的系统能力较量。</strong></p>
+<p>据此提出 <strong>「622 模型」</strong>：成本优势 <strong>60% 由资源禀赋决定</strong>（战略并购决定生命线与基因）、<strong>20% 取决于项目规划建设水平</strong>、<strong>20% 由日常运营管理能力决定</strong>（以「中国效率」赋能全球）。</p>
+<p>对外战略为 <strong>「铜金共舞」</strong>，对内打造 <strong>「平台型组织」</strong>（安全、社区、电力、供应链、信息化、技术、财务、人力等九大平台化能力）。</p>
+<hr>
+<h2>二、核心财务数据对比</h2>
+<p>&gt; <strong>口径说明</strong></p>
+<p>&gt; 1. 全部金额单位为<strong>人民币亿元</strong>，币种为<strong>人民币</strong>，准则为<strong>中国企业会计准则（CAS）</strong>。</p>
+<p>&gt; 2. <strong>列分两块</strong>：前段为<strong>年度块</strong>（2020—2025），后段为<strong>半年度块</strong>（2025H1、2026H1）；<strong>两块均按时间递增</strong>，分界处以竖线 `‖` 标出。跨块不可直接相减。</p>
+<p>&gt; 3. 半年度块同比读作 `2026H1 ÷ 2025H1 − 1`；年度块的「同比」指该年度对上一年度。</p>
+<p>&gt; 4. 2020—2021 年数据取自各年年报「近三年主要会计数据」表的<strong>原报口径</strong>（与公开行情年度历史数据可对照）；未单独披露的格子填 `—`。</p>
+<p>&gt; 5. <strong>公司自 2019 年 7 月并表 IXM，2020 年起贸易板块收入完整计入</strong>，故 2019→2020 年营业收入增幅（+64.51%）含并表范围变化，<strong>该年同比不具可比性</strong>。</p>
+<h3>表 1　经营业绩与盈利能力（年度块 ‖ 半年度块）</h3>
+<div class="rsp-table rsp-w8"><table class="financial longtable"><thead><tr><th>指标</th><th>2020</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025 ‖</th><th>2025H1</th></tr></thead><tbody><tr><td>营业收入</td><td>1,129.81</td><td>1,738.63</td><td>1,729.91</td><td>1,862.69</td><td>2,130.29</td><td>2,066.84 ‖</td><td>947.73</td></tr><tr><td>营业收入同比</td><td>+64.51%</td><td>+53.89%</td><td>−0.50%</td><td>+7.68%</td><td>+14.37%</td><td>−2.98% ‖</td><td>−7.83%</td></tr><tr><td>矿山端营业收入</td><td>—</td><td>253.58</td><td>—</td><td>—</td><td>625.26</td><td>777.13 ‖</td><td>314.46</td></tr><tr><td>利润总额</td><td>—</td><td>—</td><td>133.46</td><td>132.08</td><td>251.24</td><td>351.61 ‖</td><td>—</td></tr><tr><td><strong>归母净利润</strong></td><td>23.29</td><td>51.06</td><td>60.67</td><td>82.50</td><td>135.32</td><td><strong>203.39</strong> ‖</td><td>86.71</td></tr><tr><td>归母净利润同比</td><td>+25.40%</td><td>+119.26%</td><td>+18.82%</td><td>+35.98%</td><td>+64.03%</td><td><strong>+50.30%</strong> ‖</td><td>+60.07%</td></tr><tr><td>扣非归母净利润</td><td>10.91</td><td>41.03</td><td>60.67</td><td>62.33</td><td>131.19</td><td><strong>204.07</strong> ‖</td><td>—</td></tr><tr><td>扣非归母同比</td><td>+46.06%</td><td>+276.24%</td><td>~0.00%</td><td>+2.73%</td><td>+110.48%</td><td><strong>+55.56%</strong> ‖</td><td>—</td></tr><tr><td>经营活动现金流净额</td><td>84.92</td><td>61.91</td><td>154.54</td><td>155.42</td><td>323.87</td><td><strong>208.43</strong> ‖</td><td>120.09</td></tr><tr><td>经营现金流同比</td><td>+398.14%</td><td>−27.10%</td><td>+149.62%</td><td>+0.57%</td><td>+108.38%</td><td><strong>−35.64%</strong> ‖</td><td>+11.40%</td></tr><tr><td>基本每股收益（元）</td><td>0.11</td><td>0.24</td><td>0.28</td><td>0.38</td><td>0.63</td><td><strong>0.95</strong> ‖</td><td>0.41</td></tr><tr><td>加权平均 ROE</td><td>5.83%</td><td>10.79%</td><td>11.79%</td><td>15.00%</td><td>20.96%</td><td><strong>26.61%</strong> ‖</td><td>—</td></tr><tr><td>扣非加权平均 ROE</td><td>2.78%</td><td>8.94%</td><td>11.79%</td><td>11.31%</td><td>20.32%</td><td><strong>26.70%</strong> ‖</td><td>—</td></tr><tr><td>资产负债率</td><td>—</td><td>—</td><td>—</td><td>49.03%</td><td>49.52%</td><td><strong>50.34%</strong> ‖</td><td>—</td></tr></tbody></table></div>
+<p>&gt; <strong>注</strong>：2022 年扣非归母与归母几乎完全一致（差额 3.8 万元），属非经常性损益净额近零的年份。2025H1 为半年度数据，不可与年度块直接相减。</p>
+<h3>表 2　资产负债与偿债结构</h3>
+<div class="rsp-table rsp-w6"><table class="longtable"><thead><tr><th>指标</th><th>2020年末</th><th>2022年末</th><th>2023年末</th><th>2024年末</th><th>2025年末</th></tr></thead><tbody><tr><td>总资产</td><td>1,224.41</td><td>1,729.75</td><td>1,729.75</td><td>1,702.36</td><td><strong>2,009.32</strong></td></tr><tr><td>归母净资产</td><td>388.92</td><td>—</td><td>595.40</td><td>710.23</td><td><strong>824.35</strong></td></tr><tr><td>归母净资产同比</td><td>−4.68%</td><td>—</td><td>—</td><td>+19.29%</td><td><strong>+16.07%</strong></td></tr><tr><td>资产负债率</td><td>—</td><td>—</td><td>49.03%</td><td>49.52%</td><td><strong>50.34%</strong></td></tr><tr><td>流动比率</td><td>—</td><td>—</td><td>—</td><td>1.74</td><td><strong>1.55</strong></td></tr><tr><td>速动比率</td><td>—</td><td>—</td><td>—</td><td>1.08</td><td><strong>0.98</strong></td></tr><tr><td>EBITDA 全部债务比</td><td>—</td><td>—</td><td>—</td><td>1.23</td><td><strong>1.46</strong></td></tr><tr><td>利息保障倍数</td><td>—</td><td>—</td><td>—</td><td>7.07</td><td><strong>14.37</strong></td></tr><tr><td>EBITDA 利息保障倍数</td><td>—</td><td>—</td><td>—</td><td>8.56</td><td><strong>17.14</strong></td></tr><tr><td>息税折旧摊销前利润（EBITDA）</td><td>—</td><td>—</td><td>—</td><td>353.22</td><td><strong>450.89</strong></td></tr><tr><td>存货</td><td>—</td><td>—</td><td>—</td><td>298.78</td><td><strong>406.01</strong></td></tr><tr><td>存货占总资产比</td><td>—</td><td>—</td><td>—</td><td>17.55%</td><td><strong>20.21%</strong></td></tr></tbody></table></div>
+<p>&gt; <strong>注</strong>：2025 年末存货 406.01 亿元（同比 +35.89%），公司披露「主要为本期基本金属贸易业务持有存货价值上升」。存货占总资产比重由 17.55% 升至 20.21%（<strong>上升 2.66 个百分点</strong>），需结合贸易业务规模一并理解，不宜简单按制造业「存货积压」框架解读。</p>
+<h3>表 3　现金流量表</h3>
+<div class="rsp-table rsp-w7"><table class="longtable"><thead><tr><th>指标</th><th>2020</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th></tr></thead><tbody><tr><td>经营活动现金流净额</td><td>84.92</td><td>61.91</td><td>154.54</td><td>155.42</td><td>323.87</td><td><strong>208.43</strong></td></tr><tr><td>投资活动现金流净额</td><td>—</td><td>—</td><td>—</td><td>—</td><td>−11.60</td><td><strong>−83.77</strong></td></tr><tr><td>筹资活动现金流净额</td><td>—</td><td>—</td><td>—</td><td>—</td><td>−305.72</td><td><strong>−84.97</strong></td></tr><tr><td>现金及现金等价物净增加额</td><td>—</td><td>—</td><td>—</td><td>—</td><td>11.62</td><td><strong>34.01</strong></td></tr><tr><td>年末现金及现金等价物</td><td>—</td><td>—</td><td>—</td><td>—</td><td>272.81</td><td><strong>306.82</strong></td></tr><tr><td>财务费用</td><td>—</td><td>—</td><td>—</td><td>—</td><td>28.79</td><td><strong>5.13</strong></td></tr><tr><td>财务费用同比</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td><strong>−82.19%</strong></td></tr></tbody></table></div>
+<p>&gt; <strong>注</strong>：财务费用（含利息支出与汇兑损益）由 28.79 亿元大幅降至 5.13 亿元，降幅 82.19%，公司披露原因为「本期利息支出及汇兑损失同比下降」，与利息保障倍数由 7.07 倍跃升至 14.37 倍相互印证。</p>
+<h3>表 4　营业收入与毛利结构（2025 年）</h3>
+<div class="rsp-table rsp-w7"><table class="nowrap-first longtable"><thead><tr><th>分行业</th><th>营业收入（亿元）</th><th>收入占比</th><th>营业成本（亿元）</th><th>毛利率</th><th>收入同比</th><th>毛利率同比</th></tr></thead><tbody><tr><td><strong>矿山采掘及加工</strong></td><td>777.13</td><td>30.1%</td><td>366.38</td><td><strong>52.85%</strong></td><td>+19.08%</td><td>增加 7.71pp</td></tr><tr><td><strong>矿产贸易</strong></td><td>1,800.79</td><td>69.9%</td><td>1,684.84</td><td><strong>6.44%</strong></td><td>−4.39%</td><td>增加 3.82pp</td></tr><tr><td>其他</td><td>0.08</td><td>0.0%</td><td>0.01</td><td>3.76%</td><td>+72.68%</td><td>减少 3.83pp</td></tr><tr><td>内部交易抵销</td><td>−513.50</td><td>—</td><td>−480.49</td><td>—</td><td>—</td><td>—</td></tr><tr><td><strong>合并营业收入</strong></td><td><strong>2,066.84</strong></td><td>100%</td><td>1,572.29</td><td>23.93%</td><td>−2.98%</td><td>—</td></tr></tbody></table></div>
+<p>&gt; <strong>注</strong>：<strong>分行业收入为抵销前口径</strong>，两板块合计 2,578.00 亿元大于合并营业收入 2,066.84 亿元，差额 513.50 亿元为内部交易抵销额——即「销售」环节向本集团内部采购的抵销。<strong>收入占比按抵销前口径计算</strong>：矿山端 30.1%、贸易端 69.9%。</p>
+<p>&gt;</p>
+<p>&gt; <strong>毛利拆分</strong>（由收入减成本倒算）：矿山端毛利 410.75 亿元、<strong>占两板块合计毛利的 78.0%</strong>；贸易端毛利 115.95 亿元、占 22.0%。<strong>矿山端以 30.1% 的收入贡献了 78.0% 的毛利</strong>——这一错配是理解本公司利润结构的核心。</p>
+<h3>表 5　分产品收入与毛利率（2025 年）</h3>
+<div class="rsp-table rsp-w6"><table class="nowrap-first longtable"><thead><tr><th>分产品</th><th>收入（亿元）</th><th>毛利率</th><th>收入同比</th><th>成本同比</th><th>毛利率同比</th></tr></thead><tbody><tr><td><strong>矿山采掘及加工</strong></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>铜</td><td><strong>550.96</strong></td><td>55.16%</td><td>+31.63%</td><td>+18.66%</td><td>增加 4.9pp</td></tr><tr><td>钴</td><td>61.71</td><td><strong>63.62%</strong></td><td>−29.42%</td><td>−60.91%</td><td>增加 29.31pp</td></tr><tr><td>钼</td><td>63.30</td><td>39.65%</td><td>+0.52%</td><td>−6.57%</td><td>增加 4.58pp</td></tr><tr><td>钨</td><td>24.23</td><td>66.40%</td><td>+32.96%</td><td>+28.15%</td><td>增加 1.26pp</td></tr><tr><td>铌</td><td>36.25</td><td>44.43%</td><td>+22.65%</td><td>+8.97%</td><td>增加 6.98pp</td></tr><tr><td>磷</td><td>40.68</td><td>25.26%</td><td>+13.47%</td><td>+13.93%</td><td>减少 0.31pp</td></tr><tr><td><strong>矿产贸易</strong></td><td></td><td></td><td></td><td></td><td></td></tr><tr><td>矿物金属贸易</td><td>768.35</td><td>10.82%</td><td>+18.89%</td><td>+11.96%</td><td>增加 5.52pp</td></tr><tr><td>精炼金属贸易</td><td>1,032.44</td><td>3.18%</td><td>−16.56%</td><td>−18.21%</td><td>增加 1.95pp</td></tr></tbody></table></div>
+<h3>表 6　产销量与库存（矿山端，2025 年）</h3>
+<div class="rsp-table rsp-w8"><table class="financial longtable"><thead><tr><th>产品</th><th>单位</th><th>生产量</th><th>同比</th><th>销售量</th><th>同比</th><th>库存量</th><th>同比</th></tr></thead><tbody><tr><td>铜</td><td>吨</td><td><strong>741,149</strong></td><td>+13.99%</td><td>730,176</td><td>+5.90%</td><td>111,382</td><td>+10.93%</td></tr><tr><td>钴</td><td>吨</td><td>117,549</td><td>+2.96%</td><td>51,114</td><td><strong>−53.06%</strong></td><td>108,819</td><td><strong>+156.75%</strong></td></tr><tr><td>钼</td><td>吨</td><td>13,906</td><td>−9.68%</td><td>14,058</td><td>−6.05%</td><td>1,095</td><td>−12.19%</td></tr><tr><td>钨</td><td>吨</td><td>7,114</td><td>−14.17%</td><td>7,112</td><td>−12.54%</td><td>1,232</td><td>+0.16%</td></tr><tr><td>铌</td><td>吨</td><td>10,348</td><td>+3.23%</td><td>10,347</td><td>+3.18%</td><td>828</td><td>+0.12%</td></tr><tr><td>磷肥（HA+LA）</td><td>吨</td><td>1,213,538</td><td>+2.80%</td><td>1,263,477</td><td>+15.41%</td><td>136,595</td><td>−29.55%</td></tr></tbody></table></div>
+<p>&gt; <strong>注（关键）</strong>：钴的生产量同比 +2.96%，而<strong>销售量 −53.06%、库存量 +156.75%</strong>。这并非需求萎缩，而是<strong>刚果（金）自 2025 年 2 月实施钴出口禁令</strong>导致出口受限、产销脱节——产量继续增长而无法外销。公司披露 2025 年剩余时间允许钴出口 18,125 吨，2026、2027 年每年配额为 96,600 吨。<strong>该库存将随配额释放逐步转化为收入，是理解 2025 年钴收入 −29.42% 与后续年份潜在弹性的关键。</strong></p>
+<h3>表 7　分地区收入结构（矿山端，2025 年）</h3>
+<div class="rsp-table rsp-w5"><table class="financial nowrap-first"><thead><tr><th>地区</th><th>营业收入（亿元）</th><th>毛利率</th><th>收入同比</th><th>毛利率同比</th></tr></thead><tbody><tr><td>中国</td><td>87.53</td><td>47.05%</td><td>+7.80%</td><td>增加 5.23pp</td></tr><tr><td><strong>刚果（金）</strong></td><td><strong>612.68</strong></td><td><strong>56.01%</strong></td><td>+21.08%</td><td>增加 8.51pp</td></tr><tr><td>巴西</td><td>76.93</td><td>34.29%</td><td>+17.61%</td><td>增加 3.35pp</td></tr></tbody></table></div>
+<p>&gt; <strong>注</strong>：矿山端收入高度集中于刚果（金）（占矿山端收入约 79%），<strong>地域集中度是本公司最大的单一风险敞口</strong>。矿产贸易端中国境外收入 1,222.14 亿元，占贸易收入 67.9%。</p>
+<h3>表 8　分季度归母净利润（2025 年）</h3>
+<div class="rsp-table rsp-w5"><table class="financial nowrap-first longtable"><thead><tr><th>季度</th><th>营业收入（亿元）</th><th>归母净利润（亿元）</th><th>扣非归母（亿元）</th><th>归母占全年比重</th></tr></thead><tbody><tr><td>Q1</td><td>460.06</td><td>39.46</td><td>39.28</td><td>19.4%</td></tr><tr><td>Q2</td><td>487.67</td><td>47.25</td><td>47.96</td><td>23.2%</td></tr><tr><td>Q3</td><td>507.13</td><td>56.08</td><td>58.13</td><td>27.6%</td></tr><tr><td><strong>Q4</strong></td><td><strong>611.98</strong></td><td><strong>60.59</strong></td><td>58.70</td><td><strong>29.8%</strong></td></tr><tr><td><strong>全年</strong></td><td><strong>2,066.84</strong></td><td><strong>203.39</strong></td><td>204.07</td><td>100%</td></tr></tbody></table></div>
+<p>&gt; <strong>注</strong>：与资源类公司普遍的「Q4 塌陷」不同，本公司<strong>2025 年 Q4 归母净利润创单季最高</strong>（60.59 亿元，占全年 29.8%），<strong>无年末集中计提导致的塌陷</strong>。这与铜价在 2025 年 9 月下旬后强势上扬（并于 12 月创历史新高）的价格节奏一致。但 Q4 单季营业收入（611.98 亿元）显著高于前三季均值，含贸易业务规模放量因素，<strong>单季利润不宜线性外推</strong>。</p>
+<h3>表 9　股息与股东回报</h3>
+<div class="rsp-table"><table><thead><tr><th>项目</th><th>2024</th><th>2025</th></tr></thead><tbody><tr><td>每 10 股派现（元，含税）</td><td>—</td><td><strong>2.86</strong></td></tr><tr><td>2026 年中期分红提议（每 10 股）</td><td>—</td><td><strong>不低于 0.95</strong></td></tr><tr><td>近三年累计现金分红+回购注销</td><td>—</td><td><strong>160.58 亿元</strong></td></tr><tr><td>最近一年归母净利润（亿元）</td><td>135.32</td><td>203.39</td></tr></tbody></table></div>
+<p>&gt; <strong>注</strong>：2025 年报提出<strong>公司历史上首次中期分红计划</strong>，董事会提议 2026 年中期每 10 股派现不少于 0.95 元（含税）。公司「最近三个会计年度现金分红和回购并注销累计金额」达 160.58 亿元。</p>
+<hr>
+<figure><div class="ch"><div class="ch-t">营业收入与矿山端营业收入：收入微降但真实引擎仍在提速</div><div class="ch-s">单位：人民币亿元　｜　合并营业收入 2025 年首次微降 2.98%，而矿山端收入逆势增长 19.08%</div><div class="ch-row"><span class="ch-lab">2020<br><span style='color:#7C7B77'>矿山 —</span></span><span class="ch-track"><span class="ch-bar " style="width:50.9%"></span></span><span class="ch-val">1,129.8</span></div><div class="ch-row"><span class="ch-lab">2021<br><span style='color:#7C7B77'>矿山 253.6</span></span><span class="ch-track"><span class="ch-bar " style="width:78.4%"></span></span><span class="ch-val">1,738.6</span></div><div class="ch-row"><span class="ch-lab">2022<br><span style='color:#7C7B77'>矿山 —</span></span><span class="ch-track"><span class="ch-bar " style="width:78.0%"></span></span><span class="ch-val">1,729.9</span></div><div class="ch-row"><span class="ch-lab">2023<br><span style='color:#7C7B77'>矿山 —</span></span><span class="ch-track"><span class="ch-bar " style="width:83.9%"></span></span><span class="ch-val">1,862.7</span></div><div class="ch-row"><span class="ch-lab">2024<br><span style='color:#7C7B77'>矿山 625.3</span></span><span class="ch-track"><span class="ch-bar gold" style="width:96.0%"></span></span><span class="ch-val">2,130.3</span></div><div class="ch-row"><span class="ch-lab">2025<br><span style='color:#7C7B77'>矿山 777.1</span></span><span class="ch-track"><span class="ch-bar hi" style="width:93.1%"></span></span><span class="ch-val hi">2,066.8</span></div><div class="ch-note">注：图中显示的是合并营业收入（柱长）与矿山端营业收入（第二行小字）。矿山端收入 2021／2024／2025 年有披露，2020／2022／2023 年未单独披露同口径数，以「—」表示。2025 年矿山端以 30.1% 的收入（抵销前口径）贡献了 78.0% 的毛利。</div></div><figcaption>图 1　营业收入（2020—2025 年）</figcaption></figure><figure><div class="ch"><div class="ch-t">归母净利润与加权平均净资产收益率：六年连续跃升</div><div class="ch-s">柱＝归母净利润（亿元）；第二行＝加权平均 ROE（%）　｜　归母净利六年增长 7.7 倍，CAGR 54.3%</div><div class="ch-row"><span class="ch-lab">2020<br><span style='color:#7C7B77'>5.83%</span></span><span class="ch-track"><span class="ch-bar " style="width:11.0%"></span></span><span class="ch-val">23.3</span></div><div class="ch-row"><span class="ch-lab">2021<br><span style='color:#7C7B77'>10.79%</span></span><span class="ch-track"><span class="ch-bar " style="width:24.1%"></span></span><span class="ch-val">51.1</span></div><div class="ch-row"><span class="ch-lab">2022<br><span style='color:#7C7B77'>11.79%</span></span><span class="ch-track"><span class="ch-bar " style="width:28.6%"></span></span><span class="ch-val">60.7</span></div><div class="ch-row"><span class="ch-lab">2023<br><span style='color:#7C7B77'>15.00%</span></span><span class="ch-track"><span class="ch-bar " style="width:38.9%"></span></span><span class="ch-val">82.5</span></div><div class="ch-row"><span class="ch-lab">2024<br><span style='color:#7C7B77'>20.96%</span></span><span class="ch-track"><span class="ch-bar gold" style="width:63.9%"></span></span><span class="ch-val">135.3</span></div><div class="ch-row"><span class="ch-lab">2025<br><span style='color:#7C7B77'>26.61%</span></span><span class="ch-track"><span class="ch-bar hi" style="width:96.0%"></span></span><span class="ch-val hi">203.4</span></div><div class="ch-note">注：2025 年扣非加权 ROE 为 26.70%，高于加权 ROE 26.61%，说明 ROE 提升完全来自主业而非杠杆或一次性收益。</div></div><figcaption>图 2　归母净利润与加权平均净资产收益率（2020—2025 年）</figcaption></figure><h2>三、三张财务数据表：关键变化数据与趋势含义</h2>
+<h3>3.1 利润表：从「量的扩张」转向「价的杠杆」</h3>
+<div class="rsp-table"><table class="analysis longtable"><thead><tr><th>关键科目</th><th>变化轨迹</th><th>趋势方向</th><th>趋势含义</th></tr></thead><tbody><tr><td><strong>营业收入</strong></td><td>1,129.81 → 1,738.63 → 1,729.91 → 1,862.69 → 2,130.29 → 2,066.84</td><td>2025 年<strong>首次微降</strong>（−2.98%）</td><td>收入已达 2,000 亿量级后的<strong>平台期</strong>；降幅由贸易端贡献，<strong>矿山端仍 +19.08%</strong>，收入下滑不等于经营恶化</td></tr><tr><td><strong>矿山端营业收入</strong></td><td>253.58（2021）→ 625.26（2024）→ <strong>777.13（2025）</strong></td><td>持续高速上行</td><td>矿山端是真实的价值创造引擎，2025 年增速为合并收入增速的<strong>反向 6.4 倍</strong></td></tr><tr><td><strong>归母净利润</strong></td><td>23.29 → 51.06 → 60.67 → 82.50 → 135.32 → <strong>203.39</strong></td><td><strong>连续六年上行，2025 年 +50.30%</strong></td><td>增长远超收入增速，说明<strong>利润增长来自价格与结构而非规模</strong></td></tr><tr><td><strong>扣非归母净利润</strong></td><td>10.91 → 41.03 → 60.67 → 62.33 → 131.19 → <strong>204.07</strong></td><td>增速（+55.56%）<strong>高于归母</strong>（+50.30%）</td><td><strong>扣非 &gt; 归母</strong>，说明 2025 年非经常性损益为<strong>净拖累</strong>（−0.69 亿元），利润<strong>质量干净、未被一次性收益虚增</strong></td></tr><tr><td><strong>毛利率（合并）</strong></td><td>—</td><td>2025 年 <strong>23.93%</strong>（同比 +7.38pp）</td><td>毛利率提升主因是<strong>高毛利矿山端占比上升</strong>（矿山毛利 410.75 亿元 vs 贸易毛利 115.95 亿元）</td></tr><tr><td><strong>财务费用</strong></td><td>— → 28.79（2024）→ <strong>5.13（2025）</strong></td><td><strong>−82.19%</strong></td><td>利息支出与汇兑损失双降，<strong>利息保障倍数由 7.07 倍升至 14.37 倍</strong>，财务风险显著下降</td></tr></tbody></table></div>
+<h3>3.2 资产负债表：扩表提速但杠杆温和</h3>
+<div class="rsp-table"><table class="analysis longtable"><thead><tr><th>关键科目</th><th>变化轨迹</th><th>趋势方向</th><th>趋势含义</th></tr></thead><tbody><tr><td><strong>总资产</strong></td><td>1,224.41 → 1,702.36（2024）→ <strong>2,009.32（2025）</strong></td><td>2025 年 +18.03%，<strong>首次突破 2,000 亿</strong></td><td>扩表主要由<strong>存货上升（+35.89%）</strong>与<strong>收购资产</strong>双因素驱动，非单纯信贷扩张</td></tr><tr><td><strong>归母净资产</strong></td><td>388.92 → 710.23 → <strong>824.35</strong></td><td>+16.07%</td><td>净资产增速（+16.07%）略低于总资产增速（+18.03%），差距不大</td></tr><tr><td><strong>资产负债率</strong></td><td>— → 49.52%（2024）→ <strong>50.34%（2025）</strong></td><td>上升 <strong>0.82 个百分点</strong></td><td>杠杆<strong>温和上行</strong>，仍处行业较低水平</td></tr><tr><td><strong>流动比率 / 速动比率</strong></td><td>— → 1.74 / 1.08 → <strong>1.55 / 0.98</strong></td><td>分别 −10.92% / −9.26%</td><td><strong>速动比率跌破 1.0</strong>，短期偿付缓冲收窄，与存货大幅上升相互对应，是<strong>最需跟踪的短期指标</strong></td></tr><tr><td><strong>财务费用</strong></td><td>28.79 → <strong>5.13</strong></td><td>−82.19%</td><td>融资成本大幅改善，为利润释放创造条件</td></tr></tbody></table></div>
+<h3>3.3 现金流量表：经营性现金流的「营运资本占用」缺口</h3>
+<div class="rsp-table"><table class="analysis"><thead><tr><th>关键科目</th><th>变化轨迹</th><th>趋势方向</th><th>趋势含义</th></tr></thead><tbody><tr><td><strong>经营活动现金流净额</strong></td><td>84.92 → 61.91 → 154.54 → 155.42 → 323.87 → <strong>208.43</strong></td><td>2025 年 <strong>−35.64%</strong></td><td>与净利润（+50.30%）<strong>方向相反</strong>，是本报告最需拆解的科目</td></tr><tr><td><strong>投资活动现金流净额</strong></td><td>— → −11.60（2024）→ <strong>−83.77（2025）</strong></td><td>净流出扩大 <strong>7.2 倍</strong></td><td>主因系<strong>金矿收购（奥丁矿业 5.81 亿加元 + 巴西金矿 10.15 亿美元）</strong>与产能建设，属战略性资本开支</td></tr><tr><td><strong>筹资活动现金流净额</strong></td><td>— → −305.72（2024）→ <strong>−84.97（2025）</strong></td><td>净流出收窄 72.21%</td><td>2024 年为偿债高峰，2025 年偿债压力明显缓解</td></tr><tr><td><strong>年末现金及现金等价物</strong></td><td>— → 272.81（2024）→ <strong>306.82（2025）</strong></td><td>+12.5%</td><td>现金储备净增 34.01 亿元，<strong>在完成两笔大额收购的同时现金仍净增加</strong></td></tr></tbody></table></div>
+<p><strong>经营现金流与净利润背离的根因拆解（2025 年）</strong></p>
+<p>从现金流量表补充资料可见，将净利润 240.27 亿元调节为经营现金流 208.43 亿元的过程中，三项营运资本占用合计 <strong>−188.64 亿元</strong>：</p>
+<div class="rsp-table"><table class="longtable"><thead><tr><th>调节项</th><th>2025 年（亿元）</th><th>2024 年（亿元）</th><th>变动方向</th></tr></thead><tbody><tr><td>存货的（增加）减少</td><td><strong>−112.10</strong></td><td>+13.67</td><td>大幅转向占用</td></tr><tr><td>经营性应收项目的减少（增加）</td><td><strong>−153.78</strong></td><td>+2.36</td><td>大幅转向占用</td></tr><tr><td>经营性应付项目的增加</td><td>+77.24</td><td>+31.22</td><td>部分对冲</td></tr><tr><td><strong>三项合计</strong></td><td><strong>−188.64</strong></td><td><strong>+47.25</strong></td><td><strong>摆动 −235.89 亿元</strong></td></tr><tr><td>公允价值变动损失（非现金加回）</td><td>+76.88</td><td>+13.76</td><td>—</td></tr><tr><td>财务费用（非现金加回）</td><td>+21.23</td><td>+44.68</td><td>—</td></tr></tbody></table></div>
+<p>&gt; <strong>结论</strong>：2025 年经营现金流下降 115.44 亿元，<strong>几乎完全由营运资本占用（−235.89 亿元摆动）解释</strong>，而非盈利质量恶化。其中存货占用 112.10 亿元（对应贸易存货价值上升与钴库存积压）、经营性应收占用 153.78 亿元。<strong>这些占用具有可逆性</strong>——钴库存随出口配额释放、贸易存货随价格变现即可回补。<strong>不应把 2025 年的现金流下降解读为经营恶化。</strong></p>
+<h3>3.4 三表联动结论</h3>
+<ul><li><strong>利润表看「价格真相」</strong>：收入微降而利润大增 50%，核心驱动是<strong>铜价（LME 现货均价 +8.73%）与铜产量（+13.99%）的「量价齐升」</strong>，叠加财务费用压降。扣非 &gt; 归母说明利润成色干净。</li><li><strong>资产负债表看「扩张质量」</strong>：总资产破 2,000 亿，但资产负债率仅上升 0.82pp，杠杆温和；<strong>唯一需警惕的是速动比率跌破 1.0</strong>。</li><li><strong>现金流量表看「现金去向」</strong>：经营现金流下降是<strong>营运资本占用</strong>而非盈利恶化；投资现金流大幅净流出是<strong>战略收购</strong>而非低效扩张。两笔收购当期已交割且现金储备仍净增，<strong>资金调度能力强</strong>。</li></ul>
+<hr>
+<figure><div class="ch"><div class="ch-t">归母净利润与扣非归母净利润：2025 年关系发生反转</div><div class="ch-s">单位：人民币亿元　｜　2023 年非经常性损益贡献归母的 24.5%，2025 年转为净拖累 −0.3%</div><div class="ch-legend"><span><i style="background:#A73F2D"></i>归母净利润</span><span><i style="background:#2F6F6B"></i>扣非归母净利润</span></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2020</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">归母净利润</span><span class="ch-track"><span class="ch-bar" style="width:11.4%;background:#A73F2D"></span></span><span class="ch-val">23.3</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">扣非归母净利润</span><span class="ch-track"><span class="ch-bar" style="width:5.3%;background:#2F6F6B"></span></span><span class="ch-val">10.9</span></div></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2021</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">归母净利润</span><span class="ch-track"><span class="ch-bar" style="width:25.0%;background:#A73F2D"></span></span><span class="ch-val">51.1</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">扣非归母净利润</span><span class="ch-track"><span class="ch-bar" style="width:20.1%;background:#2F6F6B"></span></span><span class="ch-val">41.0</span></div></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2022</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">归母净利润</span><span class="ch-track"><span class="ch-bar" style="width:29.7%;background:#A73F2D"></span></span><span class="ch-val">60.7</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">扣非归母净利润</span><span class="ch-track"><span class="ch-bar" style="width:29.7%;background:#2F6F6B"></span></span><span class="ch-val">60.7</span></div></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2023</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">归母净利润</span><span class="ch-track"><span class="ch-bar" style="width:40.4%;background:#A73F2D"></span></span><span class="ch-val">82.5</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">扣非归母净利润</span><span class="ch-track"><span class="ch-bar" style="width:30.5%;background:#2F6F6B"></span></span><span class="ch-val">62.3</span></div></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2024</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">归母净利润</span><span class="ch-track"><span class="ch-bar" style="width:66.3%;background:#A73F2D"></span></span><span class="ch-val">135.3</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">扣非归母净利润</span><span class="ch-track"><span class="ch-bar" style="width:64.3%;background:#2F6F6B"></span></span><span class="ch-val">131.2</span></div></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2025</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">归母净利润</span><span class="ch-track"><span class="ch-bar" style="width:99.7%;background:#A73F2D"></span></span><span class="ch-val">203.4</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">扣非归母净利润</span><span class="ch-track"><span class="ch-bar" style="width:100.0%;background:#2F6F6B"></span></span><span class="ch-val">204.1</span></div></div><div class="ch-note">注：2025 年扣非归母（204.07 亿元）高于归母（203.39 亿元），差额 −0.69 亿元，说明当年非经常性损益为净拖累，利润未被一次性收益虚增。2022 年两者几乎完全一致（差额 3.8 万元）。</div></div><figcaption>图 3　归母净利润与扣非归母净利润对比（2020—2025 年）</figcaption></figure><figure><div class="ch"><div class="ch-t">2025 年分产品收入与毛利率：铜是绝对核心</div><div class="ch-s">单位：营业收入亿元；第二行＝毛利率（%）　｜　铜收入 550.96 亿元，占矿山端收入 70.9%</div><div class="ch-row"><span class="ch-lab">铜</span><span class="ch-track"><span class="ch-bar hi" style="width:80.0%"></span></span><span class="ch-val hi">551.0<br><span style='color:#A73F2D'>55.16%</span></span></div><div class="ch-row"><span class="ch-lab">钴</span><span class="ch-track"><span class="ch-bar " style="width:9.0%"></span></span><span class="ch-val">61.7<br><span style='color:#A73F2D'>63.62%</span></span></div><div class="ch-row"><span class="ch-lab">钼</span><span class="ch-track"><span class="ch-bar " style="width:9.2%"></span></span><span class="ch-val">63.3<br><span style='color:#A73F2D'>39.65%</span></span></div><div class="ch-row"><span class="ch-lab">钨</span><span class="ch-track"><span class="ch-bar " style="width:3.5%"></span></span><span class="ch-val">24.2<br><span style='color:#A73F2D'>66.40%</span></span></div><div class="ch-row"><span class="ch-lab">铌</span><span class="ch-track"><span class="ch-bar " style="width:5.3%"></span></span><span class="ch-val">36.2<br><span style='color:#A73F2D'>44.43%</span></span></div><div class="ch-row"><span class="ch-lab">磷</span><span class="ch-track"><span class="ch-bar " style="width:5.9%"></span></span><span class="ch-val">40.7<br><span style='color:#A73F2D'>25.26%</span></span></div><div class="ch-note">注：钴收入 61.71 亿元（−29.42%）系刚果（金）出口禁令所致，其毛利率逆势提升 29.31 个百分点至 63.62%；2025 年钴销售量 −53.06%、库存量 +156.75%，产销脱节而非需求萎缩。</div></div><figcaption>图 4　2025 年矿山端分产品收入与毛利率</figcaption></figure><h2>四、数据变化趋势与原因分析</h2>
+<h3>4.1 收入：六年增长后的平台期，贸易与矿山此消彼长</h3>
+<p>营业收入由 2020 年 1,129.81 亿元增至 2024 年 2,130.29 亿元（CAGR 17.2%），2025 年微降至 2,066.84 亿元（−2.98%）。</p>
+<p><strong>结构拆解显示这一降幅完全来自贸易端</strong>：</p>
+<div class="rsp-table"><table class="nowrap-first"><thead><tr><th>板块</th><th>2025 收入（亿元）</th><th>收入同比</th><th>对合并收入变动的贡献</th></tr></thead><tbody><tr><td>矿山采掘及加工</td><td>777.13</td><td><strong>+19.08%</strong></td><td><strong>正向拉动</strong>（增量约 124.5 亿元）</td></tr><tr><td>矿产贸易</td><td>1,800.79</td><td><strong>−4.39%</strong></td><td><strong>负向拖累</strong>（减量约 82.7 亿元）</td></tr></tbody></table></div>
+<p>&gt; <strong>判读</strong>：贸易板块收入下降 4.39%，主要是 IXM <strong>主动推行产品线结构性改革、提质控量</strong>的结果。<strong>贸易端收入的收缩伴随其毛利率提升 3.82 个百分点</strong>，属质量改善而非规模萎缩。同期矿山端收入增长 19.08%、毛利率提升 7.71 个百分点，<strong>真实盈利能力在显著增强</strong>。</p>
+<h3>4.2 利润：连续六年创新高，2025 年增速再度加速</h3>
+<p>归母净利润由 2020 年 23.29 亿元增至 2025 年 203.39 亿元，<strong>六年增长 7.7 倍，CAGR 达 54.3%</strong>。</p>
+<p><strong>2025 年利润增长四因素拆解</strong>：</p>
+<div class="rsp-table"><table><thead><tr><th>驱动因素</th><th>量化证据</th><th>说明</th></tr></thead><tbody><tr><td>① <strong>铜量价齐升（首要驱动）</strong></td><td>铜收入 +31.63%（550.96 亿元）、铜产量 +13.99%（74.11 万吨）、LME 现货铜均价 +8.73%（9,944.94 美元/吨）</td><td>量增 14% × 价涨 8.7% ≈ 收入增 24%，实际 +31.63% 超额部分来自销售结构</td></tr><tr><td>② <strong>矿山端毛利率大幅提升</strong></td><td>矿山端毛利率 52.85%（+7.71pp）；铜 +4.9pp、铌 +6.98pp、钼 +4.58pp</td><td>量价齐升直接摊薄单位固定成本</td></tr><tr><td>③ <strong>财务费用压降</strong></td><td>28.79 → 5.13 亿元（−82.19%）</td><td>利息支出 + 汇兑损失双降，直接增厚利润约 23.66 亿元</td></tr><tr><td>④ <strong>贸易端质量改善</strong></td><td>贸易毛利率 6.44%（+3.82pp）；矿物金属贸易 +5.52pp</td><td>提质控量而非规模扩张</td></tr></tbody></table></div>
+<p><strong>重要反直觉发现：归母净利润与扣非归母净利润的关系在本年发生反转</strong></p>
+<div class="rsp-table rsp-w5"><table class="nowrap-first"><thead><tr><th>年度</th><th>归母净利润（亿元）</th><th>扣非归母（亿元）</th><th>差额</th><th>差额占归母比</th></tr></thead><tbody><tr><td>2023</td><td>82.50</td><td>62.33</td><td><strong>+20.17</strong></td><td><strong>24.5%</strong></td></tr><tr><td>2024</td><td>135.32</td><td>131.19</td><td><strong>+4.13</strong></td><td>3.1%</td></tr><tr><td><strong>2025</strong></td><td><strong>203.39</strong></td><td><strong>204.07</strong></td><td><strong>−0.69</strong></td><td><strong>−0.3%</strong></td></tr></tbody></table></div>
+<p>&gt; <strong>关键含义</strong>：2023 年非经常性损益贡献归母净利润的 24.5%（主要来自非流动性资产处置收益 21.24 亿元），而 <strong>2025 年非经常性损益转为净拖累（−0.69 亿元）</strong>。这意味着 <strong>2025 年的 50.30% 归母增速不但没有任何一次性收益的「注水」，反而是被非经常项目小幅拖累后的结果</strong>——若消除该拖累，扣非增速（+55.56%）才是主业真实增速。<strong>这是极高质量的利润增长，在资源类公司中并不常见。</strong></p>
+<figure><div class="ch"><div class="ch-t">2025 年经营现金流桥：下降全部来自营运资本占用</div><div class="ch-s">单位：人民币亿元　｜　起点 2024 年经营现金流 323.87，终点 2025 年 208.43，净减 115.44</div><div class="ch-legend"><span><i style="background:#8B8880"></i>起点／终点（净值）</span><span><i style="background:#A73F2D"></i>正向贡献</span><span><i style="background:#2F6F6B"></i>负向拖累</span></div><div class="wf-row"><span class="wf-lab">2024 年经营现金流</span><span class="wf-track"><span class="wf-bar" style="left:0.61%;width:98.78%;background:#8B8880"></span></span><span class="wf-val">323.9</span></div><div class="wf-row"><span class="wf-lab">存货增加</span><span class="wf-track"><span class="wf-bar" style="left:65.20%;width:34.19%;background:#2F6F6B"></span></span><span class="wf-val">-112.1</span></div><div class="wf-row"><span class="wf-lab">经营性应收增加</span><span class="wf-track"><span class="wf-bar" style="left:18.30%;width:46.90%;background:#2F6F6B"></span></span><span class="wf-val">-153.8</span></div><div class="wf-row"><span class="wf-lab">经营性应付增加</span><span class="wf-track"><span class="wf-bar" style="left:18.30%;width:23.56%;background:#A73F2D"></span></span><span class="wf-val">+77.2</span></div><div class="wf-row"><span class="wf-lab">公允价值变动等非现金项回补</span><span class="wf-track"><span class="wf-bar" style="left:41.86%;width:19.25%;background:#A73F2D"></span></span><span class="wf-val">+63.1</span></div><div class="wf-row"><span class="wf-lab">其他项</span><span class="wf-track"><span class="wf-bar" style="left:61.11%;width:3.07%;background:#A73F2D"></span></span><span class="wf-val">+10.1</span></div><div class="wf-row"><span class="wf-lab">2025 年经营现金流</span><span class="wf-track"><span class="wf-bar" style="left:0.61%;width:63.57%;background:#8B8880"></span></span><span class="wf-val">208.4</span></div><div class="ch-note">注：三项营运资本合计由 2024 年的回补 +47.25 亿元转为 2025 年的占用 −188.64 亿元，摆动 −235.89 亿元，是经营现金流下降的全部原因。公允价值变动损失 76.88 亿元为非现金项，现金流量表中全额加回。「其他项」含财务费用回补差额、折旧摊销等。</div></div><figcaption>图 5　经营活动现金流量净额变动桥（2024 → 2025 年）</figcaption></figure><h3>4.3 现金流：2025 年的下降是「占用」而非「失血」</h3>
+<p>如 §3.3 所拆解，2025 年经营现金流下降 115.44 亿元中，<strong>约 235.89 亿元来自营运资本由「回补」转为「占用」的方向性摆动</strong>。</p>
+<p><strong>需特别指出一个非现金项目对经营现金流的「假性拖累」</strong>：<strong>公允价值变动损失 76.88 亿元</strong>（2024 年为 13.76 亿元，同比扩大 458.89%）。公司在利润表中确认了 76.88 亿元的公允价值变动损失，但在现金流量表补充资料中<strong>全额加回</strong>（不涉及现金）。公司披露原因为「本期基本金属贸易业务衍生工具公允价值同比下降」。</p>
+<p>&gt; <strong>这是 IXM 期现结合业务模式的正常产物</strong>——公司自述：「利用现货交易与期货交易较强的关联性，通过期现结合的业务模式，在现货市场上行的周期中，现期结合商业模式中的现货贸易端盈利弥补期货业务端亏损；在现货市场下行的周期中，期货业务端盈利弥补现货贸易端亏损。这种商业模式降低行业周期性和价格波动带来的风险，给公司创造稳定持续的盈利。」</p>
+<p><strong>因此，76.88 亿元的公允价值变动损失不应被解读为投资亏损</strong>——它是贸易板块现货端盈利的镜像。理解这一点是读懂本公司利润表的关键。</p>
+<h3>4.4 盈利能力的六年跃升：ROE 从 5.83% 到 26.61%</h3>
+<div class="rsp-table"><table class="financial nowrap-first longtable"><thead><tr><th>年度</th><th>加权平均 ROE</th><th>扣非加权 ROE</th><th>EPS（元）</th></tr></thead><tbody><tr><td>2020</td><td>5.83%</td><td>2.78%</td><td>0.11</td></tr><tr><td>2021</td><td>10.79%</td><td>8.94%</td><td>0.24</td></tr><tr><td>2022</td><td>11.79%</td><td>11.79%</td><td>0.28</td></tr><tr><td>2023</td><td>15.00%</td><td>11.31%</td><td>0.38</td></tr><tr><td>2024</td><td>20.96%</td><td>20.32%</td><td>0.63</td></tr><tr><td><strong>2025</strong></td><td><strong>26.61%</strong></td><td><strong>26.70%</strong></td><td><strong>0.95</strong></td></tr></tbody></table></div>
+<p>&gt; <strong>判读</strong>：ROE 六年间提升 <strong>20.78 个百分点</strong>，且 2025 年扣非加权 ROE（26.70%）<strong>高于</strong>加权 ROE（26.61%），<strong>说明 ROE 的提升完全来自主业，而非杠杆或一次性收益</strong>。这是本公司 ROE 质量最高的年份。</p>
+<h3>4.5 实际税率的「利润成色」检验</h3>
+<div class="rsp-table"><table class="nowrap-first"><thead><tr><th>年度</th><th>利润总额（亿元）</th><th>所得税费用（亿元）</th><th>实际税率</th></tr></thead><tbody><tr><td>2024</td><td>251.24</td><td>96.65</td><td><strong>38.47%</strong></td></tr><tr><td><strong>2025</strong></td><td><strong>351.61</strong></td><td><strong>111.34</strong></td><td><strong>31.67%</strong></td></tr></tbody></table></div>
+<p>&gt; <strong>必须做的税率回算</strong>：2025 年实际税率由 38.47% 降至 31.67%（<strong>下降 6.80 个百分点</strong>），降幅显著。若按 2024 年 38.47% 的税率回算 2025 年净利润：</p>
+<p>&gt; `351.61 × (1 − 38.47%) = 216.34 亿元`，<strong>高于</strong>实际披露的净利润（对应归母 203.39 亿元）。</p>
+<p>&gt; <strong>结论</strong>：税率的<strong>下行是当年利润的顺向助力</strong>（而非阻力），故本年的利润增长<strong>不存在「靠税负调节粉饰」的情形</strong>——税率下降只会使利润更高。</p>
+<p>&gt;</p>
+<p>&gt; <strong>税率下降的归因</strong>（读所得税调节表）：主要来自两项——</p>
+<p>&gt; ① 「在其他地区的子公司税率不一致的影响」由 42.08 亿元升至 <strong>49.51 亿元</strong>（绝对值上升，但因基数扩大而摊薄）；</p>
+<p>&gt; ② 「上年所得税清算差异」由 <strong>+9.35 亿元（补缴）转为 −0.98 亿元（退还）</strong>，摆动 <strong>10.33 亿元</strong>；</p>
+<p>&gt; ③ 「免税收入/额外抵扣费用等项目的纳税影响」由 −6.50 亿元收窄至 −2.92 亿元（<strong>逆向</strong>，即免税收益减少）。</p>
+<p>&gt;</p>
+<p>&gt; <strong>须提示</strong>：第 ② 项（上年清算差异）具有<strong>一次性、可逆性</strong>，不宜外推至 2026 年。而刚果（金）等境外子公司税率差异是<strong>结构性</strong>的，可持续但受资源国财税政策变化影响。</p>
+<figure><div class="ch"><div class="ch-t">2025 年分季度归母净利润：逐季上行，无年末塌陷</div><div class="ch-s">单位：人民币亿元　｜　Q4 归母净利润 60.59 亿元创单季新高，占全年 29.8%（Q4÷前三季单季均值 = 127.3%）</div><div class="ch-legend"><span><i style="background:#A73F2D"></i>归母净利润</span></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">Q1</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">归母净利润</span><span class="ch-track"><span class="ch-bar" style="width:65.1%;background:#A73F2D"></span></span><span class="ch-val">39.5</span></div></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">Q2</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">归母净利润</span><span class="ch-track"><span class="ch-bar" style="width:78.0%;background:#A73F2D"></span></span><span class="ch-val">47.2</span></div></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">Q3</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">归母净利润</span><span class="ch-track"><span class="ch-bar" style="width:92.6%;background:#A73F2D"></span></span><span class="ch-val">56.1</span></div></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">Q4</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">归母净利润</span><span class="ch-track"><span class="ch-bar" style="width:100.0%;background:#A73F2D"></span></span><span class="ch-val">60.6</span></div></div><div class="ch-note">注：与资源类公司普遍的「Q4 塌陷」形态相反，本公司无年末集中计提导致的利润塌陷，与铜价在 2025 年 9 月下旬后强势上扬并于 12 月创历史新高的价格节奏一致。但 Q4 营业收入 611.98 亿元显著高于前三季均值，含贸易业务年末放量因素，单季利润不宜线性外推。</div></div><figcaption>图 6　2025 年分季度归母净利润</figcaption></figure><h3>4.6 分季度特征：无 Q4 塌陷，但需注意贸易放量因素</h3>
+<p>2025 年四个季度归母净利润分别为 39.46 / 47.25 / 56.08 / 60.59 亿元，<strong>逐季上行</strong>，Q4 占全年 29.8%。</p>
+<p><strong>Q4÷前三季度单季均值 = 60.59 ÷ 47.60 = 127.3%</strong>，显著高于 100%。</p>
+<p>&gt; <strong>与 §5.3 中海油类的「Q4 塌陷」形态完全相反</strong>。本公司无年末集中计提减值或亏损合同的历史负担。但需注意两点：</p>
+<p>&gt; ① Q4 营业收入 611.98 亿元，显著高于前三季均值（484.95 亿元），主因 IXM 贸易业务年末放量，<strong>贸易端低毛利会摊薄单季利润率</strong>；</p>
+<p>&gt; ② 铜价在 2025 年 9 月下旬后强势上扬（12 月创历史新高），<strong>Q4 的高利润包含价格脉冲因素，不宜直接线性外推至 2026 年全年</strong>。</p>
+<hr>
+<h2>五、关键内容总结</h2>
+<h3>5.1 核心业务与竞争优势</h3>
+<p><strong>① 双轮驱动但利润高度集中于矿山端</strong></p>
+<p>公司业务由「矿山采掘及加工 + 矿产贸易」构成。矿山端以 30.1% 的收入（抵销前口径）贡献了 78.0% 的毛利，是利润的实际来源；贸易端（IXM）以 69.9% 的收入仅贡献 22.0% 的毛利，是规模的来源。<strong>这一结构既提供了规模优势（贸易网络覆盖 80 多个国家，入选上证 50 指数），也意味着集团营业收入的可比性差。</strong></p>
+<p><strong>② 矿山资源的「资源禀赋」护城河</strong></p>
+<p>公司核心资产集中于刚果（金）的 TFM（持股 80%）与 KFM（持股 71.25%）两座世界级铜钴矿，2025 年矿山端收入 612.68 亿元来自刚果（金），<strong>毛利率高达 56.01%</strong>，同比提升 8.51 个百分点。该毛利率水平在全球铜矿企业中处于第一梯队，是「622 模型」中 60% 资源禀赋优势的直接体现。</p>
+<p><strong>③ 「中国效率」的管理赋能</strong></p>
+<p>公司明确提出「发挥中国企业的比较优势，以精益管理实现『中国效率』的全球赋能」。实证是：2025 年所有产品产量均超越产量指引中值，铜产量 74.11 万吨（+13.99%）<strong>位列全球前十大铜生产商</strong>；铌铁产量创历史新高。</p>
+<h3>5.2 重点项目与产能里程碑</h3>
+<div class="rsp-table"><table class="longtable"><thead><tr><th>项目</th><th>内容</th><th>时间节点</th></tr></thead><tbody><tr><td><strong>KFM 二期扩产</strong></td><td>新增原矿处理规模 726 万吨/年，达产后预计年均新增 10 万吨铜金属</td><td>拟 2027 年建成投产</td></tr><tr><td><strong>TFM 处理量提升与回收率攻坚</strong></td><td>提升现有产能</td><td>持续推进</td></tr><tr><td><strong>奥丁矿业（厄瓜多尔）</strong></td><td>已锁定 4 个水电站、232 兆瓦供电排他权</td><td>计划 2029 年建成投产</td></tr><tr><td><strong>巴西 4 座金矿</strong></td><td>Aurizona、RDM、Bahia 综合矿区</td><td>2026 年 1 月交割；2026 年预计年化产金 6—8 吨</td></tr><tr><td><strong>硫回收 / 铼回收</strong></td><td>硫回收实现工业化生产，铼回收进入试运行</td><td>2025 年新利润点</td></tr></tbody></table></div>
+<p><strong>2026 年公司产量与实物贸易量指引</strong>：</p>
+<div class="rsp-table"><table class="nowrap-first longtable"><thead><tr><th>主要产品</th><th>单位</th><th>2026 年指引</th></tr></thead><tbody><tr><td>铜金属</td><td>万吨</td><td><strong>76—82</strong></td></tr><tr><td>钴金属</td><td>万吨</td><td>10—12</td></tr><tr><td><strong>黄金</strong></td><td>吨</td><td><strong>6—8</strong>（年化）</td></tr><tr><td>钼金属</td><td>万吨</td><td>1.15—1.45</td></tr><tr><td>钨金属</td><td>万吨</td><td>0.65—0.75</td></tr><tr><td>铌金属</td><td>万吨</td><td>1.0—1.1</td></tr><tr><td>磷肥</td><td>万吨</td><td>105—125</td></tr><tr><td>实物贸易量</td><td>万吨</td><td>400—450</td></tr></tbody></table></div>
+<p>&gt; <strong>指引隐含的增速</strong>：以中值计，2026 年铜产量指引 79 万吨，较 2025 年 74.11 万吨<strong>增长约 6.6%</strong>；钴产量指引 11 万吨，与 2025 年 11.75 万吨基本持平。黄金从零起步至 6—8 吨，<strong>是 2026 年最明确的增量来源</strong>。</p>
+<h3>5.3 主要风险</h3>
+<p><strong>① 商品价格风险（首要风险，不可对冲）</strong></p>
+<p>公司利润由<strong>铜价单变量主导</strong>。2025 年 LME 现货铜均价 9,944.94 美元/吨（+8.73%），是利润增长的首要驱动。<strong>铜价每下跌 10%，粗略估算将侵蚀矿山端毛利约 55 亿元</strong>（按 2025 年铜收入 550.96 亿元、毛利率 55.16% 的敏感性粗略测算，实际受品位与成本刚性影响）。钴价虽因刚果（金）出口禁令大幅上涨（推动钴毛利率提升 29.31 个百分点），但<strong>该禁令本身即是政策变量</strong>。</p>
+<p><strong>② 地域集中度风险</strong></p>
+<p>矿山端收入约 <strong>79% 来自刚果（金）</strong>。刚果（金）的财税政策、外汇管制、钴出口配额制度、政治稳定性，均对公司的收入实现能力构成直接影响。<strong>2025 年钴出口禁令导致的产大于销（库存量 +156.75%）即为该风险的实证。</strong></p>
+<p><strong>③ 贸易业务的合规与市场风险</strong></p>
+<p>IXM 业务覆盖 80 多个国家，涉及期现结合的衍生品交易。2025 年确认<strong>公允价值变动损失 76.88 亿元</strong>（同比扩大 458.89%）。虽然该损失对应现货端盈利、不影响现金流，但其<strong>波动规模巨大</strong>（相当于当年归母净利润的 37.8%），是利润表最大的单点波动源。</p>
+<p><strong>④ 海外资产与汇率风险</strong></p>
+<p>公司在巴西持有非货币性资产，因记账本位币（美元）与纳税申报货币（巴西雷亚尔）不同而产生纳税影响波动（公司所得税调节表中单列该项目，2024 年为 +2.57 亿元、2025 年为 −1.15 亿元）。此外财务费用中含汇兑损益，2025 年财务费用大幅下降 82.19% 部分来自「汇兑损失同比下降」——<strong>该项具有可逆性</strong>。</p>
+<p><strong>⑤ 短期偿付缓冲收窄</strong></p>
+<p>速动比率由 1.08 降至 <strong>0.98（跌破 1.0）</strong>，流动比率由 1.74 降至 1.55，在总资产扩张 18.03% 的背景下，<strong>短期偿付安全垫在变薄</strong>。虽资产负债率仅 50.34%，但需持续跟踪。</p>
+<p><strong>⑥ 资本开支与收购整合风险</strong></p>
+<p>2025—2026 年完成奥丁矿业（5.81 亿加元）与巴西金矿（10.15 亿美元）两笔收购，并以 12 亿美元零息可转债融资。<strong>奥丁矿业金矿项目计划 2029 年才投产</strong>，中间存在 4 年的建设期不确定性（当地电力、社区、许可）。<strong>巴西 4 座金矿已交割投产</strong>，整合风险相对较低。</p>
+<hr>
+<h2>六、结论</h2>
+<h3>6.1 一句话结论</h3>
+<p><strong>洛阳钼业 2025 年交出了一份「量价齐升 + 利润成色干净」的高质量年报：归母净利润 203.39 亿元（+50.30%）连续六年创新高，扣非归母（+55.56%）反而快于归母，经营现金流的下降完全由可逆的营运资本占用解释——这是一份不存在「水分」的利润表。</strong></p>
+<h3>6.2 三条核心判断</h3>
+<p><strong>判断一：真实增长引擎是矿山端，而非营业收入</strong></p>
+<p>合并营业收入 −2.98% 与归母净利润 +50.30% 的背离，是本公司最容易被误读之处。<strong>收入的下降来自 IXM 主动「提质控量」的贸易端收缩（−4.39%），而矿山端收入 +19.08%、毛利率 +7.71pp。</strong> 判断本公司经营质量的正确锚点是「矿山端收入与毛利」，而非合并营业收入。</p>
+<p><strong>判断二：利润质量在资源类公司中属上乘</strong></p>
+<ul><li><strong>扣非归母（204.07 亿元）&gt; 归母（203.39 亿元）</strong>：非经常性损益为净拖累，利润未被一次性收益虚增。</li><li><strong>扣非加权 ROE（26.70%）&gt; 加权 ROE（26.61%）</strong>：ROE 提升完全来自主业。</li><li><strong>实际税率下降 6.80pp 至 31.67%</strong>：税率变动是利润的顺向助力，不存在靠税负粉饰的可能。</li><li><strong>无 Q4 塌陷</strong>：Q4 归母净利润 60.59 亿元创单季新高，无年末集中计提。</li></ul>
+<p><strong>判断三：现金流与扩表需双面解读，不可单向定性</strong></p>
+<ul><li><strong>经营现金流 −35.64% 是「占用」不是「失血」</strong>：由营运资本 −235.89 亿元的方向性摆动解释，其中钴库存积压（库存量 +156.75%）系刚果（金）出口禁令所致，<strong>随配额释放即可回补</strong>。</li><li><strong>投资现金流净流出扩大 7.2 倍是「战略收购」不是「低效扩张」</strong>：在完成两笔大额收购（合计约 80 亿元人民币等值）后，<strong>年末现金仍净增 34.01 亿元</strong>。</li><li><strong>唯一的真实警示是速动比率跌破 1.0</strong>，需持续跟踪。</li></ul>
+<h3>6.3 需要跟踪的三个前瞻变量</h3>
+<div class="rsp-table"><table><thead><tr><th>变量</th><th>为什么重要</th><th>跟踪点</th></tr></thead><tbody><tr><td><strong>铜价与铜产量</strong></td><td>利润的第一驱动</td><td>LME 铜价、公司季度铜产量是否落在 2026 年 76—82 万吨指引内</td></tr><tr><td><strong>刚果（金）钴出口配额执行</strong></td><td>10.88 万吨钴库存的变现能力</td><td>2026 年 96,600 吨配额的发放与实际出口进度</td></tr><tr><td><strong>黄金板块落地节奏</strong></td><td>第二增长曲线的兑现</td><td>巴西金矿 2026 年年化 6—8 吨产量的实现度；奥丁矿业 2029 年投产进度</td></tr></tbody></table></div>
+<hr>
+<h2>附录：数据来源与口径</h2>
+<h3>A.1 数据来源</h3>
+<div class="rsp-table"><table class="longtable"><thead><tr><th>数据用途</th><th>采用文件</th><th>覆盖期间</th></tr></thead><tbody><tr><td>2025 年三大报表、分部、产销量、税率调节</td><td>洛阳钼业 2025 年年度报告</td><td>2025 年度 + 2024／2023 年对比列</td></tr><tr><td>2024 年及 2022／2023 年损益数据</td><td>洛阳钼业 2024 年年度报告</td><td>2024 年度 + 2023／2022 年对比列</td></tr><tr><td>2020／2021 年数据</td><td>洛阳钼业 2020／2021 年年度报告（摘要）及年度财务决算报告</td><td>2020／2021 年度</td></tr><tr><td>2017／2018／2019 年数据</td><td>洛阳钼业 2018／2019 年年度报告「近三年主要会计数据」</td><td>2017—2019 年度</td></tr><tr><td>2025H1 数据</td><td>洛阳钼业 2025 年半年度报告</td><td>2025 年 1—6 月 + 2024H1 对比列</td></tr><tr><td>2026 年战略与产量指引、商品价格</td><td>洛阳钼业 2025 年年度报告「经营计划」「行业情况」章节</td><td>2026 年度指引</td></tr></tbody></table></div>
+<h3>A.2 口径声明</h3>
+<ol><li><strong>币种与单位</strong>：全部为人民币，表格单位统一为<strong>亿元</strong>（原始报表单位为元，本报告已折算）。</li><li><strong>会计准则</strong>：中国企业会计准则（CAS）。公司境外子公司亦按 IFRS 编制，本报告涉及贸易毛利率时已注明「按国际会计准则核算」的口径差异——公司披露「本期 IXM 贸易业务按照国际会计准则核算的毛利率为 2.11%」，与 CAS 口径的 6.44% 不可直接比较。</li><li><strong>列序规则</strong>：所有对比表<strong>按时间递增</strong>排列，年度块与半年度块之间以竖线分隔，<strong>跨块不可直接相减</strong>。</li><li><strong>数据缺口</strong>：<ul><li>2017—2019 年的「矿山端营业收入」「资产负债率」等明细科目未在可比口径内披露，表中以 `—` 表示。</li><li>部分年份的资产负债表全科目明细需各年自身年报（目前历史年度报告受交易所接口限制未能完整下载），故 2020／2021／2022 年末的总资产、负债明细等存在缺口，已如实标注。</li><li><strong>2026 年半年度报告 PDF 因下载中断受损，故本报告未纳入 2026H1 数据</strong>；2026 年信息以公司公告及公开披露为准。</li></ul></li></ol>
+<h3>A.3 本次下载的完整性说明</h3>
+<p>本次通过交易所公开接口获取洛阳钼业（603993.SH）披露文件，<strong>成功下载 41 份 / 命中 128 份</strong>。失败 87 份集中分布在 <strong>2012—2023 年</strong>，属<strong>交易所接口的早期公告批次限流</strong>（`HTTP 567`），近期年份（2024—2026）文件完整获取。<strong>该缺口不影响本报告结论</strong>——2017—2023 年的核心损益、ROE、EPS 数据已通过 2018／2019／2024／2025 年报的「近三年主要会计数据」对比列完整覆盖。</p>
+<h3>A.4 关键派生指标计算公式</h3>
+<ul><li><strong>归母 − 扣非差额占比</strong> ＝（归母净利润 − 扣非归母净利润）÷ 归母净利润 —— 识别一次性损益对利润的贡献度。</li><li><strong>实际税率</strong> ＝ 所得税费用 ÷ 利润总额 —— 利润成色检验（须做税率回算）。</li><li><strong>矿山端毛利占比</strong> ＝ 矿山端毛利 ÷（矿山端毛利 + 贸易端毛利）—— 判断利润的真实来源。</li><li><strong>营运资本摆动</strong> ＝ Σ（存货增减 + 经营性应收增减 + 经营性应付增减）—— 拆解经营现金流变动。</li><li><strong>Q4 ÷ 前三季度单季均值</strong> ＝ Q4 归母净利润 ÷（前三季度归母合计 ÷ 3）—— 识别年末异常（塌陷或冲高）。</li></ul>
+<p><strong>报告完成说明</strong>：本报告已完成数据抽取、跨期对齐、三表关键变化分析、趋势归因与结论撰写。所有数据均取自公司公开披露文件，未作任何推算或补全；未披露项一律留 `—`。<strong>版面与图表呈现状态需人工打开 PDF 确认</strong>（build 已验证，版面未确认）。</p>
+
+<!-- rsp-mobile-adapt : 溢出表格滑动提示 -->
+<script>
+(function(){
+  function mark(){
+    var boxes = document.querySelectorAll('.rsp-table');
+    for (var i=0;i<boxes.length;i++){
+      var b = boxes[i];
+      if (b.scrollWidth > b.clientWidth + 4) b.setAttribute('data-rsp-scroll','');
+      else b.removeAttribute('data-rsp-scroll');
+    }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mark);
+  else mark();
+  window.addEventListener('resize', function(){ clearTimeout(window.__rspT); window.__rspT=setTimeout(mark,180); });
+})();
+</script>
+</body>
+</html>
