@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>从 56 家公司中选出 10 家：私募视角的投资排序（第 3 版）</title>
+<title>从 60 家公司中选出 10 家：私募视角的投资排序（第 3 版 · 2026-10-27 复核）</title>
 <meta name="generator" content="financial-report-analysis">
 <style>
   @font-face {
@@ -141,6 +141,14 @@
   table.wide th, table.wide td { padding:2.6pt 3pt; }
   table.wide th:nth-child(3), table.wide td:nth-child(3),
   table.wide th:nth-child(4), table.wide td:nth-child(4) { white-space:nowrap; }
+  /* 末列为成段文字的表：左对齐（右对齐会让每行都贴右边缘、参差不齐） */
+  table.financial.prose th:last-child,
+  table.financial.prose td:last-child { text-align:left; }
+  /* 7 列的入选表：第 5 列（核心逻辑）常被压成 4—5 字一行，给下限宽度 */
+  table.wide th:nth-child(5), table.wide td:nth-child(5) { min-width:94px; }
+  /* 第 2 列为成段文字时允许折行，并给下限宽度，避免被挤成 7—8 字一行 */
+  table.wrap2 th:nth-child(2), table.wrap2 td:nth-child(2) { white-space:normal; min-width:132px; }
+  table.wrap2 th:first-child, table.wrap2 td:first-child { min-width:86px; }
   blockquote { font-size:8.6pt; }
   /* 超长表（落选清单等）：允许跨页断行，表头重复，但**不要**给每个 tr 加强制同页
      ——行本身很高，强制同页会把整表推到下一页，产生低墨迹孤页 */
@@ -288,10 +296,11 @@
 </style>
 </head>
 <body>
-<h1>从 56 家公司中选出 10 家：私募视角的投资排序（第 3 版）</h1>
-<blockquote class="note">数据来源：本工作区 <strong>55 份已生成的财报分析报告</strong>（覆盖 56 家公司；其中一份为五粮液×贵州茅台双公司对比）。<br>口径说明：<strong>所有财务数字均逐项摘自本地报告原文</strong>，报告未载的项一律标注"报告未载"，不作推测。<br>本文件为投资研究分析，不构成投资建议。</blockquote>
+<h1>从 60 家公司中选出 10 家：私募视角的投资排序（第 3 版 · 2026-10-27 复核）</h1>
+<blockquote class="note">数据来源：本工作区 <strong>59 份已生成的财报分析报告</strong>（覆盖 60 家公司；其中一份为五粮液×贵州茅台双公司对比）。<br>口径说明：<strong>所有财务数字均逐项摘自本地报告原文</strong>，报告未载的项一律标注"报告未载"，不作推测。<br>本文件为投资研究分析，不构成投资建议。</blockquote>
+<blockquote class="note"><strong>2026-10-27 复核结论：名单、位次、权重全部不变。</strong> 复核期内报告库新增 4 家（阿里巴巴、中国中免、阿里健康、鱼跃医疗），另有一家更新至 2026 年三季报（洛阳钼业）。四家新公司的最高分（鱼跃医疗 6.38）距第 10 名门槛（7.59）仍有 1.21 分；洛阳钼业的三季报带来三项负面事实，但<strong>净影响落在评分噪声带内，按"不为噪声换仓"的原则保留原评分与位次，改为设定硬触发条件</strong>（详见第四、五节）。本次只同步口径、补录新公司评分、更新洛阳钼业数据窗口。</blockquote>
 <h2>一、先说四个必须交代的前提</h2>
-<p><strong>1. 报告里仍然没有估值。</strong> 本轮样本扩充到 56 家，<strong>其中 55 家的 PE、PB、市值依然全部"报告未载"</strong>——唯一的例外仍是携程集团（"市值约 2,035 亿港元、静态 PE 约 5—6 倍"，报告自注"非核心、仅供参考"）。新增的 11 家里，只有渣打银行给出"每股有形资产净值 1,730 仙"、汇丰控股给出"每股账面净值 10.36 美元"，<strong>都不是 PB 本身</strong>（缺当期股价无法换算）。所以本排序<strong>依然无法做估值维度的比较</strong>，是一份"质量—安全—回报"驱动的排序，不是"性价比"排序。<strong>同一份质量打分，40 倍 PE 和 12 倍 PE 是两个完全不同的决策，建仓前必须补这一层。</strong></p>
+<p><strong>1. 报告里仍然基本没有估值。</strong> 本轮样本 60 家，<strong>其中 58 家的 PE、PB、市值依然"报告未载"</strong>——载有估值的只有 2 家：携程集团（"市值约 2,035 亿港元、静态 PE 约 5—6 倍"，报告自注"非核心、仅供参考"）与<strong>鱼跃医疗</strong>（静态 PE 19.1×、TTM PE 24.7×、PB 2.20、市值 283.57 亿元）。<strong>但一个是旅游平台、一个是家用器械，时点与口径都不同，两家凑不出横截面。</strong> 另有渣打银行给出"每股有形资产净值 1,730 仙"、汇丰控股给出"每股账面净值 10.36 美元"，<strong>都不是 PB 本身</strong>（缺当期股价无法换算）。所以本排序<strong>依然无法做估值维度的比较</strong>，是一份"质量—安全—回报"驱动的排序，不是"性价比"排序。<strong>同一份质量打分，40 倍 PE 和 12 倍 PE 是两个完全不同的决策，建仓前必须补这一层。</strong></p>
 <p><strong>2. 口径不完全可比，且本轮新增两个"跨市场不可比"的坑。</strong></p>
 <ul>
 <li><strong>港资/国际银行不适用内地监管口径。</strong> 渣打银行与汇丰控股的报告均明确声明<strong>不采用"不良贷款率／拨备覆盖率"框架</strong>，改用 IFRS 9 三阶段／预期信贷损失口径；渣打报告原文：「<strong>不可将"第三阶段贷款占比"直接等同于"不良率"</strong>」。因此<strong>跨行对照时，渣打 2.05% 与招行 0.94% 不能直接比较</strong>。</li>
@@ -304,51 +313,51 @@
 <li><strong>东阿阿胶</strong>：报告专项发现其 2025 年报"2023 年调整后"列营收 58.64 亿元与原报 47.15 亿元严重矛盾，报告判定<strong>该列不可引用</strong>。</li>
 <li><strong>华润医药</strong>：2025 年净利增长 46.7% 来自实际税率下行（23.11%→18.17%），非经营改善。</li>
 </ul>
-<p><strong>4. 本轮新增 11 家，其中 3 家足以改变前 10 名。</strong> 样本从 44 家扩到 56 家，新增：紫金矿业、洛阳钼业、渣打银行、中银香港、汇丰控股、珀莱雅、香港中华煤气、浦发银行、上海银行、北京银行、美团。<strong>紫金矿业（7.89）、洛阳钼业（7.78）、渣打银行（7.59）三家评分均高于第 2 版第 10 名的招商银行（7.25），直接挤掉了后三名。</strong></p>
+<p><strong>4. 第 3 版初稿新增 11 家、挤掉 3 席；2026-10-27 复核新增的 4 家，一家都没挤进来。</strong> 第 3 版初稿：样本从 44 家扩到 56 家，新增紫金矿业、洛阳钼业、渣打银行、中银香港、汇丰控股、珀莱雅、香港中华煤气、浦发银行、上海银行、北京银行、美团。<strong>紫金矿业（7.89）、洛阳钼业（7.78）、渣打银行（7.59）三家评分均高于第 2 版第 10 名的招商银行（7.25），直接挤掉了后三名。</strong> 2026-10-27 复核新增 4 家：鱼跃医疗（6.38）、中国中免（5.83）、阿里巴巴（5.68）、阿里健康（5.62）——<strong>最高的一家距第 10 名还差 1.21 分，没有一家接近入选线。名单与权重不动。</strong> 同期洛阳钼业报告由 2026 中报更新至三季报，带来三项新的负面事实（经营现金流／归母降至 0.56 倍、Q3 单季经营现金流 −28.62 亿、有息负债 +84.8%），<strong>但不足以触发换仓</strong>，处理方式与触发条件见第五节①-补二。</p>
 <h2>二、评分方法</h2>
 <p>私募做组合，先看<strong>能不能长期赚钱（质量）</strong>，再看<strong>赚的是不是真钱（现金流）</strong>，然后看<strong>还能不能长大（成长）</strong>、<strong>会不会被债务拖死（安全）</strong>，最后看<strong>愿不愿意分给我（股东回报）</strong>。</p>
 <div class="rsp-table"><table class="financial">
-<thead><tr><th>维度</th><th>权重</th><th>主要锚点</th></tr></thead>
+<thead><tr><th style="text-align:left">维度</th><th style="text-align:right">权重</th><th style="text-align:left">主要锚点</th></tr></thead>
 <tbody>
 <tr>
-<td>生意质量 / 护城河</td><td>25%</td><td>毛利率、ROE 水平、不可复制性</td>
+<td style="text-align:left">生意质量 / 护城河</td><td style="text-align:right">25%</td><td style="text-align:left">毛利率、ROE 水平、不可复制性</td>
 </tr>
 <tr>
-<td>盈利质量与现金转化</td><td>20%</td><td>经营现金流 / 归母净利、净现金状况、利润是否依赖非经常项</td>
+<td style="text-align:left">盈利质量与现金转化</td><td style="text-align:right">20%</td><td style="text-align:left">经营现金流 / 归母净利、净现金状况、利润是否依赖非经常项</td>
 </tr>
 <tr>
-<td>成长性与可持续性</td><td>20%</td><td>近两期收入与利润趋势、最新中报动能、增长来源质量</td>
+<td style="text-align:left">成长性与可持续性</td><td style="text-align:right">20%</td><td style="text-align:left">近两期收入与利润趋势、最新中报动能、增长来源质量</td>
 </tr>
 <tr>
-<td>资产负债表安全</td><td>20%</td><td>资产负债率、有息负债、资本缓冲</td>
+<td style="text-align:left">资产负债表安全</td><td style="text-align:right">20%</td><td style="text-align:left">资产负债率、有息负债、资本缓冲</td>
 </tr>
 <tr>
-<td>股东回报</td><td>15%</td><td>分红率、分红承诺、回购</td>
+<td style="text-align:left">股东回报</td><td style="text-align:right">15%</td><td style="text-align:left">分红率、分红承诺、回购</td>
 </tr>
 </tbody></table></div>
-<p><strong>为什么不用单一 ROE 排序</strong>——样本扩到 56 家后，"高质量假象"已凑齐<strong>五类</strong>（本轮新增第五类）：</p>
-<div class="rsp-table"><table class="financial longtable">
-<thead><tr><th>陷阱</th><th>信号</th><th>本次样本实例</th></tr></thead>
+<p><strong>为什么不用单一 ROE 排序</strong>——样本扩到 60 家后，"高质量假象"已凑齐<strong>五类</strong>（本轮新增第五类）：</p>
+<div class="rsp-table"><table class="financial prose wrap2 longtable">
+<thead><tr><th style="text-align:left">陷阱</th><th style="text-align:left">信号</th><th style="text-align:left">本次样本实例</th></tr></thead>
 <tbody>
 <tr>
-<td>非现金利润</td><td>权益法 / 联营收益占归母比重高，且经营现金流远低于净利</td><td><strong>藏格矿业</strong> 2025 年权益法收益 27.82 亿占归母 <strong>72.23%</strong>（2026H1 达 <strong>78.03%</strong>），经营现金流仅为净利 <strong>54.5%</strong>，且扣非<strong>不剔除</strong>该收益；<strong>香港中华煤气</strong> 2026H1 归母 +22.82% 中主营业务<strong>实为 −4.45%</strong>，全靠「所佔联营公司业绩 +869.6 百万港元」</td>
+<td style="text-align:left">非现金利润</td><td style="text-align:left">权益法 / 联营收益占归母比重高，且经营现金流远低于净利</td><td style="text-align:left"><strong>藏格矿业</strong> 2025 年权益法收益 27.82 亿占归母 <strong>72.23%</strong>（2026H1 达 <strong>78.03%</strong>），经营现金流仅为净利 <strong>54.5%</strong>，且扣非<strong>不剔除</strong>该收益；<strong>香港中华煤气</strong> 2026H1 归母 +22.82% 中主营业务<strong>实为 −4.45%</strong>，全靠「所佔联营公司业绩 +869.6 百万港元」</td>
 </tr>
 <tr>
-<td>资产处置型增长</td><td>归母增速远超扣非增速</td><td><strong>药明康德</strong> 2025 年归母 +102.65% vs 扣非 +32.56%（差额 59.10 亿为出售药明合联股权）；<strong>携程</strong> 2025 年归母 +95.1% 含 MakeMyTrip 处置收益 152 亿（占税前利润 54.9%）；<strong>珀莱雅</strong> 2026H1 归母 +46.26% 全由花知晓 4.45 亿无现金重估贡献，<strong>剔除后约 −9.6%（扣非 −13.80%）</strong>；<strong>汇丰控股</strong> 2026H1 除税前利润 +23.48%，其中约一半来自 2025H1 交行减值 21 亿美元的基数反转</td>
+<td style="text-align:left">资产处置型增长</td><td style="text-align:left">归母增速远超扣非增速</td><td style="text-align:left"><strong>药明康德</strong> 2025 年归母 +102.65% vs 扣非 +32.56%（差额 59.10 亿为出售药明合联股权）；<strong>携程</strong> 2025 年归母 +95.1% 含 MakeMyTrip 处置收益 152 亿（占税前利润 54.9%）；<strong>珀莱雅</strong> 2026H1 归母 +46.26% 全由花知晓 4.45 亿无现金重估贡献，<strong>剔除后约 −9.6%（扣非 −13.80%）</strong>；<strong>汇丰控股</strong> 2026H1 除税前利润 +23.48%，其中约一半来自 2025H1 交行减值 21 亿美元的基数反转</td>
 </tr>
 <tr>
-<td>以信用换收入</td><td>应收暴增＋收现比下滑＋经营现金流骤降</td><td><strong>东阿阿胶</strong> 2026H1 应收 +345%、收现比 90.02%、经营现金流 0.82 亿（<strong>−91.56%</strong>），却仍 <strong>100% 分红</strong></td>
+<td style="text-align:left">以信用换收入</td><td style="text-align:left">应收暴增＋收现比下滑＋经营现金流骤降</td><td style="text-align:left"><strong>东阿阿胶</strong> 2026H1 应收 +345%、收现比 90.02%、经营现金流 0.82 亿（<strong>−91.56%</strong>），却仍 <strong>100% 分红</strong></td>
 </tr>
 <tr>
-<td>加杠杆分红</td><td>净现金转净债务 / 有息负债激增 / 分红超自由现金流</td><td><strong>中国石化</strong> 债务净额由 2021 年净现金 918.74 亿转为 2025 年净债务 <strong>2,046.47 亿</strong>；<strong>老铺黄金</strong> 经营现金流 2023—2025 <strong>连续三年为负</strong>（累计 −81.05 亿），有息负债一年 +356%；<strong>香港中华煤气</strong> 分红率 <strong>114.82%</strong>、连续七年超 100%，<strong>十年累计分红是同期自由现金流的 2.03 倍</strong>，缺口由借贷净增 264.53 亿元补足</td>
+<td style="text-align:left">加杠杆分红</td><td style="text-align:left">净现金转净债务 / 有息负债激增 / 分红超自由现金流</td><td style="text-align:left"><strong>中国石化</strong> 债务净额由 2021 年净现金 918.74 亿转为 2025 年净债务 <strong>2,046.47 亿</strong>；<strong>老铺黄金</strong> 经营现金流 2023—2025 <strong>连续三年为负</strong>（累计 −81.05 亿），有息负债一年 +356%；<strong>香港中华煤气</strong> 分红率 <strong>114.82%</strong>、连续七年超 100%，<strong>十年累计分红是同期自由现金流的 2.03 倍</strong>，缺口由借贷净增 264.53 亿元补足</td>
 </tr>
 <tr>
-<td><strong>行业利润与现金流长期背离</strong>（本轮新增）</td><td>十年维度上收入增、利润减同时发生</td><td><strong>香港中华煤气</strong> 十年营业额 <strong>+90.24%</strong> 而股东应占溢利 <strong>−22.51%</strong>、净利率由 25.71% 腰斩至 <strong>10.47%</strong>；主因业务重心从高毛利香港（EBITDA 利润率 50.36%）转向受管制定价的内地（14.86%，仅香港的 29.5%）。<strong>这是"成长"本身不产生价值的最干净样本</strong></td>
+<td style="text-align:left"><strong>行业利润与现金流长期背离</strong>（本轮新增）</td><td style="text-align:left">十年维度上收入增、利润减同时发生</td><td style="text-align:left"><strong>香港中华煤气</strong> 十年营业额 <strong>+90.24%</strong> 而股东应占溢利 <strong>−22.51%</strong>、净利率由 25.71% 腰斩至 <strong>10.47%</strong>；主因业务重心从高毛利香港（EBITDA 利润率 50.36%）转向受管制定价的内地（14.86%，仅香港的 29.5%）。<strong>这是"成长"本身不产生价值的最干净样本</strong></td>
 </tr>
 </tbody></table></div>
 <blockquote class="note"><strong>判据</strong>：分红的钱从哪来，比分红率数字本身重要得多。</blockquote>
-<figure><div class="fig"><div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 552" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="TsangerJinKai02, Source Han Serif SC, Songti SC, Georgia, serif">
-<rect x="0" y="0" width="680" height="552" fill="#FBF9F4"/>
+<figure><div class="fig"><div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 563" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="TsangerJinKai02, Source Han Serif SC, Songti SC, Georgia, serif">
+<rect x="0" y="0" width="680" height="563" fill="#FBF9F4"/>
 <text x="20" y="17" font-size="10.5" fill="#22262B" font-weight="500">图 1　候选池五维加权评分（0—9 分）</text>
 <line x1="86.0" y1="32" x2="86.0" y2="478" stroke="#EFEBE3" stroke-width="0.7"/>
 <text x="86.0" y="35.0" font-size="8.2" fill="#7C7B77" text-anchor="middle">0</text>
@@ -432,106 +441,159 @@
 <text x="510.8" y="474.0" font-size="8.4" fill="#7C7B77" text-anchor="start" font-weight="400">7.21</text>
 <text x="20" y="498.0" font-size="8.2" fill="#A73F2D">■ 入选组合（10 家）</text>
 <text x="200" y="498.0" font-size="8.2" fill="#7C7B77">■ 备选 / 未入选</text>
-<text x="20" y="520.0" font-size="8" fill="#7C7B77">注：权重为生意质量 25%、盈利质量与现金转化 20%、成长性 20%、资产负债表安全 20%、股东回报 15%。本版新增 11 家后，紫金矿业（7.89）、洛阳钼业（7.78）、渣</text>
-<text x="20" y="531.0" font-size="8" fill="#7C7B77">打银行（7.59）三家评分均高于上一版第 10 名的招商银行（7.25），直接挤掉山西汾酒、中国平安、招商银行；汾酒与平安评分一字未动，属被挤出而非变差，详见正文第四、</text>
-<text x="20" y="542.0" font-size="8" fill="#7C7B77">五节。</text>
+<text x="20" y="520.0" font-size="8" fill="#7C7B77">注：权重为生意质量 25%、盈利质量与现金转化 20%、成长性 20%、资产负债表安全 20%、股东回报 15%。第 3 版初稿新增 11 家后，紫金矿业（7.89）、洛阳钼业（7.78）、</text>
+<text x="20" y="531.0" font-size="8" fill="#7C7B77">渣打银行（7.59）三家评分均高于上一版第 10 名的招商银行（7.25），直接挤掉山西汾酒、中国平安、招商银行；汾酒与平安评分一字未动，属被挤出而非变差。2026-10-2</text>
+<text x="20" y="542.0" font-size="8" fill="#7C7B77">7 复核再新增 4 家——鱼跃医疗 6.38、中国中免 5.83、阿里巴巴 5.68、阿里健康 5.62，最高的一家距第 10 名门槛仍差 1.21 分，故评分序列、位次与权重均未变动，</text>
+<text x="20" y="553.0" font-size="8" fill="#7C7B77">详见正文第四、五节。</text>
 </svg></div></div><figcaption>图 1　候选池五维加权评分</figcaption></figure><h2>三、入选的 10 家（排序）</h2>
-<div class="rsp-table rsp-w7"><table class="financial longtable wide">
-<thead><tr><th>排序</th><th>公司</th><th>代码</th><th>权重</th><th>核心逻辑</th><th>关键数据（报告原载）</th><th>最需要盯的风险</th></tr></thead>
+<div class="rsp-table rsp-w7"><table class="financial prose longtable wide">
+<thead><tr><th style="text-align:right">排序</th><th style="text-align:left">公司</th><th style="text-align:left">代码</th><th style="text-align:right">权重</th><th style="text-align:left">核心逻辑</th><th style="text-align:left">关键数据（报告原载）</th><th style="text-align:left">最需要盯的风险</th></tr></thead>
 <tbody>
 <tr>
-<td>1</td><td>贵州茅台</td><td>600519.SH</td><td>14%</td><td>唯一"生意质量＋资产负债表＋分红"三项全优的资产</td><td>毛利率 91.18%、净利率 48.76%、ROE 32.53%、资产负债率 16.42%、经营现金流 615.22 亿、分红率 79.0%、无有息负债；2026H1 营收 +1.47% 已回正</td><td>合同负债连续两年退潮（80.07→31.78 亿，−42.3%）；2025Q4 收入 −19.4%</td>
+<td style="text-align:right">1</td><td style="text-align:left">贵州茅台</td><td style="text-align:left">600519.SH</td><td style="text-align:right">14%</td><td style="text-align:left">唯一"生意质量＋资产负债表＋分红"三项全优的资产</td><td style="text-align:left">毛利率 91.18%、净利率 48.76%、ROE 32.53%、资产负债率 16.42%、经营现金流 615.22 亿、分红率 79.0%、无有息负债；2026H1 营收 +1.47% 已回正</td><td style="text-align:left">合同负债连续两年退潮（80.07→31.78 亿，−42.3%）；2025Q4 收入 −19.4%</td>
 </tr>
 <tr>
-<td>2</td><td>海天味业</td><td>603288.SH</td><td>10%</td><td>调味品绝对龙头，现金多到不需要借钱做生意</td><td>毛利率 40.22%（2026H1 41.04%）、ROE 19.59%、类现金 347.09 亿≈总负债 3.4 倍、短期借款仅 1.41 亿、经营现金流十年累计 604 亿≈累计归母 1.05 倍、分红率承诺≥80%（2025 实际 112.95%）；2026H1 归母 +7.13%</td><td>单一品类依赖与舆情敏感（2022—2023 已实测）；餐饮需求周期传导；大豆等原材料价格回升</td>
+<td style="text-align:right">2</td><td style="text-align:left">海天味业</td><td style="text-align:left">603288.SH</td><td style="text-align:right">10%</td><td style="text-align:left">调味品绝对龙头，现金多到不需要借钱做生意</td><td style="text-align:left">毛利率 40.22%（2026H1 41.04%）、ROE 19.59%、类现金 347.09 亿≈总负债 3.4 倍、短期借款仅 1.41 亿、经营现金流十年累计 604 亿≈累计归母 1.05 倍、分红率承诺≥80%（2025 实际 112.95%）；2026H1 归母 +7.13%</td><td style="text-align:left">单一品类依赖与舆情敏感（2022—2023 已实测）；餐饮需求周期传导；大豆等原材料价格回升</td>
 </tr>
 <tr>
-<td>3</td><td>中国海油</td><td>600938.SH</td><td>11%</td><td>全球第一梯队成本＋净现金＋产量还在长的能源最优解</td><td>桶油主要成本 27.90 美元（五连降）、ROE 15.64%、油气销售毛利率 59.4%、净现金约 1,802 亿、资产负债率 26.71%、派息率 45.0%；2026H1 归母 858.18 亿（+23.4%）</td><td>弃置义务 1,160.39 亿且逐年上升；储量替代率由 182% 回落至 167%；2026H1 桶油成本被动升至 29.70 美元</td>
+<td style="text-align:right">3</td><td style="text-align:left">中国海油</td><td style="text-align:left">600938.SH</td><td style="text-align:right">11%</td><td style="text-align:left">全球第一梯队成本＋净现金＋产量还在长的能源最优解</td><td style="text-align:left">桶油主要成本 27.90 美元（五连降）、ROE 15.64%、油气销售毛利率 59.4%、净现金约 1,802 亿、资产负债率 26.71%、派息率 45.0%；2026H1 归母 858.18 亿（+23.4%）</td><td style="text-align:left">弃置义务 1,160.39 亿且逐年上升；储量替代率由 182% 回落至 167%；2026H1 桶油成本被动升至 29.70 美元</td>
 </tr>
 <tr>
-<td>4</td><td>农夫山泉</td><td>9633.HK</td><td>10%</td><td>高毛利＋高增长＋<strong>无商誉</strong>，消费股里罕见的干净资产</td><td>2025 营收 525.53 亿（<strong>+22.5%</strong>）、归母 158.68 亿（<strong>+30.9%</strong>）、毛利率 60.5%、归母净利率 30.2%、经营现金流 211.42 亿、自由现金流 146.60 亿覆盖分红 1.32 倍、<strong>无商誉</strong>、派息率 70.2%</td><td>包装水修复停滞（2026H1 水类 96.41 亿<strong>低于</strong> 2023H1 的 104.42 亿、分部业绩 −2.7%）；增量 74.1% 靠茶单一引擎；存货周转 94.7 天；不派 2026 中期息</td>
+<td style="text-align:right">4</td><td style="text-align:left">农夫山泉</td><td style="text-align:left">9633.HK</td><td style="text-align:right">10%</td><td style="text-align:left">高毛利＋高增长＋<strong>无商誉</strong>，消费股里罕见的干净资产</td><td style="text-align:left">2025 营收 525.53 亿（<strong>+22.5%</strong>）、归母 158.68 亿（<strong>+30.9%</strong>）、毛利率 60.5%、归母净利率 30.2%、经营现金流 211.42 亿、自由现金流 146.60 亿覆盖分红 1.32 倍、<strong>无商誉</strong>、派息率 70.2%</td><td style="text-align:left">包装水修复停滞（2026H1 水类 96.41 亿<strong>低于</strong> 2023H1 的 104.42 亿、分部业绩 −2.7%）；增量 74.1% 靠茶单一引擎；存货周转 94.7 天；不派 2026 中期息</td>
 </tr>
 <tr>
-<td>5</td><td>腾讯控股</td><td>00700.HK</td><td>12%</td><td>中国最宽的流量护城河＋利润表已连续五年改善</td><td>2025 营收 7,517.66 亿（+13.9%）、毛利率五年 +12.3pp 至 57.3%、经营现金流 3,030.52 亿、净现金 604.11 亿、回购 733.12 亿＋股息 415.95 亿；微信 MAU 14.39 亿；2026H1 非 IFRS 归母 +9.6%</td><td>AI 资本开支 2026H1 达 956.15 亿（<strong>+109.9%</strong>，占收入 23.8%），自由现金流 <strong>−44.7%</strong>；回购连续两期收缩；增值服务增速降至 +6.0%</td>
+<td style="text-align:right">5</td><td style="text-align:left">腾讯控股</td><td style="text-align:left">00700.HK</td><td style="text-align:right">12%</td><td style="text-align:left">中国最宽的流量护城河＋利润表已连续五年改善</td><td style="text-align:left">2025 营收 7,517.66 亿（+13.9%）、毛利率五年 +12.3pp 至 57.3%、经营现金流 3,030.52 亿、净现金 604.11 亿、回购 733.12 亿＋股息 415.95 亿；微信 MAU 14.39 亿；2026H1 非 IFRS 归母 +9.6%</td><td style="text-align:left">AI 资本开支 2026H1 达 956.15 亿（<strong>+109.9%</strong>，占收入 23.8%），自由现金流 <strong>−44.7%</strong>；回购连续两期收缩；增值服务增速降至 +6.0%</td>
 </tr>
 <tr>
-<td>6</td><td>药明康德</td><td>603259.SH</td><td>10%</td><td>全球 CRDMO 龙头，订单与产能是两个可验证的前瞻指标</td><td>ROE 28.56%、归母净利率 42.13%、毛利率 47.64%、净现金 329.72 亿、资产负债率 22.18%、自由现金流连续三年百亿量级；<strong>在手订单 664.30 亿（+25.2%）</strong>；2026H1 营收 288.97 亿（+38.93%）、<strong>扣非 +89.39%</strong>；TIDES 2025 收入 113.70 亿（+96.0%）</td><td><strong>2025 年归母 +102.65% 中 59.10 亿为资产处置</strong>，扣非仅 +32.56%；前五名客户占 48.11%、美国客户占 <strong>71.97%</strong>（地缘/立法风险）；测试与生物学毛利率连续两年下滑；2026H1 有息负债激增至 147.22 亿</td>
+<td style="text-align:right">6</td><td style="text-align:left">药明康德</td><td style="text-align:left">603259.SH</td><td style="text-align:right">10%</td><td style="text-align:left">全球 CRDMO 龙头，订单与产能是两个可验证的前瞻指标</td><td style="text-align:left">ROE 28.56%、归母净利率 42.13%、毛利率 47.64%、净现金 329.72 亿、资产负债率 22.18%、自由现金流连续三年百亿量级；<strong>在手订单 664.30 亿（+25.2%）</strong>；2026H1 营收 288.97 亿（+38.93%）、<strong>扣非 +89.39%</strong>；TIDES 2025 收入 113.70 亿（+96.0%）</td><td style="text-align:left"><strong>2025 年归母 +102.65% 中 59.10 亿为资产处置</strong>，扣非仅 +32.56%；前五名客户占 48.11%、美国客户占 <strong>71.97%</strong>（地缘/立法风险）；测试与生物学毛利率连续两年下滑；2026H1 有息负债激增至 147.22 亿</td>
 </tr>
 <tr>
-<td>7</td><td>紫金矿业</td><td>601899.SH / 2899.HK</td><td>9%</td><td><strong>本版最强新面孔</strong>：矿产品以三成收入贡献近四分之三利润，且利润转成了真现金</td><td>资源量铜 <strong>10,968 万吨</strong>、金 <strong>4,610 吨</strong>（全球金矿企业前列）；2026H1 营收 1,941.78 亿、归母 <strong>391.70 亿</strong>、<strong>经营现金流 554.72 亿＝归母 1.42 倍</strong>；ROE 19.60%、综合毛利率 37.75%、资产负债率 49.55%；2025 矿产铜 1,085,126 吨（亚洲第一、全球前四）</td><td><strong>铜产量增速骤降</strong>：2023→2024 +6.07%→2025 +1.56%→<strong>2026H1 同比 −5.7%</strong>；报告给出的最锋利风险是「<strong>价格与成本的不对称性使利润的下行弹性大于上行弹性</strong>」（成本刚性上行、价格可随时回吐）；卡莫阿项目掣肘；分红率仅 30.81%</td>
+<td style="text-align:right">7</td><td style="text-align:left">紫金矿业</td><td style="text-align:left">601899.SH / 2899.HK</td><td style="text-align:right">9%</td><td style="text-align:left"><strong>本版最强新面孔</strong>：矿产品以三成收入贡献近四分之三利润，且利润转成了真现金</td><td style="text-align:left">资源量铜 <strong>10,968 万吨</strong>、金 <strong>4,610 吨</strong>（全球金矿企业前列）；2026H1 营收 1,941.78 亿、归母 <strong>391.70 亿</strong>、<strong>经营现金流 554.72 亿＝归母 1.42 倍</strong>；ROE 19.60%、综合毛利率 37.75%、资产负债率 49.55%；2025 矿产铜 1,085,126 吨（亚洲第一、全球前四）</td><td style="text-align:left"><strong>铜产量增速骤降</strong>：2023→2024 +6.07%→2025 +1.56%→<strong>2026H1 同比 −5.7%</strong>；报告给出的最锋利风险是「<strong>价格与成本的不对称性使利润的下行弹性大于上行弹性</strong>」（成本刚性上行、价格可随时回吐）；卡莫阿项目掣肘；分红率仅 30.81%</td>
 </tr>
 <tr>
-<td>8</td><td>洛阳钼业</td><td>603993.SH / 03993.HK</td><td>8%</td><td><strong>全场罕见的"扣非增速高于归母增速"</strong> —— 利润非但没注水，还被非经常项小幅拖累</td><td>矿山端 <strong>30.1% 收入贡献 78.0% 毛利</strong>（抵销前口径）；2025 归母 203.39 亿（<strong>+50.30%</strong>）而<strong>扣非 204.07 亿（+55.56%）</strong>；ROE 26.61%（扣非 26.70%）；资产负债率 50.34%；利息支出等财务费用由 28.79 亿降至 5.13 亿（−82.19%）</td><td>⚠️ <strong>矿山端收入约 79% 集中于刚果（金）——报告明示这是本公司最大的单一风险敞口</strong>；贸易端占 69.9% 收入仅贡献 22.0% 毛利，用营业收入增速判断经营质量会严重失真；2025 年经营现金流 −35.64%；2026H1 数据未纳入（PDF 受损）</td>
+<td style="text-align:right">8</td><td style="text-align:left">洛阳钼业</td><td style="text-align:left">603993.SH / 03993.HK</td><td style="text-align:right">8%</td><td style="text-align:left"><strong>全场最干净的资源股利润</strong>（扣非曾高于归母）＋矿山毛利占比升至 92.0%</td><td style="text-align:left">矿山端 <strong>29.4% 收入贡献 92.0% 毛利</strong>（2026Q1—3，抵销前口径；2025 年为 30.1%／78.0%）；2026Q1—3 营收 2,072.90 亿（<strong>+42.48%</strong>）、归母 240.20 亿（<strong>+68.21%</strong>）、扣非 233.35 亿（+60.52%）、加权 ROE <strong>26.67%</strong>（+8.02pp）；2025 全年归母 203.39 亿（+50.30%）而扣非 204.07 亿（+55.56%）</td><td style="text-align:left">⚠️ <strong>矿山端收入约 79% 集中于刚果（金）</strong>，2026／2027 年钴出口配额仅相当于自身产量约 82%、产销率已降至 <strong>12.7%</strong>（钴被"存起来"）；<strong>利润与现金重新背离</strong>：2026Q1—3 归母 +68.21% 而经营现金流仅 134.72 亿（<strong>−15.08%</strong>，为归母 <strong>0.56 倍</strong>），<strong>Q3 单季经营现金流 −28.62 亿</strong>（2021 年以来首次），缺口靠筹资净流入 178.22 亿填补；<strong>有息负债一年 +84.8% 至 605.19 亿</strong>（净有息仍为净现金 −71.51 亿）、资产负债率 53.35%（+3.01pp）、存货 +33%；贸易端占 70.6% 收入仅贡献 8.0% 毛利；2025 年分红率 30.81%（2026 年方案报告未载）</td>
 </tr>
 <tr>
-<td>9</td><td>网易</td><td>9999.HK</td><td>8%</td><td>全场最厚的净现金垫，游戏基本盘还创了毛利率新高</td><td>净现金 <strong>1,592.2 亿</strong>、资产负债率仅 25.4%、经营现金流 507.4 亿、毛利率 64.3%（2026Q2 <strong>70.5%</strong> 创历史新高）、游戏 2025 收入 921.5 亿（+10.2%）占 81.8%、员工两年减 12.9% 而人均创收 +25.0%</td><td>2026H1 归母 <strong>−6.6%</strong> 而毛利 +16.2%，差异来自所得税（税率升至 21.7%、Q2 25.5%，<strong>报告载公司未给出具体原因</strong>）；非经营项摆动近 52 亿；非游戏三块 2025 合计 −5.5%</td>
+<td style="text-align:right">9</td><td style="text-align:left">网易</td><td style="text-align:left">9999.HK</td><td style="text-align:right">8%</td><td style="text-align:left">全场最厚的净现金垫，游戏基本盘还创了毛利率新高</td><td style="text-align:left">净现金 <strong>1,592.2 亿</strong>、资产负债率仅 25.4%、经营现金流 507.4 亿、毛利率 64.3%（2026Q2 <strong>70.5%</strong> 创历史新高）、游戏 2025 收入 921.5 亿（+10.2%）占 81.8%、员工两年减 12.9% 而人均创收 +25.0%</td><td style="text-align:left">2026H1 归母 <strong>−6.6%</strong> 而毛利 +16.2%，差异来自所得税（税率升至 21.7%、Q2 25.5%，<strong>报告载公司未给出具体原因</strong>）；非经营项摆动近 52 亿；非游戏三块 2025 合计 −5.5%</td>
 </tr>
 <tr>
-<td>10</td><td>渣打银行</td><td>02888.HK / STAN.LN</td><td>8%</td><td>息差是招行的 1.09 倍、资本缓冲更厚、股息一年增 65%，且风险已在 2015 年出清过</td><td><strong>净息差 2.03%</strong>（2026H1 2.04%；中资行普遍 1.16%—1.87%）；有形股本回报 14.7%（十年最高）、2026H1 17.6%；<strong>CET1 14.1%</strong>（高出监管要求 3.9pp）；每股股息 61 仙（<strong>+65%</strong>）、中期 20.4 仙（+66%）；自 2023 年累计分派 91 亿美元；收入引擎已从息差切向财富与网络（财富方案 +24%/+38%、环球银行 +15%/+20%）</td><td>⚠️ <strong>利润需"三重扣减"才能看清</strong>：2025 年从基本除税前溢利 79 亿到普通股股东应占 45.58 亿，<strong>仅为基本口径的 57.7%</strong>，且这类"一次性"项目已连续十年出现、<strong>具有事实上的经常性</strong>；<strong>第三阶段保障比率 52%/68%，2018 年以来最低</strong>，且分子（拨备）降 22.0% 而分母仅降 3.9%——<strong>覆盖率下降来自拨备释放而非质量改善</strong>；2026 年起由基本基准改列账基准披露，新旧口径可比性存疑</td>
+<td style="text-align:right">10</td><td style="text-align:left">渣打银行</td><td style="text-align:left">02888.HK / STAN.LN</td><td style="text-align:right">8%</td><td style="text-align:left">息差是招行的 1.09 倍、资本缓冲更厚、股息一年增 65%，且风险已在 2015 年出清过</td><td style="text-align:left"><strong>净息差 2.03%</strong>（2026H1 2.04%；中资行普遍 1.16%—1.87%）；有形股本回报 14.7%（十年最高）、2026H1 17.6%；<strong>CET1 14.1%</strong>（高出监管要求 3.9pp）；每股股息 61 仙（<strong>+65%</strong>）、中期 20.4 仙（+66%）；自 2023 年累计分派 91 亿美元；收入引擎已从息差切向财富与网络（财富方案 +24%/+38%、环球银行 +15%/+20%）</td><td style="text-align:left">⚠️ <strong>利润需"三重扣减"才能看清</strong>：2025 年从基本除税前溢利 79 亿到普通股股东应占 45.58 亿，<strong>仅为基本口径的 57.7%</strong>，且这类"一次性"项目已连续十年出现、<strong>具有事实上的经常性</strong>；<strong>第三阶段保障比率 52%/68%，2018 年以来最低</strong>，且分子（拨备）降 22.0% 而分母仅降 3.9%——<strong>覆盖率下降来自拨备释放而非质量改善</strong>；2026 年起由基本基准改列账基准披露，新旧口径可比性存疑</td>
 </tr>
 </tbody></table></div>
 <p><strong>权重合计 100%</strong>：14+10+11+10+12+10+9+8+8+8。</p>
 <h2>四、与第 2 版（44 家样本）相比，变在哪里</h2>
 <p>样本从 44 家扩到 56 家后，<strong>前 10 名换掉了 3 席</strong>：</p>
-<div class="rsp-table"><table class="financial">
-<thead><tr><th>变动</th><th>公司</th><th>原因</th></tr></thead>
+<div class="rsp-table"><table class="financial prose wrap2">
+<thead><tr><th style="text-align:left">变动</th><th style="text-align:left">公司</th><th style="text-align:left">原因</th></tr></thead>
 <tbody>
 <tr>
-<td><strong>新增进榜</strong></td><td>紫金矿业（第 7）、洛阳钼业（第 8）、渣打银行（第 10）</td><td>三家评分 7.89 / 7.78 / 7.59，<strong>全部高于第 2 版第 10 名的招商银行（7.25）</strong>。样本扩充导致入选门槛抬升</td>
+<td style="text-align:left"><strong>新增进榜</strong></td><td style="text-align:left">紫金矿业（第 7）、洛阳钼业（第 8）、渣打银行（第 10）</td><td style="text-align:left">三家评分 7.89 / 7.78 / 7.59，<strong>全部高于第 2 版第 10 名的招商银行（7.25）</strong>。样本扩充导致入选门槛抬升</td>
 </tr>
 <tr>
-<td><strong>移出榜单</strong></td><td>山西汾酒（7.58→第 11）、中国平安（7.43→第 12）、招商银行（7.25→第 18）</td><td><strong>不是它们变差了，是新公司更强</strong>。汾酒与平安的评分一字未动，纯粹被挤出</td>
+<td style="text-align:left"><strong>移出榜单</strong></td><td style="text-align:left">山西汾酒（7.58→第 11）、中国平安（7.43→第 12）、招商银行（7.25→第 18）</td><td style="text-align:left"><strong>不是它们变差了，是新公司更强</strong>。汾酒与平安的评分一字未动，纯粹被挤出</td>
 </tr>
 <tr>
-<td><strong>排名上升</strong></td><td>海天味业 4→2、农夫山泉 5→4</td><td>前段竞争结构改变导致位次上移；<strong>实质是排序重排而非质地变化</strong></td>
+<td style="text-align:left"><strong>排名上升</strong></td><td style="text-align:left">海天味业 4→2、农夫山泉 5→4</td><td style="text-align:left">前段竞争结构改变导致位次上移；<strong>实质是排序重排而非质地变化</strong></td>
 </tr>
 <tr>
-<td><strong>排名下降</strong></td><td>腾讯控股 2→5</td><td>评分 8.05 未变，但紫金（7.89）与洛钼（7.78）进入榜内后前段竞争加剧。<strong>这是"位次"变化，不是"权重"下调</strong>（腾讯权重仍为 12%）</td>
+<td style="text-align:left"><strong>排名下降</strong></td><td style="text-align:left">腾讯控股 2→5</td><td style="text-align:left">评分 8.05 未变，但紫金（7.89）与洛钼（7.78）进入榜内后前段竞争加剧。<strong>这是"位次"变化，不是"权重"下调</strong>（腾讯权重仍为 12%）</td>
 </tr>
 </tbody></table></div>
 <p><strong>新增三家的评分与旧榜对比</strong>：紫金矿业 7.89、洛阳钼业 7.78、渣打银行 7.59——三家均高于第 2 版第 8 名山西汾酒（7.58）。<strong>这是样本扩充带来的必然结果</strong>：不是老公司变坏了，是新公司更好。</p>
-<p><strong>本版新增 11 家的完整评分</strong>：</p>
+<p><strong>第 3 版初稿新增 11 家的完整评分</strong>：</p>
 <div class="rsp-table"><table class="financial longtable">
-<thead><tr><th>公司</th><th>综合评分</th><th>位次</th><th>一句话判读</th></tr></thead>
+<thead><tr><th style="text-align:left">公司</th><th style="text-align:right">综合评分</th><th style="text-align:right">位次</th><th style="text-align:left">一句话判读</th></tr></thead>
 <tbody>
 <tr>
-<td>紫金矿业</td><td>7.89</td><td>7</td><td>资源禀赋是真护城河，现金流转化优秀</td>
+<td style="text-align:left">紫金矿业</td><td style="text-align:right">7.89</td><td style="text-align:right">7</td><td style="text-align:left">资源禀赋是真护城河，现金流转化优秀</td>
 </tr>
 <tr>
-<td>洛阳钼业</td><td>7.78</td><td>8</td><td>扣非高于归母，全场最干净的资源股利润</td>
+<td style="text-align:left">洛阳钼业</td><td style="text-align:right">7.78</td><td style="text-align:right">8</td><td style="text-align:left">扣非高于归母，全场最干净的资源股利润</td>
 </tr>
 <tr>
-<td>渣打银行</td><td>7.59</td><td>10</td><td>息差与资本最优的国际银行，但利润成色需打折</td>
+<td style="text-align:left">渣打银行</td><td style="text-align:right">7.59</td><td style="text-align:right">10</td><td style="text-align:left">息差与资本最优的国际银行，但利润成色需打折</td>
 </tr>
 <tr>
-<td>中银香港</td><td>7.30</td><td>14</td><td>资本最厚、分红稳，但增长动能弱、息差"走平"是假象</td>
+<td style="text-align:left">中银香港</td><td style="text-align:right">7.30</td><td style="text-align:right">14</td><td style="text-align:left">资本最厚、分红稳，但增长动能弱、息差"走平"是假象</td>
 </tr>
 <tr>
-<td>汇丰控股</td><td>7.21</td><td>20</td><td>与渣打同构，但须予注意项目规模更大、口径更复杂</td>
+<td style="text-align:left">汇丰控股</td><td style="text-align:right">7.21</td><td style="text-align:right">20</td><td style="text-align:left">与渣打同构，但须予注意项目规模更大、口径更复杂</td>
 </tr>
 <tr>
-<td>珀莱雅</td><td>6.94</td><td>—</td><td>毛利率九年最优，但利润被无现金重估收益撑起</td>
+<td style="text-align:left">珀莱雅</td><td style="text-align:right">6.94</td><td style="text-align:right">—</td><td style="text-align:left">毛利率九年最优，但利润被无现金重估收益撑起</td>
 </tr>
 <tr>
-<td>香港中华煤气</td><td>5.62</td><td>—</td><td>十年"增收不增利"的干净样本，分红靠借钱</td>
+<td style="text-align:left">阿里巴巴</td><td style="text-align:right">5.68</td><td style="text-align:right">电商＋云＋支付的生态护城河仍在：云智能 FY2026 收入 1,581.32 亿（<strong>+34.0%</strong>）、FY2027Q1 <strong>+45.0%</strong>（EBITA +132.7%）、AI 相关收入连续十二季三位数增长、国际数字商业 EBITA 亏损收窄 86.4%、资产负债率 41.02%。但<strong>归母 1,059.04 亿中 875.12 亿（82.6%）来自利息收入与投资净收益</strong>，同期经营利润 <strong>−64.4%</strong>、销售与市场费用单年 +1,010.02 亿（+70.1%）；自由现金流 <strong>−466.09 亿</strong>（资本开支 1,260.63 亿≈经营现金流 1.65 倍，已签约承诺 541.36 亿仍在升）；<strong>回购现金支出归零</strong>（FY2025 为 866.62 亿）、可转债增至 558.61 亿；商誉 2,473.78 亿且 FY2026 减值 95.15 亿；客户管理收入 +5.2% 远低于即时零售 +46.5%</td><td style="text-align:left"></td>
 </tr>
 <tr>
-<td>浦发银行</td><td>5.57</td><td>—</td><td>修复中，但资产质量与息差仍处同业中下游</td>
+<td style="text-align:left">阿里健康</td><td style="text-align:right">5.62</td><td style="text-align:right">零借款、无抵押、年末现金 54.34 亿、权益 163.13 亿；履约费用率八年降 <strong>6.46pp</strong> 至 9.30%、行政开支率 1.09% 为历史最低；平台商家 +26%、在线 SKU +25.8%。但 <strong>86.6% 收入是毛利率仅 23.97% 的医药自营</strong>、平台服务只占 10.6%；FY2026 利润 +35.2% 而经营现金流 <strong>−11.4%</strong>（<strong>0.64 倍</strong>，上年 0.97 倍）、存货一年增 5.64 亿；<strong>银行利息收入 4.63 亿＝年度利润 23.9%</strong>；H2 利润同比仅 <strong>+1.1%</strong>（H1 占全年 65.4%）；合计派息率 162.0%（含特别股息）明显不可持续</td><td style="text-align:left"></td>
 </tr>
 <tr>
-<td>上海银行</td><td>5.17</td><td>—</td><td>拨备覆盖率首破 200%，安全垫已接近监管线</td>
+<td style="text-align:left">浦发银行</td><td style="text-align:right">5.57</td><td style="text-align:right">—</td><td style="text-align:left">修复中，但资产质量与息差仍处同业中下游</td>
 </tr>
 <tr>
-<td>北京银行</td><td>4.68</td><td>—</td><td>ROE 五年降 4.18pct、逾期/不良超 150% 警戒线</td>
+<td style="text-align:left">上海银行</td><td style="text-align:right">5.17</td><td style="text-align:right">—</td><td style="text-align:left">拨备覆盖率首破 200%，安全垫已接近监管线</td>
 </tr>
 <tr>
-<td>美团</td><td>4.40</td><td>—</td><td>2025 年经营现金流 −138.15 亿、零分红零回购</td>
+<td style="text-align:left">北京银行</td><td style="text-align:right">4.68</td><td style="text-align:right">—</td><td style="text-align:left">ROE 五年降 4.18pct、逾期/不良超 150% 警戒线</td>
+</tr>
+<tr>
+<td style="text-align:left">美团</td><td style="text-align:right">4.40</td><td style="text-align:right">—</td><td style="text-align:left">2025 年经营现金流 −138.15 亿、零分红零回购</td>
 </tr>
 </tbody></table></div>
+<h3>2026-10-27 复核：新增 4 家，无一进入前 10</h3>
+<div class="rsp-table"><table class="financial prose">
+<thead><tr><th style="text-align:left">公司</th><th style="text-align:right">综合评分</th><th style="text-align:right">与第 10 名（渣打 7.59）的差距</th><th style="text-align:left">一句话判读</th></tr></thead>
+<tbody>
+<tr>
+<td style="text-align:left">鱼跃医疗</td><td style="text-align:right">6.38</td><td style="text-align:right">−1.21</td><td style="text-align:left">零有息负债、派现率 54%＋回购 4.28 亿，但利润两成靠政府补助、Q3 单季经营现金流转负</td>
+</tr>
+<tr>
+<td style="text-align:left">中国中免</td><td style="text-align:right">5.83</td><td style="text-align:right">−1.76</td><td style="text-align:left">扣非≈归母、净现金、负债率仅 26.02%，但收入连降两年、ROE 仅 6.46%、Q1 占全年利润 54%</td>
+</tr>
+<tr>
+<td style="text-align:left">阿里巴巴</td><td style="text-align:right">5.68</td><td style="text-align:right">−1.91</td><td style="text-align:left">云与电商护城河仍在，但归母 82.6% 来自利息与投资收益、自由现金流 −466.09 亿、回购归零</td>
+</tr>
+<tr>
+<td style="text-align:left">阿里健康</td><td style="text-align:right">5.62</td><td style="text-align:right">−1.97</td><td style="text-align:left">零借款、履约费用率八年降 6.46pp，但 86.6% 收入是低毛利自营、经营现金流仅 0.64 倍</td>
+</tr>
+</tbody></table></div>
+<p><strong>四家的分维度得分</strong>（与本版完全同一套权重与锚点）：</p>
+<div class="rsp-table rsp-w7"><table class="financial wide">
+<thead><tr><th style="text-align:left">公司</th><th style="text-align:right">生意质量 25%</th><th style="text-align:right">盈利质量 20%</th><th style="text-align:right">成长性 20%</th><th style="text-align:right">安全 20%</th><th style="text-align:right">股东回报 15%</th><th style="text-align:right">加权</th></tr></thead>
+<tbody>
+<tr>
+<td style="text-align:left">鱼跃医疗</td><td style="text-align:right">6.5</td><td style="text-align:right">5.0</td><td style="text-align:right">4.5</td><td style="text-align:right">9.0</td><td style="text-align:right">7.0</td><td style="text-align:right">6.38</td>
+</tr>
+<tr>
+<td style="text-align:left">中国中免</td><td style="text-align:right">6.0</td><td style="text-align:right">6.5</td><td style="text-align:right">4.0</td><td style="text-align:right">8.5</td><td style="text-align:right">3.5</td><td style="text-align:right">5.83</td>
+</tr>
+<tr>
+<td style="text-align:left">阿里巴巴</td><td style="text-align:right">7.0</td><td style="text-align:right">3.5</td><td style="text-align:right">5.5</td><td style="text-align:right">6.5</td><td style="text-align:right">5.5</td><td style="text-align:right">5.68</td>
+</tr>
+<tr>
+<td style="text-align:left">阿里健康</td><td style="text-align:right">4.5</td><td style="text-align:right">4.5</td><td style="text-align:right">5.5</td><td style="text-align:right">8.0</td><td style="text-align:right">6.0</td><td style="text-align:right">5.62</td>
+</tr>
+</tbody></table></div>
+<blockquote class="note"><strong>两处必须写明的记分依据</strong>：① 中国中免的"股东回报"记 3.5 分，是因为其报告<strong>未载分红金额、分红率与回购</strong>，按硬规则不能编造，只能给中性偏保守分；若后续确认分红率在 50% 以上，其总分应上调约 0.3 分（仍不入选）。② 阿里巴巴的"盈利质量"只有 3.5 分，是因为 FY2026 归母 1,059.04 亿中有 <strong>875.12 亿（82.6%）来自利息收入与投资净收益</strong>，同期经营利润 −64.4%、自由现金流 <strong>−466.09 亿</strong>、经营现金流／归母 0.72 倍——按本框架这是"利润不是主营赚来的"典型。<br><strong>口径提醒（对阿里尤其重要）</strong>：本框架衡量的是"<strong>现在能不能把钱分给股东</strong>"，不是"未来能不能赚更多钱"。阿里巴巴当期自由现金流为负、回购现金支出归零，是主动的 AI 与即时零售投入，这在本框架下会被系统性低估；<strong>若委托人是成长偏好型，阿里的位次会被低估——但在"现金流＋质量"型组合里它确实不该入选。</strong> 这不是对它生意的否定。</blockquote>
 <h2>五、为什么最终排序和纯评分不完全一致</h2>
 <p>我把<strong>四处</strong>人为调整摊开讲，不藏：</p>
 <p><strong>① 资源板块的集中度上限：紫金与洛钼都被"降权"，而不是"降位"。</strong> 按纯评分，紫金矿业 7.89、洛阳钼业 7.78 分别应排第 7 与第 8，本版确实给了它们这两个位次。但<strong>权重上我做了压制</strong>：紫金 9%（而非与其位次相称的 10%）、洛钼 8%。&lt;br&gt;<strong>压制的原因是资源因子的合并敞口。</strong> "能源"（中海油 11%）与"有色/矿业"（紫金 9% + 洛钼 8%）在报告里是两个板块，<strong>但在风险计量上它们同属"资源类"</strong>——合并后为 <strong>28%</strong>。第 2 版确立的纪律是"单一板块上限 22%"，<strong>按报告口径本版没有越线（能源 11%、有色 17%）；但按因子口径已经越线 6 个百分点</strong>。&lt;br&gt;<strong>如果我不压制</strong>（三只各给 9—10%），资源合并敞口会到 <strong>31%</strong>，越线 9 个百分点。我选择的是<strong>接受越线、但把幅度控制到最小</strong>，而不是假装它没发生。私募组合不做"同板块平均化"，<strong>但更不做"同板块堆叠"</strong>。&lt;br&gt;<strong>这个取舍的代价我必须讲明</strong>：如果我看错了资源价格的持续性，压制权重会让我少赚；这个纪律保护的是"看错时不至于伤筋动骨"。<strong>它不是评分结论，是仓位纪律。</strong></p>
-<p><strong>①-补 为什么是紫金和洛钼，而不是把中海油换掉？</strong> 因为三者的<strong>盈利驱动完全不同</strong>：中海油赚的是<strong>桶油成本与油价的价差</strong>（成本已五连降至 27.90 美元）；紫金赚的是<strong>资源量本身</strong>（铜 10,968 万吨、金 4,610 吨，报告明示这是"唯一难以复制的护城河"）；洛钼赚的是<strong>矿山端的毛利结构</strong>（30.1% 收入贡献 78.0% 毛利）。油价、铜金价、钴钼价的周期并不同步，<strong>三者共存是对冲，不是集中</strong>——这是保留三只的理由。</p>
+<p><strong>①-补 为什么是紫金和洛钼，而不是把中海油换掉？</strong> 因为三者的<strong>盈利驱动完全不同</strong>：中海油赚的是<strong>桶油成本与油价的价差</strong>（成本已五连降至 27.90 美元）；紫金赚的是<strong>资源量本身</strong>（铜 10,968 万吨、金 4,610 吨，报告明示这是"唯一难以复制的护城河"）；洛钼赚的是<strong>矿山端的毛利结构</strong>（30.1% 收入贡献 78.0% 毛利）。</p>
+<p><strong>①-补二 洛阳钼业的三季报带来三项恶化，为什么仍是第 8 位？</strong></p>
+<p>2026 年三季报出来了，我看到三个必须写下来的负面变化：</p>
+<ul>
+<li><strong>利润与现金重新背离</strong>：Q1—3 归母 +68.21%，经营现金流 134.72 亿（−15.08%），<strong>只有归母的 0.56 倍</strong>（上年同期 1.11 倍）；<strong>Q3 单季经营现金流 −28.62 亿</strong>，是 2021 年以来首次单季净流出，缺口靠筹资净流入 178.22 亿填。</li>
+<li><strong>扣非优势反转</strong>：Q1—3 扣非 +60.52% 已<strong>低于</strong>归母 +68.21%（差 6.85 亿），而 2025 全年是扣非（204.07 亿）＞归母（203.39 亿）。同期公允价值变动由 −23.92 亿翻至 +2.14 亿（摆动 26.06 亿）、实际税率由 31.49% 降至 28.46%（贡献约 8.4 亿）。</li>
+<li><strong>杠杆重新上来</strong>：有息负债一年 <strong>+84.8% 至 605.19 亿</strong>，资产负债率 53.35%（+3.01pp）。</li>
+</ul>
+<p><strong>按年度口径重打分，它的总分约 7.43——会掉到第 11 位，由山西汾酒（7.58）替补。我没有做这个调整，理由写清楚，供反驳：</strong></p>
+<ol>
+<li><strong>现金流的恶化主要是"可逆的时点因素"，不是盈利注水。</strong> 钴产销率降到 12.7%，是刚果（金）出口配额（2026／2027 年每年 96,600 吨≈自身产量 82%）下的<strong>被动累库</strong>；同期投资活动净流出 182.89 亿（收购金矿 59.16 亿＋购建长期资产 80.96 亿＋理财 234.35 亿）。<strong>钱是被"存货和并购"占住的，不是被客户欠着的</strong>——这与东阿阿胶"应收 +345%"完全是两回事。</li>
+<li><strong>生意质量同期还在变好</strong>：矿山端毛利占比由 78.0% 升至 <strong>92.0%</strong>，加权 ROE 26.67%（+8.02pp），毛利率 22.40%（+0.44pp）。样本里没有第二家资源股能做到"29% 的收入贡献 92% 的毛利"。</li>
+<li><strong>7.43 与 7.58／7.59 的差距，小于本框架的测量误差。</strong> 同一家公司换个人打分，±0.2 是常态。<strong>用噪声换仓，比不换更糟</strong>——汾酒自己的 2026H1 归母是 −24.29%、省内吨价 −23.75%。</li>
+</ol>
+<p><strong>但我给它加一条硬触发，写进验证清单第 3 条</strong>：若 <strong>2027 年报「经营现金流／归母」仍低于 0.7 倍</strong>，或再次出现单季经营现金流净流出，则无条件降至第 11 位、由山西汾酒替补。<strong>这条规则先于我的主观判断生效。</strong></p>
 <p><strong>② 中国石油与招商银行：量化评分尚可，但没入选。</strong></p>
 <ul>
 <li><strong>中国石油（7.35，第 13）</strong>：它本身没问题——ROE 10.1%、派息率 54.7%、单位操作成本五年稳定在 11.95—12.42 美元/桶、一体化对冲住了油价（油价 −30.4% 而集团归母 +5.7%）、债务净额压至 214.01 亿几近净现金。问题是<strong>同一个行业里中海油在每个维度上都不输、在关键维度上明显更好</strong>：ROE 15.64% vs 10.1%，桶油成本 27.90 美元 vs 中石油炼油加工成本还在 +10.2%。私募组合不做"同板块平均化"，<strong>用最好的那个就够了</strong>。列为首选替补。</li>
@@ -547,128 +609,128 @@
 <p><strong>一句话：这家公司的股息不是"分红能力"的证明，而是"资本结构选择"的结果。</strong></p>
 <p><strong>④ 美团：股东回报维度直接记 0 分，是本版唯一给出零分的公司。</strong> FY2025 归母亏损 233.54 亿、经调整亏损 186.48 亿、<strong>经营现金流 −138.15 亿</strong>；2026Q2 实现首个完整盈利季，但 2026H1 仍亏损 46.72 亿；<strong>分红 0、回购 0</strong>。按本框架"股东回报"占 15%，记 0 分后总分 4.40。<strong>这不是否定美团的商业模式，而是明确它不属于本组合（现金流型＋质量型）的标的类型。</strong></p>
 <h2>六、落选公司的具体原因</h2>
-<div class="rsp-table"><table class="financial longtable">
-<thead><tr><th>公司</th><th>评分</th><th>落选原因（基于报告原文）</th></tr></thead>
+<div class="rsp-table"><table class="financial prose longtable">
+<thead><tr><th style="text-align:left">公司</th><th style="text-align:right">评分</th><th style="text-align:left">落选原因（基于报告原文）</th></tr></thead>
 <tbody>
 <tr>
-<td>山西汾酒</td><td>7.58</td><td><strong>本版最大的"无辜落榜者"</strong>——评分一字未动，纯粹被紫金/洛钼/渣打挤出。ROE 33.48%（白酒最高）、零有息负债、类现金 353.91 亿、毛利率 74.85%、省外收入 +12.64%（占比 65.30%）、分红率三年 51.07%→65.35%。隐忧仍在：省内吨价 2025 年 <strong>−23.75%</strong>（"放量 30%、价格跌 24%"）、2026H1 归母 −24.29%、合同负债降至 66.58 亿、类现金占总资产 56% 摊薄 ROE</td>
+<td style="text-align:left">山西汾酒</td><td style="text-align:right">7.58</td><td style="text-align:left"><strong>本版最大的"无辜落榜者"</strong>——评分一字未动，纯粹被紫金/洛钼/渣打挤出。ROE 33.48%（白酒最高）、零有息负债、类现金 353.91 亿、毛利率 74.85%、省外收入 +12.64%（占比 65.30%）、分红率三年 51.07%→65.35%。隐忧仍在：省内吨价 2025 年 <strong>−23.75%</strong>（"放量 30%、价格跌 24%"）、2026H1 归母 −24.29%、合同负债降至 66.58 亿、类现金占总资产 56% 摊薄 ROE</td>
 </tr>
 <tr>
-<td>中国平安</td><td>7.43</td><td>同样是无辜落榜。NBV 368.97 亿（<strong>+29.3%</strong>）、营运利润 1,344.2 亿（+10.3%，连续快于会计净利）、集团 EV 15,042.9 亿（+5.7%）、综合投资收益率 6.3%、2026H1 归母 926 亿（+36.1%）。隐忧：资产管理板块连续三年亏损、寿险营运 ROE 由 32.3% 降至 21.3%、净投资收益率降至 3.7%、综合偿付能力由 233.5% 降至 193.3%。<strong>若委托人为保险偏好型，用它替换第 10 位是合理的</strong></td>
+<td style="text-align:left">中国平安</td><td style="text-align:right">7.43</td><td style="text-align:left">同样是无辜落榜。NBV 368.97 亿（<strong>+29.3%</strong>）、营运利润 1,344.2 亿（+10.3%，连续快于会计净利）、集团 EV 15,042.9 亿（+5.7%）、综合投资收益率 6.3%、2026H1 归母 926 亿（+36.1%）。隐忧：资产管理板块连续三年亏损、寿险营运 ROE 由 32.3% 降至 21.3%、净投资收益率降至 3.7%、综合偿付能力由 233.5% 降至 193.3%。<strong>若委托人为保险偏好型，用它替换第 10 位是合理的</strong></td>
 </tr>
 <tr>
-<td>中国石油</td><td>7.35</td><td>见第五节 ②。<strong>首选替补</strong></td>
+<td style="text-align:left">中国石油</td><td style="text-align:right">7.35</td><td style="text-align:left">见第五节 ②。<strong>首选替补</strong></td>
 </tr>
 <tr>
-<td>中银香港</td><td>7.30</td><td>资本最优（CET1 高）、分红稳，但增长动能弱。报告的关键判读是：<strong>账面净息差 2016 年 1.36%→2025 年 1.40% 的"走平"是两段反向运动抵消的假象</strong>——中间极差达 56BP（2021 谷底 1.06%、2023 高点 1.53%）。<strong>不能只看首末值</strong></td>
+<td style="text-align:left">中银香港</td><td style="text-align:right">7.30</td><td style="text-align:left">资本最优（CET1 高）、分红稳，但增长动能弱。报告的关键判读是：<strong>账面净息差 2016 年 1.36%→2025 年 1.40% 的"走平"是两段反向运动抵消的假象</strong>——中间极差达 56BP（2021 谷底 1.06%、2023 高点 1.53%）。<strong>不能只看首末值</strong></td>
 </tr>
 <tr>
-<td>泡泡玛特</td><td>7.28</td><td>2026H1 归母增速从 +308.8% 掉到 <strong>+10.1%</strong>，存货周转 123→201 天，第一大 IP THE MONSTERS 绝对值首现 −7.5%，<strong>管理层已公开承认 2026 年完不成 20% 的增长目标</strong></td>
+<td style="text-align:left">泡泡玛特</td><td style="text-align:right">7.28</td><td style="text-align:left">2026H1 归母增速从 +308.8% 掉到 <strong>+10.1%</strong>，存货周转 123→201 天，第一大 IP THE MONSTERS 绝对值首现 −7.5%，<strong>管理层已公开承认 2026 年完不成 20% 的增长目标</strong></td>
 </tr>
 <tr>
-<td>藏格矿业</td><td>7.26</td><td>利润含金量有硬伤：2025 年归母 38.52 亿 <strong>大于</strong>营业收入 35.77 亿，主因巨龙铜业权益法收益 27.82 亿（占 <strong>72.23%</strong>，2026H1 达 <strong>78.03%</strong>），<strong>不影响经营现金流</strong>（经营现金流仅为净利 54.5%）、<strong>扣非不剔除</strong>。另注：紫金矿业已完成对其控制权收购</td>
+<td style="text-align:left">藏格矿业</td><td style="text-align:right">7.26</td><td style="text-align:left">利润含金量有硬伤：2025 年归母 38.52 亿 <strong>大于</strong>营业收入 35.77 亿，主因巨龙铜业权益法收益 27.82 亿（占 <strong>72.23%</strong>，2026H1 达 <strong>78.03%</strong>），<strong>不影响经营现金流</strong>（经营现金流仅为净利 54.5%）、<strong>扣非不剔除</strong>。另注：紫金矿业已完成对其控制权收购</td>
 </tr>
 <tr>
-<td>中国神华</td><td>7.25</td><td><strong>收益型委托人的首选替补</strong>。煤炭＋电力＋铁路港口一体化、可采储量由 173.1 亿吨跃升至 357.7 亿吨、2025 分红率 79.1%、2025—2027 下限≥65%、经营现金流／归母长期 1.4—1.9 倍。未入选两点：①能源敞口已由中海油承担；②2026H1 资产负债率由 23.3% 跳至 <strong>40.3%</strong>（报告注明系 935.19 亿元并购现金对价），<strong>该杠杆尚未经下行周期检验</strong></td>
+<td style="text-align:left">中国神华</td><td style="text-align:right">7.25</td><td style="text-align:left"><strong>收益型委托人的首选替补</strong>。煤炭＋电力＋铁路港口一体化、可采储量由 173.1 亿吨跃升至 357.7 亿吨、2025 分红率 79.1%、2025—2027 下限≥65%、经营现金流／归母长期 1.4—1.9 倍。未入选两点：①能源敞口已由中海油承担；②2026H1 资产负债率由 23.3% 跳至 <strong>40.3%</strong>（报告注明系 935.19 亿元并购现金对价），<strong>该杠杆尚未经下行周期检验</strong></td>
 </tr>
 <tr>
-<td>招商银行</td><td>7.25</td><td><strong>见第五节 ②。这是本版最脆弱的一处判断，列为备选第 1 位</strong></td>
+<td style="text-align:left">招商银行</td><td style="text-align:right">7.25</td><td style="text-align:left"><strong>见第五节 ②。这是本版最脆弱的一处判断，列为备选第 1 位</strong></td>
 </tr>
 <tr>
-<td>中国移动</td><td>7.23</td><td>派息率 75%、股息 5.270 港元/股的属性扎实，但成长已停滞（2025 营收 +0.9%、2026H1 −1.1%／归母 −6.3%），第二曲线增量仅覆盖主业缺口的 47.3%</td>
+<td style="text-align:left">中国移动</td><td style="text-align:right">7.23</td><td style="text-align:left">派息率 75%、股息 5.270 港元/股的属性扎实，但成长已停滞（2025 营收 +0.9%、2026H1 −1.1%／归母 −6.3%），第二曲线增量仅覆盖主业缺口的 47.3%</td>
 </tr>
 <tr>
-<td>汇丰控股</td><td>7.21</td><td>与渣打同构但折扣更大：2025 年<strong>须予注意项目不利净额 49 亿美元</strong>（含 Madoff 案法律准备 11 亿、英国汇丰历史交易 3 亿、重组架构 10.30 亿、出售相关 6.31 亿），<strong>其中 14 亿美元法律准备属过去行为的一次性代价</strong>；2026H1 除税前 +23.48% 中约一半来自交行减值基数反转（剔除后主业 +5.9%）；2025 年派付比率 50% 中含出售加拿大业务的特别股息 0.21 美元，<strong>不可作为常态基数</strong>；恒生银行私有化致 CET1 由 14.9% 降至 14.1%</td>
+<td style="text-align:left">汇丰控股</td><td style="text-align:right">7.21</td><td style="text-align:left">与渣打同构但折扣更大：2025 年<strong>须予注意项目不利净额 49 亿美元</strong>（含 Madoff 案法律准备 11 亿、英国汇丰历史交易 3 亿、重组架构 10.30 亿、出售相关 6.31 亿），<strong>其中 14 亿美元法律准备属过去行为的一次性代价</strong>；2026H1 除税前 +23.48% 中约一半来自交行减值基数反转（剔除后主业 +5.9%）；2025 年派付比率 50% 中含出售加拿大业务的特别股息 0.21 美元，<strong>不可作为常态基数</strong>；恒生银行私有化致 CET1 由 14.9% 降至 14.1%</td>
 </tr>
 <tr>
-<td>农业银行</td><td>7.13</td><td>唯一拥有县域金融护城河（存款付息率 −6BP、贷款收益率 +12BP、不良优势扩至 20BP）且不良率低于逾期率，但逾期÷不良已到 <strong>99.5%</strong> 逼近 100% 红线，2026H1 零售不良首超对公、实际税率跳升至 18.54%。<strong>同板块选了渣打</strong></td>
+<td style="text-align:left">农业银行</td><td style="text-align:right">7.13</td><td style="text-align:left">唯一拥有县域金融护城河（存款付息率 −6BP、贷款收益率 +12BP、不良优势扩至 20BP）且不良率低于逾期率，但逾期÷不良已到 <strong>99.5%</strong> 逼近 100% 红线，2026H1 零售不良首超对公、实际税率跳升至 18.54%。<strong>同板块选了渣打</strong></td>
 </tr>
 <tr>
-<td>拼多多</td><td>7.05</td><td>质地本身极好：零有息负债、现金类资产 6,008.48 亿占总资产 95.4%、毛利率 56.6%、经营利润率回升至 21.7%。<strong>致命项是股东回报为零——分红 0、回购 0</strong>；2026H1 归母 −12.7%，其他净损失 −94.30 亿<strong>公司未披露任何构成明细</strong>，2026H1 其他综合收益 −81.58 亿</td>
+<td style="text-align:left">拼多多</td><td style="text-align:right">7.05</td><td style="text-align:left">质地本身极好：零有息负债、现金类资产 6,008.48 亿占总资产 95.4%、毛利率 56.6%、经营利润率回升至 21.7%。<strong>致命项是股东回报为零——分红 0、回购 0</strong>；2026H1 归母 −12.7%，其他净损失 −94.30 亿<strong>公司未披露任何构成明细</strong>，2026H1 其他综合收益 −81.58 亿</td>
 </tr>
 <tr>
-<td>珀莱雅</td><td>6.94</td><td>净现金 51.34 亿（占总资产 47.2%）、ROE 25.80%、毛利率 74.32% 九年最优，但销售费用率九年单调升至 <strong>53.13%</strong>、主品牌连续两期负增长（2025 −10.39%、2026H1 −7.19%）、彩棠 2026H1 转 <strong>−21.93%</strong>、<strong>9.24 亿商誉占归母净资产 13.8% 且本次收购无业绩承诺</strong>；2026H1 归母 +46.26% 全由花知晓 4.45 亿无现金重估收益贡献（剔除后约 −9.6%）</td>
+<td style="text-align:left">珀莱雅</td><td style="text-align:right">6.94</td><td style="text-align:left">净现金 51.34 亿（占总资产 47.2%）、ROE 25.80%、毛利率 74.32% 九年最优，但销售费用率九年单调升至 <strong>53.13%</strong>、主品牌连续两期负增长（2025 −10.39%、2026H1 −7.19%）、彩棠 2026H1 转 <strong>−21.93%</strong>、<strong>9.24 亿商誉占归母净资产 13.8% 且本次收购无业绩承诺</strong>；2026H1 归母 +46.26% 全由花知晓 4.45 亿无现金重估收益贡献（剔除后约 −9.6%）</td>
 </tr>
 <tr>
-<td>东阿阿胶</td><td>6.93</td><td>分红率 100% 表面上最慷慨，但 2026H1 应收 +345%、收现比 90.02%、经营现金流 0.82 亿（−91.56%）、核心单品 −0.45%、第一大客户占 34.05%。报告定性"<strong>以信用换收入</strong>"。另注：报告判定其 2023 年"调整后"列<strong>不可引用</strong></td>
+<td style="text-align:left">东阿阿胶</td><td style="text-align:right">6.93</td><td style="text-align:left">分红率 100% 表面上最慷慨，但 2026H1 应收 +345%、收现比 90.02%、经营现金流 0.82 亿（−91.56%）、核心单品 −0.45%、第一大客户占 34.05%。报告定性"<strong>以信用换收入</strong>"。另注：报告判定其 2023 年"调整后"列<strong>不可引用</strong></td>
 </tr>
 <tr>
-<td>江苏银行</td><td>6.85</td><td>成长最好的银行（2025 营收 +8.82%／归母 +8.35%、不良率 0.84%），但<strong>核心一级资本充足率 8.67%，距 8.5% 监管底线只剩 17BP</strong>，直接锁死扩张空间；2025 年资产 +24.78% 已"显著偏离 5 万亿级银行历史中枢"；利润增长几乎全靠税盾</td>
+<td style="text-align:left">江苏银行</td><td style="text-align:right">6.85</td><td style="text-align:left">成长最好的银行（2025 营收 +8.82%／归母 +8.35%、不良率 0.84%），但<strong>核心一级资本充足率 8.67%，距 8.5% 监管底线只剩 17BP</strong>，直接锁死扩张空间；2025 年资产 +24.78% 已"显著偏离 5 万亿级银行历史中枢"；利润增长几乎全靠税盾</td>
 </tr>
 <tr>
-<td>工商银行 / 建设银行 / 中国银行</td><td>6.6—6.8</td><td><strong>不是不好，是同质化，且被渣打比下去</strong>。三家共同隐患：利润高度依赖税负下降（建行 2025 年税前利润 −0.98%）、逾期÷不良已破或逼近 100%（工行 <strong>124.48%</strong>、中行 110.98%、建行 107.75%）；中行 1,650 亿注资致每股股利 −6.64%</td>
+<td style="text-align:left">工商银行 / 建设银行 / 中国银行</td><td style="text-align:right">6.6—6.8</td><td style="text-align:left"><strong>不是不好，是同质化，且被渣打比下去</strong>。三家共同隐患：利润高度依赖税负下降（建行 2025 年税前利润 −0.98%）、逾期÷不良已破或逼近 100%（工行 <strong>124.48%</strong>、中行 110.98%、建行 107.75%）；中行 1,650 亿注资致每股股利 −6.64%</td>
 </tr>
 <tr>
-<td>万华化学</td><td>6.63</td><td>全球 MDI 约三成份额、经营现金流十年为累计净利 1.96 倍、2026H1 归母 +64.35%，但石化系列毛利率仅 0.58% 而收入占比 41.6%、资产负债率 62.81%、2026H1 短期借款 <strong>+117.67% 至 604.87 亿</strong>、净利 +64.35% 而经营现金流仅 +11.93%——<strong>利润改善未转化为现金</strong></td>
+<td style="text-align:left">万华化学</td><td style="text-align:right">6.63</td><td style="text-align:left">全球 MDI 约三成份额、经营现金流十年为累计净利 1.96 倍、2026H1 归母 +64.35%，但石化系列毛利率仅 0.58% 而收入占比 41.6%、资产负债率 62.81%、2026H1 短期借款 <strong>+117.67% 至 604.87 亿</strong>、净利 +64.35% 而经营现金流仅 +11.93%——<strong>利润改善未转化为现金</strong></td>
 </tr>
 <tr>
-<td>伊利股份</td><td>6.55</td><td>分红承诺扎实（2025—2027 分红率≥75%、每股派息≥1.22 元）、ROE 20.87%、净现金约 +177 亿，但液体乳量价齐跌（降幅 89.5% 来自价格与结构）、澳优商誉累计减值 45.84 亿、2026H1 奶粉增速骤降至 +1.61%、短期借款 646.77 亿。报告原话："2025 年 +36.82% 需打两个折扣"</td>
+<td style="text-align:left">伊利股份</td><td style="text-align:right">6.55</td><td style="text-align:left">分红承诺扎实（2025—2027 分红率≥75%、每股派息≥1.22 元）、ROE 20.87%、净现金约 +177 亿，但液体乳量价齐跌（降幅 89.5% 来自价格与结构）、澳优商誉累计减值 45.84 亿、2026H1 奶粉增速骤降至 +1.61%、短期借款 646.77 亿。报告原话："2025 年 +36.82% 需打两个折扣"</td>
 </tr>
 <tr>
-<td>中国电信</td><td>6.45</td><td>派息率 75%、自由现金流 +121.3%，但 2026H1 营收 −3.9%／归母 −14.9%，增值税税目调整影响金额<strong>未披露</strong>，报告自述"无法验证可比口径真实净利率"；产业数字化增速由 +19.0% 降至 +0.5%</td>
+<td style="text-align:left">鱼跃医疗</td><td style="text-align:right">6.38</td><td style="text-align:left">毛利率 49.87%、ROE 11.42%、类现金 72.15 亿覆盖全部负债 2.6 倍、<strong>零有息负债</strong>（仅租赁负债 0.14 亿）、派现率由 30% 升至 <strong>54%</strong>＋回购 4.28 亿、2026Q3 单季营收／归母／扣非<strong>同时转正</strong>（+8.28%／+9.55%／+8.06%）、血糖 +24.34%、外销 +29.86%。但<strong>利润两成靠政府补助</strong>（2025 年 3.26 亿占归母 21%，2026Q1—3 补助再减 2.38 亿）；2026Q1—3 归母 −22.83%、扣非 −11.28%；<strong>Q3 单季经营现金流 −0.24 亿</strong>而单季归母 +2.88 亿，应收 13.32 亿（较年初 <strong>+87.86%</strong>）、合同负债 −30.16%——收现缺口被「收到其他与经营活动有关的现金」由 4.58 亿增至 12.07 亿掩盖；中优 6.21 亿商誉零减值，若计提相当于 2025 年归母 42%</td>
 </tr>
 <tr>
-<td>携程集团</td><td>6.33</td><td><strong>唯一有估值的公司</strong>（静态 PE 约 5—6 倍），但 2025 年归母 +95.1% 含 MakeMyTrip 处置收益 152 亿（占税前利润 54.9%）；2026H1 归母仅 0.41 亿（含 SAMR 罚没 51.80 亿）；经营现金流÷归母由 2.22× 降至 0.43×；整改对定价机制的影响要在 2026H2—2027 年才体现</td>
+<td style="text-align:left">携程集团</td><td style="text-align:right">6.33</td><td style="text-align:left"><strong>唯一有估值的公司</strong>（静态 PE 约 5—6 倍），但 2025 年归母 +95.1% 含 MakeMyTrip 处置收益 152 亿（占税前利润 54.9%）；2026H1 归母仅 0.41 亿（含 SAMR 罚没 51.80 亿）；经营现金流÷归母由 2.22× 降至 0.43×；整改对定价机制的影响要在 2026H2—2027 年才体现</td>
 </tr>
 <tr>
-<td>中国人寿</td><td>6.20</td><td>NBV +35.7%（457.52 亿）与 2026H1 归母 +228.6% 亮眼，但<strong>其他综合收益浮亏扩大至 −1,853.35 亿</strong>、权益配置升至约 22.6% 放大波动、综合偿付能力由 262% 降至 174%、2026H1 净利已达 2025 全年 87% 的高基数。<strong>保险仓选平安不选国寿，核心差异是利润的可预测性</strong></td>
+<td style="text-align:left">中国人寿</td><td style="text-align:right">6.20</td><td style="text-align:left">NBV +35.7%（457.52 亿）与 2026H1 归母 +228.6% 亮眼，但<strong>其他综合收益浮亏扩大至 −1,853.35 亿</strong>、权益配置升至约 22.6% 放大波动、综合偿付能力由 262% 降至 174%、2026H1 净利已达 2025 全年 87% 的高基数。<strong>保险仓选平安不选国寿，核心差异是利润的可预测性</strong></td>
 </tr>
 <tr>
-<td>中国联通</td><td>6.00</td><td>有息负债仅 48.94 亿、自由现金流 372.6 亿（+24.7%），但 2026H1 归母 <strong>−34.8%</strong>、毛利率半年降 3.24pp（超七年累计），且归母仅占集团净利润 43.9%。增值税 6%→9% 属永久性冲击</td>
+<td style="text-align:left">中国联通</td><td style="text-align:right">6.00</td><td style="text-align:left">有息负债仅 48.94 亿、自由现金流 372.6 亿（+24.7%），但 2026H1 归母 <strong>−34.8%</strong>、毛利率半年降 3.24pp（超七年累计），且归母仅占集团净利润 43.9%。增值税 6%→9% 属永久性冲击</td>
 </tr>
 <tr>
-<td>泸州老窖</td><td>6.00</td><td>营收降幅加速（+3.19%→−17.52%→−36.35%）、2026H1 归母 −43.37%、前五大客户占比高、白酒库存 +29.76% 而销量 −17.03%、85 亿元分红下限与外推口径分红率（94%—112%）错配</td>
+<td style="text-align:left">泸州老窖</td><td style="text-align:right">6.00</td><td style="text-align:left">营收降幅加速（+3.19%→−17.52%→−36.35%）、2026H1 归母 −43.37%、前五大客户占比高、白酒库存 +29.76% 而销量 −17.03%、85 亿元分红下限与外推口径分红率（94%—112%）错配</td>
 </tr>
 <tr>
-<td>中烟香港</td><td>5.80</td><td>专卖制度独家通道、资产负债表质变（净现金 17.02 亿），但<strong>单一客户占收入 65.8%</strong>、定价非市场化、2026H1 收入 −26.9%、增长中枢连续四期下台阶</td>
+<td style="text-align:left">中国中免</td><td style="text-align:right">5.83</td><td style="text-align:left">扣非与归母十年差额均不超 8.00 亿（2025 年仅 0.42 亿），<strong>利润不含注水</strong>；资产负债率 26.02%、财务费用为<strong>净收益 7.77 亿</strong>、长期借款仅 28.49 亿；有税低毛利业务三年收缩 52.14%、收入回归免税 74.5%；13 家市内店全部开业。但<strong>收入连降两年</strong>（2025 −4.92%、2026H1 −1.76%）、ROE 仅 <strong>6.46%</strong>、免税毛利率由 39.50% 降至 36.97%（成本 +5.53% 而收入 +1.29%）；2026H1 归母 +19.49% 靠毛利率 +1.13pp 而非收入；<strong>Q1 占全年归母 54.04%</strong>，Q2—Q4 近乎无利润；分红／回购<strong>报告未载</strong>；报告自身经营现金流口径矛盾（表内 0.99 倍 vs 实算 1.69 倍）须回原始年报核对</td>
 </tr>
 <tr>
-<td>浦发银行</td><td>5.57</td><td>股份行修复样本，但报告载其资产质量与息差仍处同业中下游；跨年度数据存在口径重述，比较需谨慎</td>
+<td style="text-align:left">浦发银行</td><td style="text-align:right">5.57</td><td style="text-align:left">股份行修复样本，但报告载其资产质量与息差仍处同业中下游；跨年度数据存在口径重述，比较需谨慎</td>
 </tr>
 <tr>
-<td>同仁堂</td><td>5.50</td><td>安宫牛黄丸 2025 年收入 <strong>−20.46%</strong> 而库存量 <strong>+57.38%</strong>、2025Q4 归母仅 0.118 亿（−93.29%）、十余省价格治理点名该品种。提价逻辑失效</td>
+<td style="text-align:left">同仁堂</td><td style="text-align:right">5.50</td><td style="text-align:left">安宫牛黄丸 2025 年收入 <strong>−20.46%</strong> 而库存量 <strong>+57.38%</strong>、2025Q4 归母仅 0.118 亿（−93.29%）、十余省价格治理点名该品种。提价逻辑失效</td>
 </tr>
 <tr>
-<td>片仔癀</td><td>5.50</td><td>2023 年锭剂提价至 760 元/粒后报告判定"已不具备再次提价空间"，2025 归母 −27.49%、存货 66.79 亿占总资产 38.04%、2025 年分红率 83.01% 但自由现金流 −2.63 亿（分红靠动用定存）</td>
+<td style="text-align:left">片仔癀</td><td style="text-align:right">5.50</td><td style="text-align:left">2023 年锭剂提价至 760 元/粒后报告判定"已不具备再次提价空间"，2025 归母 −27.49%、存货 66.79 亿占总资产 38.04%、2025 年分红率 83.01% 但自由现金流 −2.63 亿（分红靠动用定存）</td>
 </tr>
 <tr>
-<td>香港中华煤气</td><td>5.62</td><td>见第五节 ③。十年营业额 +90.24% 而归母 −22.51%；分红率 114.82%、十年分红为自由现金流 2.03 倍；2026H1 经营溢利 −4.45% 而列账归母 +22.82%</td>
+<td style="text-align:left">香港中华煤气</td><td style="text-align:right">5.62</td><td style="text-align:left">见第五节 ③。十年营业额 +90.24% 而归母 −22.51%；分红率 114.82%、十年分红为自由现金流 2.03 倍；2026H1 经营溢利 −4.45% 而列账归母 +22.82%</td>
 </tr>
 <tr>
-<td>上海银行</td><td>5.17</td><td>收入端十年横盘（2020 年起六年营收 CAGR 仅 1.5%），利润靠拨备释放维持——<strong>拨备覆盖率由 337.15%（2019）降至 198.25%（2026H1），首破 200%</strong>，距监管 150% 仅剩 48.25pp；2026H1 不良率跳升至 1.42%、归母仅 +0.51%；非息收入占比 32.34% 且含投资收益 208.08 亿</td>
+<td style="text-align:left">上海银行</td><td style="text-align:right">5.17</td><td style="text-align:left">收入端十年横盘（2020 年起六年营收 CAGR 仅 1.5%），利润靠拨备释放维持——<strong>拨备覆盖率由 337.15%（2019）降至 198.25%（2026H1），首破 200%</strong>，距监管 150% 仅剩 48.25pp；2026H1 不良率跳升至 1.42%、归母仅 +0.51%；非息收入占比 32.34% 且含投资收益 208.08 亿</td>
 </tr>
 <tr>
-<td>北京银行</td><td>4.68</td><td>ROE 五年累计下降 4.18pct 至 6.11%、净息差五年收窄 56BP 至 1.27%；<strong>逾期/不良 151.9% 远超 100% 警戒线</strong>、逾期 3 个月以内贷款一年 +83.83%；拨备覆盖率跌破 200%（199.59%）；核心一级 8.37% 距监管底线仅约 62BP；78.86% 收入来自京津冀及环渤海</td>
+<td style="text-align:left">北京银行</td><td style="text-align:right">4.68</td><td style="text-align:left">ROE 五年累计下降 4.18pct 至 6.11%、净息差五年收窄 56BP 至 1.27%；<strong>逾期/不良 151.9% 远超 100% 警戒线</strong>、逾期 3 个月以内贷款一年 +83.83%；拨备覆盖率跌破 200%（199.59%）；核心一级 8.37% 距监管底线仅约 62BP；78.86% 收入来自京津冀及环渤海</td>
 </tr>
 <tr>
-<td>比音勒芬</td><td>5.20</td><td>十年零金融负债、T恤毛利率 81.05% 且连续六年市占第一、2026H1 营收 +23.66%，但 2025 归母 −29.46%、10 亿元商标无形资产减值、存货 +25.44%（1—2 年库龄 +65.2%）、<strong>直营单店销售 −9.54%</strong>、分红为自由现金流 5.2 倍</td>
+<td style="text-align:left">比音勒芬</td><td style="text-align:right">5.20</td><td style="text-align:left">十年零金融负债、T恤毛利率 81.05% 且连续六年市占第一、2026H1 营收 +23.66%，但 2025 归母 −29.46%、10 亿元商标无形资产减值、存货 +25.44%（1—2 年库龄 +65.2%）、<strong>直营单店销售 −9.54%</strong>、分红为自由现金流 5.2 倍</td>
 </tr>
 <tr>
-<td>老铺黄金</td><td>4.50</td><td>同店 2025 +160.6%、单商场年化销售近 10 亿元、一口价定价权（毛利率 41.3%）都极其亮眼，但<strong>存货 190.18 亿占总资产 80.2%、有息负债一年 +356%、经营现金流 2023—2025 连续三年为负（累计 −81.05 亿）、高分红由外部融资支撑</strong></td>
+<td style="text-align:left">老铺黄金</td><td style="text-align:right">4.50</td><td style="text-align:left">同店 2025 +160.6%、单商场年化销售近 10 亿元、一口价定价权（毛利率 41.3%）都极其亮眼，但<strong>存货 190.18 亿占总资产 80.2%、有息负债一年 +356%、经营现金流 2023—2025 连续三年为负（累计 −81.05 亿）、高分红由外部融资支撑</strong></td>
 </tr>
 <tr>
-<td>中国石化</td><td>4.50</td><td>ROE 3.86%、归母 −36.8%、债务净额由净现金 918.74 亿转为净债务 2,046.47 亿（报告称"资产负债率只涨 3pp 是<strong>严重的误导性读数</strong>"）、化工五年累计亏 336.32 亿、储量寿命仅 7.34 年</td>
+<td style="text-align:left">中国石化</td><td style="text-align:right">4.50</td><td style="text-align:left">ROE 3.86%、归母 −36.8%、债务净额由净现金 918.74 亿转为净债务 2,046.47 亿（报告称"资产负债率只涨 3pp 是<strong>严重的误导性读数</strong>"）、化工五年累计亏 336.32 亿、储量寿命仅 7.34 年</td>
 </tr>
 <tr>
-<td>金龙鱼</td><td>4.50</td><td>毛利率 6.43%、ROE 3.32%、净利率 1.29%——报告定性为"价格接受者"；广州益海案一审共同退赔 18.81 亿仅计提 2.61 亿（二审中）、另有税案 4.72 亿；油脂灌装产能利用率仅 34.9%；净债务 187.50 亿</td>
+<td style="text-align:left">金龙鱼</td><td style="text-align:right">4.50</td><td style="text-align:left">毛利率 6.43%、ROE 3.32%、净利率 1.29%——报告定性为"价格接受者"；广州益海案一审共同退赔 18.81 亿仅计提 2.61 亿（二审中）、另有税案 4.72 亿；油脂灌装产能利用率仅 34.9%；净债务 187.50 亿</td>
 </tr>
 <tr>
-<td>美团</td><td>4.40</td><td>见第五节 ④。FY2025 归母亏损 233.54 亿、经营现金流 −138.15 亿；零分红零回购。<strong>不属于本组合的标的类型</strong></td>
+<td style="text-align:left">美团</td><td style="text-align:right">4.40</td><td style="text-align:left">见第五节 ④。FY2025 归母亏损 233.54 亿、经营现金流 −138.15 亿；零分红零回购。<strong>不属于本组合的标的类型</strong></td>
 </tr>
 <tr>
-<td>亚马芬体育</td><td>5.00</td><td>Arc'teryx／Salomon／Wilson 品牌集群、同店 TA 17%／OP 28%／B&amp;R 22%、DTC 占比 53.1%，但报告披露<strong>财务报告内部控制存在重大缺陷</strong>；2025 年利润增量 65.5% 来自财务成本改善且<strong>已用尽</strong>；存货周转 258 天</td>
+<td style="text-align:left">亚马芬体育</td><td style="text-align:right">5.00</td><td style="text-align:left">Arc'teryx／Salomon／Wilson 品牌集群、同店 TA 17%／OP 28%／B&amp;R 22%、DTC 占比 53.1%，但报告披露<strong>财务报告内部控制存在重大缺陷</strong>；2025 年利润增量 65.5% 来自财务成本改善且<strong>已用尽</strong>；存货周转 258 天</td>
 </tr>
 <tr>
-<td>华润三九</td><td>6.00</td><td>2025 年营收 +14.43% <strong>全部来自天士力并表</strong>，剔除后内生 −5.90%，2026H1 CHC −23.29%（半年蒸发 18.62 亿）<strong>公司未给出原因说明</strong>，商誉 70.63 亿占归母净资产 31.86%</td>
+<td style="text-align:left">华润三九</td><td style="text-align:right">6.00</td><td style="text-align:left">2025 年营收 +14.43% <strong>全部来自天士力并表</strong>，剔除后内生 −5.90%，2026H1 CHC −23.29%（半年蒸发 18.62 亿）<strong>公司未给出原因说明</strong>，商誉 70.63 亿占归母净资产 31.86%</td>
 </tr>
 <tr>
-<td>华润医药</td><td>4.80</td><td>净利率仅 1.50%、分销业务七年利润零增长、应收 1,120.1 亿占总资产 38.1%、2025 年净利增长靠税率（23.11%→18.17%）而非经营</td>
+<td style="text-align:left">华润医药</td><td style="text-align:right">4.80</td><td style="text-align:left">净利率仅 1.50%、分销业务七年利润零增长、应收 1,120.1 亿占总资产 38.1%、2025 年净利增长靠税率（23.11%→18.17%）而非经营</td>
 </tr>
 <tr>
-<td>英矽智能</td><td>4.00</td><td>AI 制药的效率优势与管线（33 项 PCC、合约总价值约 110 亿美元、Rentosertib 2026 年 7 月在中国启动 III 期）真实，2026H1 收入 +287.2%、报告与经调整双盈利，但<strong>无商业化产品、收入脉冲式、经营现金流 2025 年仍净流出 7,676.6 万美元</strong>。不属于本组合的标的类型</td>
+<td style="text-align:left">英矽智能</td><td style="text-align:right">4.00</td><td style="text-align:left">AI 制药的效率优势与管线（33 项 PCC、合约总价值约 110 亿美元、Rentosertib 2026 年 7 月在中国启动 III 期）真实，2026H1 收入 +287.2%、报告与经调整双盈利，但<strong>无商业化产品、收入脉冲式、经营现金流 2025 年仍净流出 7,676.6 万美元</strong>。不属于本组合的标的类型</td>
 </tr>
 <tr>
-<td>五粮液</td><td>—</td><td><strong>数据存疑，暂不评估</strong>。报告载 2025 年收入腰斩且"需要公司层面的事件来解释"，同期分红达归母净利的 2.24 倍，董事长缺席审议年报董事会</td>
+<td style="text-align:left">五粮液</td><td style="text-align:right">—</td><td style="text-align:left"><strong>数据存疑，暂不评估</strong>。报告载 2025 年收入腰斩且"需要公司层面的事件来解释"，同期分红达归母净利的 2.24 倍，董事长缺席审议年报董事会</td>
 </tr>
 </tbody></table></div>
 <figure><div class="fig"><div class="rsp-fig" style="--rsp-fig-w:680px"><svg viewBox="0 0 680 340" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="TsangerJinKai02, Source Han Serif SC, Songti SC, Georgia, serif">
@@ -721,28 +783,28 @@
 <text x="20" y="330.0" font-size="8" fill="#7C7B77">点。</text>
 </svg></div></div><figcaption>图 2　十家公司建议组合权重</figcaption></figure><h2>七、组合结构一览</h2>
 <div class="rsp-table"><table class="financial">
-<thead><tr><th>板块</th><th>公司</th><th>合计权重</th></tr></thead>
+<thead><tr><th style="text-align:left">板块</th><th style="text-align:left">公司</th><th style="text-align:right">合计权重</th></tr></thead>
 <tbody>
 <tr>
-<td>食品饮料</td><td>海天味业、农夫山泉</td><td>20%</td>
+<td style="text-align:left">食品饮料</td><td style="text-align:left">海天味业、农夫山泉</td><td style="text-align:right">20%</td>
 </tr>
 <tr>
-<td>互联网</td><td>腾讯控股、网易</td><td>20%</td>
+<td style="text-align:left">互联网</td><td style="text-align:left">腾讯控股、网易</td><td style="text-align:right">20%</td>
 </tr>
 <tr>
-<td>有色 / 矿业</td><td>紫金矿业、洛阳钼业</td><td>17%</td>
+<td style="text-align:left">有色 / 矿业</td><td style="text-align:left">紫金矿业、洛阳钼业</td><td style="text-align:right">17%</td>
 </tr>
 <tr>
-<td>白酒</td><td>贵州茅台</td><td>14%</td>
+<td style="text-align:left">白酒</td><td style="text-align:left">贵州茅台</td><td style="text-align:right">14%</td>
 </tr>
 <tr>
-<td>能源</td><td>中国海油</td><td>11%</td>
+<td style="text-align:left">能源</td><td style="text-align:left">中国海油</td><td style="text-align:right">11%</td>
 </tr>
 <tr>
-<td>医药</td><td>药明康德</td><td>10%</td>
+<td style="text-align:left">医药</td><td style="text-align:left">药明康德</td><td style="text-align:right">10%</td>
 </tr>
 <tr>
-<td>银行</td><td>渣打银行</td><td>8%</td>
+<td style="text-align:left">银行</td><td style="text-align:left">渣打银行</td><td style="text-align:right">8%</td>
 </tr>
 </tbody></table></div>
 <p><strong>按报告口径的板块归属</strong>：上表 7 个板块合计 100%。需要单独说明的是——<strong>"能源"（中海油 11%）与"有色/矿业"（紫金 9% + 洛钼 8% = 17%）在因子层面同属"资源类"</strong>，合并口径为 <strong>28%</strong>。本版把两者分列，是因为报告自身按行业分类；但<strong>在风险计量上我把它们视为同一因子</strong>，并据此压低了紫金与洛钼的权重（详见第五节①）。</p>
@@ -753,12 +815,13 @@
 <li><strong>银行仓由内资换成外资</strong>（招行 → 渣打），同时拿到了更高的息差与更厚的资本，代价是接受"利润三重扣减"的口径复杂性与更低的披露透明度。</li>
 <li><strong>白酒仓由 2 家减到 1 家</strong>（汾酒出榜，仅留茅台），板块权重从 22% 降至 14%——这是"被新公司挤出"的被动结果，<strong>不是主动看空白酒</strong>。</li>
 </ul>
+<p><strong>2026-10-27 复核：结构一字未变。</strong> 新增的 4 家（阿里巴巴、中国中免、阿里健康、鱼跃医疗）均未越过入选线，因此板块构成、各板块权重、以及"资源合并 28%"这个最大敞口全部保持原样。<strong>换句话说，这次复核的实际产出不是"新组合"，而是"确认组合不需要动"，并补上了三家新进入者的落选理由。</strong></p>
 <p><strong>本版组合最需要坦白的一处弱点</strong>：<strong>资源合并口径 28%，是单一因子（大宗商品价格）的最大敞口。</strong> 如果全球需求同步走弱，中海油、紫金、洛钼会同时承压。<strong>我在第 5 节①中已声明这是"仓位纪律"而非"分散化成功"</strong>——真正的分散需要的是驱动因子不同，而油价与铜价在衰退情景下会同向。</p>
 <h2>八、建仓前必须补齐的验证清单</h2>
 <ol>
-<li><strong>补估值（最高优先级）</strong>：55 份报告中仅携程 1 家写有 PE。需为入榜 10 家补 PE／PB／股息率。新增的渣打（每股有形资产净值 1,730 仙）与汇丰（每股账面净值 10.36 美元）<strong>需要当期股价才能换算 PB</strong>。同一份质量打分，估值差一倍就是两个决策。</li>
+<li><strong>补估值（最高优先级）</strong>：59 份报告中仅 <strong>2 家</strong>写有估值——携程（静态 PE 约 5—6 倍）与鱼跃医疗（PE 19.1×／TTM 24.7×、PB 2.20、市值 283.57 亿）。需为入榜 10 家补 PE／PB／股息率。渣打（每股有形资产净值 1,730 仙）与汇丰（每股账面净值 10.36 美元）<strong>也需要当期股价才能换算 PB</strong>。同一份质量打分，估值差一倍就是两个决策。</li>
 <li><strong>核验五粮液 2025 年数据</strong>：营收 −54.55% 与常识不符，须回原始年报核对口径。</li>
-<li><strong>洛阳钼业刚果（金）地缘风险</strong>：矿山端收入约 79% 集中于该国，需跟踪当地政策、税费与出口配额变化；同时确认 2026H1 数据（本次因 PDF 受损未纳入）。</li>
+<li><strong>洛阳钼业「利润—现金」背离（已升级为硬触发）</strong>：2026Q1—3 经营现金流仅为归母 <strong>0.56 倍</strong>、Q3 单季 <strong>−28.62 亿</strong>。<strong>跟踪规则：若 2027 年报「经营现金流／归母」仍低于 0.7 倍，或再出现单季经营现金流净流出，则无条件降至第 11 位、由山西汾酒（7.58）替补。</strong> 同步跟踪刚果（金）政策、钴出口配额（2026／2027 年各 96,600 吨≈产量 82%）与权益金/暴利税变化；2026 年三季报已纳入，中报数据缺口不再存在。</li>
 <li><strong>紫金矿业铜产量拐点</strong>：2026H1 矿产铜同比 −5.7%，需确认是基数效应还是趋势性见顶；同步跟踪卡莫阿项目进度。</li>
 <li><strong>渣打银行的"经常性一次性"</strong>：连续十年出现的重组/FFG/法律准备项目，需逐年判断哪些会真正消失；<strong>第三阶段保障比率 52%/68% 是否在 2026 年报止跌</strong>是最关键的跟踪点；另需跟踪 2026 年起改列账基准后的可比性。</li>
 <li><strong>药明康德客户集中度跟踪</strong>：美国客户占比 71.97%、前五名客户 48.11%，需跟踪地缘政策与立法风险；逐季拆解扣非与归母的差额。</li>
@@ -766,8 +829,11 @@
 <li><strong>腾讯资本开支纪律</strong>：AI 资本开支 2026H1 同比 +109.9%、自由现金流 −44.7%，需确认 2—3 年内能否转化为可量化 AI 收入。</li>
 <li><strong>农夫山泉包装水方向</strong>：2026H1 水类 96.41 亿仍低于 2023H1 的 104.42 亿，需确认修复是否停滞。</li>
 <li><strong>招行与渣打的最终取舍</strong>（若采纳另一方案）：招行的扣分项是一次性、渣打的是结构性——<strong>建议同时跟踪两家的下一年报，用"扣分项是否消失"来做最终裁决</strong>。</li>
+<li><strong>阿里巴巴的自由现金流何时收敛</strong>（下次复核的否决项）：FY2026 资本开支 1,260.63 亿≈经营现金流 1.65 倍、自由现金流 −466.09 亿、已签约未计提承诺 541.36 亿；<strong>若 FY2027 自由现金流仍为负、且回购连续两期为零，它的"股东回报"维度应从 5.5 下调至 4.0 以下</strong>。同时跟踪云智能 EBITA 利润率（FY2027Q1 12%）能否持续。</li>
+<li><strong>中国中免的分红与现金流口径</strong>：报告未载分红／回购，且经营现金流在两处表中口径矛盾（0.99 倍 vs 实算 1.69 倍），<strong>须回原始年报核对后再决定其"股东回报"分数</strong>；同时跟踪海南离岛免税销售额与免税毛利率（36.97%）是否止跌。</li>
+<li><strong>鱼跃医疗的补助与应收</strong>：2025 年政府补助 3.26 亿占归母 21%，2026Q1—3 补助再减 2.38 亿；应收较年初 <strong>+87.86%</strong>、Q3 单季经营现金流转负。<strong>若 2026 年报收现比跌破 100%，其"盈利质量"应从 5.0 下调至 4.0。</strong></li>
 </ol>
-<p>*数据来源：本工作区 55 份财报分析报告（覆盖 56 家公司，Markdown 原文）。所有数字为报告原载口径，未作推测或补全。*</p>
+<p>*数据来源：本工作区 59 份财报分析报告（覆盖 60 家公司，Markdown 原文）。所有数字为报告原载口径，未作推测或补全。*</p>
 
 <!-- rsp-mobile-adapt : 溢出表格滑动提示 -->
 <script>
