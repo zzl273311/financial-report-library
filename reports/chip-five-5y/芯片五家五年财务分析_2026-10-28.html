@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>芯片五家五年财务分析（2021—2025）</title>
+<style>
+:root{
+  --ink:#1c1a17; --ink-2:#43403a; --ink-3:#6f6a61; --line:#dcd5c8;
+  --bg:#f7f4ee; --paper:#fffdf8; --red:#a8332b; --blue:#41637f; --green:#2f6152;
+  --amber:#8a6a2f;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Songti SC","Source Han Serif SC","Noto Serif CJK SC",Georgia,serif;
+  font-size:16px;line-height:1.85;}
+.wrap{max-width:940px;margin:0 auto;padding:56px 28px 80px}
+header{border-bottom:2px solid var(--ink);padding-bottom:22px;margin-bottom:34px}
+h1{font-size:31px;line-height:1.35;margin:0 0 12px;letter-spacing:.5px}
+.sub{color:var(--ink-3);font-size:14px;line-height:1.7;margin:0}
+h2{font-size:22px;margin:52px 0 16px;padding-left:12px;border-left:4px solid var(--red);line-height:1.5}
+h3{font-size:17.5px;margin:32px 0 10px;color:var(--ink)}
+p{margin:0 0 14px;color:var(--ink-2)}
+strong{color:var(--ink);font-weight:700}
+code{font-family:ui-monospace,Menlo,monospace;font-size:13px;background:#efe9dd;
+  padding:1px 5px;border-radius:2px;color:var(--ink-2)}
+.lead{background:var(--paper);border:1px solid var(--line);border-radius:4px;
+  padding:22px 24px;margin:0 0 8px;font-size:16.5px}
+.lead p:last-child{margin-bottom:0}
+ol,ul{padding-left:22px;margin:0 0 16px}
+li{margin-bottom:9px;color:var(--ink-2)}
+table{width:100%;border-collapse:collapse;margin:16px 0 22px;font-size:13.4px;
+  font-family:-apple-system,"PingFang SC","Helvetica Neue",sans-serif}
+th,td{padding:8px 9px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
+th{background:#efe9dd;font-weight:600;color:var(--ink);border-bottom:1.5px solid #c9c0af}
+th:first-child,td:first-child{text-align:left}
+tbody tr:hover{background:#fbf8f1}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 0 22px;max-width:100%}
+.scroll table{margin:0}
+.tblwide{margin:0 0 22px}
+.tblwide td,.tblwide th{white-space:normal;vertical-align:top;line-height:1.65;overflow-wrap:anywhere}
+.tblwide th:first-child,.tblwide td:first-child{white-space:nowrap}
+.note{font-size:12.8px;color:var(--ink-3);line-height:1.75;margin:-8px 0 22px}
+figure{margin:26px 0 30px;background:var(--paper);border:1px solid var(--line);padding:20px 22px 16px}
+figcaption{font-size:13px;color:var(--ink-3);margin-top:14px;line-height:1.75}
+figcaption b{color:var(--ink-2)}
+.bars{display:grid;grid-template-columns:150px 1fr 88px;gap:6px 12px;align-items:center}
+.bars .lbl{font-size:13px;font-family:-apple-system,"PingFang SC",sans-serif;color:var(--ink-2);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bars .track{background:#efe9dd;height:15px;border-radius:2px;position:relative}
+.bars .fill{position:absolute;top:0;height:100%;border-radius:2px}
+.bars .val{font-size:12.5px;text-align:right;font-family:ui-monospace,Menlo,monospace;color:var(--ink-2)}
+.axis{display:grid;grid-template-columns:150px 1fr 88px;gap:6px 12px;font-size:11.5px;
+  color:var(--ink-3);font-family:ui-monospace,Menlo,monospace;margin-top:4px}
+.axis .tick{position:relative;height:16px;margin-bottom:6px}
+.axis .tick span{position:absolute;top:0;white-space:nowrap;line-height:1}
+.axis .tick .tm{transform:translateX(-50%)}
+.axis .tick .t1{transform:translateX(-100%)}
+.zline{position:absolute;top:-2px;bottom:-2px;width:1px;background:#a8332b;opacity:.55}
+.legend{display:flex;gap:22px;flex-wrap:wrap;font-size:12.5px;color:var(--ink-3);margin-bottom:14px}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+footer{margin-top:60px;padding-top:18px;border-top:1px solid var(--line);font-size:12.5px;color:var(--ink-3)}
+@media (max-width:640px){
+  .wrap{padding:34px 16px 60px}
+  h1{font-size:24px} h2{font-size:19px}
+  .bars,.axis{grid-template-columns:96px 1fr 70px}
+  table{font-size:12.3px}
+  .scroll{margin:0 -4px}
+}
+@media print{
+  @page{size:A4;margin:14mm 12mm}
+  body{background:#fff;font-size:11.5pt}
+  .wrap{max-width:none;padding:0}
+  h2{break-after:avoid;margin:22px 0 10px} h3{break-after:avoid;margin:18px 0 8px}
+  figure,table{break-inside:avoid}
+  .scroll{overflow:visible !important}
+  table{font-size:8.2pt}
+  th,td{padding:3px 4px}
+  .tblwide td,.tblwide th{font-size:9pt}
+  .lead{padding:14px 16px;font-size:11.5pt}
+  footer{margin-top:24px}
+}
+</style>
+
+<!-- rsp-mobile-adapt : 响应式适配层（仅屏幕生效，不影响打印/PDF） -->
+<style id="rsp-mobile-adapt">
+/* rsp-mobile-adapt-v3 */
+/* ========== 1. 全局：屏幕端基础修正 ========== */
+@media screen {
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body { overflow-wrap: break-word; }
+  img, svg, canvas, video, iframe { max-width: 100%; }
+  svg[viewBox], svg[viewbox] { height: auto; }
+
+  /* 网格容器（两列对比等）：网格项默认 min-width:auto，会被内部宽表撑破
+     容器、把整页顶出横向滚动（报告里 .two-col 就栽在这上面）。放开收缩，
+     让里面的 .rsp-table 自己去横向滑动。 */
+  .risk-grid > *, .two-col > * { min-width: 0; }
+
+  /* 表格横向滚动容器：宽表不压字、不撑破页面 */
+  .rsp-table {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    margin: 8pt 0;
+    position: relative;
+  }
+  .rsp-table > table { margin: 0; }
+  .rsp-table::-webkit-scrollbar { height: 7px; }
+  .rsp-table::-webkit-scrollbar-track { background: transparent; }
+  .rsp-table::-webkit-scrollbar-thumb { background: #D8D1C4; border-radius: 4px; }
+  /* 内容确实溢出时，右侧给一层渐变暗示"还能往右滑" */
+  .rsp-table[data-rsp-scroll] {
+    background: linear-gradient(to left, rgba(167,63,45,.10), rgba(167,63,45,0) 28px);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 28px 100%;
+  }
+}
+
+/* ========== 2. 平板 / 窄窗口：边距先收，避免内容被挤 ========== */
+@media screen and (max-width: 900px) {
+  body { padding: 22px 22px 46px 22px !important; }
+  .report-header { flex-wrap: wrap; gap: 12pt; }
+  .metrics { flex-wrap: wrap; gap: 10pt 18pt; }
+  .metric { flex: 1 1 42%; min-width: 0; }
+  .report-footer { flex-wrap: wrap; gap: 4pt 14pt; }
+
+  /* 宽表改为横向滚动：给每列保留最小可读宽度，不再把汉字挤成竖排 */
+  .rsp-w5 > table { min-width: 310px !important; }
+  .rsp-w6 > table { min-width: 372px !important; }
+  .rsp-w7 > table { min-width: 434px !important; }
+  .rsp-w8 > table { min-width: 496px !important; }
+  .rsp-w9 > table { min-width: 558px !important; }
+  .rsp-w10 > table { min-width: 620px !important; }
+  .rsp-w11 > table { min-width: 682px !important; }
+  .rsp-w12 > table { min-width: 744px !important; }
+  .rsp-w13 > table { min-width: 806px !important; }
+  .rsp-w14 > table { min-width: 868px !important; }
+  .rsp-w15 > table { min-width: 930px !important; }
+  .rsp-w16 > table { min-width: 992px !important; }
+}
+
+/* ========== 3. 手机：指标卡两列、页头转纵向 ========== */
+@media screen and (max-width: 720px) {
+  body {
+    max-width: 100% !important;
+    padding: 18px 16px 44px 16px !important;
+    font-size: 10.5pt;
+  }
+  h2 { font-size: 15pt !important; margin: 20pt 0 7pt 0 !important; }
+  h3 { font-size: 12.5pt !important; }
+  h1 { font-size: 19pt !important; }
+  p, li { line-height: 1.62; }
+  ul, ol { padding-left: 17pt; }
+
+  .report-header { flex-direction: column; align-items: stretch; gap: 8pt; }
+  .price-block { text-align: left; padding-top: 0; }
+  .price-current { font-size: 24pt !important; }
+  .ticker-name { font-size: 21pt !important; }
+  .ticker-sub { font-size: 9.5pt !important; }
+
+  .metrics { gap: 9pt 12pt; }
+  .metric { flex: 1 1 45%; }
+  .metric-value { font-size: 15pt !important; }
+  .metric-label { font-size: 8.5pt !important; white-space: normal !important; }
+
+  table, .kami-table { font-size: 9pt !important; }
+  .longtable { font-size: 8.5pt !important; }
+  .wide { font-size: 7.5pt !important; }
+  .dense { font-size: 8pt !important; }
+  table th, table td, .kami-table th, .kami-table td { padding: 5pt 6pt !important; }
+
+  blockquote, .quote, .note, .warn, .callout, .risk-item { padding: 9pt 11pt !important; }
+  .risk-grid { grid-template-columns: 1fr !important; }
+  .report-footer { flex-direction: column; align-items: flex-start; gap: 3pt; }
+}
+
+/* ========== 3b. 图表：窄屏保持图纸原尺寸 + 横向滑动 ========== */
+/* 报告里的图表是 SVG：viewBox 宽 680 + width:100%。缩到手机宽度（约 350px）
+   只剩 0.5×，图内字号从 11px 掉到 5px 完全不可读；而 SVG <text> 不会自动换行，
+   单纯放大字号必然溢出图框。这里改为**保持图纸原尺寸、允许左右滑动**——
+   与上面宽表同一套策略，宁可滑也不塌字号。仅屏幕生效，打印/PDF 不受影响。 */
+@media screen and (max-width: 720px) {
+  .rsp-fig {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    /* 图纸一定宽于屏幕，直接给右侧一层渐变，暗示"还能往右滑" */
+    background: linear-gradient(to left, rgba(167,63,45,.09), rgba(167,63,45,0) 26px);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 26px 100%;
+  }
+  .rsp-fig > svg { min-width: var(--rsp-fig-w, 680px); }
+  .rsp-fig::-webkit-scrollbar { height: 7px; }
+  .rsp-fig::-webkit-scrollbar-track { background: transparent; }
+  .rsp-fig::-webkit-scrollbar-thumb { background: #D8D1C4; border-radius: 4px; }
+}
+
+/* ========== 4. 小屏手机：指标卡单列、边距收到最紧 ========== */
+@media screen and (max-width: 430px) {
+  body { padding: 14px 12px 38px 12px !important; }
+  h2 { font-size: 14pt !important; }
+  h3 { font-size: 11.5pt !important; }
+  .ticker-name { font-size: 19pt !important; }
+  .price-current { font-size: 21pt !important; }
+  .metric { flex: 1 1 100%; }
+  .metric-value { font-size: 16pt !important; }
+  ul, ol { padding-left: 15pt; }
+  table, .kami-table { font-size: 8.5pt !important; }
+}
+
+/* ========== 5. 打印：把包裹层还原成透明，PDF 版式与补丁前完全一致 ========== */
+@media print {
+  .rsp-table { margin: 0; padding: 0; overflow: visible !important; background: none !important; }
+  .rsp-table > table { margin: 8pt 0; min-width: 0 !important; }
+  [class*="rsp-w"] > table { min-width: 0 !important; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>芯片五家五年财务分析（2021—2025）</h1>
+  <p class="sub">澜起科技 · 乐鑫科技 · 中微公司 · 华峰测控 · 兆易创新<br></p>
+</header>
+<p>数据截至 2026 年 10 月 28 日｜全部指标取自 25 份年度报告原始报表，经两个独立数据源交叉核验</p>
+<div class="lead">
+<p>对 2021—2025 年五家公司的年报做了逐项拆解，并对 2026 年半年报做了同期口径校验。<strong>结论有两处修正了此前的判断：报表毛利率的方向会骗人，澜起的毛利率改善主要来自业务结构而非定价权；真正毛利率连续上行的是乐鑫。中微的利润质量与自由现金流问题此前被低估，兆易的估值优势此前被低估。</strong></p>
+<p>三个关键结论：</p>
+<p><strong>第一，看毛利率必须拆到分产品，否则会读错方向。</strong> 澜起的合并毛利率从 48.1% 升到 65.3%，看起来是五家里最强的一条曲线；但拆开年报的分产品披露：<strong>核心互连类芯片毛利率 2021 年 66.72%、2025 年 65.57%，五年持平略降</strong>，报表改善几乎全部来自低毛利的津逮®服务器平台收入占比从 33.0% 压缩到 5.6%。真正实现毛利率连续五年上行的只有乐鑫（39.60%→49.32%，五年五个台阶），而且已高于其 2019 年历史峰值 47.03%。中微、华峰、兆易三家的毛利率都在下行——华峰从 2019 年的 81.8% 一路降到 2023 年的 71.2% 后才企稳，中微 2022 年见顶 45.74% 后连续三年降至 39.17%。</p>
+<p><strong>第二，现金转化率把「账面赚钱」和「真赚钱」分开了。</strong> 五年累计经营现金流 ÷ 五年累计扣非净利润：兆易 1.28、澜起 1.13、乐鑫 1.03、中微 0.82、华峰 0.77。中微五年资本开支 46.2 亿元几乎等于经营现金流 44.1 亿元，累计自由现金流 <strong>−2.1 亿元</strong>，同期却分红 5.5 亿元——分红来自存量现金，不来自经营。</p>
+<p><strong>第三，2026 年半年报里有一层容易看错的利润。</strong> 五家全部出现大额非经常性损益：中微 17.03 亿元占归母 60.3%，华峰 1.73 亿元占 41.6%，澜起 6.75 亿元占 33.8%，兆易 19.74 亿元占 28.8%，乐鑫 0.23 亿元占 6.8%。用归母净利润算 PE，中微是 54.3 倍；用扣非算是 <strong>107.7 倍</strong>，相差整整一倍。本报告全部估值统一用扣非 TTM 口径。</p>
+<p>组合排名相应调整为 <strong>第 5 版</strong>：乐鑫 22%→24%、澜起 25%→22%（互换前两位）、兆易 15%→19%、中微 20%→17%、华峰 18% 不变。加权扣非 PE 从 80 倍降到 77 倍。</p>
+<h2>一、数据来源与口径</h2>
+<h3>1.1 样本</h3>
+<div class="scroll"><div class="rsp-table rsp-w5"><table><thead><tr><th>公司</th><th>代码</th><th>环节</th><th>五年年报</th><th>页数区间</th></tr></thead><tbody><tr><td>澜起科技</td><td>688008</td><td>芯片设计（内存接口 + 时钟）</td><td>2021—2025 共 5 份</td><td>195—246</td></tr><tr><td>乐鑫科技</td><td>688018</td><td>芯片设计（Wi-Fi MCU）</td><td>2021—2025 共 5 份</td><td>198—252</td></tr><tr><td>中微公司</td><td>688012</td><td>半导体设备（刻蚀 + 薄膜）</td><td>2021—2025 共 5 份</td><td>205—268</td></tr><tr><td>华峰测控</td><td>688200</td><td>半导体设备（测试机）</td><td>2021—2025 共 5 份</td><td>201—247</td></tr><tr><td>兆易创新</td><td>603986</td><td>芯片设计（存储 + MCU）</td><td>2021—2025 共 5 份</td><td>212—258</td></tr></tbody></table></div></div>
+<p>25 份 PDF 全部通过 <code>%PDF-</code> 文件头校验、尾部 <code>%%EOF</code> 校验和页数校验，无截断件。</p>
+<h3>1.2 双源核验</h3>
+<p>所有营收、归母净利润、扣非净利润、毛利率四项，均与两个独立接口交叉比对，<strong>5 家公司 × 6 个报告期 × 4 项全部一致</strong>。同时用 <code>pdftotext -layout</code> 抽取年报正文「主要会计数据」表格做了第三次核对，抽查五家 2025 年报全部吻合。分产品毛利率取自各年年报「主营业务分产品情况」表，逐年核读原文。</p>
+<h3>1.3 口径声明</h3>
+<ul><li><strong>扣非 TTM</strong> = 上年全年扣非 − 上年同期扣非 + 本期扣非。本报告主口径为 2026 年半年报；乐鑫已披露三季报，另行标注两种口径的结果。</li><li><strong>净现金</strong> = 货币资金 + 交易性金融资产 − 短期借款 − 一年内到期非流动负债 − 长期借款 − 应付债券。不含合同负债、应付账款等经营性负债。</li><li><strong>DSO</strong> = 应收账款及票据 ÷ 营业收入 × 365；<strong>DPO</strong> = 应付账款及票据 ÷ 营业成本 × 365。中期指标按 182 天折算。</li><li><strong>五年累计</strong>一律取 2021—2025 五个完整会计年度，<strong>不含</strong> 2026 年中期，避免半年数与全年数混加。</li><li>2026 年中期未披露分地区收入，故境外收入占比一栏中期留空，不以 0 填充。</li><li>研发费用率的中期数与年度数不可直接比较（存在季节性），凡涉及中期一律与上年同期比。</li><li>市值取 2026-10-28 收盘价。</li></ul>
+<h2>二、五年总览</h2>
+<h3>2.1 规模与盈利</h3>
+<div class="scroll"><div class="rsp-table rsp-w10"><table><thead><tr><th>公司</th><th>营收 2021</th><th>营收 2025</th><th>营收 CAGR</th><th>扣非 2021</th><th>扣非 2025</th><th>扣非 CAGR</th><th>毛利率 2021</th><th>毛利率 2025</th><th>变动</th></tr></thead><tbody><tr><td>澜起科技</td><td>25.62</td><td>54.56</td><td>20.8%</td><td>6.17</td><td>20.22</td><td>34.5%</td><td>48.1%</td><td>62.2%</td><td>+14.1pp</td></tr><tr><td>乐鑫科技</td><td>13.86</td><td>25.65</td><td>16.6%</td><td>1.73</td><td>4.55</td><td>27.4%</td><td>39.6%</td><td>46.6%</td><td><strong>+7.0pp</strong></td></tr><tr><td>中微公司</td><td>31.08</td><td>123.85</td><td><strong>41.3%</strong></td><td>3.24</td><td>15.50</td><td><strong>47.8%</strong></td><td>43.4%</td><td>39.2%</td><td>−4.2pp</td></tr><tr><td>华峰测控</td><td>8.78</td><td>13.46</td><td>11.3%</td><td>4.35</td><td>4.92</td><td>3.2%</td><td>80.2%</td><td>73.8%</td><td>−6.4pp</td></tr><tr><td>兆易创新</td><td>85.10</td><td>92.03</td><td>2.0%</td><td>22.24</td><td>14.69</td><td>−9.9%</td><td>46.5%</td><td>40.2%</td><td>−6.3pp</td></tr></tbody></table></div></div>
+<p>单位：亿元。CAGR 为 2021→2025 四年复合增速。</p>
+<p>这张表最刺眼的是两种极端同时存在：<strong>中微营收四年翻四倍、扣非增 4.8 倍，但毛利率倒退 4.2 个百分点；兆易营收四年只增 8.1%、扣非反而少赚 34%，却是 2026 年半年报增速最快的一家。</strong> 两组数字都不矛盾——中微在「以价换量」扩份额，兆易在「周期底部」趴了两年。判断谁更值得持有，要往下拆。</p>
+<p>但<strong>上表最后一列的「变动」不能单独使用</strong>，因为它把结构变化和价格变化混在一起了。澜起的 +14.1pp 里有 13 个百分点以上来自业务结构，乐鑫的 +7.0pp 才是真的单价与成本改善。下一节拆开看。</p>
+<h3>2.2 毛利率：拆到分产品，方向完全变了</h3>
+<p>把时间拉到 2019 年，用各年年报「主营业务分产品情况」表还原真实的定价能力曲线：</p>
+<div class="scroll"><div class="rsp-table rsp-w10"><table><thead><tr><th>公司</th><th>2019</th><th>2020</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th><th>2026H1</th><th>方向</th></tr></thead><tbody><tr><td>澜起（合并）</td><td>74.0%</td><td>72.1%</td><td>48.1%</td><td>46.4%</td><td>58.9%</td><td>58.1%</td><td>62.2%</td><td>65.3%</td><td>先崩后修复</td></tr><tr><td>澜起（互连类芯片）</td><td>—</td><td>—</td><td>66.7%</td><td>58.7%</td><td>61.4%</td><td>62.7%</td><td>65.6%</td><td>—</td><td><strong>五年持平</strong></td></tr><tr><td>澜起（津逮平台）</td><td>—</td><td>—</td><td>10.2%</td><td>10.5%</td><td>4.0%</td><td>4.8%</td><td>7.4%</td><td>—</td><td>低毛利业务</td></tr><tr><td>乐鑫科技</td><td>47.0%</td><td>41.3%</td><td>39.6%</td><td>40.0%</td><td>40.6%</td><td>43.9%</td><td>46.6%</td><td><strong>49.3%</strong></td><td><strong>连续五年上行</strong></td></tr><tr><td>中微公司</td><td>34.9%</td><td>37.7%</td><td>43.4%</td><td><strong>45.7%</strong></td><td>43.8%</td><td>41.1%</td><td>39.2%</td><td>39.7%</td><td>三年连续下行</td></tr><tr><td>华峰测控</td><td><strong>81.8%</strong></td><td>79.8%</td><td>80.2%</td><td>76.9%</td><td>71.2%</td><td>73.3%</td><td>73.8%</td><td>74.7%</td><td>长周期下行后企稳</td></tr><tr><td>兆易创新</td><td>40.5%</td><td>37.1%</td><td>46.5%</td><td>47.7%</td><td>34.4%</td><td>38.0%</td><td>40.2%</td><td><strong>63.1%</strong></td><td>周期摆动</td></tr></tbody></table></div></div>
+<p><strong>澜起的核心结论在这里被推翻了一半。</strong> 合并毛利率从 48.1% 涨到 65.3%，看起来是教科书式的定价权；但互连类芯片自身的毛利率 2021 年 66.72%、2025 年 65.57%，<strong>五年净降 1.15 个百分点</strong>。合并毛利率上升的真正来源是津逮®服务器平台——这个产品用的是第三方 CPU 做整机与平台集成，毛利率只有 4%—10%，2021 年占营收 33.0%，2025 年压到 5.6%。<strong>低毛利业务占比下降 27 个百分点，把合并毛利率「抬」了十几个点。</strong></p>
+<p>这不是坏事：业务回归高毛利主业、砍掉低质量收入，是管理层做对了。但它证明的是<strong>执行力</strong>，不是<strong>定价权</strong>。真正能证明定价权的是另一组数字——核心互连类芯片 2022 年毛利率掉到 58.72%（−8.00pp），2023—2025 三年逐级回升到 65.57%，<strong>在 DDR4→DDR5 换代中先让价拿份额、再把价格收回来</strong>。这条「先让后收」的路径比一路平滑上升更可信，但也留下一个必须盯的问题：2027 年前后 DDR6 换代，会不会重演 2022 年的让价。<strong>如果重演，毛利率还会再掉一轮 8 个点。</strong></p>
+<p><strong>乐鑫是唯一一家毛利率连续五年、五个台阶上行的公司</strong>，从 2021 年的 39.60% 到 2026 年上半年的 49.32%，累计 +9.7pp，且已超过 2019 年的历史峰值 47.03%。更关键的是它<strong>在营收下滑的 2022 年（−8.3%）毛利率仍微升 0.4pp，在营收增长 12.7%—40.0% 的 2023—2025 年毛利率加速上行</strong>——量价同向，不是靠缩减规模保毛利。</p>
+<p><strong>兆易 2026 年上半年的 63.13% 是上市以来最高值，比 2022 年周期高点的 47.66% 高出 15.5 个百分点。</strong> 这个数字只能是存储涨价周期的产物。它同时解释了为什么兆易的扣非从去年同期的 5.44 亿元跳到 48.83 亿元（+797%）——<strong>利润的爆发力来自周期，不来自能力</strong>。这一点对后面的估值判断起决定作用。</p>
+<figure><div class="bars"><div class="lbl">澜起（合并口径）</div><div class="track"><div class="zline" style="left:31.22%"></div><div class="fill" style="left:31.22%;width:68.78%;background:var(--ink-3)"></div></div><div class="val">+14.1 pp</div><div class="lbl">澜起（互连类芯片）</div><div class="track"><div class="zline" style="left:31.22%"></div><div class="fill" style="left:25.61%;width:5.61%;background:var(--red)"></div></div><div class="val">-1.1 pp</div><div class="lbl">乐鑫科技</div><div class="track"><div class="zline" style="left:31.22%"></div><div class="fill" style="left:31.22%;width:34.15%;background:var(--green)"></div></div><div class="val">+7.0 pp</div><div class="lbl">中微公司</div><div class="track"><div class="zline" style="left:31.22%"></div><div class="fill" style="left:10.73%;width:20.49%;background:var(--red)"></div></div><div class="val">-4.2 pp</div><div class="lbl">华峰测控</div><div class="track"><div class="zline" style="left:31.22%"></div><div class="fill" style="left:0.00%;width:31.22%;background:var(--red)"></div></div><div class="val">-6.4 pp</div><div class="lbl">兆易创新</div><div class="track"><div class="zline" style="left:31.22%"></div><div class="fill" style="left:0.49%;width:30.73%;background:var(--red)"></div></div><div class="val">-6.3 pp</div></div><div class="axis"><div></div><div class="tick"><span class="t0" style="left:0">−6.4</span><span class="tm" style="left:31.22%">0</span><span class="t1" style="left:100%">+14.1</span></div><div></div></div><figcaption><b>图 1　2021 → 2025 年毛利率变动</b>　澜起同一年报里两条口径给出完全相反的结论：合并口径 +14.1pp，核心互连类芯片 −1.15pp。差额来自津逮®服务器平台（毛利率 4%—10%）占营收比重从 33.0% 压到 5.6%。除澜起外，其余四家均为合并口径。</figcaption></figure>
+<h3>2.3 现金创造</h3>
+<div class="scroll"><div class="rsp-table rsp-w8"><table><thead><tr><th>公司</th><th>五年 OCF</th><th>五年资本开支</th><th>五年 FCF</th><th>五年分红</th><th>五年扣非</th><th>OCF÷扣非</th><th>FCF÷分红</th></tr></thead><tbody><tr><td>澜起科技</td><td>58.1</td><td>14.5</td><td><strong>43.6</strong></td><td>20.3</td><td>51.4</td><td>1.13</td><td>2.15</td></tr><tr><td>乐鑫科技</td><td>11.5</td><td>7.2</td><td>4.3</td><td>3.2</td><td>11.1</td><td>1.03</td><td>1.34</td></tr><tr><td>中微公司</td><td>44.1</td><td><strong>46.2</strong></td><td><strong>−2.1</strong></td><td>5.5</td><td>53.7</td><td><strong>0.82</strong></td><td><strong>−0.39</strong></td></tr><tr><td>华峰测控</td><td>15.6</td><td>5.0</td><td>10.7</td><td>5.3</td><td>20.3</td><td>0.77</td><td>2.02</td></tr><tr><td>兆易创新</td><td><strong>85.6</strong></td><td>30.7</td><td><strong>54.9</strong></td><td>16.6</td><td>66.6</td><td><strong>1.28</strong></td><td>3.30</td></tr></tbody></table></div></div>
+<p>单位：亿元。</p>
+<p><strong>中微那一行是全表唯一需要警惕的，因为它是唯一自由现金流为负的公司。</strong> 五年经营现金流 44.1 亿元，资本开支 46.2 亿元，差额 −2.1 亿元；同期分红 5.5 亿元。这不是财务异常，是产能建设期（临港、南昌基地）的正常状态——设备公司的厂房与洁净室必须前置 2—3 年投入。但它意味着两件事：一是 2299 亿元市值无法用自由现金流折现来支撑，只能靠「设备国产化率继续提升」的产业叙事；二是只要资本开支节奏不断，分红就依赖账面的 79.9 亿元净现金，而非经营所得。</p>
+<p><strong>兆易的五年 OCF÷扣非 1.28 是全表最高，这是一个常被忽略的事实。</strong> 2023 年扣非只剩 0.27 亿元时，经营现金流仍有 11.87 亿元——因为存货跌价是账面损失，现金早已收回。设计公司在周期底部呈现「利润塌陷、现金不塌陷」，正是其商业模式优于制造的地方。<strong>这也是给兆易加权的主要依据之一。</strong></p>
+<figure><div class="bars"><div class="lbl">兆易创新</div><div class="track"><div class="fill" style="left:0;width:100.00%;background:var(--green)"></div></div><div class="val">1.28×</div><div class="lbl">澜起科技</div><div class="track"><div class="fill" style="left:0;width:88.28%;background:var(--green)"></div></div><div class="val">1.13×</div><div class="lbl">乐鑫科技</div><div class="track"><div class="fill" style="left:0;width:80.47%;background:var(--blue)"></div></div><div class="val">1.03×</div><div class="lbl">中微公司</div><div class="track"><div class="fill" style="left:0;width:64.06%;background:var(--amber)"></div></div><div class="val">0.82×</div><div class="lbl">华峰测控</div><div class="track"><div class="fill" style="left:0;width:60.16%;background:var(--red)"></div></div><div class="val">0.77×</div></div><div class="axis"><div></div><div class="tick"><span class="t0" style="left:0">0</span><span class="t1" style="left:100%">1.3×</span></div><div></div></div><figcaption><b>图 2　五年累计经营现金流 ÷ 五年累计扣非净利润</b>　比值高于 1 说明利润有现金支撑。中微 0.82、华峰 0.77 是两家五年累计收现不足的公司，原因不同：中微是资本开支吞噬（五年 FCF −2.1 亿元），华峰是账期拉长（DSO 351 天）。</figcaption></figure>
+<h3>2.4 产业链地位</h3>
+<div class="scroll"><div class="rsp-table rsp-w7"><table><thead><tr><th>公司</th><th>DSO 2021</th><th>DSO 2025</th><th>DPO 2021</th><th>DPO 2025</th><th>DSO−DPO</th><th>合同负债÷营收 2025</th></tr></thead><tbody><tr><td>澜起科技</td><td>49</td><td>76</td><td>113</td><td>74</td><td>+2</td><td>0.1%</td></tr><tr><td>乐鑫科技</td><td>165</td><td>94</td><td>121</td><td>100</td><td>−6</td><td>0.9%</td></tr><tr><td>中微公司</td><td>131</td><td>119</td><td>305</td><td>180</td><td>−61</td><td><strong>24.6%</strong></td></tr><tr><td>华峰测控</td><td>212</td><td><strong>351</strong></td><td>266</td><td>171</td><td><strong>+180</strong></td><td>5.8%</td></tr><tr><td>兆易创新</td><td>28</td><td><strong>16</strong></td><td>99</td><td>108</td><td><strong>−92</strong></td><td>2.4%</td></tr></tbody></table></div></div>
+<p>单位：天。DSO−DPO 为正表示被上下游净占用资金，为负表示净占用他人资金。</p>
+<p><strong>兆易的 16 天收现、108 天付款，是五家里产业链地位最强的。</strong> 卖芯片给方案商和模组厂要求现款或短账期，买晶圆代工产能却可以押 3.5 个月——这 92 天的时间差是零成本营运资金。</p>
+<p><strong>华峰 351 天的收现周期是硬伤。</strong> 从 2021 年的 212 天拉长到 2025 年的 351 天，接近整年。同期 DPO 从 266 天缩到 171 天——两头同时恶化，净被占用从 54 天变成 180 天。<strong>这与它 73.8% 的毛利率形成尖锐反差：能对客户收 74% 的毛利，却要等 351 天才收到钱，说明毛利率的来源是产品独特性，而不是谈判地位。</strong> 客户大概率是封测厂与 IDM，账期由对方的资本开支预算节奏决定，测试机厂商处在被动一方。</p>
+<p><strong>澜起 DSO 从 49 天升到 76 天、DPO 从 113 天降到 74 天，两头都在变差</strong>，净占用从 −64 天（占用上游资金）变成 +2 天（被净占用）。这是全表中唯一一项对澜起不利的五年趋势，且中期 DSO 已进一步升到 105 天。同期 OCF÷扣非 仍有 1.13，说明尚未伤及现金，但需列入跟踪：<strong>若 2026 年年报 DSO 不能回到 80 天以内，就是议价能力松动的早期信号。</strong></p>
+<h3>2.5 估值与利润质量</h3>
+<div class="scroll"><div class="rsp-table rsp-w7"><table><thead><tr><th>公司</th><th>市值</th><th>扣非 TTM</th><th>PE（扣非）</th><th>归母 TTM</th><th>PE（归母）</th><th>净现金÷市值</th></tr></thead><tbody><tr><td>澜起科技</td><td>2,132</td><td>22.53</td><td>94.7×</td><td>30.74</td><td>69.4×</td><td>8.4%</td></tr><tr><td>乐鑫科技</td><td>334</td><td>5.27</td><td>63.3×</td><td>5.71</td><td>58.5×</td><td>6.0%</td></tr><tr><td>中微公司</td><td>2,299</td><td>21.34</td><td><strong>107.7×</strong></td><td>42.31</td><td>54.3×</td><td>4.2%</td></tr><tr><td>华峰测控</td><td>490</td><td>5.60</td><td>87.5×</td><td>7.57</td><td>64.8×</td><td>4.3%</td></tr><tr><td>兆易创新</td><td>2,041</td><td>58.08</td><td><strong>35.1×</strong></td><td>79.29</td><td>25.7×</td><td>8.5%</td></tr></tbody></table></div></div>
+<p>单位：市值与 TTM 为亿元。乐鑫按三季报口径重算扣非 TTM 为 7.35 亿元、PE 45.5 倍，为便于横向比较，上表统一用半年报口径。</p>
+<div class="scroll"><div class="rsp-table rsp-w5"><table><thead><tr><th>公司</th><th>五年累计非经常性损益</th><th>占五年归母</th><th>2026H1 非经常</th><th>占 2026H1 归母</th></tr></thead><tbody><tr><td>澜起科技</td><td>10.86</td><td>17.4%</td><td>6.75</td><td>33.8%</td></tr><tr><td>乐鑫科技</td><td>1.57</td><td>12.4%</td><td>0.23</td><td><strong>6.8%</strong></td></tr><tr><td>中微公司</td><td><strong>23.21</strong></td><td><strong>30.2%</strong></td><td><strong>17.03</strong></td><td><strong>60.3%</strong></td></tr><tr><td>华峰测控</td><td>0.61</td><td>2.9%</td><td>1.73</td><td>41.6%</td></tr><tr><td>兆易创新</td><td>6.40</td><td>8.8%</td><td>19.74</td><td>28.8%</td></tr></tbody></table></div></div>
+<p>单位：亿元。</p>
+<p><strong>中微的归母 PE 与扣非 PE 相差 53 个百分点，是全表最大的口径陷阱。</strong> 2026 年上半年归母 28.25 亿元里，有 17.03 亿元不来自经营——主要来自所持股权投资项目的公允价值变动（同期公允价值变动加投资收益合计 20.77 亿元）。这是科创板半导体行情给所有持有多家芯片公司股权的企业中报都记了一笔账，不是中微独有的问题，但中微的持仓规模最大，受影响也最大。<strong>用 54 倍 PE 说中微「便宜」，是这轮行情里最容易犯的错。</strong></p>
+<p><strong>乐鑫是五家里利润最干净的一家</strong>：五年非经常性损益只占归母 12.4%，2026H1 只占 6.8%。它的高增长完全来自主营。</p>
+<p><strong>兆易的 35.1 倍扣非 PE 需要打折看。</strong> 分母 58.08 亿元里有相当一部分是 63.1% 这种不可持续的毛利率贡献的。若按 45% 的中周期毛利率还原，扣非大约回落到 30 亿元量级，对应 PE 约 68 倍——<strong>与乐鑫持平，不再便宜</strong>。低估值的前提是当期利润的可持续性，而这个前提在兆易身上并不成立。</p>
+<figure><div class="bars"><div class="lbl">中微公司</div><div class="track"><div class="fill" style="left:0;width:100.00%;background:var(--red)"></div></div><div class="val">107.70×</div><div class="lbl">澜起科技</div><div class="track"><div class="fill" style="left:0;width:87.93%;background:var(--red)"></div></div><div class="val">94.70×</div><div class="lbl">华峰测控</div><div class="track"><div class="fill" style="left:0;width:81.24%;background:var(--amber)"></div></div><div class="val">87.50×</div><div class="lbl">乐鑫科技</div><div class="track"><div class="fill" style="left:0;width:58.77%;background:var(--blue)"></div></div><div class="val">63.30×</div><div class="lbl">兆易创新</div><div class="track"><div class="fill" style="left:0;width:32.59%;background:var(--green)"></div></div><div class="val">35.10×</div></div><div class="axis"><div></div><div class="tick"><span class="t0" style="left:0">0</span><span class="t1" style="left:100%">107.7×</span></div><div></div></div><figcaption><b>图 3　扣非 TTM 市盈率（2026 年半年报口径）</b>　乐鑫按已披露三季报口径为 45.5 倍；此处统一用半年报口径以便横向比较。</figcaption></figure><figure><div class="bars"><div class="lbl">中微公司</div><div class="track"><div class="fill" style="left:0;width:100.00%;background:var(--red)"></div></div><div class="val">60.30%</div><div class="lbl">华峰测控</div><div class="track"><div class="fill" style="left:0;width:68.99%;background:var(--amber)"></div></div><div class="val">41.60%</div><div class="lbl">澜起科技</div><div class="track"><div class="fill" style="left:0;width:56.05%;background:var(--amber)"></div></div><div class="val">33.80%</div><div class="lbl">兆易创新</div><div class="track"><div class="fill" style="left:0;width:47.76%;background:var(--amber)"></div></div><div class="val">28.80%</div><div class="lbl">乐鑫科技</div><div class="track"><div class="fill" style="left:0;width:11.28%;background:var(--green)"></div></div><div class="val">6.80%</div></div><div class="axis"><div></div><div class="tick"><span class="t0" style="left:0">0</span><span class="t1" style="left:100%">60.3%</span></div><div></div></div><figcaption><b>图 4　2026 年半年报非经常性损益占归母净利润比重</b>　中微 28.25 亿元归母里有 17.03 亿元来自股权重估，这是「归母 PE 54 倍」与「扣非 PE 108 倍」相差一倍的唯一原因。</figcaption></figure>
+<h2>三、逐家拆解</h2>
+<h3>3.1 澜起科技（688008）：毛利率改善来自结构，核心业务五年持平</h3>
+<div class="scroll"><div class="rsp-table rsp-w12"><table><thead><tr><th>年度</th><th>营收</th><th>合并毛利率</th><th>互连类芯片毛利率</th><th>津逮占比</th><th>归母</th><th>扣非</th><th>净现金</th><th>OCF</th><th>FCF</th><th>DSO</th><th>DPO</th></tr></thead><tbody><tr><td>2021</td><td>25.62</td><td>48.1%</td><td>66.7%</td><td>33.0%</td><td>8.29</td><td>6.17</td><td>66.5</td><td>6.80</td><td>5.27</td><td>49</td><td>113</td></tr><tr><td>2022</td><td>36.72</td><td>46.4%</td><td>58.7%</td><td>25.5%</td><td>12.99</td><td>8.83</td><td>74.7</td><td>6.89</td><td>4.62</td><td>64</td><td>73</td></tr><tr><td>2023</td><td>22.86</td><td>58.9%</td><td>61.4%</td><td>4.1%</td><td>4.51</td><td>3.70</td><td>74.3</td><td>7.31</td><td>3.07</td><td>94</td><td>102</td></tr><tr><td>2024</td><td>36.39</td><td>58.1%</td><td>62.7%</td><td>7.7%</td><td>14.12</td><td>12.48</td><td>86.1</td><td>16.91</td><td>13.12</td><td>78</td><td>101</td></tr><tr><td>2025</td><td>54.56</td><td>62.2%</td><td>65.6%</td><td>5.6%</td><td>22.36</td><td>20.22</td><td>92.9</td><td>20.22</td><td>17.56</td><td>76</td><td>74</td></tr><tr><td>2026H1</td><td>33.35</td><td><strong>65.3%</strong></td><td>—</td><td>—</td><td>19.97</td><td>13.22</td><td><strong>179.0</strong></td><td>13.28</td><td>10.73</td><td>105</td><td>103</td></tr></tbody></table></div></div>
+<p>单位：亿元。津逮占比 = 津逮®服务器平台收入 ÷ 营业收入。</p>
+<p><strong>这张表的核心是第三列与第四列的对比。</strong> 合并毛利率两年半涨了 17.2 个百分点，但互连类芯片自身的毛利率五年只动了 −1.15 个百分点（66.72%→65.57%）。同期津逮®服务器平台从 8.45 亿元（占 33.0%）压到 3.08 亿元（占 5.6%）。</p>
+<p>津逮是澜起品牌的服务器平台产品，本质是把第三方 CPU 与自研的内存接口、安全模块做成整机方案，<strong>毛利率只有 4%—10%</strong>（2023 年低点 4.01%）。2021 年这块业务同比暴增 2,750.92%，直接把合并毛利率从 72.1% 拉到 48.1%。2022 年又做到 9.37 亿元，占比 25.5%，合并毛利率进一步压到 46.4%。2023 年该业务腰斩 90.01% 到 0.94 亿元，合并毛利率随即反弹到 58.9%。</p>
+<p><strong>所以「澜起毛利率五年 +14.1pp」这个说法在技术上是成立的，在因果上是错的。</strong> 它反映的是业务组合回归主业（砍掉低质量的整机集成收入），而不是内存接口芯片涨价。管理层做对了，但这是执行力，不是定价权。</p>
+<p><strong>能证明定价权的是 2022 年那一次让价与之后三年的收价。</strong> 互连类芯片毛利率 2022 年掉到 58.72%（−8.00pp），是 DDR5 首年为了拿平台认证份额做的价格让步。2023、2024、2025 三年逐级回到 61.36%、62.66%、65.57%，三年收回 6.85 个百分点。<strong>这条「先让后收」的曲线比一路平滑上升更有说服力</strong>，因为它证明了公司在丢份额的风险下有能力主动让价、在份额稳固后有能力把价格收回来。但也埋了一个必须盯的雷：2027 年前后 DDR6 换代，如果重演 2022 年的让价，毛利率还会再掉 8 个点。</p>
+<p><strong>现金流是五家里最健康的。</strong> 五年累计 OCF 58.1 亿元对扣非 51.4 亿元，比值 1.13；资本开支只有 14.5 亿元（fabless 无产线），自由现金流 43.6 亿元，是分红的 2.15 倍。<strong>这是唯一一家「高毛利、正自由现金流、分红有覆盖」三件事同时成立的公司。</strong></p>
+<p><strong>三处必须扣分的地方：</strong></p>
+<p>一是 <strong>2026 年半年报净现金从 92.9 亿元跳到 179.0 亿元，其中 72.22 亿元来自 H 股募资，不是经营所得。</strong> 剔除后 106.8 亿元，仍比 2025 年末增加 13.9 亿元，其中经营贡献 13.3 亿元——经营层面没问题，但不能把 179 亿元全部当作内生积累来讲。净现金÷市值 8.4% 这个指标里，约 3.4 个百分点是靠股权融资得来的。</p>
+<p>二是 <strong>营运资金两头恶化。</strong> DSO 从 49 天升到 76 天（中期已到 105 天），DPO 从 113 天降到 74 天，净占用从 −64 天变成 +2 天。这是全表中唯一一项对澜起不利的五年趋势。OCF÷扣非 仍有 1.13 说明尚未伤及现金，但方向已经不对。</p>
+<p>三是 <strong>2026 年上半年出现五年里第一次「利润增速慢于收入增速」</strong>：营收 +26.7%，扣非 +21.2%。原因是研发费用同比 +26.9%（4.53 亿元），与营收同步。这是主动投入而非被动挤压，但意味着净利率开始承受压力。此外归母 19.97 亿元里有 6.75 亿元非经常性损益（公允价值变动 6.82 亿元），主要来自产业基金与股权资产重估。</p>
+<p><strong>估值 94.7 倍扣非，是五家里第二贵。</strong> 用它买一条五年持平的毛利率曲线，性价比已经不如两年前。</p>
+<h3>3.2 乐鑫科技（688018）：五年毛利率五个台阶，利润最干净</h3>
+<div class="scroll"><div class="rsp-table rsp-w11"><table><thead><tr><th>年度</th><th>营收</th><th>毛利率</th><th>归母</th><th>扣非</th><th>研发率</th><th>净现金</th><th>OCF</th><th>FCF</th><th>DSO</th><th>合同负债÷营收</th></tr></thead><tbody><tr><td>2021</td><td>13.86</td><td>39.6%</td><td>1.98</td><td>1.73</td><td>19.6%</td><td>11.1</td><td>0.31</td><td>−0.00</td><td>165</td><td>1.2%</td></tr><tr><td>2022</td><td>12.71</td><td>40.0%</td><td>0.97</td><td>0.67</td><td>26.5%</td><td>8.0</td><td>0.71</td><td>0.45</td><td>114</td><td>0.7%</td></tr><tr><td>2023</td><td>14.33</td><td>40.6%</td><td>1.36</td><td>1.09</td><td>28.2%</td><td>5.5</td><td>3.03</td><td>2.53</td><td>139</td><td>0.9%</td></tr><tr><td>2024</td><td>20.07</td><td>43.9%</td><td>3.39</td><td>3.08</td><td>24.4%</td><td>6.6</td><td>2.20</td><td>1.23</td><td>123</td><td>1.0%</td></tr><tr><td>2025</td><td>25.65</td><td>46.6%</td><td>4.98</td><td>4.55</td><td>23.5%</td><td>18.9</td><td>5.23</td><td>0.07</td><td>94</td><td>0.9%</td></tr><tr><td>2026H1</td><td>14.81</td><td><strong>49.3%</strong></td><td>3.34</td><td>3.12</td><td>22.3%</td><td>20.0</td><td><strong>0.72</strong></td><td>−0.07</td><td>106</td><td><strong>2.7%</strong></td></tr></tbody></table></div></div>
+<p>单位：亿元。2026 年三季报：营收 23.70 亿元、归母 5.53 亿元、扣非 5.19 亿元。</p>
+<p><strong>毛利率从 39.6% 到 49.3%，五年五个台阶，一步没退，而且已经超过 2019 年 47.0% 的历史峰值。</strong> 更难的是这五年里 2022 年营收下滑 8.3%、2025 年增长 27.8%，<strong>在通缩和通胀两种环境下毛利率都在上升</strong>——这才是定价权的定义。驱动力是产品矩阵从 ESP32 单一系列扩到 ESP32-S3 / C6 / H2 / P4，每一代都往 Wi-Fi 6、BLE 5、RISC-V 方向加集成度，老产品不靠降价清库存。</p>
+<p><strong>2026 年三季报是本组合唯一的新鲜数据：九个月扣非 5.19 亿元，已超过 2025 年全年的 4.55 亿元。</strong> 三季度单季扣非 2.07 亿元，同比增速比上半年还在加快。按三季报口径重算扣非 TTM 为 7.35 亿元，PE 45.5 倍。</p>
+<p><strong>现金流是软肋，但要分清性质。</strong> 2026 年上半年 OCF 只有 0.72 亿元，对扣非 3.12 亿元，比值 0.23；2025 年全年 OCF 5.23 亿元、资本开支 5.16 亿元，自由现金流只剩 0.07 亿元——赚的钱几乎全部投了回去。</p>
+<p>关键在于乐鑫的「资本开支」大部分是掩膜与流片（NRE），不是固定资产。芯片设计公司每开一颗新品要先付一笔 NRE，量产后再摊销。<strong>所以它的资本开支高，本质是研发的另一种记账方式，与中微的厂房设备性质完全不同，判断标准也不同</strong>：中微要看产能利用率，乐鑫要看新品营收占比。支持「这是成长代价而非经营恶化」的证据是：2025 年净现金从 6.6 亿元跃升到 18.9 亿元，说明当年的经营与融资足以覆盖投入。</p>
+<p><strong>DSO 从 165 天改善到 94 天，是五家里改善幅度最大的一家。</strong> 早期依赖分销商（账期长），近年直销与方案商比例上升。这与华峰正好相反——同样是 To B 卖芯片，一家在缩短账期，一家在拉长。</p>
+<p><strong>一个需要盯住的领先指标：合同负债÷营收从 2025 年的 0.9% 升到 2026 年上半年的 2.7%，是五家里唯一明显上升的。</strong> 说明下游在提前备货。备货周期结束后，2027 年可能面临一轮去库存，届时毛利率能否守住 47% 是关键考验。</p>
+<p><strong>利润质量是五家里最好的。</strong> 五年非经常性损益只占归母 12.4%，2026 年上半年只占 6.8%。它的增长完全来自主营。</p>
+<h3>3.3 中微公司（688012）：规模最快，但利润的六成不来自经营</h3>
+<div class="scroll"><div class="rsp-table rsp-w11"><table><thead><tr><th>年度</th><th>营收</th><th>毛利率</th><th>归母</th><th>扣非</th><th>研发率</th><th>净现金</th><th>OCF</th><th>FCF</th><th>DPO</th><th>合同负债÷营收</th></tr></thead><tbody><tr><td>2021</td><td>31.08</td><td>43.4%</td><td>10.11</td><td>3.24</td><td>12.8%</td><td>111.6</td><td>10.16</td><td>5.20</td><td>305</td><td>44.2%</td></tr><tr><td>2022</td><td>47.40</td><td><strong>45.7%</strong></td><td>11.70</td><td>9.19</td><td>12.8%</td><td>97.5</td><td>6.18</td><td>−8.88</td><td>273</td><td>46.3%</td></tr><tr><td>2023</td><td>62.64</td><td>43.8%</td><td>17.86</td><td>11.91</td><td>13.0%</td><td>84.5</td><td>−9.77</td><td>−18.47</td><td>271</td><td>12.3%</td></tr><tr><td>2024</td><td>90.65</td><td>41.1%</td><td>16.16</td><td>13.88</td><td>15.6%</td><td>78.4</td><td>14.58</td><td>5.63</td><td>230</td><td>28.5%</td></tr><tr><td>2025</td><td>123.85</td><td>39.2%</td><td>21.11</td><td>15.50</td><td>20.0%</td><td>79.9</td><td>22.95</td><td>14.40</td><td>180</td><td>24.6%</td></tr><tr><td>2026H1</td><td>66.91</td><td>39.7%</td><td><strong>28.25</strong></td><td>11.23</td><td>19.6%</td><td>95.5</td><td>6.85</td><td>−0.92</td><td>219</td><td><strong>41.4%</strong></td></tr></tbody></table></div></div>
+<p>单位：亿元。</p>
+<p><strong>营收四年翻四倍（31.08→123.85 亿元，CAGR 41.3%），扣非增 4.8 倍，这是五家里唯一称得上「平台化放量」的公司。</strong> 刻蚀从 CCP 扩到 ICP，再扩到薄膜沉积（LPCVD/ALD）、EPI、量测，产品线宽度在国内设备公司里第一。</p>
+<p><strong>但毛利率 2022 年见顶 45.74% 后连续三年降到 39.17%，累计 −6.6 个百分点。</strong> 2025 年报把原先按「专用设备／备品备件／服务收入」三分类的披露，合并成「半导体设备相关产品」一行（2022 年报还是三分类，专用设备毛利率 45.18%）。<strong>披露颗粒度在毛利率下行期收窄，无法再验证下行的来源是产品结构还是价格。</strong> 这本身是一条需要记录的披露质量退步，也是本报告对中微持保留意见的原因之一。</p>
+<p>从能看到的旁证推断：营收增长 36.6% 的同时毛利率降 1.89pp，且 2026 年上半年合同负债÷营收回升到 41.4%（2025 年 24.6%）——订单能见度很强，说明不是卖不动。<strong>更可能的解释是新品（薄膜、EPI）处于爬坡期、定价偏低，用价格换客户验证机会。</strong> 这个解释成立的前提是新品毛利率随量产爬升；如果 2027 年毛利率仍在 39% 附近，解释就不成立，要按「护城河被侵蚀」重新定价。</p>
+<p><strong>自由现金流是最大的问题。</strong> 五年 OCF 44.1 亿元、资本开支 46.2 亿元，累计 FCF <strong>−2.1 亿元</strong>；同期分红 5.5 亿元。2022 年 FCF −8.88 亿元、2023 年 −18.47 亿元，是临港与南昌基地的集中投入期。分红只能来自账面现金（净现金从 111.6 亿元降到 79.9 亿元，四年少了 31.7 亿元）。<strong>2299 亿元市值无法用自由现金流折现支撑，只能靠「国产化率继续提升」的产业叙事。</strong></p>
+<p><strong>2026 年上半年归母 28.25 亿元里有 17.03 亿元非经常性损益，占 60.3%，是五家里最高的。</strong> 同期公允价值变动加投资收益合计 20.77 亿元，与归母 28.25 亿元几乎同量级。扣非 11.23 亿元、同比 +108.4% 依然很快，但<strong>用 54.3 倍归母 PE 判断中微便宜是错的，扣非口径是 107.7 倍，五家里最贵。</strong></p>
+<p><strong>DPO 从 305 天缩到 180 天，是产业链地位弱化的一个信号。</strong> 设备公司通常能压供应商 8—10 个月账期，缩短到 6 个月意味着对上游的议价能力在下降，也可能是供应商集中度上升（关键零部件独家供应）。这一项与毛利率下行是同一个方向。</p>
+<h3>3.4 华峰测控（688200）：毛利率最高，但收现要等一年</h3>
+<div class="scroll"><div class="rsp-table rsp-w11"><table><thead><tr><th>年度</th><th>营收</th><th>毛利率</th><th>归母</th><th>扣非</th><th>研发率</th><th>净现金</th><th>OCF</th><th>OCF÷扣非</th><th>DSO</th><th>DPO</th></tr></thead><tbody><tr><td>2021</td><td>8.78</td><td>80.2%</td><td>4.39</td><td>4.35</td><td>10.7%</td><td>17.8</td><td>3.54</td><td>0.82</td><td>212</td><td>266</td></tr><tr><td>2022</td><td>10.71</td><td>76.9%</td><td>5.26</td><td>5.05</td><td>11.0%</td><td>19.7</td><td>3.94</td><td>0.78</td><td>262</td><td>183</td></tr><tr><td>2023</td><td>6.91</td><td>71.2%</td><td>2.52</td><td>2.53</td><td>19.1%</td><td>21.2</td><td>3.21</td><td>1.27</td><td>312</td><td>81</td></tr><tr><td>2024</td><td>9.05</td><td>73.3%</td><td>3.34</td><td>3.40</td><td>19.0%</td><td>21.6</td><td>1.88</td><td>0.55</td><td>340</td><td>164</td></tr><tr><td>2025</td><td>13.46</td><td>73.8%</td><td>5.36</td><td>4.92</td><td>19.7%</td><td>21.8</td><td>3.04</td><td>0.62</td><td><strong>351</strong></td><td>171</td></tr><tr><td>2026H1</td><td>7.38</td><td>74.7%</td><td>4.16</td><td>2.43</td><td>25.6%</td><td>20.9</td><td>1.07</td><td>0.44</td><td>320</td><td>195</td></tr></tbody></table></div></div>
+<p>单位：亿元。</p>
+<p><strong>毛利率 74.7% 是五家最高，但它是从 2019 年的 81.8% 一路走下来的</strong>，2023 年见底 71.2% 后在 73%—74% 区间企稳。模拟与功率测试机国内近乎独家供应，这个毛利率水平本身说明产品不可替代；但<strong>下行趋势说明这种不可替代性在缓慢贬值</strong>——大概率是产品结构从高价的 SoC 测试机转向单价更低的功率／模拟测试机（新能源车与工业需求驱动），也可能是国产品牌（长川科技等）在中低端形成替代压力。</p>
+<p><strong>真正的问题不在毛利率，在收现。</strong> DSO 从 212 天拉长到 351 天，接近整年；DPO 从 266 天缩到 171 天。<strong>两头同时恶化，净被占用资金从 54 天变成 180 天</strong>，这是五家里唯一出现这种双向恶化的公司。直接后果是五年 OCF÷扣非 只有 0.77，2026 年上半年更降到 0.44（OCF 1.07 亿元对扣非 2.43 亿元）。<strong>能收 74% 的毛利，却要等 351 天才能拿到钱，说明毛利率来自产品独特性，而不是谈判地位。</strong> 客户是封测厂与 IDM，账期由对方的资本开支预算节奏决定。</p>
+<p><strong>增长是五家里最弱的：五年营收 CAGR 11.3%，扣非 CAGR 仅 3.2%。</strong> 2023 年营收还下滑 35.5%。这是一个典型的「强产品、弱成长」组合——市场空间受制于全球模拟测试机的存量更新节奏，不像数字测试机那样跟随算力扩张。</p>
+<p><strong>但 2026 年上半年出现了三个改善信号，不能忽略：</strong> 扣非 2.43 亿元、同比 +39.1%；合同负债÷营收从 5.8%（2025）回升到 14.3%；研发费用率从 20.7%（2025H1）提到 25.6%，研发绝对额 1.89 亿元同比 +70.3%。<strong>订单预收与研发投入同时抬升，通常是新一代机型（大概率是面向功率器件与 SoC 的高端机型）进入客户验证期的信号。</strong> 如果这条线走通，华峰的毛利率有希望重回 76% 以上。</p>
+<p><strong>估值 87.5 倍扣非，对一个五年扣非 CAGR 3.2% 的公司来说偏贵。</strong> 它值钱的地方是「国内模拟测试机近乎独家」这个位置，而不是成长速度。</p>
+<h3>3.5 兆易创新（603986）：组合里估值最低，但便宜是周期给的</h3>
+<div class="scroll"><div class="rsp-table rsp-w11"><table><thead><tr><th>年度</th><th>营收</th><th>毛利率</th><th>归母</th><th>扣非</th><th>研发率</th><th>净现金</th><th>OCF</th><th>OCF÷扣非</th><th>DSO</th><th>DPO</th></tr></thead><tbody><tr><td>2021</td><td>85.10</td><td>46.5%</td><td>23.37</td><td>22.24</td><td>9.9%</td><td>89.9</td><td>22.62</td><td>1.02</td><td>28</td><td>99</td></tr><tr><td>2022</td><td>81.30</td><td>47.7%</td><td>20.53</td><td>19.10</td><td>11.5%</td><td>87.0</td><td>9.50</td><td>0.50</td><td>14</td><td>82</td></tr><tr><td>2023</td><td>57.61</td><td><strong>34.4%</strong></td><td>1.61</td><td><strong>0.27</strong></td><td>17.2%</td><td>90.3</td><td>11.87</td><td><strong>43.31</strong></td><td>15</td><td>97</td></tr><tr><td>2024</td><td>73.56</td><td>38.0%</td><td>11.03</td><td>10.30</td><td>15.3%</td><td>83.0</td><td>20.32</td><td>1.97</td><td>22</td><td>117</td></tr><tr><td>2025</td><td>92.03</td><td>40.2%</td><td>16.48</td><td>14.69</td><td>12.1%</td><td>90.3</td><td>21.29</td><td>1.45</td><td>16</td><td>108</td></tr><tr><td>2026H1</td><td><strong>115.66</strong></td><td><strong>63.1%</strong></td><td><strong>68.57</strong></td><td><strong>48.83</strong></td><td>6.6%</td><td><strong>173.9</strong></td><td><strong>60.48</strong></td><td>1.24</td><td>14</td><td>139</td></tr></tbody></table></div></div>
+<p>单位：亿元。</p>
+<p><strong>先看周期的幅度，这决定了怎么给这家公司定价。</strong> 2023 年营收下滑 29.1%、扣非从 19.10 亿元塌到 <strong>0.27 亿元</strong>（−98.6%），毛利率从 47.7% 掉到 34.4%。三年后的 2026 年上半年，营收 115.66 亿元已超过 2025 年全年 92.03 亿元，扣非 48.83 亿元是 2025 年全年的 3.3 倍，毛利率 63.1% 是上市以来最高——<strong>比 2022 年周期高点的 47.7% 还高 15.4 个百分点。</strong></p>
+<p><strong>这个 63.1% 不可能是能力，只能是价格。</strong> 存储芯片（NOR Flash、DRAM）在缺货周期里涨价，设计公司作为轻资产环节直接吃到价格弹性。2025 年分产品结构可以佐证：存储芯片 65.66 亿元、毛利率 42.84%；微控制器 19.10 亿元、毛利率 35.82%；传感器 3.89 亿元、毛利率 19.57%。<strong>2026 年上半年整体毛利率跳到 63.1%，只能是存储条线的毛利率被价格推到了 70% 以上。</strong></p>
+<p><strong>但兆易有三项硬指标是组合内第一，这是它值得加权的理由：</strong></p>
+<p>一是 <strong>产业链地位最强。</strong> DSO 14 天、DPO 139 天，净占用他人资金 125 天。卖芯片收现款，买晶圆产能押 4.6 个月，这中间的差额是零成本营运资金。设计公司里能做到这个账期的极少。</p>
+<p>二是 <strong>五年 OCF÷扣非 1.28，全表最高。</strong> 2023 年扣非只剩 0.27 亿元时，经营现金流仍有 11.87 亿元——存货跌价是账面损失，现金早已收回。<strong>「利润塌陷、现金不塌陷」正是设计环节优于制造环节的地方，也是它能扛过周期的原因。</strong></p>
+<p>三是 <strong>净现金 173.9 亿元，占市值 8.5%，全表最高。</strong> 且这 173.9 亿元基本是内生积累（2025 年末 90.3 亿元 → 2026H1 173.9 亿元，主要来自 60.48 亿元经营现金流），不像澜起那样含大额股权融资。</p>
+<p><strong>研发这一项容易被误读。</strong> 2026 年上半年研发费用率从 13.7% 降到 6.6%，看起来像削减投入；但绝对额从 5.68 亿元增到 7.65 亿元（+34.7%），费用率下降纯粹是营收涨得更快。<strong>这是好事，不是坏事。</strong></p>
+<p><strong>必须打折的地方是长期增长能力。</strong> 五年营收 CAGR 只有 2.0%，扣非 CAGR <strong>−9.9%</strong>，是五家里唯一负增长的。毛利率在 34.4%—63.1% 之间摆动 28.7 个百分点，<strong>这不是定价权，是价格接受者的特征</strong>。它的护城河是「料号广度 + 规模」（NOR 全球前三、MCU 国内第一），不是「不可替代」。</p>
+<p><strong>所以 35.1 倍扣非 PE 的「便宜」是有条件的：条件是 63.1% 的毛利率能维持。</strong> 若毛利率回到 45%（仍高于 2025 年的 40.2%），扣非大约回到 30 亿元量级，PE 变成 68 倍。<strong>结论：兆易值得加权，但只能加到一个有限的位置，不能因为 PE 数字最低就配到第一。</strong></p>
+<h2>四、综合打分</h2>
+<p>把前面的拆解收敛成五个维度。权重按「护城河理论 + 相对话语权」定：护城河与定价权各占 25%，是判定的主干；现金创造 20%，用来否证「纸面利润」；成长与估值各 15%，作为修正项。</p>
+<div class="scroll"><div class="rsp-table rsp-w7"><table><thead><tr><th>维度</th><th>权重</th><th>澜起</th><th>乐鑫</th><th>中微</th><th>华峰</th><th>兆易</th></tr></thead><tbody><tr><td>护城河强度</td><td>25%</td><td><strong>9.5</strong></td><td>7.5</td><td>8.5</td><td>8.5</td><td>5.5</td></tr><tr><td>定价权（水平 + 方向）</td><td>25%</td><td>7.0</td><td><strong>8.5</strong></td><td>4.0</td><td>8.0</td><td>4.0</td></tr><tr><td>现金创造</td><td>20%</td><td>8.0</td><td>6.5</td><td>4.0</td><td>5.0</td><td><strong>9.5</strong></td></tr><tr><td>成长性</td><td>15%</td><td>7.0</td><td>8.5</td><td><strong>9.5</strong></td><td>4.0</td><td>6.0</td></tr><tr><td>估值</td><td>15%</td><td>3.0</td><td>6.0</td><td>2.0</td><td>4.0</td><td><strong>8.5</strong></td></tr><tr><td><strong>加权得分</strong></td><td>100%</td><td>7.23</td><td><strong>7.48</strong></td><td>5.65</td><td>6.33</td><td>6.45</td></tr></tbody></table></div></div>
+<p><strong>打分依据：</strong></p>
+<ul><li><strong>护城河强度</strong>：澜起 9.5，全球只有瑞萨、Rambus、澜起三家能做 DDR5 RCD，客户换供应商要重做 12—18 个月平台认证。华峰 8.5，国内模拟测试机近乎独家。中微 8.5，国产刻蚀设备唯一规模化，但要正面对抗 Lam／AMAT／TEL。乐鑫 7.5，开发者生态有网络效应，但硬件本身可替代性高于上述三家。兆易 5.5，靠料号广度与规模，不靠不可替代。</li><li><strong>定价权</strong>：只看两件事——毛利率的绝对水平和方向。乐鑫 8.5（五年五个台阶且创新高），华峰 8.0（74.7% 但长周期下行），澜起 7.0（核心业务五年持平，报表改善来自结构），中微 4.0（三年连续下行），兆易 4.0（摆动 28.7 个百分点）。</li><li><strong>现金创造</strong>：看五年累计 OCF÷扣非 与 FCF。兆易 9.5（1.28，最高），澜起 8.0（1.13 且 FCF 43.6 亿元），乐鑫 6.5（1.03 但 2026H1 只有 0.23），华峰 5.0（0.77），中微 4.0（0.82 且 FCF 为负）。</li><li><strong>成长性</strong>：中微 9.5（营收 CAGR 41.3%），乐鑫 8.5（2026 年 9M 扣非已超上年全年），澜起 7.0（CAGR 20.8% 但 2026H1 首次利润慢于收入），兆易 6.0（远期为负、当期靠周期），华峰 4.0（五年扣非 CAGR 3.2%）。</li><li><strong>估值</strong>：统一扣非 TTM 口径。兆易 8.5（35.1×），乐鑫 6.0（半年报 63.3×／三季报 45.5×），华峰 4.0（87.5×），澜起 3.0（94.7×），中微 2.0（107.7×）。</li></ul>
+<h2>五、投资组合排名（第 5 版）</h2>
+<div class="scroll"><div class="rsp-table rsp-w7"><table><thead><tr><th>排名</th><th>公司</th><th>第 4 版权重</th><th><strong>第 5 版权重</strong></th><th>变动</th><th>扣非 PE</th><th>一句话理由</th></tr></thead><tbody><tr><td>1</td><td>乐鑫科技</td><td>22%</td><td><strong>24%</strong></td><td>+2</td><td>63.3×</td><td>唯一毛利率连续五年上行且创新高，利润最干净，2026 年 9M 扣非已超上年全年</td></tr><tr><td>2</td><td>澜起科技</td><td>25%</td><td><strong>22%</strong></td><td>−3</td><td>94.7×</td><td>护城河最深，但核心毛利率五年持平、营运资金两头恶化，94.7 倍买持平曲线不划算</td></tr><tr><td>3</td><td>兆易创新</td><td>15%</td><td><strong>19%</strong></td><td>+4</td><td>35.1×</td><td>估值最低、现金转化最高、链上地位最强；但 63.1% 毛利率是周期顶，权重必须设上限</td></tr><tr><td>4</td><td>华峰测控</td><td>18%</td><td><strong>18%</strong></td><td>0</td><td>87.5×</td><td>74.7% 毛利率与近乎独家地位仍在，2026 年订单预收与研发同步抬升；但 351 天收现是硬约束</td></tr><tr><td>5</td><td>中微公司</td><td>20%</td><td><strong>17%</strong></td><td>−3</td><td>107.7×</td><td>成长最快但最贵，利润六成不来自经营，五年自由现金流为负</td></tr></tbody></table></div></div>
+<p><strong>加权扣非 PE：80 倍 → 77 倍</strong>（统一 2026 年半年报口径）。若乐鑫按已披露的三季报口径（45.5 倍）计算，组合加权为 <strong>72 倍</strong>。</p>
+<h3>5.1 三处调整的理由</h3>
+<p><strong>乐鑫 22%→24%、澜起 25%→22%，互换前两位。</strong> 这是本次唯一的名次变化，依据是三个可量化的对比：</p>
+<div class="tblwide"><div class="rsp-table"><table><thead><tr><th>对比项</th><th>澜起科技</th><th>乐鑫科技</th></tr></thead><tbody><tr><td>核心业务毛利率方向</td><td>五年 −1.15pp（66.72%→65.57%）</td><td>五年 <strong>+9.72pp</strong>（39.60%→49.32%），创新高</td></tr><tr><td>扣非 TTM 增速（2026H1）</td><td>+21.2%</td><td><strong>+30.3%</strong>（9M 为 +49.1%）</td></tr><tr><td>扣非 PE</td><td>94.7×</td><td>63.3×（三季报口径 45.5×）</td></tr><tr><td>非经常性损益占归母</td><td>33.8%</td><td><strong>6.8%</strong></td></tr></tbody></table></div></div>
+<p><strong>澜起的护城河仍然更深——这点没有变</strong>，所以只降 3 个点而不是更多。但「用两倍的估值买一条五年持平的毛利率曲线」，在同一个组合内部没有竞争力。<strong>澜起此前被排在第一位，很大程度上是因为「+14.1pp 毛利率」这个数字；拆完分产品后发现这个数字的因果是错的，排名就要跟着改。</strong></p>
+<p><strong>兆易 15%→19%。</strong> 加 4 个点的依据是三项组合内第一（扣非 PE 35.1×、五年 OCF÷扣非 1.28、净现金占市值 8.5%）加上最强的链上地位（DSO 14 天／DPO 139 天）。<strong>但上限设在 19% 而不是更高，原因是 63.1% 的毛利率不可持续</strong>：把扣非按 45% 毛利率还原，PE 约 68 倍，与乐鑫持平，估值优势会消失。<strong>这是一个「估值与现金流」的配置，不是「护城河」的配置，两者不能混谈。</strong></p>
+<p><strong>中微 20%→17%。</strong> 减 3 个点，四项叠加：扣非 PE 107.7 倍（最贵）；五年累计 FCF −2.1 亿元而分红 5.5 亿元；毛利率从 2022 年 45.74% 连续三年降到 39.17%；2026 年上半年非经常性损益占归母 60.3%（最高）。<strong>中微的成长是真的（营收 CAGR 41.3%、合同负债回到 41.4%），但价格已经把成长的确定性提前折现了。</strong></p>
+<p><strong>华峰 18% 不变。</strong> 理由是对冲：一方面五年扣非 CAGR 只有 3.2%、DSO 351 天、OCF÷扣非 0.77，这些是减配理由；另一方面 74.7% 的毛利率、国内近乎独家、2026 年上半年扣非 +39.1% 且合同负债从 5.8% 回到 14.3%、研发费用率提到 25.6%，这些是加配理由。两方力量相当，维持原权重。</p>
+<figure><div class="legend"><span><i style="background:var(--ink-3)"></i>第 4 版权重</span><span><i style="background:var(--red)"></i>第 5 版权重</span></div><div class="bars"><div class="lbl">澜起科技</div><div class="track"><div class="fill" style="left:0;width:100.00%;background:var(--ink-3)"></div></div><div class="val">25%</div><div class="lbl"></div><div class="track"><div class="fill" style="left:0;width:88.00%;background:var(--red)"></div></div><div class="val">22%</div><div class="lbl">乐鑫科技</div><div class="track"><div class="fill" style="left:0;width:88.00%;background:var(--ink-3)"></div></div><div class="val">22%</div><div class="lbl"></div><div class="track"><div class="fill" style="left:0;width:96.00%;background:var(--red)"></div></div><div class="val">24%</div><div class="lbl">兆易创新</div><div class="track"><div class="fill" style="left:0;width:60.00%;background:var(--ink-3)"></div></div><div class="val">15%</div><div class="lbl"></div><div class="track"><div class="fill" style="left:0;width:76.00%;background:var(--red)"></div></div><div class="val">19%</div><div class="lbl">华峰测控</div><div class="track"><div class="fill" style="left:0;width:72.00%;background:var(--ink-3)"></div></div><div class="val">18%</div><div class="lbl"></div><div class="track"><div class="fill" style="left:0;width:72.00%;background:var(--red)"></div></div><div class="val">18%</div><div class="lbl">中微公司</div><div class="track"><div class="fill" style="left:0;width:80.00%;background:var(--ink-3)"></div></div><div class="val">20%</div><div class="lbl"></div><div class="track"><div class="fill" style="left:0;width:68.00%;background:var(--red)"></div></div><div class="val">17%</div></div><figcaption><b>图 5　组合权重：第 4 版 → 第 5 版</b>　乐鑫与澜起互换前两位，兆易上调 4 个点，中微下调 3 个点，华峰不变。调整依据全部来自财报数据，不含股价走势判断。</figcaption></figure>
+<h3>5.2 组合层面的两条约束</h3>
+<p><strong>第一，单一持仓不超过 25%、不低于 15%。</strong> 五家都在半导体周期里，行业 beta 高度相关，个股分散不能替代行业分散。当前科技成长仓位若已偏高，这个组合应作为卫星仓而非核心仓。</p>
+<p><strong>第二，不做再平衡的择时。</strong> 权重按年度复核，只在「证伪条件触发」时调整，不因季度股价波动调仓。本次调整的全部依据是财报数据，不含任何股价走势判断。</p>
+<h2>六、证伪条件与跟踪清单</h2>
+<p>每一家给出可观测、可判定的失效条件。触发任一条，即启动复核，而不是解释。</p>
+<div class="tblwide"><div class="rsp-table"><table><thead><tr><th>公司</th><th>证伪条件</th><th>观测时点</th></tr></thead><tbody><tr><td>澜起科技</td><td>① DDR6 换代重演 2022 年让价，互连类芯片毛利率跌破 60%；② 2026 年报 DSO 仍高于 90 天（2025 年 76 天）</td><td>2026 年报、2027 中报</td></tr><tr><td>乐鑫科技</td><td>① 2027 年去库存期毛利率跌破 45%（回吐 2024 年水平）；② 2026 全年 OCF÷扣非 低于 0.6</td><td>2026 年报、2027 中报</td></tr><tr><td>中微公司</td><td>① 2027 年毛利率仍在 39% 附近不回升，「新品爬坡」解释即不成立，按护城河侵蚀重估；② 连续两年 FCF 为负且分红继续消耗净现金</td><td>2026 年报、2027 年报</td></tr><tr><td>华峰测控</td><td>① DSO 突破 400 天；② OCF÷扣非 连续两年低于 0.6；③ 毛利率跌破 72%（2023 年低点）</td><td>2026 年报、2027 年报</td></tr><tr><td>兆易创新</td><td>① 存储条线毛利率回落到 45% 以下（确认 2026H1 为周期顶）；② DSO 从 14 天升破 30 天（缺货期结束、话语权回落）</td><td>2026 年报、2027 一季报</td></tr></tbody></table></div></div>
+<p><strong>最需要盯的两个数字：</strong> 一个是澜起的 DSO（当前 105 天，2025 年 76 天），它是唯一一个「护城河最深的公司正在出现议价能力松动迹象」的指标；另一个是兆易的存储毛利率，它决定了 35 倍 PE 是真便宜还是假便宜。</p>
+<h2>七、本次分析未能验证的事项</h2>
+<p>按「宁缺毋滥」原则，以下事项没有足够证据，故留空而非推测：</p>
+<ol><li><strong>2026 年半年报的分产品与分地区数据未纳入。</strong> 本次下载的是 2021—2025 五份年报，未下载中期报告。因此澜起 2026H1 互连类芯片毛利率、兆易 2026H1 存储条线毛利率、五家 2026H1 境外收入占比均缺失，正文中相应位置已留空，未做估算。</li><li><strong>中微毛利率下行的来源无法直接验证。</strong> 2025 年报把「专用设备／备品备件／服务收入」三分类合并为一行，披露颗粒度在毛利率下行期收窄。正文给出的「新品爬坡、定价偏低」是旁证推断，不是年报原文结论。</li><li><strong>客户集中度未逐一核对。</strong> 五家年报「前五名客户销售额占比」的披露口径各年不一致（部分按合并口径、部分按单体），无法构造可比的五年序列，故未纳入。</li><li><strong>存货周转天数未纳入。</strong> 与 DSO／DPO 同属营运资金分析，为控制篇幅省略；对兆易与乐鑫而言这是重要指标，建议下一版补上。</li><li><strong>2026 年三季报仅乐鑫一家已披露</strong>，其余四家未出，故横向比较统一用半年报口径，不做跨期混合。</li></ol>
+<h2>附录：五年全指标</h2>
+<p>单位：亿元；比率与占比为百分数；DSO／DPO 为天。中期 DSO／DPO 按 182 天折算，与年度值不可直接比较。</p>
+<h3>A1 澜起科技（688008）</h3>
+<div class="scroll"><div class="rsp-table rsp-w16"><table><thead><tr><th>年度</th><th>营收</th><th>毛利率</th><th>归母</th><th>扣非</th><th>研发率</th><th>净现金</th><th>资产负债率</th><th>OCF</th><th>资本开支</th><th>FCF</th><th>分红</th><th>DSO</th><th>DPO</th><th>ROE</th><th>境外</th></tr></thead><tbody><tr><td>2021</td><td>25.62</td><td>48.1</td><td>8.29</td><td>6.17</td><td>14.4</td><td>66.5</td><td>6.3</td><td>6.80</td><td>1.53</td><td>5.27</td><td>3.39</td><td>49</td><td>113</td><td>9.9</td><td>62.5</td></tr><tr><td>2022</td><td>36.72</td><td>46.4</td><td>12.99</td><td>8.83</td><td>15.3</td><td>74.7</td><td>7.1</td><td>6.89</td><td>2.27</td><td>4.62</td><td>3.39</td><td>64</td><td>73</td><td>13.1</td><td>66.9</td></tr><tr><td>2023</td><td>22.86</td><td>58.9</td><td>4.51</td><td>3.70</td><td>29.8</td><td>74.3</td><td>4.6</td><td>7.31</td><td>4.24</td><td>3.07</td><td>3.41</td><td>94</td><td>102</td><td>4.4</td><td>84.0</td></tr><tr><td>2024</td><td>36.39</td><td>58.1</td><td>14.12</td><td>12.48</td><td>21.0</td><td>86.1</td><td>6.7</td><td>16.91</td><td>3.79</td><td>13.12</td><td>3.38</td><td>78</td><td>101</td><td>12.4</td><td>70.8</td></tr><tr><td>2025</td><td>54.56</td><td>62.2</td><td>22.36</td><td>20.22</td><td>16.8</td><td>92.9</td><td>6.4</td><td>20.22</td><td>2.66</td><td>17.56</td><td>6.70</td><td>76</td><td>74</td><td>17.3</td><td>71.5</td></tr><tr><td>2026H1</td><td>33.35</td><td>65.3</td><td>19.97</td><td>13.22</td><td>13.6</td><td>179.0</td><td>7.5</td><td>13.28</td><td>2.55</td><td>10.73</td><td>0.01</td><td>105</td><td>103</td><td>9.3</td><td>—</td></tr></tbody></table></div></div>
+<h3>A2 乐鑫科技（688018）</h3>
+<div class="scroll"><div class="rsp-table rsp-w16"><table><thead><tr><th>年度</th><th>营收</th><th>毛利率</th><th>归母</th><th>扣非</th><th>研发率</th><th>净现金</th><th>资产负债率</th><th>OCF</th><th>资本开支</th><th>FCF</th><th>分红</th><th>DSO</th><th>DPO</th><th>ROE</th><th>境外</th></tr></thead><tbody><tr><td>2021</td><td>13.86</td><td>39.6</td><td>1.98</td><td>1.73</td><td>19.6</td><td>11.1</td><td>14.4</td><td>0.31</td><td>0.32</td><td>−0.00</td><td>0.40</td><td>165</td><td>121</td><td>10.9</td><td>32.5</td></tr><tr><td>2022</td><td>12.71</td><td>40.0</td><td>0.97</td><td>0.67</td><td>26.5</td><td>8.0</td><td>12.3</td><td>0.71</td><td>0.26</td><td>0.45</td><td>1.29</td><td>114</td><td>75</td><td>5.3</td><td>36.9</td></tr><tr><td>2023</td><td>14.33</td><td>40.6</td><td>1.36</td><td>1.09</td><td>28.2</td><td>5.5</td><td>13.2</td><td>3.03</td><td>0.49</td><td>2.53</td><td>0.00</td><td>139</td><td>68</td><td>7.1</td><td>26.0</td></tr><tr><td>2024</td><td>20.07</td><td>43.9</td><td>3.39</td><td>3.08</td><td>24.4</td><td>6.6</td><td>17.7</td><td>2.20</td><td>0.98</td><td>1.23</td><td>0.78</td><td>123</td><td>104</td><td>15.8</td><td>27.1</td></tr><tr><td>2025</td><td>25.65</td><td>46.6</td><td>4.98</td><td>4.55</td><td>23.5</td><td>18.9</td><td>11.1</td><td>5.23</td><td>5.16</td><td>0.07</td><td>0.71</td><td>94</td><td>100</td><td>11.2</td><td>29.8</td></tr><tr><td>2026H1</td><td>14.81</td><td>49.3</td><td>3.34</td><td>3.12</td><td>22.3</td><td>20.0</td><td>10.3</td><td>0.72</td><td>0.79</td><td>−0.07</td><td>0.84</td><td>106</td><td>100</td><td>7.1</td><td>—</td></tr></tbody></table></div></div>
+<h3>A3 中微公司（688012）</h3>
+<div class="scroll"><div class="rsp-table rsp-w16"><table><thead><tr><th>年度</th><th>营收</th><th>毛利率</th><th>归母</th><th>扣非</th><th>研发率</th><th>净现金</th><th>资产负债率</th><th>OCF</th><th>资本开支</th><th>FCF</th><th>分红</th><th>DSO</th><th>DPO</th><th>ROE</th><th>境外</th></tr></thead><tbody><tr><td>2021</td><td>31.08</td><td>43.4</td><td>10.11</td><td>3.24</td><td>12.8</td><td>111.6</td><td>16.7</td><td>10.16</td><td>4.97</td><td>5.20</td><td>0.00</td><td>131</td><td>305</td><td>7.3</td><td>2.2</td></tr><tr><td>2022</td><td>47.40</td><td>45.7</td><td>11.70</td><td>9.19</td><td>12.8</td><td>97.5</td><td>22.7</td><td>6.18</td><td>15.05</td><td>−8.88</td><td>0.03</td><td>103</td><td>273</td><td>7.6</td><td>1.8</td></tr><tr><td>2023</td><td>62.64</td><td>43.8</td><td>17.86</td><td>11.91</td><td>13.0</td><td>84.5</td><td>17.2</td><td>−9.77</td><td>8.70</td><td>−18.47</td><td>1.38</td><td>139</td><td>271</td><td>10.0</td><td>1.2</td></tr><tr><td>2024</td><td>90.65</td><td>41.1</td><td>16.16</td><td>13.88</td><td>15.6</td><td>78.4</td><td>24.7</td><td>14.58</td><td>8.95</td><td>5.63</td><td>2.00</td><td>113</td><td>230</td><td>8.2</td><td>1.6</td></tr><tr><td>2025</td><td>123.85</td><td>39.2</td><td>21.11</td><td>15.50</td><td>20.0</td><td>79.9</td><td>23.8</td><td>22.95</td><td>8.55</td><td>14.40</td><td>2.05</td><td>119</td><td>180</td><td>9.3</td><td>0.9</td></tr><tr><td>2026H1</td><td>66.91</td><td>39.7</td><td>28.25</td><td>11.23</td><td>19.6</td><td>95.5</td><td>19.7</td><td>6.85</td><td>7.77</td><td>−0.92</td><td>2.30</td><td>169</td><td>219</td><td>9.4</td><td>—</td></tr></tbody></table></div></div>
+<h3>A4 华峰测控（688200）</h3>
+<div class="scroll"><div class="rsp-table rsp-w16"><table><thead><tr><th>年度</th><th>营收</th><th>毛利率</th><th>归母</th><th>扣非</th><th>研发率</th><th>净现金</th><th>资产负债率</th><th>OCF</th><th>资本开支</th><th>FCF</th><th>分红</th><th>DSO</th><th>DPO</th><th>ROE</th><th>境外</th></tr></thead><tbody><tr><td>2021</td><td>8.78</td><td>80.2</td><td>4.39</td><td>4.35</td><td>10.7</td><td>17.8</td><td>10.1</td><td>3.54</td><td>3.45</td><td>0.09</td><td>0.61</td><td>212</td><td>266</td><td>16.7</td><td>7.7</td></tr><tr><td>2022</td><td>10.71</td><td>76.9</td><td>5.26</td><td>5.05</td><td>11.0</td><td>19.7</td><td>6.9</td><td>3.94</td><td>0.28</td><td>3.66</td><td>1.32</td><td>262</td><td>183</td><td>16.8</td><td>11.1</td></tr><tr><td>2023</td><td>6.91</td><td>71.2</td><td>2.52</td><td>2.53</td><td>19.1</td><td>21.2</td><td>3.9</td><td>3.21</td><td>0.25</td><td>2.96</td><td>1.28</td><td>312</td><td>81</td><td>7.6</td><td>12.7</td></tr><tr><td>2024</td><td>9.05</td><td>73.3</td><td>3.34</td><td>3.40</td><td>19.0</td><td>21.6</td><td>6.2</td><td>1.88</td><td>0.31</td><td>1.57</td><td>1.07</td><td>340</td><td>164</td><td>9.4</td><td>6.2</td></tr><tr><td>2025</td><td>13.46</td><td>73.8</td><td>5.36</td><td>4.92</td><td>19.7</td><td>21.8</td><td>9.2</td><td>3.04</td><td>0.66</td><td>2.38</td><td>1.01</td><td>351</td><td>171</td><td>13.1</td><td>6.9</td></tr><tr><td>2026H1</td><td>7.38</td><td>74.7</td><td>4.16</td><td>2.43</td><td>25.6</td><td>20.9</td><td>18.5</td><td>1.07</td><td>0.65</td><td>0.42</td><td>1.61</td><td>320</td><td>195</td><td>5.7</td><td>—</td></tr></tbody></table></div></div>
+<h3>A5 兆易创新（603986）</h3>
+<div class="scroll"><div class="rsp-table rsp-w16"><table><thead><tr><th>年度</th><th>营收</th><th>毛利率</th><th>归母</th><th>扣非</th><th>研发率</th><th>净现金</th><th>资产负债率</th><th>OCF</th><th>资本开支</th><th>FCF</th><th>分红</th><th>DSO</th><th>DPO</th><th>ROE</th><th>境外</th></tr></thead><tbody><tr><td>2021</td><td>85.10</td><td>46.5</td><td>23.37</td><td>22.24</td><td>9.9</td><td>89.9</td><td>12.6</td><td>22.62</td><td>6.22</td><td>16.40</td><td>2.68</td><td>28</td><td>99</td><td>17.3</td><td>83.0</td></tr><tr><td>2022</td><td>81.30</td><td>47.7</td><td>20.53</td><td>19.10</td><td>11.5</td><td>87.0</td><td>8.8</td><td>9.50</td><td>5.51</td><td>3.99</td><td>7.15</td><td>14</td><td>82</td><td>13.5</td><td>83.2</td></tr><tr><td>2023</td><td>57.61</td><td>34.4</td><td>1.61</td><td>0.27</td><td>17.2</td><td>90.3</td><td>7.6</td><td>11.87</td><td>3.48</td><td>8.38</td><td>4.21</td><td>15</td><td>97</td><td>1.1</td><td>79.5</td></tr><tr><td>2024</td><td>73.56</td><td>38.0</td><td>11.03</td><td>10.30</td><td>15.3</td><td>83.0</td><td>13.3</td><td>20.32</td><td>4.99</td><td>15.33</td><td>0.15</td><td>22</td><td>117</td><td>6.7</td><td>77.5</td></tr><tr><td>2025</td><td>92.03</td><td>40.2</td><td>16.48</td><td>14.69</td><td>12.1</td><td>90.3</td><td>10.2</td><td>21.29</td><td>10.49</td><td>10.80</td><td>2.43</td><td>16</td><td>108</td><td>8.7</td><td>69.7</td></tr><tr><td>2026H1</td><td>115.66</td><td>63.1</td><td>68.57</td><td>48.83</td><td>6.6</td><td>173.9</td><td>11.5</td><td>60.48</td><td>9.45</td><td>51.03</td><td>5.26</td><td>14</td><td>139</td><td>18.4</td><td>—</td></tr></tbody></table></div></div>
+<h3>附：数据可用性</h3>
+<ul><li>原始年报 PDF：25 份，存于 <code>pdf/&lt;代码&gt;_&lt;年份&gt;.pdf</code></li><li>原始报表数据：<code>data_fin.json</code>（利润表／资产负债表／现金流量表／分地区收入）</li><li>派生指标：<code>data_5y.json</code>（本报告全部表格的数据源）</li><li>取数与计算脚本：<code>tools/list_ann.py</code>、<code>tools/dl.py</code>、<code>tools/fetch_fin.py</code>、<code>tools/build_data.py</code></li></ul>
+<p><strong>本报告不含任何投资建议。全部结论建立在公开年报数据之上，估值口径已在正文逐处声明。</strong></p>
+</div>
+<footer>本文全部数据取自五家公司 2021—2025 年年度报告与 2026 年半年报／三季报，经两个独立数据源交叉核验。不构成投资建议。</footer>
+</div>
+
+<!-- rsp-mobile-adapt : 溢出表格滑动提示 -->
+<script>
+(function(){
+  function mark(){
+    var boxes = document.querySelectorAll('.rsp-table');
+    for (var i=0;i<boxes.length;i++){
+      var b = boxes[i];
+      if (b.scrollWidth > b.clientWidth + 4) b.setAttribute('data-rsp-scroll','');
+      else b.removeAttribute('data-rsp-scroll');
+    }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mark);
+  else mark();
+  window.addEventListener('resize', function(){ clearTimeout(window.__rspT); window.__rspT=setTimeout(mark,180); });
+})();
+</script>
+</body>
+</html>
