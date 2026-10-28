@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>澜起科技（688008.SH）财报对比分析 2021–2025</title>
+<meta name="generator" content="financial-report-analysis">
+<style>
+@page {
+  size: A4; margin: 16mm 18mm 16mm 18mm; background: #F7F4EE;
+  @bottom-center { content: counter(page) "  ·  财报分析";
+    font-family: "TsangerJinKai02","Source Han Serif SC","Songti SC",serif; font-size: 9pt; color: #6b6a64; }
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --parchment:#F7F4EE; --ivory:#FBF9F4; --near-black:#22262B; --dark-warm:#3E4145;
+  --olive:#504e49; --stone:#7C7B77; --brand:#A73F2D; --brand-deep:#8A3223;
+  --accent:#A73F2D; --accent-soft:#F1E3DD; --gold:#B8862F; --teal:#2F6F6B; --blue:#1B365D;
+  --border:#E3DDD4; --border-soft:#EAE5DC;
+  --serif: "TsangerJinKai02","Source Han Serif SC","Source Han Serif CN","Noto Serif CJK SC","Songti SC","STSong",Georgia,serif;
+}
+html, body { background: var(--parchment); }
+@media screen { body { max-width: 210mm; margin: 0 auto; padding: 16mm 18mm 16mm 18mm; } }
+body { color: var(--near-black); font-family: var(--serif); font-size: 10pt; line-height: 1.5; letter-spacing: .3pt; widows: 3; orphans: 3; }
+strong { font-weight: 500; }
+.hl { color: var(--brand); font-weight: 500; }
+
+.report-header { display: flex; justify-content: space-between; align-items: flex-start;
+  margin-bottom: 14pt; padding-bottom: 10pt; border-bottom: .5pt solid var(--border); }
+.ticker-eyebrow { font-size: 9pt; color: var(--brand); letter-spacing: 1.5pt; text-transform: uppercase; font-weight: 500; margin-bottom: 4pt; }
+.ticker-name { font-size: 23pt; font-weight: 500; color: var(--near-black); line-height: 1.15; margin-bottom: 4pt; }
+.ticker-sub { font-size: 10pt; color: var(--stone); line-height: 1.4; }
+.price-block { text-align: right; padding-top: 4pt; }
+.price-current { font-size: 26pt; font-weight: 500; color: var(--near-black); line-height: 1; font-variant-numeric: tabular-nums; }
+.price-change { font-size: 10pt; font-weight: 500; margin-top: 2pt; color: var(--brand); }
+.price-date { font-size: 9pt; color: var(--stone); margin-top: 2pt; white-space: nowrap; }
+
+.metrics { display: flex; gap: 14pt; margin-bottom: 12pt; padding: 6pt 0;
+  border-top: .3pt dotted var(--border); border-bottom: .3pt dotted var(--border); }
+.metric { flex: 1; min-width: 0; }
+.metric-value { font-size: 15pt; font-weight: 500; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.metric-label { font-size: 8.5pt; color: var(--olive); line-height: 1.3; margin-top: 2pt; }
+.metric:nth-child(1) .metric-value { color: var(--accent); }
+.metric:nth-child(2) .metric-value { color: var(--gold); }
+.metric:nth-child(3) .metric-value { color: var(--teal); }
+.metric:nth-child(4) .metric-value { color: var(--blue); }
+
+h2 { font-size: 15.5pt; font-weight: 500; color: var(--near-black); margin: 16pt 0 6pt; break-after: avoid; position: relative; padding-left: 13pt; }
+h2::before { content:""; position:absolute; left:0; top:2.5pt; width:4pt; height:13pt; background:var(--accent); border-radius:1pt; }
+h3 { font-size: 12.5pt; font-weight: 500; color: var(--dark-warm); margin: 11pt 0 4pt; break-after: avoid; }
+p { margin: 0 0 7pt; line-height: 1.5; widows: 2; orphans: 2; }
+ul, ol { margin: 4pt 0 8pt; padding-left: 18pt; line-height: 1.5; }
+ul li::marker { color: var(--brand); } ol li::marker { color: var(--brand); font-weight: 500; }
+
+table { width: 100%; border-collapse: collapse; font-size: 9.2pt; margin: 7pt 0; break-inside: auto; }
+table thead { display: table-header-group; }
+table tr { break-inside: avoid; }
+table th { text-align: left; font-weight: 500; color: var(--dark-warm); padding: 5pt 6pt;
+  border-bottom: 1pt solid var(--accent); background: transparent; font-size: 8.6pt; }
+table td { padding: 4pt 6pt; border-bottom: .25pt solid var(--border); vertical-align: top; }
+table.financial th:not(:first-child) { text-align: right; }
+table.financial td:not(:first-child) { text-align: right; font-variant-numeric: tabular-nums; }
+table.kv { table-layout: fixed; font-size: 8.7pt; }
+table.kv th:not(:first-child), table.kv td:not(:first-child) { text-align: left; }
+table.kv.traj td:nth-child(2) { white-space: nowrap; }
+.note { font-size: 8pt; color: var(--stone); margin: 1pt 0 8pt; line-height: 1.45; }
+
+.callout { background: var(--ivory); padding: 8pt 12pt; border-radius: 3pt; margin: 9pt 0;
+  border-left: 3pt solid var(--accent); break-inside: avoid; line-height: 1.5; }
+.callout .quote { margin: 5pt 0 0; color: var(--olive); }
+
+figure { margin: 10pt 0; break-inside: avoid; }
+figcaption { font-size: 8.5pt; color: var(--stone); margin-top: 4pt; text-align: center; }
+
+/* ---- 纯 HTML/CSS 横向条形图（零 SVG，见 skill §8.1.1） ---- */
+.hchart { background: var(--ivory); padding: 8pt 10pt; border-radius: 3pt; }
+.hc-legend { font-size: 8pt; color: var(--olive); margin-bottom: 6pt; }
+.hc-legend .lg { display: inline-block; width: 8pt; height: 8pt; border-radius: 1.5pt; margin: 0 3pt 0 10pt; vertical-align: middle; }
+.hc-legend .lg:first-child { margin-left: 0; }
+.lg.s1 { background: #A73F2D; } .lg.s2 { background: #B8862F; } .lg.s3 { background: #2F6F6B; }
+.hc-row { margin: 3pt 0; font-size: 8.6pt; white-space: nowrap; }
+.hc-lbl { display: inline-block; width: 34pt; color: var(--stone); vertical-align: middle; font-variant-numeric: tabular-nums; }
+/* 分组条：每个系列一条独立轨道 */
+.hc-bars { display: inline-block; width: 292pt; vertical-align: middle; }
+.hc-line { display: block; height: 4.6pt; background: #EFEBE3; margin: 1.1pt 0; }
+.hc-fill { display: block; height: 4.6pt; }
+/* 堆叠条：单轨道内分段 */
+.hc-track { display: inline-block; width: 292pt; height: 9pt; background: #EFEBE3; vertical-align: middle; white-space: nowrap; overflow: hidden; }
+.hc-seg { display: inline-block; height: 9pt; vertical-align: top; }
+.hc-fill.s1, .hc-seg.s1 { background: #A73F2D; }
+.hc-fill.s2, .hc-seg.s2 { background: #B8862F; }
+.hc-fill.s3, .hc-seg.s3 { background: #2F6F6B; }
+.hc-val { display: inline-block; width: 88pt; text-align: right; color: var(--near-black); vertical-align: middle; font-variant-numeric: tabular-nums; }
+
+.risk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 9pt; margin: 7pt 0; }
+.risk-item { padding: 6pt 9pt; background: var(--ivory); border-radius: 3pt; border-left: 2.5pt solid var(--accent); break-inside: avoid; }
+.risk-label { font-size: 9pt; font-weight: 500; color: var(--brand); margin-bottom: 2pt; }
+.risk-desc { font-size: 8.8pt; color: var(--olive); line-height: 1.42; }
+
+.analyst-box { background: var(--ivory); border-radius: 4pt; padding: 10pt 14pt; margin: 11pt 0;
+  border-left: 3pt solid var(--accent); break-inside: avoid; }
+.analyst-label { font-size: 9pt; color: var(--brand); letter-spacing: .5pt; margin-bottom: 4pt; }
+
+.report-footer { display: flex; justify-content: space-between; margin-top: 14pt; padding-top: 6pt;
+  border-top: .4pt solid var(--border); font-size: 8pt; color: var(--stone); }
+.page-break { break-before: page; }
+.tag { display: inline-block; background: var(--accent-soft); color: var(--brand-deep); font-size: 8.6pt; font-weight: 500; padding: 1pt 5pt; border-radius: 3pt; }
+</style>
+
+<!-- rsp-mobile-adapt : 响应式适配层（仅屏幕生效，不影响打印/PDF） -->
+<style id="rsp-mobile-adapt">
+/* rsp-mobile-adapt-v3 */
+/* ========== 1. 全局：屏幕端基础修正 ========== */
+@media screen {
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body { overflow-wrap: break-word; }
+  img, svg, canvas, video, iframe { max-width: 100%; }
+  svg[viewBox], svg[viewbox] { height: auto; }
+
+  /* 网格容器（两列对比等）：网格项默认 min-width:auto，会被内部宽表撑破
+     容器、把整页顶出横向滚动（报告里 .two-col 就栽在这上面）。放开收缩，
+     让里面的 .rsp-table 自己去横向滑动。 */
+  .risk-grid > *, .two-col > * { min-width: 0; }
+
+  /* 表格横向滚动容器：宽表不压字、不撑破页面 */
+  .rsp-table {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    margin: 8pt 0;
+    position: relative;
+  }
+  .rsp-table > table { margin: 0; }
+  .rsp-table::-webkit-scrollbar { height: 7px; }
+  .rsp-table::-webkit-scrollbar-track { background: transparent; }
+  .rsp-table::-webkit-scrollbar-thumb { background: #D8D1C4; border-radius: 4px; }
+  /* 内容确实溢出时，右侧给一层渐变暗示"还能往右滑" */
+  .rsp-table[data-rsp-scroll] {
+    background: linear-gradient(to left, rgba(167,63,45,.10), rgba(167,63,45,0) 28px);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 28px 100%;
+  }
+}
+
+/* ========== 2. 平板 / 窄窗口：边距先收，避免内容被挤 ========== */
+@media screen and (max-width: 900px) {
+  body { padding: 22px 22px 46px 22px !important; }
+  .report-header { flex-wrap: wrap; gap: 12pt; }
+  .metrics { flex-wrap: wrap; gap: 10pt 18pt; }
+  .metric { flex: 1 1 42%; min-width: 0; }
+  .report-footer { flex-wrap: wrap; gap: 4pt 14pt; }
+
+  /* 宽表改为横向滚动：给每列保留最小可读宽度，不再把汉字挤成竖排 */
+  .rsp-w5 > table { min-width: 310px !important; }
+  .rsp-w6 > table { min-width: 372px !important; }
+  .rsp-w7 > table { min-width: 434px !important; }
+  .rsp-w8 > table { min-width: 496px !important; }
+  .rsp-w9 > table { min-width: 558px !important; }
+  .rsp-w10 > table { min-width: 620px !important; }
+  .rsp-w11 > table { min-width: 682px !important; }
+  .rsp-w12 > table { min-width: 744px !important; }
+  .rsp-w13 > table { min-width: 806px !important; }
+  .rsp-w14 > table { min-width: 868px !important; }
+  .rsp-w15 > table { min-width: 930px !important; }
+  .rsp-w16 > table { min-width: 992px !important; }
+}
+
+/* ========== 3. 手机：指标卡两列、页头转纵向 ========== */
+@media screen and (max-width: 720px) {
+  body {
+    max-width: 100% !important;
+    padding: 18px 16px 44px 16px !important;
+    font-size: 10.5pt;
+  }
+  h2 { font-size: 15pt !important; margin: 20pt 0 7pt 0 !important; }
+  h3 { font-size: 12.5pt !important; }
+  h1 { font-size: 19pt !important; }
+  p, li { line-height: 1.62; }
+  ul, ol { padding-left: 17pt; }
+
+  .report-header { flex-direction: column; align-items: stretch; gap: 8pt; }
+  .price-block { text-align: left; padding-top: 0; }
+  .price-current { font-size: 24pt !important; }
+  .ticker-name { font-size: 21pt !important; }
+  .ticker-sub { font-size: 9.5pt !important; }
+
+  .metrics { gap: 9pt 12pt; }
+  .metric { flex: 1 1 45%; }
+  .metric-value { font-size: 15pt !important; }
+  .metric-label { font-size: 8.5pt !important; white-space: normal !important; }
+
+  table, .kami-table { font-size: 9pt !important; }
+  .longtable { font-size: 8.5pt !important; }
+  .wide { font-size: 7.5pt !important; }
+  .dense { font-size: 8pt !important; }
+  table th, table td, .kami-table th, .kami-table td { padding: 5pt 6pt !important; }
+
+  blockquote, .quote, .note, .warn, .callout, .risk-item { padding: 9pt 11pt !important; }
+  .risk-grid { grid-template-columns: 1fr !important; }
+  .report-footer { flex-direction: column; align-items: flex-start; gap: 3pt; }
+}
+
+/* ========== 3b. 图表：窄屏保持图纸原尺寸 + 横向滑动 ========== */
+/* 报告里的图表是 SVG：viewBox 宽 680 + width:100%。缩到手机宽度（约 350px）
+   只剩 0.5×，图内字号从 11px 掉到 5px 完全不可读；而 SVG <text> 不会自动换行，
+   单纯放大字号必然溢出图框。这里改为**保持图纸原尺寸、允许左右滑动**——
+   与上面宽表同一套策略，宁可滑也不塌字号。仅屏幕生效，打印/PDF 不受影响。 */
+@media screen and (max-width: 720px) {
+  .rsp-fig {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    /* 图纸一定宽于屏幕，直接给右侧一层渐变，暗示"还能往右滑" */
+    background: linear-gradient(to left, rgba(167,63,45,.09), rgba(167,63,45,0) 26px);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 26px 100%;
+  }
+  .rsp-fig > svg { min-width: var(--rsp-fig-w, 680px); }
+  .rsp-fig::-webkit-scrollbar { height: 7px; }
+  .rsp-fig::-webkit-scrollbar-track { background: transparent; }
+  .rsp-fig::-webkit-scrollbar-thumb { background: #D8D1C4; border-radius: 4px; }
+}
+
+/* ========== 4. 小屏手机：指标卡单列、边距收到最紧 ========== */
+@media screen and (max-width: 430px) {
+  body { padding: 14px 12px 38px 12px !important; }
+  h2 { font-size: 14pt !important; }
+  h3 { font-size: 11.5pt !important; }
+  .ticker-name { font-size: 19pt !important; }
+  .price-current { font-size: 21pt !important; }
+  .metric { flex: 1 1 100%; }
+  .metric-value { font-size: 16pt !important; }
+  ul, ol { padding-left: 15pt; }
+  table, .kami-table { font-size: 8.5pt !important; }
+}
+
+/* ========== 5. 打印：把包裹层还原成透明，PDF 版式与补丁前完全一致 ========== */
+@media print {
+  .rsp-table { margin: 0; padding: 0; overflow: visible !important; background: none !important; }
+  .rsp-table > table { margin: 8pt 0; min-width: 0 !important; }
+  [class*="rsp-w"] > table { min-width: 0 !important; }
+}
+</style>
+</head>
+<body>
+
+<div class="report-header">
+  <div class="ticker-block">
+    <div class="ticker-eyebrow">半导体 · 互连芯片 · 年报对比分析</div>
+    <div class="ticker-name">澜起科技 <span style="font-size:13pt;color:var(--stone);">688008.SH</span></div>
+    <div class="ticker-sub">内存接口芯片及内存模组配套芯片 · 津逮®服务器平台 ｜ A+H 两地上市<br>
+      分析区间 2021–2025 五个完整财年（补充 2026Q3 预告）｜ 数据源：巨潮资讯年报 5 份</div>
+  </div>
+  <div class="price-block">
+    <div class="price-current">18.25%</div>
+    <div class="price-change">2025 年加权 ROE</div>
+    <div class="price-date">区间 4.44%–18.25%</div>
+  </div>
+</div>
+
+<div class="metrics">
+  <div class="metric"><div class="metric-value">54.56<span style="font-size:9pt;">亿</span></div><div class="metric-label">2025 营业收入（+49.93%）</div></div>
+  <div class="metric"><div class="metric-value">22.36<span style="font-size:9pt;">亿</span></div><div class="metric-label">2025 归母净利润（+58.36%）</div></div>
+  <div class="metric"><div class="metric-value">6.38%</div><div class="metric-label">资产负债率（五年最高 7.10%）</div></div>
+  <div class="metric"><div class="metric-value">92.7<span style="font-size:9pt;">亿</span></div><div class="metric-label">净现金（占总资产 67.4%）</div></div>
+</div>
+
+<h2>核心结论</h2>
+<p>五年看下来，澜起是一家典型的“高毛利、高净现金、零银行借款”的 Fabless 芯片设计公司：营业收入从 25.62 亿元增至 54.56 亿元（CAGR 20.8%），归母净利润从 8.29 亿元增至 22.36 亿元（CAGR 28.2%），资产负债率五年从未超过 7.10%，短期借款与长期借款五年均为零。经营节奏呈清晰的“三年一台阶”：2021–2022 上行、2023 去库存腰斩（营收 −37.75%、归母 −65.28%）、2024–2025 连续两年高增。</p>
+<p>但报表里有两个必须拆开看的失真项：<span class="hl">① 综合毛利率由 48.08% 抬到 62.28%，14.20 个百分点全部来自低毛利的津逮业务萎缩（收入占比 33.0%→5.7%），核心互连芯片自身毛利率反而是 −1.15pct 的拖累</span>；② 2025 年管理费用＋168% 的主因是股份支付（税后 4.12 亿元，上年仅 0.51 亿元），剔除后归母净利润实为 26.50 亿元、同比 <span class="hl">+81.2%</span>，快于账面 58.36%。</p>
+<div class="callout">
+  <div class="quote">一句话：<b>护城河是真的（核心毛利率五年最低 58.72%、2026Q3 达 68%），但“毛利率持续提升”这个叙事是结构变化造的，不是定价权变强了。</b>真正的短板不在负债表，而在 0.40 次的总资产周转率与 77% 的客户集中度。</div>
+</div>
+
+<h2>收入趋势</h2>
+<figure>
+<div class="hchart">
+<div class="hc-legend"><span class="lg s1"></span>营业收入<span class="lg s2"></span>归母净利润</div>
+<div class="hc-row"><span class="hc-lbl">2021</span><span class="hc-bars">
+<span class="hc-line"><span class="hc-fill s1" style="width:46.96%"></span></span>
+<span class="hc-line"><span class="hc-fill s2" style="width:15.19%"></span></span>
+</span><span class="hc-val">25.62 / 8.29</span></div>
+<div class="hc-row"><span class="hc-lbl">2022</span><span class="hc-bars">
+<span class="hc-line"><span class="hc-fill s1" style="width:67.30%"></span></span>
+<span class="hc-line"><span class="hc-fill s2" style="width:23.81%"></span></span>
+</span><span class="hc-val">36.72 / 12.99</span></div>
+<div class="hc-row"><span class="hc-lbl">2023</span><span class="hc-bars">
+<span class="hc-line"><span class="hc-fill s1" style="width:41.90%"></span></span>
+<span class="hc-line"><span class="hc-fill s2" style="width:8.27%"></span></span>
+</span><span class="hc-val">22.86 / 4.51</span></div>
+<div class="hc-row"><span class="hc-lbl">2024</span><span class="hc-bars">
+<span class="hc-line"><span class="hc-fill s1" style="width:66.70%"></span></span>
+<span class="hc-line"><span class="hc-fill s2" style="width:25.88%"></span></span>
+</span><span class="hc-val">36.39 / 14.12</span></div>
+<div class="hc-row"><span class="hc-lbl">2025</span><span class="hc-bars">
+<span class="hc-line"><span class="hc-fill s1" style="width:100.00%"></span></span>
+<span class="hc-line"><span class="hc-fill s2" style="width:40.98%"></span></span>
+</span><span class="hc-val">54.56 / 22.36</span></div>
+</div>
+<figcaption>图 1　营业收入与归母净利润（2021–2025，亿元；同一尺度）</figcaption>
+</figure>
+<p class="note">同一尺度下画两种量纲：归母净利润的柱长始终只有营收的三分之一到四成，说明利润弹性来自毛利率与费用杠杆，而不是收入规模本身。2023 年是唯一的双降年份，2024–2025 两年营收连续创新高。</p>
+
+<div class="page-break"></div>
+<h2>财务数据对比 · 综合损益表</h2>
+<div class="rsp-table rsp-w6"><table class="financial compact"><thead><tr><th>项目</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th></tr></thead><tbody><tr><td>营业收入</td><td>25.62</td><td>36.72</td><td>22.86</td><td>36.39</td><td>54.56</td></tr><tr><td>营业成本</td><td>13.30</td><td>19.67</td><td>9.34</td><td>15.17</td><td>20.61</td></tr><tr><td>毛利</td><td>12.32</td><td>17.05</td><td>13.52</td><td>21.22</td><td>33.95</td></tr><tr><td>毛利率（主营口径）</td><td>48.08%</td><td>46.43%</td><td>59.00%</td><td>58.20%</td><td>62.28%</td></tr><tr><td>销售费用</td><td>0.77</td><td>0.86</td><td>0.90</td><td>0.96</td><td>1.20</td></tr><tr><td>管理费用</td><td>1.99</td><td>2.02</td><td>1.73</td><td>1.96</td><td>5.26</td></tr><tr><td>研发费用</td><td>3.70</td><td>5.63</td><td>6.82</td><td>7.63</td><td>9.15</td></tr><tr><td>财务费用</td><td>−0.84</td><td>−0.81</td><td>−1.80</td><td>−2.41</td><td>−2.28</td></tr><tr><td>投资收益</td><td>2.78</td><td>3.75</td><td>0.91</td><td>0.49</td><td>0.97</td></tr><tr><td>归母净利润</td><td>8.29</td><td>12.99</td><td>4.51</td><td>14.12</td><td>22.36</td></tr><tr><td>扣非归母净利润</td><td>6.17</td><td>8.83</td><td>3.70</td><td>12.48</td><td>20.22</td></tr><tr><td>扣非／归母</td><td>74.4%</td><td>68.0%</td><td>82.0%</td><td>88.4%</td><td>90.4%</td></tr><tr><td>基本每股收益（元）</td><td>0.73</td><td>1.15</td><td>0.40</td><td>1.25</td><td>1.97</td></tr></tbody></table></div><p class="note">口径：人民币亿元，合并报表；毛利率为年报披露的主营业务毛利率（与“毛利÷营业收入”相差 0.00–0.14pct，源于其他业务收入）。列按时间递增排列。财务费用为负数代表净利息收入。表内增减速按本表两位小数计算，与年报披露的增减幅可能存在 0.01pct 舍入差异。</p>
+
+<h2>财务数据对比 · 综合财务状况表</h2>
+<div class="rsp-table rsp-w6"><table class="financial compact"><thead><tr><th>项目</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th></tr></thead><tbody><tr><td>货币资金</td><td>51.04</td><td>58.70</td><td>57.44</td><td>68.43</td><td>84.79</td></tr><tr><td>交易性金融资产</td><td>15.62</td><td>16.10</td><td>17.03</td><td>17.83</td><td>8.23</td></tr><tr><td>应收账款</td><td>1.72</td><td>3.22</td><td>2.94</td><td>3.88</td><td>5.68</td></tr><tr><td>存货</td><td>3.75</td><td>7.38</td><td>4.82</td><td>3.52</td><td>8.96</td></tr><tr><td>总资产</td><td>89.59</td><td>106.86</td><td>106.98</td><td>122.19</td><td>137.48</td></tr><tr><td>总负债</td><td>5.68</td><td>7.59</td><td>4.91</td><td>8.22</td><td>8.77</td></tr><tr><td>归母净资产</td><td>83.91</td><td>99.12</td><td>101.91</td><td>114.03</td><td>129.24</td></tr><tr><td>资产负债率</td><td>6.34%</td><td>7.10%</td><td>4.59%</td><td>6.73%</td><td>6.38%</td></tr><tr><td>短期借款／长期借款</td><td>0／0</td><td>0／0</td><td>0／0</td><td>0／0</td><td>0／0</td></tr><tr><td>有息负债合计</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0.34</td></tr></tbody></table></div><p class="note">口径：人民币亿元，合并资产负债表期末数。五年均无短期借款与长期借款科目；2025 年 0.34 亿元为租赁负债。资产负债率＝总负债÷总资产（年报披露值）。</p>
+
+<h2>财务数据对比 · 现金流量表</h2>
+<div class="rsp-table rsp-w6"><table class="financial compact"><thead><tr><th>项目</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th></tr></thead><tbody><tr><td>经营活动净额</td><td>6.80</td><td>6.89</td><td>7.31</td><td>16.91</td><td>20.22</td></tr><tr><td>投资活动净额</td><td>0.69</td><td>0.63</td><td>−5.74</td><td>−4.43</td><td>8.50</td></tr><tr><td>筹资活动净额</td><td>−6.09</td><td>−2.70</td><td>−3.72</td><td>−2.77</td><td>−10.29</td></tr><tr><td>分配股利、利润或偿付利息支付的现金</td><td>—</td><td>3.39</td><td>—</td><td>3.38</td><td>6.70</td></tr><tr><td>年末货币资金</td><td>51.04</td><td>58.70</td><td>57.44</td><td>68.43</td><td>84.79</td></tr></tbody></table></div><p class="note">口径：人民币亿元。三项净额取自各年“管理层讨论与分析—现金流”表；2021、2023 年分红栏年报未在本节单列，记 —（不代表未分红，2021 年筹资净流出 6.09 亿元含分红）。</p>
+
+<h2>财务数据对比 · 收入构成</h2>
+<div class="rsp-table rsp-w6"><table class="financial compact"><thead><tr><th>项目</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th></tr></thead><tbody><tr><td>互连类芯片 收入</td><td>17.17</td><td>27.35</td><td>21.85</td><td>33.49</td><td>51.39</td></tr><tr><td>互连类芯片 毛利率</td><td>66.72%</td><td>58.72%</td><td>61.36%</td><td>62.66%</td><td>65.57%</td></tr><tr><td>津逮®服务器平台 收入</td><td>8.45</td><td>9.37</td><td>0.94</td><td>2.80</td><td>3.08</td></tr><tr><td>津逮®毛利率</td><td>10.22%</td><td>10.54%</td><td>4.01%</td><td>4.75%</td><td>7.42%</td></tr><tr><td>互连类占主营收入</td><td>67.0%</td><td>74.5%</td><td>95.9%</td><td>92.3%</td><td>94.3%</td></tr><tr><td>境外收入占比</td><td>62.5%</td><td>66.9%</td><td>84.3%</td><td>71.0%</td><td>71.6%</td></tr></tbody></table></div><p class="note">口径：人民币亿元，取自各年“主营业务分产品／分地区情况”。2021–2025 年主营收入合计分别为 25.62／36.72／22.79／36.29／54.47 亿元，与营业收入 25.62／36.72／22.86／36.39／54.56 亿元的差额为其他业务收入。</p>
+
+<h2>2026 年三季度单季（预告，未经审计）</h2>
+<div class="rsp-table"><table class="financial compact"><thead><tr><th>项目</th><th>2025Q3（实际）</th><th>2026Q3（预告）</th><th>同比</th></tr></thead><tbody><tr><td>营业收入</td><td>14.24 亿</td><td>约 20.79 亿</td><td>+46.0%</td></tr><tr><td>归母净利润</td><td>4.73 亿</td><td>12.00–13.00 亿</td><td>+153.6%~+174.7%</td></tr><tr><td>扣非归母净利润</td><td>3.76 亿</td><td>9.50–10.50 亿</td><td>+152.6%~+179.2%</td></tr><tr><td>互连类芯片收入</td><td>—</td><td>约 20.47 亿</td><td>+49.3%</td></tr><tr><td>互连类芯片毛利率</td><td>65.19–65.69%</td><td>68.0%–68.5%</td><td>+2.31~2.81pct</td></tr></tbody></table></div><p class="note">口径：单季数据，取自公司 2026-057 号业绩预增公告（2026-10-21），未经审计。表内为单季块，不可与年度块直接相减。</p>
+
+<div class="page-break"></div>
+<h2>三张财务数据表：关键变化与趋势含义</h2>
+<p class="note">从三张表中提炼变化最显著的科目，逐项标注数值轨迹、趋势方向与经营含义。</p>
+
+<h3>损益表 · 四个关键科目</h3>
+<div class="rsp-table"><table class="financial compact kv traj">
+<colgroup><col style="width:15%"><col style="width:38%"><col style="width:13%"><col style="width:34%"></colgroup>
+<thead><tr><th style="text-align:left">科目</th><th style="text-align:left">轨迹（2021→2025）</th><th style="text-align:left">趋势</th><th style="text-align:left">含义</th></tr></thead>
+<tbody>
+<tr><td>营业收入</td><td>25.62→36.72→22.86→36.39→54.56</td><td>V 型反转后新高</td><td>强周期，2023 年一次 −37.75% 的深坑证明需求端不由公司控制</td></tr>
+<tr><td>毛利率（主营）</td><td>48.08%→46.43%→59.00%→58.20%→62.28%</td><td>台阶式抬升</td><td>抬升集中在 2023 年（津逮崩塌），非逐年改善</td></tr>
+<tr><td>管理费用</td><td>1.99→2.02→1.73→1.96→5.26</td><td>2025 突变 +168%</td><td>股份支付 4.12 亿元所致，非现金、但真实稀释</td></tr>
+<tr><td>扣非／归母</td><td>74.4%→68.0%→82.0%→88.4%→90.4%</td><td>单调改善</td><td>利润中非经常性占比逐年下降，质量提升是结构性的</td></tr>
+</tbody></table></div>
+
+<h3>财务状况表 · 三个关键科目</h3>
+<div class="rsp-table"><table class="financial compact kv traj">
+<colgroup><col style="width:15%"><col style="width:38%"><col style="width:13%"><col style="width:34%"></colgroup>
+<thead><tr><th style="text-align:left">科目</th><th style="text-align:left">轨迹（2021→2025）</th><th style="text-align:left">趋势</th><th style="text-align:left">含义</th></tr></thead>
+<tbody>
+<tr><td>货币资金</td><td>51.04→58.70→57.44→68.43→84.79</td><td>持续累积</td><td>五年增 66%，利息收入 2025 年 2.71 亿元＝利润总额 11.7%</td></tr>
+<tr><td>存货</td><td>3.75→7.38→4.82→3.52→8.96</td><td>周期性堆积</td><td>2025 年 +154%，是现金流含现量从 1.20 掉到 0.90 的直接原因</td></tr>
+<tr><td>总负债</td><td>5.68→7.59→4.91→8.22→8.77</td><td>低位平稳</td><td>8.77 亿元几乎全为经营性负债，无有息债务</td></tr>
+</tbody></table></div>
+
+<h3>现金流量表 · 三个关键科目</h3>
+<div class="rsp-table"><table class="financial compact kv traj">
+<colgroup><col style="width:15%"><col style="width:38%"><col style="width:13%"><col style="width:34%"></colgroup>
+<thead><tr><th style="text-align:left">科目</th><th style="text-align:left">轨迹（2021→2025）</th><th style="text-align:left">趋势</th><th style="text-align:left">含义</th></tr></thead>
+<tbody>
+<tr><td>经营活动净额</td><td>6.80→6.89→7.31→16.91→20.22</td><td>2024 年起跃升</td><td>累计 58.13 亿元，对累计扣非 51.40 亿元覆盖 1.13 倍</td></tr>
+<tr><td>投资活动净额</td><td>0.69→0.63→−5.74→−4.43→8.50</td><td>由流出转流入</td><td>2025 年 +8.50 亿元系理财到期回收，非处置资产</td></tr>
+<tr><td>筹资活动净额</td><td>−6.09→−2.70→−3.72→−2.77→−10.29</td><td>流出扩大</td><td>2025 年含分红 6.70 亿元与股份回购，开始回报股东</td></tr>
+</tbody></table></div>
+
+<div class="callout">
+<div class="quote"><b>三表联动：</b>损益表看经营真相——用扣非（90.4% 占比）而不是归母；财务状况表看资本结构——负债端五年没有变化，变化全在资产端（现金多、存货周期性堆积）；现金流量表看现金来源——2025 年的现金增量主要来自<b>经营</b>（20.22 亿元）与<b>理财到期</b>（8.50 亿元），没有一分钱来自融资，这是最健康的一种组合。</div>
+</div>
+
+<div class="page-break"></div>
+<h2>趋势与原因分析</h2>
+
+<h3>1. 收入：波动来自下游资本开支，驱动来自“量”不是“价”</h3>
+<p>2023 年营收 −37.75% 的年报原话是“全球服务器及计算机行业需求下滑导致的客户去库存，DDR4 内存接口芯片与津逮®CPU 出货量明显减少”。2025 年 +49.93% 的原话是“AI 产业趋势、行业需求旺盛，互连类芯片出货量显著增加”。两次波动都指向同一件事：<b>公司的收入由服务器出货节奏决定，而不是由自身定价决定</b>。</p>
+
+<h3>2. 利润：2023 年的腰斩由四个原因叠加，不只是一个</h3>
+<p>年报把 2023 年归母 −65.28% 拆成四条：营收 −37.75%；投资收益及公允价值变动合计减少 4.62 亿元；研发费用＋21.00%（6.82 亿元）；资产减值损失 1.93 亿元（同比多计 1.66 亿元）。其中后两条是“公司主动扛住的成本”——景气下行期没有削减研发，也没有回避存货减值。这解释了为什么 2024 年反弹如此陡峭。</p>
+
+<h3>3. 毛利率：抬升全部来自结构变化，产品自身毛利率是负贡献</h3>
+<p>拆解 2021→2025 的 +14.20pct：把 <b>2025 年的分项毛利率</b>套到 <b>2021 年的收入结构</b>（互连 67.0%／津逮 33.0%）上反算，综合毛利率只有 46.4%；与实际 62.28% 的差额 <b>+15.9pct 全部由结构变化贡献</b>。而 46.4% 相对 2021 年实际 48.08% 的 −1.7pct，则是两条产品线自身毛利率同时下滑所致：互连类芯片 66.72%→65.57%（−1.15pct）、津逮 10.22%→7.42%（−2.80pct）。+15.9 −1.7 = +14.2，正好还原。<b>结论：2021 年的 48% 是“被津逮压低的假象”，2025 年的 62% 是“回归纯互连公司的真实水平”——这条曲线的形状由业务组合决定，不能当作定价权增强的证据。</b></p>
+
+<h3>4. 费用：研发强度被收入增长“稀释”，绝对投入没减</h3>
+<p>研发投入占营收比从 29.83%（2023）降到 16.77%（2025），看似收缩；实际研发费用从 6.82 亿元增至 9.15 亿元（+34%），研发人员 583 人（2024 年 536 人）、占总人数 74.36%，人均薪酬 107.54 万元。<b>分母涨得比分子快，是好事。</b></p>
+
+<h3>5. 现金与负债：负债表五年没动，现金多到拖累效率</h3>
+<p>净现金 92.7 亿元、占总资产 67.4%，五年零银行借款。代价是总资产周转率仅 <b>0.40 次</b>（54.56÷137.48），18.25% 的 ROE 是“高净利率×极低杠杆×低周转”的结果，低杠杆本身压住了 ROE 上限。2025 年分红 6.70 亿元、2026 年 10 月完成 A 股回购——现金开始有出口，这是对“资金效率低”的正面修正。</p>
+
+<h3>6. 最大成本项：研发，且它是壁垒的物理形态</h3>
+<p>五年研发费用累计 32.93 亿元，占同期累计营收 176.15 亿元的 18.7%。已获授权国内外发明专利 224 项，2025 年新获授权 36 项。对 Fabless 公司而言，583 人的内存接口芯片团队本身就是境外厂商之外最难复制的资产。</p>
+
+<div class="page-break"></div>
+<h2>失真项识别：三个必须剔除再看的口径</h2>
+<p>这家公司不属于“靠参股公司撑利润”的类型（净利润始终小于营业收入、扣非始终低于归母），但有三处会让同比数字失真：</p>
+<div class="rsp-table"><table class="financial compact kv">
+<colgroup><col style="width:16%"><col style="width:30%"><col style="width:27%"><col style="width:27%"></colgroup>
+<thead><tr><th style="text-align:left">失真项</th><th style="text-align:left">金额与年份</th><th style="text-align:left">影响</th><th style="text-align:left">处理方式</th></tr></thead>
+<tbody>
+<tr><td>股份支付费用</td><td>2025 年税后 4.12 亿元（2024 年 0.51 亿元）</td><td>压低账面归母约 18%；同时抬高管理费用与研发费用</td><td>用公司披露的“经调整归母”26.50 亿元（+81.2%）交叉验证</td></tr>
+<tr><td>理财投资收益与公允价值变动</td><td>2021 年投资收益 2.78 亿元（占归母 33.5%）、2022 年 3.75 亿元（28.8%）</td><td>抬高归母但已计入非经常性，扣非口径自动剔除</td><td>看扣非：2021 年 6.17 亿元、2022 年 8.83 亿元才是主业</td></tr>
+<tr><td>净利息收入</td><td>财务费用 −2.28 亿元（利息收入 2.71 亿元），占 2025 年利润总额 11.7%</td><td>属经常性损益，扣非<b>不会</b>剔除，会高估主业盈利能力</td><td>测算“主业利润＝归母 − 净利息收入”≈ 20.1 亿元</td></tr>
+</tbody></table></div>
+<p class="note">另：2026Q3 归母 12.00–13.00 亿元与扣非 9.50–10.50 亿元的差额扩大到约 2.5 亿元（2025Q3 仅 0.97 亿元），单季利润中约 20% 来自非经常性项目，是三年来质量最弱的一个季度。</p>
+
+<h2>收入结构</h2>
+<figure>
+<div class="hchart">
+<div class="hc-legend"><span class="lg s1"></span>互连类芯片<span class="lg s2"></span>津逮®服务器平台</div>
+<div class="hc-row"><span class="hc-lbl">2021</span><span class="hc-track">
+<span class="hc-seg s1" style="width:67.00%"></span>
+<span class="hc-seg s2" style="width:33.00%"></span>
+</span><span class="hc-val">67.0%</span></div>
+<div class="hc-row"><span class="hc-lbl">2022</span><span class="hc-track">
+<span class="hc-seg s1" style="width:74.50%"></span>
+<span class="hc-seg s2" style="width:25.50%"></span>
+</span><span class="hc-val">74.5%</span></div>
+<div class="hc-row"><span class="hc-lbl">2023</span><span class="hc-track">
+<span class="hc-seg s1" style="width:95.90%"></span>
+<span class="hc-seg s2" style="width:4.10%"></span>
+</span><span class="hc-val">95.9%</span></div>
+<div class="hc-row"><span class="hc-lbl">2024</span><span class="hc-track">
+<span class="hc-seg s1" style="width:92.30%"></span>
+<span class="hc-seg s2" style="width:7.70%"></span>
+</span><span class="hc-val">92.3%</span></div>
+<div class="hc-row"><span class="hc-lbl">2025</span><span class="hc-track">
+<span class="hc-seg s1" style="width:94.30%"></span>
+<span class="hc-seg s2" style="width:5.70%"></span>
+</span><span class="hc-val">94.3%</span></div>
+</div>
+<figcaption>图 2　主营收入结构：互连类芯片占比（深色）与津逮®服务器平台（浅色），2021–2025</figcaption>
+</figure>
+<p>公司实质上在 2023 年完成了一次“业务净化”：津逮®服务器平台收入从 9.37 亿元（2022）跌到 0.94 亿元（2023，−90.01%），互连类芯片占主营收入从 67.0% 升到 95.9%，此后稳定在 92%–94%。境外收入占比同步从 62.5% 抬到 71.6%，客户结构以海外服务器与内存模组厂商为主。</p>
+
+<h2>毛利率三条线</h2>
+<figure>
+<div class="hchart">
+<div class="hc-legend"><span class="lg s1"></span>综合毛利率<span class="lg s2"></span>互连类芯片<span class="lg s3"></span>津逮®平台</div>
+<div class="hc-row"><span class="hc-lbl">2021</span><span class="hc-bars">
+<span class="hc-line"><span class="hc-fill s1" style="width:68.69%"></span></span>
+<span class="hc-line"><span class="hc-fill s2" style="width:95.31%"></span></span>
+<span class="hc-line"><span class="hc-fill s3" style="width:14.60%"></span></span>
+</span><span class="hc-val">48.1 / 66.7 / 10.2%</span></div>
+<div class="hc-row"><span class="hc-lbl">2022</span><span class="hc-bars">
+<span class="hc-line"><span class="hc-fill s1" style="width:66.33%"></span></span>
+<span class="hc-line"><span class="hc-fill s2" style="width:83.89%"></span></span>
+<span class="hc-line"><span class="hc-fill s3" style="width:15.06%"></span></span>
+</span><span class="hc-val">46.4 / 58.7 / 10.5%</span></div>
+<div class="hc-row"><span class="hc-lbl">2023</span><span class="hc-bars">
+<span class="hc-line"><span class="hc-fill s1" style="width:84.29%"></span></span>
+<span class="hc-line"><span class="hc-fill s2" style="width:87.66%"></span></span>
+<span class="hc-line"><span class="hc-fill s3" style="width:5.73%"></span></span>
+</span><span class="hc-val">59.0 / 61.4 / 4.0%</span></div>
+<div class="hc-row"><span class="hc-lbl">2024</span><span class="hc-bars">
+<span class="hc-line"><span class="hc-fill s1" style="width:83.14%"></span></span>
+<span class="hc-line"><span class="hc-fill s2" style="width:89.51%"></span></span>
+<span class="hc-line"><span class="hc-fill s3" style="width:6.79%"></span></span>
+</span><span class="hc-val">58.2 / 62.7 / 4.8%</span></div>
+<div class="hc-row"><span class="hc-lbl">2025</span><span class="hc-bars">
+<span class="hc-line"><span class="hc-fill s1" style="width:88.97%"></span></span>
+<span class="hc-line"><span class="hc-fill s2" style="width:93.67%"></span></span>
+<span class="hc-line"><span class="hc-fill s3" style="width:10.60%"></span></span>
+</span><span class="hc-val">62.3 / 65.6 / 7.4%</span></div>
+</div>
+<figcaption>图 3　毛利率三条线：综合（砖红）／互连类芯片（金）／津逮（青），2021–2025</figcaption>
+</figure>
+<p>把三条线放在一起看，结论就清楚了：综合毛利率（砖红）的爬升斜率远大于互连类芯片（金）——前者是结构变化的结果，后者才是产品竞争力的真实轨迹。互连类芯片 2022 年跌到 58.72%（DDR4→DDR5 切换期的成本与价格过渡），2023–2025 逐步修复至 65.57%，<b>但仍略低于 2021 年的 66.72%</b>。真正的突破发生在 2026Q3：单季 68.0%–68.5%，创五年新高，对应 DDR5 第三至第五子代 RCD 出货占比提升。</p>
+
+<h2>核心业务与竞争优势</h2>
+<ul>
+<li><b>产品与地位</b>：内存接口芯片（RCD/DB）及内存模组配套芯片是主赛道，2025 年贡献主营收入 94.3%；津逮®服务器平台为第二产品线，规模已收缩至 5.7%。全球内存接口芯片仅少数厂商参与，DDR5 世代的子代迭代（第三至第五子代）构成持续的产品升级节奏。</li>
+<li><b>护城河的可验证证据</b>：互连类芯片毛利率五年最低 58.72%、最高 68.5%（2026Q3）；548 项专利中已授权发明专利 224 项；研发人员 583 人、占比 74.36%。<b>证据落在毛利率与人员结构上，不是概念。</b></li>
+<li><b>产品里程碑（制造业口径）</b>：DDR5 第三、第四、第五子代 RCD 芯片出货占比持续提升；2026Q3 互连类芯片单季收入 20.47 亿元（+49.3%），毛利率 68.0%–68.5%；公司指引第四季度相关产品需求将进一步提升。</li>
+<li><b>资本与治理</b>：2025 年完成 H 股上市（A+H 两地）；2025 年分红 6.70 亿元；2026 年 10 月完成 A 股回购，并由独立董事提议新一轮回购。</li>
+<li><b>客户结构</b>：前五名客户销售额 42.14 亿元、占年度销售总额 <b>77.24%</b>（2024 年 76.69%），客户高度集中于全球服务器与内存模组头部厂商。</li>
+</ul>
+
+<h2>风险提示</h2>
+<div class="risk-grid">
+  <div class="risk-item"><div class="risk-label">DDR5 子代红利见顶</div><div class="risk-desc">当前 68% 的毛利率来自第三至第五子代 RCD 的结构升级。子代切换完成后进入常规价格竞争，毛利率最先承压。</div></div>
+  <div class="risk-item"><div class="risk-label">客户集中度 77%</div><div class="risk-desc">前五大客户占营收约四分之三，单一客户的认证节奏或采购调整会直接放大到整张报表。</div></div>
+  <div class="risk-item"><div class="risk-label">存货 8.96 亿元（+154%）</div><div class="risk-desc">备货押注下游需求延续。2023 年曾计提 1.93 亿元资产减值，减值风险首先出现在这一项。</div></div>
+  <div class="risk-item"><div class="risk-label">净利润含现量回落</div><div class="risk-desc">经营现金流／归母从 2024 年 1.20 降至 2025 年 0.90，若存货继续膨胀，现金转化会进一步走弱。</div></div>
+  <div class="risk-item"><div class="risk-label">非经常性占比回升</div><div class="risk-desc">2026Q3 归母与扣非差额约 2.5 亿元，占单季利润约 20%，为三年来最高。</div></div>
+  <div class="risk-item"><div class="risk-label">资金效率偏低</div><div class="risk-desc">总资产周转率 0.40 次，92.7 亿元净现金长期闲置，ROE 上限被结构性压低。</div></div>
+</div>
+
+<h2>分析总结</h2>
+<div class="analyst-box">
+  <p><b>财务质量：优秀，但属“防守型优秀”。</b>五年间营收 CAGR 20.8%、归母 CAGR 28.2%，扣非／归母从 74.4% 提升到 90.4%，五年零银行借款、净现金占总资产 67.4%，这些是硬指标。需要警惕的是三件事：一是“毛利率持续提升”这个流行叙事其实由业务结构变化驱动，核心产品毛利率 2025 年仍未回到 2021 年水平，真正的突破只有 2026Q3 这一个季度；二是 2023 年证明了公司无法对冲下游去库存，周期的破坏力真实存在；三是客户集中度 77% 与 0.40 次的资产周转率，一个放大波动、一个压低回报。</p>
+  <p><b>跟踪四个数即可：</b>互连类芯片毛利率能否守住 65%（2026Q3 为 68.0%–68.5%）；存货绝对额与周转天数（2025 年约 3.3 次）；扣非／归母是否回到 90% 以上（2026Q3 约 80%）；前五大客户占比是否突破 80%。</p>
+</div>
+
+<h2>附录：数据来源与口径</h2>
+<div class="rsp-table"><table class="compact kv">
+<colgroup><col style="width:34%"><col style="width:18%"><col style="width:36%"><col style="width:12%"></colgroup>
+<thead><tr><th style="text-align:left">文件</th><th style="text-align:left">披露日</th><th style="text-align:left">覆盖期间</th><th style="text-align:left">页数</th></tr></thead>
+<tbody>
+<tr><td>澜起科技2021年年度报告</td><td>2022-04-29</td><td>2021 年度（含 2020 对比）</td><td>222</td></tr>
+<tr><td>澜起科技2022年年度报告</td><td>2023-04-28</td><td>2022 年度（含 2021 对比）</td><td>218</td></tr>
+<tr><td>澜起科技2023年年度报告</td><td>2024-04-10</td><td>2023 年度（含 2021–2022 对比）</td><td>241</td></tr>
+<tr><td>澜起科技2024年年度报告</td><td>2025-04-11</td><td>2024 年度（含 2023 对比）</td><td>256</td></tr>
+<tr><td>澜起科技2025年年度报告</td><td>2026-03-31</td><td>2025 年度（含 2023–2024 对比）</td><td>248</td></tr>
+<tr><td>2026 年第三季度业绩预增公告</td><td>2026-10-21</td><td>2026Q3 单季（未经审计）</td><td>2</td></tr>
+</tbody></table></div>
+<p class="note"><b>口径声明</b>：币种为人民币，单位亿元（EPS 为元）；会计准则为中国企业会计准则（CAS），合并报表口径。
+年度块（2021–2025）与单季块（2025Q3／2026Q3）为两块，按时间递增排列，跨块不可直接相减。
+“归母”指归属于上市公司股东的净利润；“扣非”指扣除非经常性损益后的归母净利润；ROE 为加权平均口径（年报披露值）。
+未披露项记 —，未做推算。五年累计值与结构分解（毛利率结构效应／分项效应）为依据年报数据自行测算，已在正文标注测算方法。</p>
+
+<div class="report-footer">
+  <span>澜起科技（688008.SH）财报对比分析 · 2021–2025 年报</span>
+  <span>2026-10-28</span>
+</div>
+
+
+<!-- rsp-mobile-adapt : 溢出表格滑动提示 -->
+<script>
+(function(){
+  function mark(){
+    var boxes = document.querySelectorAll('.rsp-table');
+    for (var i=0;i<boxes.length;i++){
+      var b = boxes[i];
+      if (b.scrollWidth > b.clientWidth + 4) b.setAttribute('data-rsp-scroll','');
+      else b.removeAttribute('data-rsp-scroll');
+    }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mark);
+  else mark();
+  window.addEventListener('resize', function(){ clearTimeout(window.__rspT); window.__rspT=setTimeout(mark,180); });
+})();
+</script>
+</body>
+</html>

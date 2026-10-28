@@ -81,8 +81,10 @@ python3 -m http.server 8080
 
 ## 新增一份报告
 
-1. 把报告 HTML 复制到 `reports/<slug>/`，PDF（可选）复制到 `docs/<slug>/`。
-2. 打开 `data/reports.js`，在对应公司的 `reports` 数组里追加一条：
+1. 把报告 HTML 与同名 PDF 放进 `财报分析/<公司>/`（`src` 的相对根目录），然后到 `tools/build_manifest.py` 的 `SOURCES` 表里加一条。
+2. 运行 `python3 tools/build_manifest.py`：自动复制文件到 `reports/<slug>/`、`docs/<slug>/`，并重建 `data/reports.js`。
+
+> `data/reports.js` 由脚本生成，**不要手工编辑**——下次生成会整份覆盖。下面这条 JS 结构仅用于说明各字段含义：
 
 ```js
 {
@@ -101,6 +103,8 @@ python3 -m http.server 8080
   summary: "……"                            // 欢迎页卡片摘要，可省略
 }
 ```
+
+其中 `title`／`pages`／`metrics` 由脚本从 HTML 与 PDF 自动抽取（识别 `.metric-value` / `.metric-label` 类名），`summary` 取「核心结论」后第一段，`SOURCES` 里可用 `manual=` 覆盖。
 
 若是一个全新的公司，则在 `companies` 数组里新增一项（`id` 必须唯一，且与 `reports/<slug>/` 目录名一致）。
 
