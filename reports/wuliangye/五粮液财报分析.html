@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>五粮液（000858.SZ）财报分析报告（2021—2025 年度 ‖ 2026 年前三季度）</title>
+<meta name="generator" content="financial-report-analysis">
+<style>
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W04.ttf") format("truetype");
+    font-weight: 400; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W05.ttf") format("truetype");
+    font-weight: 500; font-style: normal; font-display: swap;
+  }
+  @page {
+    size: A4;
+    margin: 16mm 18mm 18mm 18mm;
+    background: #F7F4EE;
+    @bottom-center {
+      content: counter(page) "  ·  财报分析";
+      font-family: "TsangerJinKai02", "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", Georgia, serif;
+      font-size: 9pt; color: #6b6a64;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --parchment:#F7F4EE; --ivory:#FBF9F4; --near-black:#22262B; --dark-warm:#3E4145;
+    --olive:#504e49; --stone:#7C7B77; --brand:#A73F2D; --brand-deep:#8A3223;
+    --accent:#A73F2D; --accent-soft:#F1E3DD; --gold:#B8862F; --teal:#2F6F6B; --blue:#1B365D;
+    --border:#E3DDD4; --border-soft:#EAE5DC;
+    --tag-bg:#F1E3DD; --positive:#A73F2D; --negative:#2F6F6B;
+    --serif: "TsangerJinKai02", "Source Han Serif SC", "Source Han Serif CN", "Noto Serif CJK SC", "Noto Serif SC", "Songti SC", "STSong", "SimSun", Georgia, serif;
+    --rhythm-module:14pt; --rhythm-section:18pt;
+  }
+  html, body { background: var(--parchment); }
+  @media screen { body { max-width: 210mm; margin: 0 auto; padding: 16mm 18mm 18mm 18mm; } }
+  body { color: var(--near-black); font-family: var(--serif); font-size: 10pt; line-height: 1.5;
+    letter-spacing: 0.3pt; widows: 3; orphans: 3; }
+  strong { font-weight: 500; }
+  .hl { color: var(--brand); font-weight: 500; }
+
+  .report-header { display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: var(--rhythm-module); padding-bottom: 10pt; border-bottom: 0.5pt solid var(--border); }
+  .ticker-block { flex: 1; }
+  .ticker-eyebrow { font-size: 9pt; color: var(--brand); letter-spacing: 1.5pt; text-transform: uppercase;
+    font-weight: 500; margin-bottom: 4pt; }
+  .ticker-name { font-family: var(--serif); font-size: 24pt; font-weight: 500; color: var(--near-black);
+    line-height: 1.15; margin-bottom: 4pt; }
+  .ticker-sub { font-size: 10pt; color: var(--olive); line-height: 1.4; }
+  .price-block { text-align: right; padding-top: 4pt; }
+  .price-current { font-family: var(--serif); font-size: 28pt; font-weight: 500; color: var(--near-black);
+    line-height: 1; font-variant-numeric: tabular-nums; }
+  .price-change { font-size: 10pt; font-weight: 500; margin-top: 2pt; font-variant-numeric: tabular-nums; }
+  .price-change.up { color: var(--positive); }
+  .price-date { font-size: 9pt; color: var(--stone); margin-top: 2pt; }
+
+  .metrics { display: flex; gap: 14pt; margin-bottom: 16pt; padding: 6pt 0;
+    border-top: 0.3pt dotted var(--border); border-bottom: 0.3pt dotted var(--border); }
+  .metric { flex: 1; min-width: 0; display: flex; align-items: baseline; gap: 4pt; flex-wrap: wrap; }
+  .metric-value { font-family: var(--serif); font-size: 16pt; font-weight: 500; color: var(--brand);
+    line-height: 1; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  /* white-space 必须为 normal：设为 nowrap 时 flex 项不收缩，4 张指标卡的标签会互相压字并冲出页面右缘 */
+  .metric-label { font-size: 9pt; color: var(--olive); line-height: 1.3; white-space: normal; }
+
+  h2 { font-family: var(--serif); font-size: 16pt; font-weight: 500; color: var(--near-black);
+    margin: 18pt 0 6pt 0; break-after: avoid; }
+  h3 { font-size: 13pt; font-weight: 500; color: var(--dark-warm); margin: 12pt 0 4pt 0; break-after: avoid; }
+  p { margin: 0 0 8pt 0; line-height: 1.5; widows: 2; orphans: 2; }
+  ul, ol { margin: 4pt 0 8pt 0; padding-left: 18pt; line-height: 1.5; }
+  ul li::marker { color: var(--brand); } ol li::marker { color: var(--brand); font-weight: 500; }
+
+  .tag { display: inline-block; background: var(--tag-bg); color: var(--brand); font-size: 9pt;
+    font-weight: 500; padding: 1pt 6pt; border-radius: 3pt; margin-right: 3pt; }
+
+  table, .kami-table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin: 8pt 0; break-inside: avoid; }
+  table th, .kami-table th { text-align: left; font-weight: 500; color: var(--dark-warm);
+    padding: 6pt 8pt; border-bottom: 0.6pt solid var(--border); background: transparent; }
+  table td, .kami-table td { padding: 5pt 8pt; border-bottom: 0.25pt solid var(--border); vertical-align: top; }
+  table.compact th, .kami-table.compact th { padding: 3pt 6pt; font-size: 8pt; }
+  table.compact td, .kami-table.compact td { padding: 2.5pt 6pt; font-size: 8pt; line-height: 1.4; }
+  table.financial td:not(:first-child), .kami-table.financial td:not(:first-child) {
+    text-align: right; font-variant-numeric: tabular-nums; }
+  table.financial th:not(:first-child), .kami-table.financial th:not(:first-child) { text-align: right; }
+  table .total td, .kami-table .total td { font-weight: 500; border-top: 0.6pt solid var(--border);
+    border-bottom: none; color: var(--near-black); }
+  .note { font-size: 8.5pt; color: var(--stone); margin: 2pt 0 8pt 0; }
+
+  .callout { background: var(--ivory); padding: 8pt 12pt; border-radius: 3pt; margin: 10pt 0;
+    line-height: 1.5; break-inside: avoid; }
+  .callout .quote { margin: 6pt 0; color: var(--olive); }
+
+  figure { margin: 12pt 0; break-inside: avoid; }
+  figcaption { font-size: 9pt; color: var(--stone); margin-top: 4pt; text-align: center; }
+
+  .risk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10pt; margin: 8pt 0; }
+  .risk-item { padding: 6pt 10pt; background: var(--ivory); border-radius: 3pt; break-inside: avoid; }
+  .risk-label { font-size: 9pt; font-weight: 500; color: var(--brand); margin-bottom: 2pt; }
+  .risk-desc { font-size: 9pt; color: var(--olive); line-height: 1.4; }
+
+  .analyst-box { background: var(--ivory); border-radius: 4pt; padding: 10pt 14pt; margin: 12pt 0;
+    break-inside: avoid; }
+  .analyst-label { font-size: 9pt; color: var(--brand); letter-spacing: 0.5pt; text-transform: uppercase;
+    margin-bottom: 4pt; }
+
+  .page-break { break-before: page; }
+
+  /* ===== 富配色增强：砖红主色 #A73F2D + 四色数据 + 深炭标题 #22262B ===== */
+  h2 { position: relative; padding-left: 13pt; }
+  h2::before { content:""; position:absolute; left:0; top:2.5pt; width:4pt; height:13pt;
+    background:var(--accent); border-radius:1pt; }
+  table th, .kami-table th { border-bottom: 1pt solid var(--accent); }
+  .metric:nth-child(1) .metric-value { color: var(--accent); }
+  .metric:nth-child(2) .metric-value { color: var(--gold); }
+  .metric:nth-child(3) .metric-value { color: var(--teal); }
+  .metric:nth-child(4) .metric-value { color: var(--blue); }
+  .callout { border-left: 3pt solid var(--accent); }
+  .analyst-box { border-left: 3pt solid var(--accent); }
+  .risk-item { border-left: 2.5pt solid var(--accent); }
+  .tag { background: var(--accent-soft); color: var(--brand-deep); }
+  .price-current { color: var(--near-black); }
+  .ticker-sub { color: var(--stone); }
+</style>
+
+<style>
+  /* ===== 图表（纯 HTML/CSS，不使用 SVG 文本节点） ===== */
+  .ch { margin: 9pt 0 5pt 0; }
+  .ch-t { font-size: 11pt; font-weight: 500; color: #22262B; margin-bottom: 1pt; }
+  .ch-s { font-size: 8.5pt; color: #7C7B77; margin-bottom: 6pt; line-height: 1.4; }
+  .ch-row { display: flex; align-items: center; gap: 7pt; margin-bottom: 2.8pt; }
+  .ch-lab { flex: 0 0 64pt; font-size: 8.4pt; color: #3E4145; text-align: right; line-height: 1.2; }
+  .ch-track { flex: 1 1 auto; min-width: 0; }
+  .ch-track.stk { display: flex; height: 11pt; border-radius: 1.5pt; overflow: hidden; }
+  .ch-bar { display: block; height: 11pt; border-radius: 1.5pt; background: #2F6F6B; }
+  .ch-bar.g { background: #CFC7BA; }
+  .ch-bar.hi { background: #A73F2D; }
+  .ch-bar.gold { background: #B8862F; }
+  .ch-bar.neg { background: #2F6F6B; }
+  .ch-val { flex: 0 0 60pt; font-size: 8.4pt; color: #22262B; font-variant-numeric: tabular-nums;
+    text-align: right; line-height: 1.2; }
+  .ch-val.hi { color: #A73F2D; font-weight: 500; }
+  .ch-legend { display: flex; flex-wrap: wrap; gap: 12pt; font-size: 8.2pt; color: #504e49; margin: 5pt 0 2pt 0; }
+  .ch-legend i { display: inline-block; width: 9pt; height: 9pt; border-radius: 1.5pt; margin-right: 3pt;
+    vertical-align: -1pt; }
+  .ch-note { font-size: 8pt; color: #7C7B77; margin-top: 3pt; line-height: 1.4; }
+  .wf-row { display: flex; align-items: center; gap: 6pt; margin-bottom: 2.8pt; }
+  .wf-lab { flex: 0 0 76pt; font-size: 8.4pt; color: #3E4145; text-align: right; line-height: 1.2; }
+  .wf-track { flex: 1 1 auto; min-width: 0; position: relative; height: 11pt; }
+  .wf-bar { position: absolute; height: 11pt; border-radius: 1.5pt; }
+  .wf-val { flex: 0 0 58pt; font-size: 8.4pt; text-align: right; font-variant-numeric: tabular-nums;
+    color: #22262B; line-height: 1.2; }
+  figure { break-inside: avoid; margin: 10pt 0; }
+  table.wide { font-size: 6.9pt; }
+  table.wide th, table.wide td { padding: 2.6pt 3.2pt; }
+  table.wide.fixed { table-layout: fixed; word-break: break-word; }
+  /* 宽表首列（指标名）自动占余量，其余 11 个年度列等宽；否则"商品煤产量（百万吨）"会被拆行 */
+  table.wide.fixed th:first-child, table.wide.fixed td:first-child { width: auto; }
+  table.wide.fixed th:not(:first-child), table.wide.fixed td:not(:first-child) { width: 7.1%; }
+  /* 分析型四列表：固定列宽，避免"关键科目"被挤成两行 */
+  table.analysis { font-size: 8.6pt; table-layout: fixed; }
+  table.analysis th, table.analysis td { padding: 3pt 5pt; }
+  table.analysis th:nth-child(1), table.analysis td:nth-child(1) { width: 17%; }
+  table.analysis th:nth-child(2), table.analysis td:nth-child(2) { width: 27%; }
+  table.analysis th:nth-child(3), table.analysis td:nth-child(3) { width: 20%; }
+  table.analysis th:nth-child(4), table.analysis td:nth-child(4) { width: 36%; }
+  /* 首列内容很短（年份／项目名）时禁止折行 */
+  table.nowrap-first th:first-child, table.nowrap-first td:first-child { white-space: nowrap; }
+  table.longtable { break-inside: auto; }
+  table.longtable thead { display: table-header-group; }
+  table.longtable tr { break-inside: avoid; }
+  table.dense { font-size: 7.7pt; }
+  table.dense th, table.dense td { padding: 2.2pt 3pt; line-height: 1.34; }
+  .note ol { margin: 2pt 0 0 0; padding-left: 16pt; }
+  .note li { margin-bottom: 1pt; line-height: 1.42; }
+  @media print {
+    .ch, .wf-row { break-inside: avoid; }
+    .report-header { flex-wrap: nowrap; gap: 10pt; }
+    .ticker-name { font-size: 21pt; }
+    .ticker-sub { font-size: 9pt; }
+    .price-current { font-size: 24pt; }
+    .metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 9pt 20pt; }
+    .metric-label { flex-basis: 100%; margin-top: 2pt; }
+  }
+</style>
+
+<!-- rsp-mobile-adapt : 响应式适配层（仅屏幕生效，不影响打印/PDF） -->
+<style id="rsp-mobile-adapt">
+/* rsp-mobile-adapt-v3 */
+/* ========== 1. 全局：屏幕端基础修正 ========== */
+@media screen {
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body { overflow-wrap: break-word; }
+  img, svg, canvas, video, iframe { max-width: 100%; }
+  svg[viewBox], svg[viewbox] { height: auto; }
+
+  /* 网格容器（两列对比等）：网格项默认 min-width:auto，会被内部宽表撑破
+     容器、把整页顶出横向滚动（报告里 .two-col 就栽在这上面）。放开收缩，
+     让里面的 .rsp-table 自己去横向滑动。 */
+  .risk-grid > *, .two-col > * { min-width: 0; }
+
+  /* 表格横向滚动容器：宽表不压字、不撑破页面 */
+  .rsp-table {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    margin: 8pt 0;
+    position: relative;
+  }
+  .rsp-table > table { margin: 0; }
+  .rsp-table::-webkit-scrollbar { height: 7px; }
+  .rsp-table::-webkit-scrollbar-track { background: transparent; }
+  .rsp-table::-webkit-scrollbar-thumb { background: #D8D1C4; border-radius: 4px; }
+  /* 内容确实溢出时，右侧给一层渐变暗示"还能往右滑" */
+  .rsp-table[data-rsp-scroll] {
+    background: linear-gradient(to left, rgba(167,63,45,.10), rgba(167,63,45,0) 28px);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 28px 100%;
+  }
+}
+
+/* ========== 2. 平板 / 窄窗口：边距先收，避免内容被挤 ========== */
+@media screen and (max-width: 900px) {
+  body { padding: 22px 22px 46px 22px !important; }
+  .report-header { flex-wrap: wrap; gap: 12pt; }
+  .metrics { flex-wrap: wrap; gap: 10pt 18pt; }
+  .metric { flex: 1 1 42%; min-width: 0; }
+  .report-footer { flex-wrap: wrap; gap: 4pt 14pt; }
+
+  /* 宽表改为横向滚动：给每列保留最小可读宽度，不再把汉字挤成竖排 */
+  .rsp-w5 > table { min-width: 310px !important; }
+  .rsp-w6 > table { min-width: 372px !important; }
+  .rsp-w7 > table { min-width: 434px !important; }
+  .rsp-w8 > table { min-width: 496px !important; }
+  .rsp-w9 > table { min-width: 558px !important; }
+  .rsp-w10 > table { min-width: 620px !important; }
+  .rsp-w11 > table { min-width: 682px !important; }
+  .rsp-w12 > table { min-width: 744px !important; }
+  .rsp-w13 > table { min-width: 806px !important; }
+  .rsp-w14 > table { min-width: 868px !important; }
+  .rsp-w15 > table { min-width: 930px !important; }
+  .rsp-w16 > table { min-width: 992px !important; }
+}
+
+/* ========== 3. 手机：指标卡两列、页头转纵向 ========== */
+@media screen and (max-width: 720px) {
+  body {
+    max-width: 100% !important;
+    padding: 18px 16px 44px 16px !important;
+    font-size: 10.5pt;
+  }
+  h2 { font-size: 15pt !important; margin: 20pt 0 7pt 0 !important; }
+  h3 { font-size: 12.5pt !important; }
+  h1 { font-size: 19pt !important; }
+  p, li { line-height: 1.62; }
+  ul, ol { padding-left: 17pt; }
+
+  .report-header { flex-direction: column; align-items: stretch; gap: 8pt; }
+  .price-block { text-align: left; padding-top: 0; }
+  .price-current { font-size: 24pt !important; }
+  .ticker-name { font-size: 21pt !important; }
+  .ticker-sub { font-size: 9.5pt !important; }
+
+  .metrics { gap: 9pt 12pt; }
+  .metric { flex: 1 1 45%; }
+  .metric-value { font-size: 15pt !important; }
+  .metric-label { font-size: 8.5pt !important; white-space: normal !important; }
+
+  table, .kami-table { font-size: 9pt !important; }
+  .longtable { font-size: 8.5pt !important; }
+  .wide { font-size: 7.5pt !important; }
+  .dense { font-size: 8pt !important; }
+  table th, table td, .kami-table th, .kami-table td { padding: 5pt 6pt !important; }
+
+  blockquote, .quote, .note, .warn, .callout, .risk-item { padding: 9pt 11pt !important; }
+  .risk-grid { grid-template-columns: 1fr !important; }
+  .report-footer { flex-direction: column; align-items: flex-start; gap: 3pt; }
+}
+
+/* ========== 3b. 图表：窄屏保持图纸原尺寸 + 横向滑动 ========== */
+/* 报告里的图表是 SVG：viewBox 宽 680 + width:100%。缩到手机宽度（约 350px）
+   只剩 0.5×，图内字号从 11px 掉到 5px 完全不可读；而 SVG <text> 不会自动换行，
+   单纯放大字号必然溢出图框。这里改为**保持图纸原尺寸、允许左右滑动**——
+   与上面宽表同一套策略，宁可滑也不塌字号。仅屏幕生效，打印/PDF 不受影响。 */
+@media screen and (max-width: 720px) {
+  .rsp-fig {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    /* 图纸一定宽于屏幕，直接给右侧一层渐变，暗示"还能往右滑" */
+    background: linear-gradient(to left, rgba(167,63,45,.09), rgba(167,63,45,0) 26px);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 26px 100%;
+  }
+  .rsp-fig > svg { min-width: var(--rsp-fig-w, 680px); }
+  .rsp-fig::-webkit-scrollbar { height: 7px; }
+  .rsp-fig::-webkit-scrollbar-track { background: transparent; }
+  .rsp-fig::-webkit-scrollbar-thumb { background: #D8D1C4; border-radius: 4px; }
+}
+
+/* ========== 4. 小屏手机：指标卡单列、边距收到最紧 ========== */
+@media screen and (max-width: 430px) {
+  body { padding: 14px 12px 38px 12px !important; }
+  h2 { font-size: 14pt !important; }
+  h3 { font-size: 11.5pt !important; }
+  .ticker-name { font-size: 19pt !important; }
+  .price-current { font-size: 21pt !important; }
+  .metric { flex: 1 1 100%; }
+  .metric-value { font-size: 16pt !important; }
+  ul, ol { padding-left: 15pt; }
+  table, .kami-table { font-size: 8.5pt !important; }
+}
+
+/* ========== 5. 打印：把包裹层还原成透明，PDF 版式与补丁前完全一致 ========== */
+@media print {
+  .rsp-table { margin: 0; padding: 0; overflow: visible !important; background: none !important; }
+  .rsp-table > table { margin: 8pt 0; min-width: 0 !important; }
+  [class*="rsp-w"] > table { min-width: 0 !important; }
+}
+</style>
+</head>
+<body>
+<div class="report-header"><div class="ticker-block"><div class="ticker-name">五粮液</div><div class="ticker-sub">000858.SZ　·　宜宾五粮液股份有限公司<br>白酒制造 · 浓香型白酒（五粮液产品 / 系列酒）<br>2026 年三季报分析　｜　对比区间：2021—2025 年度</div></div><div class="price-block"><div class="price-current">97.11 <span style="font-size: 11pt; color: var(--stone);">亿元</span></div><div class="price-change up">前三季度归母净利润（同比 +49.98%）</div><div class="price-date">数据截至 2026-09-30（未经审计）</div></div></div><div class="metrics"><div class="metric"><div class="metric-value">328.58 亿</div><div class="metric-label">前三季度营业收入（+7.25%）</div></div><div class="metric"><div class="metric-value">0.47 亿</div><div class="metric-label">经营现金流净额（−99.83%）</div></div><div class="metric"><div class="metric-value">89.54 亿</div><div class="metric-label">2025 年归母净利润（−71.89%）</div></div><div class="metric"><div class="metric-value">223.5%</div><div class="metric-label">2025 年度分红率（分红 200.13 亿）</div></div></div>
+
+<h2>一、核心结论</h2>
+<p><strong>1. 五年里前四年是稳步上行，第五年是断崖。</strong> 营业收入从 2021 年 662.09 亿元升至 2024 年 891.75 亿元（三年复合增速 10.4%），归母净利润从 233.77 亿元升至 318.53 亿元；2025 年营业收入 405.29 亿元（同比 −54.55%）、归母净利润 89.54 亿元（同比 −71.89%），加权平均 ROE 由 23.35% 降至 6.89%。</p>
+<p><strong>2. 必须先看治理：董事长在 2026 年 2 月被留置，2025 年年报由他人代签。</strong> 2026 年 2 月 28 日公司披露《关于董事长被留置的公告》（公告编号 2026/第 001 号），董事长曾从钦因涉嫌严重违纪违法被宜宾市纪委监委立案调查并留置。审议 2025 年年度报告的董事会「应到董事 10 人，实际参与审议表决 9 人，未参与审议议案 1 人（董事长因不能正常履职，缺席本次会议）」，年报由「公司负责人华涛（代）」签署。2026 年 6 月 26 日股东会免去其董事职务、董事长职务一并自动解除，同日选举邓敏为董事长，2026 年半年报已由其签署。<strong>这条时间线与 2025 年「收入确认核算调整 + 263 亿元监管商品款项 + 223.5% 分红率」三项异常高度重合，是新管理层接手前后的一次集中清理，应当作为解释变量，而不是背景噪音。</strong></p>
+<p><strong>3. 但 2025 年的报表收入不是一把可用的尺子。</strong> 公司在年报中仅以一句「对 2025 年业务模式进行梳理，基于谨慎性原则，调整 2025 年部分业务收入确认相关核算」交代口径变化，同时明确「不需追溯调整或重述以前年度会计数据」，附注「重要会计政策变更」填「不适用」。资产负债表因此新增「监管商品款项」263.15 亿元（上年为零），其他流动负债由 10.57 亿元跃升至 270.29 亿元。收入同比 −54.55% 无法与 2024 年直接相减比较。</p>
+<p><strong>4. 三个互不依赖的锚点，指向三种不同的跌幅，且全部远离报表值。</strong> 销售商品收到的现金 914.00 亿元，收现比 225.5%（2021—2024 年均值 118.4%），反推可比收入约 772 亿元／−13.4%；消费税 88.73 亿元（−14.34%），按 2024 年「消费税 ÷ 酒类收入 = 12.46%」反推酒类收入约 712 亿元／−14.3%；实物销量 112,960 吨（−30.26%），按吨价持平推算酒类收入约 580 亿元／−30.3%。报表列示酒类收入 371.04 亿元，比最低锚点还低 36%。<strong>三者无法互相还原，这是本次分析最重要的风险发现，而不是一个可以四舍五入掉的噪音。</strong></p>
+<p><strong>5. 利润的下滑是真的，但幅度被口径放大。</strong> 归母净利润 −71.89% 与扣非净利润 −72.23% 几乎一致，非经常性损益仅 1.39 亿元（占归母 1.5%），说明不是一次性项目所致。但 2024 至 2025 年利润总额减少 319.64 亿元中，毛利减少贡献 −372.87 亿元（116.7%），而税金及附加只减少 20.03 亿元、销售费用只减少 30.63 亿元——<strong>收入与成本同比例压缩（−54.55% 与 −55.51%）、税金按原规模计缴，是利润跌幅超过收入跌幅的直接机制</strong>。</p>
+<p><strong>6. 真正不依赖口径、可以放心读的四个信号，全部指向实质性恶化。</strong> ① 成品库存量由 32,799 吨增至 47,616 吨（+45.18%），库存／销量比由 20.2% 升至 42.2%；② 存货账面值由 182.34 亿元增至 200.65 亿元，2026 年三季度末进一步升至 241.97 亿元（同比 +37.9%）；③ 销售费用率由 11.99% 升至 18.82%，2026 年前三季度 23.73%；④ 合同负债由年末 134.60 亿元降至 89.27 亿元，同比 −3.7%，增速已落后于收入。</p>
+<p><strong>7. 2026 年前三季度的「利润修复」主要是口径回归，不是经营改善。</strong> 归母净利润 97.11 亿元（+49.98%），但同期营业收入仅 328.58 亿元（+7.25%）；利润总额增加 43.40 亿元中，<strong>税金及附加减少 42.57 亿元一项就占了 98.1%</strong>，毛利增量只有 30.51 亿元，而销售费用反向增加 30.65 亿元。单季看更清楚：第三季度营业收入 44.42 亿元（−37.68%）、归母净利润 9.58 亿元（−48.25%），上半年的修复在第三季度已经中断。</p>
+<p><strong>8. 底牌仍然厚，但分红已经越过利润。</strong> 2025 年末类现金（货币资金＋交易性金融资产＋其他流动资产）1,349.83 亿元，为零有息负债结构，覆盖总负债 1.99 倍。但 2025 年度归属分红合计 200.13 亿元（中期 100.07 亿元＋末期 100.07 亿元），是当年归母净利润的 <strong>223.5%</strong>，未分配利润因此减少 172.38 亿元、归母净资产 −10.02%。以 2026-10-28 收盘价 71.09 元、总市值 2,759.44 亿元计，股息率 7.25%，但这一股息率的分母已不成立。</p>
+<hr>
+<h2>二、口径说明与数据来源</h2>
+<p><strong>会计准则与币种。</strong> 中国大陆企业会计准则（CAS），人民币，金额单位为亿元（另有标注者除外）。所有数据取自公司定期报告原文，未做任何估算填补。</p>
+<p><strong>数据来源。</strong> 宜宾五粮液股份有限公司 2021—2025 年年度报告（全文，含审计报告及附注）、2026 年半年度报告（2026-08-29 披露）、2026 年第三季度报告（2026-10-28 披露）、2025 年第三季度报告（更新后），以及深圳证券交易所指定披露渠道的公告原文。行情数据取自 2026-10-28 收盘。</p>
+<p><strong>列序规则。</strong> 全表按时间递增，年度块在前、期间块（半年度／前三季度）在后，分界处以竖线「‖」标出。跨块不可直接相减。2026 年一列为 1—9 月累计，与完整年度不可比规模。</p>
+<p><strong>三个必须提前声明的口径事项。</strong></p>
+<ol><li><strong>2025 年收入确认口径已变，且未追溯重述 2024 年比较数。</strong> 年报「主要会计数据」页明确勾选「公司是否需追溯调整或重述以前年度会计数据：否」，附注 28「重要会计政策变更」填写「不适用」，但「分季度主要财务指标」页又注明「上述财务指标或其加总数是否与公司已披露季度报告、半年度报告相关财务指标存在重大差异：是」，原因为「调整 2025 年部分业务收入确认相关核算」。三处表述互相矛盾，本文一律按「不可比」处理。</li><li><strong>分季度数据不可跨年拼接。</strong> 2025 年四个季度数（170.86／64.24／71.28／98.91 亿元）已按新口径重述，与 2024 年各季度原披露数不是同一把尺子。</li><li><strong>吨酒价格的分母是「酒类销售量」，不是「五粮液产品销量」。</strong> 公司披露的酒类销售量含五粮液产品与系列酒（其他酒产品），因此吨价是混合均价，不能直接与普五出厂价对照。</li></ol>
+<hr>
+<h2>三、五年经营总览</h2>
+<div class="rsp-table rsp-w7"><table class="financial longtable"><thead><tr><th>项目（亿元）</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025 ‖</th><th>2026 前三季</th></tr></thead><tbody><tr><td>营业收入</td><td>662.09</td><td>739.69</td><td>832.72</td><td>891.75</td><td>405.29</td><td>328.58</td></tr><tr><td>同比</td><td>+15.51%</td><td>+11.72%</td><td>+12.58%</td><td>+7.09%</td><td>−54.55%</td><td>+7.25%</td></tr><tr><td>归母净利润</td><td>233.77</td><td>266.91</td><td>302.11</td><td>318.53</td><td>89.54</td><td>97.11</td></tr><tr><td>同比</td><td>+17.15%</td><td>+14.17%</td><td>+13.19%</td><td>+5.44%</td><td>−71.89%</td><td>+49.98%</td></tr><tr><td>扣非归母净利润</td><td>233.28</td><td>266.63</td><td>301.16</td><td>317.42</td><td>88.16</td><td>94.41</td></tr><tr><td>毛利率</td><td>75.35%</td><td>75.42%</td><td>75.79%</td><td>77.05%</td><td>77.54%</td><td>79.89%</td></tr><tr><td>归母净利率</td><td>35.31%</td><td>36.08%</td><td>36.28%</td><td>35.72%</td><td>22.09%</td><td>29.55%</td></tr><tr><td>加权平均 ROE</td><td>25.30%</td><td>25.28%</td><td>25.06%</td><td>23.35%</td><td>6.89%</td><td>8.09%</td></tr><tr><td>经营活动现金流净额</td><td>267.75</td><td>244.31</td><td>417.42</td><td>339.40</td><td>297.06</td><td>0.47</td></tr><tr><td>销售商品收到的现金</td><td>809.53</td><td>817.71</td><td>1,053.50</td><td>1,018.69</td><td>914.00</td><td>326.90</td></tr><tr><td>税金及附加</td><td>97.90</td><td>107.49</td><td>125.32</td><td>130.41</td><td>110.38</td><td>48.59</td></tr><tr><td>销售费用</td><td>65.04</td><td>68.44</td><td>77.96</td><td>106.92</td><td>76.29</td><td>77.98</td></tr></tbody></table></div>
+<div class="note">注：<ol><li>2021—2024 年数据取自各年年度报告；2025 年取自 2025 年年度报告（收入口径已变，见第二节）；2026 年一列为 1—9 月累计，取自 2026 年第三季度报告。</li><li>毛利率 =（营业收入 − 营业成本）÷ 营业收入；归母净利率 = 归母净利润 ÷ 营业收入。两者均为本人按报表数计算，非公司披露值。</li><li>2026 年前三季度经营活动现金流净额 0.47 亿元，同比 −99.83%，系 2025 年同期基数 282.47 亿元所致。</li></ol></div>
+<p><strong>五年读下来是一条完整的抛物线。</strong> 2021—2023 年是行业景气高点，收入连续三年双位数增长，毛利率稳在 75%—76%，ROE 连续三年站上 25%；2024 年增速降档至个位数（收入 +7.09%、利润 +5.44%），但毛利率反而升至 77.05%，说明当年仍在靠结构上行对冲量的放缓；2025 年一切反转——毛利率继续升至 77.54%（历史最高），收入与利润却同时腰斩。<strong>毛利率创新高与收入腰斩同时出现，本身就是口径事件的典型特征</strong>：如果只是需求崩塌，产品结构应下移、毛利率应下降，而不是上升。</p>
+<hr>
+<figure><div class="ch"><div class="ch-t">营业收入与归母净利润：四年爬坡，第五年断崖</div><div class="ch-s">单位：人民币亿元　｜　收入 2021—2024 年复合增速 10.4%，2025 年 −54.55%；利润同步腰斩 −71.89%</div><div class="ch-legend"><span><i style="background:#A73F2D"></i>营业收入</span><span><i style="background:#CFC7BA"></i>归母净利润</span></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2021</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab" style="flex:0 0 64pt">营业收入</span><span class="ch-track"><span class="ch-bar" style="width:74.2%;background:#A73F2D"></span></span><span class="ch-val">662.1</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab" style="flex:0 0 64pt">归母净利润</span><span class="ch-track"><span class="ch-bar" style="width:26.2%;background:#CFC7BA"></span></span><span class="ch-val">233.8</span></div></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2022</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab" style="flex:0 0 64pt">营业收入</span><span class="ch-track"><span class="ch-bar" style="width:82.9%;background:#A73F2D"></span></span><span class="ch-val">739.7</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab" style="flex:0 0 64pt">归母净利润</span><span class="ch-track"><span class="ch-bar" style="width:29.9%;background:#CFC7BA"></span></span><span class="ch-val">266.9</span></div></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2023</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab" style="flex:0 0 64pt">营业收入</span><span class="ch-track"><span class="ch-bar" style="width:93.4%;background:#A73F2D"></span></span><span class="ch-val">832.7</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab" style="flex:0 0 64pt">归母净利润</span><span class="ch-track"><span class="ch-bar" style="width:33.9%;background:#CFC7BA"></span></span><span class="ch-val">302.1</span></div></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2024</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab" style="flex:0 0 64pt">营业收入</span><span class="ch-track"><span class="ch-bar" style="width:100.0%;background:#A73F2D"></span></span><span class="ch-val">891.8</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab" style="flex:0 0 64pt">归母净利润</span><span class="ch-track"><span class="ch-bar" style="width:35.7%;background:#CFC7BA"></span></span><span class="ch-val">318.5</span></div></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2025</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab" style="flex:0 0 64pt">营业收入</span><span class="ch-track"><span class="ch-bar" style="width:45.4%;background:#A73F2D"></span></span><span class="ch-val">405.3</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab" style="flex:0 0 64pt">归母净利润</span><span class="ch-track"><span class="ch-bar" style="width:10.0%;background:#CFC7BA"></span></span><span class="ch-val">89.5</span></div></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2026<br><span style='font-size:7.6pt'>前三季</span></span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab" style="flex:0 0 64pt">营业收入</span><span class="ch-track"><span class="ch-bar" style="width:36.8%;background:#A73F2D"></span></span><span class="ch-val">328.6</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab" style="flex:0 0 64pt">归母净利润</span><span class="ch-track"><span class="ch-bar" style="width:10.9%;background:#CFC7BA"></span></span><span class="ch-val">97.1</span></div></div><div class="ch-note">注：2026 年一列为 1—9 月累计，与完整年度不可比规模。2025 年收入已按公司调整后的收入确认核算列示，与 2024 年不具可比性（详见第五节），图中的跌幅包含口径影响，不可直接作为经营降幅解读。</div></div><figcaption>图 1　营业收入与归母净利润（2021—2025 年度 ‖ 2026 年前三季度）</figcaption></figure><h2>四、收入拆解：量、价、结构</h2>
+<h3>4.1 实物量：三年停滞，2025 年掉三成</h3>
+<div class="rsp-table rsp-w6"><table class="financial nowrap-first longtable"><thead><tr><th>项目</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th></tr></thead><tbody><tr><td>销售量（吨）</td><td>181,775</td><td>127,161</td><td>159,106</td><td>161,984</td><td>112,960</td></tr><tr><td>销量同比</td><td>+13.30%</td><td>−30.04%</td><td>+25.12%</td><td>+1.81%</td><td>−30.26%</td></tr><tr><td>生产量（吨）</td><td>188,717</td><td>129,328</td><td>184,100</td><td>146,461</td><td>127,777</td></tr><tr><td>生产量同比</td><td>+18.82%</td><td>−31.47%</td><td>+42.35%</td><td>−20.44%</td><td>−12.76%</td></tr><tr><td>期末库存量（吨）</td><td>21,161</td><td>23,328</td><td>48,322</td><td>32,799</td><td>47,616</td></tr><tr><td>库存量同比</td><td>+48.82%</td><td>+10.24%</td><td>+107.14%</td><td>−32.12%</td><td>+45.18%</td></tr><tr><td>库存／销量</td><td>11.6%</td><td>18.3%</td><td>30.4%</td><td>20.2%</td><td>42.2%</td></tr></tbody></table></div>
+<div class="note">注：数据取自各年年度报告「公司实物销售收入是否大于劳务收入」表，口径为酒类（含五粮液产品与其他酒产品），单位吨。</div>
+<p><strong>实物量给出了整份报告里最干净的一条曲线。</strong> 2021 年 18.18 万吨是五年峰值，2022 年骤降 30.04%（公司当年未作解释，但从产品结构看是系列酒收缩），2023 年反弹 25.12% 至 15.91 万吨，2024 年基本走平（+1.81%），2025 年再跌 30.26% 至 11.30 万吨——<strong>回到 2022 年的水平，五年净减少 37.9%</strong>。</p>
+<p>更值得警惕的是库存。2023 年公司为「抢占元春旺季」把生产量拉到 18.41 万吨（+42.35%），库存量一举翻倍至 4.83 万吨；2024 年主动压产 20.44%、库存回落至 3.28 万吨；2025 年在销量掉三成的同时，生产量只减 12.76%，库存量反而回升到 4.76 万吨，<strong>库存／销量比冲到 42.2%，为五年最高</strong>。公司自述原因是「白酒行业进入深度调整期，消费场景收缩、存量竞争加剧，导致销量下降、阶段性库存增加」。<strong>产端降幅（−12.76%）远小于销端（−30.26%），说明减产是被动跟随而非主动收缩——这在需求下行期会持续压制次年的吨价与费用投放效率。</strong></p>
+<h3>4.2 吨价：2025 年一次性下移 36%</h3>
+<div class="rsp-table rsp-w6"><table class="financial"><thead><tr><th>项目</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th></tr></thead><tbody><tr><td>酒类收入（亿元）</td><td>617.32</td><td>675.63</td><td>764.47</td><td>831.27</td><td>371.04</td></tr><tr><td>酒类销量（吨）</td><td>181,775</td><td>127,161</td><td>159,106</td><td>161,984</td><td>112,960</td></tr><tr><td>吨酒价格（万元／吨）</td><td>33.96</td><td>53.13</td><td>48.05</td><td>51.32</td><td>32.85</td></tr><tr><td>吨价同比</td><td>—</td><td>+56.4%</td><td>−9.6%</td><td>+6.8%</td><td>−36.0%</td></tr></tbody></table></div>
+<div class="note">注：吨酒价格 = 酒类产品营业收入 ÷ 酒类销售量，为本人计算的混合均价（含系列酒），非公司披露值，不可与普五出厂价直接对照。</div>
+<p><strong>这张表是理解五粮液的一把钥匙。</strong> 2022 年销量掉 30.04% 而吨价跳升 56.4%——这是典型的「缩量挺价」：砍掉低价系列酒、把产能集中到五粮液产品，收入因此只跌 0.6%（酒类口径反而 +9.45%）。</p>
+<p>2023—2024 年量价配合良好（销量 +25.12%／+1.81%，吨价 −9.6%／+6.8%），是健康的结构调整。</p>
+<p>2025 年则是量价双杀：销量 −30.26%、吨价 −36.0%，酒类收入因此 −55.36%。<strong>吨价一年掉 36%，在任何白酒公司的历史上都属于极端值</strong>——普五出厂价并未下调，因此这个跌幅只能来自三个方向之一：产品结构大幅下移、实际成交价与返利政策重构、或收入确认口径把部分对价挤出收入端。结合第 5 节的三项校验，第三种解释的权重最大。</p>
+<h3>4.3 结构：高端跌得比中低端更狠</h3>
+<div class="rsp-table rsp-w6"><table class="financial nowrap-first"><thead><tr><th>2025 年分产品</th><th>营业收入（亿元）</th><th>占比</th><th>同比</th><th>毛利率</th><th>毛利率同比</th></tr></thead><tbody><tr><td>五粮液产品</td><td>279.36</td><td>75.3%</td><td>−58.84%</td><td>89.55%</td><td>+2.53pp</td></tr><tr><td>其他酒产品</td><td>91.68</td><td>24.7%</td><td>−39.89%</td><td>66.10%</td><td>+5.29pp</td></tr><tr><td>酒类合计</td><td>371.04</td><td>100.0%</td><td>−55.36%</td><td>83.75%</td><td>+1.54pp</td></tr></tbody></table></div>
+<div class="rsp-table"><table class="financial nowrap-first"><thead><tr><th>2025 年分地区</th><th>营业收入（亿元）</th><th>同比</th><th>毛利率</th></tr></thead><tbody><tr><td>东部片区</td><td>128.32</td><td>−58.99%</td><td>88.47%</td></tr><tr><td>南部片区</td><td>178.25</td><td>−54.69%</td><td>79.27%</td></tr><tr><td>北部片区</td><td>64.47</td><td>−48.42%</td><td>86.75%</td></tr></tbody></table></div>
+<div class="rsp-table"><table class="financial nowrap-first"><thead><tr><th>2025 年分模式</th><th>营业收入（亿元）</th><th>同比</th><th>毛利率</th></tr></thead><tbody><tr><td>经销模式</td><td>225.92</td><td>−53.65%</td><td>79.51%</td></tr><tr><td>直销模式</td><td>145.12</td><td>−57.80%</td><td>90.36%</td></tr></tbody></table></div>
+<div class="note">注：数据取自 2025 年年度报告「占公司营业收入或营业利润 10% 以上的行业、产品、地区、销售模式的情况」表。</div>
+<p><strong>三个方向的结论一致，且都不支持「需求崩塌」这一单因解释。</strong></p>
+<p>其一，<strong>高端跌得比中低端更狠</strong>。五粮液产品 −58.84%，其他酒产品 −39.89%——如果是消费降级导致的需求收缩，低价产品应该相对抗跌甚至受益，但这里高端跌幅反而更大，且五粮液产品毛利率还上升 2.53pp 至 89.55%。毛利率上升 + 收入腰斩，只能解释为「单价更高的那部分收入的确认方式变了」，而不是「卖不动了所以降价」。</p>
+<p>其二，<strong>南部片区（基本盘）跌幅最大</strong>。南部 178.25 亿元（−54.69%）仍是第一大区，东部 −58.99%，北部 −48.42%。三个片区同步腰斩，没有出现「局部市场失守」的地理特征。</p>
+<p>其三，<strong>直销跌得比经销更狠</strong>。直销 −57.80%（毛利率 90.36%，为三类中最高），经销 −53.65%（79.51%）。直销正是公司在 2025 年重点推的方向（「实体化运营酒类销售公司」「推进终端直配」「深化与京东、天猫合作」），投入在加大而收入在腰斩，同样指向确认口径而非渠道能力。</p>
+<h3>4.4 渠道：经销商反而在增加</h3>
+<div class="rsp-table"><table class="financial"><thead><tr><th>项目</th><th>2024 年末</th><th>2025 年末</th><th>变动</th></tr></thead><tbody><tr><td>五粮液经销商（东部／南部／北部）</td><td>1,125／867／660</td><td>1,094／838／630</td><td>−31／−29／−30</td></tr><tr><td>五粮液经销商小计</td><td>2,652</td><td>2,562</td><td>−90</td></tr><tr><td>五粮浓香经销商</td><td>1,059</td><td>1,171</td><td>+112</td></tr><tr><td>经销商合计</td><td>3,711</td><td>3,733</td><td>+22</td></tr></tbody></table></div>
+<div class="note">注：2024 年末数据由 2025 年年报「比上年同期增减」倒算得出；合计 3,733 家为公司披露值。</div>
+<p><strong>这是全篇唯一一组逆势上行的经营数据。</strong> 主品牌经销商净减 90 家（三个片区均匀减少，各减约 30 家），但五粮浓香（系列酒）经销商净增 112 家，合计净增 22 家。在收入腰斩的年份继续扩招系列酒经销商，说明公司的应对是「以系列酒补主品牌的量」——这也解释了为什么 2025 年其他酒产品的跌幅（−39.89%）明显小于五粮液产品（−58.84%）。</p>
+<p>前五名客户集中度则由 2024 年 15.67% 降至 14.55%（58.97 亿元），客户结构没有恶化迹象。结算方式仍为「先款后货」，这是理解第七节收现比异常的前提。</p>
+<hr>
+<figure><div class="ch"><div class="ch-t">吨酒价格：五年走出一个倒 V，2025 年一次性下移 36%</div><div class="ch-s">单位：万元／吨　｜　酒类营业收入 ÷ 酒类销售量（含五粮液产品与系列酒，为混合均价）</div><div class="ch-row"><span class="ch-lab" style="flex:0 0 104pt">2021　销量 181,775 吨</span><span class="ch-track"><span class="ch-bar " style="width:61.4%"></span></span><span class="ch-val">33.96</span></div><div class="ch-row"><span class="ch-lab" style="flex:0 0 104pt">2022　销量 127,161 吨</span><span class="ch-track"><span class="ch-bar " style="width:96.0%"></span></span><span class="ch-val">53.13</span></div><div class="ch-row"><span class="ch-lab" style="flex:0 0 104pt">2023　销量 159,106 吨</span><span class="ch-track"><span class="ch-bar " style="width:86.8%"></span></span><span class="ch-val">48.05</span></div><div class="ch-row"><span class="ch-lab" style="flex:0 0 104pt">2024　销量 161,984 吨</span><span class="ch-track"><span class="ch-bar gold" style="width:92.7%"></span></span><span class="ch-val">51.32</span></div><div class="ch-row"><span class="ch-lab" style="flex:0 0 104pt">2025　销量 112,960 吨</span><span class="ch-track"><span class="ch-bar gold" style="width:59.4%"></span></span><span class="ch-val">32.85</span></div><div class="ch-note">注：2022 年销量 −30.04% 而吨价 +56.4%，是「缩量挺价」的结构上行；2025 年量（−30.26%）价（−36.0%）双杀。该吨价为含系列酒的混合均价，不可与普五出厂价直接对照；2025 年的跌幅中含收入确认口径影响。</div></div><figcaption>图 2　吨酒价格与酒类销售量（2021—2025 年度）</figcaption></figure><h2>五、2025 年的口径断裂：三项独立证据</h2>
+<p>这一节是整份报告的核心。它先交代一个前置事实（治理事件），再回答一个技术问题：<strong>2025 年的报表收入，能不能拿来和 2024 年比。</strong></p>
+<h3>5.1 治理事件：一份由代行人签署的年报</h3>
+<div class="rsp-table"><table class="longtable"><thead><tr><th>时间</th><th>事件</th><th>披露依据</th></tr></thead><tbody><tr><td>2026-02-28</td><td>董事长曾从钦因涉嫌严重违纪违法，被宜宾市纪委监委立案调查并留置</td><td>《关于董事长被留置的公告》（2026/第 001 号）</td></tr><tr><td>2026-04-28</td><td>2025 年年度报告经董事会审议（应到 10 人、实际参与表决 9 人，董事长缺席），由「公司负责人华涛（代）」签署</td><td>2025 年年度报告</td></tr><tr><td>2026-06-26</td><td>2025 年度股东会免去曾从钦董事职务，其董事长职务一并自动解除；同日选举邓敏为董事长</td><td>2025 年度股东会决议公告</td></tr><tr><td>2026-07-16 / 07-24</td><td>一名董事离任、一名副总经理被董事会解聘</td><td>2026 年半年度报告</td></tr><tr><td>2026-08-29</td><td>2026 年半年度报告由董事长邓敏签署；半年度不派发现金红利</td><td>2026 年半年度报告</td></tr></tbody></table></div>
+<div class="note">注：数据取自 2025 年年度报告「重要提示」「董事、监事和高级管理人员情况」「处罚及整改情况」及 2026 年半年度报告相应章节。</div>
+<p><strong>这不是背景花边，它改变了对整份年报的读法。</strong> 三点理由：</p>
+<p><strong>其一，会计选择发生在管理层真空期。</strong> 「调整 2025 年部分业务收入确认相关核算」这一判断、以及 263.15 亿元「监管商品款项」的确认与列报，都发生在董事长被留置、由代行人签署年报的窗口内。这意味着：即使投资者事后发现口径处理不当，追责与问询的第一责任人也已不在位。<strong>会计处理的可信度，与签署人的可追责性直接相关。</strong></p>
+<p><strong>其二，新管理层的经营手法已经不同。</strong> 邓敏于 2026 年 6 月 26 日接任，2026 年一季度的 228.38 亿元收入（+33.67%）与「元春期间采取了有效的动销举措」是中报原文给出的解释；同时中报注 2 明确「根据市场变化调整了收款政策」，导致经营现金流转负。<strong>高基数打法 + 放宽收款政策，与 2025 年的「谨慎确认收入」是两种相反的风格</strong>——前者求量、后者求稳，恰好构成一次管理层更替前后的政策摆动。</p>
+<p><strong>其三，超高分红发生在治理最不确定的年份。</strong> 2025 年度归属分红 200.13 亿元、达归母净利润 2.24 倍，而公司实际控制人为宜宾市政府国有资产监督管理委员会。<strong>在公司治理出现重大不确定性的年份维持超额分红，客观上使以大股东为首的股东先拿到现金，代价是公司现金储备的净消耗</strong>（未分配利润一年减少 172.38 亿元）。这一动机无需推断，事实本身已足够说明分红的性质。</p>
+<h3>5.2 公司披露了什么，没披露什么</h3>
+<p><strong>披露了的：</strong> 在「分季度主要财务指标」表下方，一句附注——「公司对 2025 年业务模式进行梳理，基于谨慎性原则，调整 2025 年部分业务收入确认相关核算。」同一张表的上方勾选「上述财务指标或其加总数是否与公司已披露季度报告、半年度报告相关财务指标存在重大差异：是」。</p>
+<p><strong>没披露的：</strong> 调整涉及哪块业务、影响多少金额、对毛利率与净利率分别影响多少、以及调整后的可比基数。</p>
+<p><strong>反向证据：</strong> 「主要会计数据」页勾选「公司是否需追溯调整或重述以前年度会计数据：否」；附注 28「重要会计政策和会计估计变更」项下「重要会计政策变更」填写「不适用」；所有者权益变动表「加：会计政策变更」行为空白；未分配利润表附注「由于会计政策变更，影响期初未分配利润 0.00 元」。</p>
+<p><strong>这四处表述在会计逻辑上是矛盾的。</strong> 若确属会计政策变更，应追溯调整并重述比较数；若属会计估计或核算细化，则不应产生 54.55% 的收入断层。公司选择了「实质变更、形式不变更」的处理方式——<strong>结果是：投资者拿到了一份既不能与上年比、也无法与季度报告衔接的年度收入数。</strong></p>
+<h3>5.3 资产负债表上的对应项：263.15 亿元「监管商品款项」</h3>
+<div class="rsp-table"><table class="financial longtable"><thead><tr><th>项目（亿元）</th><th>2024 年末</th><th>2025 年末</th><th>变动</th></tr></thead><tbody><tr><td>合同负债</td><td>116.90</td><td>134.60</td><td>+17.70</td></tr><tr><td>其他应付款</td><td>165.07</td><td>101.86</td><td>−63.21</td></tr><tr><td>应交税费</td><td>72.87</td><td>20.93</td><td>−51.94</td></tr><tr><td>其他流动负债</td><td>10.57</td><td>270.29</td><td>+259.72</td></tr><tr><td>其中：待转销项税额</td><td>10.57</td><td>7.14</td><td>−3.42</td></tr><tr><td>其中：监管商品款项</td><td>0.00</td><td>263.15</td><td>新增</td></tr><tr><td>负债合计</td><td>518.57</td><td>678.04</td><td>+159.46</td></tr></tbody></table></div>
+<div class="note">注：数据取自 2025 年年度报告合并资产负债表及附注 28「其他流动负债」。</div>
+<p><strong>「监管商品款项」263.15 亿元是一个此前从未出现过的科目</strong>，在附注中仅列金额、无任何性质说明。它与收入确认调整出现在同一年、金额与收入缺口同一量级，基本可以认定是本次口径变化的对应载体：<strong>货已发出、款已收到，但收入尚未确认（或按净额确认），差额挂在负债端。</strong></p>
+<p>这一科目同时解释了资产负债率的「假性上升」：2025 年末资产负债率由 27.55% 跳升至 35.69%，<strong>若剔除 263.15 亿元监管商品款项，实际为 21.8%，与 2023 年的 20.00% 基本相当。</strong> 五粮液的资本结构并未恶化，恶化的只是报表观感。</p>
+<h3>5.4 三个锚点，三条不同的曲线</h3>
+<p>要判断真实经营规模，必须找不依赖「收入确认」这个动作的独立指标。本文用三个，彼此不共享数据源：</p>
+<div class="rsp-table rsp-w6"><table><thead><tr><th>锚点</th><th>2024</th><th>2025</th><th>变动</th><th>反推 2025 可比收入</th><th>反推同比</th></tr></thead><tbody><tr><td>① 销售商品收到的现金（亿元）</td><td>1,018.69</td><td>914.00</td><td>−10.28%</td><td>约 772 亿元</td><td>−13.4%</td></tr><tr><td>② 消费税（亿元）</td><td>103.58</td><td>88.73</td><td>−14.34%</td><td>约 712 亿元</td><td>−14.3%</td></tr><tr><td>③ 酒类实物销量（吨）</td><td>161,984</td><td>112,960</td><td>−30.26%</td><td>约 580 亿元</td><td>−30.3%</td></tr><tr><td>报表列示酒类收入（亿元）</td><td>831.27</td><td>371.04</td><td>−55.36%</td><td>—</td><td>−55.4%</td></tr></tbody></table></div>
+<div class="note">注：<ol><li>锚点①按 2021—2024 年平均收现比 118.4% 反推（该比值含 13% 增值税，故天然高于 100%）。</li><li>锚点②按 2024 年「消费税 ÷ 酒类收入 = 12.46%」反推；消费税为从价 20% + 从量 0.5 元/500ml，其税基是出厂环节销售额，与会计收入确认时点无关。</li><li>锚点③假设吨价持平，仅体现量的影响。</li></ol></div>
+<p><strong>三个锚点没有一个支持报表的 −55.36%。</strong> 它们分别指向 −13.4%、−14.3%、−30.3%，跨度达 17 个百分点。这说明：真实经营降幅大概率落在 −15% 至 −30% 区间，报表跌幅被口径显著放大；但<strong>具体放大多少，从公开披露中无法确定</strong>。</p>
+<p>锚点①与②高度吻合（−13.4% 与 −14.3%），锚点③明显更深（−30.3%）。三者不吻合本身有信息量：若只是「收入按净额确认、成本同步按净额确认」，量应该与收入同比例变动，锚点③应与①②一致——但它没有。<strong>可能的解释是：量的下滑是真实的（−30%），而吨价并未下跌 36%，报表吨价的暴跌是「部分对价被挤出收入端」与「产品结构下移」共同作用的结果。</strong> 这一点无法从年报中得到证实，只能作为待验证假设。</p>
+<h3>5.5 一个反证：毛利率创新高，排除了「纯总额法改净额法」</h3>
+<p>若公司只是把总额法改为净额法（例如代销转自营的镜像），营业收入与营业成本会等额减少，毛利率会大幅跃升。实际数据是：</p>
+<div class="rsp-table"><table class="financial nowrap-first"><thead><tr><th>项目</th><th>2024</th><th>2025</th><th>变动</th></tr></thead><tbody><tr><td>营业收入（亿元）</td><td>891.75</td><td>405.29</td><td>−54.55%</td></tr><tr><td>营业成本（亿元）</td><td>204.61</td><td>91.02</td><td>−55.51%</td></tr><tr><td>毛利（亿元）</td><td>687.14</td><td>314.27</td><td>−54.26%</td></tr><tr><td>毛利率</td><td>77.05%</td><td>77.54%</td><td>+0.49pp</td></tr></tbody></table></div>
+<p><strong>成本降幅（−55.51%）与收入降幅（−54.55%）几乎完全同步，毛利率只升 0.49 个百分点。</strong> 这排除了简单的总额／净额切换，说明公司是在压缩后的收入基础上，同步结转了压缩后的成本——即「部分业务的收入与成本被一并移出表内或递延」。若是这种情况，毛利额会真实减少，但<strong>减少的毛利对应的存货与现金去了哪里，年报没有交代</strong>（存货仅增 18.32 亿元，合同负债增 17.70 亿元，合计远不足 373 亿元的毛利缺口；唯一同量级的去处是「监管商品款项」263.15 亿元）。</p>
+<h3>5.6 小结：报表收入该怎么用</h3>
+<ol><li><strong>不能用的：</strong> 用 −54.55% 直接外推行业跌幅、用 32.85 万元／吨的吨价讨论品牌力、用 22.09% 的净利率讨论盈利能力。这三个数都掺了口径。</li><li><strong>可以用的：</strong> 实物销量（−30.26%）、成品库存量（+45.18%）、消费税（−14.34%）、销售收现（914.00 亿元）、经销商数量（+22 家）、合同负债（134.60 亿元）——这些都不受收入确认时点影响。</li><li><strong>必须自己算的：</strong> 真实经营规模。本文给出的区间是酒类收入 580—772 亿元、同比 −30% 至 −13%，并明确标注这是区间估计而非精确值。</li></ol>
+<hr>
+<figure><div class="ch"><div class="ch-t">税金及附加率与销售费用率：一个翻倍后精准回归，一个单向抬升</div><div class="ch-s">单位：占营业收入比重（%）　｜　税金及附加率 2024 年 14.62% → 2025 年 27.24% → 2026 前三季 14.79%</div><div class="ch-legend"><span><i style="background:#A73F2D"></i>税金及附加率</span><span><i style="background:#2F6F6B"></i>销售费用率</span></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2021</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab" style="flex:0 0 64pt">税金及附加率</span><span class="ch-track"><span class="ch-bar" style="width:54.3%;background:#A73F2D"></span></span><span class="ch-val">14.79</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab" style="flex:0 0 64pt">销售费用率</span><span class="ch-track"><span class="ch-bar" style="width:36.0%;background:#2F6F6B"></span></span><span class="ch-val">9.82</span></div></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2022</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab" style="flex:0 0 64pt">税金及附加率</span><span class="ch-track"><span class="ch-bar" style="width:53.3%;background:#A73F2D"></span></span><span class="ch-val">14.53</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab" style="flex:0 0 64pt">销售费用率</span><span class="ch-track"><span class="ch-bar" style="width:34.0%;background:#2F6F6B"></span></span><span class="ch-val">9.25</span></div></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2023</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab" style="flex:0 0 64pt">税金及附加率</span><span class="ch-track"><span class="ch-bar" style="width:55.2%;background:#A73F2D"></span></span><span class="ch-val">15.05</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab" style="flex:0 0 64pt">销售费用率</span><span class="ch-track"><span class="ch-bar" style="width:34.4%;background:#2F6F6B"></span></span><span class="ch-val">9.36</span></div></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2024</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab" style="flex:0 0 64pt">税金及附加率</span><span class="ch-track"><span class="ch-bar" style="width:53.7%;background:#A73F2D"></span></span><span class="ch-val">14.62</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab" style="flex:0 0 64pt">销售费用率</span><span class="ch-track"><span class="ch-bar" style="width:44.0%;background:#2F6F6B"></span></span><span class="ch-val">11.99</span></div></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2025</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab" style="flex:0 0 64pt">税金及附加率</span><span class="ch-track"><span class="ch-bar" style="width:100.0%;background:#A73F2D"></span></span><span class="ch-val">27.24</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab" style="flex:0 0 64pt">销售费用率</span><span class="ch-track"><span class="ch-bar" style="width:69.1%;background:#2F6F6B"></span></span><span class="ch-val">18.82</span></div></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2026<br><span style='font-size:7.6pt'>前三季</span></span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab" style="flex:0 0 64pt">税金及附加率</span><span class="ch-track"><span class="ch-bar" style="width:54.3%;background:#A73F2D"></span></span><span class="ch-val">14.79</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab" style="flex:0 0 64pt">销售费用率</span><span class="ch-track"><span class="ch-bar" style="width:87.1%;background:#2F6F6B"></span></span><span class="ch-val">23.73</span></div></div><div class="ch-note">注：税金及附加率为本人计算值。消费税按出厂环节销售额计缴，与会计收入确认时点无关——2025 年该比率翻倍、2026 年前三季度又回到 14.79%（2024 年为 14.62%），是「2025 年收入被压缩」最硬的证据。销售费用率则单向抬升，2026 年前三季度达 23.73%。</div></div><figcaption>图 3　税金及附加率与销售费用率（2021—2025 年度 ‖ 2026 年前三季度）</figcaption></figure><h2>六、利润：毛利坍塌与税金刚性</h2>
+<h3>6.1 利润总额桥（2024 → 2025）</h3>
+<div class="rsp-table"><table class="longtable"><thead><tr><th>变动项</th><th>金额（亿元）</th><th>方向</th><th>占利润总额降幅</th></tr></thead><tbody><tr><td>毛利减少</td><td>−372.87</td><td>拖累</td><td>116.7%</td></tr><tr><td>税金及附加减少</td><td>+20.03</td><td>贡献</td><td>−6.3%</td></tr><tr><td>销售费用减少</td><td>+30.63</td><td>贡献</td><td>−9.6%</td></tr><tr><td>管理费用减少</td><td>+4.59</td><td>贡献</td><td>−1.4%</td></tr><tr><td>研发费用增加</td><td>−0.44</td><td>拖累</td><td>0.1%</td></tr><tr><td>财务净收益减少</td><td>−1.72</td><td>拖累</td><td>0.5%</td></tr><tr><td>其他收益·投资收益·减值等</td><td>+0.29</td><td>贡献</td><td>−0.1%</td></tr><tr><td>营业外收支净额变动</td><td>−0.15</td><td>拖累</td><td>0.0%</td></tr><tr><td><strong>利润总额变动</strong></td><td><strong>−319.64</strong></td><td>—</td><td><strong>100.0%</strong></td></tr></tbody></table></div>
+<div class="note">注：2024 年利润总额 441.63 亿元，2025 年 121.99 亿元。正向贡献记为「+」，拖累记为「−」。</div>
+<p><strong>桥的结构非常干净：毛利减少 372.87 亿元，是唯一的主因；公司通过减少税金及附加（−20.03 亿元）、压缩销售费用（−28.6%）与管理费用（−12.9%），三项合计回补 55.25 亿元，只抵掉毛利降幅的 14.8%。</strong> 换句话说，费用端的节流几乎没有改变结果——因为白酒的毛利基数太大，10% 的毛利波动就相当于 30% 以上的费用压缩。</p>
+<figure><div class="ch"><div class="ch-t">2024 → 2025 年利润总额桥：毛利一项吞掉全部</div><div class="ch-s">单位：人民币亿元　｜　利润总额 441.63 → 121.99 亿元，减少 319.64 亿元</div><div class="ch-legend"><span><i style="background:#8B8880"></i>起点／终点</span><span><i style="background:#A73F2D"></i>正向贡献</span><span><i style="background:#2F6F6B"></i>负向拖累</span></div><div class="wf-row"><span class="wf-lab">2024 利润总额</span><span class="wf-track"><span class="wf-bar" style="left:0.00%;width:100.00%;background:#8B8880"></span></span><span class="wf-val">441.63</span></div><div class="wf-row"><span class="wf-lab">毛利减少</span><span class="wf-track"><span class="wf-bar" style="left:0.00%;width:100.00%;background:#2F6F6B"></span></span><span class="wf-val">−372.87</span></div><div class="wf-row"><span class="wf-lab">税金及附加减少</span><span class="wf-track"><span class="wf-bar" style="left:0.00%;width:5.37%;background:#A73F2D"></span></span><span class="wf-val">+20.03</span></div><div class="wf-row"><span class="wf-lab">销售费用减少</span><span class="wf-track"><span class="wf-bar" style="left:5.37%;width:8.21%;background:#A73F2D"></span></span><span class="wf-val">+30.63</span></div><div class="wf-row"><span class="wf-lab">管理费用减少</span><span class="wf-track"><span class="wf-bar" style="left:13.59%;width:1.23%;background:#A73F2D"></span></span><span class="wf-val">+4.59</span></div><div class="wf-row"><span class="wf-lab">研发费用增加</span><span class="wf-track"><span class="wf-bar" style="left:14.70%;width:0.40%;background:#2F6F6B"></span></span><span class="wf-val">−0.44</span></div><div class="wf-row"><span class="wf-lab">财务净收益减少</span><span class="wf-track"><span class="wf-bar" style="left:14.24%;width:0.46%;background:#2F6F6B"></span></span><span class="wf-val">−1.72</span></div><div class="wf-row"><span class="wf-lab">其他项（含营业外）</span><span class="wf-track"><span class="wf-bar" style="left:14.24%;width:0.40%;background:#A73F2D"></span></span><span class="wf-val">+0.14</span></div><div class="wf-row"><span class="wf-lab">2025 利润总额</span><span class="wf-track"><span class="wf-bar" style="left:0.00%;width:14.28%;background:#8B8880"></span></span><span class="wf-val">121.99</span></div><div class="ch-note">注：毛利减少 372.87 亿元相当于利润总额降幅的 116.7%；税金及附加、销售费用、管理费用三项合计回补 55.25 亿元，仅抵掉毛利降幅的 14.8%。横轴已截断（实际显示区间约 69—442 亿元），非零基线。</div></div><figcaption>图 4　2024 至 2025 年利润总额变动桥</figcaption></figure><h3>6.2 税金及附加：唯一不随收入下降的科目</h3>
+<div class="rsp-table rsp-w7"><table class="financial"><thead><tr><th>项目</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025 ‖</th><th>2026 前三季</th></tr></thead><tbody><tr><td>消费税（亿元）</td><td>77.77</td><td>86.53</td><td>100.73</td><td>103.58</td><td>88.73</td><td>—</td></tr><tr><td>税金及附加合计（亿元）</td><td>97.90</td><td>107.49</td><td>125.32</td><td>130.41</td><td>110.38</td><td>48.59</td></tr><tr><td>占营业收入比</td><td>14.79%</td><td>14.53%</td><td>15.05%</td><td>14.62%</td><td><strong>27.24%</strong></td><td>14.79%</td></tr><tr><td>消费税 ÷ 酒类收入</td><td>12.60%</td><td>12.81%</td><td>13.18%</td><td>12.46%</td><td><strong>23.91%</strong></td><td>—</td></tr></tbody></table></div>
+<div class="note">注：消费税数据取自各年年度报告「税金及附加」附注；2026 年三季度报告未披露消费税明细，故留空。</div>
+<p><strong>这张表是第五节结论的最强证据。</strong> 2021—2024 年，税金及附加占收入比稳定在 14.5%—15.1% 的窄区间内，消费税占酒类收入比稳定在 12.5%—13.2%。2025 年两个比值同时翻倍至 27.24% 与 23.91%，2026 年前三季度又精准回落到 14.79%——<strong>与 2024 年的 14.62% 几乎完全一致。</strong></p>
+<p>消费税的税基是出厂环节销售额，与会计上的收入确认时点无关。税基没有同步下降（−14.34%），而会计收入下降了 55.36%，两者之间的差额只能来自确认口径。<strong>当 2026 年口径回归后，这个比值自动回到了历史均值——这是「2025 年收入被压缩」这一判断最硬的、无法用其他理由解释的证据。</strong></p>
+<h3>6.3 费用率：逆势加投的两个方向</h3>
+<div class="rsp-table rsp-w7"><table class="financial nowrap-first"><thead><tr><th>项目</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025 ‖</th><th>2026 前三季</th></tr></thead><tbody><tr><td>销售费用率</td><td>9.82%</td><td>9.25%</td><td>9.36%</td><td>11.99%</td><td>18.82%</td><td>23.73%</td></tr><tr><td>管理费用率</td><td>4.38%</td><td>4.15%</td><td>3.99%</td><td>3.99%</td><td>7.64%</td><td>6.09%</td></tr><tr><td>研发费用率</td><td>0.27%</td><td>0.32%</td><td>0.39%</td><td>0.45%</td><td>1.11%</td><td>0.89%</td></tr></tbody></table></div>
+<div class="note">注：费用率 = 各项费用 ÷ 营业收入，为本人计算值。</div>
+<p>销售费用率从 2023 年的 9.36% 一路升至 2026 年前三季度的 23.73%，<strong>三年上升 14.4 个百分点</strong>。但要注意方向：2025 年销售费用绝对额是下降的（106.92 → 76.29 亿元，−28.6%），费用率上升纯粹是分母缩小的结果；<strong>2026 年前三季度才是真正的逆势加投——销售费用 77.98 亿元，同比 +64.76%，绝对额已超过 2025 年全年（76.29 亿元）。</strong></p>
+<p>这个组合（收入只 +7.25%、销售费用 +64.76%、利润却 +49.98%）在商业逻辑上是拧着的，唯一的解释仍然指向第六节的税金回归——详见第九节。</p>
+<h3>6.4 税负与利润成色</h3>
+<div class="rsp-table rsp-w6"><table class="financial longtable"><thead><tr><th>项目</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th></tr></thead><tbody><tr><td>利润总额（亿元）</td><td>324.50</td><td>371.04</td><td>419.13</td><td>441.63</td><td>121.99</td></tr><tr><td>所得税费用（亿元）</td><td>79.43</td><td>91.33</td><td>103.92</td><td>109.70</td><td>28.82</td></tr><tr><td>实际税率</td><td>24.48%</td><td>24.61%</td><td>24.79%</td><td>24.84%</td><td>23.63%</td></tr><tr><td>非经常性损益（亿元）</td><td>0.49</td><td>0.28</td><td>0.94</td><td>1.11</td><td>1.39</td></tr><tr><td>占归母净利润比</td><td>0.2%</td><td>0.1%</td><td>0.3%</td><td>0.3%</td><td>1.5%</td></tr></tbody></table></div>
+<div class="note">注：实际税率 = 所得税费用 ÷ 利润总额，为本人计算值。</div>
+<p><strong>五粮液的利润成色是干净的。</strong> 实际税率五年稳定在 23.6%—24.8%，没有通过税负调节粉饰；非经常性损益五年均未超过归母净利润的 1.5%，2025 年扣非降幅（−72.23%）甚至略大于归母降幅（−71.89%）。<strong>这意味着：2025 年的利润下滑不是一次性项目、不是减值洗澡、不是税务安排，而是主营经营的结果。</strong> 这一点与第五节的口径问题并不矛盾——口径改变的是「收入与成本同时移出表内」的规模，而不改变留下来的那部分业务的真实盈利能力。</p>
+<hr>
+<h2>七、现金流与渠道质量</h2>
+<h3>7.1 收现比：2025 年的 225.5% 是五年孤例</h3>
+<div class="rsp-table rsp-w7"><table class="financial"><thead><tr><th>项目</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025 ‖</th><th>2026 前三季</th></tr></thead><tbody><tr><td>销售商品收到的现金（亿元）</td><td>809.53</td><td>817.71</td><td>1,053.50</td><td>1,018.69</td><td>914.00</td><td>326.90</td></tr><tr><td>营业收入（亿元）</td><td>662.09</td><td>739.69</td><td>832.72</td><td>891.75</td><td>405.29</td><td>328.58</td></tr><tr><td>收现比</td><td>122.3%</td><td>110.5%</td><td>126.5%</td><td>114.2%</td><td><strong>225.5%</strong></td><td>99.5%</td></tr><tr><td>经营现金流／归母净利润</td><td>114.5%</td><td>91.5%</td><td>138.2%</td><td>106.6%</td><td>331.8%</td><td>0.5%</td></tr></tbody></table></div>
+<div class="note">注：收现比 = 销售商品、提供劳务收到的现金 ÷ 营业收入。该比值含 13% 增值税，正常区间为 110%—130%。</div>
+<p><strong>2021—2024 年收现比在 110.5%—126.5% 之间，四年的均值 118.4%，符合「先款后货 + 含增值税」的行业特征。2025 年跳到 225.5%，2026 年前三季度又回到 99.5%——一次完整的「鼓包」。</strong></p>
+<p>这个鼓包的方向很关键：收现比畸高意味着<strong>收到的钱远多于确认的收入</strong>，而不是收不到钱。若是渠道赖账，收现比会低于 100%（2026 年前三季度的 99.5% 就接近这条线）。所以 2025 年的问题不是回款质量，而是<strong>收入确认被压后</strong>。而 2026 年前三季度收现比 99.5%、经营现金流仅 0.47 亿元，则是另一个方向的问题——<strong>收入确认回来了，钱却没收回来</strong>。</p>
+<figure><div class="ch"><div class="ch-t">收现比：2025 年鼓包到 225.5%，2026 年回落到 99.5%</div><div class="ch-s">单位：%　｜　销售商品、提供劳务收到的现金 ÷ 营业收入（含 13% 增值税，正常区间 110%—130%）</div><div class="ch-row"><span class="ch-lab" style="flex:0 0 64pt">2021</span><span class="ch-track"><span class="ch-bar " style="width:52.1%"></span></span><span class="ch-val">122.3%</span></div><div class="ch-row"><span class="ch-lab" style="flex:0 0 64pt">2022</span><span class="ch-track"><span class="ch-bar " style="width:47.0%"></span></span><span class="ch-val">110.5%</span></div><div class="ch-row"><span class="ch-lab" style="flex:0 0 64pt">2023</span><span class="ch-track"><span class="ch-bar " style="width:53.9%"></span></span><span class="ch-val">126.5%</span></div><div class="ch-row"><span class="ch-lab" style="flex:0 0 64pt">2024</span><span class="ch-track"><span class="ch-bar " style="width:48.6%"></span></span><span class="ch-val">114.2%</span></div><div class="ch-row"><span class="ch-lab" style="flex:0 0 64pt">2025</span><span class="ch-track"><span class="ch-bar hi" style="width:96.0%"></span></span><span class="ch-val hi">225.5%</span></div><div class="ch-row"><span class="ch-lab" style="flex:0 0 64pt">2026<br><span style='font-size:7.6pt'>1-9月</span></span><span class="ch-track"><span class="ch-bar " style="width:42.4%"></span></span><span class="ch-val">99.5%</span></div><div class="ch-note">注：2021—2024 年均值 118.4%。2025 年的 225.5% 意味着收到的钱远多于确认的收入（收入被压后），而非回款恶化；2026 年前三季度的 99.5% 才是回款端的信号——收入确认回来了，钱没收回来。</div></div><figcaption>图 5　收现比（2021—2025 年度 ‖ 2026 年前三季度）</figcaption></figure><h3>7.2 经营现金流：从 331.8% 到 0.5%</h3>
+<div class="rsp-table rsp-w8"><table><thead><tr><th>项目</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025 ‖</th><th>2026H1</th><th>2026 前三季</th></tr></thead><tbody><tr><td>经营现金流净额（亿元）</td><td>267.75</td><td>244.31</td><td>417.42</td><td>339.40</td><td>297.06</td><td>−21.54</td><td>0.47</td></tr><tr><td>同比</td><td>—</td><td>−8.8%</td><td>+70.9%</td><td>−18.7%</td><td>−12.5%</td><td>由正转负</td><td>−99.83%</td></tr></tbody></table></div>
+<div class="note">注：2026 年上半年经营现金流为 −21.54 亿元（上年同期 +311.37 亿元），前三季度累计回正至 0.47 亿元，即第三季度单季净流入约 22.01 亿元。</div>
+<p><strong>这是全篇最需要盯住的一组数。</strong> 2025 年经营现金流 297.06 亿元、是归母净利润的 3.3 倍，看似极健康——但那是因为利润被压低了。2026 年前三季度利润回到 97.11 亿元，经营现金流却只有 0.47 亿元，<strong>利润与现金流的比值降到 0.5%，为五年最低</strong>。</p>
+<p>2021—2024 年该比值稳定在 91.5%—138.2% 区间，四年的中位数约 110%。一家连续四年现金流覆盖利润的公司突然掉到 0.5%，只有三种可能：应收款项激增、存货大幅占用、或预收款（合同负债）被消耗。三项数据都印证了：存货从 2025 年末 200.65 亿元升至 241.97 亿元（+20.6%），合同负债从 134.60 亿元降至 89.27 亿元（−33.7%），两者合计占用现金约 86.6 亿元。</p>
+<p><strong>公司的解释也印证这不是一次性扰动。</strong> 2026 年中报对上半年经营现金流 −21.54 亿元（−106.92%）的注 2 写道：「主要系上年同期基数较高，本报告期根据市场变化调整了收款政策收取的现金减少、银行承兑汇票到期额度同比减少等因素综合影响。」<strong>「调整收款政策」是主动行为，意味着公司为稳住渠道而放宽了打款要求——这直接削弱了「先款后货」这一白酒最重要的现金流护城河。</strong> 若该政策延续，经营现金流对分红的支撑将持续弱化（见 8.2 节）。</p>
+<h3>7.3 合同负债：蓄水池的水位在下降</h3>
+<div class="rsp-table"><table class="financial nowrap-first longtable"><thead><tr><th>时点</th><th>合同负债（亿元）</th><th>环比</th><th>同比</th></tr></thead><tbody><tr><td>2021 年末</td><td>130.59</td><td>—</td><td>+51.5%</td></tr><tr><td>2022 年末</td><td>123.79</td><td>−5.2%</td><td>−5.2%</td></tr><tr><td>2023 年末</td><td>68.64</td><td>−44.6%</td><td>−44.6%</td></tr><tr><td>2024 年末</td><td>116.90</td><td>+70.3%</td><td>+70.3%</td></tr><tr><td>2025 年末</td><td>134.60</td><td>+15.1%</td><td>+15.1%</td></tr><tr><td>2026 年 6 月末</td><td>104.41</td><td>−22.4%</td><td>—</td></tr><tr><td>2026 年 9 月末</td><td>89.27</td><td>−14.5%</td><td>−3.7%</td></tr></tbody></table></div>
+<div class="note">注：合同负债为渠道预收货款，白酒行业的核心前瞻指标。2026 年 9 月末同比基期为 2025 年 9 月末 92.68 亿元（取自 2025 年第三季度报告更新后）。</div>
+<p><strong>白酒的合同负债是「渠道打款的蓄水池」，先蓄后放，领先报表收入约一到两个季度。</strong> 五粮液的蓄水池在 2023 年曾大幅放水（130.59 → 68.64 亿元，−44.6%），2024 年重新蓄满（116.90 亿元），2025 年继续蓄至 134.60 亿元的五年高位。</p>
+<p>2026 年则连续两个季度回落：134.60 → 104.41 → 89.27 亿元。<strong>同比 −3.7%，而同期收入 +7.25%——合同负债增速已落后于收入增速，按白酒行业的判据，这是收入前瞻走弱的信号。</strong> 需要说明的是，年末是白酒合同负债的季节性高点，因此「较年末下降 33.7%」属于正常季节性，不宜过度解读；真正有意义的是同比 −3.7% 这个方向。</p>
+<figure><div class="ch"><div class="ch-t">蓄水池与库存：一个在漏水，一个在积水</div><div class="ch-s">单位：人民币亿元　｜　合同负债为渠道预收货款；存货含基酒与成品两部分</div><div class="ch-legend"><span><i style="background:#2F6F6B"></i>合同负债</span><span><i style="background:#CFC7BA"></i>存货</span></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2021</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab" style="flex:0 0 64pt">合同负债</span><span class="ch-track"><span class="ch-bar" style="width:54.0%;background:#2F6F6B"></span></span><span class="ch-val">130.6</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab" style="flex:0 0 64pt">存货</span><span class="ch-track"><span class="ch-bar" style="width:57.9%;background:#CFC7BA"></span></span><span class="ch-val">140.2</span></div></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2022</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab" style="flex:0 0 64pt">合同负债</span><span class="ch-track"><span class="ch-bar" style="width:51.2%;background:#2F6F6B"></span></span><span class="ch-val">123.8</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab" style="flex:0 0 64pt">存货</span><span class="ch-track"><span class="ch-bar" style="width:66.0%;background:#CFC7BA"></span></span><span class="ch-val">159.8</span></div></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2023</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab" style="flex:0 0 64pt">合同负债</span><span class="ch-track"><span class="ch-bar" style="width:28.4%;background:#2F6F6B"></span></span><span class="ch-val">68.6</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab" style="flex:0 0 64pt">存货</span><span class="ch-track"><span class="ch-bar" style="width:71.9%;background:#CFC7BA"></span></span><span class="ch-val">173.9</span></div></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2024</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab" style="flex:0 0 64pt">合同负债</span><span class="ch-track"><span class="ch-bar" style="width:48.3%;background:#2F6F6B"></span></span><span class="ch-val">116.9</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab" style="flex:0 0 64pt">存货</span><span class="ch-track"><span class="ch-bar" style="width:75.4%;background:#CFC7BA"></span></span><span class="ch-val">182.3</span></div></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2025</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab" style="flex:0 0 64pt">合同负债</span><span class="ch-track"><span class="ch-bar" style="width:55.6%;background:#2F6F6B"></span></span><span class="ch-val">134.6</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab" style="flex:0 0 64pt">存货</span><span class="ch-track"><span class="ch-bar" style="width:82.9%;background:#CFC7BA"></span></span><span class="ch-val">200.7</span></div></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2026<br><span style='font-size:7.6pt'>9月末</span></span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab" style="flex:0 0 64pt">合同负债</span><span class="ch-track"><span class="ch-bar" style="width:36.9%;background:#2F6F6B"></span></span><span class="ch-val">89.3</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab" style="flex:0 0 64pt">存货</span><span class="ch-track"><span class="ch-bar" style="width:100.0%;background:#CFC7BA"></span></span><span class="ch-val">242.0</span></div></div><div class="ch-note">注：合同负债年末为季节性高点，故 2026 年 9 月末的「较年末下降 33.7%」不宜过度解读；有意义的是同比 −3.7%，已落后于同期收入 +7.25%。存货则五年增长 72.6%，2026 年 9 月末同比 +37.9%，为五年最快增速，且成品库存量同步 +45.18%。</div></div><figcaption>图 6　合同负债与存货（2021—2025 年末 ‖ 2026 年 9 月末）</figcaption></figure><h3>7.4 存货：被低估的一条曲线</h3>
+<div class="rsp-table rsp-w7"><table class="financial nowrap-first"><thead><tr><th>项目</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025 ‖</th><th>2026 9 月末</th></tr></thead><tbody><tr><td>存货（亿元）</td><td>140.15</td><td>159.81</td><td>173.88</td><td>182.34</td><td>200.65</td><td>241.97</td></tr><tr><td>同比</td><td>—</td><td>+14.0%</td><td>+8.8%</td><td>+4.9%</td><td>+10.0%</td><td>+37.9%</td></tr><tr><td>存货／营业收入</td><td>21.2%</td><td>21.6%</td><td>20.9%</td><td>20.4%</td><td>49.5%</td><td>55.2%（年化）</td></tr><tr><td>成品库存量（吨）</td><td>21,161</td><td>23,328</td><td>48,322</td><td>32,799</td><td>47,616</td><td>—</td></tr></tbody></table></div>
+<div class="note">注：2026 年 9 月末存货同比基期为 2025 年 9 月末 175.41 亿元；「存货／营业收入」2026 年一列按前三季度收入年化（328.58 ÷ 3 × 4 = 438.11 亿元）计算，若直接用前三季度收入则为 73.6%，两者口径不同，本文取年化口径以保持可比。</div>
+<p><strong>白酒的存货要分两层看：基酒是战略资产（越陈越值钱），成品是渠道压力的镜像。</strong> 五粮液的存货五年增长 72.6%（140.15 → 241.97 亿元），远快于收入；2026 年三季度末同比 +37.9%，是五年最快增速。结合成品库存量 4.76 万吨（+45.18%）、库存／销量比 42.2% 的数据，<strong>这一轮存货增长中成品占比在上升，与「基酒陈贮增值」的正面解释不符。</strong></p>
+<hr>
+<h2>八、资产、分红与估值</h2>
+<h3>8.1 资本结构：零有息负债，现金覆盖总负债两倍</h3>
+<div class="rsp-table rsp-w7"><table class="financial nowrap-first longtable"><thead><tr><th>项目（亿元）</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025 ‖</th><th>2026 9 月末</th></tr></thead><tbody><tr><td>总资产</td><td>1,356.21</td><td>1,527.15</td><td>1,654.33</td><td>1,882.52</td><td>1,899.84</td><td>1,719.60</td></tr><tr><td>总负债</td><td>342.29</td><td>360.31</td><td>330.84</td><td>518.57</td><td>678.04</td><td>510.04</td></tr><tr><td>资产负债率</td><td>25.24%</td><td>23.59%</td><td>20.00%</td><td>27.55%</td><td>35.69%</td><td>29.66%</td></tr><tr><td>归母净资产</td><td>990.68</td><td>1,140.25</td><td>1,295.58</td><td>1,332.85</td><td>1,199.33</td><td>1,184.37</td></tr><tr><td>类现金</td><td>1,061.95</td><td>924.78</td><td>1,154.56</td><td>1,277.43</td><td>1,349.83</td><td>1,182.33</td></tr><tr><td>类现金／总负债</td><td>3.10 倍</td><td>2.57 倍</td><td>3.49 倍</td><td>2.46 倍</td><td>1.99 倍</td><td>2.32 倍</td></tr><tr><td>有息负债</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td></tr></tbody></table></div>
+<div class="note">注：类现金 = 货币资金 + 交易性金融资产 + 其他流动资产（主要为定期存款）。五年内短期借款、长期借款、应付债券均为零；「一年内到期的非流动负债」为租赁负债，不计入有息负债。</div>
+<p><strong>五粮液是极少数在行业下行期仍保持零有息负债、且现金能覆盖全部负债两倍的白酒企业。</strong> 这是它敢在利润腰斩的年份维持 200 亿元分红的底气。</p>
+<p>但要两面陈述：<strong>1,349.83 亿元的类现金同时是 ROE 的最大拖累。</strong> 2025 年归母净资产 1,199.33 亿元，而类现金 1,349.83 亿元已超过净资产本身；若以「归母净资产 − 类现金」衡量经营性净资产，为 −150.50 亿元（2021 年亦为 −71.27 亿元）。<strong>负数意味着公司的经营性资产几乎完全由无息经营性负债（预收款、应付款、应交税费）支撑，ROE 这个指标对五粮液已近失效</strong>——它的分母中，低收益现金的占比远高于投入经营的资产，2025 年加权 ROE 6.89% 里有一半是分母被现金撑大的结果，而非资本回报能力下降到 6.89% 的水平。以总资产口径衡量，真正投入经营的资产（总资产 − 类现金）为 550.01 亿元，仅为总资产的 29.0%。</p>
+<h3>8.2 分红：比例失控，绝对额硬撑</h3>
+<div class="rsp-table rsp-w6"><table class="financial longtable"><thead><tr><th>项目</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th></tr></thead><tbody><tr><td>每 10 股派现（元，含税）</td><td>30.23</td><td>37.82</td><td>46.70</td><td>57.45</td><td>51.56</td></tr><tr><td>其中：中期</td><td>—</td><td>—</td><td>—</td><td>25.76</td><td>25.78</td></tr><tr><td>其中：年度末期</td><td>30.23</td><td>37.82</td><td>46.70</td><td>31.69</td><td>25.78</td></tr><tr><td>现金分红总额（亿元）</td><td>117.34</td><td>146.80</td><td>181.27</td><td>223.00</td><td>200.13</td></tr><tr><td>归母净利润（亿元）</td><td>233.77</td><td>266.91</td><td>302.11</td><td>318.53</td><td>89.54</td></tr><tr><td><strong>分红率</strong></td><td><strong>50.2%</strong></td><td><strong>55.0%</strong></td><td><strong>60.0%</strong></td><td><strong>70.0%</strong></td><td><strong>223.5%</strong></td></tr><tr><td>归属年度分红 ÷ 经营现金流</td><td>43.8%</td><td>60.1%</td><td>43.4%</td><td>65.7%</td><td>67.4%</td></tr><tr><td>当年实际支付 ÷ 经营现金流</td><td>40.6%</td><td>51.9%</td><td>38.1%</td><td>56.7%</td><td><strong>94.3%</strong></td></tr></tbody></table></div>
+<div class="note">注：<ol><li>分红按「归属年度」口径归集，即当年中期分红 + 当年年度末期分红（末期于次年实施）。2024 年度中期 25.76 元、末期 31.69 元；2025 年度中期 25.78 元（2025-12-18 实施）、末期 25.78 元（预案）。</li><li>三套口径必须分开看，不可混用：① <strong>归属年度分红</strong> 200.13 亿元（2025 中期 + 2025 末期）；② <strong>当年宣告数</strong> 223.08 亿元（2025 年报未分配利润表「应付普通股股利」，即 2024 年度末期 123.01 亿元 + 2025 年中期 100.07 亿元）；③ <strong>当年实际支付</strong> 280.05 亿元（2025 年合并现金流量表「分配股利、利润或偿付利息支付的现金」，上年 192.41 亿元），因含上年应付股利的跨年结算，故高于当年宣告数。</li></ol></div>
+<p><strong>这是五粮液五年里最剧烈的指标变化，甚至超过利润腰斩。</strong> 分红率从 2021 年的 50.2% 逐年提升至 2024 年的 70.0%（教科书式的成熟期消费股回报路径），2025 年直接跳到 <strong>223.5%</strong>——分红总额 200.13 亿元，是当年归母净利润 89.54 亿元的 2.24 倍。</p>
+<p><strong>这不是「提高分红」，而是「用留存收益补足分红绝对额」。</strong> 2025 年度分红 200.13 亿元，比 2024 年度的 223.00 亿元只降了 10.3%，而同期利润降了 71.9%。公司的选择是：宁可派超利润，也要把绝对额稳住。代价写在资产负债表上——未分配利润从 876.57 亿元降至 704.19 亿元（−172.38 亿元），归母净资产 −10.02%。</p>
+<p>按 2025 年经营现金流 297.06 亿元计，归属年度分红占 67.4%，尚在可承受范围；但<strong>当年实际派现 280.05 亿元，已占经营现金流的 94.3%（2021—2024 年为 38.1%—56.7%），占期末货币资金 1,270.14 亿元的 22.0%。</strong> 更关键的是：若 2026 年经营现金流维持在 0.47 亿元的量级，200 亿元分红将完全依赖存量现金——2026 年前三季度货币资金已从 1,270.14 亿元降至 1,117.30 亿元，减少 152.84 亿元，其中筹资活动净流出 149.00 亿元（主要是分红）。</p>
+<h3>8.3 估值：静态 PE 30.8 倍，PB 2.33 倍</h3>
+<div class="rsp-table"><table class="longtable"><thead><tr><th>项目</th><th>数值</th><th>说明</th></tr></thead><tbody><tr><td>收盘价（2026-10-28）</td><td>71.09 元</td><td>当日 −5.69%</td></tr><tr><td>总股本</td><td>38.82 亿股</td><td>3,881,608,005 股</td></tr><tr><td>总市值</td><td>2,759.44 亿元</td><td>收盘价 × 总股本</td></tr><tr><td>归母净资产（2026-09-30）</td><td>1,184.37 亿元</td><td>每股 30.51 元</td></tr><tr><td>市净率 PB</td><td>2.33 倍</td><td>总市值 ÷ 归母净资产</td></tr><tr><td>市盈率 PE（TTM）</td><td>22.64 倍</td><td>TTM 归母净利润 121.90 亿元</td></tr><tr><td>市盈率 PE（2025 静态）</td><td>30.82 倍</td><td>2025 年归母净利润 89.54 亿元</td></tr><tr><td>股息率（2025 年度分红）</td><td>7.25%</td><td>200.13 亿元 ÷ 总市值</td></tr></tbody></table></div>
+<div class="note">注：行情为 2026-10-28 收盘数据，TTM 归母净利润 = 2025 年全年 89.54 + 2026 年前三季 97.11 − 2025 年前三季 64.75 = 121.90 亿元。</div>
+<p><strong>三个估值指标给出的信号互相冲突，冲突本身就是结论。</strong> 股息率 7.25% 看起来极便宜（远超十年期国债），PE（TTM）22.64 倍看似合理，PB 2.33 倍对一家 ROE 只有 6.89%（TTM 约 10.3%）的公司则明显偏贵。</p>
+<p>冲突的根源是分子分母都不可靠：<strong>股息率的分母（200.13 亿元分红）已超过当期利润 2.24 倍，不可持续；PE 的分子（TTM 121.90 亿元）里含有 2025 年的口径压缩基数，2026 年利润的 +49.98% 又主要来自税金回归，两者都不是稳态盈利。</strong> 用 2026 年前三季度年化（129.48 亿元）估算，PE 约 21.3 倍；若回到 2024 年 318.53 亿元的盈利水平，PE 仅 8.7 倍——三个数字相差 2.4 倍，说明当前市场对该公司的盈利中枢没有共识。</p>
+<hr>
+<h2>九、2026 年最新进展：口径回归，而非经营改善</h2>
+<h3>9.1 三期数据</h3>
+<div class="rsp-table rsp-w7"><table class="financial nowrap-first longtable"><thead><tr><th>项目（亿元）</th><th>2025H1</th><th>2026H1</th><th>同比</th><th>2025 前三季</th><th>2026 前三季</th><th>同比</th></tr></thead><tbody><tr><td>营业收入</td><td>235.10</td><td>284.17</td><td>+20.87%</td><td>306.38</td><td>328.58</td><td>+7.25%</td></tr><tr><td>归母净利润</td><td>46.24</td><td>87.53</td><td>+89.30%</td><td>64.75</td><td>97.11</td><td>+49.98%</td></tr><tr><td>扣非归母净利润</td><td>46.12</td><td>84.83</td><td>+83.96%</td><td>64.58</td><td>94.41</td><td>+46.18%</td></tr><tr><td>毛利率</td><td>77.86%</td><td>80.29%</td><td>+2.43pp</td><td>75.73%</td><td>79.89%</td><td>+4.16pp</td></tr><tr><td>税金及附加／收入</td><td>33.40%</td><td>14.80%</td><td>−18.60pp</td><td>29.75%</td><td>14.79%</td><td>−14.96pp</td></tr><tr><td>销售费用率</td><td>14.89%</td><td>22.25%</td><td>+7.36pp</td><td>15.45%</td><td>23.73%</td><td>+8.28pp</td></tr><tr><td>经营现金流净额</td><td>+311.37</td><td>−21.54</td><td>由正转负</td><td>+282.47</td><td>+0.47</td><td>−99.83%</td></tr></tbody></table></div>
+<div class="note">注：2025 年上半年与前三季度数据取自 2026 年报告的比较列（已按新口径重述）。</div>
+<p><strong>这张表把「修复」的性质暴露得很彻底。</strong> 2026 年上半年收入 +20.87%、利润 +89.30%，表面看是强劲复苏；但只要把「税金及附加／收入」这一行放进来，就能看到真相：<strong>该比值从 33.40% 回落到 14.80%，一次性释放了 18.6 个百分点</strong>。收入只增长 20.87%，却带来 89.30% 的利润增长，差额几乎全部来自这一项。</p>
+<h3>9.2 前三季度利润桥（2025 前三季 → 2026 前三季）</h3>
+<div class="rsp-table"><table class="longtable"><thead><tr><th>变动项</th><th>金额（亿元）</th><th>方向</th><th>占利润总额增幅</th></tr></thead><tbody><tr><td>毛利增加</td><td>+30.51</td><td>贡献</td><td>70.3%</td></tr><tr><td>税金及附加减少</td><td>+42.58</td><td>贡献</td><td>98.1%</td></tr><tr><td>销售费用增加</td><td>−30.65</td><td>拖累</td><td>−70.6%</td></tr><tr><td>管理费用减少</td><td>+2.96</td><td>贡献</td><td>6.8%</td></tr><tr><td>研发费用减少</td><td>+0.28</td><td>贡献</td><td>0.6%</td></tr><tr><td>财务净收益减少</td><td>−5.09</td><td>拖累</td><td>−11.7%</td></tr><tr><td>其他收益·投资收益·减值等</td><td>+2.44</td><td>贡献</td><td>5.6%</td></tr><tr><td>营业外收支净额变动</td><td>+0.37</td><td>贡献</td><td>0.9%</td></tr><tr><td><strong>利润总额变动</strong></td><td><strong>+43.40</strong></td><td>—</td><td><strong>100.0%</strong></td></tr></tbody></table></div>
+<div class="note">注：2025 年前三季度利润总额 88.70 亿元，2026 年前三季度 132.09 亿元。</div>
+<p><strong>税金及附加减少 42.58 亿元，一项就超过利润总额的全部增量（43.40 亿元），贡献率 98.1%。</strong> 同期销售费用反向增加 30.65 亿元，抵掉了毛利增量（30.51 亿元）的全部。<strong>若不考虑税金回归，2026 年前三季度的经营利润其实是零增长的。</strong></p>
+<h3>9.3 单季：修复在上半年，第三季度已经中断</h3>
+<div class="rsp-table rsp-w6"><table class="nowrap-first"><thead><tr><th>项目（亿元）</th><th>2026 Q1</th><th>2026 Q2</th><th>2026 Q3</th><th>2025 Q3</th><th>Q3 同比</th></tr></thead><tbody><tr><td>营业收入</td><td>228.38</td><td>55.79（推算）</td><td>44.42</td><td>71.28</td><td>−37.68%</td></tr><tr><td>同比</td><td>+33.67%</td><td>−13.16%（推算）</td><td>−37.68%</td><td>—</td><td>—</td></tr><tr><td>归母净利润</td><td>80.63</td><td>6.90（推算）</td><td>9.58</td><td>18.51</td><td>−48.25%</td></tr><tr><td>同比</td><td>+82.57%</td><td>+231.7%（推算）</td><td>−48.25%</td><td>—</td><td>—</td></tr></tbody></table></div>
+<div class="note">注：2026 年第一季度数据取自 2026 年第一季度报告；第二季度由累计数相减得出（H1 减 Q1），为推算值，其同比基期 2025 年第二季度同样由 2025 年半年报减一季报得出（收入 64.24 亿元、归母净利润 2.08 亿元）；第三季度数据取自 2026 年第三季度报告与 2025 年第三季度报告（更新后）。</div>
+<p><strong>季内节奏比累计数更能说明问题：2026 年第一季度营业收入 228.38 亿元（+33.67%）、归母净利润 80.63 亿元（+82.57%），一个季度就贡献了前三季度利润的 83.0%；第二季度收入骤降至 55.79 亿元（−13.16%）、净利润仅 6.90 亿元；第三季度进一步降至 44.42 亿元（−37.68%）、9.58 亿元（−48.25%）。</strong></p>
+<p>第一季度的爆发有明确成因——公司在中报注明「主要系上年同期利润基数较低，及元春期间采取了有效的动销举措，销售旺季核心产品动销较好综合影响」。但<strong>元春旺季的动销前置，恰恰会透支后续季度的渠道打款能力</strong>，第二、三季度的连续下滑正是这一透支的落地。参照系是 2024 年第一季度营业收入 369.40 亿元——2026 年第三季度的 44.42 亿元仅相当于它的 12.0%。</p>
+<p>同时，第三季度单季销售费用 14.76 亿元（上年同期 12.33 亿元，+19.7%），在收入 −37.68% 的情况下继续加投，<strong>这是典型的「以费用换份额」，但收入并未响应。</strong></p>
+<h3>9.4 对 2026 年全年的三种情形</h3>
+<p>不做精确预测，只给边界条件：</p>
+<ol><li><strong>口径完全回归情形。</strong> 若第四季度收入回到 2024 年同期的量级（213 亿元）、净利率维持前三季度的 29.55%，全年收入约 541.58 亿元、归母净利润约 160 亿元，对应 PE 约 17.2 倍、分红率（若维持 200 亿元）125%——但这一情形与「第三季度收入 −37.68%」直接冲突，可能性最低。</li><li><strong>当前节奏延续情形。</strong> 若第四季度维持第三季度的收入水平（44.42 亿元），全年收入约 373.00 亿元、归母净利润约 106.69 亿元，对应 PE 约 25.9 倍、分红率 188%。</li><li><strong>经营继续下探情形。</strong> 若第四季度收入同比再降 30%（约 69.24 亿元），全年收入约 397.82 亿元、归母净利润约 115 亿元，对应 PE 约 24.0 倍。</li></ol>
+<p><strong>注意情形 2 与情形 3 的利润差异只有 8 亿元</strong>（106.69 与 115），而收入差异达 25 亿元——<strong>2026 年的利润已不再由收入线性驱动，而由税金率与费用投放决定。</strong> 这是口径后遗症的典型表现：收入回到什么水平已不是关键变量，税金是否继续回归、销售费用是否继续加投才是。</p>
+<p><strong>三种情形的共同结论：2026 年的利润指标已失去对经营质量的指示作用。</strong> 判断这家公司 2026 年过得好不好，应看四个数：成品库存量、合同负债、销售费用绝对额、经营现金流。目前四者的方向分别是升、降、升、几近归零——<strong>都不好。</strong></p>
+<hr>
+<h2>十、风险提示</h2>
+<p><strong>1. 收入确认口径不透明（首要风险）。</strong> 2025 年调整涉及的业务范围、金额、对毛利率与净利率的影响均未披露；「监管商品款项」263.15 亿元无性质说明；「不需追溯重述」与「调整收入确认核算」两处表述矛盾。这直接导致：2025 年收入同比、2025 年吨价、2025 年净利率三个常用指标全部不可用于跨期比较，任何基于年报的横向或纵向对比都可能失真。</p>
+<p><strong>2. 分红可持续性。</strong> 2025 年度分红 200.13 亿元，为归母净利润的 223.5%；未分配利润一年减少 172.38 亿元；2026 年前三季度货币资金减少 152.84 亿元、经营现金流仅 0.47 亿元。<strong>若 2027 年利润不能回到 200 亿元以上，维持现有分红绝对额将直接消耗存量现金，而存量现金是这家公司抵御行业下行的唯一缓冲。</strong></p>
+<p><strong>3. 渠道与成品库存。</strong> 成品库存量 4.76 万吨（+45.18%）、库存／销量比 42.2%（五年最高）、存货 241.97 亿元（同比 +37.9%）。在「先款后货」的经销体系下，公司的报表收入可以先于终端动销确认，库存压力会延迟体现——<strong>这意味着当前的收入数据可能仍高估了真实动销。</strong></p>
+<p><strong>4. 现金流质量逆转。</strong> 经营现金流／归母净利润从 2025 年的 331.8% 骤降至 2026 年前三季度的 0.5%，为五年最低。存货与合同负债合计占用现金约 86.6 亿元。若第四季度不能回补，2026 年全年经营现金流可能低于 50 亿元，不足以覆盖 200 亿元分红。</p>
+<p><strong>5. 费用刚性上升。</strong> 销售费用率三年从 9.36% 升至 23.73%，2026 年前三季度销售费用绝对额（77.98 亿元）已超 2025 年全年（76.29 亿元），而收入仅 +7.25%。<strong>在收入下行期维持高强度投放，会同时压缩利润与现金流，且一旦停止投放收入可能进一步下滑——这是一个典型的进退两难。</strong></p>
+<p><strong>6. 行业周期。</strong> 公司自述「白酒行业进入深度调整期，消费场景收缩、存量竞争加剧」。这一判断在量（销量 −30.26%）、价（吨价 −36.0%）、库存（+45.18%）三个维度都得到了实物数据支持，不是管理层的托词。</p>
+<p><strong>7. 信息质量。</strong> 本报告已尽力用三个独立锚点交叉验证，但仍无法确定 2025 年真实经营规模。读者应将本报告的「区间估计」（酒类收入 580—772 亿元）视为分析框架，而非结论。</p>
+<hr>
+<h2>附录 A　五年主要财务数据（补充）</h2>
+<div class="rsp-table rsp-w6"><table class="financial longtable"><thead><tr><th>项目（亿元）</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th></tr></thead><tbody><tr><td>营业成本</td><td>163.19</td><td>181.78</td><td>201.57</td><td>204.61</td><td>91.02</td></tr><tr><td>毛利</td><td>498.90</td><td>557.90</td><td>631.15</td><td>687.14</td><td>314.27</td></tr><tr><td>税金及附加</td><td>97.90</td><td>107.49</td><td>125.32</td><td>130.41</td><td>110.38</td></tr><tr><td>销售费用</td><td>65.04</td><td>68.44</td><td>77.96</td><td>106.92</td><td>76.29</td></tr><tr><td>管理费用</td><td>29.00</td><td>30.68</td><td>33.19</td><td>35.55</td><td>30.97</td></tr><tr><td>研发费用</td><td>1.77</td><td>2.36</td><td>3.22</td><td>4.05</td><td>4.49</td></tr><tr><td>财务费用（净收益）</td><td>−17.32</td><td>−20.26</td><td>−24.73</td><td>−28.34</td><td>−26.62</td></tr><tr><td>营业利润</td><td>325.52</td><td>371.74</td><td>420.04</td><td>442.00</td><td>122.51</td></tr><tr><td>利润总额</td><td>324.50</td><td>371.04</td><td>419.13</td><td>441.63</td><td>121.99</td></tr><tr><td>净利润（含少数股东）</td><td>245.07</td><td>279.71</td><td>315.21</td><td>331.93</td><td>93.17</td></tr><tr><td>少数股东损益</td><td>11.30</td><td>12.80</td><td>13.10</td><td>13.40</td><td>3.63</td></tr><tr><td>投资活动现金流净额</td><td>−14.97</td><td>−17.16</td><td>−29.32</td><td>−26.42</td><td>−19.71</td></tr><tr><td>筹资活动现金流净额</td><td>−112.69</td><td>−131.05</td><td>−163.00</td><td>−196.22</td><td>−283.92</td></tr><tr><td>分配股利等支付的现金</td><td>108.74</td><td>126.81</td><td>158.94</td><td>192.41</td><td>280.05</td></tr><tr><td>基本每股收益（元）</td><td>6.023</td><td>6.876</td><td>7.783</td><td>8.206</td><td>2.307</td></tr></tbody></table></div>
+<div class="note">注：2025 年分配股利支付 280.05 亿元为现金流量表实际支付数，与「归属年度」分红 200.13 亿元、当年宣告数 223.08 亿元的差异见 8.2 节注 2。</div>
+<h2>附录 B　口径事项与异常清单</h2>
+<div class="rsp-table"><table class="nowrap-first longtable"><thead><tr><th>编号</th><th>事项</th><th>披露位置</th><th>本报告处理</th></tr></thead><tbody><tr><td>B1</td><td>2025 年调整部分业务收入确认核算</td><td>2025 年报「分季度主要财务指标」附注</td><td>全文按「2025 年收入不可比」处理，不用于趋势外推</td></tr><tr><td>B2</td><td>「不需追溯调整或重述以前年度会计数据：否」</td><td>2025 年报「主要会计数据」页</td><td>与 B1 并列陈述，作为信息矛盾证据</td></tr><tr><td>B3</td><td>「重要会计政策变更：不适用」</td><td>2025 年报附注 28</td><td>同上；未自行还原可比数</td></tr><tr><td>B4</td><td>「监管商品款项」263.15 亿元</td><td>2025 年报附注 28「其他流动负债」</td><td>单列，作为收入未确认的对应载体；无性质说明，不推测具体业务</td></tr><tr><td>B5</td><td>2026H1 经营现金流为负（−21.54 亿元）</td><td>2026 年半年报</td><td>如实列示，未做季节性调整</td></tr><tr><td>B6</td><td>2026Q3 经营现金流累计 0.47 亿元</td><td>2026 年三季报</td><td>如实列示；单季回正约 22.01 亿元</td></tr><tr><td>B7</td><td>2025 年度分红率 223.5%</td><td>2025 年报「利润分配」章节</td><td>按「中期 + 末期」归属年度口径计算，与现金流量表口径分列</td></tr><tr><td>B8</td><td>2025 年吨价 −36.0%</td><td>本人计算</td><td>标注为混合均价，并说明与口径事件的关系存疑</td></tr><tr><td>B9</td><td>2026 年 9 月末存货同比 +37.9%</td><td>2026 年三季报 vs 2025 年三季报</td><td>同比基期取自 2025 年三季报更新后</td></tr><tr><td>B10</td><td>2026 年一、二季度单季数</td><td>由累计数相减推算</td><td>标注「推算」</td></tr></tbody></table></div>
+<hr>
+<p><strong>数据来源：</strong> 宜宾五粮液股份有限公司 2021—2025 年年度报告、2026 年半年度报告、2026 年第三季度报告、2025 年第三季度报告（更新后）；深圳证券交易所指定信息披露渠道；行情数据取自 2026-10-28 收盘。</p>
+<p><strong>计算方法说明：</strong> 毛利率、归母净利率、费用率、收现比、吨酒价格、实际税率、类现金、分红率等派生指标均为本人依据报表原始数计算，与公司披露口径可能存在差异，已在首次出现处标注公式。凡涉及跨期比较的年份，均在表注中说明基期与口径。</p>
+
+<!-- rsp-mobile-adapt : 溢出表格滑动提示 -->
+<script>
+(function(){
+  function mark(){
+    var boxes = document.querySelectorAll('.rsp-table');
+    for (var i=0;i<boxes.length;i++){
+      var b = boxes[i];
+      if (b.scrollWidth > b.clientWidth + 4) b.setAttribute('data-rsp-scroll','');
+      else b.removeAttribute('data-rsp-scroll');
+    }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mark);
+  else mark();
+  window.addEventListener('resize', function(){ clearTimeout(window.__rspT); window.__rspT=setTimeout(mark,180); });
+})();
+</script>
+</body>
+</html>
