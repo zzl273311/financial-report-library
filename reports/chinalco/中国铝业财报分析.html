@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>中国铝业财报分析报告</title>
+<meta name="generator" content="financial-report-analysis">
+<style>
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W04.ttf") format("truetype");
+    font-weight: 400; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W05.ttf") format("truetype");
+    font-weight: 500; font-style: normal; font-display: swap;
+  }
+  @page {
+    size: A4;
+    margin: 16mm 18mm 18mm 18mm;
+    background: #F7F4EE;
+    @bottom-center {
+      content: counter(page) "  ·  财报分析";
+      font-family: "TsangerJinKai02", "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", Georgia, serif;
+      font-size: 9pt; color: #6b6a64;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --parchment:#F7F4EE; --ivory:#FBF9F4; --near-black:#22262B; --dark-warm:#3E4145;
+    --olive:#504e49; --stone:#7C7B77; --brand:#A73F2D; --brand-deep:#8A3223;
+    --accent:#A73F2D; --accent-soft:#F1E3DD; --gold:#B8862F; --teal:#2F6F6B; --blue:#1B365D;
+    --border:#E3DDD4; --border-soft:#EAE5DC;
+    --tag-bg:#F1E3DD; --positive:#A73F2D; --negative:#2F6F6B;
+    --serif: "TsangerJinKai02", "Source Han Serif SC", "Source Han Serif CN", "Noto Serif CJK SC", "Noto Serif SC", "Songti SC", "STSong", "SimSun", Georgia, serif;
+    --rhythm-module:14pt; --rhythm-section:18pt;
+  }
+  html, body { background: var(--parchment); }
+  @media screen { body { max-width: 210mm; margin: 0 auto; padding: 16mm 18mm 18mm 18mm; } }
+  body { color: var(--near-black); font-family: var(--serif); font-size: 10pt; line-height: 1.5;
+    letter-spacing: 0.3pt; widows: 3; orphans: 3; }
+  strong { font-weight: 500; }
+  .hl { color: var(--brand); font-weight: 500; }
+
+  .report-header { display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: var(--rhythm-module); padding-bottom: 10pt; border-bottom: 0.5pt solid var(--border); }
+  .ticker-block { flex: 1; }
+  .ticker-eyebrow { font-size: 9pt; color: var(--brand); letter-spacing: 1.5pt; text-transform: uppercase;
+    font-weight: 500; margin-bottom: 4pt; }
+  .ticker-name { font-family: var(--serif); font-size: 24pt; font-weight: 500; color: var(--near-black);
+    line-height: 1.15; margin-bottom: 4pt; }
+  .ticker-sub { font-size: 10pt; color: var(--olive); line-height: 1.4; }
+  .price-block { text-align: right; padding-top: 4pt; }
+  .price-current { font-family: var(--serif); font-size: 28pt; font-weight: 500; color: var(--near-black);
+    line-height: 1; font-variant-numeric: tabular-nums; }
+  .price-change { font-size: 10pt; font-weight: 500; margin-top: 2pt; font-variant-numeric: tabular-nums; }
+  .price-change.up { color: var(--positive); }
+  .price-date { font-size: 9pt; color: var(--stone); margin-top: 2pt; }
+
+  .metrics { display: flex; gap: 14pt; margin-bottom: 16pt; padding: 6pt 0;
+    border-top: 0.3pt dotted var(--border); border-bottom: 0.3pt dotted var(--border); }
+  .metric { flex: 1; min-width: 0; display: flex; align-items: baseline; gap: 4pt; flex-wrap: wrap; }
+  .metric-value { font-family: var(--serif); font-size: 16pt; font-weight: 500; color: var(--brand);
+    line-height: 1; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  /* white-space 必须为 normal：设为 nowrap 时 flex 项不收缩，4 张指标卡的标签会互相压字并冲出页面右缘 */
+  .metric-label { font-size: 9pt; color: var(--olive); line-height: 1.3; white-space: normal; }
+
+  h2 { font-family: var(--serif); font-size: 16pt; font-weight: 500; color: var(--near-black);
+    margin: 18pt 0 6pt 0; break-after: avoid; }
+  h3 { font-size: 13pt; font-weight: 500; color: var(--dark-warm); margin: 12pt 0 4pt 0; break-after: avoid; }
+  p { margin: 0 0 8pt 0; line-height: 1.5; widows: 2; orphans: 2; }
+  ul, ol { margin: 4pt 0 8pt 0; padding-left: 18pt; line-height: 1.5; }
+  ul li::marker { color: var(--brand); } ol li::marker { color: var(--brand); font-weight: 500; }
+
+  .tag { display: inline-block; background: var(--tag-bg); color: var(--brand); font-size: 9pt;
+    font-weight: 500; padding: 1pt 6pt; border-radius: 3pt; margin-right: 3pt; }
+
+  table, .kami-table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin: 8pt 0; break-inside: avoid; }
+  table th, .kami-table th { text-align: left; font-weight: 500; color: var(--dark-warm);
+    padding: 6pt 8pt; border-bottom: 0.6pt solid var(--border); background: transparent; }
+  table td, .kami-table td { padding: 5pt 8pt; border-bottom: 0.25pt solid var(--border); vertical-align: top; }
+  table.compact th, .kami-table.compact th { padding: 3pt 6pt; font-size: 8pt; }
+  table.compact td, .kami-table.compact td { padding: 2.5pt 6pt; font-size: 8pt; line-height: 1.4; }
+  table.financial td:not(:first-child), .kami-table.financial td:not(:first-child) {
+    text-align: right; font-variant-numeric: tabular-nums; }
+  table.financial th:not(:first-child), .kami-table.financial th:not(:first-child) { text-align: right; }
+  table .total td, .kami-table .total td { font-weight: 500; border-top: 0.6pt solid var(--border);
+    border-bottom: none; color: var(--near-black); }
+  .note { font-size: 8.5pt; color: var(--stone); margin: 2pt 0 8pt 0; }
+
+  .callout { background: var(--ivory); padding: 8pt 12pt; border-radius: 3pt; margin: 10pt 0;
+    line-height: 1.5; break-inside: avoid; }
+  .callout .quote { margin: 6pt 0; color: var(--olive); }
+
+  figure { margin: 12pt 0; break-inside: avoid; }
+  figcaption { font-size: 9pt; color: var(--stone); margin-top: 4pt; text-align: center; }
+
+  .risk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10pt; margin: 8pt 0; }
+  .risk-item { padding: 6pt 10pt; background: var(--ivory); border-radius: 3pt; break-inside: avoid; }
+  .risk-label { font-size: 9pt; font-weight: 500; color: var(--brand); margin-bottom: 2pt; }
+  .risk-desc { font-size: 9pt; color: var(--olive); line-height: 1.4; }
+
+  .analyst-box { background: var(--ivory); border-radius: 4pt; padding: 10pt 14pt; margin: 12pt 0;
+    break-inside: avoid; }
+  .analyst-label { font-size: 9pt; color: var(--brand); letter-spacing: 0.5pt; text-transform: uppercase;
+    margin-bottom: 4pt; }
+
+  .page-break { break-before: page; }
+
+  /* ===== 富配色增强：砖红主色 #A73F2D + 四色数据 + 深炭标题 #22262B ===== */
+  h2 { position: relative; padding-left: 13pt; }
+  h2::before { content:""; position:absolute; left:0; top:2.5pt; width:4pt; height:13pt;
+    background:var(--accent); border-radius:1pt; }
+  table th, .kami-table th { border-bottom: 1pt solid var(--accent); }
+  .metric:nth-child(1) .metric-value { color: var(--accent); }
+  .metric:nth-child(2) .metric-value { color: var(--gold); }
+  .metric:nth-child(3) .metric-value { color: var(--teal); }
+  .metric:nth-child(4) .metric-value { color: var(--blue); }
+  .callout { border-left: 3pt solid var(--accent); }
+  .analyst-box { border-left: 3pt solid var(--accent); }
+  .risk-item { border-left: 2.5pt solid var(--accent); }
+  .tag { background: var(--accent-soft); color: var(--brand-deep); }
+  .price-current { color: var(--near-black); }
+  .ticker-sub { color: var(--stone); }
+</style>
+
+<style>
+  /* ===== 图表（纯 HTML/CSS，不使用 SVG 文本节点） ===== */
+  .ch { margin: 9pt 0 5pt 0; }
+  .ch-t { font-size: 11pt; font-weight: 500; color: #22262B; margin-bottom: 1pt; }
+  .ch-s { font-size: 8.5pt; color: #7C7B77; margin-bottom: 6pt; line-height: 1.4; }
+  .ch-row { display: flex; align-items: center; gap: 7pt; margin-bottom: 2.8pt; }
+  .ch-lab { flex: 0 0 64pt; font-size: 8.4pt; color: #3E4145; text-align: right; line-height: 1.2; }
+  .ch-track { flex: 1 1 auto; min-width: 0; }
+  .ch-track.stk { display: flex; height: 11pt; border-radius: 1.5pt; overflow: hidden; }
+  .ch-bar { display: block; height: 11pt; border-radius: 1.5pt; background: #2F6F6B; }
+  .ch-bar.g { background: #CFC7BA; }
+  .ch-bar.hi { background: #A73F2D; }
+  .ch-bar.gold { background: #B8862F; }
+  .ch-bar.neg { background: #2F6F6B; }
+  .ch-val { flex: 0 0 60pt; font-size: 8.4pt; color: #22262B; font-variant-numeric: tabular-nums;
+    text-align: right; line-height: 1.2; }
+  .ch-val.hi { color: #A73F2D; font-weight: 500; }
+  .ch-legend { display: flex; flex-wrap: wrap; gap: 12pt; font-size: 8.2pt; color: #504e49; margin: 5pt 0 2pt 0; }
+  .ch-legend i { display: inline-block; width: 9pt; height: 9pt; border-radius: 1.5pt; margin-right: 3pt;
+    vertical-align: -1pt; }
+  .ch-note { font-size: 8pt; color: #7C7B77; margin-top: 3pt; line-height: 1.4; }
+  .wf-row { display: flex; align-items: center; gap: 6pt; margin-bottom: 2.8pt; }
+  .wf-lab { flex: 0 0 76pt; font-size: 8.4pt; color: #3E4145; text-align: right; line-height: 1.2; }
+  .wf-track { flex: 1 1 auto; min-width: 0; position: relative; height: 11pt; }
+  .wf-bar { position: absolute; height: 11pt; border-radius: 1.5pt; }
+  .wf-val { flex: 0 0 58pt; font-size: 8.4pt; text-align: right; font-variant-numeric: tabular-nums;
+    color: #22262B; line-height: 1.2; }
+  figure { break-inside: avoid; margin: 10pt 0; }
+  table.wide { font-size: 6.9pt; }
+  table.wide th, table.wide td { padding: 2.6pt 3.2pt; }
+  table.wide.fixed { table-layout: fixed; word-break: break-word; }
+  /* 宽表首列（指标名）自动占余量，其余 11 个年度列等宽；否则"商品煤产量（百万吨）"会被拆行 */
+  table.wide.fixed th:first-child, table.wide.fixed td:first-child { width: auto; }
+  table.wide.fixed th:not(:first-child), table.wide.fixed td:not(:first-child) { width: 7.1%; }
+  /* 分析型四列表：固定列宽，避免"关键科目"被挤成两行 */
+  table.analysis { font-size: 8.6pt; table-layout: fixed; }
+  table.analysis th, table.analysis td { padding: 3pt 5pt; }
+  table.analysis th:nth-child(1), table.analysis td:nth-child(1) { width: 17%; }
+  table.analysis th:nth-child(2), table.analysis td:nth-child(2) { width: 27%; }
+  table.analysis th:nth-child(3), table.analysis td:nth-child(3) { width: 20%; }
+  table.analysis th:nth-child(4), table.analysis td:nth-child(4) { width: 36%; }
+  /* 首列内容很短（年份／项目名）时禁止折行 */
+  table.nowrap-first th:first-child, table.nowrap-first td:first-child { white-space: nowrap; }
+  table.longtable { break-inside: auto; }
+  table.longtable thead { display: table-header-group; }
+  table.longtable tr { break-inside: avoid; }
+  .note ol { margin: 2pt 0 0 0; padding-left: 16pt; }
+  .note li { margin-bottom: 1pt; line-height: 1.42; }
+  @media print { .ch, .wf-row { break-inside: avoid; } }
+</style>
+
+<!-- rsp-mobile-adapt : 响应式适配层（仅屏幕生效，不影响打印/PDF） -->
+<style id="rsp-mobile-adapt">
+/* rsp-mobile-adapt-v3 */
+/* ========== 1. 全局：屏幕端基础修正 ========== */
+@media screen {
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body { overflow-wrap: break-word; }
+  img, svg, canvas, video, iframe { max-width: 100%; }
+  svg[viewBox], svg[viewbox] { height: auto; }
+
+  /* 网格容器（两列对比等）：网格项默认 min-width:auto，会被内部宽表撑破
+     容器、把整页顶出横向滚动（报告里 .two-col 就栽在这上面）。放开收缩，
+     让里面的 .rsp-table 自己去横向滑动。 */
+  .risk-grid > *, .two-col > * { min-width: 0; }
+
+  /* 表格横向滚动容器：宽表不压字、不撑破页面 */
+  .rsp-table {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    margin: 8pt 0;
+    position: relative;
+  }
+  .rsp-table > table { margin: 0; }
+  .rsp-table::-webkit-scrollbar { height: 7px; }
+  .rsp-table::-webkit-scrollbar-track { background: transparent; }
+  .rsp-table::-webkit-scrollbar-thumb { background: #D8D1C4; border-radius: 4px; }
+  /* 内容确实溢出时，右侧给一层渐变暗示"还能往右滑" */
+  .rsp-table[data-rsp-scroll] {
+    background: linear-gradient(to left, rgba(167,63,45,.10), rgba(167,63,45,0) 28px);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 28px 100%;
+  }
+}
+
+/* ========== 2. 平板 / 窄窗口：边距先收，避免内容被挤 ========== */
+@media screen and (max-width: 900px) {
+  body { padding: 22px 22px 46px 22px !important; }
+  .report-header { flex-wrap: wrap; gap: 12pt; }
+  .metrics { flex-wrap: wrap; gap: 10pt 18pt; }
+  .metric { flex: 1 1 42%; min-width: 0; }
+  .report-footer { flex-wrap: wrap; gap: 4pt 14pt; }
+
+  /* 宽表改为横向滚动：给每列保留最小可读宽度，不再把汉字挤成竖排 */
+  .rsp-w5 > table { min-width: 310px !important; }
+  .rsp-w6 > table { min-width: 372px !important; }
+  .rsp-w7 > table { min-width: 434px !important; }
+  .rsp-w8 > table { min-width: 496px !important; }
+  .rsp-w9 > table { min-width: 558px !important; }
+  .rsp-w10 > table { min-width: 620px !important; }
+  .rsp-w11 > table { min-width: 682px !important; }
+  .rsp-w12 > table { min-width: 744px !important; }
+  .rsp-w13 > table { min-width: 806px !important; }
+  .rsp-w14 > table { min-width: 868px !important; }
+  .rsp-w15 > table { min-width: 930px !important; }
+  .rsp-w16 > table { min-width: 992px !important; }
+}
+
+/* ========== 3. 手机：指标卡两列、页头转纵向 ========== */
+@media screen and (max-width: 720px) {
+  body {
+    max-width: 100% !important;
+    padding: 18px 16px 44px 16px !important;
+    font-size: 10.5pt;
+  }
+  h2 { font-size: 15pt !important; margin: 20pt 0 7pt 0 !important; }
+  h3 { font-size: 12.5pt !important; }
+  h1 { font-size: 19pt !important; }
+  p, li { line-height: 1.62; }
+  ul, ol { padding-left: 17pt; }
+
+  .report-header { flex-direction: column; align-items: stretch; gap: 8pt; }
+  .price-block { text-align: left; padding-top: 0; }
+  .price-current { font-size: 24pt !important; }
+  .ticker-name { font-size: 21pt !important; }
+  .ticker-sub { font-size: 9.5pt !important; }
+
+  .metrics { gap: 9pt 12pt; }
+  .metric { flex: 1 1 45%; }
+  .metric-value { font-size: 15pt !important; }
+  .metric-label { font-size: 8.5pt !important; white-space: normal !important; }
+
+  table, .kami-table { font-size: 9pt !important; }
+  .longtable { font-size: 8.5pt !important; }
+  .wide { font-size: 7.5pt !important; }
+  .dense { font-size: 8pt !important; }
+  table th, table td, .kami-table th, .kami-table td { padding: 5pt 6pt !important; }
+
+  blockquote, .quote, .note, .warn, .callout, .risk-item { padding: 9pt 11pt !important; }
+  .risk-grid { grid-template-columns: 1fr !important; }
+  .report-footer { flex-direction: column; align-items: flex-start; gap: 3pt; }
+}
+
+/* ========== 3b. 图表：窄屏保持图纸原尺寸 + 横向滑动 ========== */
+/* 报告里的图表是 SVG：viewBox 宽 680 + width:100%。缩到手机宽度（约 350px）
+   只剩 0.5×，图内字号从 11px 掉到 5px 完全不可读；而 SVG <text> 不会自动换行，
+   单纯放大字号必然溢出图框。这里改为**保持图纸原尺寸、允许左右滑动**——
+   与上面宽表同一套策略，宁可滑也不塌字号。仅屏幕生效，打印/PDF 不受影响。 */
+@media screen and (max-width: 720px) {
+  .rsp-fig {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    /* 图纸一定宽于屏幕，直接给右侧一层渐变，暗示"还能往右滑" */
+    background: linear-gradient(to left, rgba(167,63,45,.09), rgba(167,63,45,0) 26px);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 26px 100%;
+  }
+  .rsp-fig > svg { min-width: var(--rsp-fig-w, 680px); }
+  .rsp-fig::-webkit-scrollbar { height: 7px; }
+  .rsp-fig::-webkit-scrollbar-track { background: transparent; }
+  .rsp-fig::-webkit-scrollbar-thumb { background: #D8D1C4; border-radius: 4px; }
+}
+
+/* ========== 4. 小屏手机：指标卡单列、边距收到最紧 ========== */
+@media screen and (max-width: 430px) {
+  body { padding: 14px 12px 38px 12px !important; }
+  h2 { font-size: 14pt !important; }
+  h3 { font-size: 11.5pt !important; }
+  .ticker-name { font-size: 19pt !important; }
+  .price-current { font-size: 21pt !important; }
+  .metric { flex: 1 1 100%; }
+  .metric-value { font-size: 16pt !important; }
+  ul, ol { padding-left: 15pt; }
+  table, .kami-table { font-size: 8.5pt !important; }
+}
+
+/* ========== 5. 打印：把包裹层还原成透明，PDF 版式与补丁前完全一致 ========== */
+@media print {
+  .rsp-table { margin: 0; padding: 0; overflow: visible !important; background: none !important; }
+  .rsp-table > table { margin: 8pt 0; min-width: 0 !important; }
+  [class*="rsp-w"] > table { min-width: 0 !important; }
+}
+</style>
+</head>
+<body>
+<div class="report-header"><div class="ticker-block"><div class="ticker-name">中国铝业 <span style="font-size: 14pt; color: var(--stone);">601600.SH / 02600.HK</span></div><div class="ticker-sub">中国铝业股份有限公司 · 铝土矿 · 氧化铝 · 原铝 · 能源<br>财报分析报告　｜　数据区间：2021 年度 — 2026 年上半年</div></div><div class="price-block"><div class="price-current">118.71 <span style="font-size: 11pt; color: var(--stone);">亿元</span></div><div class="price-change up">2026 年上半年归母净利润（同比 +67.91%）</div><div class="price-date">铝土矿资源量 27.32 亿吨　·　数据截至 2026 年半年报</div></div></div><div class="metrics"><div class="metric"><div class="metric-value">2,411.25 亿</div><div class="metric-label">2025 年营业收入（同比 +1.7%，五年 −19.3%）</div></div><div class="metric"><div class="metric-value">18.03%</div><div class="metric-label">2025 年毛利率（五年 +5.76pp，2026H1 升至 26.94%）</div></div><div class="metric"><div class="metric-value">3.76 倍</div><div class="metric-label">2021—2025 年经营现金流 ÷ 归母净利润</div></div><div class="metric"><div class="metric-value">36.55%</div><div class="metric-label">2025 年度分红率（五年由 10.72% 抬升）</div></div></div>
+
+<p><strong>口径说明</strong></p>
+<ol><li>本报告金额单位除特别注明外均为<strong>人民币百万元</strong>；正文叙述中「亿元」与「百万元」并行使用，表内统一为百万元。</li><li>财务报表按<strong>中国企业会计准则（CAS）</strong>编制。公司在 A 股与 H 股同步披露，两套准则下净利润与净资产<strong>无差异</strong>（2025 年年度报告「境内外会计准则下会计数据差异」勾选「不适用」），故不另设 IFRS 对照。</li><li>期间口径：2021—2025 年取<strong>各年年度报告</strong>，2026 年上半年取 <strong>2026 年半年度报告</strong>。除非特别说明，长周期表优先采用<strong>最近一次追溯重述后</strong>的数值，使同一序列可比。</li><li><strong>追溯重述提示（重要）</strong>：本公司五年内发生多次同一控制下企业合并与会计政策变更，导致<strong>同一会计年度在不同年报中数值不同</strong>，且<strong>重述幅度可达 10% 以上</strong>（2021 年营业收入原报 269,748 百万元、重述后 298,885 百万元，差 29,137 百万元）。完整清单见<strong>附录 A</strong>。凡跨年比较，均须先确认两侧是否为同一版本。</li><li><strong>分产品/分部口径在 2023→2024 年之间发生过一次变更</strong>：2023 年及以前分部名称为「氧化铝／原铝／贸易／能源」，2024 年起「贸易」更名为「营销」，且营销板块的对外销售拆分为「销售自产产品」与「销售外部供应商采购产品」两行。名称与拆分方式变化<strong>不影响金额可比性</strong>，但读者不应把「贸易板块消失」误读为业务退出。</li><li>2024 年起本公司实施<strong>中期＋末期</strong>两次分红。表中「年度分红」为<strong>含中期股息的全年口径</strong>，不是年报「利润分配预案」中的末期单段金额。</li></ol>
+<hr>
+<h2>一、公司概况与核心结论</h2>
+<h3>1.1 基本信息</h3>
+<div class="rsp-table"><table class="nowrap-first longtable"><thead><tr><th>项目</th><th>内容</th></tr></thead><tbody><tr><td>公司全称</td><td>中国铝业股份有限公司</td></tr><tr><td>上市地</td><td>上海证券交易所（A 股 601600）、香港联合交易所（H 股 02600）</td></tr><tr><td>主营业务</td><td>铝土矿与煤炭资源勘探开采；氧化铝、精细氧化铝、原铝、铝合金、炭素生产与销售；国际贸易与物流；火力及新能源发电</td></tr><tr><td>业务板块</td><td>氧化铝、原铝、营销、能源、总部及其他（五个报告分部）</td></tr><tr><td>控股股东</td><td>中国铝业集团有限公司</td></tr><tr><td>期末股本</td><td>17,155.63 百万股（2025 年末）</td></tr><tr><td>报告币种</td><td>人民币</td></tr></tbody></table></div>
+<p>2025 年公司实现冶金级氧化铝产量 <strong>1,735 万吨</strong>、精细氧化铝 <strong>451 万吨</strong>、原铝（含合金）<strong>808 万吨</strong>、商品煤 <strong>1,372 万吨</strong>、外售电量 <strong>172 亿千瓦时</strong>。氧化铝、精细氧化铝、电解铝、高纯铝及金属镓产能均居<strong>世界第一</strong>。</p>
+<p>铝土矿资源量 <strong>27.32 亿吨</strong>、储量 <strong>3.29 亿吨</strong>，其中几内亚博法矿资源量 20.90 亿吨（占 76.5%）、年产量 1,961 万吨（占自产矿 55.4%）——<strong>资源端的重心已在海外</strong>。</p>
+<h3>1.2 本次分析的核心结论</h3>
+<ol><li><strong>五年利润翻倍，但驱动力不是收入增长</strong>。归母净利润自 2021 年的 <strong>57.59 亿元</strong>升至 2025 年的 <strong>126.74 亿元（+120.1%）</strong>，而同期营业收入由 2,988.85 亿元降至 2,411.25 亿元（<strong>−19.3%</strong>）。收入下滑的<strong>全部原因</strong>是主动压缩低毛利贸易：纯贸易（外购产品转售）收入由 2021 年的 1,472.96 亿元降至 2025 年的 384.55 亿元（<strong>−73.9%</strong>，减少 1,088.41 亿元），而自产产品销售收入反而由 472.46 亿元升至 487.31 亿元。<strong>用营业收入增速评价本公司经营质量会得出完全相反的结论。</strong></li></ol>
+<ol><li><strong>本公司的利润不在「公司」层面决定，而在「氧化铝↔原铝」两个板块之间的价差决定</strong>。氧化铝板块把 89.9% 的产品卖给集团内部的电解铝企业（2025 年板块收入 615.85 亿元，对外交易收入仅 62.49 亿元）。因此氧化铝涨价对集团是<strong>左手倒右手</strong>，真正决定合并利润的是<strong>电解铝环节的加工价差</strong>。2024 年氧化铝均价 +39.9%、铝价仅 +6.75%，氧化铝板块收益 116.84 亿元创历史峰值、原铝板块反被压到 89.66 亿元；2025 年完全反转——氧化铝 −21.1%、铝价 +4.0%，氧化铝板块收益回落至 47.75 亿元（−59.1%）、原铝板块升至 <strong>205.99 亿元（+129.7%）</strong>。<strong>看合并利润会漏掉这场 100 亿元级别的内部再分配。</strong></li></ol>
+<ol><li><strong>2026 年上半年这套内部结构走到极端：氧化铝环节已经亏损</strong>。氧化铝板块利润总额 <strong>−8.18 亿元</strong>（上年同期 +47.06 亿元），原铝板块利润总额 <strong>266.15 亿元</strong>（上年同期 81.05 亿元）。同期氧化铝均价 2,692 元/吨（−21.9%）、SHFE 铝价 24,413 元/吨（+20.7%）。<strong>一体化在氧化铝这个「过剩环节」上不但没有对冲，反而成为亏损源</strong>——这是理解本公司估值时必须先接受的事实。</li></ol>
+<ol><li><strong>归母净利润只占净利润的 59%，少数股东拿走了四成</strong>。2021—2025 年少数股东损益占净利润比重为 <strong>49.1%／61.3%／46.9%／36.0%／41.1%</strong>，2026 年上半年为 44.8%。原因是云铝股份、包头铝业等盈利主体的少数股东权益占比高（2025 年末少数股东权益 476.47 亿元，占权益总额 38.9%）。<strong>用「净利润」评价本公司归母盈利能力会系统性高估 1.7 倍，用「利润总额」会高估 2.0 倍。</strong></li></ol>
+<ol><li><strong>成本端的改善是真实的，且是五年利润率抬升的一半来源</strong>。原铝板块综合单吨成本由 2021 年的 15,362 元/吨降至 2025 年的 <strong>14,613 元/吨</strong>（−4.9%），而同期 SHFE 铝价由 18,953 元/吨升至 20,750 元/吨（+9.5%）——<strong>价格上行叠加成本下行</strong>，使原铝单吨毛利由 3,243 元/吨升至 <strong>3,402 元/吨</strong>（2024 年曾低至 1,847 元/吨）。合并毛利率由 2021 年的 12.27% 升至 2025 年的 <strong>18.03%</strong>，2026 年上半年进一步升至 <strong>26.94%</strong>。</li></ol>
+<ol><li><strong>财务费用腰斩，是利润表中最确定的一块</strong>。有息负债由 2021 年末的 833.45 亿元压降至 2025 年末的 <strong>635.91 亿元</strong>，净债务由 641.67 亿元降至 <strong>299.44 亿元（−53.3%）</strong>，财务费用由 42.74 亿元降至 <strong>21.62 亿元（−49.4%）</strong>。资产负债率五年由 60.11% 降至 <strong>46.01%</strong>，2026 年 6 月末进一步降至 <strong>42.76%</strong>。</li></ol>
+<ol><li><strong>利润的现金含量极高，属重资产资源股典型特征</strong>。五年累计经营活动现金流净额 <strong>1,569.68 亿元</strong> ÷ 累计归母净利润 <strong>417.09 亿元</strong> = <strong>3.76 倍</strong>；同期累计资本开支 332.00 亿元，累计自由现金流 <strong>1,237.68 亿元</strong>，覆盖累计现金分红约 120 亿元的 <strong>10 倍以上</strong>。折旧摊销规模巨大（2025 年 112.36 亿元）是比值偏高的主因，<strong>不可据此推断盈利「被低估」</strong>，但可以确认<strong>利润没有被应收账款或存货虚增</strong>。</li></ol>
+<ol><li><strong>分红率五年由 10.7% 升至 36.6%，是一条单调上升的阶梯</strong>。每 10 股派息 0.32 元（2021）→ 0.36（2022）→ 0.80（2023）→ 2.17（2024）→ 2.70（2025），对应现金分红总额 <strong>5.45／6.18／13.73／37.23／46.32 亿元</strong>，分红率 <strong>10.72%／14.74%／20.44%／30.02%／36.55%</strong>（公司公告口径，对合并归母净利润）。五年累计分红 108.91 亿元，占累计归母净利润 417.09 亿元的 <strong>26.1%</strong>。2024 年起改为「中期＋末期」双次派息，2025 年中期每股 0.123 元、末期 0.147 元。</li></ol>
+<hr>
+<figure><div class="ch"><div class="ch-t">归母净利润：五年增长 120%，2025 年进入平台期</div><div class="ch-s">单位：人民币百万元　｜　2026H1 为半年度数据，不可与年度直接并列比较</div><div class="ch-row"><span class="ch-lab">2021</span><span class="ch-track"><span class="ch-bar " style="width:45.4%"></span></span><span class="ch-val">5,759</span></div><div class="ch-row"><span class="ch-lab">2022</span><span class="ch-track"><span class="ch-bar g" style="width:33.1%"></span></span><span class="ch-val">4,192</span></div><div class="ch-row"><span class="ch-lab">2023</span><span class="ch-track"><span class="ch-bar " style="width:52.8%"></span></span><span class="ch-val">6,689</span></div><div class="ch-row"><span class="ch-lab">2024</span><span class="ch-track"><span class="ch-bar " style="width:97.8%"></span></span><span class="ch-val">12,395</span></div><div class="ch-row"><span class="ch-lab">2025</span><span class="ch-track"><span class="ch-bar hi" style="width:100.0%"></span></span><span class="ch-val hi">12,674</span></div><div class="ch-row"><span class="ch-lab">2026H1</span><span class="ch-track"><span class="ch-bar gold" style="width:93.7%"></span></span><span class="ch-val">11,871（半年）</span></div><div class="ch-note">注：2021、2022 年为云铝股份并表重述后口径（见附录 A）。2022 年为本轮周期低点（4,192 百万元），2024 年跳升 85.3% 主因氧化铝价格 +39.9%，2025 年仅增 2.3%——利润在两个板块之间再分配而非继续扩张。</div></div><figcaption>图 1　归母净利润（2021—2025 年及 2026 年上半年）</figcaption></figure><h2>二、核心财务数据对比</h2>
+<h3>表 1　经营业绩与盈利能力</h3>
+<div class="note">单位：人民币百万元（每股收益、比率为标注单位）</div>
+<div class="rsp-table rsp-w7"><table class="financial longtable"><thead><tr><th>项目</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th><th><strong>2026H1</strong></th></tr></thead><tbody><tr><td><strong>营业收入</strong></td><td>298,885</td><td>290,988</td><td>225,319</td><td>237,109</td><td>241,125</td><td><strong>125,413</strong></td></tr><tr><td>营业收入同比（%）</td><td>—</td><td>−2.6</td><td>−22.6</td><td>+5.2</td><td>+1.7</td><td><strong>+7.7</strong></td></tr><tr><td><strong>营业成本</strong></td><td>262,223</td><td>257,603</td><td>196,311</td><td>199,765</td><td>197,655</td><td><strong>91,626</strong></td></tr><tr><td><strong>毛利</strong></td><td>36,662</td><td>33,385</td><td>29,008</td><td>37,344</td><td>43,470</td><td><strong>33,787</strong></td></tr><tr><td>毛利率（%）</td><td>12.27</td><td>11.47</td><td>12.87</td><td>15.75</td><td>18.03</td><td><strong>26.94</strong></td></tr><tr><td><strong>利润总额</strong></td><td>14,186</td><td>13,209</td><td>15,091</td><td>22,312</td><td>25,840</td><td><strong>26,230</strong></td></tr><tr><td>利润总额同比（%）</td><td>—</td><td>−6.9</td><td>+14.2</td><td>+47.9</td><td>+15.8</td><td><strong>+98.0</strong></td></tr><tr><td><strong>净利润（含少数股东）</strong></td><td>11,317</td><td>10,843</td><td>12,584</td><td>19,372</td><td>21,525</td><td><strong>21,496</strong></td></tr><tr><td><strong>归母净利润</strong></td><td>5,759</td><td>4,192</td><td>6,689</td><td>12,395</td><td>12,674</td><td><strong>11,871</strong></td></tr><tr><td>归母净利润同比（%）</td><td>—</td><td>−27.2</td><td>+59.6</td><td>+85.3</td><td>+2.3</td><td><strong>+67.9</strong></td></tr><tr><td><strong>扣非归母净利润</strong></td><td>7,028</td><td>3,131</td><td>6,614</td><td>11,974</td><td>12,464</td><td><strong>11,650</strong></td></tr><tr><td>扣非同比（%）</td><td>—</td><td>−55.5</td><td>+111.3</td><td>+81.1</td><td>+4.1</td><td><strong>+67.8</strong></td></tr><tr><td><strong>经营活动现金流净额</strong></td><td>35,232</td><td>27,806</td><td>27,030</td><td>32,807</td><td>34,092</td><td><strong>26,263</strong></td></tr><tr><td>基本每股收益（元/股）</td><td>0.326</td><td>0.239</td><td>0.389</td><td>0.722</td><td>0.740</td><td><strong>0.693</strong></td></tr><tr><td>扣非每股收益（元/股）</td><td>0.402</td><td>0.177</td><td>0.385</td><td>0.698</td><td>0.727</td><td><strong>0.680</strong></td></tr><tr><td>加权平均 ROE（%）</td><td>9.86</td><td>6.90</td><td>11.93</td><td>19.25</td><td>17.64</td><td><strong>14.67</strong></td></tr><tr><td>扣非加权 ROE（%）</td><td>12.24</td><td>5.40</td><td>11.80</td><td>18.59</td><td>17.35</td><td><strong>14.39</strong></td></tr><tr><td>归母净利率（%）</td><td>1.93</td><td>1.44</td><td>2.97</td><td>5.23</td><td>5.26</td><td><strong>9.47</strong></td></tr></tbody></table></div>
+<div class="note">注：① 各年取最近一次重述值（见附录 A）；② 2021 年扣非归母（7,028）<strong>高于</strong>归母净利润（5,759），非经常性损益为 <strong>−1,269 百万元</strong>，主要来自非流动资产处置损失与营业外支出——这是本公司连续多年的常态（详见 §5.2）；③ 2026H1 净利润为「利润总额 − 所得税费用 4,734」推算，公司未在半年报「主要会计数据」表直接列示。</div>
+<h3>表 2　资产负债与偿债结构</h3>
+<div class="note">单位：人民币百万元</div>
+<div class="rsp-table rsp-w7"><table class="financial longtable"><thead><tr><th>项目</th><th>2021末</th><th>2022末</th><th>2023末</th><th>2024末</th><th>2025末</th><th><strong>2026-06-30</strong></th></tr></thead><tbody><tr><td>货币资金</td><td>19,178</td><td>19,260</td><td>21,104</td><td>22,210</td><td>29,238</td><td>—</td></tr><tr><td>交易性金融资产</td><td>—</td><td>—</td><td>5,013</td><td>2,004</td><td>4,409</td><td>—</td></tr><tr><td>存货</td><td>18,678</td><td>24,712</td><td>22,847</td><td>24,420</td><td>24,022</td><td>—</td></tr><tr><td>固定资产</td><td>91,088</td><td>106,997</td><td>100,290</td><td>95,860</td><td>98,678</td><td>—</td></tr><tr><td>在建工程</td><td>2,339</td><td>2,280</td><td>4,520</td><td>10,572</td><td>5,258</td><td>—</td></tr><tr><td><strong>资产总计</strong></td><td>224,863</td><td>212,348</td><td>211,896</td><td>215,942</td><td>227,022</td><td><strong>244,577</strong></td></tr><tr><td><strong>负债合计</strong></td><td>135,165</td><td>124,593</td><td>112,867</td><td>103,887</td><td>104,450</td><td>—</td></tr><tr><td><strong>归母股东权益</strong></td><td>60,484</td><td>54,402</td><td>60,598</td><td>69,204</td><td>74,925</td><td><strong>84,503</strong></td></tr><tr><td>少数股东权益（推算）</td><td>29,214</td><td>33,353</td><td>38,431</td><td>42,851</td><td>47,647</td><td>—</td></tr><tr><td><strong>资产负债率（%）</strong></td><td>60.11</td><td>58.67</td><td>53.27</td><td>48.11</td><td>46.01</td><td><strong>42.76</strong></td></tr><tr><td>短期借款</td><td>9,219</td><td>6,461</td><td>7,970</td><td>3,077</td><td>7,385</td><td>—</td></tr><tr><td>一年内到期非流动负债</td><td>10,029</td><td>18,973</td><td>17,234</td><td>8,462</td><td>11,553</td><td>—</td></tr><tr><td>长期借款</td><td>36,266</td><td>34,063</td><td>33,438</td><td>34,762</td><td>27,215</td><td>—</td></tr><tr><td>应付债券</td><td>16,223</td><td>15,324</td><td>8,402</td><td>9,082</td><td>8,995</td><td>—</td></tr><tr><td>租赁负债</td><td>11,607</td><td>9,209</td><td>8,676</td><td>8,213</td><td>8,443</td><td>—</td></tr><tr><td><strong>有息负债合计</strong></td><td>83,345</td><td>84,031</td><td>75,719</td><td>63,596</td><td>63,591</td><td>—</td></tr><tr><td>有息负债占总资产（%）</td><td>37.06</td><td>39.57</td><td>35.73</td><td>29.45</td><td>28.01</td><td>—</td></tr><tr><td><strong>净债务（有息负债−类现金）</strong></td><td>64,167</td><td>64,771</td><td>49,603</td><td>39,382</td><td>29,944</td><td>—</td></tr><tr><td>净债务／归母权益（%）</td><td>106.1</td><td>119.1</td><td>81.9</td><td>56.9</td><td>40.0</td><td>—</td></tr><tr><td>预计负债</td><td>539</td><td>1,060</td><td>1,019</td><td>2,246</td><td>2,741</td><td>—</td></tr></tbody></table></div>
+<div class="note">注：① 有息负债＝短期借款＋一年内到期的非流动负债＋长期借款＋应付债券＋租赁负债；未含长期应付款中的融资租赁部分（金额较小）。②「类现金」＝货币资金＋交易性金融资产。③ 2024 年末永续债 1,000 百万元计入其他权益工具，2025 年已赎回，故 2025 年归母权益增长中含 1,000 百万元的非经营性转入。</div>
+<p><strong>这张表最值得注意的两点</strong>：一是杠杆的降幅<strong>远超账面</strong>——资产负债率只降 14.1 个百分点，而净债务降了 <strong>53.3%</strong>（641.67→299.44 亿元），因为利润留存同时抬高了分母与分子中的现金。二是<strong>短债化的反转</strong>：2025 年短期借款由 30.77 亿元跳升至 73.85 亿元（+140.0%），长期借款反降 21.7%，一年内到期非流动负债由 84.62 亿元升至 115.53 亿元，<strong>债务期限结构在 2025 年明显缩短</strong>，与 2026 年上半年「压降中长期融资」（非流动负债减少 38.95 亿元）的表述互为印证。</p>
+<h3>表 3　现金流量与自由现金流</h3>
+<div class="note">单位：人民币百万元</div>
+<div class="rsp-table rsp-w7"><table class="financial longtable"><thead><tr><th>项目</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th><th><strong>2026H1</strong></th></tr></thead><tbody><tr><td>经营／投资／筹资净额</td><td>35,232 / −820 / −18,478</td><td>27,806 / −3,479 / −27,038</td><td>27,030 / −11,181 / −14,143</td><td>32,807 / −7,628 / −22,930</td><td>34,092 / −11,179 / −15,582</td><td><strong>26,263 / −4,597 / —</strong></td></tr><tr><td>资本开支（购建长期资产）</td><td>2,136</td><td>4,751</td><td>6,709</td><td>10,360</td><td>9,244</td><td><strong>3,451</strong></td></tr><tr><td><strong>自由现金流</strong></td><td>33,097</td><td>23,055</td><td>20,321</td><td>22,447</td><td>24,848</td><td><strong>22,812</strong></td></tr><tr><td>销售商品收到的现金</td><td>229,504</td><td>281,366</td><td>206,373</td><td>216,183</td><td>238,956</td><td>—</td></tr><tr><td>收现比（%）</td><td>76.8</td><td>96.7</td><td>91.6</td><td>91.2</td><td>99.1</td><td>—</td></tr><tr><td>分配股利、利润或利息支付</td><td>3,966</td><td>6,288</td><td>5,535</td><td>7,995</td><td>9,445</td><td>—</td></tr></tbody></table></div>
+<div class="note">注：2021 年投资活动净额取自 2021 年报原报口径（当年为 −820），当年资本开支 2,136 亦为原报数。</div>
+<p>五年累计：经营活动现金流 <strong>1,569.68 亿元</strong>、资本开支 <strong>332.00 亿元</strong>、自由现金流 <strong>1,237.68 亿元</strong>。资本开支的低点在 2021 年（21.36 亿元），2024 年攀至 103.60 亿元的峰值——<strong>扩张节奏与利润周期同步，属顺周期投资，而非逆周期抄底</strong>；2025 年已回落至 92.44 亿元，2026 年上半年仅 34.51 亿元，全年年化约 69 亿元，扩张期基本结束。</p>
+<h3>表 4　费用结构与实际税率</h3>
+<div class="note">单位：人民币百万元</div>
+<div class="rsp-table rsp-w7"><table class="financial longtable"><thead><tr><th>项目</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th><th><strong>2026H1</strong></th></tr></thead><tbody><tr><td>税金及附加</td><td>2,595</td><td>2,860</td><td>2,590</td><td>3,084</td><td>3,619</td><td><strong>2,041</strong></td></tr><tr><td>销售费用</td><td>383</td><td>419</td><td>432</td><td>447</td><td>478</td><td><strong>232</strong></td></tr><tr><td>管理费用</td><td>4,535</td><td>4,092</td><td>4,355</td><td>5,492</td><td>5,235</td><td><strong>2,560</strong></td></tr><tr><td>研发费用</td><td>2,417</td><td>4,805</td><td>3,729</td><td>3,065</td><td>3,912</td><td><strong>1,854</strong></td></tr><tr><td>财务费用</td><td>4,274</td><td>3,505</td><td>2,972</td><td>2,679</td><td>2,162</td><td><strong>1,032</strong></td></tr><tr><td>四项费用合计</td><td>11,609</td><td>12,820</td><td>11,488</td><td>11,682</td><td>11,786</td><td><strong>5,678</strong></td></tr><tr><td>费用率（%）</td><td>3.88</td><td>4.41</td><td>5.10</td><td>4.93</td><td>4.89</td><td><strong>4.53</strong></td></tr><tr><td>实际税率（%）</td><td>20.2</td><td>17.9</td><td>16.6</td><td>13.2</td><td>16.7</td><td><strong>18.0</strong></td></tr><tr><td>财务费用／利润总额（%）</td><td>30.1</td><td>26.5</td><td>19.7</td><td>12.0</td><td>8.4</td><td><strong>3.9</strong></td></tr></tbody></table></div>
+<p><strong>费用结构的唯一实质性变化是财务费用</strong>：占利润总额比重由 30.1% 降至 8.4%（2025）、3.9%（2026H1）。管理费用与研发费用基本稳定在 50—55 亿元与 24—48 亿元区间；<strong>实际税率在 13.2%—20.2% 之间波动，无系统性下移</strong>，说明利润增长未依赖税负调节。</p>
+<hr>
+<figure><div class="ch"><div class="ch-t">分部收益的「钟摆」：同一年份里，一块赚的正是另一块亏的</div><div class="ch-s">单位：人民币百万元　｜　分部税前利润（分部报告口径），两块之和约为集团利润总额的 98%</div><div class="ch-legend"><span><i style="background:#A73F2D"></i>氧化铝板块（区块内 90% 产品内部销售）</span><span><i style="background:#2F6F6B"></i>原铝板块（对外销售为主）</span></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2021</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">氧化铝板块</span><span class="ch-track"><span class="ch-bar" style="width:13.6%;background:#A73F2D"></span></span><span class="ch-val">2,798</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">原铝板块</span><span class="ch-track"><span class="ch-bar" style="width:62.1%;background:#2F6F6B"></span></span><span class="ch-val">12,784</span></div></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2022</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">氧化铝板块</span><span class="ch-track"><span class="ch-bar" style="width:1.0%;background:#A73F2D"></span></span><span class="ch-val">212</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">原铝板块</span><span class="ch-track"><span class="ch-bar" style="width:47.2%;background:#2F6F6B"></span></span><span class="ch-val">9,725</span></div></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2023</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">氧化铝板块</span><span class="ch-track"><span class="ch-bar" style="width:4.8%;background:#A73F2D"></span></span><span class="ch-val">985</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">原铝板块</span><span class="ch-track"><span class="ch-bar" style="width:54.6%;background:#2F6F6B"></span></span><span class="ch-val">11,243</span></div></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2024</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">氧化铝板块</span><span class="ch-track"><span class="ch-bar" style="width:56.7%;background:#A73F2D"></span></span><span class="ch-val">11,684</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">原铝板块</span><span class="ch-track"><span class="ch-bar" style="width:43.5%;background:#2F6F6B"></span></span><span class="ch-val">8,966</span></div></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2025</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">氧化铝板块</span><span class="ch-track"><span class="ch-bar" style="width:23.2%;background:#A73F2D"></span></span><span class="ch-val">4,775</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">原铝板块</span><span class="ch-track"><span class="ch-bar" style="width:100.0%;background:#2F6F6B"></span></span><span class="ch-val">20,599</span></div></div><div class="ch-note">注：2021、2022 年取次年年报重述口径。2024 年氧化铝收益 116.84 亿元首次超过原铝（收益比 1.30）；2025 年完全反转（收益比 0.23）；2026 年上半年氧化铝板块转亏 −8.18 亿元，因该值为负、横向条形无法表达方向，故未绘入本图，详见正文表 15。</div></div><figcaption>图 2　氧化铝与原铝分部收益（2021—2025 年）</figcaption></figure><figure><div class="ch"><div class="ch-t">营销板块：纯贸易收入五年砍掉 74%，自产销售基本持平</div><div class="ch-s">单位：人民币百万元　｜　营销板块对外交易收入按「销售自产产品」与「销售外购产品」拆分</div><div class="ch-legend"><span><i style="background:#2F6F6B"></i>销售自产产品</span><span><i style="background:#CFC7BA"></i>销售外购产品（纯贸易）</span></div><div class="ch-row"><span class="ch-lab">2021</span><span class="ch-track stk"><span style="background:#2F6F6B;width:24.29%;display:flex;align-items:center;justify-content:center;font-size:7.8pt;color:#FFFFFF;"><b>47,246</b></span><span style="background:#CFC7BA;width:75.71%;display:flex;align-items:center;justify-content:center;font-size:7.8pt;color:#FFFFFF;"><b>147,296</b></span></span><span class="ch-val">194,542</span></div><div class="ch-row"><span class="ch-lab">2022</span><span class="ch-track stk"><span style="background:#2F6F6B;width:25.11%;display:flex;align-items:center;justify-content:center;font-size:7.8pt;color:#FFFFFF;"><b>48,850</b></span><span style="background:#CFC7BA;width:66.68%;display:flex;align-items:center;justify-content:center;font-size:7.8pt;color:#FFFFFF;"><b>129,721</b></span></span><span class="ch-val">178,571</span></div><div class="ch-row"><span class="ch-lab">2023</span><span class="ch-track stk"><span style="background:#2F6F6B;width:24.42%;display:flex;align-items:center;justify-content:center;font-size:7.8pt;color:#FFFFFF;"><b>47,499</b></span><span style="background:#CFC7BA;width:34.41%;display:flex;align-items:center;justify-content:center;font-size:7.8pt;color:#FFFFFF;"><b>66,936</b></span></span><span class="ch-val">114,435</span></div><div class="ch-row"><span class="ch-lab">2024</span><span class="ch-track stk"><span style="background:#2F6F6B;width:23.36%;display:flex;align-items:center;justify-content:center;font-size:7.8pt;color:#FFFFFF;"><b>45,450</b></span><span style="background:#CFC7BA;width:22.28%;display:flex;align-items:center;justify-content:center;font-size:7.8pt;color:#FFFFFF;"><b>43,341</b></span></span><span class="ch-val">88,791</span></div><div class="ch-row"><span class="ch-lab">2025</span><span class="ch-track stk"><span style="background:#2F6F6B;width:25.05%;display:flex;align-items:center;justify-content:center;font-size:7.8pt;color:#FFFFFF;"><b>48,731</b></span><span style="background:#CFC7BA;width:19.77%;display:flex;align-items:center;justify-content:center;font-size:7.8pt;color:#FFFFFF;"><b>38,455</b></span></span><span class="ch-val">87,186</span></div><div class="ch-note">注：纯贸易收入 2021 年 1,472.96 亿元 → 2025 年 384.55 亿元，减少 1,088.41 亿元，是营业收入五年下降 577.60 亿元的全部原因（同期其他收入增加 510.81 亿元）。营销板块毛利率仅 1.1%—1.9%，砍贸易对利润几无影响。</div></div><figcaption>图 5　营销板块对外收入结构（2021—2025 年）</figcaption></figure><h2>三、收入结构与分部利润：本报告的核心</h2>
+<h3>3.1 先看清一件事：本公司的「营业收入」里有一大半是内部交易</h3>
+<p>中国铝业是<strong>纵向一体化</strong>企业：铝土矿→氧化铝→原铝→合金/铝加工，中间品主要在自己体内流转。2025 年五个报告分部的营业收入合计 <strong>3,594.94 亿元</strong>，而合并营业收入仅 2,411.25 亿元——<strong>板块间抵销 1,183.68 亿元，占板块收入合计的 32.9%</strong>。</p>
+<p>更关键的是<strong>氧化铝板块</strong>：2025 年板块收入 615.85 亿元，其中卖给集团内部电解铝企业与营销企业的 <strong>553.36 亿元（89.9%）</strong>，真正卖给外部客户的只有 <strong>62.49 亿元（10.1%）</strong>。</p>
+<p><strong>这意味着氧化铝价格对合并利润表的净影响接近于零</strong>——它只在两个板块之间转移利润。判断本公司盈利，必须看<strong>板块间的价差</strong>，而不是看氧化铝或电解铝的单边价格。</p>
+<h3>表 5　分部营业收入（含板块间内部交易）</h3>
+<div class="note">单位：人民币百万元</div>
+<div class="rsp-table rsp-w6"><table class="financial longtable"><thead><tr><th>分部</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th></tr></thead><tbody><tr><td>氧化铝板块</td><td>54,043</td><td>55,762</td><td>53,526</td><td>74,046</td><td>61,585</td></tr><tr><td>原铝板块</td><td>118,514</td><td>138,466</td><td>125,312</td><td>136,359</td><td>145,564</td></tr><tr><td>贸易／营销板块</td><td>252,705</td><td>258,854</td><td>185,481</td><td>172,727</td><td>142,182</td></tr><tr><td>能源板块</td><td>7,915</td><td>9,323</td><td>9,256</td><td>8,693</td><td>8,182</td></tr><tr><td>总部及其他</td><td>1,453</td><td>1,944</td><td>2,354</td><td>2,664</td><td>1,981</td></tr><tr><td><strong>板块收入合计</strong></td><td>434,630</td><td>464,349</td><td>375,929</td><td>394,489</td><td>359,494</td></tr><tr><td>板块间抵销</td><td>−135,745</td><td>−173,360</td><td>−150,858</td><td>−157,380</td><td>−118,368</td></tr><tr><td><strong>合并营业收入</strong></td><td>298,885</td><td>290,988</td><td>225,070</td><td>237,109</td><td>241,125</td></tr><tr><td>抵销占板块合计（%）</td><td>31.2</td><td>37.3</td><td>40.1</td><td>39.9</td><td>32.9</td></tr></tbody></table></div>
+<div class="note">注：2023 年合并营业收入按分部表口径 225,070，与表 1 的 225,319 相差 249 百万元，系 2024 年报对该年度的追溯重述（见附录 A）；本节一律取分部表原始口径，避免跨表混用。</div>
+<h3>表 6　分部对外交易收入（剔除内部交易后）</h3>
+<div class="note">单位：人民币百万元</div>
+<div class="rsp-table rsp-w7"><table class="financial nowrap-first longtable"><thead><tr><th>分部</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th><th>2025 占合并收入</th></tr></thead><tbody><tr><td>氧化铝板块</td><td>17,580</td><td>16,411</td><td>18,661</td><td>22,399</td><td>6,249</td><td>2.6%</td></tr><tr><td>原铝板块</td><td>78,614</td><td>86,503</td><td>82,135</td><td>115,368</td><td>138,468</td><td>57.4%</td></tr><tr><td>营销板块</td><td>194,542</td><td>178,571</td><td>114,435</td><td>88,792</td><td>87,186</td><td>36.2%</td></tr><tr><td>能源板块</td><td>7,675</td><td>9,061</td><td>9,211</td><td>8,692</td><td>8,182</td><td>3.4%</td></tr><tr><td>总部及其他</td><td>475</td><td>441</td><td>629</td><td>1,859</td><td>1,040</td><td>0.4%</td></tr><tr class="total"><td><strong>合计</strong></td><td>298,885</td><td>290,988</td><td>225,070</td><td>237,109</td><td>241,125</td><td>100.0%</td></tr></tbody></table></div>
+<p><strong>2025 年氧化铝对外收入从 223.99 亿元骤降至 62.49 亿元（−72.1%），而氧化铝外销量同期为 642 万吨、同比 +1.1%</strong>。量没变、价没跌这么多（−21.1%），收入却掉了七成——这是<strong>销售渠道重分类</strong>：2025 年起氧化铝对外销售更多经由营销板块实现（营销板块「销售自产产品」由 454.50 亿元升至 487.31 亿元）。⚠️ <strong>不要把这 161 亿元的降幅当业务萎缩</strong>，它是口径搬家。</p>
+<h3>表 7　分部收益（税前利润）</h3>
+<div class="note">单位：人民币百万元</div>
+<div class="rsp-table rsp-w6"><table class="financial longtable"><thead><tr><th>分部</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th></tr></thead><tbody><tr><td><strong>氧化铝板块</strong></td><td>2,798</td><td>212</td><td>985</td><td><strong>11,684</strong></td><td>4,775</td></tr><tr><td><strong>原铝板块</strong></td><td>12,784</td><td>9,725</td><td>11,243</td><td>8,966</td><td><strong>20,599</strong></td></tr><tr><td>营销板块</td><td>1,336</td><td>1,694</td><td>1,857</td><td>1,875</td><td>1,274</td></tr><tr><td>能源板块</td><td>−235</td><td>2,201</td><td>2,098</td><td>991</td><td>862</td></tr><tr><td>总部及其他</td><td>−1,981</td><td>−843</td><td>−1,196</td><td>−1,204</td><td>−1,669</td></tr><tr><td>板块间抵销</td><td>−516</td><td>220</td><td>104</td><td>—</td><td>—</td></tr><tr class="total"><td><strong>合计（＝利润总额）</strong></td><td>14,186</td><td>13,209</td><td>15,091</td><td>22,312</td><td>25,840</td></tr><tr><td>氧化铝／原铝 收益比</td><td>0.22</td><td>0.02</td><td>0.09</td><td><strong>1.30</strong></td><td>0.23</td></tr></tbody></table></div>
+<p>这张表是全篇最有信息量的一张：</p>
+<ul><li><strong>2021—2022 年</strong>：原铝是唯一的利润来源（占分部收益 90% 以上），氧化铝几乎不赚钱（2022 年仅 2.12 亿元，收益比 0.02）——因为氧化铝只是体内中间品，定价权在原铝端。</li><li><strong>2024 年</strong>：氧化铝收益爆发至 <strong>116.84 亿元</strong>（收益比 1.30，<strong>首次超过原铝</strong>），原因是几内亚铝土矿供应扰动推升氧化铝现货均价 +39.9%，而铝价仅 +6.75%。氧化铝板块在<strong>供不应求的窗口期</strong>获得了独立定价权。</li><li><strong>2025 年</strong>：氧化铝新增产能投产（国内全年新增 1,030 万吨），价格 −21.1%，收益回落 59.1%；同一笔钱在原铝端被释放出来（+129.7%）。<strong>两个板块的收益合计仍在上升（22,312→25,840），说明这不是「衰退」，而是「再分配」。</strong></li><li><strong>2026H1</strong>：氧化铝板块<strong>转为亏损 −818 百万元</strong>，原铝板块 26,615 百万元。收益比变为 <strong>−0.03</strong>。</li></ul>
+<h3>表 8　营销板块：把「贸易」从「销售」里拆出来</h3>
+<div class="note">单位：人民币百万元</div>
+<div class="rsp-table rsp-w6"><table class="financial longtable"><thead><tr><th>项目</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th></tr></thead><tbody><tr><td>营销板块对外收入</td><td>194,542</td><td>178,571</td><td>114,435</td><td>88,792</td><td>87,186</td></tr><tr><td>其中：销售<strong>自产</strong>产品</td><td>47,246</td><td>48,850</td><td>47,499</td><td>45,450</td><td>48,731</td></tr><tr><td>其中：销售<strong>外购</strong>产品（纯贸易）</td><td>147,296</td><td>129,721</td><td>66,936</td><td>43,341</td><td>38,455</td></tr><tr><td>纯贸易占营销对外收入（%）</td><td>75.7</td><td>72.6</td><td>58.5</td><td>48.8</td><td>44.1</td></tr><tr><td>纯贸易占合并营业收入（%）</td><td>49.3</td><td>44.6</td><td>29.7</td><td>18.3</td><td>15.9</td></tr><tr><td>营销板块毛利率（%）</td><td>1.70</td><td>1.11</td><td>1.41</td><td>1.73</td><td>1.86</td></tr><tr><td>营销板块收益</td><td>1,336</td><td>1,694</td><td>1,857</td><td>1,875</td><td>1,274</td></tr></tbody></table></div>
+<p><strong>这张表解释了「营业收入五年降 19.3%、利润反增 120%」的全部机理</strong>：纯贸易收入从 1,472.96 亿元压到 384.55 亿元，减少 <strong>1,088.41 亿元</strong>；同期营业收入只减少 577.60 亿元，意味着<strong>除纯贸易以外的收入实际增加了 510.81 亿元</strong>。而纯贸易的毛利率仅 1%—2%，砍掉它对利润几乎无影响，却让报表收入的「含金量」大幅提升。</p>
+<p>⚠️ <strong>反面提醒</strong>：正因如此，营销板块 2025 年仍以 871.86 亿元的对外收入（占合并 36.2%）只贡献 12.74 亿元收益（占分部收益 4.9%）。<strong>用营销板块的收入规模评价其重要性会严重高估。</strong></p>
+<hr>
+<figure><div class="ch"><div class="ch-t">单吨毛利：原铝翻倍、氧化铝腰斩，方向完全相反</div><div class="ch-s">单位：元/吨　｜　板块营业收入（成本）÷ 当年产量，混合口径，不可与市场价直接相减</div><div class="ch-legend"><span><i style="background:#A73F2D"></i>氧化铝板块</span><span><i style="background:#2F6F6B"></i>原铝板块</span></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2021</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">氧化铝</span><span class="ch-track"><span class="ch-bar" style="width:17.8%;background:#A73F2D"></span></span><span class="ch-val">606</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">原铝</span><span class="ch-track"><span class="ch-bar" style="width:95.3%;background:#2F6F6B"></span></span><span class="ch-val">3,243</span></div></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2022</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">氧化铝</span><span class="ch-track"><span class="ch-bar" style="width:16.3%;background:#A73F2D"></span></span><span class="ch-val">554</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">原铝</span><span class="ch-track"><span class="ch-bar" style="width:75.6%;background:#2F6F6B"></span></span><span class="ch-val">2,573</span></div></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2023</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">氧化铝</span><span class="ch-track"><span class="ch-bar" style="width:10.2%;background:#A73F2D"></span></span><span class="ch-val">348</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">原铝</span><span class="ch-track"><span class="ch-bar" style="width:70.9%;background:#2F6F6B"></span></span><span class="ch-val">2,412</span></div></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2024</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">氧化铝</span><span class="ch-track"><span class="ch-bar" style="width:34.1%;background:#A73F2D"></span></span><span class="ch-val">1,160</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">原铝</span><span class="ch-track"><span class="ch-bar" style="width:54.3%;background:#2F6F6B"></span></span><span class="ch-val">1,847</span></div></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2025</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">氧化铝</span><span class="ch-track"><span class="ch-bar" style="width:18.3%;background:#A73F2D"></span></span><span class="ch-val">621</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">原铝</span><span class="ch-track"><span class="ch-bar" style="width:100.0%;background:#2F6F6B"></span></span><span class="ch-val">3,402</span></div></div><div class="ch-note">注：原铝单吨毛利 2024 年触底 1,847 元/吨（氧化铝成本高企），2025 年回升至 3,402 元/吨并超过 2021 年水平；氧化铝单吨毛利 2024 年见顶 1,160 元/吨，2025 年回落至 621 元/吨（−46.5%）。该指标含内部转移价与合金加工费，仅用于看方向。</div></div><figcaption>图 3　氧化铝与原铝综合单吨毛利（2021—2025 年）</figcaption></figure><figure><div class="ch"><div class="ch-t">产量：氧化铝基本持平，原铝五年增长 27%</div><div class="ch-s">单位：万吨　｜　冶金级氧化铝与原铝（含合金）产量</div><div class="ch-legend"><span><i style="background:#A73F2D"></i>冶金级氧化铝</span><span><i style="background:#2F6F6B"></i>原铝（含合金）</span></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2021</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">冶金级氧化铝</span><span class="ch-track"><span class="ch-bar" style="width:99.4%;background:#A73F2D"></span></span><span class="ch-val">1,753</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">原铝（含合金）</span><span class="ch-track"><span class="ch-bar" style="width:36.1%;background:#2F6F6B"></span></span><span class="ch-val">637</span></div></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2022</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">冶金级氧化铝</span><span class="ch-track"><span class="ch-bar" style="width:100.0%;background:#A73F2D"></span></span><span class="ch-val">1,764</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">原铝（含合金）</span><span class="ch-track"><span class="ch-bar" style="width:39.0%;background:#2F6F6B"></span></span><span class="ch-val">688</span></div></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2023</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">冶金级氧化铝</span><span class="ch-track"><span class="ch-bar" style="width:94.5%;background:#A73F2D"></span></span><span class="ch-val">1,667</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">原铝（含合金）</span><span class="ch-track"><span class="ch-bar" style="width:38.5%;background:#2F6F6B"></span></span><span class="ch-val">679</span></div></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2024</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">冶金级氧化铝</span><span class="ch-track"><span class="ch-bar" style="width:95.6%;background:#A73F2D"></span></span><span class="ch-val">1,687</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">原铝（含合金）</span><span class="ch-track"><span class="ch-bar" style="width:43.1%;background:#2F6F6B"></span></span><span class="ch-val">761</span></div></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2025</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">冶金级氧化铝</span><span class="ch-track"><span class="ch-bar" style="width:98.4%;background:#A73F2D"></span></span><span class="ch-val">1,735</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">原铝（含合金）</span><span class="ch-track"><span class="ch-bar" style="width:45.8%;background:#2F6F6B"></span></span><span class="ch-val">808</span></div></div><div class="ch-note">注：2021 年为云铝股份并表重述后口径（原报口径氧化铝 1,623 万吨、原铝 386 万吨，误用会把 2022 年算成暴涨）。2026 年上半年氧化铝产量 738 万吨（−14.2%）、原铝 402 万吨（+1.3%）。</div></div><figcaption>图 6　主要产品产量（2021—2025 年）</figcaption></figure><h2>四、量价与成本：利润弹性的来源</h2>
+<h3>表 9　主要产品产量</h3>
+<div class="rsp-table rsp-w7"><table class="financial longtable"><thead><tr><th>项目</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th><th><strong>2026H1</strong></th></tr></thead><tbody><tr><td>冶金级氧化铝（万吨）</td><td>1,753</td><td>1,764</td><td>1,667</td><td>1,687</td><td>1,735</td><td><strong>738</strong></td></tr><tr><td>同比（%）</td><td>—</td><td>+0.6</td><td>−5.5</td><td>+1.2</td><td>+2.9</td><td><strong>−14.2</strong></td></tr><tr><td>精细氧化铝（万吨）</td><td>412</td><td>429</td><td>400</td><td>431</td><td>451</td><td><strong>234</strong></td></tr><tr><td>原铝（含合金，万吨）</td><td>637</td><td>688</td><td>679</td><td>761</td><td>808</td><td><strong>402</strong></td></tr><tr><td>同比（%）</td><td>—</td><td>+8.0</td><td>−1.3</td><td>+12.1</td><td>+6.2</td><td><strong>+1.3</strong></td></tr><tr><td>商品煤（万吨）</td><td>824</td><td>1,074</td><td>1,305</td><td>1,316</td><td>1,372</td><td><strong>662</strong></td></tr><tr><td>外售电量（亿 kWh）</td><td>149</td><td>167</td><td>162</td><td>163</td><td>172</td><td>—</td></tr></tbody></table></div>
+<div class="note">注：2021 年产量为<strong>云铝股份并表重述后</strong>口径（2022 年报「主要运营数据」比较列）。2021 年原报口径氧化铝 1,623 万吨、原铝 386 万吨——<strong>若误用原报数，会把 2022 年的原铝产量算成「+78%」的暴涨</strong>，实际仅 +8.0%。2023 年精细氧化铝产量在 2024 年报中重述为 400 万吨（原报 499 万吨），本表取重述值。</div>
+<h3>表 10　行业价格与公司综合单吨指标</h3>
+<div class="rsp-table rsp-w7"><table class="financial longtable"><thead><tr><th>项目</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th><th><strong>2026H1</strong></th></tr></thead><tbody><tr><td>国内氧化铝现货均价（元/吨）</td><td>2,798</td><td>2,945</td><td>2,919</td><td><strong>4,084</strong></td><td>3,221</td><td><strong>2,692</strong></td></tr><tr><td>同比（%）</td><td>+19.7</td><td>+5.3</td><td>−0.9</td><td><strong>+39.9</strong></td><td>−21.1</td><td><strong>−21.9</strong></td></tr><tr><td>SHFE 铝现货均价（元/吨）</td><td>18,953</td><td>19,950</td><td>18,698</td><td>19,959</td><td>20,750</td><td><strong>24,413</strong></td></tr><tr><td>同比（%）</td><td>+34.2</td><td>+5.3</td><td>−6.3</td><td>+6.8</td><td>+4.0</td><td><strong>+20.7</strong></td></tr><tr><td><strong>氧化铝板块</strong>综合单吨收入</td><td>3,083</td><td>3,161</td><td>3,211</td><td>4,389</td><td>3,549</td><td>—</td></tr><tr><td>综合单吨成本</td><td>2,477</td><td>2,607</td><td>2,863</td><td>3,229</td><td>2,928</td><td>—</td></tr><tr><td><strong>综合单吨毛利</strong></td><td>606</td><td>554</td><td>348</td><td><strong>1,160</strong></td><td>621</td><td>—</td></tr><tr><td><strong>原铝板块</strong>综合单吨收入</td><td>18,605</td><td>20,126</td><td>18,455</td><td>17,918</td><td>18,015</td><td>—</td></tr><tr><td>综合单吨成本</td><td>15,362</td><td>17,552</td><td>16,043</td><td><strong>16,071</strong></td><td>14,613</td><td>—</td></tr><tr><td><strong>综合单吨毛利</strong></td><td>3,243</td><td>2,573</td><td>2,412</td><td>1,847</td><td><strong>3,402</strong></td><td>—</td></tr></tbody></table></div>
+<p><strong>口径声明（重要）</strong>：上表「综合单吨」＝板块营业收入（或营业成本）÷当年产量，是<strong>混合口径</strong>，含内部转移价、合金加工费与炭素等伴生产品，<strong>不可与 SHFE 或现货市场价直接相减对照</strong>。它的用途是<strong>看方向与相对幅度</strong>，不用于计算真实实现价格。</p>
+<p>三条可验证的结论：</p>
+<ol><li><strong>成本刚性远强于价格弹性</strong>。氧化铝综合单吨成本 2021→2024 年上行 <strong>+30.4%</strong>（2,477→3,229 元/吨），其中 2024 年一年就涨了 <strong>+12.8%</strong>——铝土矿价格（尤其进口矿）上涨是主因。2025 年成本回落至 2,928 元/吨（−9.3%）但<strong>未回到 2021 年水平</strong>。<strong>成本上去就不容易下来，这是本类公司利润下行弹性大于上行弹性的根源。</strong></li></ol>
+<ol><li><strong>原铝的成本改善是真实的、且可由公司披露交叉验证</strong>。原铝综合单吨成本 2022 年见顶 17,552 元/吨（当年煤价、电价、氧化铝同步上涨）→ 2025 年 14,613 元/吨（<strong>三年 −16.7%</strong>）。公司 2026 年半年报表述「电解铝综合交流电耗、氧化铝综合能耗等主要能耗指标持续降低」，与单吨成本下行方向一致。</li></ol>
+<ol><li><strong>2025 年原铝单吨毛利 3,402 元/吨已超过 2021 年的 3,243 元/吨</strong>，尽管 2021 年铝价上涨 34.2%（五年最大涨幅）、而 2025 年仅涨 4.0%。<strong>差额全部来自成本端与产品结构</strong>（原铝产量三年 +18.9%，摊薄固定成本）。这是「量增 + 成本降」战胜「价平」的直接证据。</li></ol>
+<h3>表 11　铝土矿资源与自给</h3>
+<div class="rsp-table rsp-w7"><table class="financial nowrap-first longtable"><thead><tr><th>矿山</th><th>品种</th><th>资源量（万吨）</th><th>储量（万吨）</th><th>品位（%）</th><th>年产量（万吨）</th><th>剩余可采（年）</th></tr></thead><tbody><tr><td>博法矿（几内亚）</td><td>铝土矿</td><td>208,980.81</td><td>14,779.45</td><td>33.41</td><td>1,961.00</td><td>＞60</td></tr><tr><td>贵州矿</td><td>铝土矿</td><td>12,240.84</td><td>3,913.19</td><td>8.95</td><td>166.24</td><td>17.9</td></tr><tr><td>山西新材料矿</td><td>铝土矿</td><td>9,052.21</td><td>3,172.07</td><td>5.73</td><td>231.23</td><td>19.8</td></tr><tr><td>文山矿</td><td>铝土矿</td><td>7,132.69</td><td>425.35</td><td>6.52</td><td>100.86</td><td>13.8</td></tr><tr><td>三门峡矿</td><td>铝土矿</td><td>6,905.53</td><td>1,785.74</td><td>6.32</td><td>42.78</td><td>10.5</td></tr><tr><td>华兴矿</td><td>铝土矿</td><td>6,148.51</td><td>350.90</td><td>8.65</td><td>94.92</td><td>8.2</td></tr><tr><td>平果矿</td><td>铝土矿</td><td>5,771.53</td><td>1,714.12</td><td>11.01</td><td>632.64</td><td>4.5</td></tr><tr><td>郑州分公司</td><td>铝土矿</td><td>5,044.07</td><td>1,478.00</td><td>5.37</td><td>167.51</td><td>—</td></tr><tr><td>其他 6 座</td><td>铝土矿</td><td>11,888.02</td><td>5,327.45</td><td>—</td><td>143.24</td><td>—</td></tr><tr class="total"><td><strong>合计</strong></td><td>铝土矿</td><td><strong>273,164.21</strong></td><td><strong>32,946.27</strong></td><td>8.68</td><td><strong>3,540.42</strong></td><td>—</td></tr></tbody></table></div>
+<div class="note">注：数据取自 2025 年年度报告「自有矿山的基本情况」，储量为 GB/T 17766-2020 分类口径。矿产开采成本价 634.41 元/吨（铝土矿合计口径）。</div>
+<p><strong>资源结构的两个要点</strong>：① 博法矿一座矿就占资源量的 <strong>76.5%</strong> 与自产矿产量的 <strong>55.4%</strong>，几内亚一地的政策与物流风险即为公司最大的单点资源风险；② 储量／资源量仅 <strong>12.1%</strong>，即资源量中只有约八分之一已升级为可采储量——<strong>「资源量 27 亿吨」不是「可采 27 亿吨」</strong>，两者不可混用。按 2025 年氧化铝产量 1,735 万吨、吨氧化铝耗矿约 2.6—3.0 吨估算，全年需矿 4,500—5,200 万吨，<strong>自产矿 3,540 万吨对应自给率约 68%—79%</strong>，缺口靠进口（2025 年中国进口铝土矿 2.0 亿吨，其中几内亚 1.5 亿吨）。</p>
+<hr>
+<figure><div class="ch"><div class="ch-t">杠杆：账面负债率降 14 个百分点，净债务实际降了 53%</div><div class="ch-s">单位：%　｜　资产负债率与有息负债占总资产比，两条曲线同步下行且缺口稳定</div><div class="ch-legend"><span><i style="background:#A73F2D"></i>资产负债率</span><span><i style="background:#2F6F6B"></i>有息负债／总资产</span></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2021</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">资产负债率</span><span class="ch-track"><span class="ch-bar" style="width:100.0%;background:#A73F2D"></span></span><span class="ch-val">60.1</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">有息负债／总资产</span><span class="ch-track"><span class="ch-bar" style="width:61.7%;background:#2F6F6B"></span></span><span class="ch-val">37.1</span></div></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2022</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">资产负债率</span><span class="ch-track"><span class="ch-bar" style="width:97.6%;background:#A73F2D"></span></span><span class="ch-val">58.7</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">有息负债／总资产</span><span class="ch-track"><span class="ch-bar" style="width:65.8%;background:#2F6F6B"></span></span><span class="ch-val">39.6</span></div></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2023</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">资产负债率</span><span class="ch-track"><span class="ch-bar" style="width:88.6%;background:#A73F2D"></span></span><span class="ch-val">53.3</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">有息负债／总资产</span><span class="ch-track"><span class="ch-bar" style="width:59.4%;background:#2F6F6B"></span></span><span class="ch-val">35.7</span></div></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2024</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">资产负债率</span><span class="ch-track"><span class="ch-bar" style="width:80.0%;background:#A73F2D"></span></span><span class="ch-val">48.1</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">有息负债／总资产</span><span class="ch-track"><span class="ch-bar" style="width:49.0%;background:#2F6F6B"></span></span><span class="ch-val">29.4</span></div></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2025</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">资产负债率</span><span class="ch-track"><span class="ch-bar" style="width:76.5%;background:#A73F2D"></span></span><span class="ch-val">46.0</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">有息负债／总资产</span><span class="ch-track"><span class="ch-bar" style="width:46.6%;background:#2F6F6B"></span></span><span class="ch-val">28.0</span></div></div><div class="ch-note">注：净债务由 2021 年末 641.67 亿元降至 2025 年末 299.44 亿元（−53.3%），降幅远大于资产负债率（−14.1 个百分点），因为利润留存同时抬高分母（总资产）与分子中的类现金。2026 年 6 月末资产负债率 42.76%。</div></div><figcaption>图 4　资产负债率与有息负债占总资产比（2021—2025 年末）</figcaption></figure><h2>五、利润的质量：三处必须扣除的「分母」</h2>
+<h3>5.1 少数股东拿走了四成——归母净利润不能与净利润混用</h3>
+<h3>表 12　归母、少数股东与非经常性损益</h3>
+<div class="note">单位：人民币百万元</div>
+<div class="rsp-table rsp-w7"><table class="financial longtable"><thead><tr><th>项目</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th><th><strong>2026H1</strong></th></tr></thead><tbody><tr><td>净利润（含少数股东）</td><td>11,317</td><td>10,843</td><td>12,584</td><td>19,372</td><td>21,525</td><td><strong>21,496</strong></td></tr><tr><td>少数股东损益</td><td>5,557</td><td>6,651</td><td>5,895</td><td>6,978</td><td>8,851</td><td><strong>9,625</strong></td></tr><tr><td>少数股东占比（%）</td><td>49.1</td><td>61.3</td><td>46.9</td><td>36.0</td><td>41.1</td><td><strong>44.8</strong></td></tr><tr><td><strong>归母净利润</strong></td><td>5,759</td><td>4,192</td><td>6,689</td><td>12,395</td><td>12,674</td><td><strong>11,871</strong></td></tr><tr><td>非经常性损益</td><td><strong>−1,269</strong></td><td>+1,061</td><td>+75</td><td>+421</td><td>+210</td><td><strong>+221</strong></td></tr><tr><td>非经常占归母（%）</td><td>−22.0</td><td>+25.3</td><td>+1.1</td><td>+3.4</td><td>+1.7</td><td><strong>+1.9</strong></td></tr><tr><td><strong>扣非归母净利润</strong></td><td>7,028</td><td>3,131</td><td>6,614</td><td>11,974</td><td>12,464</td><td><strong>11,650</strong></td></tr><tr><td>经营现金流／归母净利（倍）</td><td>6.12</td><td>6.63</td><td>4.04</td><td>2.65</td><td>2.69</td><td><strong>2.21</strong></td></tr><tr><td>经营现金流／净利润（倍）</td><td>3.11</td><td>2.56</td><td>2.15</td><td>1.69</td><td>1.58</td><td><strong>1.22</strong></td></tr></tbody></table></div>
+<p>三条判据：</p>
+<ol><li><strong>必须用「归母」而不是「净利润」做任何人均/单位化的盈利能力指标</strong>。2025 年合并利润总额 258.40 亿元、净利润 215.25 亿元，而归母只有 126.74 亿元——<strong>从利润总额到归母，折损 51%</strong>。用利润总额 258 亿元去除以产量、市值或净资产，会得出系统性高估的结论。少数股东权益高企的根源是云铝股份、包头铝业、广西华磊等盈利子公司的持股结构，<strong>这不是会计技巧，而是真实的股权分割</strong>。</li></ol>
+<ol><li><strong>非经常性损益常年接近于零，2021 年甚至是负数</strong>。五年中只有 2022 年（+10.61 亿元、占归母 25.3%）与 2021 年（−12.69 亿元）偏离较大。<strong>2021 年扣非（70.28 亿元）高于归母（57.59 亿元）12.69 亿元</strong>，意味着当年报表利润被一次性损失拖累而非虚增——用归母净利润评价 2021 年的主业盈利能力会<strong>低估</strong>。2023—2026H1 非经常占归母均低于 4%，利润「干净」。</li></ol>
+<ol><li><strong>经营现金流／归母净利的比值从 6.12 倍降至 2.69 倍，不是质量恶化，而是分母变大</strong>。经营现金流绝对额五年从 352.32 亿元升至 340.92 亿元（基本持平），归母净利润从 57.59 亿元升至 126.74 亿元（+120%）。<strong>比值下降 56% 全部由利润增长解释</strong>。用「净利润」作分母时该比值更稳定（3.11→1.58），同样是因为分母含少数股东部分、与现金流的归属更匹配。</li></ol>
+<h3>5.2 折旧摊销 112 亿元是「经营现金流远大于净利润」的主因</h3>
+<p>2025 年分部报告披露折旧和摊销费用合计 <strong>112.36 亿元</strong>（2024 年 121.69 亿元），其中氧化铝板块 36.59 亿元、原铝板块 51.07 亿元、能源板块 18.75 亿元。这一金额相当于当年归母净利润的 <strong>88.7%</strong>。</p>
+<p><strong>这是重资产资源股的常态，不是会计异常</strong>：固定资产 986.78 亿元、使用权资产 90.01 亿元、无形资产 174.57 亿元，年折旧摊销约 112 亿元对应综合折旧率约 9%，与铝冶炼 15—20 年的资产寿命匹配。它的直接后果是<strong>经营现金流系统性高于净利润</strong>——这正是表 3 中自由现金流五年累计 1,237.68 亿元、而累计归母净利润仅 417.09 亿元的根源，<strong>不能据此认为公司盈利被低估</strong>。</p>
+<h3>5.3 资产减值：连续五年计提，且 2026 年仍未停</h3>
+<div class="rsp-table rsp-w6"><table class="nowrap-first"><thead><tr><th>项目</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th></tr></thead><tbody><tr><td>资产减值损失</td><td>—</td><td>—</td><td>—</td><td>−2,753</td><td>−3,525</td></tr><tr><td>其中：氧化铝板块</td><td>—</td><td>—</td><td>—</td><td>−801</td><td>−1,137</td></tr><tr><td>原铝板块</td><td>—</td><td>—</td><td>—</td><td>−1,100</td><td>−1,680</td></tr><tr><td>信用减值损失</td><td>—</td><td>—</td><td>—</td><td>+131</td><td>−87</td></tr></tbody></table></div>
+<div class="note">注：2021—2023 年分部报告未单列资产减值损失行（列示方式不同），故留「—」不推算。2026 年上半年资产减值损失 2.42 亿元（同比减少 2.40 亿元）。</div>
+<p>2025 年资产减值 35.25 亿元，是当年利润总额的 13.6%，其中原铝板块 16.80 亿元、氧化铝板块 11.37 亿元。<strong>在铝价创近三年新高的年份仍计提 35 亿元减值，说明部分资产（尤其老旧电解铝与氧化铝生产线）的经济性已低于账面</strong>。这与公司「氧化铝产能向沿海集聚、电解铝向清洁能源优势区域优化」的产能搬迁战略一致——<strong>减值是结构退出成本，不是经营失血</strong>。</p>
+<hr>
+<h2>六、股东回报</h2>
+<h3>表 13　分红与派息率</h3>
+<div class="rsp-table rsp-w7"><table class="financial nowrap-first longtable"><thead><tr><th>年度</th><th>每 10 股派息（元，含税）</th><th>其中中期</th><th>其中末期</th><th>现金分红总额（百万元）</th><th>归母净利润</th><th>分红率（%）</th></tr></thead><tbody><tr><td>2021</td><td>0.32</td><td>—</td><td>0.32</td><td>545</td><td>5,079</td><td><strong>10.72</strong></td></tr><tr><td>2022</td><td>0.36</td><td>—</td><td>0.36</td><td>618</td><td>4,192</td><td><strong>14.74</strong></td></tr><tr><td>2023</td><td>0.80</td><td>—</td><td>0.80</td><td>1,373</td><td>6,717</td><td><strong>20.44</strong></td></tr><tr><td>2024</td><td>2.17</td><td>0.082</td><td>0.135</td><td>3,723</td><td>12,400</td><td><strong>30.02</strong></td></tr><tr><td>2025</td><td>2.70</td><td>0.123</td><td>0.147</td><td>4,632</td><td>12,674</td><td><strong>36.55</strong></td></tr></tbody></table></div>
+<div class="note">注：① 分红率取公司年报「利润分配」专项表披露值，分母为<strong>分红年度合并报表归属于上市公司普通股股东的净利润</strong>；2024、2025 年含中期已派股息。② 2021—2024 年金额按各年报原报归母净利润计算（当年口径），与表 1 的重述值略有差异。③ 2025 年中期股息 21.10 亿元已于 2025 年 10 月 17 日派发完毕，末期股息 25.22 亿元待股东会批准。</div>
+<p><strong>五年分红率的抬升是单调的，且斜率在 2023 年之后变陡</strong>（+4.0pp → +5.7pp → +9.6pp → +6.5pp）。但要注意两点：</p>
+<ol><li><strong>分红率的绝对水平仍不高</strong>（36.55%），对应 2025 年股息率需结合股价判断，本报告不涉及估值。</li><li><strong>自由现金流对分红的覆盖极厚</strong>：2025 年自由现金流 248.48 亿元 ÷ 现金分红 46.32 亿元 = <strong>5.37 倍</strong>；五年累计自由现金流 1,237.68 亿元 ÷ 累计分红 108.91 亿元 = <strong>11.4 倍</strong>。<strong>分红的约束不在现金，而在公司的资本开支与并购意愿</strong>——2024 年资本开支冲上 103.60 亿元、2026 年上半年又提出 17.12 亿元的联合营投资承诺，说明现金优先投向资源获取与产能优化，而非提高派息。</li></ol>
+<hr>
+<h2>七、2026 年中期：结构走到极端</h2>
+<h3>表 14　2026 年上半年主要数据</h3>
+<div class="note">单位：人民币百万元</div>
+<div class="rsp-table"><table class="financial longtable"><thead><tr><th>项目</th><th>2026H1</th><th>2025H1（重述）</th><th>同比（%）</th></tr></thead><tbody><tr><td>营业收入</td><td>125,413</td><td>116,409</td><td>+7.74</td></tr><tr><td>营业成本</td><td>91,626</td><td>96,897</td><td>−5.44</td></tr><tr><td>毛利率（%）</td><td><strong>26.94</strong></td><td>16.76</td><td>+10.18pp</td></tr><tr><td>利润总额</td><td>26,230</td><td>13,247</td><td>+98.01</td></tr><tr><td>归母净利润</td><td>11,871</td><td>7,070</td><td>+67.91</td></tr><tr><td>扣非归母净利润</td><td>11,650</td><td>6,941</td><td>+67.84</td></tr><tr><td>经营活动现金流净额</td><td>26,263</td><td>14,265</td><td>+84.11</td></tr><tr><td>基本每股收益（元/股）</td><td>0.693</td><td>0.413</td><td>+67.80</td></tr><tr><td>加权平均 ROE（%）</td><td>14.67</td><td>9.89</td><td>+4.78pp</td></tr><tr><td>总资产</td><td>244,577</td><td>227,022（年初）</td><td>+7.73</td></tr><tr><td>归母股东权益</td><td>84,503</td><td>74,925（年初）</td><td>+12.78</td></tr><tr><td>资产负债率（%）</td><td><strong>42.76</strong></td><td>46.01（年初）</td><td>−3.25pp</td></tr><tr><td>资本开支（不含股权投资）</td><td>3,451</td><td>—</td><td>—</td></tr></tbody></table></div>
+<h3>表 15　2026 年上半年分部利润</h3>
+<div class="note">单位：人民币百万元</div>
+<div class="rsp-table rsp-w6"><table class="financial nowrap-first longtable"><thead><tr><th>板块</th><th>2026H1 收入</th><th>同比</th><th>2026H1 利润总额</th><th>2025H1 利润总额</th><th>变动</th></tr></thead><tbody><tr><td>氧化铝</td><td>23,672</td><td>−28.8%</td><td><strong>−818</strong></td><td>4,706</td><td>−5,524</td></tr><tr><td>原铝</td><td>90,931</td><td>+19.7%</td><td><strong>26,615</strong></td><td>8,105</td><td>+18,510</td></tr><tr><td>营销</td><td>105,158</td><td>+3.1%</td><td>1,057</td><td>505</td><td>+552</td></tr><tr><td>能源</td><td>4,042</td><td>+3.7%</td><td>92</td><td>542</td><td>−450</td></tr><tr><td>总部及其他</td><td>888</td><td>−5.6%</td><td>−716</td><td>−611</td><td>−105</td></tr><tr class="total"><td><strong>合计</strong></td><td>—</td><td>—</td><td><strong>26,230</strong></td><td>13,247</td><td>+12,983</td></tr></tbody></table></div>
+<p><strong>这份中期报表把本公司的结构特征暴露得最彻底</strong>：</p>
+<ol><li><strong>利润 100% 来自电解铝</strong>。原铝板块利润总额 266.15 亿元，超过集团合计 262.30 亿元的 <strong>101.5%</strong>（其他板块净亏损 3.85 亿元）。氧化铝板块收入 236.72 亿元、利润 <strong>−8.18 亿元</strong>，每吨氧化铝都在亏钱。</li></ol>
+<ol><li><strong>氧化铝的量价双杀</strong>：产量 738 万吨（−14.2%），国内均价 2,692 元/吨（−21.9%）。<strong>减产 14% 却仍在亏损</strong>，说明亏损来自价格而非开工率——2026 年上半年氧化铝行业处于「新增产能消化 + 电解铝需求增速放缓」的双重挤压中。</li></ol>
+<ol><li><strong>电解铝的利润来自三重叠加</strong>：SHFE 铝价 24,413 元/吨（+20.7%）、产量 402 万吨（+1.3%）、氧化铝原料成本大幅下降。<strong>「铝价涨 + 原料跌」是电解铝环节最理想的组合</strong>，2026 年上半年恰好处在这个组合的正中央。</li></ol>
+<ol><li><strong>资产负债率降至 42.76%，为五年最低</strong>。归母权益半年增 95.78 亿元（+12.78%），主要来自利润留存；同时公司压降中长期融资（非流动负债减少 38.95 亿元）。</li></ol>
+<p>⚠️ <strong>不可外推的提示</strong>：2026 年上半年的 26.94% 毛利率与 14.67% 的半年 ROE，建立在「铝价 +20.7% 与氧化铝价 −21.9%」这一<strong>价差极值</strong>上。价差是均值回归变量——氧化铝价格若反弹，原铝板块的成本优势会同步收窄，反之亦然。<strong>用半年报数据年化推算全年利润（约 237 亿元归母）会系统性高估</strong>，因为价差不可能长期维持在该水平。</p>
+<hr>
+<h2>八、结论与风险</h2>
+<h3>8.1 三句话总结</h3>
+<ol><li><strong>这是一家「电解铝定价、氧化铝配套」的一体化企业，不是「铝价单变量」的资源股</strong>。氧化铝 90% 内部消化，使它失去了独立的价格弹性；集团利润几乎完全由<strong>电解铝环节的价差</strong>决定。任何只看铝价或只看氧化铝价的判断都会失真。</li><li><strong>五年间的报表改善是真实的，但一半来自会计口径清理、一半来自真实降本</strong>。营收 −19.3% 是主动砍掉 1,088 亿元纯贸易的结果；毛利率 +5.76pp 的成因中，可精确归因的是原铝单吨成本下降（三年 −16.7%）与产量增长（三年 +18.9%），<strong>贸易剥离对毛利率的贡献无法从披露数据中精确拆分</strong>，只能定性判断其为正向；财务费用 −21.12 亿元是降杠杆的直接兑现。</li><li><strong>2026 年上半年是本轮周期的高点区域，而不是新常态</strong>。氧化铝亏损、电解铝暴利、毛利率 26.94%、负债率 42.76%——这四个数字同时出现，本身就是不可持续的组合信号。</li></ol>
+<h3>8.2 六项风险（按可量化程度排序）</h3>
+<div class="rsp-table"><table class="longtable"><thead><tr><th>风险</th><th>量化依据</th><th>观察指标</th></tr></thead><tbody><tr><td><strong>价差反转</strong></td><td>2026H1 氧化铝 −21.9%、铝 +20.7%，处于五年最极端价差；氧化铝板块已亏损</td><td>国内氧化铝现货均价、SHFE 铝价月度差</td></tr><tr><td><strong>几内亚资源单点风险</strong></td><td>博法矿占资源量 76.5%、自产矿产量 55.4%</td><td>几内亚出口政策、海运费、CIF 矿价</td></tr><tr><td><strong>少数股东分流</strong></td><td>少数股东损益占净利润 36%—61%，五年均值 47%</td><td>云铝股份等子公司持股比例变化</td></tr><tr><td><strong>成本刚性</strong></td><td>氧化铝单吨成本 2021→2024 +30.4%，2025 年仅回落 9.3%</td><td>铝土矿采购价、电价、烧碱价格</td></tr><tr><td><strong>短债化</strong></td><td>2025 年短期借款 +140.0%、一年内到期负债 +36.5%</td><td>短期借款／有息负债比、融资成本</td></tr><tr><td><strong>资产减值常态化</strong></td><td>2024/2025 年连续计提 27.53／35.25 亿元，2026H1 再提 2.42 亿元</td><td>减值占利润总额比、停产产能公告</td></tr></tbody></table></div>
+<h3>8.3 三个需要持续跟踪的「口径陷阱」</h3>
+<ol><li><strong>同一会计年度存在多个版本</strong>：2021 年营业收入在 2021 年报为 269,748、在 2022 年报为 298,885（差 10.8%）。做任何跨年图表前，先确认数据来自哪一版（附录 A）。</li><li><strong>分部对外收入与板块收入不是一回事</strong>：氧化铝板块 615.85 亿元收入中只有 62.49 亿元是对外交易。用板块收入占比描述业务结构会严重失真。</li><li><strong>贸易／营销板块的名称与拆分方式在 2024 年变更</strong>，且 2025 年氧化铝对外销售渠道发生重分类（对外收入从 223.99 亿元降至 62.49 亿元）。<strong>任何跨越 2024/2025 的分部对比都必须先做口径校准。</strong></li></ol>
+<hr>
+<h2>附录 A　追溯重述清单</h2>
+<div class="rsp-table"><table class="nowrap-first longtable"><thead><tr><th>生效年报</th><th>事项</th><th>影响年度</th><th>影响幅度</th></tr></thead><tbody><tr><td>2022 年报</td><td><strong>同一控制下企业合并</strong>：收购云铝股份、平果铝业股权，按准则追溯调整比较期</td><td>2021</td><td>营业收入 269,748 → <strong>298,885</strong>（+29,137，+10.8%）；归母净利润 5,079 → <strong>5,759</strong>（+680，+13.4%）；总资产 192,377 → <strong>224,863</strong>（+32,486，+16.9%）；归母权益 57,265 → <strong>60,484</strong></td></tr><tr><td>2022 年报</td><td><strong>会计政策变更</strong>：《企业会计准则解释第 15 号》关于试运行销售的会计处理，追溯调整 2021 年比较财务数据</td><td>2021</td><td>与上项合并体现，未单独披露金额</td></tr><tr><td>2023 年报</td><td>同一控制下企业合并的后续调整</td><td>2022</td><td>归母净利润 4,191.9 → <strong>4,192.1</strong>（+0.1 百万元，影响极小）</td></tr><tr><td>2024 年报</td><td>同一控制下企业合并</td><td>2023</td><td>营业收入 225,071 → <strong>225,319</strong>（+248）；归母净利润 6,717 → <strong>6,689</strong>（−28）；归母权益 60,458 → <strong>60,598</strong>（+140）</td></tr><tr><td>2025 年报</td><td>同一控制下企业合并</td><td>2023、2024</td><td>2023 营业收入 225,319 → <strong>225,376</strong>（+57）；2024 营业收入 237,066 → <strong>237,109</strong>（+43）；2024 归母净利润 12,400 → <strong>12,395</strong>（−5）；2024 总资产 215,896 → <strong>215,942</strong>（+46）</td></tr><tr><td>2026 半年报</td><td>同一控制下企业合并</td><td>2025 年度、2025 上半年</td><td>2025H1 营业收入 116,392 → <strong>116,409</strong>（+17）；归母净利润 7,071 → <strong>7,070</strong>（−1）</td></tr></tbody></table></div>
+<p><strong>取数规则</strong>：本报告长周期表一律取<strong>该年度最近一次重述后</strong>的数值。这意味着不同年度可能来自不同年报（2021 年取 2022 年报、2022 年取 2023 年报、2023 年取 2024 年报、2024—2025 年取 2025 年报），但每一年的数值都是<strong>当时可获得的最新版本</strong>，序列内部无重复重述。</p>
+<h2>附录 B　派生指标定义</h2>
+<div class="rsp-table"><table class="longtable"><thead><tr><th>指标</th><th>定义</th><th>说明</th></tr></thead><tbody><tr><td>毛利／毛利率</td><td>营业收入 − 营业成本</td><td>未扣除税金及附加、期间费用</td></tr><tr><td>自由现金流</td><td>经营活动现金流净额 − 购建固定资产、无形资产和其他长期资产支付的现金</td><td>未扣股权投资支出</td></tr><tr><td>有息负债</td><td>短期借款 + 一年内到期的非流动负债 + 长期借款 + 应付债券 + 租赁负债</td><td>未含长期应付款中的融资租赁部分</td></tr><tr><td>净债务</td><td>有息负债 −（货币资金 + 交易性金融资产）</td><td>正值为净债务，负值为净现金</td></tr><tr><td>收现比</td><td>销售商品、提供劳务收到的现金 ÷ 营业收入</td><td>2025 年 99.1%，接近 1 说明回款质量好</td></tr><tr><td>分部收益</td><td>分部报告中的「分部收益（损失以『-』号表示）」，即<strong>分部税前利润</strong></td><td>五个分部收益合计<strong>等于</strong>合并利润总额</td></tr><tr><td>分部对外交易收入</td><td>分部营业收入合计 − 分部间交易收入</td><td>五者之和等于合并营业收入</td></tr><tr><td>综合单吨收入／成本／毛利</td><td>板块营业收入（或成本）÷ 当年产量</td><td><strong>混合口径</strong>，不可与市场价直接对照</td></tr><tr><td>实际税率</td><td>（利润总额 − 净利润）÷ 利润总额</td><td>含递延所得税影响</td></tr><tr><td>非经常性损益</td><td>归母净利润 − 扣非归母净利润</td><td>2021 年为负（−12.69 亿元）</td></tr></tbody></table></div>
+<hr>
+<p>*本报告依据中国铝业股份有限公司 2021—2025 年年度报告及 2026 年半年度报告公开披露信息编制。所有金额如无特别说明均为人民币。分部数据取自各年「分部报告」附注；重述信息取自各年「主要会计数据」表及附注。*</p>
+
+<!-- rsp-mobile-adapt : 溢出表格滑动提示 -->
+<script>
+(function(){
+  function mark(){
+    var boxes = document.querySelectorAll('.rsp-table');
+    for (var i=0;i<boxes.length;i++){
+      var b = boxes[i];
+      if (b.scrollWidth > b.clientWidth + 4) b.setAttribute('data-rsp-scroll','');
+      else b.removeAttribute('data-rsp-scroll');
+    }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mark);
+  else mark();
+  window.addEventListener('resize', function(){ clearTimeout(window.__rspT); window.__rspT=setTimeout(mark,180); });
+})();
+</script>
+</body>
+</html>
