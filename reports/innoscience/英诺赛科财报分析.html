@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>英诺赛科财报分析报告</title>
+<meta name="generator" content="financial-report-analysis">
+<style>
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W04.ttf") format("truetype");
+    font-weight: 400; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: "TsangerJinKai02";
+    src: url("https://cdn.jsdelivr.net/gh/tw93/Kami@main/assets/fonts/TsangerJinKai02-W05.ttf") format("truetype");
+    font-weight: 500; font-style: normal; font-display: swap;
+  }
+  @page {
+    size: A4;
+    margin: 16mm 18mm 18mm 18mm;
+    background: #F7F4EE;
+    @bottom-center {
+      content: counter(page) "  ·  财报分析";
+      font-family: "TsangerJinKai02", "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", Georgia, serif;
+      font-size: 9pt; color: #6b6a64;
+    }
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --parchment:#F7F4EE; --ivory:#FBF9F4; --near-black:#22262B; --dark-warm:#3E4145;
+    --olive:#504e49; --stone:#7C7B77; --brand:#A73F2D; --brand-deep:#8A3223;
+    --accent:#A73F2D; --accent-soft:#F1E3DD; --gold:#B8862F; --teal:#2F6F6B; --blue:#1B365D;
+    --border:#E3DDD4; --border-soft:#EAE5DC;
+    --tag-bg:#F1E3DD; --positive:#A73F2D; --negative:#2F6F6B;
+    --serif: "TsangerJinKai02", "Source Han Serif SC", "Source Han Serif CN", "Noto Serif CJK SC", "Noto Serif SC", "Songti SC", "STSong", "SimSun", Georgia, serif;
+    --rhythm-module:14pt; --rhythm-section:18pt;
+  }
+  html, body { background: var(--parchment); }
+  @media screen { body { max-width: 210mm; margin: 0 auto; padding: 16mm 18mm 18mm 18mm; } }
+  body { color: var(--near-black); font-family: var(--serif); font-size: 10pt; line-height: 1.5;
+    letter-spacing: 0.3pt; widows: 3; orphans: 3; }
+  strong { font-weight: 500; }
+  .hl { color: var(--brand); font-weight: 500; }
+
+  .report-header { display: flex; justify-content: space-between; align-items: flex-start;
+    margin-bottom: var(--rhythm-module); padding-bottom: 10pt; border-bottom: 0.5pt solid var(--border); }
+  .ticker-block { flex: 1; }
+  .ticker-eyebrow { font-size: 9pt; color: var(--brand); letter-spacing: 1.5pt; text-transform: uppercase;
+    font-weight: 500; margin-bottom: 4pt; }
+  .ticker-name { font-family: var(--serif); font-size: 24pt; font-weight: 500; color: var(--near-black);
+    line-height: 1.15; margin-bottom: 4pt; }
+  .ticker-sub { font-size: 10pt; color: var(--olive); line-height: 1.4; }
+  .price-block { text-align: right; padding-top: 4pt; }
+  .price-current { font-family: var(--serif); font-size: 28pt; font-weight: 500; color: var(--near-black);
+    line-height: 1; font-variant-numeric: tabular-nums; }
+  .price-change { font-size: 10pt; font-weight: 500; margin-top: 2pt; font-variant-numeric: tabular-nums; }
+  .price-change.up { color: var(--positive); }
+  .price-date { font-size: 9pt; color: var(--stone); margin-top: 2pt; }
+
+  .metrics { display: flex; gap: 14pt; margin-bottom: 16pt; padding: 6pt 0;
+    border-top: 0.3pt dotted var(--border); border-bottom: 0.3pt dotted var(--border); }
+  .metric { flex: 1; min-width: 0; display: flex; align-items: baseline; gap: 4pt; flex-wrap: wrap; }
+  .metric-value { font-family: var(--serif); font-size: 16pt; font-weight: 500; color: var(--brand);
+    line-height: 1; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  /* white-space 必须为 normal：设为 nowrap 时 flex 项不收缩，4 张指标卡的标签会互相压字并冲出页面右缘 */
+  .metric-label { font-size: 9pt; color: var(--olive); line-height: 1.3; white-space: normal; }
+
+  h2 { font-family: var(--serif); font-size: 16pt; font-weight: 500; color: var(--near-black);
+    margin: 18pt 0 6pt 0; break-after: avoid; }
+  h3 { font-size: 13pt; font-weight: 500; color: var(--dark-warm); margin: 12pt 0 4pt 0; break-after: avoid; }
+  p { margin: 0 0 8pt 0; line-height: 1.5; widows: 2; orphans: 2; }
+  ul, ol { margin: 4pt 0 8pt 0; padding-left: 18pt; line-height: 1.5; }
+  ul li::marker { color: var(--brand); } ol li::marker { color: var(--brand); font-weight: 500; }
+
+  .tag { display: inline-block; background: var(--tag-bg); color: var(--brand); font-size: 9pt;
+    font-weight: 500; padding: 1pt 6pt; border-radius: 3pt; margin-right: 3pt; }
+
+  table, .kami-table { width: 100%; border-collapse: collapse; font-size: 9.5pt; margin: 8pt 0; break-inside: avoid; }
+  table th, .kami-table th { text-align: left; font-weight: 500; color: var(--dark-warm);
+    padding: 6pt 8pt; border-bottom: 0.6pt solid var(--border); background: transparent; }
+  table td, .kami-table td { padding: 5pt 8pt; border-bottom: 0.25pt solid var(--border); vertical-align: top; }
+  table.compact th, .kami-table.compact th { padding: 3pt 6pt; font-size: 8pt; }
+  table.compact td, .kami-table.compact td { padding: 2.5pt 6pt; font-size: 8pt; line-height: 1.4; }
+  table.financial td:not(:first-child), .kami-table.financial td:not(:first-child) {
+    text-align: right; font-variant-numeric: tabular-nums; }
+  table.financial th:not(:first-child), .kami-table.financial th:not(:first-child) { text-align: right; }
+  table .total td, .kami-table .total td { font-weight: 500; border-top: 0.6pt solid var(--border);
+    border-bottom: none; color: var(--near-black); }
+  .note { font-size: 8.5pt; color: var(--stone); margin: 2pt 0 8pt 0; }
+
+  .callout { background: var(--ivory); padding: 8pt 12pt; border-radius: 3pt; margin: 10pt 0;
+    line-height: 1.5; break-inside: avoid; }
+  .callout .quote { margin: 6pt 0; color: var(--olive); }
+
+  figure { margin: 12pt 0; break-inside: avoid; }
+  figcaption { font-size: 9pt; color: var(--stone); margin-top: 4pt; text-align: center; }
+
+  .risk-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10pt; margin: 8pt 0; }
+  .risk-item { padding: 6pt 10pt; background: var(--ivory); border-radius: 3pt; break-inside: avoid; }
+  .risk-label { font-size: 9pt; font-weight: 500; color: var(--brand); margin-bottom: 2pt; }
+  .risk-desc { font-size: 9pt; color: var(--olive); line-height: 1.4; }
+
+  .analyst-box { background: var(--ivory); border-radius: 4pt; padding: 10pt 14pt; margin: 12pt 0;
+    break-inside: avoid; }
+  .analyst-label { font-size: 9pt; color: var(--brand); letter-spacing: 0.5pt; text-transform: uppercase;
+    margin-bottom: 4pt; }
+
+  .page-break { break-before: page; }
+
+  /* ===== 富配色增强：砖红主色 #A73F2D + 四色数据 + 深炭标题 #22262B ===== */
+  h2 { position: relative; padding-left: 13pt; }
+  h2::before { content:""; position:absolute; left:0; top:2.5pt; width:4pt; height:13pt;
+    background:var(--accent); border-radius:1pt; }
+  table th, .kami-table th { border-bottom: 1pt solid var(--accent); }
+  .metric:nth-child(1) .metric-value { color: var(--accent); }
+  .metric:nth-child(2) .metric-value { color: var(--gold); }
+  .metric:nth-child(3) .metric-value { color: var(--teal); }
+  .metric:nth-child(4) .metric-value { color: var(--blue); }
+  .callout { border-left: 3pt solid var(--accent); }
+  .analyst-box { border-left: 3pt solid var(--accent); }
+  .risk-item { border-left: 2.5pt solid var(--accent); }
+  .tag { background: var(--accent-soft); color: var(--brand-deep); }
+  .price-current { color: var(--near-black); }
+  .ticker-sub { color: var(--stone); }
+</style>
+
+<style>
+  /* ===== 图表（纯 HTML/CSS，不使用 SVG 文本节点） ===== */
+  .ch { margin: 9pt 0 5pt 0; }
+  .ch-t { font-size: 11pt; font-weight: 500; color: #22262B; margin-bottom: 1pt; }
+  .ch-s { font-size: 8.5pt; color: #7C7B77; margin-bottom: 6pt; line-height: 1.4; }
+  .ch-row { display: flex; align-items: center; gap: 7pt; margin-bottom: 2.8pt; }
+  .ch-lab { flex: 0 0 62pt; font-size: 8.4pt; color: #3E4145; text-align: right; line-height: 1.2; }
+  .ch-track { flex: 1 1 auto; min-width: 0; }
+  .ch-track.stk { display: flex; height: 11pt; border-radius: 1.5pt; overflow: hidden; }
+  .ch-bar { display: block; height: 11pt; border-radius: 1.5pt; background: #2F6F6B; }
+  .ch-bar.g { background: #CFC7BA; }
+  .ch-bar.hi { background: #A73F2D; }
+  .ch-bar.gold { background: #B8862F; }
+  .ch-bar.blue { background: #1B365D; }
+  .ch-val { flex: 0 0 56pt; font-size: 8.4pt; color: #22262B; font-variant-numeric: tabular-nums;
+    text-align: right; line-height: 1.2; }
+  .ch-val.hi { color: #A73F2D; font-weight: 500; }
+  .ch-legend { display: flex; flex-wrap: wrap; gap: 12pt; font-size: 8.2pt; color: #504e49; margin: 5pt 0 2pt 0; }
+  .ch-legend span { white-space: nowrap; flex: 0 0 auto; }
+  .ch-legend i { display: inline-block; width: 9pt; height: 9pt; border-radius: 1.5pt; margin-right: 3pt;
+    vertical-align: -1pt; }
+  .ch-note { font-size: 8pt; color: #7C7B77; margin-top: 3pt; line-height: 1.4; }
+  .wf-row { display: flex; align-items: center; gap: 6pt; margin-bottom: 2.8pt; }
+  .wf-lab { flex: 0 0 72pt; font-size: 8.4pt; color: #3E4145; text-align: right; line-height: 1.2; }
+  .wf-track { flex: 1 1 auto; min-width: 0; position: relative; height: 11pt; }
+  .wf-bar { position: absolute; height: 11pt; border-radius: 1.5pt; }
+  .wf-val { flex: 0 0 58pt; font-size: 8.4pt; text-align: right; font-variant-numeric: tabular-nums;
+    color: #22262B; line-height: 1.2; }
+  /* 有符号坐标轴的刻度：端点必须对齐到版心两侧，否则数字溢出版心 */
+  .wf-axis { display: flex; margin-left: 78pt; margin-right: 64pt; font-size: 7.6pt;
+    color: #9A9892; font-variant-numeric: tabular-nums; position: relative; height: 10pt; }
+  .wf-axis span { position: absolute; white-space: nowrap; }
+  .wf-axis .t0 { left: 0; }
+  .wf-axis .tm { left: 50%; transform: translateX(-50%); }
+  .wf-axis .t1 { left: 100%; transform: translateX(-100%); }
+  figure { break-inside: avoid; margin: 10pt 0; }
+  table.wide { font-size: 6.9pt; }
+  table.wide th, table.wide td { padding: 2.6pt 3.2pt; }
+  table.wide.fixed { table-layout: fixed; word-break: break-word; }
+  table.wide.fixed th:first-child, table.wide.fixed td:first-child { width: auto; }
+  table.wide.fixed th:not(:first-child), table.wide.fixed td:not(:first-child) { width: 7.1%; }
+  /* 分析型四列表：固定列宽，避免"关键科目"被挤成两行 */
+  table.analysis { font-size: 8.4pt; table-layout: fixed; }
+  table.analysis th, table.analysis td { padding: 3pt 5pt; }
+  table.analysis th:nth-child(1), table.analysis td:nth-child(1) { width: 14%; }
+  table.analysis th:nth-child(2), table.analysis td:nth-child(2) { width: 30%; }
+  table.analysis th:nth-child(3), table.analysis td:nth-child(3) { width: 18%; }
+  table.analysis th:nth-child(4), table.analysis td:nth-child(4) { width: 38%; }
+  /* 首列内容很短（年份／项目名）时禁止折行 */
+  table.nowrap-first th:first-child, table.nowrap-first td:first-child { white-space: nowrap; }
+  table.longtable { break-inside: auto; }
+  table.longtable thead { display: table-header-group; }
+  table.longtable tr { break-inside: avoid; }
+  .note ol { margin: 2pt 0 0 0; padding-left: 16pt; }
+  .note li { margin-bottom: 1pt; line-height: 1.42; }
+  /* 口径说明引用块：模板 .callout 自带左侧砖红线与象牙底 */
+  .callout > p:last-child { margin-bottom: 0; }
+  .callout ol { margin-bottom: 0; }
+  @media print { .ch, .wf-row { break-inside: avoid; } }
+</style>
+
+<!-- rsp-mobile-adapt : 响应式适配层（仅屏幕生效，不影响打印/PDF） -->
+<style id="rsp-mobile-adapt">
+/* rsp-mobile-adapt-v3 */
+/* ========== 1. 全局：屏幕端基础修正 ========== */
+@media screen {
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body { overflow-wrap: break-word; }
+  img, svg, canvas, video, iframe { max-width: 100%; }
+  svg[viewBox], svg[viewbox] { height: auto; }
+
+  /* 网格容器（两列对比等）：网格项默认 min-width:auto，会被内部宽表撑破
+     容器、把整页顶出横向滚动（报告里 .two-col 就栽在这上面）。放开收缩，
+     让里面的 .rsp-table 自己去横向滑动。 */
+  .risk-grid > *, .two-col > * { min-width: 0; }
+
+  /* 表格横向滚动容器：宽表不压字、不撑破页面 */
+  .rsp-table {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    margin: 8pt 0;
+    position: relative;
+  }
+  .rsp-table > table { margin: 0; }
+  .rsp-table::-webkit-scrollbar { height: 7px; }
+  .rsp-table::-webkit-scrollbar-track { background: transparent; }
+  .rsp-table::-webkit-scrollbar-thumb { background: #D8D1C4; border-radius: 4px; }
+  /* 内容确实溢出时，右侧给一层渐变暗示"还能往右滑" */
+  .rsp-table[data-rsp-scroll] {
+    background: linear-gradient(to left, rgba(167,63,45,.10), rgba(167,63,45,0) 28px);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 28px 100%;
+  }
+}
+
+/* ========== 2. 平板 / 窄窗口：边距先收，避免内容被挤 ========== */
+@media screen and (max-width: 900px) {
+  body { padding: 22px 22px 46px 22px !important; }
+  .report-header { flex-wrap: wrap; gap: 12pt; }
+  .metrics { flex-wrap: wrap; gap: 10pt 18pt; }
+  .metric { flex: 1 1 42%; min-width: 0; }
+  .report-footer { flex-wrap: wrap; gap: 4pt 14pt; }
+
+  /* 宽表改为横向滚动：给每列保留最小可读宽度，不再把汉字挤成竖排 */
+  .rsp-w5 > table { min-width: 310px !important; }
+  .rsp-w6 > table { min-width: 372px !important; }
+  .rsp-w7 > table { min-width: 434px !important; }
+  .rsp-w8 > table { min-width: 496px !important; }
+  .rsp-w9 > table { min-width: 558px !important; }
+  .rsp-w10 > table { min-width: 620px !important; }
+  .rsp-w11 > table { min-width: 682px !important; }
+  .rsp-w12 > table { min-width: 744px !important; }
+  .rsp-w13 > table { min-width: 806px !important; }
+  .rsp-w14 > table { min-width: 868px !important; }
+  .rsp-w15 > table { min-width: 930px !important; }
+  .rsp-w16 > table { min-width: 992px !important; }
+}
+
+/* ========== 3. 手机：指标卡两列、页头转纵向 ========== */
+@media screen and (max-width: 720px) {
+  body {
+    max-width: 100% !important;
+    padding: 18px 16px 44px 16px !important;
+    font-size: 10.5pt;
+  }
+  h2 { font-size: 15pt !important; margin: 20pt 0 7pt 0 !important; }
+  h3 { font-size: 12.5pt !important; }
+  h1 { font-size: 19pt !important; }
+  p, li { line-height: 1.62; }
+  ul, ol { padding-left: 17pt; }
+
+  .report-header { flex-direction: column; align-items: stretch; gap: 8pt; }
+  .price-block { text-align: left; padding-top: 0; }
+  .price-current { font-size: 24pt !important; }
+  .ticker-name { font-size: 21pt !important; }
+  .ticker-sub { font-size: 9.5pt !important; }
+
+  .metrics { gap: 9pt 12pt; }
+  .metric { flex: 1 1 45%; }
+  .metric-value { font-size: 15pt !important; }
+  .metric-label { font-size: 8.5pt !important; white-space: normal !important; }
+
+  table, .kami-table { font-size: 9pt !important; }
+  .longtable { font-size: 8.5pt !important; }
+  .wide { font-size: 7.5pt !important; }
+  .dense { font-size: 8pt !important; }
+  table th, table td, .kami-table th, .kami-table td { padding: 5pt 6pt !important; }
+
+  blockquote, .quote, .note, .warn, .callout, .risk-item { padding: 9pt 11pt !important; }
+  .risk-grid { grid-template-columns: 1fr !important; }
+  .report-footer { flex-direction: column; align-items: flex-start; gap: 3pt; }
+}
+
+/* ========== 3b. 图表：窄屏保持图纸原尺寸 + 横向滑动 ========== */
+/* 报告里的图表是 SVG：viewBox 宽 680 + width:100%。缩到手机宽度（约 350px）
+   只剩 0.5×，图内字号从 11px 掉到 5px 完全不可读；而 SVG <text> 不会自动换行，
+   单纯放大字号必然溢出图框。这里改为**保持图纸原尺寸、允许左右滑动**——
+   与上面宽表同一套策略，宁可滑也不塌字号。仅屏幕生效，打印/PDF 不受影响。 */
+@media screen and (max-width: 720px) {
+  .rsp-fig {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    /* 图纸一定宽于屏幕，直接给右侧一层渐变，暗示"还能往右滑" */
+    background: linear-gradient(to left, rgba(167,63,45,.09), rgba(167,63,45,0) 26px);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 26px 100%;
+  }
+  .rsp-fig > svg { min-width: var(--rsp-fig-w, 680px); }
+  .rsp-fig::-webkit-scrollbar { height: 7px; }
+  .rsp-fig::-webkit-scrollbar-track { background: transparent; }
+  .rsp-fig::-webkit-scrollbar-thumb { background: #D8D1C4; border-radius: 4px; }
+}
+
+/* ========== 4. 小屏手机：指标卡单列、边距收到最紧 ========== */
+@media screen and (max-width: 430px) {
+  body { padding: 14px 12px 38px 12px !important; }
+  h2 { font-size: 14pt !important; }
+  h3 { font-size: 11.5pt !important; }
+  .ticker-name { font-size: 19pt !important; }
+  .price-current { font-size: 21pt !important; }
+  .metric { flex: 1 1 100%; }
+  .metric-value { font-size: 16pt !important; }
+  ul, ol { padding-left: 15pt; }
+  table, .kami-table { font-size: 8.5pt !important; }
+}
+
+/* ========== 5. 打印：把包裹层还原成透明，PDF 版式与补丁前完全一致 ========== */
+@media print {
+  .rsp-table { margin: 0; padding: 0; overflow: visible !important; background: none !important; }
+  .rsp-table > table { margin: 8pt 0; min-width: 0 !important; }
+  [class*="rsp-w"] > table { min-width: 0 !important; }
+}
+</style>
+</head>
+<body>
+<div class="report-header"><div class="ticker-block"><div class="ticker-name">英诺赛科 <span style="font-size: 14pt; color: var(--stone);">02577.HK</span></div><div class="ticker-sub">英诺赛科（苏州）科技股份有限公司 · 氮化镓功率半导体 IDM · 8 英寸硅基氮化镓晶圆制造<br>财报分析报告　｜　数据区间：2021 年度 — 2026 年上半年</div></div><div class="price-block"><div class="price-current">8.34 <span style="font-size: 11pt; color: var(--stone);">亿元</span></div><div class="price-change up">2026 年上半年营业收入（同比 +50.6%）</div><div class="price-date">2024 年 12 月 30 日港交所上市　·　数据截至 2026 年中期报告</div></div></div><div class="metrics"><div class="metric"><div class="metric-value">11.6%</div><div class="metric-label">2026 年上半年毛利率（2022 年为 −289.4%）</div></div><div class="metric"><div class="metric-value">+1.69 亿元</div><div class="metric-label">2026 年上半年经营现金流（成立以来首次转正）</div></div><div class="metric"><div class="metric-value">−1.24 亿元</div><div class="metric-label">2026 年上半年末净现金缺口（2025H1 为 −8.53 亿元）</div></div><div class="metric"><div class="metric-value">31.7%</div><div class="metric-label">2025 年单一最大客户占收入比重（2024 年 22.0%）</div></div></div>
+
+<p><strong>数据区间：2021 年度 — 2026 年上半年　｜　币种：人民币　｜　准则：香港财务报告准则（HKFRS）</strong></p>
+<div class="callout"><p><strong>口径说明</strong></p>
+<ol><li>本文全部金额以<strong>人民币百万元</strong>列示（原报告为人民币千元，已按 1:1,000 折算并保留一位小数），比率按原始千元数计算，故个别表内尾差来自四舍五入。</li><li>时间轴分两块：<strong>年度块（2021—2025）按时间递增</strong>，<strong>半年度块（2023H1—2026H1）按时间递增</strong>，两块的边界在表头以竖线标出。跨块不可直接相减——半年度数值约为全年的一半，2026H1 与 2025 年度不构成可比区间。</li><li>公司于 <strong>2024 年 12 月 30 日</strong>在港交所主板上市。2021—2023 年数据取自招股章程所载会计师报告（含 2024 年上半年），2024—2025 年取自各年度报告，2026 年上半年取自中期报告（未经审核，毕马威审阅）。</li><li>公司只有一个经营分部（氮化镓功率半导体产品销售），故不设分部表；收入结构改按<strong>产品形态</strong>与<strong>应用领域</strong>两条线拆解。</li><li>「经调整净亏损」为公司披露的非 HKFRS 指标，定义为年内亏损加回以权益结算的股份支付开支（2021—2022 年另加回就向投资者发行的金融工具确认的负债账面值变动，2023 年及以后另加回上市开支）。该口径<strong>未</strong>剔除折旧摊销。</li></ol></div>
+<hr>
+<h2>一、公司概况</h2>
+<h3>1.1 基本信息</h3>
+<div class="rsp-table"><table class="nowrap-first longtable"><thead><tr><th>项目</th><th>内容</th></tr></thead><tbody><tr><td>公司名称</td><td>英诺赛科（苏州）科技股份有限公司（InnoScience (Suzhou) Technology Holding Co., Ltd.）</td></tr><tr><td>上市地与代码</td><td>香港联合交易所主板　02577.HK</td></tr><tr><td>上市日期</td><td>2024 年 12 月 30 日</td></tr><tr><td>注册地／成立时间</td><td>中国江苏省苏州市　2017 年 7 月 21 日（2023 年 9 月改制为股份有限公司）</td></tr><tr><td>主营业务</td><td>氮化镓（GaN）功率半导体的设计、研发与制造</td></tr><tr><td>经营模式</td><td><strong>IDM</strong>（设计—晶圆制造—封装测试—销售交付全流程自持）</td></tr><tr><td>生产基地</td><td>苏州、珠海两座 8 英寸硅基氮化镓晶圆厂</td></tr><tr><td>产品形态</td><td>氮化镓分立器件及集成电路、氮化镓晶圆、氮化镓模块</td></tr><tr><td>电压覆盖</td><td>15V — 1,200V（公司称全球唯一具备全电压谱系量产能力的硅基氮化镓企业）</td></tr><tr><td>期末员工</td><td>1,391 人（2026 年 6 月末）；2025 年末 1,359 人；2024 年 6 月末 1,101 人</td></tr></tbody></table></div>
+<h3>1.2 业务位置与三个判断起点</h3>
+<p>理解这家公司的财务，需要先接受三个前提，否则后面的数字会被系统性误读：</p>
+<p><strong>第一，它是重资产制造企业，不是 Fabless 设计公司。</strong> 2025 年折旧摊销 517.3 百万元，相当于当年收入的 42.6%、净亏损的 61.6%。这意味着<strong>产能利用率而非定价权</strong>是毛利率的第一驱动，也意味着亏损中有很大一块是「账面折旧」而非现金流出——这一点在 2026 年上半年经营现金流转正时体现得最清楚。</p>
+<p><strong>第二，它处在产能爬坡的中段，尚未走完「规模—成本」曲线。</strong> 晶圆产能从 2023 年末的 10,000 片/月，经 2024 年 6 月的 12,500 片/月，升至 2025 年末的 20,000 片/月；招股章程披露的长期目标是 2029 年前达到 70,000 片/月。当前产能仅为目标的 28.6%，意味着<strong>未来数年仍将持续大额资本开支</strong>，自由现金流难以在短期内稳定转正。</p>
+<p><strong>第三，它的收入结构正在发生一次真实的迁移。</strong> 2025 年消费电子占收入 46.8%，2026 年上半年降至 36.2%；同期 AI 数据中心、工业及储能、新能源汽车三项合计占比由 53.0% 升至 63.9%。这次迁移是本文最重要的一条主线——它同时解释了毛利率改善（高价值产品毛利更高）与客户集中度上升（大客户多为行业龙头）这两件看似矛盾的事。</p>
+<hr>
+<h2>二、核心财务数据</h2><figure><div class="ch"><div class="ch-t">收入与毛利率：五年 17.8 倍，毛利率从 −289% 回到 +11.6%</div><div class="ch-s">条形＝营业收入（人民币百万元，宽度按绝对值绘制）；年份下方为当期毛利率　｜　2025 年毛利率首次转正，2026 年上半年升至 11.6%</div><div class="ch-row"><span class="ch-lab">2021<br><span style='color:#7C7B77'>-266.1%</span></span><span class="ch-track"><span class="ch-bar " style="width:5.4%"></span></span><span class="ch-val">68.2</span></div><div class="ch-row"><span class="ch-lab">2022<br><span style='color:#7C7B77'>-289.4%</span></span><span class="ch-track"><span class="ch-bar " style="width:10.8%"></span></span><span class="ch-val">136.2</span></div><div class="ch-row"><span class="ch-lab">2023<br><span style='color:#7C7B77'>-61.1%</span></span><span class="ch-track"><span class="ch-bar gold" style="width:46.9%"></span></span><span class="ch-val">592.7</span></div><div class="ch-row"><span class="ch-lab">2024<br><span style='color:#7C7B77'>-19.5%</span></span><span class="ch-track"><span class="ch-bar " style="width:65.6%"></span></span><span class="ch-val">828.5</span></div><div class="ch-row"><span class="ch-lab">2025<br><span style='color:#7C7B77'>+7.3%</span></span><span class="ch-track"><span class="ch-bar hi" style="width:96.0%"></span></span><span class="ch-val hi">1,213.3</span></div><div class="ch-row"><span class="ch-lab">2026H1<br><span style='color:#7C7B77'>+11.6%</span></span><span class="ch-track"><span class="ch-bar hi" style="width:66.0%"></span></span><span class="ch-val hi">833.6</span></div><div class="ch-note">注：2026 年上半年为半年度口径，柱体天然约为全年一半，不与年度值直接比较。2021—2022 年收入仅 0.68 亿与 1.36 亿元，毛利率因单位成本远高于售价而为负值，当期的比率不具备趋势解读意义。</div></div><figcaption>图 1　营业收入与毛利率（2021—2025 年及 2026 年上半年）</figcaption></figure><figure><div class="ch"><div class="ch-t">净亏损与经调整净亏损：会计性调节项一度吞掉 69% 的亏损</div><div class="ch-s">单位：人民币百万元（条形宽度按绝对值绘制）　｜　差额＝股份支付、优先股公允价值变动、上市开支等非现金项</div><div class="ch-legend"><span><i style="background:#A73F2D"></i>年内亏损</span><span><i style="background:#2F6F6B"></i>经调整净亏损（非 HKFRS）</span></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2021</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">年内亏损</span><span class="ch-track"><span class="ch-bar" style="width:100.0%;background:#A73F2D"></span></span><span class="ch-val">-3,399.3</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">经调整净亏损（非 HKFRS）</span><span class="ch-track"><span class="ch-bar" style="width:31.8%;background:#2F6F6B"></span></span><span class="ch-val">-1,080.8</span></div></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2022</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">年内亏损</span><span class="ch-track"><span class="ch-bar" style="width:64.9%;background:#A73F2D"></span></span><span class="ch-val">-2,205.5</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">经调整净亏损（非 HKFRS）</span><span class="ch-track"><span class="ch-bar" style="width:37.6%;background:#2F6F6B"></span></span><span class="ch-val">-1,276.9</span></div></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2023</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">年内亏损</span><span class="ch-track"><span class="ch-bar" style="width:32.4%;background:#A73F2D"></span></span><span class="ch-val">-1,101.9</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">经调整净亏损（非 HKFRS）</span><span class="ch-track"><span class="ch-bar" style="width:29.9%;background:#2F6F6B"></span></span><span class="ch-val">-1,015.6</span></div></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2024</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">年内亏损</span><span class="ch-track"><span class="ch-bar" style="width:30.8%;background:#A73F2D"></span></span><span class="ch-val">-1,045.7</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">经调整净亏损（非 HKFRS）</span><span class="ch-track"><span class="ch-bar" style="width:24.6%;background:#2F6F6B"></span></span><span class="ch-val">-835.7</span></div></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2025</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">年内亏损</span><span class="ch-track"><span class="ch-bar" style="width:24.7%;background:#A73F2D"></span></span><span class="ch-val">-840.5</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">经调整净亏损（非 HKFRS）</span><span class="ch-track"><span class="ch-bar" style="width:19.9%;background:#2F6F6B"></span></span><span class="ch-val">-676.4</span></div></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2026H1</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">年内亏损</span><span class="ch-track"><span class="ch-bar" style="width:9.1%;background:#A73F2D"></span></span><span class="ch-val">-309.1</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">经调整净亏损（非 HKFRS）</span><span class="ch-track"><span class="ch-bar" style="width:7.8%;background:#2F6F6B"></span></span><span class="ch-val">-266.4</span></div></div><div class="ch-note">注：2021 年两者相差 2,318.5 百万元，主体是优先股公允价值变动损失 2,298.9 百万元；2024 年起差额收窄至 200 百万元上下，主要剩股份支付。「经调整净亏损」未剔除折旧摊销，故 2025 年仍为 −676.4 百万元。</div></div><figcaption>图 2　年内亏损与经调整净亏损（2021—2025 年及 2026 年上半年）</figcaption></figure>
+<h3>2.1 表 1　综合损益表（年度）</h3>
+<div class="rsp-table rsp-w6"><table class="longtable"><thead><tr><th>项目（人民币百万元）</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th></tr></thead><tbody><tr><td>收益</td><td>68.2</td><td>136.2</td><td>592.7</td><td>828.5</td><td>1,213.3</td></tr><tr><td>同比</td><td>—</td><td>+99.6%</td><td>+335.2%</td><td>+39.8%</td><td>+46.4%</td></tr><tr><td>销售成本</td><td>−249.7</td><td>−530.3</td><td>−954.8</td><td>−989.9</td><td>−1,124.5</td></tr><tr><td><strong>毛利／（毛损）</strong></td><td><strong>−181.5</strong></td><td><strong>−394.1</strong></td><td><strong>−362.1</strong></td><td><strong>−161.4</strong></td><td><strong>88.8</strong></td></tr><tr><td><strong>毛利率</strong></td><td><strong>−266.1%</strong></td><td><strong>−289.4%</strong></td><td><strong>−61.1%</strong></td><td><strong>−19.5%</strong></td><td><strong>7.3%</strong></td></tr><tr><td>其他收入净额</td><td>43.6</td><td>68.0</td><td>65.0</td><td>72.2</td><td>113.1</td></tr><tr><td>销售及营销开支</td><td>−28.4</td><td>−69.3</td><td>−90.1</td><td>−97.9</td><td>−110.0</td></tr><tr><td>行政开支</td><td>−179.1</td><td>−199.2</td><td>−247.1</td><td>−451.2</td><td>−470.4</td></tr><tr><td>研发开支</td><td>−661.7</td><td>−581.1</td><td>−348.7</td><td>−323.0</td><td>−374.2</td></tr><tr><td><strong>经营亏损</strong></td><td><strong>−1,007.2</strong></td><td><strong>−1,175.8</strong></td><td><strong>−983.0</strong></td><td><strong>−961.3</strong></td><td><strong>−752.7</strong></td></tr><tr><td>财务成本</td><td>−2,392.1</td><td>−1,029.6</td><td>−118.9</td><td>−84.1</td><td>−87.3</td></tr><tr><td>其中：投资者金融工具公允价值变动</td><td>−2,298.9</td><td>−898.0</td><td>—</td><td>—</td><td>—</td></tr><tr><td>其中：其他财务成本</td><td>−93.3</td><td>−131.6</td><td>−118.9</td><td>−84.1</td><td>−87.3</td></tr><tr><td>税前亏损</td><td>−3,399.3</td><td>−2,205.4</td><td>−1,101.9</td><td>−1,045.3</td><td>−840.0</td></tr><tr><td>所得税</td><td>—</td><td>−0.1</td><td>−0.0</td><td>−0.3</td><td>−0.5</td></tr><tr><td><strong>年内亏损</strong></td><td><strong>−3,399.3</strong></td><td><strong>−2,205.5</strong></td><td><strong>−1,101.9</strong></td><td><strong>−1,045.7</strong></td><td><strong>−840.5</strong></td></tr><tr><td><strong>经调整净亏损（非 HKFRS）</strong></td><td><strong>−1,080.8</strong></td><td><strong>−1,276.9</strong></td><td><strong>−1,015.6</strong></td><td><strong>−835.7</strong></td><td><strong>−676.4</strong></td></tr><tr><td>每股亏损（人民币元）</td><td>不适用</td><td>不适用</td><td>不适用</td><td>−1.28</td><td>−0.95</td></tr></tbody></table></div>
+<div class="note">注：<ol><li>2021、2022 年的财务成本中含「就向投资者发行的金融工具确认的负债账面值变动」2,298.9 与 898.0 百万元，系上市前发行的可转换可赎回优先股按公允价值计量所产生的<strong>非现金</strong>损失，优先股于 2022 年终止赎回权、转入权益后该科目归零。剔除后「其他财务成本」才是真实的利息负担。</li><li>2021、2022 年公司尚未完成股份制改造，无「每股亏损」披露；2023 年亦未披露每股亏损（招股章程原表列示为「不适用」）。</li><li>2024 年行政开支同比 +82.6%（+204.1 百万元），主要来自上市前受限制股份单位计划确认的股份支付开支——2024 年股份支付合计 166.9 百万元，其中行政口径占主要部分。</li><li>经调整净亏损是<strong>剔除股份支付（及 2021—2022 年优先股公允价值变动、2023 年上市开支）后的口径</strong>，但<strong>未剔除折旧摊销</strong>，故 2025 年仍为 −676.4 百万元而非转正。</li></ol></div>
+<h3>2.2 表 2　综合损益表（半年度）</h3>
+<div class="rsp-table rsp-w5"><table class="longtable"><thead><tr><th>项目（人民币百万元）</th><th>2023H1</th><th>2024H1</th><th>2025H1</th><th>2026H1</th></tr></thead><tbody><tr><td>收益</td><td>308.1</td><td>385.8</td><td>553.4</td><td>833.6</td></tr><tr><td>同比</td><td>—</td><td>+25.2%</td><td>+43.4%</td><td>+50.6%</td></tr><tr><td>销售成本</td><td>−542.8</td><td>−469.1</td><td>−515.5</td><td>−736.5</td></tr><tr><td><strong>毛利／（毛损）</strong></td><td><strong>−234.6</strong></td><td><strong>−83.2</strong></td><td><strong>37.8</strong></td><td><strong>97.1</strong></td></tr><tr><td><strong>毛利率</strong></td><td><strong>−76.2%</strong></td><td><strong>−21.6%</strong></td><td><strong>6.8%</strong></td><td><strong>11.6%</strong></td></tr><tr><td>其他收入净额</td><td>19.4</td><td>37.6</td><td>48.0</td><td>23.5</td></tr><tr><td>销售及营销开支</td><td>−44.8</td><td>−50.7</td><td>−53.9</td><td>−48.7</td></tr><tr><td>行政开支</td><td>−88.9</td><td>−202.0</td><td>−245.5</td><td>−163.9</td></tr><tr><td>研发开支</td><td>−167.9</td><td>−145.5</td><td>−162.3</td><td>−185.1</td></tr><tr><td><strong>经营亏损</strong></td><td><strong>−516.9</strong></td><td><strong>−443.7</strong></td><td><strong>−375.9</strong></td><td><strong>−277.2</strong></td></tr><tr><td>财务成本</td><td>−62.8</td><td>−44.1</td><td>−52.5</td><td>−31.8</td></tr><tr><td>税前亏损</td><td>−579.7</td><td>−487.8</td><td>−428.4</td><td>−308.9</td></tr><tr><td>所得税</td><td>—</td><td>−0.2</td><td>−0.3</td><td>−0.1</td></tr><tr><td><strong>期内亏损</strong></td><td><strong>−579.7</strong></td><td><strong>−488.0</strong></td><td><strong>−428.7</strong></td><td><strong>−309.1</strong></td></tr><tr><td><strong>经调整净亏损（非 HKFRS）</strong></td><td><strong>−549.0</strong></td><td><strong>−377.8</strong></td><td><strong>−340.3</strong></td><td><strong>−266.4</strong></td></tr><tr><td>每股亏损（人民币元）</td><td>不适用</td><td>−0.60</td><td>−0.49</td><td>−0.34</td></tr></tbody></table></div>
+<div class="note">注：<ol><li>2023H1 数据取自招股章程会计师报告的半年度比较列（未经审核）。</li><li>2026H1 行政开支同比 −33.2%（−81.6 百万元），公司归因为「股份支付费用及专业费减少」；同期股份支付总额由 88.3 百万元降至 42.7 百万元（−51.6%）。这是本期利润改善的最大单一来源，详见 §4.3。</li><li>2026H1 其他收入净额同比 −50.9%，主因是汇兑由净亏损 9.0 百万元扩大至 24.8 百万元，叠加政府补助由 38.2 百万元降至 26.6 百万元。</li></ol></div>
+<h3>2.3 表 3　综合财务状况表</h3>
+<div class="rsp-table rsp-w7"><table class="compact financial longtable"><thead><tr><th>项目（人民币百万元）</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th><th>2026H1</th></tr></thead><tbody><tr><td>资产总值</td><td>6,621.8</td><td>5,695.1</td><td>4,591.4</td><td>5,547.2</td><td>7,070.5</td><td>7,289.1</td></tr><tr><td>负债总值</td><td>10,747.1</td><td>2,735.0</td><td>2,627.5</td><td>2,576.2</td><td>2,859.9</td><td>3,416.7</td></tr><tr><td><strong>权益总额</strong></td><td><strong>−4,125.4</strong></td><td><strong>2,960.1</strong></td><td><strong>1,963.9</strong></td><td><strong>2,971.0</strong></td><td><strong>4,210.6</strong></td><td><strong>3,872.5</strong></td></tr><tr><td>资产负债率</td><td>162.3%</td><td>48.0%</td><td>57.2%</td><td>46.4%</td><td>40.4%</td><td>46.9%</td></tr><tr><td>现金及现金等价物</td><td>1,278.7</td><td>710.8</td><td>329.0</td><td>1,525.0</td><td>879.0</td><td>1,578.1</td></tr><tr><td>按公允价值计其他全面收益的金融资产</td><td>—</td><td>—</td><td>—</td><td>—</td><td>1,636.7</td><td>900.2</td></tr><tr><td>定期存款（三个月以上）</td><td>—</td><td>—</td><td>—</td><td>—</td><td>135.5</td><td>—</td></tr><tr><td>存货</td><td>82.0</td><td>382.1</td><td>416.8</td><td>444.3</td><td>897.5</td><td>1,069.3</td></tr><tr><td>贸易及其他应收款项</td><td>224.9</td><td>150.4</td><td>337.0</td><td>484.4</td><td>776.2</td><td>837.4</td></tr><tr><td>有息负债合计</td><td>1,950.4</td><td>2,070.7</td><td>2,054.6</td><td>1,923.9</td><td>2,229.7</td><td>2,602.6</td></tr><tr><td>其中：一年内到期</td><td>722.0</td><td>438.4</td><td>508.5</td><td>522.4</td><td>336.1</td><td>615.1</td></tr><tr><td>有息负债／总资产</td><td>29.5%</td><td>36.4%</td><td>44.7%</td><td>34.7%</td><td>31.5%</td><td>35.7%</td></tr><tr><td><strong>类现金合计</strong></td><td><strong>2,278.9</strong></td><td><strong>1,369.7</strong></td><td><strong>349.1</strong></td><td><strong>1,525.0</strong></td><td><strong>2,651.2</strong></td><td><strong>2,478.3</strong></td></tr><tr><td><strong>净现金／（净负债）</strong></td><td><strong>328.5</strong></td><td><strong>−701.0</strong></td><td><strong>−1,705.5</strong></td><td><strong>−398.9</strong></td><td><strong>421.5</strong></td><td><strong>−124.2</strong></td></tr></tbody></table></div>
+<div class="note">注：<ol><li>「类现金合计」＝现金及现金等价物 ＋ 按公允价值计其他全面收益的金融资产（均为可转让大额存单）＋ 三个月以上定期存款 ＋ 按公允价值计损益的金融资产（2021—2023 年为主要构成）。<strong>该项必须与「现金及现金等价物」并读</strong>：2025 年现金及等价物由 1,525.0 降至 879.0 百万元（−42.4%），看似流动性恶化，实则同期把 1,636.7 百万元搬入可转让存单，类现金合计反而由 1,525.0 升至 2,651.2 百万元。只读现金流量表会得出完全相反的结论。</li><li>2021 年权益为负 4,125.4 百万元、资产负债率 162.3%，根源是<strong>可转换可赎回优先股 7,878.1 百万元计入非流动负债</strong>。2022 年终止赎回权、优先股转入权益（资本储备增加 9,256.2 百万元），权益转正、负债率回落至 48.0%。<strong>2021 年的负债率与后续年度不可比</strong>，不可作为趋势起点。</li><li>「有息负债」＝贷款及借款（流动＋非流动），不含租赁负债与递延收入。</li><li>2026H1 资产负债率回升 6.5pp 至 46.9%，主因是扩产带动借款增加（有息负债 +372.9 百万元）与应付货款增加，而非亏损所致。</li></ol></div>
+<h3>2.4 表 4　综合现金流量表（年度）</h3>
+<div class="rsp-table rsp-w6"><table><thead><tr><th>项目（人民币百万元）</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th></tr></thead><tbody><tr><td>经营活动所用／所得现金净额</td><td>−562.1</td><td>−936.3</td><td>−593.6</td><td>−336.3</td><td>−806.4</td></tr><tr><td>投资活动（所用）／所得现金净额</td><td>−2,114.9</td><td>−93.8</td><td>338.2</td><td>−128.9</td><td>−1,972.8</td></tr><tr><td>融资活动所得／（所用）现金净额</td><td>3,824.9</td><td>460.2</td><td>−126.8</td><td>1,661.6</td><td>2,134.0</td></tr><tr><td>现金及等价物增加／（减少）净额</td><td>1,147.8</td><td>−569.9</td><td>−381.9</td><td>1,196.0</td><td>−645.2</td></tr><tr><td>年末现金及现金等价物</td><td>1,278.7</td><td>710.8</td><td>329.0</td><td>1,525.0</td><td>879.0</td></tr><tr><td>资本开支（购买物业设备及无形资产）</td><td>1,121.3</td><td>464.6</td><td>331.3</td><td>171.8</td><td>210.6</td></tr><tr><td><strong>自由现金流（经营 − 资本开支）</strong></td><td><strong>−1,683.4</strong></td><td><strong>−1,400.9</strong></td><td><strong>−924.9</strong></td><td><strong>−508.1</strong></td><td><strong>−1,017.0</strong></td></tr></tbody></table></div>
+<div class="note">注：<ol><li>2021—2023 年数据取自招股章程。2021 年融资活动净流入 3,824.9 百万元，主要为上市前多轮股权融资（含 2021 年 2 月的 B 轮）与借款，是权益由亏绌转正前的资金来源。</li><li><strong>2025 年投资活动净流出 1,972.8 百万元的主体不是资本开支</strong>（仅 210.6 百万元），而是购买按公允价值计其他全面收益的金融资产 1,833.0 百万元与按公允价值计损益的金融资产 452.5 百万元。把这一年读成「扩张性投资」是常见误读。</li><li>自由现金流连续五年为负，2021—2025 年累计 −5,534.4 百万元；同期累计经营现金流 −3,234.8 百万元，累计资本开支 2,300.0 百万元。</li></ol></div>
+<h3>2.5 表 5　综合现金流量表（半年度）</h3>
+<div class="rsp-table rsp-w5"><table><thead><tr><th>项目（人民币百万元）</th><th>2023H1</th><th>2024H1</th><th>2025H1</th><th>2026H1</th></tr></thead><tbody><tr><td>经营活动所用／所得现金净额</td><td>−240.9</td><td>−155.5</td><td>−387.3</td><td><strong>168.6</strong></td></tr><tr><td>投资活动所得／（所用）现金净额</td><td>332.1</td><td>−308.6</td><td>−267.9</td><td>490.0</td></tr><tr><td>融资活动所得现金净额</td><td>−9.1</td><td>594.8</td><td>567.6</td><td>62.2</td></tr><tr><td>现金及等价物增加／（减少）净额</td><td>82.1</td><td>130.7</td><td>−87.5</td><td>720.7</td></tr><tr><td>期末现金及现金等价物</td><td>未披露</td><td>459.7</td><td>1,425.2</td><td>1,578.1</td></tr><tr><td>资本开支</td><td>201.6</td><td>71.4</td><td>50.4</td><td>398.2</td></tr><tr><td><strong>自由现金流（经营 − 资本开支）</strong></td><td><strong>−442.5</strong></td><td><strong>−226.9</strong></td><td><strong>−437.6</strong></td><td><strong>−229.6</strong></td></tr></tbody></table></div>
+<div class="note">注：<ol><li>2026H1 经营活动现金净流入 168.6 百万元，是公司自成立以来<strong>首次半年度经营现金流转正</strong>（2025H1 为净流出 387.3 百万元）。其真实来源见 §4.4——并非利润转正，而是折旧摊销回补与应付账款占用。</li><li>2026H1 资本开支 398.2 百万元，为 2025H1 的 7.9 倍，同期资本承担由 159.1 百万元升至 700.4 百万元，指向扩产重新加速。经营现金流的改善被资本开支几乎全额抵消，自由现金流仍为 −229.6 百万元。</li></ol></div>
+<figure><div class="ch"><div class="ch-t">收入分产品结构：从「卖晶圆」到「卖模块」的迁移</div><div class="ch-s">每行等长为 100%，段长为该产品占当期收入的比重；右侧数字为当期收入总额（人民币百万元）　｜　模块业务 2023 年才出现，两年半内从 32.1% 升至 49.4%，成为第一大品类</div><div class="ch-legend"><span><i style="background:#A73F2D"></i>分立器件及集成电路</span><span><i style="background:#2F6F6B"></i>氮化镓晶圆</span><span><i style="background:#B8862F"></i>氮化镓模块</span><span><i style="background:#CFC7BA"></i>其他</span></div><div class="ch-row"><span class="ch-lab">2021</span><span class="ch-track stk"><span style="background:#A73F2D;width:40.76%;display:flex;align-items:center;justify-content:center;font-size:7.8pt;color:#FFFFFF;overflow:hidden;"><b>41%</b></span><span style="background:#2F6F6B;width:57.77%;display:flex;align-items:center;justify-content:center;font-size:7.8pt;color:#FFFFFF;overflow:hidden;"><b>58%</b></span><span style="background:#CFC7BA;width:1.47%;display:flex;align-items:center;justify-content:center;font-size:7.8pt;color:#FFFFFF;overflow:hidden;"></span></span><span class="ch-val">68.2</span></div><div class="ch-row"><span class="ch-lab">2022</span><span class="ch-track stk"><span style="background:#A73F2D;width:63.26%;display:flex;align-items:center;justify-content:center;font-size:7.8pt;color:#FFFFFF;overflow:hidden;"><b>63%</b></span><span style="background:#2F6F6B;width:36.74%;display:flex;align-items:center;justify-content:center;font-size:7.8pt;color:#FFFFFF;overflow:hidden;"><b>37%</b></span></span><span class="ch-val">136.1</span></div><div class="ch-row"><span class="ch-lab">2023</span><span class="ch-track stk"><span style="background:#A73F2D;width:32.41%;display:flex;align-items:center;justify-content:center;font-size:7.8pt;color:#FFFFFF;overflow:hidden;"><b>32%</b></span><span style="background:#2F6F6B;width:35.21%;display:flex;align-items:center;justify-content:center;font-size:7.8pt;color:#FFFFFF;overflow:hidden;"><b>35%</b></span><span style="background:#B8862F;width:32.12%;display:flex;align-items:center;justify-content:center;font-size:7.8pt;color:#FFFFFF;overflow:hidden;"><b>32%</b></span><span style="background:#CFC7BA;width:0.27%;display:flex;align-items:center;justify-content:center;font-size:7.8pt;color:#FFFFFF;overflow:hidden;"></span></span><span class="ch-val">592.8</span></div><div class="ch-row"><span class="ch-lab">2024</span><span class="ch-track stk"><span style="background:#A73F2D;width:43.55%;display:flex;align-items:center;justify-content:center;font-size:7.8pt;color:#FFFFFF;overflow:hidden;"><b>44%</b></span><span style="background:#2F6F6B;width:33.86%;display:flex;align-items:center;justify-content:center;font-size:7.8pt;color:#FFFFFF;overflow:hidden;"><b>34%</b></span><span style="background:#B8862F;width:22.20%;display:flex;align-items:center;justify-content:center;font-size:7.8pt;color:#FFFFFF;overflow:hidden;"><b>22%</b></span><span style="background:#CFC7BA;width:0.40%;display:flex;align-items:center;justify-content:center;font-size:7.8pt;color:#FFFFFF;overflow:hidden;"></span></span><span class="ch-val">828.5</span></div><div class="ch-row"><span class="ch-lab">2025</span><span class="ch-track stk"><span style="background:#A73F2D;width:42.04%;display:flex;align-items:center;justify-content:center;font-size:7.8pt;color:#FFFFFF;overflow:hidden;"><b>42%</b></span><span style="background:#2F6F6B;width:20.89%;display:flex;align-items:center;justify-content:center;font-size:7.8pt;color:#FFFFFF;overflow:hidden;"><b>21%</b></span><span style="background:#B8862F;width:36.78%;display:flex;align-items:center;justify-content:center;font-size:7.8pt;color:#FFFFFF;overflow:hidden;"><b>37%</b></span><span style="background:#CFC7BA;width:0.30%;display:flex;align-items:center;justify-content:center;font-size:7.8pt;color:#FFFFFF;overflow:hidden;"></span></span><span class="ch-val">1,213.3</span></div><div class="ch-row"><span class="ch-lab">2025H1</span><span class="ch-track stk"><span style="background:#A73F2D;width:37.48%;display:flex;align-items:center;justify-content:center;font-size:7.8pt;color:#FFFFFF;overflow:hidden;"><b>37%</b></span><span style="background:#2F6F6B;width:19.53%;display:flex;align-items:center;justify-content:center;font-size:7.8pt;color:#FFFFFF;overflow:hidden;"><b>20%</b></span><span style="background:#B8862F;width:42.66%;display:flex;align-items:center;justify-content:center;font-size:7.8pt;color:#FFFFFF;overflow:hidden;"><b>43%</b></span><span style="background:#CFC7BA;width:0.33%;display:flex;align-items:center;justify-content:center;font-size:7.8pt;color:#FFFFFF;overflow:hidden;"></span></span><span class="ch-val">553.4</span></div><div class="ch-row"><span class="ch-lab">2026H1</span><span class="ch-track stk"><span style="background:#A73F2D;width:27.65%;display:flex;align-items:center;justify-content:center;font-size:7.8pt;color:#FFFFFF;overflow:hidden;"><b>28%</b></span><span style="background:#2F6F6B;width:22.49%;display:flex;align-items:center;justify-content:center;font-size:7.8pt;color:#FFFFFF;overflow:hidden;"><b>22%</b></span><span style="background:#B8862F;width:49.39%;display:flex;align-items:center;justify-content:center;font-size:7.8pt;color:#FFFFFF;overflow:hidden;"><b>49%</b></span><span style="background:#CFC7BA;width:0.47%;display:flex;align-items:center;justify-content:center;font-size:7.8pt;color:#FFFFFF;overflow:hidden;"></span></span><span class="ch-val">833.7</span></div><div class="ch-note">注：2021、2022 年无模块业务，按 0 计并不绘制。各段之和与当期收入总额存在 0.1 百万元量级的差异，来自原报告千元数四舍五入。2025H1、2026H1 为半年度口径，右侧总额不可与年度值比较，本图仅用于观察结构占比；收入的绝对规模见图 1。</div></div><figcaption>图 3　收入分产品结构（2021 年—2026 年上半年）</figcaption></figure><h3>2.6 表 6　收入分产品</h3>
+<div class="rsp-table rsp-w8"><table class="compact financial"><thead><tr><th>项目（人民币百万元）</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th><th>2025H1</th><th>2026H1</th></tr></thead><tbody><tr><td>氮化镓分立器件及集成电路</td><td>27.8</td><td>86.1</td><td>192.1</td><td>360.8</td><td>510.1</td><td>207.4</td><td>230.5</td></tr><tr><td>氮化镓晶圆</td><td>39.4</td><td>50.0</td><td>208.7</td><td>280.5</td><td>253.4</td><td>108.1</td><td>187.5</td></tr><tr><td>氮化镓模块</td><td>—</td><td>—</td><td>190.4</td><td>183.9</td><td>446.2</td><td>236.1</td><td>411.8</td></tr><tr><td>其他</td><td>1.0</td><td>—</td><td>1.6</td><td>3.3</td><td>3.6</td><td>1.8</td><td>3.9</td></tr><tr class="total"><td><strong>合计</strong></td><td><strong>68.2</strong></td><td><strong>136.2</strong></td><td><strong>592.7</strong></td><td><strong>828.5</strong></td><td><strong>1,213.3</strong></td><td><strong>553.4</strong></td><td><strong>833.6</strong></td></tr><tr><td>分立器件及集成电路占比</td><td>40.7%</td><td>63.3%</td><td>32.4%</td><td>43.5%</td><td>42.0%</td><td>37.5%</td><td>27.6%</td></tr><tr><td>晶圆占比</td><td>57.8%</td><td>36.7%</td><td>35.2%</td><td>33.9%</td><td>20.9%</td><td>19.5%</td><td>22.5%</td></tr><tr><td>模块占比</td><td>—</td><td>—</td><td>32.1%</td><td>22.2%</td><td>36.8%</td><td>42.7%</td><td>49.4%</td></tr></tbody></table></div>
+<div class="note">注：<ol><li>模块业务 2023 年才出现（当年 190.4 百万元），2022 年及以前无此项，故占比留「—」而非 0，避免读者误判为业务消失。</li><li>2026H1 三大产品线增速分化极大：模块 +74.4%、晶圆 +73.5%，而<strong>分立器件及集成电路仅 +11.1%</strong>。后者是最成熟的消费电子快充基本盘，其低速增长说明该赛道已接近渗透率天花板。</li><li>晶圆销售的对象是其他功率器件厂商（「卖铲子」模式），其占比由 2022 年的 36.7% 降至 2025 年的 20.9% 后，2026H1 回升至 22.5%——回升来自战略合作客户订单增加，而非模式转向。</li></ol></div>
+<h3>2.7 表 7　收入分地区</h3>
+<div class="rsp-table rsp-w8"><table class="compact financial"><thead><tr><th>项目（人民币百万元）</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th><th>2025H1</th><th>2026H1</th></tr></thead><tbody><tr><td>中国内地</td><td>68.0</td><td>130.0</td><td>534.8</td><td>702.1</td><td>1,096.4</td><td>489.6</td><td>796.7</td></tr><tr><td>境外</td><td>0.2</td><td>6.1</td><td>58.0</td><td>126.4</td><td>116.9</td><td>63.7</td><td>37.0</td></tr><tr><td><strong>境外占比</strong></td><td><strong>0.3%</strong></td><td><strong>4.5%</strong></td><td><strong>9.8%</strong></td><td><strong>15.3%</strong></td><td><strong>9.6%</strong></td><td><strong>11.5%</strong></td><td><strong>4.4%</strong></td></tr></tbody></table></div>
+<div class="note">注：<ol><li>地区口径为「客户所在地」（按产品销售地点），非生产地。</li><li><strong>境外收入占比在 2024 年见顶 15.3% 后连续两期回落，2026H1 降至 4.4%、绝对额同比 −42.0%（63.7 → 37.0 百万元）。</strong> 公司在 2026 年中报「业务展望」中仍表述「加速全球化布局，加快海外客户认证及商业化落地」，但未对境外收入下降给出任何解释。这是本报告列为一级跟踪变量的最大反差项（详见 §5.4）。</li></ol></div>
+<h3>2.8 表 8　收入分应用领域</h3>
+<div class="rsp-table"><table class="nowrap-first"><thead><tr><th>项目（人民币百万元）</th><th>2025 年度</th><th>2025H1</th><th>2026H1</th></tr></thead><tbody><tr><td>消费电子</td><td>568.1</td><td>239.2</td><td>301.4</td></tr><tr><td>工业及储能</td><td>520.5</td><td>未单独披露</td><td>未单独披露</td></tr><tr><td>AI 及数据中心</td><td>63.2</td><td>未单独披露</td><td>未单独披露</td></tr><tr><td>汽车电子</td><td>57.9</td><td>未单独披露</td><td>未单独披露</td></tr><tr><td>人形机器人</td><td>1.3</td><td>未单独披露</td><td>未单独披露</td></tr><tr><td><strong>高价值市场合计</strong></td><td><strong>642.9</strong></td><td><strong>313.1</strong></td><td><strong>532.3</strong></td></tr><tr><td><strong>高价值市场占比</strong></td><td><strong>53.0%</strong></td><td><strong>56.6%</strong></td><td><strong>63.9%</strong></td></tr><tr><td><strong>消费电子占比</strong></td><td><strong>46.8%</strong></td><td><strong>43.2%</strong></td><td><strong>36.2%</strong></td></tr></tbody></table></div>
+<div class="note">注：<ol><li>2025 年全年五档为公司年报「财务及业务亮点」的披露口径，五项合计 1,210.96 百万元，与当年收益 1,213.27 百万元相差 2.31 百万元（属「其他」）。公司未提供完整的应用领域收入表，故本表属<strong>手工汇总</strong>，非原文表格。</li><li>「高价值市场」＝工业及储能 ＋ AI 及数据中心 ＋ 汽车电子 ＋ 人形机器人。2026H1 公司直接披露「上述高端应用领域实现收入人民币 532.27 百万元，同比增长 70%」，与本节口径一致。</li><li><strong>2025H1 的两档数字为倒推值</strong>：以 2026H1 高价值 532.27 百万元、同比 +70% 反推得 313.1 百万元；以消费电子 301.40 百万元、同比 +26% 反推得 239.2 百万元。两者合计 552.3 百万元，与 2025H1 收益 553.4 百万元差 1.1 百万元（其他及四舍五入）。倒推值仅用于呈现趋势方向，不宜作为精确基数引用。</li><li>结构迁移的具体数据：AI 及数据中心芯片出货量 2026H1 同比 +183%，车规级芯片 +103%，人形机器人出货 46.46 万颗（+50%）；储能及工业销售 +83%，白色家电 +924%，电机驱动 +685%。</li></ol></div>
+<h3>2.9 表 9　经营与产能指标</h3>
+<div class="rsp-table rsp-w5"><table><thead><tr><th>项目</th><th>2023</th><th>2024</th><th>2025</th><th>2026H1</th></tr></thead><tbody><tr><td>晶圆产能（片/月，期末）</td><td>10,000</td><td>12,500</td><td>20,000</td><td>未披露</td></tr><tr><td>氮化镓芯片出货量（亿颗）</td><td>—</td><td>—</td><td>8.0</td><td>5.5</td></tr><tr><td>累计交付芯片（亿颗）</td><td>—</td><td>—</td><td>20</td><td>25</td></tr><tr><td>期末员工人数（人）</td><td>—</td><td>1,101（6 月末）</td><td>1,359</td><td>1,391</td></tr><tr><td>人均创收（万元）</td><td>—</td><td>—</td><td>89.3</td><td>59.9（半年）</td></tr><tr><td>产品整体良率</td><td>—</td><td>—</td><td>95%</td><td>「维持高位」（未量化）</td></tr><tr><td>研发人员数（人）</td><td>—</td><td>304（6 月末）</td><td>未单独披露</td><td>未单独披露</td></tr></tbody></table></div>
+<div class="note">注：<ol><li>产能口径为「8 英寸硅基氮化镓等效晶圆」。2024 年末产能未在年报中单列，表中 12,500 片/月为招股章程披露的 2024 年 6 月末数值。</li><li>出货量口径：2025 年全年交付超 8 亿颗、累计超 20 亿颗；2026H1 出货 5.47 亿颗、累计超 25 亿颗。<strong>2026H1 半年出货量已达 2025 年全年的 68%</strong>，与收入增速（+50.6%）方向一致，说明增长由出货量驱动而非单价提升。</li><li>人均创收＝收益 ÷ 期末员工数。2026H1 为半年口径（59.9 万元），不可与年度值直接比较；若简单年化则为 119.8 万元，较 2025 年 89.3 万元提升 34.2%，与收入增速基本吻合，说明<strong>减员增效不是本期利润改善的来源</strong>（员工数反而由 1,359 增至 1,391）。</li></ol></div>
+<h3>2.10 表 10　关键派生指标</h3>
+<div class="rsp-table rsp-w7"><table class="compact"><thead><tr><th>指标</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th><th>2026H1</th></tr></thead><tbody><tr><td>毛利率</td><td>−266.1%</td><td>−289.4%</td><td>−61.1%</td><td>−19.5%</td><td>7.3%</td><td>11.6%</td></tr><tr><td>经营亏损率</td><td>−1,476.4%</td><td>−863.4%</td><td>−165.8%</td><td>−116.0%</td><td>−62.0%</td><td>−33.2%</td></tr><tr><td>净亏损率</td><td>−4,983.2%</td><td>−1,619.6%</td><td>−185.9%</td><td>−126.2%</td><td>−69.3%</td><td>−37.1%</td></tr><tr><td>经调整净亏损率</td><td>−1,584.4%</td><td>−937.7%</td><td>−171.3%</td><td>−100.9%</td><td>−55.7%</td><td>−32.0%</td></tr><tr><td>研发费用率</td><td>970.0%</td><td>426.7%</td><td>58.8%</td><td>39.0%</td><td>30.8%</td><td>22.2%</td></tr><tr><td>销售＋行政＋研发费用率</td><td>1,274.3%</td><td>623.9%</td><td>115.7%</td><td>105.3%</td><td>78.7%</td><td>47.7%</td></tr><tr><td>折旧摊销／收益</td><td>—</td><td>—</td><td>—</td><td>62.3%</td><td>42.6%</td><td>29.5%</td></tr></tbody></table></div>
+<div class="note">注：<ol><li>2021—2022 年的各项比率失去常规意义（收入仅 0.68 亿与 1.36 亿元，而研发投入 6.62 亿与 5.81 亿元），在此保留仅用于呈现爬坡期的量级，<strong>不宜作趋势解读</strong>。</li><li>「折旧摊销／收益」2024 年 62.3%、2025 年 42.6%、2026H1 29.5%，快速下降的原因全部来自分母（收入）扩大，分子（折旧摊销）反而基本持平于 5.1—5.2 亿元/年。这是「规模摊薄固定成本」最直接的量化证据。</li><li>2026H1 折旧摊销 245.6 百万元，相当于期内净亏损 309.1 百万元的 79.4%。<strong>换言之，亏损的近八成是账面折旧与摊销，而非现金流失。</strong></li></ol></div>
+<h3>2.11 表 11　客户集中度</h3>
+<div class="rsp-table"><table><thead><tr><th>项目</th><th>2024</th><th>2025</th></tr></thead><tbody><tr><td>客户 A 收入（人民币百万元）</td><td>181.9</td><td>384.7</td></tr><tr><td>客户 A 占收益比重</td><td>22.0%</td><td><strong>31.7%</strong></td></tr><tr><td>前五名客户合计占比</td><td>41.4%</td><td><strong>48.4%</strong></td></tr><tr><td>客户数量（年报口径）</td><td>—</td><td>113 家</td></tr></tbody></table></div>
+<div class="note">注：<ol><li>该表仅列示占收益 10% 以上的客户（HKFRS 8 要求），公司未披露客户名称。2025 年报另披露「向 113 名客户提供氮化镓产品，来自前五大客户的收入占 48.35%，其中单一最大客户占 31.7%」。</li><li><strong>单一客户占比一年内从 22.0% 升至 31.7%（+9.7pp），是本期最值得警惕的结构变化。</strong> 公司未在年报中说明该客户的构成（是否为模块业务的战略客户），但从时间上看，客户 A 收入增量 202.8 百万元与模块业务收入增量 262.3 百万元高度同步，二者大概率相关。</li><li>2026 年中报未披露客户集中度（港股中报无此强制要求），故无法判断该趋势是否延续。</li></ol></div>
+<h3>2.12 表 12　存货与应收周转</h3>
+<div class="rsp-table rsp-w5"><table class="financial"><thead><tr><th>项目</th><th>2024</th><th>2025</th><th>2025H1</th><th>2026H1</th></tr></thead><tbody><tr><td>存货（人民币百万元）</td><td>444.3</td><td>897.5</td><td>714.6</td><td>1,069.3</td></tr><tr><td>存货周转天数</td><td>158.8</td><td>217.8</td><td>203.4</td><td><strong>241.7</strong></td></tr><tr><td>贸易及其他应收（人民币百万元）</td><td>484.4</td><td>776.2</td><td>639.0</td><td>837.4</td></tr><tr><td>应收周转天数</td><td>180.9</td><td>189.6</td><td>183.7</td><td>175.2</td></tr><tr><td>贸易及其他应付（人民币百万元）</td><td>462.4</td><td>472.4</td><td>522.8</td><td>677.3</td></tr></tbody></table></div>
+<div class="note">注：<ol><li>周转天数＝平均余额 ÷ 当期销售成本（或收益）× 期间天数；半年度按 181 天计。平均余额取期初期末均值。</li><li>存货周转天数由 2024 年的 158.8 天升至 2026H1 的 241.7 天（+82.9 天），存货绝对额同期增长 140.7%。这与「为高价值市场放量提前备货」的叙述一致，但<strong>尚无减值压力数据可交叉验证</strong>（中报未披露存货跌价准备）。</li><li>应收周转天数反而由 189.6 天降至 175.2 天，说明<strong>账期未放松</strong>——这是正面证据。若应收与存货同步恶化，则更可能是渠道压货；当前形态是「备货先行、回款未松」，性质偏中性。</li><li>贸易及其他应付款项由 472.4 百万元增至 677.3 百万元（+43.4%），增速与收入（+50.6%）基本匹配，未见异常拉长账期。</li></ol></div>
+<hr>
+<h2>三、三张表关键变化数据与趋势含义</h2>
+<h3>3.1 表 13　关键科目的轨迹与含义</h3>
+<div class="rsp-table"><table class="analysis longtable"><thead><tr><th>关键科目</th><th>变化轨迹</th><th>趋势方向</th><th>趋势含义</th></tr></thead><tbody><tr><td>收益</td><td>0.68 → 1.36 → 5.93 → 8.28 → 12.13 亿元（2021—2025）；2026H1 8.34 亿元（+50.6%）</td><td>五年 CAGR 105.3%，2024 年起增速回落至 40%—50% 区间并趋稳</td><td>从「从零到一」进入「规模化放量」阶段。增速中枢由三位数降至 50% 一带，是基数抬升的正常结果，但也意味着<strong>估值不能再按初创期外推</strong></td></tr><tr><td>毛利率</td><td>−266.1% → −289.4% → −61.1% → −19.5% → +7.3%；2026H1 11.6%</td><td>连续四年改善，2025 年首次转正，2026H1 续升 4.8pp</td><td>转折点是 2023 年（+228.3pp），驱动来自产能利用率而非提价。<strong>毛利率转正只说明「制造端」跑通，不等于盈利</strong>——同期经营亏损率仍为 −33.2%</td></tr><tr><td>研发开支</td><td>6.62 → 5.81 → 3.49 → 3.23 → 3.74 亿元；2026H1 1.85 亿元（+14.0%）</td><td>绝对额在 2024 年见底后重新上行，费用率由 970% 压缩至 22.2%</td><td>费用率的下降几乎全部来自分母扩大。2026H1 绝对额重新加速（+14.0%），说明公司选择在放量期继续投入，而非收割</td></tr><tr><td>股份支付</td><td>2024 年 1.57 亿元 → 2025 年 1.64 亿元；2026H1 0.43 亿元（2025H1 0.88 亿元）</td><td>上市后维持高位，2026H1 腰斩</td><td>是「账面亏损」与「现金亏损」之间最大的非现金调节项之一。2026H1 利润改善的 68% 来自此项减少，<strong>属会计性改善，不可外推</strong></td></tr><tr><td>有息负债</td><td>19.50 → 20.71 → 20.55 → 19.24 → 22.30 亿元；2026H1 26.03 亿元</td><td>五年基本横盘在 19—22 亿元，2026H1 跳升 16.7%</td><td>债务规模与收入规模脱钩：收入增长 17.8 倍，有息负债仅增 33.5%。真正的杠杆压力来自<strong>2026 年重启扩产</strong>，而非历史积累</td></tr><tr><td>类现金</td><td>22.79 → 13.70 → 3.49 → 15.25 → 26.51 亿元；2026H1 24.78 亿元</td><td>U 型：2023 年见底 3.49 亿元，两次股权融资后回升</td><td>2023 年末类现金仅 3.49 亿元、净负债 17.06 亿元，是全周期最危险的时点；IPO 与 2025 年配售两次「输血」把公司从该状态中拉出。<strong>这是理解这家公司风险偏好的关键背景</strong></td></tr><tr><td>净现金</td><td>+3.29 → −7.01 → −17.06 → −3.99 → +4.21 亿元；2026H1 −1.24 亿元</td><td>2025 年首次转正，2026H1 因扩产重新转负但缺口大幅收窄</td><td>2026H1 净负债缺口 1.24 亿元，较 2025H1 的 8.53 亿元收窄 85.4%。<strong>若 2026H2 经营现金流维持正值，全年净现金有望再度转正</strong>——这是本报告认为最值得跟踪的单一指标</td></tr><tr><td>存货</td><td>0.82 → 3.82 → 4.17 → 4.44 → 8.98 亿元；2026H1 10.69 亿元</td><td>2025 年起加速累积，周转天数 158.8 → 241.7 天</td><td>与「高价值市场放量前备货」一致，但缺乏跌价准备数据验证。<strong>存货是本轮现金流的最大占用项</strong>：2026H1 存货增加 1.72 亿元，相当于同期经营现金净流入的 1.02 倍</td></tr><tr><td>累计亏损</td><td>期末累计亏损 112.11 亿元（2026H1）</td><td>单调累积，尚无回转</td><td>累计亏损超过 2025 年收入（12.13 亿元）的 9 倍，也超过当前权益总额（38.72 亿元）的 2.9 倍。<strong>短期内不具备分红能力</strong>，股东回报只能来自资本利得</td></tr></tbody></table></div>
+<h3>3.2 三表联动</h3>
+<ul><li><strong>损益表看「制造端是否跑通」</strong>：毛利率 2025 年转正、2026H1 升至 11.6%，说明单位成本已低于售价，重资产模式的盈亏平衡点被跨过。但经营亏损率仍为 −33.2%，缺口全部在费用端（销售＋行政＋研发合计 47.7% 的费用率）。</li><li><strong>财务状况表看「资本结构的两次重构」</strong>：第一次是 2022 年优先股转权益（权益由 −41.25 亿元转为 +29.60 亿元），第二次是 2024 年 IPO 与 2025 年配售（类现金由 3.49 亿元升至 26.51 亿元）。两次重构都不是经营结果，而是融资结果。</li><li><strong>现金流量表看「现金来源的性质」</strong>：2021—2025 年累计经营现金流 −32.35 亿元、累计融资净流入 79.53 亿元，比例约 1:2.5。<strong>这家公司至今的现金来源主要是股权与债权融资，而不是经营造血。</strong> 2026H1 经营现金流转正是这条曲线第一次出现拐点，但其可持续性尚待 2026 年报验证（详见 §4.4）。</li></ul>
+<hr>
+<h2>四、数据变化趋势与原因分析</h2>
+<h3>4.1 收入：增长由出货量驱动，产品结构完成一次「从卖晶圆到卖模块」的迁移</h3>
+<p>五年收入增长 17.8 倍，但拆开看是三条曲线叠加：</p>
+<p><strong>第一条是出货量。</strong> 2025 年交付芯片超 8 亿颗，2026H1 单半年交付 5.47 亿颗、累计超 25 亿颗。以 2026H1 计，收益 833.6 百万元对应 5.47 亿颗，颗均收入约 1.52 元；2025 年全年 1,213.3 百万元对应 8 亿颗，颗均约 1.52 元。<strong>两年颗均收入几乎完全一致</strong>——这说明收入增长 100% 来自出货量增加，而非单价提升。对一个仍在亏损、需要靠规模摊薄固定成本的企业，这是唯一可持续的路径；但也意味着<strong>公司目前不具备提价能力</strong>。</p>
+<p><strong>第二条是产品形态。</strong> 这是本报告认为最被低估的一条线索：</p>
+<div class="rsp-table"><table><thead><tr><th>阶段</th><th>主导产品</th><th>商业含义</th></tr></thead><tbody><tr><td>2021—2022</td><td>晶圆（57.8% → 36.7%）与分立器件（40.7% → 63.3%）</td><td>卖晶圆＝把制造能力卖给同行，是产能利用率的「填谷」手段，客户是器件厂而非终端品牌</td></tr><tr><td>2023</td><td>模块首次出现即占 32.1%</td><td>从「卖器件」升级为「卖方案」，单笔价值提升，但需要模组封装能力与客户共同设计</td></tr><tr><td>2025—2026H1</td><td>模块（36.8% → <strong>49.4%</strong>）、分立器件（42.0% → <strong>27.6%</strong>）</td><td>模块成为第一大品类，公司角色从元件供应商变为系统级电源方案供应商</td></tr></tbody></table></div>
+<p>这条迁移解释了毛利率的改善：模块业务把封装、驱动、保护电路打包出售，附加值高于裸器件与晶圆。但它同时带来两个副作用——<strong>客户集中度上升</strong>（模块需与少数大客户共同定义）与<strong>存货周转放慢</strong>（模块 SKU 更多、备料更复杂）。</p>
+<p><strong>第三条是应用领域。</strong> 高价值市场（工业储能、AI 数据中心、汽车、机器人）占比由 2025 年的 53.0% 升至 2026H1 的 63.9%，消费电子由 46.8% 降至 36.2%。其中：</p>
+<ul><li>AI 及数据中心：2025 年收入仅 63.2 百万元（占 5.2%），但 2026H1 芯片出货量同比 +183%，是增速最快的方向。公司称已进入英伟达 800V HVDC 供应体系，并在全球超 20 家头部云厂商导入超 100 项应用。</li><li>工业及储能：2025 年 520.5 百万元（+137.9%），是当年最大的增量来源，主要来自户储与工商储的 650V／1,200V 方案。</li><li>汽车电子：2025 年 57.9 百万元，车规芯片出货 +105%，2025 年 12 月与联合汽车电子、长安汽车联合实现 6.6kW OBC 量产装车。</li><li>人形机器人：2025 年 1.3 百万元，2026H1 出货 46.46 万颗。<strong>收入贡献可忽略，但它是「技术卡位」而非「收入来源」</strong>——这一点必须说清楚，避免把出货量增速误读为收入贡献。</li></ul>
+<h3>4.2 毛利率：改善的机制是「成本增速慢于收入增速」，不是提价</h3>
+<p>把毛利率拆成收入与成本的增速缺口，机制就非常清楚：</p>
+<div class="rsp-table rsp-w5"><table class="nowrap-first"><thead><tr><th>期间</th><th>收入同比</th><th>销售成本同比</th><th>增速缺口</th><th>毛利率变动</th></tr></thead><tbody><tr><td>2022</td><td>+99.6%</td><td>+112.3%</td><td>−12.7pp</td><td>−23.3pp</td></tr><tr><td>2023</td><td>+335.2%</td><td>+80.0%</td><td>+255.2pp</td><td>+228.3pp</td></tr><tr><td>2024</td><td>+39.8%</td><td>+3.7%</td><td>+36.1pp</td><td>+41.6pp</td></tr><tr><td>2025</td><td>+46.4%</td><td>+13.6%</td><td>+32.8pp</td><td>+26.8pp</td></tr><tr><td>2026H1</td><td>+50.6%</td><td>+42.9%</td><td>+7.7pp</td><td>+4.8pp</td></tr></tbody></table></div>
+<p><strong>判据：只要「收入增速 − 成本增速」为正，毛利率就必然上升，反之亦然。</strong> 2022 年缺口为负，毛利率恶化 23.3pp；2023 年缺口高达 255.2pp，毛利率一举改善 228.3pp。这条恒等式说明：<strong>毛利率的全部变化都可以由「固定成本被摊薄的速度」解释，与产品定价无关。</strong></p>
+<p>值得注意的是 <strong>2026H1 的缺口急剧收窄至 7.7pp</strong>（2025 年同期为 38.4pp）。原因是成本端开始随规模同步增长（+42.9%），其中既有原材料与封测成本的增加，也有新产线折旧的计入。这意味着<strong>毛利率的快速爬升阶段可能已接近尾声</strong>，后续改善将更多依赖产品结构（模块占比）而非单纯的产能摊薄。公司自己的归因也是这三条：规模效应、产品结构优化、工艺升级带来良率与利用率提升。</p>
+<p>另一个佐证：整体良率 2025 年已达 95%，公司 2026 年中报表述为「维持高位」而未给出新数字。<strong>良率逼近上限意味着「靠良率提毛利」的空间正在耗尽。</strong></p>
+<figure><div class="ch"><div class="ch-t">2026 年上半年净亏损改善桥：一半来自毛利，近四成来自股份支付减少</div><div class="ch-s">单位：人民币百万元　｜　起点为 2025 年上半年净亏损 428.7，终点为 2026 年上半年 309.1，改善 119.6</div><div class="ch-legend"><span><i style="background:#8B8880"></i>起止净值</span><span><i style="background:#A73F2D"></i>亏损收窄</span><span><i style="background:#2F6F6B"></i>亏损扩大</span></div><div class="wf-row"><span class="wf-lab">2025H1 净亏损</span><span class="wf-track"><span class="wf-bar" style="left:0.00%;width:100.00%;background:#8B8880"></span></span><span class="wf-val">-428.7</span></div><div class="wf-row"><span class="wf-lab">毛利增量</span><span class="wf-track"><span class="wf-bar" style="left:0.00%;width:13.81%;background:#A73F2D"></span></span><span class="wf-val">+59.2</span></div><div class="wf-row"><span class="wf-lab">行政开支减少</span><span class="wf-track"><span class="wf-bar" style="left:13.81%;width:19.03%;background:#A73F2D"></span></span><span class="wf-val">+81.6</span></div><div class="wf-row"><span class="wf-lab">财务成本减少</span><span class="wf-track"><span class="wf-bar" style="left:32.84%;width:4.83%;background:#A73F2D"></span></span><span class="wf-val">+20.7</span></div><div class="wf-row"><span class="wf-lab">销售费用减少</span><span class="wf-track"><span class="wf-bar" style="left:37.67%;width:1.19%;background:#A73F2D"></span></span><span class="wf-val">+5.1</span></div><div class="wf-row"><span class="wf-lab">所得税减少</span><span class="wf-track"><span class="wf-bar" style="left:38.86%;width:0.40%;background:#A73F2D"></span></span><span class="wf-val">+0.1</span></div><div class="wf-row"><span class="wf-lab">其他收入净额</span><span class="wf-track"><span class="wf-bar" style="left:33.19%;width:5.69%;background:#2F6F6B"></span></span><span class="wf-val">-24.4</span></div><div class="wf-row"><span class="wf-lab">研发开支增加</span><span class="wf-track"><span class="wf-bar" style="left:27.87%;width:5.32%;background:#2F6F6B"></span></span><span class="wf-val">-22.8</span></div><div class="wf-row"><span class="wf-lab">2026H1 净亏损</span><span class="wf-track"><span class="wf-bar" style="left:27.90%;width:72.10%;background:#8B8880"></span></span><span class="wf-val">-309.1</span></div><div class="wf-axis"><span class="t0">-429</span><span class="t1">0（零线）</span></div><div class="ch-note">注：条形自零线（图右端）向左延伸表示亏损规模，灰色柱为起止净值，砖红柱为收窄贡献，青绿柱为扩大贡献。八项变动的算术和为 +119.5，与实际改善 +119.6 差 0.1，属原报告千元数四舍五入。行政开支减少 81.6 中，45.6 来自股份支付（会计性、不可外推）；剔除后真实经营改善约 74.0。</div></div><figcaption>图 4　2026 年上半年净亏损变动桥（人民币百万元）</figcaption></figure><h3>4.3 费用与亏损收窄的成色：68% 来自行政费用压缩，其中一半是股份支付减少</h3>
+<p>2026H1 净亏损由 428.7 百万元收窄至 309.1 百万元，改善 119.6 百万元（−27.9%）。这笔改善的构成必须逐项拆开：</p>
+<div class="rsp-table"><table class="nowrap-first"><thead><tr><th>变动项（人民币百万元）</th><th>金额</th><th>占改善额比重</th><th>性质</th></tr></thead><tbody><tr><td>毛利增量</td><td>+59.2</td><td>49.5%</td><td>经营性，可持续</td></tr><tr><td>行政开支减少</td><td>+81.6</td><td>68.2%</td><td><strong>其中股份支付减少 45.6，属会计性</strong></td></tr><tr><td>财务成本减少</td><td>+20.7</td><td>17.3%</td><td>经营性（融资结构优化、利率下降）</td></tr><tr><td>销售费用减少</td><td>+5.1</td><td>4.3%</td><td>主要为股份支付减少</td></tr><tr><td>所得税减少</td><td>+0.1</td><td>0.1%</td><td>可忽略</td></tr><tr><td>其他收入净额减少</td><td>−24.4</td><td>−20.4%</td><td>汇兑损失扩大 15.8 ＋ 政府补助减少 11.7</td></tr><tr><td>研发开支增加</td><td>−22.8</td><td>−19.1%</td><td>主动投入，非恶化</td></tr><tr class="total"><td><strong>合计</strong></td><td><strong>+119.6</strong></td><td><strong>100%</strong></td><td>—</td></tr></tbody></table></div>
+<p><strong>关键判断：剔除股份支付减少（45.6 百万元）后，真实的经营改善约为 74.0 百万元，而非 119.6 百万元。</strong> 这一点在「经调整净亏损」口径上得到印证：经调整净亏损由 340.3 降至 266.4 百万元，改善 73.9 百万元（+21.7%），低于账面亏损改善幅度 27.9% 达 6.2pp。<strong>这 6.2pp 的差额，正是股份支付减少贡献的会计性改善。</strong></p>
+<p>同时要指出两个反向项：其他收入净额减少 24.4 百万元（其中汇兑损失由 9.0 扩大至 24.8 百万元），以及研发开支增加 22.8 百万元。前者不可控，后者是主动选择。若剔除汇兑这一非经营性扰动，本期经营改善的实际幅度约 98 百万元。</p>
+<figure><div class="ch"><div class="ch-t">经营现金流与自由现金流：2026 年上半年首次转正，但仍被资本开支吃掉</div><div class="ch-s">单位：人民币百万元（条形宽度按绝对值绘制）　｜　自由现金流＝经营活动现金流 − 资本开支</div><div class="ch-legend"><span><i style="background:#2F6F6B"></i>经营活动现金净额</span><span><i style="background:#A73F2D"></i>自由现金流</span></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2021</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">经营活动现金净额</span><span class="ch-track"><span class="ch-bar" style="width:33.4%;background:#2F6F6B"></span></span><span class="ch-val">-562.1</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">自由现金流</span><span class="ch-track"><span class="ch-bar" style="width:100.0%;background:#A73F2D"></span></span><span class="ch-val">-1,683.4</span></div></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2022</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">经营活动现金净额</span><span class="ch-track"><span class="ch-bar" style="width:55.6%;background:#2F6F6B"></span></span><span class="ch-val">-936.3</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">自由现金流</span><span class="ch-track"><span class="ch-bar" style="width:83.2%;background:#A73F2D"></span></span><span class="ch-val">-1,400.9</span></div></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2023</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">经营活动现金净额</span><span class="ch-track"><span class="ch-bar" style="width:35.3%;background:#2F6F6B"></span></span><span class="ch-val">-593.6</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">自由现金流</span><span class="ch-track"><span class="ch-bar" style="width:54.9%;background:#A73F2D"></span></span><span class="ch-val">-924.9</span></div></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2024</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">经营活动现金净额</span><span class="ch-track"><span class="ch-bar" style="width:20.0%;background:#2F6F6B"></span></span><span class="ch-val">-336.3</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">自由现金流</span><span class="ch-track"><span class="ch-bar" style="width:30.2%;background:#A73F2D"></span></span><span class="ch-val">-508.1</span></div></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2025</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">经营活动现金净额</span><span class="ch-track"><span class="ch-bar" style="width:47.9%;background:#2F6F6B"></span></span><span class="ch-val">-806.4</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">自由现金流</span><span class="ch-track"><span class="ch-bar" style="width:60.4%;background:#A73F2D"></span></span><span class="ch-val">-1,017</span></div></div><div style="margin-bottom:5pt"><div class="ch-row" style="margin-bottom:1pt"><span class="ch-lab" style="font-weight:500">2026H1</span><span class="ch-track"></span><span class="ch-val"></span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">经营活动现金净额</span><span class="ch-track"><span class="ch-bar" style="width:10.0%;background:#2F6F6B"></span></span><span class="ch-val">168.6</span></div><div class="ch-row" style="margin-bottom:1.6pt"><span class="ch-lab">自由现金流</span><span class="ch-track"><span class="ch-bar" style="width:13.6%;background:#A73F2D"></span></span><span class="ch-val">-229.6</span></div></div><div class="ch-note">注：2026 年上半年经营现金净流入 168.6 百万元，为成立以来首次半年度转正；同期资本开支 398.2 百万元（同比 +690%），自由现金流仍为 −229.6 百万元。2021—2025 年累计自由现金流 −5,534.4 百万元，累计经营现金流 −3,234.8 百万元。</div></div><figcaption>图 5　经营活动现金流与自由现金流（2021—2025 年及 2026 年上半年）</figcaption></figure><h3>4.4 现金流：经营现金流首次转正，但一半来自占用上游资金</h3>
+<p>2026H1 经营活动现金净流入 168.6 百万元，是公司成立以来首次半年度转正（2025H1 为 −387.3 百万元，改善 555.9 百万元）。这个「里程碑」需要三个层面的检验：</p>
+<p><strong>第一层：现金从哪来。</strong> 净亏损 −309.1 百万元，加回折旧摊销 245.6 百万元、股份支付 42.7 百万元、财务成本 31.8 百万元，已基本回到 0 附近。剩下的正数来自营运资本与税项调整。<strong>换句话说，经营现金流转正的第一推动力是「折旧摊销回补」——这是重资产企业在跨过毛利盈亏平衡点后的典型形态，属于真实的、可持续的改善。</strong></p>
+<p><strong>第二层：营运资本是帮忙还是拖累。</strong> 三项主要营运资本变动为：贸易及其他应付款项增加 204.9 百万元（流入）、存货增加 171.8 百万元（流出）、贸易及其他应收增加 61.2 百万元（流出），净额 −28.1 百万元。<strong>营运资本整体是轻微拖累，不是贡献。</strong> 这一点很重要：如果本期转正主要靠「应付账款多欠 2 亿」，那就不可持续；实际形态恰好相反——公司在备货（存货 +1.72 亿元）与应收（+0.61 亿元）上净投入 2.33 亿元的同时，仍实现了 1.69 亿元经营净流入，说明<strong>经营层面的现金创造能力确实改善了</strong>。</p>
+<p><strong>第三层：能否延续。</strong> 三个约束条件：</p>
+<ol><li>2026H1 资本开支 398.2 百万元（同比 +690%），资本承担 700.4 百万元，扩产重新加速。经营现金流的改善被资本开支几乎全额抵消，自由现金流仍为 −229.6 百万元。</li><li>2026H1 毛利率提升的边际动能在减弱（增速缺口由 38.4pp 收窄至 7.7pp），若 2026H2 毛利率停滞，经营现金流的进一步改善将主要依赖收入规模而非利润率。</li><li>存货周转天数已升至 241.7 天。若高价值市场的放量节奏慢于备货节奏，2026H2 将出现「存货继续增加、经营现金流重新转负」的组合。</li></ol>
+<p><strong>结论：这次转正是真实的，但幅度尚不足以覆盖资本开支，且高度依赖 2026H2 的收入兑现。</strong></p>
+<h3>4.5 资本结构：两次股权融资把公司从「类现金 3.49 亿元」的悬崖边拉回</h3>
+<p>这家公司的资产负债表在五年内经历了两次断裂式重构，两次都不是经营结果：</p>
+<p><strong>第一次：2022 年优先股转权益。</strong> 2021 年末可转换可赎回优先股 7,878.1 百万元列于非流动负债，导致权益为 −4,125.4 百万元、资产负债率 162.3%。2022 年公司终止投资者赎回权，优先股全部转入权益，资本储备增加 9,256.2 百万元，权益一举转为 +2,960.1 百万元。同期确认的「负债账面值变动」损失 898.0 百万元（2021 年为 2,298.9 百万元）也随之中止。<strong>这是 2021 年账面亏损 33.99 亿元中 22.99 亿元的来源，与经营无关。</strong></p>
+<p><strong>第二次：2024—2025 年两次股权融资。</strong> 2024 年 12 月 IPO 募资净额 1,246.9 百万元（另有股东注资 640.7 百万元），2025 年配售新 H 股及行使超额配股权募资净额 1,956.3 百万元。两次合计 3,203.2 百万元，直接把类现金从 2023 年末的 349.1 百万元抬升至 2025 年末的 2,651.2 百万元。</p>
+<p><strong>这两次重构的意义，只有把 2023 年末那个时点看清楚才能理解</strong>：当时类现金 3.49 亿元、有息负债 20.55 亿元、净负债 17.06 亿元、年经营现金流出 5.94 亿元——按当时的烧钱速度，现金仅够支撑约 7 个月。<strong>IPO 不是「发展需要」，而是「生存需要」。</strong></p>
+<p>到 2026H1，净现金缺口收窄至 −1.24 亿元（含 9.00 亿元可转让存单），有息负债 26.03 亿元。以当前 3.37 亿元的年化经营现金流（2026H1 的 1.69 亿元 × 2）与 3.98 亿元的半年度资本开支计，<strong>经营现金流尚不足以覆盖资本开支</strong>，公司在不新增融资的前提下可维持运转，但一旦扩产节奏加快（资本承担已达 7.00 亿元），仍需外部资金。</p>
+<figure><div class="ch"><div class="ch-t">境外收入占比：2024 年见顶 15.3% 后连续两期回落至 4.4%</div><div class="ch-s">单位：%　｜　占营业收入比重，按客户所在地口径　｜　2026 年上半年境外收入 37.0 百万元，同比 −42.0%</div><div class="ch-row"><span class="ch-lab">2021</span><span class="ch-track"><span class="ch-bar g" style="width:2.0%"></span></span><span class="ch-val">0.3%</span></div><div class="ch-row"><span class="ch-lab">2022</span><span class="ch-track"><span class="ch-bar g" style="width:29.4%"></span></span><span class="ch-val">4.5%</span></div><div class="ch-row"><span class="ch-lab">2023</span><span class="ch-track"><span class="ch-bar g" style="width:64.1%"></span></span><span class="ch-val">9.8%</span></div><div class="ch-row"><span class="ch-lab">2024</span><span class="ch-track"><span class="ch-bar gold" style="width:100.0%"></span></span><span class="ch-val">15.3%</span></div><div class="ch-row"><span class="ch-lab">2025</span><span class="ch-track"><span class="ch-bar hi" style="width:62.7%"></span></span><span class="ch-val hi">9.6%</span></div><div class="ch-row"><span class="ch-lab">2025H1</span><span class="ch-track"><span class="ch-bar " style="width:75.2%"></span></span><span class="ch-val">11.5%</span></div><div class="ch-row"><span class="ch-lab">2026H1</span><span class="ch-track"><span class="ch-bar hi" style="width:28.8%"></span></span><span class="ch-val hi">4.4%</span></div><div class="ch-note">注：前五行为年度口径，后两行为半年度口径，两组不可直接相减。2024 年 15.3% 为区间峰值，2026 年上半年 4.4% 为区间低点。公司在 2026 年中报「业务展望」中仍表述「加速全球化布局」，但未对境外收入下降给出解释。</div></div><figcaption>图 6　境外收入占营业收入比重（2021 年—2026 年上半年）</figcaption></figure><h3>4.6 两个必须同时陈述的反差：客户越集中，境外越收缩</h3>
+<p><strong>反差一：客户集中度逆势上升。</strong> 单一最大客户占比由 22.0%（2024）升至 31.7%（2025），前五名由 41.4% 升至 48.4%。这与「产品结构转向模块、模块需与大客户共同定义」的策略一脉相承，是主动选择的结果，但代价是议价能力与经营独立性下降。对一家尚未盈利的公司，31.7% 的单一客户依赖意味着<strong>任何一个大客户的订单波动都足以改变盈亏方向</strong>。</p>
+<p><strong>反差二：境外收入占比连续两期腰斩式回落。</strong> 15.3%（2024）→ 9.6%（2025）→ 4.4%（2026H1）。绝对额从 126.4 百万元降至 37.0 百万元（半年），同比 −42.0%。而公司在同一份中报的「业务展望」中仍写「加速全球化布局，加快海外客户认证及商业化落地，提升国际市场品牌影响力」。</p>
+<p><strong>这两件事必须并列陈述，因为它们指向同一个结论：公司的增长目前完全依赖中国内地市场与少数大客户。</strong> 公司未在 2026 年中报中解释境外收入下降的原因，本报告不作推测；但从财务上可以确定的是——<strong>「全球化」在当前报表上尚未兑现，任何基于海外市场潜力的估值假设都缺乏当期数据支撑。</strong></p>
+<h3>4.7 产能扩张与折旧：盈亏平衡点会随产能一起抬高</h3>
+<p>产能路径清晰：10,000 片/月（2023 末）→ 12,500 片/月（2024 中）→ 20,000 片/月（2025 末），目标 70,000 片/月（2029 年前）。当前仅为目标的 28.6%。</p>
+<p>这带来一个容易被忽略的算术问题：<strong>折旧是固定的，产能扩张会把盈亏平衡点重新推高。</strong> 2025 年折旧摊销 517.3 百万元，若产能从 20,000 片/月扩至 70,000 片/月，即使单位设备投资效率提升，折旧总额也很可能翻倍以上。按当前 12.13 亿元收入、7.3% 毛利率计算，折旧每增加 1 亿元，就需要额外约 13.7 亿元收入（按 7.3% 毛利率）才能抵消——<strong>相当于当前收入的 113%</strong>。</p>
+<p>因此，产能扩张对这家公司是一把双刃剑：它既是降低单位成本的唯一路径（规模效应），也是推迟盈利的最大风险（折旧前置、需求后置）。招股章程已把「产能利用率低企或产能过剩」列为风险因素，而 2026H1 存货周转天数升至 241.7 天、资本承担升至 7.00 亿元，正是这一风险的早期读数。</p>
+<hr>
+<h2>五、关键内容总结</h2>
+<h3>5.1 核心业务与竞争优势</h3>
+<p><strong>优势一：8 英寸硅基氮化镓的规模化制造能力。</strong> 公司称是全球首家实现 8 英寸硅基氮化镓晶圆大规模量产的 IDM 企业，也是全球唯一具备 15V—1,200V 全电压谱系量产能力的企业。8 英寸相对 6 英寸的优势是可计算的经济账：单片晶圆搭载器件数多约 80%，单颗芯片成本可降低约 30%—40%——这正是公司毛利率能在四年内从 −289% 修复到 +11.6% 的物理基础。</p>
+<p><strong>优势二：IDM 模式对成本与交付的掌控。</strong> 设计、晶圆制造、封装测试、销售交付全流程自持，使其在产能爬坡期能同步优化工艺与良率（2025 年整体良率 95%），而不必受代工厂产能分配与工艺路线的约束。代价是资产极重——2025 年折旧摊销占收入 42.6%，2026H1 仍占 29.5%。</p>
+<p><strong>优势三：产能规模与客户导入的先行卡位。</strong> 2025 年末产能 20,000 片/月，公司称居全球氮化镓功率半导体首位。2025 年推出 87 款新产品、客户导入 1,182 项；2026H1 新增客户导入 747 项、新增 17 家直销客户与 2 家授权经销商。</p>
+<p><strong>需要保留的疑问：</strong> 上述「全球第一」的表述来自公司自述及招股章程引用的弗若斯特沙利文数据，本报告未做独立核实。从财务上能验证的只有两条——收入规模（2026H1 8.34 亿元）与出货量（累计 25 亿颗）确实处于放量阶段；但<strong>「第一」并未转化为定价权</strong>（颗均收入两年持平、毛利率仍低于 12%），这是判断其竞争地位时最需要警惕的一点。</p>
+<h3>5.2 产品与产能里程碑</h3>
+<div class="rsp-table"><table><thead><tr><th>时间</th><th>事件</th><th>财务含义</th></tr></thead><tbody><tr><td>2023 年末</td><td>产能达 10,000 片/月；模块业务首次形成收入 190.4 百万元</td><td>产品形态从器件/晶圆扩展到模块，打开单价空间</td></tr><tr><td>2024 年 6 月</td><td>产能扩至 12,500 片/月；研发人员 304 人</td><td>为 2024 年下半年放量做准备</td></tr><tr><td>2024 年 12 月 30 日</td><td>港交所主板上市，募资净额 1,246.9 百万元</td><td>类现金由 3.29 亿元抬升至 15.25 亿元</td></tr><tr><td>2025 年</td><td>推出 87 款新产品、客户导入 1,182 项；交付芯片超 8 亿颗；毛利率首次转正 7.3%；调整后 EBITDA 转正 0.52 亿元</td><td>制造端跨过盈亏平衡点</td></tr><tr><td>2025 年 12 月</td><td>与联合汽车电子、长安汽车联合实现 650V GaN 6.6kW OBC 量产装车；双向导通器件完成 AEC-Q102 认证</td><td>车规业务从外围应用进入核心电源系统</td></tr><tr><td>2025 年</td><td>配售新 H 股及行使超额配股权，募资净额 1,956.3 百万元；产能升至 20,000 片/月</td><td>类现金升至 26.51 亿元，为扩产储备</td></tr><tr><td>2026H1</td><td>收入 8.34 亿元（+50.6%）；毛利率 11.6%；经营现金流首次转正 1.69 亿元；出货 5.47 亿颗</td><td>三个里程碑同现，但净利仍亏 3.09 亿元</td></tr><tr><td>2026H1</td><td>资本开支 3.98 亿元（+690%），资本承担 7.00 亿元；有息负债升至 26.03 亿元</td><td>扩产重新加速，自由现金流仍为负</td></tr></tbody></table></div>
+<h3>5.3 重大合作与客户</h3>
+<ul><li><strong>AI 算力链</strong>：2025 年进入英伟达 800V HVDC 供应体系，公司表述为「其 800V HVDC 电源架构中唯一的氮化镓供应商」；与意法半导体、安森美等国际前十大功率半导体公司合作开发数据中心电源方案。2026H1 在全球超 20 家头部云厂商导入超 100 项 800V HVDC 与 48V/12V 应用。</li><li><strong>汽车链</strong>：与联合汽车电子（UAES）、长安汽车的三方合作已落地量产；激光雷达场景累计出货接近 2,000 万颗。</li><li><strong>产业客户结构</strong>：2025 年服务 113 家客户，前五名占 48.35%、单一最大客户占 31.7%。客户 A 的收入增量（202.8 百万元）与模块业务收入增量（262.3 百万元）高度同步。</li><li><strong>未披露事项</strong>：公司未披露任何单一客户的名称、合同金额或合约期限，也未披露在手订单（backlog）。这限制了对收入可见度的判断——<strong>这是本报告认为最影响可预测性的披露缺口</strong>。</li></ul>
+<h3>5.4 主要风险</h3>
+<ol><li><strong>单一客户依赖（最高优先级）。</strong> 2025 年单一最大客户占收入 31.7%（2024 年 22.0%），前五名占 48.4%。公司未披露客户名称与合约期限，一旦该客户转向其他供应商或自研，收入将出现两位数百分点的缺口。</li><li><strong>境外收入连续收缩（最需解释的反差）。</strong> 境外占比 15.3%（2024）→ 9.6%（2025）→ 4.4%（2026H1），绝对额同比 −42.0%，而公司仍在表述「加速全球化」。中报未给出原因。若涉及出口管制或地缘因素，将影响其服务全球 AI 与汽车客户的长期叙事。</li><li><strong>持续亏损与累计亏损 112.11 亿元。</strong> 2021—2026H1 累计净亏损 89.02 亿元（2026H1 期末累计未弥补亏损 112.11 亿元，含改制前结转）。在累计亏损弥补完毕前不具备分红能力，股东回报只能来自资本利得。</li><li><strong>自由现金流连续五年半为负，依赖外部融资。</strong> 2021—2025 年累计自由现金流 −55.34 亿元，累计融资净流入 79.54 亿元。2026H1 经营现金流转正（+1.69 亿元）但资本开支 3.98 亿元，自由现金流仍为 −2.30 亿元；净现金 −1.24 亿元。</li><li><strong>产能扩张与需求错配。</strong> 产能目标 70,000 片/月（现 20,000 片/月），资本承担已由 1.59 亿元升至 7.00 亿元。折旧前置而需求后置，若放量不及预期，将出现「产能利用率下降 → 单位成本上升 → 毛利率回落」的反向循环。存货周转天数已升至 241.7 天。</li><li><strong>毛利率改善的边际动能减弱。</strong> 收入与成本的增速缺口由 2025H1 的 38.4pp 收窄至 2026H1 的 7.7pp，整体良率已达 95%（接近上限）。后续毛利率提升将更多依赖模块占比继续上升，而该比例已接近半数（49.4%），进一步上升的空间在收窄。</li><li><strong>股份支付仍在持续。</strong> 2025 年 164.2 百万元、2026H1 42.7 百万元。2026H1 利润改善的 38.1%（45.6/119.6）来自此项减少，属会计性、不可外推。</li><li><strong>汇兑与利率敞口。</strong> 2026H1 汇兑净亏损 24.8 百万元（2025H1 为 9.0 百万元），是其他收入下降的主因；有息负债 26.03 亿元且全部以人民币计价，利率上行将直接抬升财务成本。</li></ol>
+<hr>
+<h2>六、结论</h2>
+<p><strong>第一，这家公司已经跨过「制造端能否成立」的门槛，但还没跨过「能否盈利」的门槛，而且缺口不在规模而在利润率。</strong> 毛利率从 −289.4%（2022）修复至 +11.6%（2026H1），是四年产能爬坡、良率提升与产品结构上移的共同结果，属于真实的经营进步。但经营亏损率仍为 −33.2%——把这个缺口拆开：2026H1 毛利率 11.6%，销售＋行政＋研发费用率 47.7%，其他收入率 2.8%，三者相加即 −33.2%。<strong>要让经营层面打平，在费用率不变的前提下毛利率须达到 44.9%；即使费用率进一步压到 40%（历史上已从 105.3% 降至 47.7%），也需 37.2%。</strong> 这意味着<strong>仅靠收入放量无法解决问题</strong>——当前 11.6% 的毛利率与所需水平相差 33pp，只能靠产品结构继续上移（模块占比已 49.4%）或工艺平台换代（4.0 平台）带来的成本台阶式下降。这是本报告对该标的盈利路径最核心的判断。</p>
+<p><strong>第二，2026H1 的三个里程碑中，只有一个是「质变」，另两个是「量变」。</strong> 经营现金流转正（+1.69 亿元）是质变——它证明折旧摊销回补与营运资本管理已经能撑起正的现金流，且这个转正并非靠占用上游资金（营运资本净额反而是 −0.28 亿元的拖累）。毛利率升至 11.6% 与净亏损收窄 27.9% 则是量变，后者还有 38.1% 来自股份支付的会计性减少。</p>
+<p><strong>第三，增长的全部驱动力在中国内地与少数大客户。</strong> 境内收入占比 95.6%，单一最大客户占 31.7%。境外收入占比从 15.3% 降至 4.4%，与「全球化」的叙事形成直接冲突，而公司未作解释。<strong>在境外收入重新回到两位数占比之前，任何基于「全球氮化镓龙头」的估值溢价都缺少当期财务支撑。</strong></p>
+<p><strong>第四，真正的估值锚不是净利润，而是「经营现金流 − 资本开支」的缺口收敛速度。</strong> 这家公司在可预见的数年内不会盈利（折旧与研发投入决定了这一点），净利润作为估值锚毫无意义。有意义的是：2026H1 自由现金流 −2.30 亿元，较 2025H1 的 −4.38 亿元收窄 47.5%；净现金缺口从 −8.53 亿元收窄至 −1.24 亿元（收窄 85.4%）。<strong>若 2026H2 能维持这一收敛速度，2027 年出现「自由现金流转正 + 净现金转正」是可期待的；若扩产加速而收入不及预期，则会重回 2023 年那种「类现金不足 4 亿元」的紧张状态。</strong></p>
+<p><strong>第五，需要持续跟踪的三个数字（按优先级）：</strong> ① 境外收入占比是否回升（当前 4.4%）；② 单一最大客户占比是否下降（当前 31.7%）；③ 存货周转天数是否见顶（当前 241.7 天）。这三个数字分别对应地缘风险、客户风险与产能消化风险，任一恶化都足以推翻上述判断。</p>
+<hr>
+<h2>附录</h2>
+<h3>A.1 表 14　失真项与口径切换清单</h3>
+<div class="rsp-table"><table><thead><tr><th>事项</th><th>涉及期间</th><th>影响</th><th>处理方式</th></tr></thead><tbody><tr><td>可转换可赎回优先股计入负债</td><td>2021—2022</td><td>2021 年末负债多计 7,878.1 百万元，权益为 −4,125.4 百万元，资产负债率 162.3%</td><td>2022 年终止赎回权后转入权益；<strong>2021 年负债率不与后续年度比较</strong></td></tr><tr><td>优先股公允价值变动计入财务成本</td><td>2021—2022</td><td>分别确认损失 2,298.9、898.0 百万元（非现金）</td><td>单列于表 1，并以「其他财务成本」作为真实利息负担</td></tr><tr><td>上市开支</td><td>2023—2024</td><td>计入行政开支，具体金额未单独披露</td><td>经调整净亏损口径已加回（公司定义）</td></tr><tr><td>受限制股份单位计划（2024 年 2 月采纳）</td><td>2024 年起</td><td>2024 年股份支付 166.9 百万元、2025 年 164.2 百万元，主要落在行政开支</td><td>单列；分析时以「经调整净亏损」为辅助口径</td></tr><tr><td>现金搬入可转让存单</td><td>2025 年起</td><td>现金及等价物由 1,525.0 降至 879.0 百万元，同期 FVOCI 金融资产 1,636.7 百万元</td><td>引入「类现金合计」口径，与现金及等价物并读</td></tr><tr><td>模块业务口径</td><td>2023 年起</td><td>2022 年及以前无「模块」产品线，占比留「—」</td><td>不作跨 2022／2023 的增速计算</td></tr><tr><td>应用领域口径</td><td>2025—2026</td><td>2025 年报按五档披露，2026 中报按「高价值／消费电子」两档披露</td><td>以「高价值合计」为桥接口径，2025H1 拆分为倒推值并标注</td></tr></tbody></table></div>
+<h3>A.2 表 15　数据来源</h3>
+<div class="rsp-table rsp-w5"><table class="nowrap-first"><thead><tr><th>序号</th><th>文件</th><th>覆盖期间</th><th>披露日期</th><th>用途</th></tr></thead><tbody><tr><td>1</td><td>招股章程（全球发售）</td><td>2021、2022、2023 年度；2023H1、2024H1</td><td>2024-12-18</td><td>上市前损益、资产负债、现金流；经调整净亏损；产能与利用率；研发人员</td></tr><tr><td>2</td><td>2024 年度报告</td><td>2022—2024 年度</td><td>2025-04-09</td><td>2024 年数据、财务摘要四年列、客户集中度、产能</td></tr><tr><td>3</td><td>2025 年中期报告</td><td>2024H1、2025H1</td><td>2025-09-12</td><td>2025H1 数据、分产品与分地区收入</td></tr><tr><td>4</td><td>2025 年度报告</td><td>2021—2025 年度（财务摘要五年列）</td><td>2026-04-30</td><td>2025 年数据、五年财务摘要、客户集中度、员工数、产能、2026 年展望</td></tr><tr><td>5</td><td>2026 年中期报告</td><td>2025H1、2026H1</td><td>2026-09-18</td><td>2026H1 数据、分产品与分地区收入、应用领域亮点、资本承担</td></tr></tbody></table></div>
+<h3>A.3 未取得或未披露的数据</h3>
+<ol><li><strong>在手订单（backlog）</strong>：公司未披露，无法据以推算收入可见度。</li><li><strong>客户名称与合约期限</strong>：仅以「客户 A」列示，无名称、无合同金额、无期限。</li><li><strong>存货跌价准备</strong>：2026 年中报未披露存货构成与跌价准备余额，无法验证 10.69 亿元存货的减值风险。</li><li><strong>2026H1 客户集中度</strong>：港股中报无强制披露要求，公司未披露。</li><li><strong>境外收入下降的原因</strong>：公司未解释。</li><li><strong>2023 年及以前每股亏损</strong>：招股章程原表列示为「不适用」（改制前无股份数基准）。</li></ol>
+<div class="callout"><p>本报告全部数字取自上述五份披露文件的原文表格，比率由原始千元数计算。凡属推算或倒推的数值（2025H1 分应用领域收入、周转天数、类现金合计、净现金）均已在对应表注中标注。模型无法读图，本报告的图表几何与版面已通过构建脚本断言与多档视口量测校验，但<strong>未做人工目视确认</strong>。</p></div>
+
+<!-- rsp-mobile-adapt : 溢出表格滑动提示 -->
+<script>
+(function(){
+  function mark(){
+    var boxes = document.querySelectorAll('.rsp-table');
+    for (var i=0;i<boxes.length;i++){
+      var b = boxes[i];
+      if (b.scrollWidth > b.clientWidth + 4) b.setAttribute('data-rsp-scroll','');
+      else b.removeAttribute('data-rsp-scroll');
+    }
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mark);
+  else mark();
+  window.addEventListener('resize', function(){ clearTimeout(window.__rspT); window.__rspT=setTimeout(mark,180); });
+})();
+</script>
+</body>
+</html>
